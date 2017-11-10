@@ -1,0 +1,7 @@
+idea here is to test hashing in different program contexts to understand the
+effect of testing the same function within different contexts
+
+(x:Int) => x+1
+
+left side is the test infrastructure i'm setting up: see constants-1.scala
+right side is the spark shell context
