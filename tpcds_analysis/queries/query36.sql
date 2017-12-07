@@ -23,7 +23,7 @@ select
  group by rollup(i_category,i_class)
  order by
    lochierarchy desc
-  ,case when lochierarchy = 0 then i_category end
+  ,case when grouping(i_category)+grouping(i_class) = 0 then i_category end
   ,rank_within_parent
   limit 100;
 
