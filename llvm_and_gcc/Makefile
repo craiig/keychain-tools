@@ -4,7 +4,8 @@ sources := $(wildcard src/*.c)
 llvm_bitcode := $(patsubst src/%.c,ll/%.ll,$(sources))
 gcc_asm := $(patsubst src/%.c,gcc_asm/%.S,$(sources))
 
-OPT := -O3
+OPT := 
+#OPT := -O3
 
 all: $(llvm_bitcode) $(gcc_asm)
 
