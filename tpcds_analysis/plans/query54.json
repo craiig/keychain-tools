@@ -1,0 +1,743 @@
+[
+ {
+  "Plan": {
+   "Startup Cost": 90.2, 
+   "Plans": [
+    {
+     "Startup Cost": 28.01, 
+     "Plans": [
+      {
+       "Startup Cost": 28.01, 
+       "Plans": [
+        {
+         "Startup Cost": 0.44, 
+         "Plans": [
+          {
+           "Startup Cost": 0.29, 
+           "Plans": [
+            {
+             "Startup Cost": 0.15, 
+             "Plans": [
+              {
+               "Filter": "((item.i_category = 'Jewelry'::bpchar) AND (item.i_class = 'birdal'::bpchar))", 
+               "Startup Cost": 0.0, 
+               "Plan Width": 4, 
+               "Node Type": "Seq Scan", 
+               "Plan Rows": 1, 
+               "Relation Name": "item", 
+               "Alias": "item", 
+               "Parallel Aware": false, 
+               "Output": [
+                "item.i_item_sk", 
+                "item.i_item_id", 
+                "item.i_rec_start_date", 
+                "item.i_rec_end_date", 
+                "item.i_item_desc", 
+                "item.i_current_price", 
+                "item.i_wholesale_cost", 
+                "item.i_brand_id", 
+                "item.i_brand", 
+                "item.i_class_id", 
+                "item.i_class", 
+                "item.i_category_id", 
+                "item.i_category", 
+                "item.i_manufact_id", 
+                "item.i_manufact", 
+                "item.i_size", 
+                "item.i_formulation", 
+                "item.i_color", 
+                "item.i_units", 
+                "item.i_container", 
+                "item.i_manager_id", 
+                "item.i_product_name"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Total Cost": 10.6, 
+               "Schema": "pg_temp_2"
+              }, 
+              {
+               "Startup Cost": 0.15, 
+               "Plans": [
+                {
+                 "Index Cond": "(catalog_sales.cs_item_sk = item.i_item_sk)", 
+                 "Startup Cost": 0.15, 
+                 "Scan Direction": "Forward", 
+                 "Plan Width": 12, 
+                 "Node Type": "Index Scan", 
+                 "Total Cost": 8.17, 
+                 "Plan Rows": 1, 
+                 "Relation Name": "catalog_sales", 
+                 "Alias": "catalog_sales", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "catalog_sales.cs_sold_date_sk", 
+                  "catalog_sales.cs_item_sk", 
+                  "catalog_sales.cs_bill_customer_sk"
+                 ], 
+                 "Parent Relationship": "Member", 
+                 "Schema": "pg_temp_2", 
+                 "Index Name": "catalog_sales_pkey"
+                }, 
+                {
+                 "Index Cond": "(web_sales.ws_item_sk = item.i_item_sk)", 
+                 "Startup Cost": 0.15, 
+                 "Scan Direction": "Forward", 
+                 "Plan Width": 12, 
+                 "Node Type": "Index Scan", 
+                 "Total Cost": 8.17, 
+                 "Plan Rows": 1, 
+                 "Relation Name": "web_sales", 
+                 "Alias": "web_sales", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "web_sales.ws_sold_date_sk", 
+                  "web_sales.ws_item_sk", 
+                  "web_sales.ws_bill_customer_sk"
+                 ], 
+                 "Parent Relationship": "Member", 
+                 "Schema": "pg_temp_2", 
+                 "Index Name": "web_sales_pkey"
+                }
+               ], 
+               "Node Type": "Append", 
+               "Plan Rows": 2, 
+               "Parallel Aware": false, 
+               "Parent Relationship": "Inner", 
+               "Plan Width": 12, 
+               "Total Cost": 16.33
+              }
+             ], 
+             "Node Type": "Nested Loop", 
+             "Plan Rows": 3, 
+             "Join Type": "Inner", 
+             "Parallel Aware": false, 
+             "Output": [
+              "catalog_sales.cs_sold_date_sk", 
+              "catalog_sales.cs_bill_customer_sk"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Plan Width": 8, 
+             "Total Cost": 26.95
+            }, 
+            {
+             "Index Cond": "(date_dim.d_date_sk = catalog_sales.cs_sold_date_sk)", 
+             "Startup Cost": 0.15, 
+             "Scan Direction": "Forward", 
+             "Plan Width": 4, 
+             "Node Type": "Index Scan", 
+             "Total Cost": 0.25, 
+             "Plan Rows": 1, 
+             "Relation Name": "date_dim", 
+             "Alias": "date_dim", 
+             "Parallel Aware": false, 
+             "Filter": "((date_dim.d_moy = 6) AND (date_dim.d_year = 1999))", 
+             "Output": [
+              "date_dim.d_date_sk", 
+              "date_dim.d_date_id", 
+              "date_dim.d_date", 
+              "date_dim.d_month_seq", 
+              "date_dim.d_week_seq", 
+              "date_dim.d_quarter_seq", 
+              "date_dim.d_year", 
+              "date_dim.d_dow", 
+              "date_dim.d_moy", 
+              "date_dim.d_dom", 
+              "date_dim.d_qoy", 
+              "date_dim.d_fy_year", 
+              "date_dim.d_fy_quarter_seq", 
+              "date_dim.d_fy_week_seq", 
+              "date_dim.d_day_name", 
+              "date_dim.d_quarter_name", 
+              "date_dim.d_holiday", 
+              "date_dim.d_weekend", 
+              "date_dim.d_following_holiday", 
+              "date_dim.d_first_dom", 
+              "date_dim.d_last_dom", 
+              "date_dim.d_same_day_ly", 
+              "date_dim.d_same_day_lq", 
+              "date_dim.d_current_day", 
+              "date_dim.d_current_week", 
+              "date_dim.d_current_month", 
+              "date_dim.d_current_quarter", 
+              "date_dim.d_current_year"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Schema": "pg_temp_2", 
+             "Index Name": "date_dim_pkey"
+            }
+           ], 
+           "Node Type": "Nested Loop", 
+           "Plan Rows": 1, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "catalog_sales.cs_bill_customer_sk"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 4, 
+           "Total Cost": 27.74
+          }, 
+          {
+           "Index Cond": "(customer.c_customer_sk = catalog_sales.cs_bill_customer_sk)", 
+           "Startup Cost": 0.14, 
+           "Scan Direction": "Forward", 
+           "Plan Width": 8, 
+           "Node Type": "Index Scan", 
+           "Total Cost": 0.24, 
+           "Plan Rows": 1, 
+           "Relation Name": "customer", 
+           "Alias": "customer", 
+           "Parallel Aware": false, 
+           "Output": [
+            "customer.c_customer_sk", 
+            "customer.c_customer_id", 
+            "customer.c_current_cdemo_sk", 
+            "customer.c_current_hdemo_sk", 
+            "customer.c_current_addr_sk", 
+            "customer.c_first_shipto_date_sk", 
+            "customer.c_first_sales_date_sk", 
+            "customer.c_salutation", 
+            "customer.c_first_name", 
+            "customer.c_last_name", 
+            "customer.c_preferred_cust_flag", 
+            "customer.c_birth_day", 
+            "customer.c_birth_month", 
+            "customer.c_birth_year", 
+            "customer.c_birth_country", 
+            "customer.c_login", 
+            "customer.c_email_address", 
+            "customer.c_last_review_date"
+           ], 
+           "Parent Relationship": "Inner", 
+           "Schema": "pg_temp_2", 
+           "Index Name": "customer_pkey"
+          }
+         ], 
+         "Node Type": "Nested Loop", 
+         "Plan Rows": 1, 
+         "Join Type": "Inner", 
+         "Parallel Aware": false, 
+         "Output": [
+          "customer.c_customer_sk", 
+          "customer.c_current_addr_sk"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 8, 
+         "Total Cost": 28.0
+        }
+       ], 
+       "Sort Key": [
+        "customer.c_customer_sk", 
+        "customer.c_current_addr_sk"
+       ], 
+       "Node Type": "Sort", 
+       "Plan Rows": 1, 
+       "Parallel Aware": false, 
+       "Output": [
+        "customer.c_customer_sk", 
+        "customer.c_current_addr_sk"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 8, 
+       "Total Cost": 28.01
+      }
+     ], 
+     "Node Type": "Unique", 
+     "Plan Rows": 1, 
+     "Parallel Aware": false, 
+     "Output": [
+      "customer.c_customer_sk", 
+      "customer.c_current_addr_sk"
+     ], 
+     "Parent Relationship": "InitPlan", 
+     "Plan Width": 8, 
+     "Subplan Name": "CTE my_customers", 
+     "Total Cost": 28.02
+    }, 
+    {
+     "Partial Mode": "Simple", 
+     "Startup Cost": 62.08, 
+     "Plans": [
+      {
+       "Startup Cost": 14.06, 
+       "Plans": [
+        {
+         "Startup Cost": 14.06, 
+         "Plans": [
+          {
+           "Filter": "((date_dim_1.d_year = 1999) AND (date_dim_1.d_moy = 6))", 
+           "Startup Cost": 0.0, 
+           "Plan Width": 4, 
+           "Node Type": "Seq Scan", 
+           "Plan Rows": 1, 
+           "Relation Name": "date_dim", 
+           "Alias": "date_dim_1", 
+           "Parallel Aware": false, 
+           "Output": [
+            "(date_dim_1.d_month_seq + 1)"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Total Cost": 14.05, 
+           "Schema": "pg_temp_2"
+          }
+         ], 
+         "Sort Key": [
+          "((date_dim_1.d_month_seq + 1))"
+         ], 
+         "Node Type": "Sort", 
+         "Plan Rows": 1, 
+         "Parallel Aware": false, 
+         "Output": [
+          "((date_dim_1.d_month_seq + 1))"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 4, 
+         "Total Cost": 14.07
+        }
+       ], 
+       "Node Type": "Unique", 
+       "Plan Rows": 1, 
+       "Parallel Aware": false, 
+       "Output": [
+        "((date_dim_1.d_month_seq + 1))"
+       ], 
+       "Parent Relationship": "InitPlan", 
+       "Plan Width": 4, 
+       "Subplan Name": "InitPlan 2 (returns $4)", 
+       "Total Cost": 14.07
+      }, 
+      {
+       "Startup Cost": 14.06, 
+       "Plans": [
+        {
+         "Startup Cost": 14.06, 
+         "Plans": [
+          {
+           "Filter": "((date_dim_2.d_year = 1999) AND (date_dim_2.d_moy = 6))", 
+           "Startup Cost": 0.0, 
+           "Plan Width": 4, 
+           "Node Type": "Seq Scan", 
+           "Plan Rows": 1, 
+           "Relation Name": "date_dim", 
+           "Alias": "date_dim_2", 
+           "Parallel Aware": false, 
+           "Output": [
+            "(date_dim_2.d_month_seq + 3)"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Total Cost": 14.05, 
+           "Schema": "pg_temp_2"
+          }
+         ], 
+         "Sort Key": [
+          "((date_dim_2.d_month_seq + 3))"
+         ], 
+         "Node Type": "Sort", 
+         "Plan Rows": 1, 
+         "Parallel Aware": false, 
+         "Output": [
+          "((date_dim_2.d_month_seq + 3))"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 4, 
+         "Total Cost": 14.07
+        }
+       ], 
+       "Node Type": "Unique", 
+       "Plan Rows": 1, 
+       "Parallel Aware": false, 
+       "Output": [
+        "((date_dim_2.d_month_seq + 3))"
+       ], 
+       "Parent Relationship": "InitPlan", 
+       "Plan Width": 4, 
+       "Subplan Name": "InitPlan 3 (returns $5)", 
+       "Total Cost": 14.07
+      }, 
+      {
+       "Startup Cost": 33.94, 
+       "Plans": [
+        {
+         "Startup Cost": 19.07, 
+         "Plans": [
+          {
+           "Hash Cond": "(store_sales.ss_customer_sk = my_customers.c_customer_sk)", 
+           "Startup Cost": 18.93, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "Plan Width": 22, 
+             "Node Type": "Seq Scan", 
+             "Plan Rows": 340, 
+             "Relation Name": "store_sales", 
+             "Alias": "store_sales", 
+             "Parallel Aware": false, 
+             "Output": [
+              "store_sales.ss_sold_date_sk", 
+              "store_sales.ss_sold_time_sk", 
+              "store_sales.ss_item_sk", 
+              "store_sales.ss_customer_sk", 
+              "store_sales.ss_cdemo_sk", 
+              "store_sales.ss_hdemo_sk", 
+              "store_sales.ss_addr_sk", 
+              "store_sales.ss_store_sk", 
+              "store_sales.ss_promo_sk", 
+              "store_sales.ss_ticket_number", 
+              "store_sales.ss_quantity", 
+              "store_sales.ss_wholesale_cost", 
+              "store_sales.ss_list_price", 
+              "store_sales.ss_sales_price", 
+              "store_sales.ss_ext_discount_amt", 
+              "store_sales.ss_ext_sales_price", 
+              "store_sales.ss_ext_wholesale_cost", 
+              "store_sales.ss_ext_list_price", 
+              "store_sales.ss_ext_tax", 
+              "store_sales.ss_coupon_amt", 
+              "store_sales.ss_net_paid", 
+              "store_sales.ss_net_paid_inc_tax", 
+              "store_sales.ss_net_profit"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Total Cost": 13.4, 
+             "Schema": "pg_temp_2"
+            }, 
+            {
+             "Startup Cost": 18.91, 
+             "Plans": [
+              {
+               "Hash Cond": "(((store.s_county)::text = (customer_address.ca_county)::text) AND (store.s_state = customer_address.ca_state))", 
+               "Startup Cost": 8.21, 
+               "Plans": [
+                {
+                 "Startup Cost": 0.0, 
+                 "Plan Width": 90, 
+                 "Node Type": "Seq Scan", 
+                 "Plan Rows": 40, 
+                 "Relation Name": "store", 
+                 "Alias": "store", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "store.s_store_sk", 
+                  "store.s_store_id", 
+                  "store.s_rec_start_date", 
+                  "store.s_rec_end_date", 
+                  "store.s_closed_date_sk", 
+                  "store.s_store_name", 
+                  "store.s_number_employees", 
+                  "store.s_floor_space", 
+                  "store.s_hours", 
+                  "store.s_manager", 
+                  "store.s_market_id", 
+                  "store.s_geography_class", 
+                  "store.s_market_desc", 
+                  "store.s_market_manager", 
+                  "store.s_division_id", 
+                  "store.s_division_name", 
+                  "store.s_company_id", 
+                  "store.s_company_name", 
+                  "store.s_street_number", 
+                  "store.s_street_name", 
+                  "store.s_street_type", 
+                  "store.s_suite_number", 
+                  "store.s_city", 
+                  "store.s_county", 
+                  "store.s_state", 
+                  "store.s_zip", 
+                  "store.s_country", 
+                  "store.s_gmt_offset", 
+                  "store.s_tax_precentage"
+                 ], 
+                 "Parent Relationship": "Outer", 
+                 "Total Cost": 10.4, 
+                 "Schema": "pg_temp_2"
+                }, 
+                {
+                 "Startup Cost": 8.19, 
+                 "Plans": [
+                  {
+                   "Startup Cost": 0.14, 
+                   "Plans": [
+                    {
+                     "Startup Cost": 0.0, 
+                     "CTE Name": "my_customers", 
+                     "Node Type": "CTE Scan", 
+                     "Plan Rows": 1, 
+                     "Alias": "my_customers", 
+                     "Parallel Aware": false, 
+                     "Output": [
+                      "my_customers.c_customer_sk", 
+                      "my_customers.c_current_addr_sk"
+                     ], 
+                     "Parent Relationship": "Outer", 
+                     "Plan Width": 8, 
+                     "Total Cost": 0.02
+                    }, 
+                    {
+                     "Index Cond": "(customer_address.ca_address_sk = my_customers.c_current_addr_sk)", 
+                     "Startup Cost": 0.14, 
+                     "Scan Direction": "Forward", 
+                     "Plan Width": 94, 
+                     "Node Type": "Index Scan", 
+                     "Total Cost": 8.16, 
+                     "Plan Rows": 1, 
+                     "Relation Name": "customer_address", 
+                     "Alias": "customer_address", 
+                     "Parallel Aware": false, 
+                     "Output": [
+                      "customer_address.ca_address_sk", 
+                      "customer_address.ca_address_id", 
+                      "customer_address.ca_street_number", 
+                      "customer_address.ca_street_name", 
+                      "customer_address.ca_street_type", 
+                      "customer_address.ca_suite_number", 
+                      "customer_address.ca_city", 
+                      "customer_address.ca_county", 
+                      "customer_address.ca_state", 
+                      "customer_address.ca_zip", 
+                      "customer_address.ca_country", 
+                      "customer_address.ca_gmt_offset", 
+                      "customer_address.ca_location_type"
+                     ], 
+                     "Parent Relationship": "Inner", 
+                     "Schema": "pg_temp_2", 
+                     "Index Name": "customer_address_pkey"
+                    }
+                   ], 
+                   "Node Type": "Nested Loop", 
+                   "Plan Rows": 1, 
+                   "Join Type": "Inner", 
+                   "Parallel Aware": false, 
+                   "Output": [
+                    "my_customers.c_customer_sk", 
+                    "customer_address.ca_county", 
+                    "customer_address.ca_state"
+                   ], 
+                   "Parent Relationship": "Outer", 
+                   "Plan Width": 94, 
+                   "Total Cost": 8.19
+                  }
+                 ], 
+                 "Node Type": "Hash", 
+                 "Plan Rows": 1, 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "my_customers.c_customer_sk", 
+                  "customer_address.ca_county", 
+                  "customer_address.ca_state"
+                 ], 
+                 "Parent Relationship": "Inner", 
+                 "Plan Width": 94, 
+                 "Total Cost": 8.19
+                }
+               ], 
+               "Node Type": "Hash Join", 
+               "Plan Rows": 1, 
+               "Join Type": "Inner", 
+               "Parallel Aware": false, 
+               "Output": [
+                "my_customers.c_customer_sk"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Plan Width": 4, 
+               "Total Cost": 18.91
+              }
+             ], 
+             "Node Type": "Hash", 
+             "Plan Rows": 1, 
+             "Parallel Aware": false, 
+             "Output": [
+              "my_customers.c_customer_sk"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Plan Width": 4, 
+             "Total Cost": 18.91
+            }
+           ], 
+           "Node Type": "Hash Join", 
+           "Plan Rows": 1, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "my_customers.c_customer_sk", 
+            "store_sales.ss_ext_sales_price", 
+            "store_sales.ss_sold_date_sk"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 22, 
+           "Total Cost": 33.62
+          }, 
+          {
+           "Index Cond": "(date_dim_3.d_date_sk = store_sales.ss_sold_date_sk)", 
+           "Startup Cost": 0.15, 
+           "Scan Direction": "Forward", 
+           "Plan Width": 4, 
+           "Node Type": "Index Scan", 
+           "Total Cost": 0.3, 
+           "Plan Rows": 1, 
+           "Relation Name": "date_dim", 
+           "Alias": "date_dim_3", 
+           "Parallel Aware": false, 
+           "Filter": "((date_dim_3.d_month_seq >= $4) AND (date_dim_3.d_month_seq <= $5))", 
+           "Output": [
+            "date_dim_3.d_date_sk", 
+            "date_dim_3.d_date_id", 
+            "date_dim_3.d_date", 
+            "date_dim_3.d_month_seq", 
+            "date_dim_3.d_week_seq", 
+            "date_dim_3.d_quarter_seq", 
+            "date_dim_3.d_year", 
+            "date_dim_3.d_dow", 
+            "date_dim_3.d_moy", 
+            "date_dim_3.d_dom", 
+            "date_dim_3.d_qoy", 
+            "date_dim_3.d_fy_year", 
+            "date_dim_3.d_fy_quarter_seq", 
+            "date_dim_3.d_fy_week_seq", 
+            "date_dim_3.d_day_name", 
+            "date_dim_3.d_quarter_name", 
+            "date_dim_3.d_holiday", 
+            "date_dim_3.d_weekend", 
+            "date_dim_3.d_following_holiday", 
+            "date_dim_3.d_first_dom", 
+            "date_dim_3.d_last_dom", 
+            "date_dim_3.d_same_day_ly", 
+            "date_dim_3.d_same_day_lq", 
+            "date_dim_3.d_current_day", 
+            "date_dim_3.d_current_week", 
+            "date_dim_3.d_current_month", 
+            "date_dim_3.d_current_quarter", 
+            "date_dim_3.d_current_year"
+           ], 
+           "Parent Relationship": "Inner", 
+           "Schema": "pg_temp_2", 
+           "Index Name": "date_dim_pkey"
+          }
+         ], 
+         "Node Type": "Nested Loop", 
+         "Plan Rows": 1, 
+         "Join Type": "Inner", 
+         "Parallel Aware": false, 
+         "Output": [
+          "my_customers.c_customer_sk", 
+          "store_sales.ss_ext_sales_price"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 18, 
+         "Total Cost": 33.93
+        }
+       ], 
+       "Sort Key": [
+        "my_customers.c_customer_sk"
+       ], 
+       "Node Type": "Sort", 
+       "Plan Rows": 1, 
+       "Parallel Aware": false, 
+       "Output": [
+        "my_customers.c_customer_sk", 
+        "store_sales.ss_ext_sales_price"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 18, 
+       "Total Cost": 33.95
+      }
+     ], 
+     "Group Key": [
+      "my_customers.c_customer_sk"
+     ], 
+     "Node Type": "Aggregate", 
+     "Strategy": "Sorted", 
+     "Plan Rows": 1, 
+     "Parallel Aware": false, 
+     "Output": [
+      "my_customers.c_customer_sk", 
+      "sum(store_sales.ss_ext_sales_price)"
+     ], 
+     "Parent Relationship": "InitPlan", 
+     "Plan Width": 36, 
+     "Subplan Name": "CTE my_revenue", 
+     "Total Cost": 62.1
+    }, 
+    {
+     "Startup Cost": 0.0, 
+     "CTE Name": "my_revenue", 
+     "Node Type": "CTE Scan", 
+     "Plan Rows": 1, 
+     "Alias": "my_revenue", 
+     "Parallel Aware": false, 
+     "Output": [
+      "((my_revenue.revenue / '50'::numeric))::integer"
+     ], 
+     "Parent Relationship": "InitPlan", 
+     "Plan Width": 4, 
+     "Subplan Name": "CTE segments", 
+     "Total Cost": 0.03
+    }, 
+    {
+     "Startup Cost": 0.05, 
+     "Plans": [
+      {
+       "Partial Mode": "Simple", 
+       "Startup Cost": 0.02, 
+       "Plans": [
+        {
+         "Startup Cost": 0.0, 
+         "CTE Name": "segments", 
+         "Node Type": "CTE Scan", 
+         "Plan Rows": 1, 
+         "Alias": "segments", 
+         "Parallel Aware": false, 
+         "Output": [
+          "segments.segment"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 4, 
+         "Total Cost": 0.02
+        }
+       ], 
+       "Group Key": [
+        "segments.segment"
+       ], 
+       "Node Type": "Aggregate", 
+       "Strategy": "Hashed", 
+       "Plan Rows": 1, 
+       "Parallel Aware": false, 
+       "Output": [
+        "segments.segment", 
+        "count(*)", 
+        "(segments.segment * 50)"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 16, 
+       "Total Cost": 0.04
+      }
+     ], 
+     "Sort Key": [
+      "segments.segment", 
+      "(count(*))"
+     ], 
+     "Node Type": "Sort", 
+     "Plan Rows": 1, 
+     "Parallel Aware": false, 
+     "Output": [
+      "segments.segment", 
+      "(count(*))", 
+      "((segments.segment * 50))"
+     ], 
+     "Parent Relationship": "Outer", 
+     "Plan Width": 16, 
+     "Total Cost": 0.05
+    }
+   ], 
+   "Node Type": "Limit", 
+   "Plan Rows": 1, 
+   "Parallel Aware": false, 
+   "Output": [
+    "segments.segment", 
+    "(count(*))", 
+    "((segments.segment * 50))"
+   ], 
+   "Plan Width": 16, 
+   "Total Cost": 90.2
+  }
+ }
+]

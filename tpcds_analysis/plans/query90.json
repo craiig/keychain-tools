@@ -1,0 +1,427 @@
+[
+ {
+  "Plan": {
+   "Startup Cost": 52.86, 
+   "Plans": [
+    {
+     "Startup Cost": 52.86, 
+     "Plans": [
+      {
+       "Startup Cost": 52.79, 
+       "Plans": [
+        {
+         "Partial Mode": "Simple", 
+         "Startup Cost": 26.4, 
+         "Plans": [
+          {
+           "Startup Cost": 12.41, 
+           "Plans": [
+            {
+             "Startup Cost": 12.26, 
+             "Plans": [
+              {
+               "Hash Cond": "(web_sales.ws_web_page_sk = web_page.wp_web_page_sk)", 
+               "Startup Cost": 12.11, 
+               "Plans": [
+                {
+                 "Startup Cost": 0.0, 
+                 "Plan Width": 12, 
+                 "Node Type": "Seq Scan", 
+                 "Plan Rows": 260, 
+                 "Relation Name": "web_sales", 
+                 "Alias": "web_sales", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "web_sales.ws_sold_date_sk", 
+                  "web_sales.ws_sold_time_sk", 
+                  "web_sales.ws_ship_date_sk", 
+                  "web_sales.ws_item_sk", 
+                  "web_sales.ws_bill_customer_sk", 
+                  "web_sales.ws_bill_cdemo_sk", 
+                  "web_sales.ws_bill_hdemo_sk", 
+                  "web_sales.ws_bill_addr_sk", 
+                  "web_sales.ws_ship_customer_sk", 
+                  "web_sales.ws_ship_cdemo_sk", 
+                  "web_sales.ws_ship_hdemo_sk", 
+                  "web_sales.ws_ship_addr_sk", 
+                  "web_sales.ws_web_page_sk", 
+                  "web_sales.ws_web_site_sk", 
+                  "web_sales.ws_ship_mode_sk", 
+                  "web_sales.ws_warehouse_sk", 
+                  "web_sales.ws_promo_sk", 
+                  "web_sales.ws_order_number", 
+                  "web_sales.ws_quantity", 
+                  "web_sales.ws_wholesale_cost", 
+                  "web_sales.ws_list_price", 
+                  "web_sales.ws_sales_price", 
+                  "web_sales.ws_ext_discount_amt", 
+                  "web_sales.ws_ext_sales_price", 
+                  "web_sales.ws_ext_wholesale_cost", 
+                  "web_sales.ws_ext_list_price", 
+                  "web_sales.ws_ext_tax", 
+                  "web_sales.ws_coupon_amt", 
+                  "web_sales.ws_ext_ship_cost", 
+                  "web_sales.ws_net_paid", 
+                  "web_sales.ws_net_paid_inc_tax", 
+                  "web_sales.ws_net_paid_inc_ship", 
+                  "web_sales.ws_net_paid_inc_ship_tax", 
+                  "web_sales.ws_net_profit"
+                 ], 
+                 "Parent Relationship": "Outer", 
+                 "Total Cost": 12.6, 
+                 "Schema": "pg_temp_2"
+                }, 
+                {
+                 "Startup Cost": 12.1, 
+                 "Plans": [
+                  {
+                   "Filter": "((web_page.wp_char_count >= 5000) AND (web_page.wp_char_count <= 5200))", 
+                   "Startup Cost": 0.0, 
+                   "Plan Width": 4, 
+                   "Node Type": "Seq Scan", 
+                   "Plan Rows": 1, 
+                   "Relation Name": "web_page", 
+                   "Alias": "web_page", 
+                   "Parallel Aware": false, 
+                   "Output": [
+                    "web_page.wp_web_page_sk"
+                   ], 
+                   "Parent Relationship": "Outer", 
+                   "Total Cost": 12.1, 
+                   "Schema": "pg_temp_2"
+                  }
+                 ], 
+                 "Node Type": "Hash", 
+                 "Plan Rows": 1, 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "web_page.wp_web_page_sk"
+                 ], 
+                 "Parent Relationship": "Inner", 
+                 "Plan Width": 4, 
+                 "Total Cost": 12.1
+                }
+               ], 
+               "Node Type": "Hash Join", 
+               "Plan Rows": 1, 
+               "Join Type": "Inner", 
+               "Parallel Aware": false, 
+               "Output": [
+                "web_sales.ws_sold_time_sk", 
+                "web_sales.ws_ship_hdemo_sk"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Plan Width": 8, 
+               "Total Cost": 25.7
+              }, 
+              {
+               "Index Cond": "(household_demographics.hd_demo_sk = web_sales.ws_ship_hdemo_sk)", 
+               "Startup Cost": 0.15, 
+               "Scan Direction": "Forward", 
+               "Plan Width": 4, 
+               "Node Type": "Index Scan", 
+               "Total Cost": 0.34, 
+               "Plan Rows": 1, 
+               "Relation Name": "household_demographics", 
+               "Alias": "household_demographics", 
+               "Parallel Aware": false, 
+               "Filter": "(household_demographics.hd_dep_count = 6)", 
+               "Output": [
+                "household_demographics.hd_demo_sk", 
+                "household_demographics.hd_income_band_sk", 
+                "household_demographics.hd_buy_potential", 
+                "household_demographics.hd_dep_count", 
+                "household_demographics.hd_vehicle_count"
+               ], 
+               "Parent Relationship": "Inner", 
+               "Schema": "pg_temp_2", 
+               "Index Name": "household_demographics_pkey"
+              }
+             ], 
+             "Node Type": "Nested Loop", 
+             "Plan Rows": 1, 
+             "Join Type": "Inner", 
+             "Parallel Aware": false, 
+             "Output": [
+              "web_sales.ws_sold_time_sk"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Plan Width": 4, 
+             "Total Cost": 26.05
+            }, 
+            {
+             "Index Cond": "(time_dim.t_time_sk = web_sales.ws_sold_time_sk)", 
+             "Startup Cost": 0.14, 
+             "Scan Direction": "Forward", 
+             "Plan Width": 4, 
+             "Node Type": "Index Scan", 
+             "Total Cost": 0.34, 
+             "Plan Rows": 1, 
+             "Relation Name": "time_dim", 
+             "Alias": "time_dim", 
+             "Parallel Aware": false, 
+             "Filter": "((time_dim.t_hour >= 7) AND (time_dim.t_hour <= 8))", 
+             "Output": [
+              "time_dim.t_time_sk", 
+              "time_dim.t_time_id", 
+              "time_dim.t_time", 
+              "time_dim.t_hour", 
+              "time_dim.t_minute", 
+              "time_dim.t_second", 
+              "time_dim.t_am_pm", 
+              "time_dim.t_shift", 
+              "time_dim.t_sub_shift", 
+              "time_dim.t_meal_time"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Schema": "pg_temp_2", 
+             "Index Name": "time_dim_pkey"
+            }
+           ], 
+           "Node Type": "Nested Loop", 
+           "Plan Rows": 1, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 0, 
+           "Total Cost": 26.39
+          }
+         ], 
+         "Node Type": "Aggregate", 
+         "Strategy": "Plain", 
+         "Plan Rows": 1, 
+         "Parallel Aware": false, 
+         "Output": [
+          "count(*)"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 8, 
+         "Total Cost": 26.41
+        }, 
+        {
+         "Partial Mode": "Simple", 
+         "Startup Cost": 26.4, 
+         "Plans": [
+          {
+           "Startup Cost": 12.41, 
+           "Plans": [
+            {
+             "Startup Cost": 12.26, 
+             "Plans": [
+              {
+               "Hash Cond": "(web_sales_1.ws_web_page_sk = web_page_1.wp_web_page_sk)", 
+               "Startup Cost": 12.11, 
+               "Plans": [
+                {
+                 "Startup Cost": 0.0, 
+                 "Plan Width": 12, 
+                 "Node Type": "Seq Scan", 
+                 "Plan Rows": 260, 
+                 "Relation Name": "web_sales", 
+                 "Alias": "web_sales_1", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "web_sales_1.ws_sold_date_sk", 
+                  "web_sales_1.ws_sold_time_sk", 
+                  "web_sales_1.ws_ship_date_sk", 
+                  "web_sales_1.ws_item_sk", 
+                  "web_sales_1.ws_bill_customer_sk", 
+                  "web_sales_1.ws_bill_cdemo_sk", 
+                  "web_sales_1.ws_bill_hdemo_sk", 
+                  "web_sales_1.ws_bill_addr_sk", 
+                  "web_sales_1.ws_ship_customer_sk", 
+                  "web_sales_1.ws_ship_cdemo_sk", 
+                  "web_sales_1.ws_ship_hdemo_sk", 
+                  "web_sales_1.ws_ship_addr_sk", 
+                  "web_sales_1.ws_web_page_sk", 
+                  "web_sales_1.ws_web_site_sk", 
+                  "web_sales_1.ws_ship_mode_sk", 
+                  "web_sales_1.ws_warehouse_sk", 
+                  "web_sales_1.ws_promo_sk", 
+                  "web_sales_1.ws_order_number", 
+                  "web_sales_1.ws_quantity", 
+                  "web_sales_1.ws_wholesale_cost", 
+                  "web_sales_1.ws_list_price", 
+                  "web_sales_1.ws_sales_price", 
+                  "web_sales_1.ws_ext_discount_amt", 
+                  "web_sales_1.ws_ext_sales_price", 
+                  "web_sales_1.ws_ext_wholesale_cost", 
+                  "web_sales_1.ws_ext_list_price", 
+                  "web_sales_1.ws_ext_tax", 
+                  "web_sales_1.ws_coupon_amt", 
+                  "web_sales_1.ws_ext_ship_cost", 
+                  "web_sales_1.ws_net_paid", 
+                  "web_sales_1.ws_net_paid_inc_tax", 
+                  "web_sales_1.ws_net_paid_inc_ship", 
+                  "web_sales_1.ws_net_paid_inc_ship_tax", 
+                  "web_sales_1.ws_net_profit"
+                 ], 
+                 "Parent Relationship": "Outer", 
+                 "Total Cost": 12.6, 
+                 "Schema": "pg_temp_2"
+                }, 
+                {
+                 "Startup Cost": 12.1, 
+                 "Plans": [
+                  {
+                   "Filter": "((web_page_1.wp_char_count >= 5000) AND (web_page_1.wp_char_count <= 5200))", 
+                   "Startup Cost": 0.0, 
+                   "Plan Width": 4, 
+                   "Node Type": "Seq Scan", 
+                   "Plan Rows": 1, 
+                   "Relation Name": "web_page", 
+                   "Alias": "web_page_1", 
+                   "Parallel Aware": false, 
+                   "Output": [
+                    "web_page_1.wp_web_page_sk"
+                   ], 
+                   "Parent Relationship": "Outer", 
+                   "Total Cost": 12.1, 
+                   "Schema": "pg_temp_2"
+                  }
+                 ], 
+                 "Node Type": "Hash", 
+                 "Plan Rows": 1, 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "web_page_1.wp_web_page_sk"
+                 ], 
+                 "Parent Relationship": "Inner", 
+                 "Plan Width": 4, 
+                 "Total Cost": 12.1
+                }
+               ], 
+               "Node Type": "Hash Join", 
+               "Plan Rows": 1, 
+               "Join Type": "Inner", 
+               "Parallel Aware": false, 
+               "Output": [
+                "web_sales_1.ws_sold_time_sk", 
+                "web_sales_1.ws_ship_hdemo_sk"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Plan Width": 8, 
+               "Total Cost": 25.7
+              }, 
+              {
+               "Index Cond": "(household_demographics_1.hd_demo_sk = web_sales_1.ws_ship_hdemo_sk)", 
+               "Startup Cost": 0.15, 
+               "Scan Direction": "Forward", 
+               "Plan Width": 4, 
+               "Node Type": "Index Scan", 
+               "Total Cost": 0.34, 
+               "Plan Rows": 1, 
+               "Relation Name": "household_demographics", 
+               "Alias": "household_demographics_1", 
+               "Parallel Aware": false, 
+               "Filter": "(household_demographics_1.hd_dep_count = 6)", 
+               "Output": [
+                "household_demographics_1.hd_demo_sk", 
+                "household_demographics_1.hd_income_band_sk", 
+                "household_demographics_1.hd_buy_potential", 
+                "household_demographics_1.hd_dep_count", 
+                "household_demographics_1.hd_vehicle_count"
+               ], 
+               "Parent Relationship": "Inner", 
+               "Schema": "pg_temp_2", 
+               "Index Name": "household_demographics_pkey"
+              }
+             ], 
+             "Node Type": "Nested Loop", 
+             "Plan Rows": 1, 
+             "Join Type": "Inner", 
+             "Parallel Aware": false, 
+             "Output": [
+              "web_sales_1.ws_sold_time_sk"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Plan Width": 4, 
+             "Total Cost": 26.05
+            }, 
+            {
+             "Index Cond": "(time_dim_1.t_time_sk = web_sales_1.ws_sold_time_sk)", 
+             "Startup Cost": 0.14, 
+             "Scan Direction": "Forward", 
+             "Plan Width": 4, 
+             "Node Type": "Index Scan", 
+             "Total Cost": 0.34, 
+             "Plan Rows": 1, 
+             "Relation Name": "time_dim", 
+             "Alias": "time_dim_1", 
+             "Parallel Aware": false, 
+             "Filter": "((time_dim_1.t_hour >= 19) AND (time_dim_1.t_hour <= 20))", 
+             "Output": [
+              "time_dim_1.t_time_sk", 
+              "time_dim_1.t_time_id", 
+              "time_dim_1.t_time", 
+              "time_dim_1.t_hour", 
+              "time_dim_1.t_minute", 
+              "time_dim_1.t_second", 
+              "time_dim_1.t_am_pm", 
+              "time_dim_1.t_shift", 
+              "time_dim_1.t_sub_shift", 
+              "time_dim_1.t_meal_time"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Schema": "pg_temp_2", 
+             "Index Name": "time_dim_pkey"
+            }
+           ], 
+           "Node Type": "Nested Loop", 
+           "Plan Rows": 1, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 0, 
+           "Total Cost": 26.39
+          }
+         ], 
+         "Node Type": "Aggregate", 
+         "Strategy": "Plain", 
+         "Plan Rows": 1, 
+         "Parallel Aware": false, 
+         "Output": [
+          "count(*)"
+         ], 
+         "Parent Relationship": "Inner", 
+         "Plan Width": 8, 
+         "Total Cost": 26.41
+        }
+       ], 
+       "Node Type": "Nested Loop", 
+       "Plan Rows": 1, 
+       "Join Type": "Inner", 
+       "Parallel Aware": false, 
+       "Output": [
+        "(((count(*)))::numeric(15,4) / ((count(*)))::numeric(15,4))"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 32, 
+       "Total Cost": 52.85
+      }
+     ], 
+     "Sort Key": [
+      "((((count(*)))::numeric(15,4) / ((count(*)))::numeric(15,4)))"
+     ], 
+     "Node Type": "Sort", 
+     "Plan Rows": 1, 
+     "Parallel Aware": false, 
+     "Output": [
+      "((((count(*)))::numeric(15,4) / ((count(*)))::numeric(15,4)))"
+     ], 
+     "Parent Relationship": "Outer", 
+     "Plan Width": 32, 
+     "Total Cost": 52.87
+    }
+   ], 
+   "Node Type": "Limit", 
+   "Plan Rows": 1, 
+   "Parallel Aware": false, 
+   "Output": [
+    "((((count(*)))::numeric(15,4) / ((count(*)))::numeric(15,4)))"
+   ], 
+   "Plan Width": 32, 
+   "Total Cost": 52.87
+  }
+ }
+]

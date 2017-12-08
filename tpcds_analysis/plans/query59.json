@@ -1,0 +1,551 @@
+[
+ {
+  "Plan": {
+   "Startup Cost": 102.52, 
+   "Plans": [
+    {
+     "Partial Mode": "Simple", 
+     "Startup Cost": 47.75, 
+     "Plans": [
+      {
+       "Hash Cond": "(store_sales.ss_sold_date_sk = date_dim.d_date_sk)", 
+       "Startup Cost": 16.07, 
+       "Plans": [
+        {
+         "Startup Cost": 0.0, 
+         "Plan Width": 22, 
+         "Node Type": "Seq Scan", 
+         "Plan Rows": 340, 
+         "Relation Name": "store_sales", 
+         "Alias": "store_sales", 
+         "Parallel Aware": false, 
+         "Output": [
+          "store_sales.ss_sold_date_sk", 
+          "store_sales.ss_sold_time_sk", 
+          "store_sales.ss_item_sk", 
+          "store_sales.ss_customer_sk", 
+          "store_sales.ss_cdemo_sk", 
+          "store_sales.ss_hdemo_sk", 
+          "store_sales.ss_addr_sk", 
+          "store_sales.ss_store_sk", 
+          "store_sales.ss_promo_sk", 
+          "store_sales.ss_ticket_number", 
+          "store_sales.ss_quantity", 
+          "store_sales.ss_wholesale_cost", 
+          "store_sales.ss_list_price", 
+          "store_sales.ss_sales_price", 
+          "store_sales.ss_ext_discount_amt", 
+          "store_sales.ss_ext_sales_price", 
+          "store_sales.ss_ext_wholesale_cost", 
+          "store_sales.ss_ext_list_price", 
+          "store_sales.ss_ext_tax", 
+          "store_sales.ss_coupon_amt", 
+          "store_sales.ss_net_paid", 
+          "store_sales.ss_net_paid_inc_tax", 
+          "store_sales.ss_net_profit"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Total Cost": 13.4, 
+         "Schema": "pg_temp_2"
+        }, 
+        {
+         "Startup Cost": 12.7, 
+         "Plans": [
+          {
+           "Startup Cost": 0.0, 
+           "Plan Width": 48, 
+           "Node Type": "Seq Scan", 
+           "Plan Rows": 270, 
+           "Relation Name": "date_dim", 
+           "Alias": "date_dim", 
+           "Parallel Aware": false, 
+           "Output": [
+            "date_dim.d_week_seq", 
+            "date_dim.d_day_name", 
+            "date_dim.d_date_sk"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Total Cost": 12.7, 
+           "Schema": "pg_temp_2"
+          }
+         ], 
+         "Node Type": "Hash", 
+         "Plan Rows": 270, 
+         "Parallel Aware": false, 
+         "Output": [
+          "date_dim.d_week_seq", 
+          "date_dim.d_day_name", 
+          "date_dim.d_date_sk"
+         ], 
+         "Parent Relationship": "Inner", 
+         "Plan Width": 48, 
+         "Total Cost": 12.7
+        }
+       ], 
+       "Node Type": "Hash Join", 
+       "Plan Rows": 340, 
+       "Join Type": "Inner", 
+       "Parallel Aware": false, 
+       "Output": [
+        "date_dim.d_week_seq", 
+        "store_sales.ss_store_sk", 
+        "date_dim.d_day_name", 
+        "store_sales.ss_sales_price"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 62, 
+       "Total Cost": 34.15
+      }
+     ], 
+     "Group Key": [
+      "date_dim.d_week_seq", 
+      "store_sales.ss_store_sk"
+     ], 
+     "Node Type": "Aggregate", 
+     "Strategy": "Hashed", 
+     "Plan Rows": 340, 
+     "Parallel Aware": false, 
+     "Output": [
+      "date_dim.d_week_seq", 
+      "store_sales.ss_store_sk", 
+      "sum(CASE WHEN (date_dim.d_day_name = 'Sunday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END)", 
+      "sum(CASE WHEN (date_dim.d_day_name = 'Monday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END)", 
+      "sum(CASE WHEN (date_dim.d_day_name = 'Tuesday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END)", 
+      "sum(CASE WHEN (date_dim.d_day_name = 'Wednesday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END)", 
+      "sum(CASE WHEN (date_dim.d_day_name = 'Thursday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END)", 
+      "sum(CASE WHEN (date_dim.d_day_name = 'Friday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END)", 
+      "sum(CASE WHEN (date_dim.d_day_name = 'Saturday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END)"
+     ], 
+     "Parent Relationship": "InitPlan", 
+     "Plan Width": 232, 
+     "Subplan Name": "CTE wss", 
+     "Total Cost": 57.1
+    }, 
+    {
+     "Startup Cost": 45.42, 
+     "Plans": [
+      {
+       "Startup Cost": 22.46, 
+       "Plans": [
+        {
+         "Startup Cost": 22.32, 
+         "Plans": [
+          {
+           "Startup Cost": 22.18, 
+           "Plans": [
+            {
+             "Filter": "((d_1.d_month_seq >= 1219) AND (d_1.d_month_seq <= 1230))", 
+             "Startup Cost": 0.0, 
+             "Plan Width": 4, 
+             "Node Type": "Seq Scan", 
+             "Plan Rows": 1, 
+             "Relation Name": "date_dim", 
+             "Alias": "d_1", 
+             "Parallel Aware": false, 
+             "Output": [
+              "d_1.d_date_sk", 
+              "d_1.d_date_id", 
+              "d_1.d_date", 
+              "d_1.d_month_seq", 
+              "d_1.d_week_seq", 
+              "d_1.d_quarter_seq", 
+              "d_1.d_year", 
+              "d_1.d_dow", 
+              "d_1.d_moy", 
+              "d_1.d_dom", 
+              "d_1.d_qoy", 
+              "d_1.d_fy_year", 
+              "d_1.d_fy_quarter_seq", 
+              "d_1.d_fy_week_seq", 
+              "d_1.d_day_name", 
+              "d_1.d_quarter_name", 
+              "d_1.d_holiday", 
+              "d_1.d_weekend", 
+              "d_1.d_following_holiday", 
+              "d_1.d_first_dom", 
+              "d_1.d_last_dom", 
+              "d_1.d_same_day_ly", 
+              "d_1.d_same_day_lq", 
+              "d_1.d_current_day", 
+              "d_1.d_current_week", 
+              "d_1.d_current_month", 
+              "d_1.d_current_quarter", 
+              "d_1.d_current_year"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Total Cost": 14.05, 
+             "Schema": "pg_temp_2"
+            }, 
+            {
+             "Hash Cond": "((wss_1.d_week_seq - 52) = d.d_week_seq)", 
+             "Startup Cost": 22.18, 
+             "Plans": [
+              {
+               "Startup Cost": 0.0, 
+               "CTE Name": "wss", 
+               "Node Type": "CTE Scan", 
+               "Plan Rows": 340, 
+               "Alias": "wss_1", 
+               "Parallel Aware": false, 
+               "Output": [
+                "wss_1.d_week_seq", 
+                "wss_1.ss_store_sk", 
+                "wss_1.sun_sales", 
+                "wss_1.mon_sales", 
+                "wss_1.tue_sales", 
+                "wss_1.wed_sales", 
+                "wss_1.thu_sales", 
+                "wss_1.fri_sales", 
+                "wss_1.sat_sales"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Plan Width": 232, 
+               "Total Cost": 6.8
+              }, 
+              {
+               "Startup Cost": 22.16, 
+               "Plans": [
+                {
+                 "Hash Cond": "(wss.d_week_seq = d.d_week_seq)", 
+                 "Startup Cost": 14.06, 
+                 "Plans": [
+                  {
+                   "Startup Cost": 0.0, 
+                   "CTE Name": "wss", 
+                   "Node Type": "CTE Scan", 
+                   "Plan Rows": 340, 
+                   "Alias": "wss", 
+                   "Parallel Aware": false, 
+                   "Output": [
+                    "wss.d_week_seq", 
+                    "wss.ss_store_sk", 
+                    "wss.sun_sales", 
+                    "wss.mon_sales", 
+                    "wss.tue_sales", 
+                    "wss.wed_sales", 
+                    "wss.thu_sales", 
+                    "wss.fri_sales", 
+                    "wss.sat_sales"
+                   ], 
+                   "Parent Relationship": "Outer", 
+                   "Plan Width": 232, 
+                   "Total Cost": 6.8
+                  }, 
+                  {
+                   "Startup Cost": 14.05, 
+                   "Plans": [
+                    {
+                     "Filter": "((d.d_month_seq >= 1207) AND (d.d_month_seq <= 1218))", 
+                     "Startup Cost": 0.0, 
+                     "Plan Width": 4, 
+                     "Node Type": "Seq Scan", 
+                     "Plan Rows": 1, 
+                     "Relation Name": "date_dim", 
+                     "Alias": "d", 
+                     "Parallel Aware": false, 
+                     "Output": [
+                      "d.d_week_seq"
+                     ], 
+                     "Parent Relationship": "Outer", 
+                     "Total Cost": 14.05, 
+                     "Schema": "pg_temp_2"
+                    }
+                   ], 
+                   "Node Type": "Hash", 
+                   "Plan Rows": 1, 
+                   "Parallel Aware": false, 
+                   "Output": [
+                    "d.d_week_seq"
+                   ], 
+                   "Parent Relationship": "Inner", 
+                   "Plan Width": 4, 
+                   "Total Cost": 14.05
+                  }
+                 ], 
+                 "Node Type": "Hash Join", 
+                 "Plan Rows": 2, 
+                 "Join Type": "Inner", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "wss.d_week_seq", 
+                  "wss.sun_sales", 
+                  "wss.mon_sales", 
+                  "wss.tue_sales", 
+                  "wss.wed_sales", 
+                  "wss.thu_sales", 
+                  "wss.fri_sales", 
+                  "wss.sat_sales", 
+                  "wss.ss_store_sk", 
+                  "d.d_week_seq"
+                 ], 
+                 "Parent Relationship": "Outer", 
+                 "Plan Width": 236, 
+                 "Total Cost": 22.16
+                }
+               ], 
+               "Node Type": "Hash", 
+               "Plan Rows": 2, 
+               "Parallel Aware": false, 
+               "Output": [
+                "wss.d_week_seq", 
+                "wss.sun_sales", 
+                "wss.mon_sales", 
+                "wss.tue_sales", 
+                "wss.wed_sales", 
+                "wss.thu_sales", 
+                "wss.fri_sales", 
+                "wss.sat_sales", 
+                "wss.ss_store_sk", 
+                "d.d_week_seq"
+               ], 
+               "Parent Relationship": "Inner", 
+               "Plan Width": 236, 
+               "Total Cost": 22.16
+              }
+             ], 
+             "Node Type": "Hash Join", 
+             "Plan Rows": 3, 
+             "Join Type": "Inner", 
+             "Parallel Aware": false, 
+             "Output": [
+              "wss.d_week_seq", 
+              "wss.sun_sales", 
+              "wss.mon_sales", 
+              "wss.tue_sales", 
+              "wss.wed_sales", 
+              "wss.thu_sales", 
+              "wss.fri_sales", 
+              "wss.sat_sales", 
+              "wss.ss_store_sk", 
+              "wss_1.sun_sales", 
+              "wss_1.mon_sales", 
+              "wss_1.tue_sales", 
+              "wss_1.wed_sales", 
+              "wss_1.thu_sales", 
+              "wss_1.fri_sales", 
+              "wss_1.sat_sales", 
+              "wss_1.d_week_seq", 
+              "wss_1.ss_store_sk"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Plan Width": 464, 
+             "Total Cost": 30.71
+            }
+           ], 
+           "Node Type": "Nested Loop", 
+           "Plan Rows": 1, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "wss.d_week_seq", 
+            "wss.sun_sales", 
+            "wss.mon_sales", 
+            "wss.tue_sales", 
+            "wss.wed_sales", 
+            "wss.thu_sales", 
+            "wss.fri_sales", 
+            "wss.sat_sales", 
+            "wss.ss_store_sk", 
+            "wss_1.sun_sales", 
+            "wss_1.mon_sales", 
+            "wss_1.tue_sales", 
+            "wss_1.wed_sales", 
+            "wss_1.thu_sales", 
+            "wss_1.fri_sales", 
+            "wss_1.sat_sales", 
+            "wss_1.ss_store_sk"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 460, 
+           "Join Filter": "(wss_1.d_week_seq = d_1.d_week_seq)", 
+           "Total Cost": 44.8
+          }, 
+          {
+           "Index Cond": "(store.s_store_sk = wss.ss_store_sk)", 
+           "Startup Cost": 0.14, 
+           "Scan Direction": "Forward", 
+           "Plan Width": 190, 
+           "Node Type": "Index Scan", 
+           "Total Cost": 0.29, 
+           "Plan Rows": 1, 
+           "Relation Name": "store", 
+           "Alias": "store", 
+           "Parallel Aware": false, 
+           "Output": [
+            "store.s_store_sk", 
+            "store.s_store_id", 
+            "store.s_rec_start_date", 
+            "store.s_rec_end_date", 
+            "store.s_closed_date_sk", 
+            "store.s_store_name", 
+            "store.s_number_employees", 
+            "store.s_floor_space", 
+            "store.s_hours", 
+            "store.s_manager", 
+            "store.s_market_id", 
+            "store.s_geography_class", 
+            "store.s_market_desc", 
+            "store.s_market_manager", 
+            "store.s_division_id", 
+            "store.s_division_name", 
+            "store.s_company_id", 
+            "store.s_company_name", 
+            "store.s_street_number", 
+            "store.s_street_name", 
+            "store.s_street_type", 
+            "store.s_suite_number", 
+            "store.s_city", 
+            "store.s_county", 
+            "store.s_state", 
+            "store.s_zip", 
+            "store.s_country", 
+            "store.s_gmt_offset", 
+            "store.s_tax_precentage"
+           ], 
+           "Parent Relationship": "Inner", 
+           "Schema": "pg_temp_2", 
+           "Index Name": "store_pkey"
+          }
+         ], 
+         "Node Type": "Nested Loop", 
+         "Plan Rows": 1, 
+         "Join Type": "Inner", 
+         "Parallel Aware": false, 
+         "Output": [
+          "wss.d_week_seq", 
+          "wss.sun_sales", 
+          "wss.mon_sales", 
+          "wss.tue_sales", 
+          "wss.wed_sales", 
+          "wss.thu_sales", 
+          "wss.fri_sales", 
+          "wss.sat_sales", 
+          "store.s_store_name", 
+          "store.s_store_id", 
+          "wss_1.sun_sales", 
+          "wss_1.mon_sales", 
+          "wss_1.tue_sales", 
+          "wss_1.wed_sales", 
+          "wss_1.thu_sales", 
+          "wss_1.fri_sales", 
+          "wss_1.sat_sales", 
+          "wss_1.ss_store_sk"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 642, 
+         "Total Cost": 45.1
+        }, 
+        {
+         "Index Cond": "(store_1.s_store_sk = wss_1.ss_store_sk)", 
+         "Startup Cost": 0.14, 
+         "Scan Direction": "Forward", 
+         "Plan Width": 72, 
+         "Node Type": "Index Scan", 
+         "Total Cost": 0.29, 
+         "Plan Rows": 1, 
+         "Relation Name": "store", 
+         "Alias": "store_1", 
+         "Parallel Aware": false, 
+         "Output": [
+          "store_1.s_store_sk", 
+          "store_1.s_store_id", 
+          "store_1.s_rec_start_date", 
+          "store_1.s_rec_end_date", 
+          "store_1.s_closed_date_sk", 
+          "store_1.s_store_name", 
+          "store_1.s_number_employees", 
+          "store_1.s_floor_space", 
+          "store_1.s_hours", 
+          "store_1.s_manager", 
+          "store_1.s_market_id", 
+          "store_1.s_geography_class", 
+          "store_1.s_market_desc", 
+          "store_1.s_market_manager", 
+          "store_1.s_division_id", 
+          "store_1.s_division_name", 
+          "store_1.s_company_id", 
+          "store_1.s_company_name", 
+          "store_1.s_street_number", 
+          "store_1.s_street_name", 
+          "store_1.s_street_type", 
+          "store_1.s_suite_number", 
+          "store_1.s_city", 
+          "store_1.s_county", 
+          "store_1.s_state", 
+          "store_1.s_zip", 
+          "store_1.s_country", 
+          "store_1.s_gmt_offset", 
+          "store_1.s_tax_precentage"
+         ], 
+         "Parent Relationship": "Inner", 
+         "Schema": "pg_temp_2", 
+         "Index Name": "store_pkey"
+        }
+       ], 
+       "Node Type": "Nested Loop", 
+       "Plan Rows": 1, 
+       "Join Type": "Inner", 
+       "Parallel Aware": false, 
+       "Output": [
+        "store.s_store_name", 
+        "store.s_store_id", 
+        "wss.d_week_seq", 
+        "(wss.sun_sales / wss_1.sun_sales)", 
+        "(wss.mon_sales / wss_1.mon_sales)", 
+        "(wss.tue_sales / wss_1.tue_sales)", 
+        "(wss.wed_sales / wss_1.wed_sales)", 
+        "(wss.thu_sales / wss_1.thu_sales)", 
+        "(wss.fri_sales / wss_1.fri_sales)", 
+        "(wss.sat_sales / wss_1.sat_sales)"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 414, 
+       "Join Filter": "(store.s_store_id = store_1.s_store_id)", 
+       "Total Cost": 45.41
+      }
+     ], 
+     "Sort Key": [
+      "store.s_store_name", 
+      "store.s_store_id", 
+      "wss.d_week_seq"
+     ], 
+     "Node Type": "Sort", 
+     "Plan Rows": 1, 
+     "Parallel Aware": false, 
+     "Output": [
+      "store.s_store_name", 
+      "store.s_store_id", 
+      "wss.d_week_seq", 
+      "((wss.sun_sales / wss_1.sun_sales))", 
+      "((wss.mon_sales / wss_1.mon_sales))", 
+      "((wss.tue_sales / wss_1.tue_sales))", 
+      "((wss.wed_sales / wss_1.wed_sales))", 
+      "((wss.thu_sales / wss_1.thu_sales))", 
+      "((wss.fri_sales / wss_1.fri_sales))", 
+      "((wss.sat_sales / wss_1.sat_sales))"
+     ], 
+     "Parent Relationship": "Outer", 
+     "Plan Width": 414, 
+     "Total Cost": 45.43
+    }
+   ], 
+   "Node Type": "Limit", 
+   "Plan Rows": 1, 
+   "Parallel Aware": false, 
+   "Output": [
+    "store.s_store_name", 
+    "store.s_store_id", 
+    "wss.d_week_seq", 
+    "((wss.sun_sales / wss_1.sun_sales))", 
+    "((wss.mon_sales / wss_1.mon_sales))", 
+    "((wss.tue_sales / wss_1.tue_sales))", 
+    "((wss.wed_sales / wss_1.wed_sales))", 
+    "((wss.thu_sales / wss_1.thu_sales))", 
+    "((wss.fri_sales / wss_1.fri_sales))", 
+    "((wss.sat_sales / wss_1.sat_sales))"
+   ], 
+   "Plan Width": 414, 
+   "Total Cost": 102.53
+  }
+ }
+]

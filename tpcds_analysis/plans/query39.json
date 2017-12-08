@@ -1,0 +1,352 @@
+[
+ {
+  "Plan": {
+   "Startup Cost": 29.91, 
+   "Plans": [
+    {
+     "Startup Cost": 29.77, 
+     "Plans": [
+      {
+       "Partial Mode": "Simple", 
+       "Startup Cost": 29.77, 
+       "Plans": [
+        {
+         "Startup Cost": 29.77, 
+         "Plans": [
+          {
+           "Startup Cost": 4.5, 
+           "Plans": [
+            {
+             "Startup Cost": 4.36, 
+             "Plans": [
+              {
+               "Startup Cost": 4.22, 
+               "Plans": [
+                {
+                 "Filter": "(date_dim.d_year = 1998)", 
+                 "Startup Cost": 0.0, 
+                 "Plan Width": 8, 
+                 "Node Type": "Seq Scan", 
+                 "Plan Rows": 1, 
+                 "Relation Name": "date_dim", 
+                 "Alias": "date_dim", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "date_dim.d_date_sk", 
+                  "date_dim.d_date_id", 
+                  "date_dim.d_date", 
+                  "date_dim.d_month_seq", 
+                  "date_dim.d_week_seq", 
+                  "date_dim.d_quarter_seq", 
+                  "date_dim.d_year", 
+                  "date_dim.d_dow", 
+                  "date_dim.d_moy", 
+                  "date_dim.d_dom", 
+                  "date_dim.d_qoy", 
+                  "date_dim.d_fy_year", 
+                  "date_dim.d_fy_quarter_seq", 
+                  "date_dim.d_fy_week_seq", 
+                  "date_dim.d_day_name", 
+                  "date_dim.d_quarter_name", 
+                  "date_dim.d_holiday", 
+                  "date_dim.d_weekend", 
+                  "date_dim.d_following_holiday", 
+                  "date_dim.d_first_dom", 
+                  "date_dim.d_last_dom", 
+                  "date_dim.d_same_day_ly", 
+                  "date_dim.d_same_day_lq", 
+                  "date_dim.d_current_day", 
+                  "date_dim.d_current_week", 
+                  "date_dim.d_current_month", 
+                  "date_dim.d_current_quarter", 
+                  "date_dim.d_current_year"
+                 ], 
+                 "Parent Relationship": "Outer", 
+                 "Total Cost": 13.38, 
+                 "Schema": "pg_temp_2"
+                }, 
+                {
+                 "Startup Cost": 4.22, 
+                 "Plan Width": 16, 
+                 "Plans": [
+                  {
+                   "Startup Cost": 0.0, 
+                   "Plan Width": 0, 
+                   "Node Type": "Bitmap Index Scan", 
+                   "Index Cond": "(inventory.inv_date_sk = date_dim.d_date_sk)", 
+                   "Plan Rows": 9, 
+                   "Parallel Aware": false, 
+                   "Parent Relationship": "Outer", 
+                   "Total Cost": 4.22, 
+                   "Index Name": "inventory_pkey"
+                  }
+                 ], 
+                 "Recheck Cond": "(inventory.inv_date_sk = date_dim.d_date_sk)", 
+                 "Node Type": "Bitmap Heap Scan", 
+                 "Plan Rows": 9, 
+                 "Relation Name": "inventory", 
+                 "Alias": "inventory", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "inventory.inv_date_sk", 
+                  "inventory.inv_item_sk", 
+                  "inventory.inv_warehouse_sk", 
+                  "inventory.inv_quantity_on_hand"
+                 ], 
+                 "Parent Relationship": "Inner", 
+                 "Total Cost": 14.76, 
+                 "Schema": "pg_temp_2"
+                }
+               ], 
+               "Node Type": "Nested Loop", 
+               "Plan Rows": 7, 
+               "Join Type": "Inner", 
+               "Parallel Aware": false, 
+               "Output": [
+                "inventory.inv_quantity_on_hand", 
+                "inventory.inv_item_sk", 
+                "inventory.inv_warehouse_sk", 
+                "date_dim.d_moy"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Plan Width": 16, 
+               "Total Cost": 28.23
+              }, 
+              {
+               "Index Cond": "(item.i_item_sk = inventory.inv_item_sk)", 
+               "Startup Cost": 0.14, 
+               "Scan Direction": "Forward", 
+               "Plan Width": 4, 
+               "Node Type": "Index Only Scan", 
+               "Total Cost": 0.18, 
+               "Plan Rows": 1, 
+               "Relation Name": "item", 
+               "Alias": "item", 
+               "Parallel Aware": false, 
+               "Output": [
+                "item.i_item_sk"
+               ], 
+               "Parent Relationship": "Inner", 
+               "Schema": "pg_temp_2", 
+               "Index Name": "item_pkey"
+              }
+             ], 
+             "Node Type": "Nested Loop", 
+             "Plan Rows": 1, 
+             "Join Type": "Inner", 
+             "Parallel Aware": false, 
+             "Output": [
+              "inventory.inv_quantity_on_hand", 
+              "inventory.inv_warehouse_sk", 
+              "item.i_item_sk", 
+              "date_dim.d_moy"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Plan Width": 16, 
+             "Total Cost": 29.57
+            }, 
+            {
+             "Index Cond": "(warehouse.w_warehouse_sk = inventory.inv_warehouse_sk)", 
+             "Startup Cost": 0.14, 
+             "Scan Direction": "Forward", 
+             "Plan Width": 62, 
+             "Node Type": "Index Scan", 
+             "Total Cost": 0.18, 
+             "Plan Rows": 1, 
+             "Relation Name": "warehouse", 
+             "Alias": "warehouse", 
+             "Parallel Aware": false, 
+             "Output": [
+              "warehouse.w_warehouse_sk", 
+              "warehouse.w_warehouse_id", 
+              "warehouse.w_warehouse_name", 
+              "warehouse.w_warehouse_sq_ft", 
+              "warehouse.w_street_number", 
+              "warehouse.w_street_name", 
+              "warehouse.w_street_type", 
+              "warehouse.w_suite_number", 
+              "warehouse.w_city", 
+              "warehouse.w_county", 
+              "warehouse.w_state", 
+              "warehouse.w_zip", 
+              "warehouse.w_country", 
+              "warehouse.w_gmt_offset"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Schema": "pg_temp_2", 
+             "Index Name": "warehouse_pkey"
+            }
+           ], 
+           "Node Type": "Nested Loop", 
+           "Plan Rows": 1, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "warehouse.w_warehouse_sk", 
+            "item.i_item_sk", 
+            "date_dim.d_moy", 
+            "warehouse.w_warehouse_name", 
+            "inventory.inv_quantity_on_hand"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 74, 
+           "Total Cost": 29.76
+          }
+         ], 
+         "Sort Key": [
+          "warehouse.w_warehouse_sk", 
+          "item.i_item_sk", 
+          "date_dim.d_moy"
+         ], 
+         "Node Type": "Sort", 
+         "Plan Rows": 1, 
+         "Parallel Aware": false, 
+         "Output": [
+          "warehouse.w_warehouse_sk", 
+          "item.i_item_sk", 
+          "date_dim.d_moy", 
+          "warehouse.w_warehouse_name", 
+          "inventory.inv_quantity_on_hand"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 74, 
+         "Total Cost": 29.78
+        }
+       ], 
+       "Group Key": [
+        "warehouse.w_warehouse_sk", 
+        "item.i_item_sk", 
+        "date_dim.d_moy"
+       ], 
+       "Node Type": "Aggregate", 
+       "Strategy": "Sorted", 
+       "Filter": "(CASE avg(inventory.inv_quantity_on_hand) WHEN '0'::numeric THEN '0'::numeric ELSE (stddev_samp(inventory.inv_quantity_on_hand) / avg(inventory.inv_quantity_on_hand)) END > '1'::numeric)", 
+       "Plan Rows": 1, 
+       "Parallel Aware": false, 
+       "Output": [
+        "warehouse.w_warehouse_name", 
+        "warehouse.w_warehouse_sk", 
+        "item.i_item_sk", 
+        "date_dim.d_moy", 
+        "stddev_samp(inventory.inv_quantity_on_hand)", 
+        "avg(inventory.inv_quantity_on_hand)"
+       ], 
+       "Parent Relationship": "Subquery", 
+       "Plan Width": 134, 
+       "Total Cost": 29.82
+      }
+     ], 
+     "Node Type": "Subquery Scan", 
+     "Plan Rows": 1, 
+     "Alias": "foo", 
+     "Parallel Aware": false, 
+     "Output": [
+      "foo.w_warehouse_name", 
+      "foo.w_warehouse_sk", 
+      "foo.i_item_sk", 
+      "foo.d_moy", 
+      "foo.stdev", 
+      "foo.mean", 
+      "CASE foo.mean WHEN '0'::numeric THEN NULL::numeric ELSE (foo.stdev / foo.mean) END"
+     ], 
+     "Parent Relationship": "InitPlan", 
+     "Plan Width": 166, 
+     "Subplan Name": "CTE inv", 
+     "Total Cost": 29.84
+    }, 
+    {
+     "Startup Cost": 0.0, 
+     "Plans": [
+      {
+       "Startup Cost": 0.0, 
+       "CTE Name": "inv", 
+       "Node Type": "CTE Scan", 
+       "Plan Rows": 1, 
+       "Filter": "(inv1.d_moy = 1)", 
+       "Alias": "inv1", 
+       "Parallel Aware": false, 
+       "Output": [
+        "inv1.w_warehouse_name", 
+        "inv1.w_warehouse_sk", 
+        "inv1.i_item_sk", 
+        "inv1.d_moy", 
+        "inv1.stdev", 
+        "inv1.mean", 
+        "inv1.cov"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 76, 
+       "Total Cost": 0.02
+      }, 
+      {
+       "Startup Cost": 0.0, 
+       "CTE Name": "inv", 
+       "Node Type": "CTE Scan", 
+       "Plan Rows": 1, 
+       "Filter": "(inv2.d_moy = 2)", 
+       "Alias": "inv2", 
+       "Parallel Aware": false, 
+       "Output": [
+        "inv2.w_warehouse_name", 
+        "inv2.w_warehouse_sk", 
+        "inv2.i_item_sk", 
+        "inv2.d_moy", 
+        "inv2.stdev", 
+        "inv2.mean", 
+        "inv2.cov"
+       ], 
+       "Parent Relationship": "Inner", 
+       "Plan Width": 76, 
+       "Total Cost": 0.02
+      }
+     ], 
+     "Node Type": "Nested Loop", 
+     "Plan Rows": 1, 
+     "Join Type": "Inner", 
+     "Parallel Aware": false, 
+     "Output": [
+      "inv1.w_warehouse_sk", 
+      "inv1.i_item_sk", 
+      "inv1.d_moy", 
+      "inv1.mean", 
+      "inv1.cov", 
+      "inv2.w_warehouse_sk", 
+      "inv2.i_item_sk", 
+      "inv2.d_moy", 
+      "inv2.mean", 
+      "inv2.cov"
+     ], 
+     "Parent Relationship": "Outer", 
+     "Plan Width": 152, 
+     "Join Filter": "((inv1.i_item_sk = inv2.i_item_sk) AND (inv1.w_warehouse_sk = inv2.w_warehouse_sk))", 
+     "Total Cost": 0.06
+    }
+   ], 
+   "Sort Key": [
+    "inv1.w_warehouse_sk", 
+    "inv1.i_item_sk", 
+    "inv1.mean", 
+    "inv1.cov", 
+    "inv2.mean", 
+    "inv2.cov"
+   ], 
+   "Node Type": "Sort", 
+   "Plan Rows": 1, 
+   "Parallel Aware": false, 
+   "Output": [
+    "inv1.w_warehouse_sk", 
+    "inv1.i_item_sk", 
+    "inv1.d_moy", 
+    "inv1.mean", 
+    "inv1.cov", 
+    "inv2.w_warehouse_sk", 
+    "inv2.i_item_sk", 
+    "inv2.d_moy", 
+    "inv2.mean", 
+    "inv2.cov"
+   ], 
+   "Plan Width": 152, 
+   "Total Cost": 29.91
+  }
+ }
+]

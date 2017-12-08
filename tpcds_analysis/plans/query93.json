@@ -1,0 +1,217 @@
+[
+ {
+  "Plan": {
+   "Startup Cost": 28.29, 
+   "Plans": [
+    {
+     "Startup Cost": 28.29, 
+     "Plans": [
+      {
+       "Partial Mode": "Simple", 
+       "Startup Cost": 28.25, 
+       "Plans": [
+        {
+         "Startup Cost": 28.25, 
+         "Plans": [
+          {
+           "Startup Cost": 12.16, 
+           "Plans": [
+            {
+             "Hash Cond": "(store_returns.sr_reason_sk = reason.r_reason_sk)", 
+             "Startup Cost": 12.01, 
+             "Plans": [
+              {
+               "Startup Cost": 0.0, 
+               "Plan Width": 16, 
+               "Node Type": "Seq Scan", 
+               "Plan Rows": 410, 
+               "Relation Name": "store_returns", 
+               "Alias": "store_returns", 
+               "Parallel Aware": false, 
+               "Output": [
+                "store_returns.sr_returned_date_sk", 
+                "store_returns.sr_return_time_sk", 
+                "store_returns.sr_item_sk", 
+                "store_returns.sr_customer_sk", 
+                "store_returns.sr_cdemo_sk", 
+                "store_returns.sr_hdemo_sk", 
+                "store_returns.sr_addr_sk", 
+                "store_returns.sr_store_sk", 
+                "store_returns.sr_reason_sk", 
+                "store_returns.sr_ticket_number", 
+                "store_returns.sr_return_quantity", 
+                "store_returns.sr_return_amt", 
+                "store_returns.sr_return_tax", 
+                "store_returns.sr_return_amt_inc_tax", 
+                "store_returns.sr_fee", 
+                "store_returns.sr_return_ship_cost", 
+                "store_returns.sr_refunded_cash", 
+                "store_returns.sr_reversed_charge", 
+                "store_returns.sr_store_credit", 
+                "store_returns.sr_net_loss"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Total Cost": 14.1, 
+               "Schema": "pg_temp_2"
+              }, 
+              {
+               "Startup Cost": 12.0, 
+               "Plans": [
+                {
+                 "Filter": "(reason.r_reason_desc = 'Did not fit'::bpchar)", 
+                 "Startup Cost": 0.0, 
+                 "Plan Width": 4, 
+                 "Node Type": "Seq Scan", 
+                 "Plan Rows": 1, 
+                 "Relation Name": "reason", 
+                 "Alias": "reason", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "reason.r_reason_sk"
+                 ], 
+                 "Parent Relationship": "Outer", 
+                 "Total Cost": 12.0, 
+                 "Schema": "pg_temp_2"
+                }
+               ], 
+               "Node Type": "Hash", 
+               "Plan Rows": 1, 
+               "Parallel Aware": false, 
+               "Output": [
+                "reason.r_reason_sk"
+               ], 
+               "Parent Relationship": "Inner", 
+               "Plan Width": 4, 
+               "Total Cost": 12.0
+              }
+             ], 
+             "Node Type": "Hash Join", 
+             "Plan Rows": 2, 
+             "Join Type": "Inner", 
+             "Parallel Aware": false, 
+             "Output": [
+              "store_returns.sr_return_quantity", 
+              "store_returns.sr_item_sk", 
+              "store_returns.sr_ticket_number"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Plan Width": 12, 
+             "Total Cost": 27.67
+            }, 
+            {
+             "Index Cond": "((store_sales.ss_item_sk = store_returns.sr_item_sk) AND (store_sales.ss_ticket_number = store_returns.sr_ticket_number))", 
+             "Startup Cost": 0.15, 
+             "Scan Direction": "Forward", 
+             "Plan Width": 30, 
+             "Node Type": "Index Scan", 
+             "Total Cost": 0.27, 
+             "Plan Rows": 1, 
+             "Relation Name": "store_sales", 
+             "Alias": "store_sales", 
+             "Parallel Aware": false, 
+             "Output": [
+              "store_sales.ss_sold_date_sk", 
+              "store_sales.ss_sold_time_sk", 
+              "store_sales.ss_item_sk", 
+              "store_sales.ss_customer_sk", 
+              "store_sales.ss_cdemo_sk", 
+              "store_sales.ss_hdemo_sk", 
+              "store_sales.ss_addr_sk", 
+              "store_sales.ss_store_sk", 
+              "store_sales.ss_promo_sk", 
+              "store_sales.ss_ticket_number", 
+              "store_sales.ss_quantity", 
+              "store_sales.ss_wholesale_cost", 
+              "store_sales.ss_list_price", 
+              "store_sales.ss_sales_price", 
+              "store_sales.ss_ext_discount_amt", 
+              "store_sales.ss_ext_sales_price", 
+              "store_sales.ss_ext_wholesale_cost", 
+              "store_sales.ss_ext_list_price", 
+              "store_sales.ss_ext_tax", 
+              "store_sales.ss_coupon_amt", 
+              "store_sales.ss_net_paid", 
+              "store_sales.ss_net_paid_inc_tax", 
+              "store_sales.ss_net_profit"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Schema": "pg_temp_2", 
+             "Index Name": "store_sales_pkey"
+            }
+           ], 
+           "Node Type": "Nested Loop", 
+           "Plan Rows": 1, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "store_sales.ss_customer_sk", 
+            "store_returns.sr_return_quantity", 
+            "store_sales.ss_quantity", 
+            "store_sales.ss_sales_price"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 26, 
+           "Total Cost": 28.24
+          }
+         ], 
+         "Sort Key": [
+          "store_sales.ss_customer_sk"
+         ], 
+         "Node Type": "Sort", 
+         "Plan Rows": 1, 
+         "Parallel Aware": false, 
+         "Output": [
+          "store_sales.ss_customer_sk", 
+          "store_returns.sr_return_quantity", 
+          "store_sales.ss_quantity", 
+          "store_sales.ss_sales_price"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 26, 
+         "Total Cost": 28.25
+        }
+       ], 
+       "Group Key": [
+        "store_sales.ss_customer_sk"
+       ], 
+       "Node Type": "Aggregate", 
+       "Strategy": "Sorted", 
+       "Plan Rows": 1, 
+       "Parallel Aware": false, 
+       "Output": [
+        "store_sales.ss_customer_sk", 
+        "sum(CASE WHEN (store_returns.sr_return_quantity IS NOT NULL) THEN (((store_sales.ss_quantity - store_returns.sr_return_quantity))::numeric * store_sales.ss_sales_price) ELSE ((store_sales.ss_quantity)::numeric * store_sales.ss_sales_price) END)"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 36, 
+       "Total Cost": 28.28
+      }
+     ], 
+     "Sort Key": [
+      "(sum(CASE WHEN (store_returns.sr_return_quantity IS NOT NULL) THEN (((store_sales.ss_quantity - store_returns.sr_return_quantity))::numeric * store_sales.ss_sales_price) ELSE ((store_sales.ss_quantity)::numeric * store_sales.ss_sales_price) END))", 
+      "store_sales.ss_customer_sk"
+     ], 
+     "Node Type": "Sort", 
+     "Plan Rows": 1, 
+     "Parallel Aware": false, 
+     "Output": [
+      "store_sales.ss_customer_sk", 
+      "(sum(CASE WHEN (store_returns.sr_return_quantity IS NOT NULL) THEN (((store_sales.ss_quantity - store_returns.sr_return_quantity))::numeric * store_sales.ss_sales_price) ELSE ((store_sales.ss_quantity)::numeric * store_sales.ss_sales_price) END))"
+     ], 
+     "Parent Relationship": "Outer", 
+     "Plan Width": 36, 
+     "Total Cost": 28.3
+    }
+   ], 
+   "Node Type": "Limit", 
+   "Plan Rows": 1, 
+   "Parallel Aware": false, 
+   "Output": [
+    "store_sales.ss_customer_sk", 
+    "(sum(CASE WHEN (store_returns.sr_return_quantity IS NOT NULL) THEN (((store_sales.ss_quantity - store_returns.sr_return_quantity))::numeric * store_sales.ss_sales_price) ELSE ((store_sales.ss_quantity)::numeric * store_sales.ss_sales_price) END))"
+   ], 
+   "Plan Width": 36, 
+   "Total Cost": 28.3
+  }
+ }
+]

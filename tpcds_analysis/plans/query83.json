@@ -1,0 +1,1050 @@
+[
+ {
+  "Plan": {
+   "Startup Cost": 231.95, 
+   "Plans": [
+    {
+     "Partial Mode": "Simple", 
+     "Startup Cost": 75.21, 
+     "Plans": [
+      {
+       "Hash Cond": "(date_dim.d_date = date_dim_1.d_date)", 
+       "Startup Cost": 56.24, 
+       "Plans": [
+        {
+         "Hash Cond": "(store_returns.sr_returned_date_sk = date_dim.d_date_sk)", 
+         "Startup Cost": 26.98, 
+         "Plans": [
+          {
+           "Hash Cond": "(store_returns.sr_item_sk = item.i_item_sk)", 
+           "Startup Cost": 10.9, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "Plan Width": 12, 
+             "Node Type": "Seq Scan", 
+             "Plan Rows": 410, 
+             "Relation Name": "store_returns", 
+             "Alias": "store_returns", 
+             "Parallel Aware": false, 
+             "Output": [
+              "store_returns.sr_returned_date_sk", 
+              "store_returns.sr_return_time_sk", 
+              "store_returns.sr_item_sk", 
+              "store_returns.sr_customer_sk", 
+              "store_returns.sr_cdemo_sk", 
+              "store_returns.sr_hdemo_sk", 
+              "store_returns.sr_addr_sk", 
+              "store_returns.sr_store_sk", 
+              "store_returns.sr_reason_sk", 
+              "store_returns.sr_ticket_number", 
+              "store_returns.sr_return_quantity", 
+              "store_returns.sr_return_amt", 
+              "store_returns.sr_return_tax", 
+              "store_returns.sr_return_amt_inc_tax", 
+              "store_returns.sr_fee", 
+              "store_returns.sr_return_ship_cost", 
+              "store_returns.sr_refunded_cash", 
+              "store_returns.sr_reversed_charge", 
+              "store_returns.sr_store_credit", 
+              "store_returns.sr_net_loss"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Total Cost": 14.1, 
+             "Schema": "pg_temp_2"
+            }, 
+            {
+             "Startup Cost": 10.4, 
+             "Plans": [
+              {
+               "Startup Cost": 0.0, 
+               "Plan Width": 72, 
+               "Node Type": "Seq Scan", 
+               "Plan Rows": 40, 
+               "Relation Name": "item", 
+               "Alias": "item", 
+               "Parallel Aware": false, 
+               "Output": [
+                "item.i_item_id", 
+                "item.i_item_sk"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Total Cost": 10.4, 
+               "Schema": "pg_temp_2"
+              }
+             ], 
+             "Node Type": "Hash", 
+             "Plan Rows": 40, 
+             "Parallel Aware": false, 
+             "Output": [
+              "item.i_item_id", 
+              "item.i_item_sk"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Plan Width": 72, 
+             "Total Cost": 10.4
+            }
+           ], 
+           "Node Type": "Hash Join", 
+           "Plan Rows": 82, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "store_returns.sr_return_quantity", 
+            "store_returns.sr_returned_date_sk", 
+            "item.i_item_id"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 76, 
+           "Total Cost": 27.36
+          }, 
+          {
+           "Startup Cost": 12.7, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "Plan Width": 8, 
+             "Node Type": "Seq Scan", 
+             "Plan Rows": 270, 
+             "Relation Name": "date_dim", 
+             "Alias": "date_dim", 
+             "Parallel Aware": false, 
+             "Output": [
+              "date_dim.d_date_sk", 
+              "date_dim.d_date"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Total Cost": 12.7, 
+             "Schema": "pg_temp_2"
+            }
+           ], 
+           "Node Type": "Hash", 
+           "Plan Rows": 270, 
+           "Parallel Aware": false, 
+           "Output": [
+            "date_dim.d_date_sk", 
+            "date_dim.d_date"
+           ], 
+           "Parent Relationship": "Inner", 
+           "Plan Width": 8, 
+           "Total Cost": 12.7
+          }
+         ], 
+         "Node Type": "Hash Join", 
+         "Plan Rows": 82, 
+         "Join Type": "Inner", 
+         "Parallel Aware": false, 
+         "Output": [
+          "store_returns.sr_return_quantity", 
+          "item.i_item_id", 
+          "date_dim.d_date"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 76, 
+         "Total Cost": 44.56
+        }, 
+        {
+         "Startup Cost": 27.58, 
+         "Plans": [
+          {
+           "Hash Cond": "(date_dim_1.d_week_seq = date_dim_2.d_week_seq)", 
+           "Startup Cost": 13.81, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "Plan Width": 8, 
+             "Node Type": "Seq Scan", 
+             "Plan Rows": 270, 
+             "Relation Name": "date_dim", 
+             "Alias": "date_dim_1", 
+             "Parallel Aware": false, 
+             "Output": [
+              "date_dim_1.d_date_sk", 
+              "date_dim_1.d_date_id", 
+              "date_dim_1.d_date", 
+              "date_dim_1.d_month_seq", 
+              "date_dim_1.d_week_seq", 
+              "date_dim_1.d_quarter_seq", 
+              "date_dim_1.d_year", 
+              "date_dim_1.d_dow", 
+              "date_dim_1.d_moy", 
+              "date_dim_1.d_dom", 
+              "date_dim_1.d_qoy", 
+              "date_dim_1.d_fy_year", 
+              "date_dim_1.d_fy_quarter_seq", 
+              "date_dim_1.d_fy_week_seq", 
+              "date_dim_1.d_day_name", 
+              "date_dim_1.d_quarter_name", 
+              "date_dim_1.d_holiday", 
+              "date_dim_1.d_weekend", 
+              "date_dim_1.d_following_holiday", 
+              "date_dim_1.d_first_dom", 
+              "date_dim_1.d_last_dom", 
+              "date_dim_1.d_same_day_ly", 
+              "date_dim_1.d_same_day_lq", 
+              "date_dim_1.d_current_day", 
+              "date_dim_1.d_current_week", 
+              "date_dim_1.d_current_month", 
+              "date_dim_1.d_current_quarter", 
+              "date_dim_1.d_current_year"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Total Cost": 12.7, 
+             "Schema": "pg_temp_2"
+            }, 
+            {
+             "Startup Cost": 13.76, 
+             "Plans": [
+              {
+               "Partial Mode": "Simple", 
+               "Startup Cost": 13.72, 
+               "Plans": [
+                {
+                 "Filter": "(date_dim_2.d_date = ANY ('{1998-05-30,1998-10-23,1998-11-03}'::date[]))", 
+                 "Startup Cost": 0.0, 
+                 "Plan Width": 4, 
+                 "Node Type": "Seq Scan", 
+                 "Plan Rows": 4, 
+                 "Relation Name": "date_dim", 
+                 "Alias": "date_dim_2", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "date_dim_2.d_week_seq"
+                 ], 
+                 "Parent Relationship": "Outer", 
+                 "Total Cost": 13.71, 
+                 "Schema": "pg_temp_2"
+                }
+               ], 
+               "Group Key": [
+                "date_dim_2.d_week_seq"
+               ], 
+               "Node Type": "Aggregate", 
+               "Strategy": "Hashed", 
+               "Plan Rows": 4, 
+               "Parallel Aware": false, 
+               "Output": [
+                "date_dim_2.d_week_seq"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Plan Width": 4, 
+               "Total Cost": 13.76
+              }
+             ], 
+             "Node Type": "Hash", 
+             "Plan Rows": 4, 
+             "Parallel Aware": false, 
+             "Output": [
+              "date_dim_2.d_week_seq"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Plan Width": 4, 
+             "Total Cost": 13.76
+            }
+           ], 
+           "Node Type": "Hash Join", 
+           "Plan Rows": 135, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "date_dim_1.d_date"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 4, 
+           "Total Cost": 27.58
+          }
+         ], 
+         "Node Type": "Hash", 
+         "Plan Rows": 135, 
+         "Parallel Aware": false, 
+         "Output": [
+          "date_dim_1.d_date"
+         ], 
+         "Parent Relationship": "Inner", 
+         "Plan Width": 4, 
+         "Total Cost": 27.58
+        }
+       ], 
+       "Node Type": "Hash Join", 
+       "Plan Rows": 41, 
+       "Join Type": "Semi", 
+       "Parallel Aware": false, 
+       "Output": [
+        "item.i_item_id", 
+        "store_returns.sr_return_quantity"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 72, 
+       "Total Cost": 75.01
+      }
+     ], 
+     "Group Key": [
+      "item.i_item_id"
+     ], 
+     "Node Type": "Aggregate", 
+     "Strategy": "Hashed", 
+     "Plan Rows": 40, 
+     "Parallel Aware": false, 
+     "Output": [
+      "item.i_item_id", 
+      "sum(store_returns.sr_return_quantity)"
+     ], 
+     "Parent Relationship": "InitPlan", 
+     "Plan Width": 76, 
+     "Subplan Name": "CTE sr_items", 
+     "Total Cost": 75.61
+    }, 
+    {
+     "Partial Mode": "Simple", 
+     "Startup Cost": 74.12, 
+     "Plans": [
+      {
+       "Hash Cond": "(date_dim_3.d_date = date_dim_4.d_date)", 
+       "Startup Cost": 56.24, 
+       "Plans": [
+        {
+         "Hash Cond": "(catalog_returns.cr_returned_date_sk = date_dim_3.d_date_sk)", 
+         "Startup Cost": 26.98, 
+         "Plans": [
+          {
+           "Hash Cond": "(catalog_returns.cr_item_sk = item_1.i_item_sk)", 
+           "Startup Cost": 10.9, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "Plan Width": 12, 
+             "Node Type": "Seq Scan", 
+             "Plan Rows": 360, 
+             "Relation Name": "catalog_returns", 
+             "Alias": "catalog_returns", 
+             "Parallel Aware": false, 
+             "Output": [
+              "catalog_returns.cr_returned_date_sk", 
+              "catalog_returns.cr_returned_time_sk", 
+              "catalog_returns.cr_item_sk", 
+              "catalog_returns.cr_refunded_customer_sk", 
+              "catalog_returns.cr_refunded_cdemo_sk", 
+              "catalog_returns.cr_refunded_hdemo_sk", 
+              "catalog_returns.cr_refunded_addr_sk", 
+              "catalog_returns.cr_returning_customer_sk", 
+              "catalog_returns.cr_returning_cdemo_sk", 
+              "catalog_returns.cr_returning_hdemo_sk", 
+              "catalog_returns.cr_returning_addr_sk", 
+              "catalog_returns.cr_call_center_sk", 
+              "catalog_returns.cr_catalog_page_sk", 
+              "catalog_returns.cr_ship_mode_sk", 
+              "catalog_returns.cr_warehouse_sk", 
+              "catalog_returns.cr_reason_sk", 
+              "catalog_returns.cr_order_number", 
+              "catalog_returns.cr_return_quantity", 
+              "catalog_returns.cr_return_amount", 
+              "catalog_returns.cr_return_tax", 
+              "catalog_returns.cr_return_amt_inc_tax", 
+              "catalog_returns.cr_fee", 
+              "catalog_returns.cr_return_ship_cost", 
+              "catalog_returns.cr_refunded_cash", 
+              "catalog_returns.cr_reversed_charge", 
+              "catalog_returns.cr_store_credit", 
+              "catalog_returns.cr_net_loss"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Total Cost": 13.6, 
+             "Schema": "pg_temp_2"
+            }, 
+            {
+             "Startup Cost": 10.4, 
+             "Plans": [
+              {
+               "Startup Cost": 0.0, 
+               "Plan Width": 72, 
+               "Node Type": "Seq Scan", 
+               "Plan Rows": 40, 
+               "Relation Name": "item", 
+               "Alias": "item_1", 
+               "Parallel Aware": false, 
+               "Output": [
+                "item_1.i_item_id", 
+                "item_1.i_item_sk"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Total Cost": 10.4, 
+               "Schema": "pg_temp_2"
+              }
+             ], 
+             "Node Type": "Hash", 
+             "Plan Rows": 40, 
+             "Parallel Aware": false, 
+             "Output": [
+              "item_1.i_item_id", 
+              "item_1.i_item_sk"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Plan Width": 72, 
+             "Total Cost": 10.4
+            }
+           ], 
+           "Node Type": "Hash Join", 
+           "Plan Rows": 72, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "catalog_returns.cr_return_quantity", 
+            "catalog_returns.cr_returned_date_sk", 
+            "item_1.i_item_id"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 76, 
+           "Total Cost": 26.57
+          }, 
+          {
+           "Startup Cost": 12.7, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "Plan Width": 8, 
+             "Node Type": "Seq Scan", 
+             "Plan Rows": 270, 
+             "Relation Name": "date_dim", 
+             "Alias": "date_dim_3", 
+             "Parallel Aware": false, 
+             "Output": [
+              "date_dim_3.d_date_sk", 
+              "date_dim_3.d_date"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Total Cost": 12.7, 
+             "Schema": "pg_temp_2"
+            }
+           ], 
+           "Node Type": "Hash", 
+           "Plan Rows": 270, 
+           "Parallel Aware": false, 
+           "Output": [
+            "date_dim_3.d_date_sk", 
+            "date_dim_3.d_date"
+           ], 
+           "Parent Relationship": "Inner", 
+           "Plan Width": 8, 
+           "Total Cost": 12.7
+          }
+         ], 
+         "Node Type": "Hash Join", 
+         "Plan Rows": 72, 
+         "Join Type": "Inner", 
+         "Parallel Aware": false, 
+         "Output": [
+          "catalog_returns.cr_return_quantity", 
+          "item_1.i_item_id", 
+          "date_dim_3.d_date"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 76, 
+         "Total Cost": 43.64
+        }, 
+        {
+         "Startup Cost": 27.58, 
+         "Plans": [
+          {
+           "Hash Cond": "(date_dim_4.d_week_seq = date_dim_5.d_week_seq)", 
+           "Startup Cost": 13.81, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "Plan Width": 8, 
+             "Node Type": "Seq Scan", 
+             "Plan Rows": 270, 
+             "Relation Name": "date_dim", 
+             "Alias": "date_dim_4", 
+             "Parallel Aware": false, 
+             "Output": [
+              "date_dim_4.d_date_sk", 
+              "date_dim_4.d_date_id", 
+              "date_dim_4.d_date", 
+              "date_dim_4.d_month_seq", 
+              "date_dim_4.d_week_seq", 
+              "date_dim_4.d_quarter_seq", 
+              "date_dim_4.d_year", 
+              "date_dim_4.d_dow", 
+              "date_dim_4.d_moy", 
+              "date_dim_4.d_dom", 
+              "date_dim_4.d_qoy", 
+              "date_dim_4.d_fy_year", 
+              "date_dim_4.d_fy_quarter_seq", 
+              "date_dim_4.d_fy_week_seq", 
+              "date_dim_4.d_day_name", 
+              "date_dim_4.d_quarter_name", 
+              "date_dim_4.d_holiday", 
+              "date_dim_4.d_weekend", 
+              "date_dim_4.d_following_holiday", 
+              "date_dim_4.d_first_dom", 
+              "date_dim_4.d_last_dom", 
+              "date_dim_4.d_same_day_ly", 
+              "date_dim_4.d_same_day_lq", 
+              "date_dim_4.d_current_day", 
+              "date_dim_4.d_current_week", 
+              "date_dim_4.d_current_month", 
+              "date_dim_4.d_current_quarter", 
+              "date_dim_4.d_current_year"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Total Cost": 12.7, 
+             "Schema": "pg_temp_2"
+            }, 
+            {
+             "Startup Cost": 13.76, 
+             "Plans": [
+              {
+               "Partial Mode": "Simple", 
+               "Startup Cost": 13.72, 
+               "Plans": [
+                {
+                 "Filter": "(date_dim_5.d_date = ANY ('{1998-05-30,1998-10-23,1998-11-03}'::date[]))", 
+                 "Startup Cost": 0.0, 
+                 "Plan Width": 4, 
+                 "Node Type": "Seq Scan", 
+                 "Plan Rows": 4, 
+                 "Relation Name": "date_dim", 
+                 "Alias": "date_dim_5", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "date_dim_5.d_week_seq"
+                 ], 
+                 "Parent Relationship": "Outer", 
+                 "Total Cost": 13.71, 
+                 "Schema": "pg_temp_2"
+                }
+               ], 
+               "Group Key": [
+                "date_dim_5.d_week_seq"
+               ], 
+               "Node Type": "Aggregate", 
+               "Strategy": "Hashed", 
+               "Plan Rows": 4, 
+               "Parallel Aware": false, 
+               "Output": [
+                "date_dim_5.d_week_seq"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Plan Width": 4, 
+               "Total Cost": 13.76
+              }
+             ], 
+             "Node Type": "Hash", 
+             "Plan Rows": 4, 
+             "Parallel Aware": false, 
+             "Output": [
+              "date_dim_5.d_week_seq"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Plan Width": 4, 
+             "Total Cost": 13.76
+            }
+           ], 
+           "Node Type": "Hash Join", 
+           "Plan Rows": 135, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "date_dim_4.d_date"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 4, 
+           "Total Cost": 27.58
+          }
+         ], 
+         "Node Type": "Hash", 
+         "Plan Rows": 135, 
+         "Parallel Aware": false, 
+         "Output": [
+          "date_dim_4.d_date"
+         ], 
+         "Parent Relationship": "Inner", 
+         "Plan Width": 4, 
+         "Total Cost": 27.58
+        }
+       ], 
+       "Node Type": "Hash Join", 
+       "Plan Rows": 36, 
+       "Join Type": "Semi", 
+       "Parallel Aware": false, 
+       "Output": [
+        "item_1.i_item_id", 
+        "catalog_returns.cr_return_quantity"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 72, 
+       "Total Cost": 73.94
+      }
+     ], 
+     "Group Key": [
+      "item_1.i_item_id"
+     ], 
+     "Node Type": "Aggregate", 
+     "Strategy": "Hashed", 
+     "Plan Rows": 36, 
+     "Parallel Aware": false, 
+     "Output": [
+      "item_1.i_item_id", 
+      "sum(catalog_returns.cr_return_quantity)"
+     ], 
+     "Parent Relationship": "InitPlan", 
+     "Plan Width": 76, 
+     "Subplan Name": "CTE cr_items", 
+     "Total Cost": 74.48
+    }, 
+    {
+     "Partial Mode": "Simple", 
+     "Startup Cost": 74.55, 
+     "Plans": [
+      {
+       "Hash Cond": "(date_dim_6.d_date = date_dim_7.d_date)", 
+       "Startup Cost": 56.24, 
+       "Plans": [
+        {
+         "Hash Cond": "(web_returns.wr_returned_date_sk = date_dim_6.d_date_sk)", 
+         "Startup Cost": 26.98, 
+         "Plans": [
+          {
+           "Hash Cond": "(web_returns.wr_item_sk = item_2.i_item_sk)", 
+           "Startup Cost": 10.9, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "Plan Width": 12, 
+             "Node Type": "Seq Scan", 
+             "Plan Rows": 380, 
+             "Relation Name": "web_returns", 
+             "Alias": "web_returns", 
+             "Parallel Aware": false, 
+             "Output": [
+              "web_returns.wr_returned_date_sk", 
+              "web_returns.wr_returned_time_sk", 
+              "web_returns.wr_item_sk", 
+              "web_returns.wr_refunded_customer_sk", 
+              "web_returns.wr_refunded_cdemo_sk", 
+              "web_returns.wr_refunded_hdemo_sk", 
+              "web_returns.wr_refunded_addr_sk", 
+              "web_returns.wr_returning_customer_sk", 
+              "web_returns.wr_returning_cdemo_sk", 
+              "web_returns.wr_returning_hdemo_sk", 
+              "web_returns.wr_returning_addr_sk", 
+              "web_returns.wr_web_page_sk", 
+              "web_returns.wr_reason_sk", 
+              "web_returns.wr_order_number", 
+              "web_returns.wr_return_quantity", 
+              "web_returns.wr_return_amt", 
+              "web_returns.wr_return_tax", 
+              "web_returns.wr_return_amt_inc_tax", 
+              "web_returns.wr_fee", 
+              "web_returns.wr_return_ship_cost", 
+              "web_returns.wr_refunded_cash", 
+              "web_returns.wr_reversed_charge", 
+              "web_returns.wr_account_credit", 
+              "web_returns.wr_net_loss"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Total Cost": 13.8, 
+             "Schema": "pg_temp_2"
+            }, 
+            {
+             "Startup Cost": 10.4, 
+             "Plans": [
+              {
+               "Startup Cost": 0.0, 
+               "Plan Width": 72, 
+               "Node Type": "Seq Scan", 
+               "Plan Rows": 40, 
+               "Relation Name": "item", 
+               "Alias": "item_2", 
+               "Parallel Aware": false, 
+               "Output": [
+                "item_2.i_item_id", 
+                "item_2.i_item_sk"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Total Cost": 10.4, 
+               "Schema": "pg_temp_2"
+              }
+             ], 
+             "Node Type": "Hash", 
+             "Plan Rows": 40, 
+             "Parallel Aware": false, 
+             "Output": [
+              "item_2.i_item_id", 
+              "item_2.i_item_sk"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Plan Width": 72, 
+             "Total Cost": 10.4
+            }
+           ], 
+           "Node Type": "Hash Join", 
+           "Plan Rows": 76, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "web_returns.wr_return_quantity", 
+            "web_returns.wr_returned_date_sk", 
+            "item_2.i_item_id"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 76, 
+           "Total Cost": 26.88
+          }, 
+          {
+           "Startup Cost": 12.7, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "Plan Width": 8, 
+             "Node Type": "Seq Scan", 
+             "Plan Rows": 270, 
+             "Relation Name": "date_dim", 
+             "Alias": "date_dim_6", 
+             "Parallel Aware": false, 
+             "Output": [
+              "date_dim_6.d_date_sk", 
+              "date_dim_6.d_date"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Total Cost": 12.7, 
+             "Schema": "pg_temp_2"
+            }
+           ], 
+           "Node Type": "Hash", 
+           "Plan Rows": 270, 
+           "Parallel Aware": false, 
+           "Output": [
+            "date_dim_6.d_date_sk", 
+            "date_dim_6.d_date"
+           ], 
+           "Parent Relationship": "Inner", 
+           "Plan Width": 8, 
+           "Total Cost": 12.7
+          }
+         ], 
+         "Node Type": "Hash Join", 
+         "Plan Rows": 76, 
+         "Join Type": "Inner", 
+         "Parallel Aware": false, 
+         "Output": [
+          "web_returns.wr_return_quantity", 
+          "item_2.i_item_id", 
+          "date_dim_6.d_date"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 76, 
+         "Total Cost": 44.0
+        }, 
+        {
+         "Startup Cost": 27.58, 
+         "Plans": [
+          {
+           "Hash Cond": "(date_dim_7.d_week_seq = date_dim_8.d_week_seq)", 
+           "Startup Cost": 13.81, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "Plan Width": 8, 
+             "Node Type": "Seq Scan", 
+             "Plan Rows": 270, 
+             "Relation Name": "date_dim", 
+             "Alias": "date_dim_7", 
+             "Parallel Aware": false, 
+             "Output": [
+              "date_dim_7.d_date_sk", 
+              "date_dim_7.d_date_id", 
+              "date_dim_7.d_date", 
+              "date_dim_7.d_month_seq", 
+              "date_dim_7.d_week_seq", 
+              "date_dim_7.d_quarter_seq", 
+              "date_dim_7.d_year", 
+              "date_dim_7.d_dow", 
+              "date_dim_7.d_moy", 
+              "date_dim_7.d_dom", 
+              "date_dim_7.d_qoy", 
+              "date_dim_7.d_fy_year", 
+              "date_dim_7.d_fy_quarter_seq", 
+              "date_dim_7.d_fy_week_seq", 
+              "date_dim_7.d_day_name", 
+              "date_dim_7.d_quarter_name", 
+              "date_dim_7.d_holiday", 
+              "date_dim_7.d_weekend", 
+              "date_dim_7.d_following_holiday", 
+              "date_dim_7.d_first_dom", 
+              "date_dim_7.d_last_dom", 
+              "date_dim_7.d_same_day_ly", 
+              "date_dim_7.d_same_day_lq", 
+              "date_dim_7.d_current_day", 
+              "date_dim_7.d_current_week", 
+              "date_dim_7.d_current_month", 
+              "date_dim_7.d_current_quarter", 
+              "date_dim_7.d_current_year"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Total Cost": 12.7, 
+             "Schema": "pg_temp_2"
+            }, 
+            {
+             "Startup Cost": 13.76, 
+             "Plans": [
+              {
+               "Partial Mode": "Simple", 
+               "Startup Cost": 13.72, 
+               "Plans": [
+                {
+                 "Filter": "(date_dim_8.d_date = ANY ('{1998-05-30,1998-10-23,1998-11-03}'::date[]))", 
+                 "Startup Cost": 0.0, 
+                 "Plan Width": 4, 
+                 "Node Type": "Seq Scan", 
+                 "Plan Rows": 4, 
+                 "Relation Name": "date_dim", 
+                 "Alias": "date_dim_8", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "date_dim_8.d_week_seq"
+                 ], 
+                 "Parent Relationship": "Outer", 
+                 "Total Cost": 13.71, 
+                 "Schema": "pg_temp_2"
+                }
+               ], 
+               "Group Key": [
+                "date_dim_8.d_week_seq"
+               ], 
+               "Node Type": "Aggregate", 
+               "Strategy": "Hashed", 
+               "Plan Rows": 4, 
+               "Parallel Aware": false, 
+               "Output": [
+                "date_dim_8.d_week_seq"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Plan Width": 4, 
+               "Total Cost": 13.76
+              }
+             ], 
+             "Node Type": "Hash", 
+             "Plan Rows": 4, 
+             "Parallel Aware": false, 
+             "Output": [
+              "date_dim_8.d_week_seq"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Plan Width": 4, 
+             "Total Cost": 13.76
+            }
+           ], 
+           "Node Type": "Hash Join", 
+           "Plan Rows": 135, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "date_dim_7.d_date"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 4, 
+           "Total Cost": 27.58
+          }
+         ], 
+         "Node Type": "Hash", 
+         "Plan Rows": 135, 
+         "Parallel Aware": false, 
+         "Output": [
+          "date_dim_7.d_date"
+         ], 
+         "Parent Relationship": "Inner", 
+         "Plan Width": 4, 
+         "Total Cost": 27.58
+        }
+       ], 
+       "Node Type": "Hash Join", 
+       "Plan Rows": 38, 
+       "Join Type": "Semi", 
+       "Parallel Aware": false, 
+       "Output": [
+        "item_2.i_item_id", 
+        "web_returns.wr_return_quantity"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 72, 
+       "Total Cost": 74.36
+      }
+     ], 
+     "Group Key": [
+      "item_2.i_item_id"
+     ], 
+     "Node Type": "Aggregate", 
+     "Strategy": "Hashed", 
+     "Plan Rows": 38, 
+     "Parallel Aware": false, 
+     "Output": [
+      "item_2.i_item_id", 
+      "sum(web_returns.wr_return_quantity)"
+     ], 
+     "Parent Relationship": "InitPlan", 
+     "Plan Width": 76, 
+     "Subplan Name": "CTE wr_items", 
+     "Total Cost": 74.93
+    }, 
+    {
+     "Startup Cost": 6.92, 
+     "Plans": [
+      {
+       "Hash Cond": "(sr_items.item_id = wr_items.item_id)", 
+       "Startup Cost": 2.4, 
+       "Plans": [
+        {
+         "Hash Cond": "(sr_items.item_id = cr_items.item_id)", 
+         "Startup Cost": 1.17, 
+         "Plans": [
+          {
+           "Startup Cost": 0.0, 
+           "CTE Name": "sr_items", 
+           "Node Type": "CTE Scan", 
+           "Plan Rows": 40, 
+           "Alias": "sr_items", 
+           "Parallel Aware": false, 
+           "Output": [
+            "sr_items.item_id", 
+            "sr_items.sr_item_qty"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 76, 
+           "Total Cost": 0.8
+          }, 
+          {
+           "Startup Cost": 0.72, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "CTE Name": "cr_items", 
+             "Node Type": "CTE Scan", 
+             "Plan Rows": 36, 
+             "Alias": "cr_items", 
+             "Parallel Aware": false, 
+             "Output": [
+              "cr_items.cr_item_qty", 
+              "cr_items.item_id"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Plan Width": 76, 
+             "Total Cost": 0.72
+            }
+           ], 
+           "Node Type": "Hash", 
+           "Plan Rows": 36, 
+           "Parallel Aware": false, 
+           "Output": [
+            "cr_items.cr_item_qty", 
+            "cr_items.item_id"
+           ], 
+           "Parent Relationship": "Inner", 
+           "Plan Width": 76, 
+           "Total Cost": 0.72
+          }
+         ], 
+         "Node Type": "Hash Join", 
+         "Plan Rows": 36, 
+         "Join Type": "Inner", 
+         "Parallel Aware": false, 
+         "Output": [
+          "sr_items.item_id", 
+          "sr_items.sr_item_qty", 
+          "cr_items.cr_item_qty", 
+          "cr_items.item_id"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 152, 
+         "Total Cost": 2.48
+        }, 
+        {
+         "Startup Cost": 0.76, 
+         "Plans": [
+          {
+           "Startup Cost": 0.0, 
+           "CTE Name": "wr_items", 
+           "Node Type": "CTE Scan", 
+           "Plan Rows": 38, 
+           "Alias": "wr_items", 
+           "Parallel Aware": false, 
+           "Output": [
+            "wr_items.wr_item_qty", 
+            "wr_items.item_id"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 76, 
+           "Total Cost": 0.76
+          }
+         ], 
+         "Node Type": "Hash", 
+         "Plan Rows": 38, 
+         "Parallel Aware": false, 
+         "Output": [
+          "wr_items.wr_item_qty", 
+          "wr_items.item_id"
+         ], 
+         "Parent Relationship": "Inner", 
+         "Plan Width": 76, 
+         "Total Cost": 0.76
+        }
+       ], 
+       "Node Type": "Hash Join", 
+       "Plan Rows": 34, 
+       "Join Type": "Inner", 
+       "Parallel Aware": false, 
+       "Output": [
+        "sr_items.item_id", 
+        "sr_items.sr_item_qty", 
+        "((((sr_items.sr_item_qty / ((sr_items.sr_item_qty + cr_items.cr_item_qty) + wr_items.wr_item_qty)))::numeric / 3.0) * '100'::numeric)", 
+        "cr_items.cr_item_qty", 
+        "((((cr_items.cr_item_qty / ((sr_items.sr_item_qty + cr_items.cr_item_qty) + wr_items.wr_item_qty)))::numeric / 3.0) * '100'::numeric)", 
+        "wr_items.wr_item_qty", 
+        "((((wr_items.wr_item_qty / ((sr_items.sr_item_qty + cr_items.cr_item_qty) + wr_items.wr_item_qty)))::numeric / 3.0) * '100'::numeric)", 
+        "((((sr_items.sr_item_qty + cr_items.cr_item_qty) + wr_items.wr_item_qty))::numeric / 3.0)"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 220, 
+       "Total Cost": 6.06
+      }
+     ], 
+     "Sort Key": [
+      "sr_items.item_id", 
+      "sr_items.sr_item_qty"
+     ], 
+     "Node Type": "Sort", 
+     "Plan Rows": 34, 
+     "Parallel Aware": false, 
+     "Output": [
+      "sr_items.item_id", 
+      "sr_items.sr_item_qty", 
+      "(((((sr_items.sr_item_qty / ((sr_items.sr_item_qty + cr_items.cr_item_qty) + wr_items.wr_item_qty)))::numeric / 3.0) * '100'::numeric))", 
+      "cr_items.cr_item_qty", 
+      "(((((cr_items.cr_item_qty / ((sr_items.sr_item_qty + cr_items.cr_item_qty) + wr_items.wr_item_qty)))::numeric / 3.0) * '100'::numeric))", 
+      "wr_items.wr_item_qty", 
+      "(((((wr_items.wr_item_qty / ((sr_items.sr_item_qty + cr_items.cr_item_qty) + wr_items.wr_item_qty)))::numeric / 3.0) * '100'::numeric))", 
+      "(((((sr_items.sr_item_qty + cr_items.cr_item_qty) + wr_items.wr_item_qty))::numeric / 3.0))"
+     ], 
+     "Parent Relationship": "Outer", 
+     "Plan Width": 220, 
+     "Total Cost": 7.01
+    }
+   ], 
+   "Node Type": "Limit", 
+   "Plan Rows": 34, 
+   "Parallel Aware": false, 
+   "Output": [
+    "sr_items.item_id", 
+    "sr_items.sr_item_qty", 
+    "(((((sr_items.sr_item_qty / ((sr_items.sr_item_qty + cr_items.cr_item_qty) + wr_items.wr_item_qty)))::numeric / 3.0) * '100'::numeric))", 
+    "cr_items.cr_item_qty", 
+    "(((((cr_items.cr_item_qty / ((sr_items.sr_item_qty + cr_items.cr_item_qty) + wr_items.wr_item_qty)))::numeric / 3.0) * '100'::numeric))", 
+    "wr_items.wr_item_qty", 
+    "(((((wr_items.wr_item_qty / ((sr_items.sr_item_qty + cr_items.cr_item_qty) + wr_items.wr_item_qty)))::numeric / 3.0) * '100'::numeric))", 
+    "(((((sr_items.sr_item_qty + cr_items.cr_item_qty) + wr_items.wr_item_qty))::numeric / 3.0))"
+   ], 
+   "Plan Width": 220, 
+   "Total Cost": 232.03
+  }
+ }
+]

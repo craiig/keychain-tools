@@ -1,0 +1,495 @@
+[
+ {
+  "Plan": {
+   "Startup Cost": 45.62, 
+   "Plans": [
+    {
+     "Startup Cost": 45.62, 
+     "Plans": [
+      {
+       "Partial Mode": "Simple", 
+       "Startup Cost": 45.57, 
+       "Plans": [
+        {
+         "Startup Cost": 45.57, 
+         "Plans": [
+          {
+           "Startup Cost": 13.27, 
+           "Plans": [
+            {
+             "Startup Cost": 13.12, 
+             "Plans": [
+              {
+               "Startup Cost": 12.98, 
+               "Plans": [
+                {
+                 "Startup Cost": 12.83, 
+                 "Plans": [
+                  {
+                   "Startup Cost": 12.68, 
+                   "Plans": [
+                    {
+                     "Startup Cost": 12.54, 
+                     "Plans": [
+                      {
+                       "Hash Cond": "(web_returns.wr_refunded_addr_sk = customer_address.ca_address_sk)", 
+                       "Startup Cost": 12.39, 
+                       "Plans": [
+                        {
+                         "Startup Cost": 0.0, 
+                         "Plan Width": 52, 
+                         "Node Type": "Seq Scan", 
+                         "Plan Rows": 380, 
+                         "Relation Name": "web_returns", 
+                         "Alias": "web_returns", 
+                         "Parallel Aware": false, 
+                         "Output": [
+                          "web_returns.wr_returned_date_sk", 
+                          "web_returns.wr_returned_time_sk", 
+                          "web_returns.wr_item_sk", 
+                          "web_returns.wr_refunded_customer_sk", 
+                          "web_returns.wr_refunded_cdemo_sk", 
+                          "web_returns.wr_refunded_hdemo_sk", 
+                          "web_returns.wr_refunded_addr_sk", 
+                          "web_returns.wr_returning_customer_sk", 
+                          "web_returns.wr_returning_cdemo_sk", 
+                          "web_returns.wr_returning_hdemo_sk", 
+                          "web_returns.wr_returning_addr_sk", 
+                          "web_returns.wr_web_page_sk", 
+                          "web_returns.wr_reason_sk", 
+                          "web_returns.wr_order_number", 
+                          "web_returns.wr_return_quantity", 
+                          "web_returns.wr_return_amt", 
+                          "web_returns.wr_return_tax", 
+                          "web_returns.wr_return_amt_inc_tax", 
+                          "web_returns.wr_fee", 
+                          "web_returns.wr_return_ship_cost", 
+                          "web_returns.wr_refunded_cash", 
+                          "web_returns.wr_reversed_charge", 
+                          "web_returns.wr_account_credit", 
+                          "web_returns.wr_net_loss"
+                         ], 
+                         "Parent Relationship": "Outer", 
+                         "Total Cost": 13.8, 
+                         "Schema": "pg_temp_2"
+                        }, 
+                        {
+                         "Startup Cost": 12.38, 
+                         "Plans": [
+                          {
+                           "Filter": "(((customer_address.ca_country)::text = 'United States'::text) AND ((customer_address.ca_state = ANY ('{VA,WA,LA}'::bpchar[])) OR (customer_address.ca_state = ANY ('{ID,IL,MO}'::bpchar[])) OR (customer_address.ca_state = ANY ('{AK,TN,PA}'::bpchar[]))))", 
+                           "Startup Cost": 0.0, 
+                           "Plan Width": 16, 
+                           "Node Type": "Seq Scan", 
+                           "Plan Rows": 1, 
+                           "Relation Name": "customer_address", 
+                           "Alias": "customer_address", 
+                           "Parallel Aware": false, 
+                           "Output": [
+                            "customer_address.ca_address_sk", 
+                            "customer_address.ca_state"
+                           ], 
+                           "Parent Relationship": "Outer", 
+                           "Total Cost": 12.38, 
+                           "Schema": "pg_temp_2"
+                          }
+                         ], 
+                         "Node Type": "Hash", 
+                         "Plan Rows": 1, 
+                         "Parallel Aware": false, 
+                         "Output": [
+                          "customer_address.ca_address_sk", 
+                          "customer_address.ca_state"
+                         ], 
+                         "Parent Relationship": "Inner", 
+                         "Plan Width": 16, 
+                         "Total Cost": 12.38
+                        }
+                       ], 
+                       "Node Type": "Hash Join", 
+                       "Plan Rows": 2, 
+                       "Join Type": "Inner", 
+                       "Parallel Aware": false, 
+                       "Output": [
+                        "web_returns.wr_refunded_cash", 
+                        "web_returns.wr_fee", 
+                        "web_returns.wr_item_sk", 
+                        "web_returns.wr_order_number", 
+                        "web_returns.wr_refunded_cdemo_sk", 
+                        "web_returns.wr_returning_cdemo_sk", 
+                        "web_returns.wr_reason_sk", 
+                        "customer_address.ca_state"
+                       ], 
+                       "Parent Relationship": "Outer", 
+                       "Plan Width": 60, 
+                       "Total Cost": 27.63
+                      }, 
+                      {
+                       "Index Cond": "(cd1.cd_demo_sk = web_returns.wr_refunded_cdemo_sk)", 
+                       "Startup Cost": 0.15, 
+                       "Scan Direction": "Forward", 
+                       "Plan Width": 96, 
+                       "Node Type": "Index Scan", 
+                       "Total Cost": 0.3, 
+                       "Plan Rows": 1, 
+                       "Relation Name": "customer_demographics", 
+                       "Alias": "cd1", 
+                       "Parallel Aware": false, 
+                       "Filter": "(((cd1.cd_marital_status = 'D'::bpchar) AND (cd1.cd_education_status = 'Secondary'::bpchar)) OR ((cd1.cd_marital_status = 'S'::bpchar) AND (cd1.cd_education_status = 'Advanced Degree'::bpchar)) OR ((cd1.cd_marital_status = 'W'::bpchar) AND (cd1.cd_education_status = 'Unknown'::bpchar)))", 
+                       "Output": [
+                        "cd1.cd_demo_sk", 
+                        "cd1.cd_gender", 
+                        "cd1.cd_marital_status", 
+                        "cd1.cd_education_status", 
+                        "cd1.cd_purchase_estimate", 
+                        "cd1.cd_credit_rating", 
+                        "cd1.cd_dep_count", 
+                        "cd1.cd_dep_employed_count", 
+                        "cd1.cd_dep_college_count"
+                       ], 
+                       "Parent Relationship": "Inner", 
+                       "Schema": "pg_temp_2", 
+                       "Index Name": "customer_demographics_pkey"
+                      }
+                     ], 
+                     "Node Type": "Nested Loop", 
+                     "Plan Rows": 1, 
+                     "Join Type": "Inner", 
+                     "Parallel Aware": false, 
+                     "Output": [
+                      "web_returns.wr_refunded_cash", 
+                      "web_returns.wr_fee", 
+                      "web_returns.wr_item_sk", 
+                      "web_returns.wr_order_number", 
+                      "web_returns.wr_returning_cdemo_sk", 
+                      "web_returns.wr_reason_sk", 
+                      "cd1.cd_marital_status", 
+                      "cd1.cd_education_status", 
+                      "customer_address.ca_state"
+                     ], 
+                     "Parent Relationship": "Outer", 
+                     "Plan Width": 148, 
+                     "Total Cost": 28.24
+                    }, 
+                    {
+                     "Index Cond": "((web_sales.ws_item_sk = web_returns.wr_item_sk) AND (web_sales.ws_order_number = web_returns.wr_order_number))", 
+                     "Startup Cost": 0.15, 
+                     "Scan Direction": "Forward", 
+                     "Plan Width": 48, 
+                     "Node Type": "Index Scan", 
+                     "Total Cost": 0.31, 
+                     "Plan Rows": 1, 
+                     "Relation Name": "web_sales", 
+                     "Alias": "web_sales", 
+                     "Parallel Aware": false, 
+                     "Filter": "((((web_sales.ws_sales_price >= 100.00) AND (web_sales.ws_sales_price <= 150.00)) OR ((web_sales.ws_sales_price >= 50.00) AND (web_sales.ws_sales_price <= 100.00)) OR ((web_sales.ws_sales_price >= 150.00) AND (web_sales.ws_sales_price <= 200.00))) AND (((web_sales.ws_net_profit >= '100'::numeric) AND (web_sales.ws_net_profit <= '200'::numeric)) OR ((web_sales.ws_net_profit >= '150'::numeric) AND (web_sales.ws_net_profit <= '300'::numeric)) OR ((web_sales.ws_net_profit >= '50'::numeric) AND (web_sales.ws_net_profit <= '250'::numeric))))", 
+                     "Output": [
+                      "web_sales.ws_sold_date_sk", 
+                      "web_sales.ws_sold_time_sk", 
+                      "web_sales.ws_ship_date_sk", 
+                      "web_sales.ws_item_sk", 
+                      "web_sales.ws_bill_customer_sk", 
+                      "web_sales.ws_bill_cdemo_sk", 
+                      "web_sales.ws_bill_hdemo_sk", 
+                      "web_sales.ws_bill_addr_sk", 
+                      "web_sales.ws_ship_customer_sk", 
+                      "web_sales.ws_ship_cdemo_sk", 
+                      "web_sales.ws_ship_hdemo_sk", 
+                      "web_sales.ws_ship_addr_sk", 
+                      "web_sales.ws_web_page_sk", 
+                      "web_sales.ws_web_site_sk", 
+                      "web_sales.ws_ship_mode_sk", 
+                      "web_sales.ws_warehouse_sk", 
+                      "web_sales.ws_promo_sk", 
+                      "web_sales.ws_order_number", 
+                      "web_sales.ws_quantity", 
+                      "web_sales.ws_wholesale_cost", 
+                      "web_sales.ws_list_price", 
+                      "web_sales.ws_sales_price", 
+                      "web_sales.ws_ext_discount_amt", 
+                      "web_sales.ws_ext_sales_price", 
+                      "web_sales.ws_ext_wholesale_cost", 
+                      "web_sales.ws_ext_list_price", 
+                      "web_sales.ws_ext_tax", 
+                      "web_sales.ws_coupon_amt", 
+                      "web_sales.ws_ext_ship_cost", 
+                      "web_sales.ws_net_paid", 
+                      "web_sales.ws_net_paid_inc_tax", 
+                      "web_sales.ws_net_paid_inc_ship", 
+                      "web_sales.ws_net_paid_inc_ship_tax", 
+                      "web_sales.ws_net_profit"
+                     ], 
+                     "Parent Relationship": "Inner", 
+                     "Schema": "pg_temp_2", 
+                     "Index Name": "web_sales_pkey"
+                    }
+                   ], 
+                   "Node Type": "Nested Loop", 
+                   "Plan Rows": 1, 
+                   "Join Type": "Inner", 
+                   "Parallel Aware": false, 
+                   "Output": [
+                    "web_sales.ws_quantity", 
+                    "web_sales.ws_web_page_sk", 
+                    "web_sales.ws_sold_date_sk", 
+                    "web_returns.wr_refunded_cash", 
+                    "web_returns.wr_fee", 
+                    "web_returns.wr_returning_cdemo_sk", 
+                    "web_returns.wr_reason_sk", 
+                    "cd1.cd_marital_status", 
+                    "cd1.cd_education_status"
+                   ], 
+                   "Parent Relationship": "Outer", 
+                   "Plan Width": 140, 
+                   "Join Filter": "((((customer_address.ca_state = ANY ('{VA,WA,LA}'::bpchar[])) AND (web_sales.ws_net_profit >= '100'::numeric) AND (web_sales.ws_net_profit <= '200'::numeric)) OR ((customer_address.ca_state = ANY ('{ID,IL,MO}'::bpchar[])) AND (web_sales.ws_net_profit >= '150'::numeric) AND (web_sales.ws_net_profit <= '300'::numeric)) OR ((customer_address.ca_state = ANY ('{AK,TN,PA}'::bpchar[])) AND (web_sales.ws_net_profit >= '50'::numeric) AND (web_sales.ws_net_profit <= '250'::numeric))) AND (((cd1.cd_marital_status = 'D'::bpchar) AND (cd1.cd_education_status = 'Secondary'::bpchar) AND (web_sales.ws_sales_price >= 100.00) AND (web_sales.ws_sales_price <= 150.00)) OR ((cd1.cd_marital_status = 'S'::bpchar) AND (cd1.cd_education_status = 'Advanced Degree'::bpchar) AND (web_sales.ws_sales_price >= 50.00) AND (web_sales.ws_sales_price <= 100.00)) OR ((cd1.cd_marital_status = 'W'::bpchar) AND (cd1.cd_education_status = 'Unknown'::bpchar) AND (web_sales.ws_sales_price >= 150.00) AND (web_sales.ws_sales_price <= 200.00))))", 
+                   "Total Cost": 28.62
+                  }, 
+                  {
+                   "Index Cond": "(web_page.wp_web_page_sk = web_sales.ws_web_page_sk)", 
+                   "Startup Cost": 0.14, 
+                   "Scan Direction": "Forward", 
+                   "Plan Width": 4, 
+                   "Node Type": "Index Only Scan", 
+                   "Total Cost": 8.16, 
+                   "Plan Rows": 1, 
+                   "Relation Name": "web_page", 
+                   "Alias": "web_page", 
+                   "Parallel Aware": false, 
+                   "Output": [
+                    "web_page.wp_web_page_sk"
+                   ], 
+                   "Parent Relationship": "Inner", 
+                   "Schema": "pg_temp_2", 
+                   "Index Name": "web_page_pkey"
+                  }
+                 ], 
+                 "Node Type": "Nested Loop", 
+                 "Plan Rows": 1, 
+                 "Join Type": "Inner", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "web_sales.ws_quantity", 
+                  "web_sales.ws_sold_date_sk", 
+                  "web_returns.wr_refunded_cash", 
+                  "web_returns.wr_fee", 
+                  "web_returns.wr_returning_cdemo_sk", 
+                  "web_returns.wr_reason_sk", 
+                  "cd1.cd_marital_status", 
+                  "cd1.cd_education_status"
+                 ], 
+                 "Parent Relationship": "Outer", 
+                 "Plan Width": 136, 
+                 "Total Cost": 36.8
+                }, 
+                {
+                 "Index Cond": "(cd2.cd_demo_sk = web_returns.wr_returning_cdemo_sk)", 
+                 "Startup Cost": 0.15, 
+                 "Scan Direction": "Forward", 
+                 "Plan Width": 96, 
+                 "Node Type": "Index Scan", 
+                 "Total Cost": 0.28, 
+                 "Plan Rows": 1, 
+                 "Relation Name": "customer_demographics", 
+                 "Alias": "cd2", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "cd2.cd_demo_sk", 
+                  "cd2.cd_gender", 
+                  "cd2.cd_marital_status", 
+                  "cd2.cd_education_status", 
+                  "cd2.cd_purchase_estimate", 
+                  "cd2.cd_credit_rating", 
+                  "cd2.cd_dep_count", 
+                  "cd2.cd_dep_employed_count", 
+                  "cd2.cd_dep_college_count"
+                 ], 
+                 "Parent Relationship": "Inner", 
+                 "Schema": "pg_temp_2", 
+                 "Index Name": "customer_demographics_pkey"
+                }
+               ], 
+               "Node Type": "Nested Loop", 
+               "Plan Rows": 1, 
+               "Join Type": "Inner", 
+               "Parallel Aware": false, 
+               "Output": [
+                "web_sales.ws_quantity", 
+                "web_sales.ws_sold_date_sk", 
+                "web_returns.wr_refunded_cash", 
+                "web_returns.wr_fee", 
+                "web_returns.wr_reason_sk"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Plan Width": 40, 
+               "Join Filter": "((cd1.cd_marital_status = cd2.cd_marital_status) AND (cd1.cd_education_status = cd2.cd_education_status))", 
+               "Total Cost": 37.09
+              }, 
+              {
+               "Index Cond": "(date_dim.d_date_sk = web_sales.ws_sold_date_sk)", 
+               "Startup Cost": 0.15, 
+               "Scan Direction": "Forward", 
+               "Plan Width": 4, 
+               "Node Type": "Index Scan", 
+               "Total Cost": 8.17, 
+               "Plan Rows": 1, 
+               "Relation Name": "date_dim", 
+               "Alias": "date_dim", 
+               "Parallel Aware": false, 
+               "Filter": "(date_dim.d_year = 1998)", 
+               "Output": [
+                "date_dim.d_date_sk", 
+                "date_dim.d_date_id", 
+                "date_dim.d_date", 
+                "date_dim.d_month_seq", 
+                "date_dim.d_week_seq", 
+                "date_dim.d_quarter_seq", 
+                "date_dim.d_year", 
+                "date_dim.d_dow", 
+                "date_dim.d_moy", 
+                "date_dim.d_dom", 
+                "date_dim.d_qoy", 
+                "date_dim.d_fy_year", 
+                "date_dim.d_fy_quarter_seq", 
+                "date_dim.d_fy_week_seq", 
+                "date_dim.d_day_name", 
+                "date_dim.d_quarter_name", 
+                "date_dim.d_holiday", 
+                "date_dim.d_weekend", 
+                "date_dim.d_following_holiday", 
+                "date_dim.d_first_dom", 
+                "date_dim.d_last_dom", 
+                "date_dim.d_same_day_ly", 
+                "date_dim.d_same_day_lq", 
+                "date_dim.d_current_day", 
+                "date_dim.d_current_week", 
+                "date_dim.d_current_month", 
+                "date_dim.d_current_quarter", 
+                "date_dim.d_current_year"
+               ], 
+               "Parent Relationship": "Inner", 
+               "Schema": "pg_temp_2", 
+               "Index Name": "date_dim_pkey"
+              }
+             ], 
+             "Node Type": "Nested Loop", 
+             "Plan Rows": 1, 
+             "Join Type": "Inner", 
+             "Parallel Aware": false, 
+             "Output": [
+              "web_sales.ws_quantity", 
+              "web_returns.wr_refunded_cash", 
+              "web_returns.wr_fee", 
+              "web_returns.wr_reason_sk"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Plan Width": 36, 
+             "Total Cost": 45.27
+            }, 
+            {
+             "Index Cond": "(reason.r_reason_sk = web_returns.wr_reason_sk)", 
+             "Startup Cost": 0.14, 
+             "Scan Direction": "Forward", 
+             "Plan Width": 408, 
+             "Node Type": "Index Scan", 
+             "Total Cost": 0.28, 
+             "Plan Rows": 1, 
+             "Relation Name": "reason", 
+             "Alias": "reason", 
+             "Parallel Aware": false, 
+             "Output": [
+              "reason.r_reason_sk", 
+              "reason.r_reason_id", 
+              "reason.r_reason_desc"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Schema": "pg_temp_2", 
+             "Index Name": "reason_pkey"
+            }
+           ], 
+           "Node Type": "Nested Loop", 
+           "Plan Rows": 1, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "reason.r_reason_desc", 
+            "web_sales.ws_quantity", 
+            "web_returns.wr_refunded_cash", 
+            "web_returns.wr_fee"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 436, 
+           "Total Cost": 45.56
+          }
+         ], 
+         "Sort Key": [
+          "reason.r_reason_desc"
+         ], 
+         "Node Type": "Sort", 
+         "Plan Rows": 1, 
+         "Parallel Aware": false, 
+         "Output": [
+          "reason.r_reason_desc", 
+          "web_sales.ws_quantity", 
+          "web_returns.wr_refunded_cash", 
+          "web_returns.wr_fee"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 436, 
+         "Total Cost": 45.57
+        }
+       ], 
+       "Group Key": [
+        "reason.r_reason_desc"
+       ], 
+       "Node Type": "Aggregate", 
+       "Strategy": "Sorted", 
+       "Plan Rows": 1, 
+       "Parallel Aware": false, 
+       "Output": [
+        "substr((reason.r_reason_desc)::text, 1, 20)", 
+        "avg(web_sales.ws_quantity)", 
+        "avg(web_returns.wr_refunded_cash)", 
+        "avg(web_returns.wr_fee)", 
+        "reason.r_reason_desc"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 532, 
+       "Total Cost": 45.61
+      }
+     ], 
+     "Sort Key": [
+      "(substr((reason.r_reason_desc)::text, 1, 20))", 
+      "(avg(web_sales.ws_quantity))", 
+      "(avg(web_returns.wr_refunded_cash))", 
+      "(avg(web_returns.wr_fee))"
+     ], 
+     "Node Type": "Sort", 
+     "Plan Rows": 1, 
+     "Parallel Aware": false, 
+     "Output": [
+      "(substr((reason.r_reason_desc)::text, 1, 20))", 
+      "(avg(web_sales.ws_quantity))", 
+      "(avg(web_returns.wr_refunded_cash))", 
+      "(avg(web_returns.wr_fee))", 
+      "reason.r_reason_desc"
+     ], 
+     "Parent Relationship": "Outer", 
+     "Plan Width": 532, 
+     "Total Cost": 45.62
+    }
+   ], 
+   "Node Type": "Limit", 
+   "Plan Rows": 1, 
+   "Parallel Aware": false, 
+   "Output": [
+    "(substr((reason.r_reason_desc)::text, 1, 20))", 
+    "(avg(web_sales.ws_quantity))", 
+    "(avg(web_returns.wr_refunded_cash))", 
+    "(avg(web_returns.wr_fee))", 
+    "reason.r_reason_desc"
+   ], 
+   "Plan Width": 532, 
+   "Total Cost": 45.62
+  }
+ }
+]

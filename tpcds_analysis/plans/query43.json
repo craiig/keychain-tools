@@ -1,0 +1,261 @@
+[
+ {
+  "Plan": {
+   "Startup Cost": 25.91, 
+   "Plans": [
+    {
+     "Startup Cost": 25.91, 
+     "Plans": [
+      {
+       "Partial Mode": "Simple", 
+       "Startup Cost": 25.83, 
+       "Plans": [
+        {
+         "Startup Cost": 25.83, 
+         "Plans": [
+          {
+           "Startup Cost": 10.66, 
+           "Plans": [
+            {
+             "Hash Cond": "(store_sales.ss_store_sk = store.s_store_sk)", 
+             "Startup Cost": 10.51, 
+             "Plans": [
+              {
+               "Startup Cost": 0.0, 
+               "Plan Width": 22, 
+               "Node Type": "Seq Scan", 
+               "Plan Rows": 340, 
+               "Relation Name": "store_sales", 
+               "Alias": "store_sales", 
+               "Parallel Aware": false, 
+               "Output": [
+                "store_sales.ss_sold_date_sk", 
+                "store_sales.ss_sold_time_sk", 
+                "store_sales.ss_item_sk", 
+                "store_sales.ss_customer_sk", 
+                "store_sales.ss_cdemo_sk", 
+                "store_sales.ss_hdemo_sk", 
+                "store_sales.ss_addr_sk", 
+                "store_sales.ss_store_sk", 
+                "store_sales.ss_promo_sk", 
+                "store_sales.ss_ticket_number", 
+                "store_sales.ss_quantity", 
+                "store_sales.ss_wholesale_cost", 
+                "store_sales.ss_list_price", 
+                "store_sales.ss_sales_price", 
+                "store_sales.ss_ext_discount_amt", 
+                "store_sales.ss_ext_sales_price", 
+                "store_sales.ss_ext_wholesale_cost", 
+                "store_sales.ss_ext_list_price", 
+                "store_sales.ss_ext_tax", 
+                "store_sales.ss_coupon_amt", 
+                "store_sales.ss_net_paid", 
+                "store_sales.ss_net_paid_inc_tax", 
+                "store_sales.ss_net_profit"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Total Cost": 13.4, 
+               "Schema": "pg_temp_2"
+              }, 
+              {
+               "Startup Cost": 10.5, 
+               "Plans": [
+                {
+                 "Filter": "(store.s_gmt_offset = '-5'::numeric)", 
+                 "Startup Cost": 0.0, 
+                 "Plan Width": 190, 
+                 "Node Type": "Seq Scan", 
+                 "Plan Rows": 1, 
+                 "Relation Name": "store", 
+                 "Alias": "store", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "store.s_store_name", 
+                  "store.s_store_id", 
+                  "store.s_store_sk"
+                 ], 
+                 "Parent Relationship": "Outer", 
+                 "Total Cost": 10.5, 
+                 "Schema": "pg_temp_2"
+                }
+               ], 
+               "Node Type": "Hash", 
+               "Plan Rows": 1, 
+               "Parallel Aware": false, 
+               "Output": [
+                "store.s_store_name", 
+                "store.s_store_id", 
+                "store.s_store_sk"
+               ], 
+               "Parent Relationship": "Inner", 
+               "Plan Width": 190, 
+               "Total Cost": 10.5
+              }
+             ], 
+             "Node Type": "Hash Join", 
+             "Plan Rows": 2, 
+             "Join Type": "Inner", 
+             "Parallel Aware": false, 
+             "Output": [
+              "store_sales.ss_sales_price", 
+              "store_sales.ss_sold_date_sk", 
+              "store.s_store_name", 
+              "store.s_store_id"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Plan Width": 204, 
+             "Total Cost": 25.21
+            }, 
+            {
+             "Index Cond": "(date_dim.d_date_sk = store_sales.ss_sold_date_sk)", 
+             "Startup Cost": 0.15, 
+             "Scan Direction": "Forward", 
+             "Plan Width": 44, 
+             "Node Type": "Index Scan", 
+             "Total Cost": 0.3, 
+             "Plan Rows": 1, 
+             "Relation Name": "date_dim", 
+             "Alias": "date_dim", 
+             "Parallel Aware": false, 
+             "Filter": "(date_dim.d_year = 1998)", 
+             "Output": [
+              "date_dim.d_date_sk", 
+              "date_dim.d_date_id", 
+              "date_dim.d_date", 
+              "date_dim.d_month_seq", 
+              "date_dim.d_week_seq", 
+              "date_dim.d_quarter_seq", 
+              "date_dim.d_year", 
+              "date_dim.d_dow", 
+              "date_dim.d_moy", 
+              "date_dim.d_dom", 
+              "date_dim.d_qoy", 
+              "date_dim.d_fy_year", 
+              "date_dim.d_fy_quarter_seq", 
+              "date_dim.d_fy_week_seq", 
+              "date_dim.d_day_name", 
+              "date_dim.d_quarter_name", 
+              "date_dim.d_holiday", 
+              "date_dim.d_weekend", 
+              "date_dim.d_following_holiday", 
+              "date_dim.d_first_dom", 
+              "date_dim.d_last_dom", 
+              "date_dim.d_same_day_ly", 
+              "date_dim.d_same_day_lq", 
+              "date_dim.d_current_day", 
+              "date_dim.d_current_week", 
+              "date_dim.d_current_month", 
+              "date_dim.d_current_quarter", 
+              "date_dim.d_current_year"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Schema": "pg_temp_2", 
+             "Index Name": "date_dim_pkey"
+            }
+           ], 
+           "Node Type": "Nested Loop", 
+           "Plan Rows": 1, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "store.s_store_name", 
+            "store.s_store_id", 
+            "date_dim.d_day_name", 
+            "store_sales.ss_sales_price"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 240, 
+           "Total Cost": 25.82
+          }
+         ], 
+         "Sort Key": [
+          "store.s_store_name", 
+          "store.s_store_id"
+         ], 
+         "Node Type": "Sort", 
+         "Plan Rows": 1, 
+         "Parallel Aware": false, 
+         "Output": [
+          "store.s_store_name", 
+          "store.s_store_id", 
+          "date_dim.d_day_name", 
+          "store_sales.ss_sales_price"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 240, 
+         "Total Cost": 25.84
+        }
+       ], 
+       "Group Key": [
+        "store.s_store_name", 
+        "store.s_store_id"
+       ], 
+       "Node Type": "Aggregate", 
+       "Strategy": "Sorted", 
+       "Plan Rows": 1, 
+       "Parallel Aware": false, 
+       "Output": [
+        "store.s_store_name", 
+        "store.s_store_id", 
+        "sum(CASE WHEN (date_dim.d_day_name = 'Sunday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END)", 
+        "sum(CASE WHEN (date_dim.d_day_name = 'Monday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END)", 
+        "sum(CASE WHEN (date_dim.d_day_name = 'Tuesday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END)", 
+        "sum(CASE WHEN (date_dim.d_day_name = 'Wednesday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END)", 
+        "sum(CASE WHEN (date_dim.d_day_name = 'Thursday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END)", 
+        "sum(CASE WHEN (date_dim.d_day_name = 'Friday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END)", 
+        "sum(CASE WHEN (date_dim.d_day_name = 'Saturday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END)"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 410, 
+       "Total Cost": 25.9
+      }
+     ], 
+     "Sort Key": [
+      "store.s_store_name", 
+      "store.s_store_id", 
+      "(sum(CASE WHEN (date_dim.d_day_name = 'Sunday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))", 
+      "(sum(CASE WHEN (date_dim.d_day_name = 'Monday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))", 
+      "(sum(CASE WHEN (date_dim.d_day_name = 'Tuesday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))", 
+      "(sum(CASE WHEN (date_dim.d_day_name = 'Wednesday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))", 
+      "(sum(CASE WHEN (date_dim.d_day_name = 'Thursday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))", 
+      "(sum(CASE WHEN (date_dim.d_day_name = 'Friday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))", 
+      "(sum(CASE WHEN (date_dim.d_day_name = 'Saturday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))"
+     ], 
+     "Node Type": "Sort", 
+     "Plan Rows": 1, 
+     "Parallel Aware": false, 
+     "Output": [
+      "store.s_store_name", 
+      "store.s_store_id", 
+      "(sum(CASE WHEN (date_dim.d_day_name = 'Sunday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))", 
+      "(sum(CASE WHEN (date_dim.d_day_name = 'Monday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))", 
+      "(sum(CASE WHEN (date_dim.d_day_name = 'Tuesday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))", 
+      "(sum(CASE WHEN (date_dim.d_day_name = 'Wednesday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))", 
+      "(sum(CASE WHEN (date_dim.d_day_name = 'Thursday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))", 
+      "(sum(CASE WHEN (date_dim.d_day_name = 'Friday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))", 
+      "(sum(CASE WHEN (date_dim.d_day_name = 'Saturday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))"
+     ], 
+     "Parent Relationship": "Outer", 
+     "Plan Width": 410, 
+     "Total Cost": 25.92
+    }
+   ], 
+   "Node Type": "Limit", 
+   "Plan Rows": 1, 
+   "Parallel Aware": false, 
+   "Output": [
+    "store.s_store_name", 
+    "store.s_store_id", 
+    "(sum(CASE WHEN (date_dim.d_day_name = 'Sunday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))", 
+    "(sum(CASE WHEN (date_dim.d_day_name = 'Monday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))", 
+    "(sum(CASE WHEN (date_dim.d_day_name = 'Tuesday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))", 
+    "(sum(CASE WHEN (date_dim.d_day_name = 'Wednesday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))", 
+    "(sum(CASE WHEN (date_dim.d_day_name = 'Thursday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))", 
+    "(sum(CASE WHEN (date_dim.d_day_name = 'Friday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))", 
+    "(sum(CASE WHEN (date_dim.d_day_name = 'Saturday'::bpchar) THEN store_sales.ss_sales_price ELSE NULL::numeric END))"
+   ], 
+   "Plan Width": 410, 
+   "Total Cost": 25.92
+  }
+ }
+]

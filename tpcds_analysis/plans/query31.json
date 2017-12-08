@@ -1,0 +1,583 @@
+[
+ {
+  "Plan": {
+   "Startup Cost": 121.38, 
+   "Plans": [
+    {
+     "Partial Mode": "Simple", 
+     "Startup Cost": 48.74, 
+     "Plans": [
+      {
+       "Hash Cond": "(store_sales.ss_sold_date_sk = date_dim.d_date_sk)", 
+       "Startup Cost": 28.32, 
+       "Plans": [
+        {
+         "Hash Cond": "(store_sales.ss_addr_sk = customer_address.ca_address_sk)", 
+         "Startup Cost": 12.25, 
+         "Plans": [
+          {
+           "Startup Cost": 0.0, 
+           "Plan Width": 22, 
+           "Node Type": "Seq Scan", 
+           "Plan Rows": 340, 
+           "Relation Name": "store_sales", 
+           "Alias": "store_sales", 
+           "Parallel Aware": false, 
+           "Output": [
+            "store_sales.ss_sold_date_sk", 
+            "store_sales.ss_sold_time_sk", 
+            "store_sales.ss_item_sk", 
+            "store_sales.ss_customer_sk", 
+            "store_sales.ss_cdemo_sk", 
+            "store_sales.ss_hdemo_sk", 
+            "store_sales.ss_addr_sk", 
+            "store_sales.ss_store_sk", 
+            "store_sales.ss_promo_sk", 
+            "store_sales.ss_ticket_number", 
+            "store_sales.ss_quantity", 
+            "store_sales.ss_wholesale_cost", 
+            "store_sales.ss_list_price", 
+            "store_sales.ss_sales_price", 
+            "store_sales.ss_ext_discount_amt", 
+            "store_sales.ss_ext_sales_price", 
+            "store_sales.ss_ext_wholesale_cost", 
+            "store_sales.ss_ext_list_price", 
+            "store_sales.ss_ext_tax", 
+            "store_sales.ss_coupon_amt", 
+            "store_sales.ss_net_paid", 
+            "store_sales.ss_net_paid_inc_tax", 
+            "store_sales.ss_net_profit"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Total Cost": 13.4, 
+           "Schema": "pg_temp_2"
+          }, 
+          {
+           "Startup Cost": 11.0, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "Plan Width": 82, 
+             "Node Type": "Seq Scan", 
+             "Plan Rows": 100, 
+             "Relation Name": "customer_address", 
+             "Alias": "customer_address", 
+             "Parallel Aware": false, 
+             "Output": [
+              "customer_address.ca_county", 
+              "customer_address.ca_address_sk"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Total Cost": 11.0, 
+             "Schema": "pg_temp_2"
+            }
+           ], 
+           "Node Type": "Hash", 
+           "Plan Rows": 100, 
+           "Parallel Aware": false, 
+           "Output": [
+            "customer_address.ca_county", 
+            "customer_address.ca_address_sk"
+           ], 
+           "Parent Relationship": "Inner", 
+           "Plan Width": 82, 
+           "Total Cost": 11.0
+          }
+         ], 
+         "Node Type": "Hash Join", 
+         "Plan Rows": 170, 
+         "Join Type": "Inner", 
+         "Parallel Aware": false, 
+         "Output": [
+          "store_sales.ss_ext_sales_price", 
+          "store_sales.ss_sold_date_sk", 
+          "customer_address.ca_county"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 96, 
+         "Total Cost": 28.62
+        }, 
+        {
+         "Startup Cost": 12.7, 
+         "Plans": [
+          {
+           "Startup Cost": 0.0, 
+           "Plan Width": 12, 
+           "Node Type": "Seq Scan", 
+           "Plan Rows": 270, 
+           "Relation Name": "date_dim", 
+           "Alias": "date_dim", 
+           "Parallel Aware": false, 
+           "Output": [
+            "date_dim.d_qoy", 
+            "date_dim.d_year", 
+            "date_dim.d_date_sk"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Total Cost": 12.7, 
+           "Schema": "pg_temp_2"
+          }
+         ], 
+         "Node Type": "Hash", 
+         "Plan Rows": 270, 
+         "Parallel Aware": false, 
+         "Output": [
+          "date_dim.d_qoy", 
+          "date_dim.d_year", 
+          "date_dim.d_date_sk"
+         ], 
+         "Parent Relationship": "Inner", 
+         "Plan Width": 12, 
+         "Total Cost": 12.7
+        }
+       ], 
+       "Node Type": "Hash Join", 
+       "Plan Rows": 170, 
+       "Join Type": "Inner", 
+       "Parallel Aware": false, 
+       "Output": [
+        "customer_address.ca_county", 
+        "date_dim.d_qoy", 
+        "date_dim.d_year", 
+        "store_sales.ss_ext_sales_price"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 100, 
+       "Total Cost": 47.04
+      }
+     ], 
+     "Group Key": [
+      "customer_address.ca_county", 
+      "date_dim.d_qoy", 
+      "date_dim.d_year"
+     ], 
+     "Node Type": "Aggregate", 
+     "Strategy": "Hashed", 
+     "Plan Rows": 170, 
+     "Parallel Aware": false, 
+     "Output": [
+      "customer_address.ca_county", 
+      "date_dim.d_qoy", 
+      "date_dim.d_year", 
+      "sum(store_sales.ss_ext_sales_price)"
+     ], 
+     "Parent Relationship": "InitPlan", 
+     "Plan Width": 118, 
+     "Subplan Name": "CTE ss", 
+     "Total Cost": 50.86
+    }, 
+    {
+     "Partial Mode": "Simple", 
+     "Startup Cost": 46.29, 
+     "Plans": [
+      {
+       "Hash Cond": "(web_sales.ws_sold_date_sk = date_dim_1.d_date_sk)", 
+       "Startup Cost": 28.32, 
+       "Plans": [
+        {
+         "Hash Cond": "(web_sales.ws_bill_addr_sk = customer_address_1.ca_address_sk)", 
+         "Startup Cost": 12.25, 
+         "Plans": [
+          {
+           "Startup Cost": 0.0, 
+           "Plan Width": 22, 
+           "Node Type": "Seq Scan", 
+           "Plan Rows": 260, 
+           "Relation Name": "web_sales", 
+           "Alias": "web_sales", 
+           "Parallel Aware": false, 
+           "Output": [
+            "web_sales.ws_sold_date_sk", 
+            "web_sales.ws_sold_time_sk", 
+            "web_sales.ws_ship_date_sk", 
+            "web_sales.ws_item_sk", 
+            "web_sales.ws_bill_customer_sk", 
+            "web_sales.ws_bill_cdemo_sk", 
+            "web_sales.ws_bill_hdemo_sk", 
+            "web_sales.ws_bill_addr_sk", 
+            "web_sales.ws_ship_customer_sk", 
+            "web_sales.ws_ship_cdemo_sk", 
+            "web_sales.ws_ship_hdemo_sk", 
+            "web_sales.ws_ship_addr_sk", 
+            "web_sales.ws_web_page_sk", 
+            "web_sales.ws_web_site_sk", 
+            "web_sales.ws_ship_mode_sk", 
+            "web_sales.ws_warehouse_sk", 
+            "web_sales.ws_promo_sk", 
+            "web_sales.ws_order_number", 
+            "web_sales.ws_quantity", 
+            "web_sales.ws_wholesale_cost", 
+            "web_sales.ws_list_price", 
+            "web_sales.ws_sales_price", 
+            "web_sales.ws_ext_discount_amt", 
+            "web_sales.ws_ext_sales_price", 
+            "web_sales.ws_ext_wholesale_cost", 
+            "web_sales.ws_ext_list_price", 
+            "web_sales.ws_ext_tax", 
+            "web_sales.ws_coupon_amt", 
+            "web_sales.ws_ext_ship_cost", 
+            "web_sales.ws_net_paid", 
+            "web_sales.ws_net_paid_inc_tax", 
+            "web_sales.ws_net_paid_inc_ship", 
+            "web_sales.ws_net_paid_inc_ship_tax", 
+            "web_sales.ws_net_profit"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Total Cost": 12.6, 
+           "Schema": "pg_temp_2"
+          }, 
+          {
+           "Startup Cost": 11.0, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "Plan Width": 82, 
+             "Node Type": "Seq Scan", 
+             "Plan Rows": 100, 
+             "Relation Name": "customer_address", 
+             "Alias": "customer_address_1", 
+             "Parallel Aware": false, 
+             "Output": [
+              "customer_address_1.ca_county", 
+              "customer_address_1.ca_address_sk"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Total Cost": 11.0, 
+             "Schema": "pg_temp_2"
+            }
+           ], 
+           "Node Type": "Hash", 
+           "Plan Rows": 100, 
+           "Parallel Aware": false, 
+           "Output": [
+            "customer_address_1.ca_county", 
+            "customer_address_1.ca_address_sk"
+           ], 
+           "Parent Relationship": "Inner", 
+           "Plan Width": 82, 
+           "Total Cost": 11.0
+          }
+         ], 
+         "Node Type": "Hash Join", 
+         "Plan Rows": 130, 
+         "Join Type": "Inner", 
+         "Parallel Aware": false, 
+         "Output": [
+          "web_sales.ws_ext_sales_price", 
+          "web_sales.ws_sold_date_sk", 
+          "customer_address_1.ca_county"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 96, 
+         "Total Cost": 27.12
+        }, 
+        {
+         "Startup Cost": 12.7, 
+         "Plans": [
+          {
+           "Startup Cost": 0.0, 
+           "Plan Width": 12, 
+           "Node Type": "Seq Scan", 
+           "Plan Rows": 270, 
+           "Relation Name": "date_dim", 
+           "Alias": "date_dim_1", 
+           "Parallel Aware": false, 
+           "Output": [
+            "date_dim_1.d_qoy", 
+            "date_dim_1.d_year", 
+            "date_dim_1.d_date_sk"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Total Cost": 12.7, 
+           "Schema": "pg_temp_2"
+          }
+         ], 
+         "Node Type": "Hash", 
+         "Plan Rows": 270, 
+         "Parallel Aware": false, 
+         "Output": [
+          "date_dim_1.d_qoy", 
+          "date_dim_1.d_year", 
+          "date_dim_1.d_date_sk"
+         ], 
+         "Parent Relationship": "Inner", 
+         "Plan Width": 12, 
+         "Total Cost": 12.7
+        }
+       ], 
+       "Node Type": "Hash Join", 
+       "Plan Rows": 130, 
+       "Join Type": "Inner", 
+       "Parallel Aware": false, 
+       "Output": [
+        "customer_address_1.ca_county", 
+        "date_dim_1.d_qoy", 
+        "date_dim_1.d_year", 
+        "web_sales.ws_ext_sales_price"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 100, 
+       "Total Cost": 44.99
+      }
+     ], 
+     "Group Key": [
+      "customer_address_1.ca_county", 
+      "date_dim_1.d_qoy", 
+      "date_dim_1.d_year"
+     ], 
+     "Node Type": "Aggregate", 
+     "Strategy": "Hashed", 
+     "Plan Rows": 130, 
+     "Parallel Aware": false, 
+     "Output": [
+      "customer_address_1.ca_county", 
+      "date_dim_1.d_qoy", 
+      "date_dim_1.d_year", 
+      "sum(web_sales.ws_ext_sales_price)"
+     ], 
+     "Parent Relationship": "InitPlan", 
+     "Plan Width": 118, 
+     "Subplan Name": "CTE ws", 
+     "Total Cost": 47.91
+    }, 
+    {
+     "Startup Cost": 0.0, 
+     "Plans": [
+      {
+       "Startup Cost": 0.0, 
+       "Plans": [
+        {
+         "Startup Cost": 0.0, 
+         "Plans": [
+          {
+           "Startup Cost": 0.0, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "Plans": [
+              {
+               "Startup Cost": 0.0, 
+               "CTE Name": "ss", 
+               "Node Type": "CTE Scan", 
+               "Plan Rows": 1, 
+               "Filter": "((ss1.d_qoy = 1) AND (ss1.d_year = 2002))", 
+               "Alias": "ss1", 
+               "Parallel Aware": false, 
+               "Output": [
+                "ss1.ca_county", 
+                "ss1.d_qoy", 
+                "ss1.d_year", 
+                "ss1.store_sales"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Plan Width": 114, 
+               "Total Cost": 4.25
+              }, 
+              {
+               "Startup Cost": 0.0, 
+               "CTE Name": "ss", 
+               "Node Type": "CTE Scan", 
+               "Plan Rows": 1, 
+               "Filter": "((ss2.d_year = 2002) AND (ss2.d_qoy = 2))", 
+               "Alias": "ss2", 
+               "Parallel Aware": false, 
+               "Output": [
+                "ss2.ca_county", 
+                "ss2.d_qoy", 
+                "ss2.d_year", 
+                "ss2.store_sales"
+               ], 
+               "Parent Relationship": "Inner", 
+               "Plan Width": 110, 
+               "Total Cost": 4.25
+              }
+             ], 
+             "Node Type": "Nested Loop", 
+             "Plan Rows": 1, 
+             "Join Type": "Inner", 
+             "Parallel Aware": false, 
+             "Output": [
+              "ss1.ca_county", 
+              "ss1.d_year", 
+              "ss1.store_sales", 
+              "ss2.store_sales", 
+              "ss2.ca_county"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Plan Width": 224, 
+             "Join Filter": "((ss1.ca_county)::text = (ss2.ca_county)::text)", 
+             "Total Cost": 8.51
+            }, 
+            {
+             "Startup Cost": 0.0, 
+             "CTE Name": "ss", 
+             "Node Type": "CTE Scan", 
+             "Plan Rows": 1, 
+             "Filter": "((ss3.d_year = 2002) AND (ss3.d_qoy = 3))", 
+             "Alias": "ss3", 
+             "Parallel Aware": false, 
+             "Output": [
+              "ss3.ca_county", 
+              "ss3.d_qoy", 
+              "ss3.d_year", 
+              "ss3.store_sales"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Plan Width": 110, 
+             "Total Cost": 4.25
+            }
+           ], 
+           "Node Type": "Nested Loop", 
+           "Plan Rows": 1, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "ss1.ca_county", 
+            "ss1.d_year", 
+            "ss1.store_sales", 
+            "ss2.store_sales", 
+            "ss2.ca_county", 
+            "ss3.store_sales", 
+            "ss3.ca_county"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 334, 
+           "Join Filter": "((ss1.ca_county)::text = (ss3.ca_county)::text)", 
+           "Total Cost": 12.77
+          }, 
+          {
+           "Startup Cost": 0.0, 
+           "CTE Name": "ws", 
+           "Node Type": "CTE Scan", 
+           "Plan Rows": 1, 
+           "Filter": "((ws1.d_qoy = 1) AND (ws1.d_year = 2002))", 
+           "Alias": "ws1", 
+           "Parallel Aware": false, 
+           "Output": [
+            "ws1.ca_county", 
+            "ws1.d_qoy", 
+            "ws1.d_year", 
+            "ws1.web_sales"
+           ], 
+           "Parent Relationship": "Inner", 
+           "Plan Width": 110, 
+           "Total Cost": 3.25
+          }
+         ], 
+         "Node Type": "Nested Loop", 
+         "Plan Rows": 1, 
+         "Join Type": "Inner", 
+         "Parallel Aware": false, 
+         "Output": [
+          "ss1.ca_county", 
+          "ss1.d_year", 
+          "ss1.store_sales", 
+          "ss2.store_sales", 
+          "ss2.ca_county", 
+          "ss3.store_sales", 
+          "ss3.ca_county", 
+          "ws1.web_sales", 
+          "ws1.ca_county"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 444, 
+         "Join Filter": "((ss1.ca_county)::text = (ws1.ca_county)::text)", 
+         "Total Cost": 16.04
+        }, 
+        {
+         "Startup Cost": 0.0, 
+         "CTE Name": "ws", 
+         "Node Type": "CTE Scan", 
+         "Plan Rows": 1, 
+         "Filter": "((ws2.d_year = 2002) AND (ws2.d_qoy = 2))", 
+         "Alias": "ws2", 
+         "Parallel Aware": false, 
+         "Output": [
+          "ws2.ca_county", 
+          "ws2.d_qoy", 
+          "ws2.d_year", 
+          "ws2.web_sales"
+         ], 
+         "Parent Relationship": "Inner", 
+         "Plan Width": 110, 
+         "Total Cost": 3.25
+        }
+       ], 
+       "Node Type": "Nested Loop", 
+       "Plan Rows": 1, 
+       "Join Type": "Inner", 
+       "Parallel Aware": false, 
+       "Output": [
+        "ss1.ca_county", 
+        "ss1.d_year", 
+        "ss1.store_sales", 
+        "ss2.store_sales", 
+        "ss2.ca_county", 
+        "ss3.store_sales", 
+        "ss3.ca_county", 
+        "ws1.web_sales", 
+        "ws1.ca_county", 
+        "ws2.web_sales", 
+        "ws2.ca_county"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 554, 
+       "Join Filter": "(((ss1.ca_county)::text = (ws2.ca_county)::text) AND (CASE WHEN (ws1.web_sales > '0'::numeric) THEN (ws2.web_sales / ws1.web_sales) ELSE NULL::numeric END > CASE WHEN (ss1.store_sales > '0'::numeric) THEN (ss2.store_sales / ss1.store_sales) ELSE NULL::numeric END))", 
+       "Total Cost": 19.31
+      }, 
+      {
+       "Startup Cost": 0.0, 
+       "CTE Name": "ws", 
+       "Node Type": "CTE Scan", 
+       "Plan Rows": 1, 
+       "Filter": "((ws3.d_year = 2002) AND (ws3.d_qoy = 3))", 
+       "Alias": "ws3", 
+       "Parallel Aware": false, 
+       "Output": [
+        "ws3.ca_county", 
+        "ws3.d_qoy", 
+        "ws3.d_year", 
+        "ws3.web_sales"
+       ], 
+       "Parent Relationship": "Inner", 
+       "Plan Width": 110, 
+       "Total Cost": 3.25
+      }
+     ], 
+     "Node Type": "Nested Loop", 
+     "Plan Rows": 1, 
+     "Join Type": "Inner", 
+     "Parallel Aware": false, 
+     "Output": [
+      "ss1.ca_county", 
+      "ss1.d_year", 
+      "(ws2.web_sales / ws1.web_sales)", 
+      "(ss2.store_sales / ss1.store_sales)", 
+      "(ws3.web_sales / ws2.web_sales)", 
+      "(ss3.store_sales / ss2.store_sales)"
+     ], 
+     "Parent Relationship": "Outer", 
+     "Plan Width": 210, 
+     "Join Filter": "(((ss1.ca_county)::text = (ws3.ca_county)::text) AND (CASE WHEN (ws2.web_sales > '0'::numeric) THEN (ws3.web_sales / ws2.web_sales) ELSE NULL::numeric END > CASE WHEN (ss2.store_sales > '0'::numeric) THEN (ss3.store_sales / ss2.store_sales) ELSE NULL::numeric END))", 
+     "Total Cost": 22.6
+    }
+   ], 
+   "Sort Key": [
+    "((ss2.store_sales / ss1.store_sales))"
+   ], 
+   "Node Type": "Sort", 
+   "Plan Rows": 1, 
+   "Parallel Aware": false, 
+   "Output": [
+    "ss1.ca_county", 
+    "ss1.d_year", 
+    "((ws2.web_sales / ws1.web_sales))", 
+    "((ss2.store_sales / ss1.store_sales))", 
+    "((ws3.web_sales / ws2.web_sales))", 
+    "((ss3.store_sales / ss2.store_sales))"
+   ], 
+   "Plan Width": 210, 
+   "Total Cost": 121.39
+  }
+ }
+]

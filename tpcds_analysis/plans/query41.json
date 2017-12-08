@@ -1,0 +1,120 @@
+[
+ {
+  "Plan": {
+   "Startup Cost": 655.21, 
+   "Plans": [
+    {
+     "Startup Cost": 655.21, 
+     "Plans": [
+      {
+       "Startup Cost": 655.21, 
+       "Plans": [
+        {
+         "Filter": "((i1.i_manufact_id >= 946) AND (i1.i_manufact_id <= 986) AND ((SubPlan 1) > 0))", 
+         "Startup Cost": 0.0, 
+         "Plan Width": 204, 
+         "Plans": [
+          {
+           "Partial Mode": "Simple", 
+           "Startup Cost": 16.1, 
+           "Plans": [
+            {
+             "Filter": "((item.i_manufact = i1.i_manufact) AND (((item.i_category = 'Women'::bpchar) AND ((item.i_color = 'khaki'::bpchar) OR (item.i_color = 'grey'::bpchar)) AND ((item.i_units = 'Ton'::bpchar) OR (item.i_units = 'Dozen'::bpchar)) AND ((item.i_size = 'small'::bpchar) OR (item.i_size = 'economy'::bpchar))) OR ((item.i_category = 'Women'::bpchar) AND ((item.i_color = 'chocolate'::bpchar) OR (item.i_color = 'magenta'::bpchar)) AND ((item.i_units = 'Cup'::bpchar) OR (item.i_units = 'Bunch'::bpchar)) AND ((item.i_size = 'petite'::bpchar) OR (item.i_size = 'large'::bpchar))) OR ((item.i_category = 'Men'::bpchar) AND ((item.i_color = 'mint'::bpchar) OR (item.i_color = 'chartreuse'::bpchar)) AND ((item.i_units = 'Case'::bpchar) OR (item.i_units = 'Dram'::bpchar)) AND ((item.i_size = 'extra large'::bpchar) OR (item.i_size = 'medium'::bpchar))) OR ((item.i_category = 'Men'::bpchar) AND ((item.i_color = 'olive'::bpchar) OR (item.i_color = 'tan'::bpchar)) AND ((item.i_units = 'Pallet'::bpchar) OR (item.i_units = 'Each'::bpchar)) AND ((item.i_size = 'small'::bpchar) OR (item.i_size = 'economy'::bpchar))) OR ((item.i_category = 'Women'::bpchar) AND ((item.i_color = 'spring'::bpchar) OR (item.i_color = 'blush'::bpchar)) AND ((item.i_units = 'Lb'::bpchar) OR (item.i_units = 'Box'::bpchar)) AND ((item.i_size = 'small'::bpchar) OR (item.i_size = 'economy'::bpchar))) OR ((item.i_category = 'Women'::bpchar) AND ((item.i_color = 'cornsilk'::bpchar) OR (item.i_color = 'lavender'::bpchar)) AND ((item.i_units = 'N/A'::bpchar) OR (item.i_units = 'Ounce'::bpchar)) AND ((item.i_size = 'petite'::bpchar) OR (item.i_size = 'large'::bpchar))) OR ((item.i_category = 'Men'::bpchar) AND ((item.i_color = 'papaya'::bpchar) OR (item.i_color = 'linen'::bpchar)) AND ((item.i_units = 'Carton'::bpchar) OR (item.i_units = 'Oz'::bpchar)) AND ((item.i_size = 'extra large'::bpchar) OR (item.i_size = 'medium'::bpchar))) OR ((item.i_category = 'Men'::bpchar) AND ((item.i_color = 'red'::bpchar) OR (item.i_color = 'turquoise'::bpchar)) AND ((item.i_units = 'Pound'::bpchar) OR (item.i_units = 'Unknown'::bpchar)) AND ((item.i_size = 'small'::bpchar) OR (item.i_size = 'economy'::bpchar)))))", 
+             "Startup Cost": 0.0, 
+             "Plan Width": 0, 
+             "Node Type": "Seq Scan", 
+             "Plan Rows": 1, 
+             "Relation Name": "item", 
+             "Alias": "item", 
+             "Parallel Aware": false, 
+             "Output": [
+              "item.i_item_sk", 
+              "item.i_item_id", 
+              "item.i_rec_start_date", 
+              "item.i_rec_end_date", 
+              "item.i_item_desc", 
+              "item.i_current_price", 
+              "item.i_wholesale_cost", 
+              "item.i_brand_id", 
+              "item.i_brand", 
+              "item.i_class_id", 
+              "item.i_class", 
+              "item.i_category_id", 
+              "item.i_category", 
+              "item.i_manufact_id", 
+              "item.i_manufact", 
+              "item.i_size", 
+              "item.i_formulation", 
+              "item.i_color", 
+              "item.i_units", 
+              "item.i_container", 
+              "item.i_manager_id", 
+              "item.i_product_name"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Total Cost": 16.1, 
+             "Schema": "pg_temp_2"
+            }
+           ], 
+           "Node Type": "Aggregate", 
+           "Strategy": "Plain", 
+           "Plan Rows": 1, 
+           "Parallel Aware": false, 
+           "Output": [
+            "count(*)"
+           ], 
+           "Parent Relationship": "SubPlan", 
+           "Plan Width": 8, 
+           "Subplan Name": "SubPlan 1", 
+           "Total Cost": 16.11
+          }
+         ], 
+         "Node Type": "Seq Scan", 
+         "Plan Rows": 1, 
+         "Relation Name": "item", 
+         "Alias": "i1", 
+         "Parallel Aware": false, 
+         "Output": [
+          "i1.i_product_name"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Total Cost": 655.2, 
+         "Schema": "pg_temp_2"
+        }
+       ], 
+       "Sort Key": [
+        "i1.i_product_name"
+       ], 
+       "Node Type": "Sort", 
+       "Plan Rows": 1, 
+       "Parallel Aware": false, 
+       "Output": [
+        "i1.i_product_name"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 204, 
+       "Total Cost": 655.22
+      }
+     ], 
+     "Node Type": "Unique", 
+     "Plan Rows": 1, 
+     "Parallel Aware": false, 
+     "Output": [
+      "i1.i_product_name"
+     ], 
+     "Parent Relationship": "Outer", 
+     "Plan Width": 204, 
+     "Total Cost": 655.22
+    }
+   ], 
+   "Node Type": "Limit", 
+   "Plan Rows": 1, 
+   "Parallel Aware": false, 
+   "Output": [
+    "i1.i_product_name"
+   ], 
+   "Plan Width": 204, 
+   "Total Cost": 655.22
+  }
+ }
+]

@@ -1,0 +1,351 @@
+[
+ {
+  "Plan": {
+   "Startup Cost": 19.82, 
+   "Plans": [
+    {
+     "Partial Mode": "Simple", 
+     "Startup Cost": 19.82, 
+     "Plans": [
+      {
+       "Startup Cost": 19.82, 
+       "Plans": [
+        {
+         "Startup Cost": 0.58, 
+         "Plans": [
+          {
+           "Startup Cost": 0.44, 
+           "Plans": [
+            {
+             "Startup Cost": 0.29, 
+             "Plans": [
+              {
+               "Startup Cost": 0.15, 
+               "Plans": [
+                {
+                 "Filter": "((item.i_current_price >= 0.99) AND (item.i_current_price <= 1.49))", 
+                 "Startup Cost": 0.0, 
+                 "Plan Width": 72, 
+                 "Node Type": "Seq Scan", 
+                 "Plan Rows": 1, 
+                 "Relation Name": "item", 
+                 "Alias": "item", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "item.i_item_sk", 
+                  "item.i_item_id", 
+                  "item.i_rec_start_date", 
+                  "item.i_rec_end_date", 
+                  "item.i_item_desc", 
+                  "item.i_current_price", 
+                  "item.i_wholesale_cost", 
+                  "item.i_brand_id", 
+                  "item.i_brand", 
+                  "item.i_class_id", 
+                  "item.i_class", 
+                  "item.i_category_id", 
+                  "item.i_category", 
+                  "item.i_manufact_id", 
+                  "item.i_manufact", 
+                  "item.i_size", 
+                  "item.i_formulation", 
+                  "item.i_color", 
+                  "item.i_units", 
+                  "item.i_container", 
+                  "item.i_manager_id", 
+                  "item.i_product_name"
+                 ], 
+                 "Parent Relationship": "Outer", 
+                 "Total Cost": 10.6, 
+                 "Schema": "pg_temp_2"
+                }, 
+                {
+                 "Index Cond": "(catalog_sales.cs_item_sk = item.i_item_sk)", 
+                 "Startup Cost": 0.15, 
+                 "Scan Direction": "Forward", 
+                 "Plan Width": 30, 
+                 "Node Type": "Index Scan", 
+                 "Total Cost": 8.17, 
+                 "Plan Rows": 1, 
+                 "Relation Name": "catalog_sales", 
+                 "Alias": "catalog_sales", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "catalog_sales.cs_sold_date_sk", 
+                  "catalog_sales.cs_sold_time_sk", 
+                  "catalog_sales.cs_ship_date_sk", 
+                  "catalog_sales.cs_bill_customer_sk", 
+                  "catalog_sales.cs_bill_cdemo_sk", 
+                  "catalog_sales.cs_bill_hdemo_sk", 
+                  "catalog_sales.cs_bill_addr_sk", 
+                  "catalog_sales.cs_ship_customer_sk", 
+                  "catalog_sales.cs_ship_cdemo_sk", 
+                  "catalog_sales.cs_ship_hdemo_sk", 
+                  "catalog_sales.cs_ship_addr_sk", 
+                  "catalog_sales.cs_call_center_sk", 
+                  "catalog_sales.cs_catalog_page_sk", 
+                  "catalog_sales.cs_ship_mode_sk", 
+                  "catalog_sales.cs_warehouse_sk", 
+                  "catalog_sales.cs_item_sk", 
+                  "catalog_sales.cs_promo_sk", 
+                  "catalog_sales.cs_order_number", 
+                  "catalog_sales.cs_quantity", 
+                  "catalog_sales.cs_wholesale_cost", 
+                  "catalog_sales.cs_list_price", 
+                  "catalog_sales.cs_sales_price", 
+                  "catalog_sales.cs_ext_discount_amt", 
+                  "catalog_sales.cs_ext_sales_price", 
+                  "catalog_sales.cs_ext_wholesale_cost", 
+                  "catalog_sales.cs_ext_list_price", 
+                  "catalog_sales.cs_ext_tax", 
+                  "catalog_sales.cs_coupon_amt", 
+                  "catalog_sales.cs_ext_ship_cost", 
+                  "catalog_sales.cs_net_paid", 
+                  "catalog_sales.cs_net_paid_inc_tax", 
+                  "catalog_sales.cs_net_paid_inc_ship", 
+                  "catalog_sales.cs_net_paid_inc_ship_tax", 
+                  "catalog_sales.cs_net_profit"
+                 ], 
+                 "Parent Relationship": "Inner", 
+                 "Schema": "pg_temp_2", 
+                 "Index Name": "catalog_sales_pkey"
+                }
+               ], 
+               "Node Type": "Nested Loop", 
+               "Plan Rows": 1, 
+               "Join Type": "Inner", 
+               "Parallel Aware": false, 
+               "Output": [
+                "catalog_sales.cs_sales_price", 
+                "catalog_sales.cs_order_number", 
+                "catalog_sales.cs_item_sk", 
+                "catalog_sales.cs_warehouse_sk", 
+                "catalog_sales.cs_sold_date_sk", 
+                "item.i_item_id"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Plan Width": 98, 
+               "Total Cost": 18.78
+              }, 
+              {
+               "Index Cond": "((catalog_sales.cs_item_sk = catalog_returns.cr_item_sk) AND (catalog_sales.cs_order_number = catalog_returns.cr_order_number))", 
+               "Startup Cost": 0.15, 
+               "Scan Direction": "Forward", 
+               "Plan Width": 22, 
+               "Node Type": "Index Scan", 
+               "Total Cost": 0.34, 
+               "Plan Rows": 1, 
+               "Relation Name": "catalog_returns", 
+               "Alias": "catalog_returns", 
+               "Parallel Aware": false, 
+               "Output": [
+                "catalog_returns.cr_returned_date_sk", 
+                "catalog_returns.cr_returned_time_sk", 
+                "catalog_returns.cr_item_sk", 
+                "catalog_returns.cr_refunded_customer_sk", 
+                "catalog_returns.cr_refunded_cdemo_sk", 
+                "catalog_returns.cr_refunded_hdemo_sk", 
+                "catalog_returns.cr_refunded_addr_sk", 
+                "catalog_returns.cr_returning_customer_sk", 
+                "catalog_returns.cr_returning_cdemo_sk", 
+                "catalog_returns.cr_returning_hdemo_sk", 
+                "catalog_returns.cr_returning_addr_sk", 
+                "catalog_returns.cr_call_center_sk", 
+                "catalog_returns.cr_catalog_page_sk", 
+                "catalog_returns.cr_ship_mode_sk", 
+                "catalog_returns.cr_warehouse_sk", 
+                "catalog_returns.cr_reason_sk", 
+                "catalog_returns.cr_order_number", 
+                "catalog_returns.cr_return_quantity", 
+                "catalog_returns.cr_return_amount", 
+                "catalog_returns.cr_return_tax", 
+                "catalog_returns.cr_return_amt_inc_tax", 
+                "catalog_returns.cr_fee", 
+                "catalog_returns.cr_return_ship_cost", 
+                "catalog_returns.cr_refunded_cash", 
+                "catalog_returns.cr_reversed_charge", 
+                "catalog_returns.cr_store_credit", 
+                "catalog_returns.cr_net_loss"
+               ], 
+               "Parent Relationship": "Inner", 
+               "Schema": "pg_temp_2", 
+               "Index Name": "catalog_returns_pkey"
+              }
+             ], 
+             "Node Type": "Nested Loop", 
+             "Plan Rows": 1, 
+             "Join Type": "Left", 
+             "Parallel Aware": false, 
+             "Output": [
+              "catalog_sales.cs_sales_price", 
+              "catalog_sales.cs_warehouse_sk", 
+              "catalog_sales.cs_sold_date_sk", 
+              "catalog_returns.cr_refunded_cash", 
+              "item.i_item_id"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Plan Width": 104, 
+             "Total Cost": 19.12
+            }, 
+            {
+             "Index Cond": "(warehouse.w_warehouse_sk = catalog_sales.cs_warehouse_sk)", 
+             "Startup Cost": 0.14, 
+             "Scan Direction": "Forward", 
+             "Plan Width": 16, 
+             "Node Type": "Index Scan", 
+             "Total Cost": 0.33, 
+             "Plan Rows": 1, 
+             "Relation Name": "warehouse", 
+             "Alias": "warehouse", 
+             "Parallel Aware": false, 
+             "Output": [
+              "warehouse.w_warehouse_sk", 
+              "warehouse.w_warehouse_id", 
+              "warehouse.w_warehouse_name", 
+              "warehouse.w_warehouse_sq_ft", 
+              "warehouse.w_street_number", 
+              "warehouse.w_street_name", 
+              "warehouse.w_street_type", 
+              "warehouse.w_suite_number", 
+              "warehouse.w_city", 
+              "warehouse.w_county", 
+              "warehouse.w_state", 
+              "warehouse.w_zip", 
+              "warehouse.w_country", 
+              "warehouse.w_gmt_offset"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Schema": "pg_temp_2", 
+             "Index Name": "warehouse_pkey"
+            }
+           ], 
+           "Node Type": "Nested Loop", 
+           "Plan Rows": 1, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "catalog_sales.cs_sales_price", 
+            "catalog_sales.cs_sold_date_sk", 
+            "catalog_returns.cr_refunded_cash", 
+            "warehouse.w_state", 
+            "item.i_item_id"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 112, 
+           "Total Cost": 19.46
+          }, 
+          {
+           "Index Cond": "(date_dim.d_date_sk = catalog_sales.cs_sold_date_sk)", 
+           "Startup Cost": 0.15, 
+           "Scan Direction": "Forward", 
+           "Plan Width": 8, 
+           "Node Type": "Index Scan", 
+           "Total Cost": 0.34, 
+           "Plan Rows": 1, 
+           "Relation Name": "date_dim", 
+           "Alias": "date_dim", 
+           "Parallel Aware": false, 
+           "Filter": "((date_dim.d_date >= '1998-01-06 00:00:00'::timestamp without time zone) AND (date_dim.d_date <= '1998-03-07 00:00:00'::timestamp without time zone))", 
+           "Output": [
+            "date_dim.d_date_sk", 
+            "date_dim.d_date_id", 
+            "date_dim.d_date", 
+            "date_dim.d_month_seq", 
+            "date_dim.d_week_seq", 
+            "date_dim.d_quarter_seq", 
+            "date_dim.d_year", 
+            "date_dim.d_dow", 
+            "date_dim.d_moy", 
+            "date_dim.d_dom", 
+            "date_dim.d_qoy", 
+            "date_dim.d_fy_year", 
+            "date_dim.d_fy_quarter_seq", 
+            "date_dim.d_fy_week_seq", 
+            "date_dim.d_day_name", 
+            "date_dim.d_quarter_name", 
+            "date_dim.d_holiday", 
+            "date_dim.d_weekend", 
+            "date_dim.d_following_holiday", 
+            "date_dim.d_first_dom", 
+            "date_dim.d_last_dom", 
+            "date_dim.d_same_day_ly", 
+            "date_dim.d_same_day_lq", 
+            "date_dim.d_current_day", 
+            "date_dim.d_current_week", 
+            "date_dim.d_current_month", 
+            "date_dim.d_current_quarter", 
+            "date_dim.d_current_year"
+           ], 
+           "Parent Relationship": "Inner", 
+           "Schema": "pg_temp_2", 
+           "Index Name": "date_dim_pkey"
+          }
+         ], 
+         "Node Type": "Nested Loop", 
+         "Plan Rows": 1, 
+         "Join Type": "Inner", 
+         "Parallel Aware": false, 
+         "Output": [
+          "warehouse.w_state", 
+          "item.i_item_id", 
+          "date_dim.d_date", 
+          "catalog_sales.cs_sales_price", 
+          "catalog_returns.cr_refunded_cash"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 112, 
+         "Total Cost": 19.81
+        }
+       ], 
+       "Sort Key": [
+        "warehouse.w_state", 
+        "item.i_item_id"
+       ], 
+       "Node Type": "Sort", 
+       "Plan Rows": 1, 
+       "Parallel Aware": false, 
+       "Output": [
+        "warehouse.w_state", 
+        "item.i_item_id", 
+        "date_dim.d_date", 
+        "catalog_sales.cs_sales_price", 
+        "catalog_returns.cr_refunded_cash"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 112, 
+       "Total Cost": 19.83
+      }
+     ], 
+     "Group Key": [
+      "warehouse.w_state", 
+      "item.i_item_id"
+     ], 
+     "Node Type": "Aggregate", 
+     "Strategy": "Sorted", 
+     "Plan Rows": 1, 
+     "Parallel Aware": false, 
+     "Output": [
+      "warehouse.w_state", 
+      "item.i_item_id", 
+      "sum(CASE WHEN (date_dim.d_date < '1998-02-05'::date) THEN (catalog_sales.cs_sales_price - COALESCE(catalog_returns.cr_refunded_cash, '0'::numeric)) ELSE '0'::numeric END)", 
+      "sum(CASE WHEN (date_dim.d_date >= '1998-02-05'::date) THEN (catalog_sales.cs_sales_price - COALESCE(catalog_returns.cr_refunded_cash, '0'::numeric)) ELSE '0'::numeric END)"
+     ], 
+     "Parent Relationship": "Outer", 
+     "Plan Width": 144, 
+     "Total Cost": 19.86
+    }
+   ], 
+   "Node Type": "Limit", 
+   "Plan Rows": 1, 
+   "Parallel Aware": false, 
+   "Output": [
+    "warehouse.w_state", 
+    "item.i_item_id", 
+    "(sum(CASE WHEN (date_dim.d_date < '1998-02-05'::date) THEN (catalog_sales.cs_sales_price - COALESCE(catalog_returns.cr_refunded_cash, '0'::numeric)) ELSE '0'::numeric END))", 
+    "(sum(CASE WHEN (date_dim.d_date >= '1998-02-05'::date) THEN (catalog_sales.cs_sales_price - COALESCE(catalog_returns.cr_refunded_cash, '0'::numeric)) ELSE '0'::numeric END))"
+   ], 
+   "Plan Width": 144, 
+   "Total Cost": 19.86
+  }
+ }
+]

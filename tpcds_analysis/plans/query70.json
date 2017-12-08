@@ -1,0 +1,594 @@
+[
+ {
+  "Plan": {
+   "Startup Cost": 55.2, 
+   "Plans": [
+    {
+     "Startup Cost": 55.2, 
+     "Plans": [
+      {
+       "Startup Cost": 55.08, 
+       "Plans": [
+        {
+         "Startup Cost": 55.08, 
+         "Plans": [
+          {
+           "Partial Mode": "Simple", 
+           "Startup Cost": 54.99, 
+           "Plans": [
+            {
+             "Startup Cost": 54.99, 
+             "Plans": [
+              {
+               "Startup Cost": 39.81, 
+               "Plans": [
+                {
+                 "Hash Cond": "(store_sales.ss_store_sk = store.s_store_sk)", 
+                 "Startup Cost": 39.66, 
+                 "Plans": [
+                  {
+                   "Startup Cost": 0.0, 
+                   "Plan Width": 22, 
+                   "Node Type": "Seq Scan", 
+                   "Plan Rows": 340, 
+                   "Relation Name": "store_sales", 
+                   "Alias": "store_sales", 
+                   "Parallel Aware": false, 
+                   "Output": [
+                    "store_sales.ss_sold_date_sk", 
+                    "store_sales.ss_sold_time_sk", 
+                    "store_sales.ss_item_sk", 
+                    "store_sales.ss_customer_sk", 
+                    "store_sales.ss_cdemo_sk", 
+                    "store_sales.ss_hdemo_sk", 
+                    "store_sales.ss_addr_sk", 
+                    "store_sales.ss_store_sk", 
+                    "store_sales.ss_promo_sk", 
+                    "store_sales.ss_ticket_number", 
+                    "store_sales.ss_quantity", 
+                    "store_sales.ss_wholesale_cost", 
+                    "store_sales.ss_list_price", 
+                    "store_sales.ss_sales_price", 
+                    "store_sales.ss_ext_discount_amt", 
+                    "store_sales.ss_ext_sales_price", 
+                    "store_sales.ss_ext_wholesale_cost", 
+                    "store_sales.ss_ext_list_price", 
+                    "store_sales.ss_ext_tax", 
+                    "store_sales.ss_coupon_amt", 
+                    "store_sales.ss_net_paid", 
+                    "store_sales.ss_net_paid_inc_tax", 
+                    "store_sales.ss_net_profit"
+                   ], 
+                   "Parent Relationship": "Outer", 
+                   "Total Cost": 13.4, 
+                   "Schema": "pg_temp_2"
+                  }, 
+                  {
+                   "Startup Cost": 39.65, 
+                   "Plans": [
+                    {
+                     "Hash Cond": "(store.s_state = tmp1.s_state)", 
+                     "Startup Cost": 29.13, 
+                     "Plans": [
+                      {
+                       "Startup Cost": 0.0, 
+                       "Plan Width": 94, 
+                       "Node Type": "Seq Scan", 
+                       "Plan Rows": 40, 
+                       "Relation Name": "store", 
+                       "Alias": "store", 
+                       "Parallel Aware": false, 
+                       "Output": [
+                        "store.s_store_sk", 
+                        "store.s_store_id", 
+                        "store.s_rec_start_date", 
+                        "store.s_rec_end_date", 
+                        "store.s_closed_date_sk", 
+                        "store.s_store_name", 
+                        "store.s_number_employees", 
+                        "store.s_floor_space", 
+                        "store.s_hours", 
+                        "store.s_manager", 
+                        "store.s_market_id", 
+                        "store.s_geography_class", 
+                        "store.s_market_desc", 
+                        "store.s_market_manager", 
+                        "store.s_division_id", 
+                        "store.s_division_name", 
+                        "store.s_company_id", 
+                        "store.s_company_name", 
+                        "store.s_street_number", 
+                        "store.s_street_name", 
+                        "store.s_street_type", 
+                        "store.s_suite_number", 
+                        "store.s_city", 
+                        "store.s_county", 
+                        "store.s_state", 
+                        "store.s_zip", 
+                        "store.s_country", 
+                        "store.s_gmt_offset", 
+                        "store.s_tax_precentage"
+                       ], 
+                       "Parent Relationship": "Outer", 
+                       "Total Cost": 10.4, 
+                       "Schema": "pg_temp_2"
+                      }, 
+                      {
+                       "Startup Cost": 29.12, 
+                       "Plans": [
+                        {
+                         "Startup Cost": 29.09, 
+                         "Plans": [
+                          {
+                           "Startup Cost": 29.09, 
+                           "Plans": [
+                            {
+                             "Startup Cost": 29.09, 
+                             "Plans": [
+                              {
+                               "Partial Mode": "Simple", 
+                               "Startup Cost": 29.05, 
+                               "Plans": [
+                                {
+                                 "Startup Cost": 29.05, 
+                                 "Plans": [
+                                  {
+                                   "Startup Cost": 14.2, 
+                                   "Plans": [
+                                    {
+                                     "Hash Cond": "(store_sales_1.ss_sold_date_sk = date_dim.d_date_sk)", 
+                                     "Startup Cost": 14.06, 
+                                     "Plans": [
+                                      {
+                                       "Startup Cost": 0.0, 
+                                       "Plan Width": 22, 
+                                       "Node Type": "Seq Scan", 
+                                       "Plan Rows": 340, 
+                                       "Relation Name": "store_sales", 
+                                       "Alias": "store_sales_1", 
+                                       "Parallel Aware": false, 
+                                       "Output": [
+                                        "store_sales_1.ss_sold_date_sk", 
+                                        "store_sales_1.ss_sold_time_sk", 
+                                        "store_sales_1.ss_item_sk", 
+                                        "store_sales_1.ss_customer_sk", 
+                                        "store_sales_1.ss_cdemo_sk", 
+                                        "store_sales_1.ss_hdemo_sk", 
+                                        "store_sales_1.ss_addr_sk", 
+                                        "store_sales_1.ss_store_sk", 
+                                        "store_sales_1.ss_promo_sk", 
+                                        "store_sales_1.ss_ticket_number", 
+                                        "store_sales_1.ss_quantity", 
+                                        "store_sales_1.ss_wholesale_cost", 
+                                        "store_sales_1.ss_list_price", 
+                                        "store_sales_1.ss_sales_price", 
+                                        "store_sales_1.ss_ext_discount_amt", 
+                                        "store_sales_1.ss_ext_sales_price", 
+                                        "store_sales_1.ss_ext_wholesale_cost", 
+                                        "store_sales_1.ss_ext_list_price", 
+                                        "store_sales_1.ss_ext_tax", 
+                                        "store_sales_1.ss_coupon_amt", 
+                                        "store_sales_1.ss_net_paid", 
+                                        "store_sales_1.ss_net_paid_inc_tax", 
+                                        "store_sales_1.ss_net_profit"
+                                       ], 
+                                       "Parent Relationship": "Outer", 
+                                       "Total Cost": 13.4, 
+                                       "Schema": "pg_temp_2"
+                                      }, 
+                                      {
+                                       "Startup Cost": 14.05, 
+                                       "Plans": [
+                                        {
+                                         "Filter": "((date_dim.d_month_seq >= 1176) AND (date_dim.d_month_seq <= 1187))", 
+                                         "Startup Cost": 0.0, 
+                                         "Plan Width": 4, 
+                                         "Node Type": "Seq Scan", 
+                                         "Plan Rows": 1, 
+                                         "Relation Name": "date_dim", 
+                                         "Alias": "date_dim", 
+                                         "Parallel Aware": false, 
+                                         "Output": [
+                                          "date_dim.d_date_sk"
+                                         ], 
+                                         "Parent Relationship": "Outer", 
+                                         "Total Cost": 14.05, 
+                                         "Schema": "pg_temp_2"
+                                        }
+                                       ], 
+                                       "Node Type": "Hash", 
+                                       "Plan Rows": 1, 
+                                       "Parallel Aware": false, 
+                                       "Output": [
+                                        "date_dim.d_date_sk"
+                                       ], 
+                                       "Parent Relationship": "Inner", 
+                                       "Plan Width": 4, 
+                                       "Total Cost": 14.05
+                                      }
+                                     ], 
+                                     "Node Type": "Hash Join", 
+                                     "Plan Rows": 1, 
+                                     "Join Type": "Inner", 
+                                     "Parallel Aware": false, 
+                                     "Output": [
+                                      "store_sales_1.ss_net_profit", 
+                                      "store_sales_1.ss_store_sk"
+                                     ], 
+                                     "Parent Relationship": "Outer", 
+                                     "Plan Width": 18, 
+                                     "Total Cost": 28.75
+                                    }, 
+                                    {
+                                     "Index Cond": "(store_1.s_store_sk = store_sales_1.ss_store_sk)", 
+                                     "Startup Cost": 0.14, 
+                                     "Scan Direction": "Forward", 
+                                     "Plan Width": 16, 
+                                     "Node Type": "Index Scan", 
+                                     "Total Cost": 0.29, 
+                                     "Plan Rows": 1, 
+                                     "Relation Name": "store", 
+                                     "Alias": "store_1", 
+                                     "Parallel Aware": false, 
+                                     "Output": [
+                                      "store_1.s_store_sk", 
+                                      "store_1.s_store_id", 
+                                      "store_1.s_rec_start_date", 
+                                      "store_1.s_rec_end_date", 
+                                      "store_1.s_closed_date_sk", 
+                                      "store_1.s_store_name", 
+                                      "store_1.s_number_employees", 
+                                      "store_1.s_floor_space", 
+                                      "store_1.s_hours", 
+                                      "store_1.s_manager", 
+                                      "store_1.s_market_id", 
+                                      "store_1.s_geography_class", 
+                                      "store_1.s_market_desc", 
+                                      "store_1.s_market_manager", 
+                                      "store_1.s_division_id", 
+                                      "store_1.s_division_name", 
+                                      "store_1.s_company_id", 
+                                      "store_1.s_company_name", 
+                                      "store_1.s_street_number", 
+                                      "store_1.s_street_name", 
+                                      "store_1.s_street_type", 
+                                      "store_1.s_suite_number", 
+                                      "store_1.s_city", 
+                                      "store_1.s_county", 
+                                      "store_1.s_state", 
+                                      "store_1.s_zip", 
+                                      "store_1.s_country", 
+                                      "store_1.s_gmt_offset", 
+                                      "store_1.s_tax_precentage"
+                                     ], 
+                                     "Parent Relationship": "Inner", 
+                                     "Schema": "pg_temp_2", 
+                                     "Index Name": "store_pkey"
+                                    }
+                                   ], 
+                                   "Node Type": "Nested Loop", 
+                                   "Plan Rows": 1, 
+                                   "Join Type": "Inner", 
+                                   "Parallel Aware": false, 
+                                   "Output": [
+                                    "store_1.s_state", 
+                                    "store_sales_1.ss_net_profit"
+                                   ], 
+                                   "Parent Relationship": "Outer", 
+                                   "Plan Width": 26, 
+                                   "Total Cost": 29.04
+                                  }
+                                 ], 
+                                 "Sort Key": [
+                                  "store_1.s_state"
+                                 ], 
+                                 "Node Type": "Sort", 
+                                 "Plan Rows": 1, 
+                                 "Parallel Aware": false, 
+                                 "Output": [
+                                  "store_1.s_state", 
+                                  "store_sales_1.ss_net_profit"
+                                 ], 
+                                 "Parent Relationship": "Outer", 
+                                 "Plan Width": 26, 
+                                 "Total Cost": 29.06
+                                }
+                               ], 
+                               "Group Key": [
+                                "store_1.s_state"
+                               ], 
+                               "Node Type": "Aggregate", 
+                               "Strategy": "Sorted", 
+                               "Plan Rows": 1, 
+                               "Parallel Aware": false, 
+                               "Output": [
+                                "store_1.s_state", 
+                                "sum(store_sales_1.ss_net_profit)"
+                               ], 
+                               "Parent Relationship": "Outer", 
+                               "Plan Width": 44, 
+                               "Total Cost": 29.08
+                              }
+                             ], 
+                             "Sort Key": [
+                              "store_1.s_state", 
+                              "(sum(store_sales_1.ss_net_profit)) DESC"
+                             ], 
+                             "Node Type": "Sort", 
+                             "Plan Rows": 1, 
+                             "Parallel Aware": false, 
+                             "Output": [
+                              "store_1.s_state", 
+                              "(sum(store_sales_1.ss_net_profit))"
+                             ], 
+                             "Parent Relationship": "Outer", 
+                             "Plan Width": 44, 
+                             "Total Cost": 29.09
+                            }
+                           ], 
+                           "Node Type": "WindowAgg", 
+                           "Plan Rows": 1, 
+                           "Parallel Aware": false, 
+                           "Output": [
+                            "store_1.s_state", 
+                            "rank() OVER (?)", 
+                            "(sum(store_sales_1.ss_net_profit))"
+                           ], 
+                           "Parent Relationship": "Subquery", 
+                           "Plan Width": 52, 
+                           "Total Cost": 29.11
+                          }
+                         ], 
+                         "Node Type": "Subquery Scan", 
+                         "Plan Rows": 1, 
+                         "Filter": "(tmp1.ranking <= 5)", 
+                         "Alias": "tmp1", 
+                         "Parallel Aware": false, 
+                         "Output": [
+                          "tmp1.s_state"
+                         ], 
+                         "Parent Relationship": "Outer", 
+                         "Plan Width": 12, 
+                         "Total Cost": 29.12
+                        }
+                       ], 
+                       "Node Type": "Hash", 
+                       "Plan Rows": 1, 
+                       "Parallel Aware": false, 
+                       "Output": [
+                        "tmp1.s_state"
+                       ], 
+                       "Parent Relationship": "Inner", 
+                       "Plan Width": 12, 
+                       "Total Cost": 29.12
+                      }
+                     ], 
+                     "Node Type": "Hash Join", 
+                     "Plan Rows": 1, 
+                     "Join Type": "Semi", 
+                     "Parallel Aware": false, 
+                     "Output": [
+                      "store.s_state", 
+                      "store.s_county", 
+                      "store.s_store_sk"
+                     ], 
+                     "Parent Relationship": "Outer", 
+                     "Plan Width": 94, 
+                     "Total Cost": 39.65
+                    }
+                   ], 
+                   "Node Type": "Hash", 
+                   "Plan Rows": 1, 
+                   "Parallel Aware": false, 
+                   "Output": [
+                    "store.s_state", 
+                    "store.s_county", 
+                    "store.s_store_sk"
+                   ], 
+                   "Parent Relationship": "Inner", 
+                   "Plan Width": 94, 
+                   "Total Cost": 39.65
+                  }
+                 ], 
+                 "Node Type": "Hash Join", 
+                 "Plan Rows": 2, 
+                 "Join Type": "Inner", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "store_sales.ss_net_profit", 
+                  "store_sales.ss_sold_date_sk", 
+                  "store.s_state", 
+                  "store.s_county"
+                 ], 
+                 "Parent Relationship": "Outer", 
+                 "Plan Width": 108, 
+                 "Total Cost": 54.36
+                }, 
+                {
+                 "Index Cond": "(d1.d_date_sk = store_sales.ss_sold_date_sk)", 
+                 "Startup Cost": 0.15, 
+                 "Scan Direction": "Forward", 
+                 "Plan Width": 4, 
+                 "Node Type": "Index Scan", 
+                 "Total Cost": 0.3, 
+                 "Plan Rows": 1, 
+                 "Relation Name": "date_dim", 
+                 "Alias": "d1", 
+                 "Parallel Aware": false, 
+                 "Filter": "((d1.d_month_seq >= 1176) AND (d1.d_month_seq <= 1187))", 
+                 "Output": [
+                  "d1.d_date_sk", 
+                  "d1.d_date_id", 
+                  "d1.d_date", 
+                  "d1.d_month_seq", 
+                  "d1.d_week_seq", 
+                  "d1.d_quarter_seq", 
+                  "d1.d_year", 
+                  "d1.d_dow", 
+                  "d1.d_moy", 
+                  "d1.d_dom", 
+                  "d1.d_qoy", 
+                  "d1.d_fy_year", 
+                  "d1.d_fy_quarter_seq", 
+                  "d1.d_fy_week_seq", 
+                  "d1.d_day_name", 
+                  "d1.d_quarter_name", 
+                  "d1.d_holiday", 
+                  "d1.d_weekend", 
+                  "d1.d_following_holiday", 
+                  "d1.d_first_dom", 
+                  "d1.d_last_dom", 
+                  "d1.d_same_day_ly", 
+                  "d1.d_same_day_lq", 
+                  "d1.d_current_day", 
+                  "d1.d_current_week", 
+                  "d1.d_current_month", 
+                  "d1.d_current_quarter", 
+                  "d1.d_current_year"
+                 ], 
+                 "Parent Relationship": "Inner", 
+                 "Schema": "pg_temp_2", 
+                 "Index Name": "date_dim_pkey"
+                }
+               ], 
+               "Node Type": "Nested Loop", 
+               "Plan Rows": 1, 
+               "Join Type": "Inner", 
+               "Parallel Aware": false, 
+               "Output": [
+                "store.s_state", 
+                "store.s_county", 
+                "store_sales.ss_net_profit"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Plan Width": 104, 
+               "Total Cost": 54.98
+              }
+             ], 
+             "Sort Key": [
+              "store.s_state", 
+              "store.s_county"
+             ], 
+             "Node Type": "Sort", 
+             "Plan Rows": 1, 
+             "Parallel Aware": false, 
+             "Output": [
+              "store.s_state", 
+              "store.s_county", 
+              "store_sales.ss_net_profit"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Plan Width": 104, 
+             "Total Cost": 54.99
+            }
+           ], 
+           "Grouping Sets": [
+            {
+             "Group Keys": [
+              [
+               "store.s_state", 
+               "store.s_county"
+              ], 
+              [
+               "store.s_state"
+              ], 
+              []
+             ]
+            }
+           ], 
+           "Node Type": "Aggregate", 
+           "Strategy": "Sorted", 
+           "Plan Rows": 3, 
+           "Parallel Aware": false, 
+           "Output": [
+            "sum(store_sales.ss_net_profit)", 
+            "store.s_state", 
+            "store.s_county", 
+            "(GROUPING(store.s_state) + GROUPING(store.s_county))", 
+            "CASE WHEN (GROUPING(store.s_county) = 0) THEN store.s_state ELSE NULL::bpchar END", 
+            "GROUPING(store.s_state)", 
+            "GROUPING(store.s_county)"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 166, 
+           "Total Cost": 55.05
+          }
+         ], 
+         "Sort Key": [
+          "((GROUPING(store.s_state) + GROUPING(store.s_county)))", 
+          "(CASE WHEN (GROUPING(store.s_county) = 0) THEN store.s_state ELSE NULL::bpchar END)", 
+          "(sum(store_sales.ss_net_profit)) DESC"
+         ], 
+         "Node Type": "Sort", 
+         "Plan Rows": 3, 
+         "Parallel Aware": false, 
+         "Output": [
+          "(sum(store_sales.ss_net_profit))", 
+          "store.s_state", 
+          "store.s_county", 
+          "((GROUPING(store.s_state) + GROUPING(store.s_county)))", 
+          "(CASE WHEN (GROUPING(store.s_county) = 0) THEN store.s_state ELSE NULL::bpchar END)", 
+          "(GROUPING(store.s_state))", 
+          "(GROUPING(store.s_county))"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 166, 
+         "Total Cost": 55.08
+        }
+       ], 
+       "Node Type": "WindowAgg", 
+       "Plan Rows": 3, 
+       "Parallel Aware": false, 
+       "Output": [
+        "(sum(store_sales.ss_net_profit))", 
+        "store.s_state", 
+        "store.s_county", 
+        "((GROUPING(store.s_state) + GROUPING(store.s_county)))", 
+        "rank() OVER (?)", 
+        "CASE WHEN (((GROUPING(store.s_state) + GROUPING(store.s_county))) = 0) THEN store.s_state ELSE NULL::bpchar END", 
+        "(CASE WHEN (GROUPING(store.s_county) = 0) THEN store.s_state ELSE NULL::bpchar END)"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 198, 
+       "Total Cost": 55.17
+      }
+     ], 
+     "Sort Key": [
+      "((GROUPING(store.s_state) + GROUPING(store.s_county))) DESC", 
+      "(CASE WHEN (((GROUPING(store.s_state) + GROUPING(store.s_county))) = 0) THEN store.s_state ELSE NULL::bpchar END)", 
+      "(rank() OVER (?))"
+     ], 
+     "Node Type": "Sort", 
+     "Plan Rows": 3, 
+     "Parallel Aware": false, 
+     "Output": [
+      "(sum(store_sales.ss_net_profit))", 
+      "store.s_state", 
+      "store.s_county", 
+      "((GROUPING(store.s_state) + GROUPING(store.s_county)))", 
+      "(rank() OVER (?))", 
+      "(CASE WHEN (((GROUPING(store.s_state) + GROUPING(store.s_county))) = 0) THEN store.s_state ELSE NULL::bpchar END)", 
+      "(CASE WHEN (GROUPING(store.s_county) = 0) THEN store.s_state ELSE NULL::bpchar END)"
+     ], 
+     "Parent Relationship": "Outer", 
+     "Plan Width": 198, 
+     "Total Cost": 55.2
+    }
+   ], 
+   "Node Type": "Limit", 
+   "Plan Rows": 3, 
+   "Parallel Aware": false, 
+   "Output": [
+    "(sum(store_sales.ss_net_profit))", 
+    "store.s_state", 
+    "store.s_county", 
+    "((GROUPING(store.s_state) + GROUPING(store.s_county)))", 
+    "(rank() OVER (?))", 
+    "(CASE WHEN (((GROUPING(store.s_state) + GROUPING(store.s_county))) = 0) THEN store.s_state ELSE NULL::bpchar END)", 
+    "(CASE WHEN (GROUPING(store.s_county) = 0) THEN store.s_state ELSE NULL::bpchar END)"
+   ], 
+   "Plan Width": 198, 
+   "Total Cost": 55.2
+  }
+ }
+]

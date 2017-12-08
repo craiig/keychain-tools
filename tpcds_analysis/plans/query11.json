@@ -1,0 +1,619 @@
+[
+ {
+  "Plan": {
+   "Startup Cost": 137.83, 
+   "Plans": [
+    {
+     "Startup Cost": 51.29, 
+     "Plans": [
+      {
+       "Partial Mode": "Simple", 
+       "Startup Cost": 51.29, 
+       "Plans": [
+        {
+         "Hash Cond": "(store_sales.ss_sold_date_sk = date_dim.d_date_sk)", 
+         "Startup Cost": 28.32, 
+         "Plans": [
+          {
+           "Hash Cond": "(store_sales.ss_customer_sk = customer.c_customer_sk)", 
+           "Startup Cost": 12.25, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "Plan Width": 36, 
+             "Node Type": "Seq Scan", 
+             "Plan Rows": 340, 
+             "Relation Name": "store_sales", 
+             "Alias": "store_sales", 
+             "Parallel Aware": false, 
+             "Output": [
+              "store_sales.ss_sold_date_sk", 
+              "store_sales.ss_sold_time_sk", 
+              "store_sales.ss_item_sk", 
+              "store_sales.ss_customer_sk", 
+              "store_sales.ss_cdemo_sk", 
+              "store_sales.ss_hdemo_sk", 
+              "store_sales.ss_addr_sk", 
+              "store_sales.ss_store_sk", 
+              "store_sales.ss_promo_sk", 
+              "store_sales.ss_ticket_number", 
+              "store_sales.ss_quantity", 
+              "store_sales.ss_wholesale_cost", 
+              "store_sales.ss_list_price", 
+              "store_sales.ss_sales_price", 
+              "store_sales.ss_ext_discount_amt", 
+              "store_sales.ss_ext_sales_price", 
+              "store_sales.ss_ext_wholesale_cost", 
+              "store_sales.ss_ext_list_price", 
+              "store_sales.ss_ext_tax", 
+              "store_sales.ss_coupon_amt", 
+              "store_sales.ss_net_paid", 
+              "store_sales.ss_net_paid_inc_tax", 
+              "store_sales.ss_net_profit"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Total Cost": 13.4, 
+             "Schema": "pg_temp_2"
+            }, 
+            {
+             "Startup Cost": 11.0, 
+             "Plans": [
+              {
+               "Startup Cost": 0.0, 
+               "Plan Width": 606, 
+               "Node Type": "Seq Scan", 
+               "Plan Rows": 100, 
+               "Relation Name": "customer", 
+               "Alias": "customer", 
+               "Parallel Aware": false, 
+               "Output": [
+                "customer.c_customer_id", 
+                "customer.c_first_name", 
+                "customer.c_last_name", 
+                "customer.c_preferred_cust_flag", 
+                "customer.c_birth_country", 
+                "customer.c_login", 
+                "customer.c_email_address", 
+                "customer.c_customer_sk"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Total Cost": 11.0, 
+               "Schema": "pg_temp_2"
+              }
+             ], 
+             "Node Type": "Hash", 
+             "Plan Rows": 100, 
+             "Parallel Aware": false, 
+             "Output": [
+              "customer.c_customer_id", 
+              "customer.c_first_name", 
+              "customer.c_last_name", 
+              "customer.c_preferred_cust_flag", 
+              "customer.c_birth_country", 
+              "customer.c_login", 
+              "customer.c_email_address", 
+              "customer.c_customer_sk"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Plan Width": 606, 
+             "Total Cost": 11.0
+            }
+           ], 
+           "Node Type": "Hash Join", 
+           "Plan Rows": 170, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "customer.c_customer_id", 
+            "customer.c_first_name", 
+            "customer.c_last_name", 
+            "customer.c_preferred_cust_flag", 
+            "customer.c_birth_country", 
+            "customer.c_login", 
+            "customer.c_email_address", 
+            "store_sales.ss_ext_list_price", 
+            "store_sales.ss_ext_discount_amt", 
+            "store_sales.ss_sold_date_sk"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 634, 
+           "Total Cost": 28.62
+          }, 
+          {
+           "Startup Cost": 12.7, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "Plan Width": 8, 
+             "Node Type": "Seq Scan", 
+             "Plan Rows": 270, 
+             "Relation Name": "date_dim", 
+             "Alias": "date_dim", 
+             "Parallel Aware": false, 
+             "Output": [
+              "date_dim.d_year", 
+              "date_dim.d_date_sk"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Total Cost": 12.7, 
+             "Schema": "pg_temp_2"
+            }
+           ], 
+           "Node Type": "Hash", 
+           "Plan Rows": 270, 
+           "Parallel Aware": false, 
+           "Output": [
+            "date_dim.d_year", 
+            "date_dim.d_date_sk"
+           ], 
+           "Parent Relationship": "Inner", 
+           "Plan Width": 8, 
+           "Total Cost": 12.7
+          }
+         ], 
+         "Node Type": "Hash Join", 
+         "Plan Rows": 170, 
+         "Join Type": "Inner", 
+         "Parallel Aware": false, 
+         "Output": [
+          "customer.c_customer_id", 
+          "customer.c_first_name", 
+          "customer.c_last_name", 
+          "customer.c_preferred_cust_flag", 
+          "customer.c_birth_country", 
+          "customer.c_login", 
+          "customer.c_email_address", 
+          "date_dim.d_year", 
+          "store_sales.ss_ext_list_price", 
+          "store_sales.ss_ext_discount_amt"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 634, 
+         "Total Cost": 47.04
+        }
+       ], 
+       "Group Key": [
+        "customer.c_customer_id", 
+        "customer.c_first_name", 
+        "customer.c_last_name", 
+        "customer.c_preferred_cust_flag", 
+        "customer.c_birth_country", 
+        "customer.c_login", 
+        "customer.c_email_address", 
+        "date_dim.d_year"
+       ], 
+       "Node Type": "Aggregate", 
+       "Strategy": "Hashed", 
+       "Plan Rows": 170, 
+       "Parallel Aware": false, 
+       "Output": [
+        "customer.c_customer_id", 
+        "customer.c_first_name", 
+        "customer.c_last_name", 
+        "customer.c_preferred_cust_flag", 
+        "customer.c_birth_country", 
+        "customer.c_login", 
+        "customer.c_email_address", 
+        "date_dim.d_year", 
+        "sum((store_sales.ss_ext_list_price - store_sales.ss_ext_discount_amt))", 
+        "'s'::text"
+       ], 
+       "Parent Relationship": "Member", 
+       "Plan Width": 670, 
+       "Total Cost": 53.41
+      }, 
+      {
+       "Partial Mode": "Simple", 
+       "Startup Cost": 48.24, 
+       "Plans": [
+        {
+         "Hash Cond": "(web_sales.ws_sold_date_sk = date_dim_1.d_date_sk)", 
+         "Startup Cost": 28.32, 
+         "Plans": [
+          {
+           "Hash Cond": "(web_sales.ws_bill_customer_sk = customer_1.c_customer_sk)", 
+           "Startup Cost": 12.25, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "Plan Width": 36, 
+             "Node Type": "Seq Scan", 
+             "Plan Rows": 260, 
+             "Relation Name": "web_sales", 
+             "Alias": "web_sales", 
+             "Parallel Aware": false, 
+             "Output": [
+              "web_sales.ws_sold_date_sk", 
+              "web_sales.ws_sold_time_sk", 
+              "web_sales.ws_ship_date_sk", 
+              "web_sales.ws_item_sk", 
+              "web_sales.ws_bill_customer_sk", 
+              "web_sales.ws_bill_cdemo_sk", 
+              "web_sales.ws_bill_hdemo_sk", 
+              "web_sales.ws_bill_addr_sk", 
+              "web_sales.ws_ship_customer_sk", 
+              "web_sales.ws_ship_cdemo_sk", 
+              "web_sales.ws_ship_hdemo_sk", 
+              "web_sales.ws_ship_addr_sk", 
+              "web_sales.ws_web_page_sk", 
+              "web_sales.ws_web_site_sk", 
+              "web_sales.ws_ship_mode_sk", 
+              "web_sales.ws_warehouse_sk", 
+              "web_sales.ws_promo_sk", 
+              "web_sales.ws_order_number", 
+              "web_sales.ws_quantity", 
+              "web_sales.ws_wholesale_cost", 
+              "web_sales.ws_list_price", 
+              "web_sales.ws_sales_price", 
+              "web_sales.ws_ext_discount_amt", 
+              "web_sales.ws_ext_sales_price", 
+              "web_sales.ws_ext_wholesale_cost", 
+              "web_sales.ws_ext_list_price", 
+              "web_sales.ws_ext_tax", 
+              "web_sales.ws_coupon_amt", 
+              "web_sales.ws_ext_ship_cost", 
+              "web_sales.ws_net_paid", 
+              "web_sales.ws_net_paid_inc_tax", 
+              "web_sales.ws_net_paid_inc_ship", 
+              "web_sales.ws_net_paid_inc_ship_tax", 
+              "web_sales.ws_net_profit"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Total Cost": 12.6, 
+             "Schema": "pg_temp_2"
+            }, 
+            {
+             "Startup Cost": 11.0, 
+             "Plans": [
+              {
+               "Startup Cost": 0.0, 
+               "Plan Width": 606, 
+               "Node Type": "Seq Scan", 
+               "Plan Rows": 100, 
+               "Relation Name": "customer", 
+               "Alias": "customer_1", 
+               "Parallel Aware": false, 
+               "Output": [
+                "customer_1.c_customer_id", 
+                "customer_1.c_first_name", 
+                "customer_1.c_last_name", 
+                "customer_1.c_preferred_cust_flag", 
+                "customer_1.c_birth_country", 
+                "customer_1.c_login", 
+                "customer_1.c_email_address", 
+                "customer_1.c_customer_sk"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Total Cost": 11.0, 
+               "Schema": "pg_temp_2"
+              }
+             ], 
+             "Node Type": "Hash", 
+             "Plan Rows": 100, 
+             "Parallel Aware": false, 
+             "Output": [
+              "customer_1.c_customer_id", 
+              "customer_1.c_first_name", 
+              "customer_1.c_last_name", 
+              "customer_1.c_preferred_cust_flag", 
+              "customer_1.c_birth_country", 
+              "customer_1.c_login", 
+              "customer_1.c_email_address", 
+              "customer_1.c_customer_sk"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Plan Width": 606, 
+             "Total Cost": 11.0
+            }
+           ], 
+           "Node Type": "Hash Join", 
+           "Plan Rows": 130, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "customer_1.c_customer_id", 
+            "customer_1.c_first_name", 
+            "customer_1.c_last_name", 
+            "customer_1.c_preferred_cust_flag", 
+            "customer_1.c_birth_country", 
+            "customer_1.c_login", 
+            "customer_1.c_email_address", 
+            "web_sales.ws_ext_list_price", 
+            "web_sales.ws_ext_discount_amt", 
+            "web_sales.ws_sold_date_sk"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 634, 
+           "Total Cost": 27.12
+          }, 
+          {
+           "Startup Cost": 12.7, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "Plan Width": 8, 
+             "Node Type": "Seq Scan", 
+             "Plan Rows": 270, 
+             "Relation Name": "date_dim", 
+             "Alias": "date_dim_1", 
+             "Parallel Aware": false, 
+             "Output": [
+              "date_dim_1.d_year", 
+              "date_dim_1.d_date_sk"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Total Cost": 12.7, 
+             "Schema": "pg_temp_2"
+            }
+           ], 
+           "Node Type": "Hash", 
+           "Plan Rows": 270, 
+           "Parallel Aware": false, 
+           "Output": [
+            "date_dim_1.d_year", 
+            "date_dim_1.d_date_sk"
+           ], 
+           "Parent Relationship": "Inner", 
+           "Plan Width": 8, 
+           "Total Cost": 12.7
+          }
+         ], 
+         "Node Type": "Hash Join", 
+         "Plan Rows": 130, 
+         "Join Type": "Inner", 
+         "Parallel Aware": false, 
+         "Output": [
+          "customer_1.c_customer_id", 
+          "customer_1.c_first_name", 
+          "customer_1.c_last_name", 
+          "customer_1.c_preferred_cust_flag", 
+          "customer_1.c_birth_country", 
+          "customer_1.c_login", 
+          "customer_1.c_email_address", 
+          "date_dim_1.d_year", 
+          "web_sales.ws_ext_list_price", 
+          "web_sales.ws_ext_discount_amt"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 634, 
+         "Total Cost": 44.99
+        }
+       ], 
+       "Group Key": [
+        "customer_1.c_customer_id", 
+        "customer_1.c_first_name", 
+        "customer_1.c_last_name", 
+        "customer_1.c_preferred_cust_flag", 
+        "customer_1.c_birth_country", 
+        "customer_1.c_login", 
+        "customer_1.c_email_address", 
+        "date_dim_1.d_year"
+       ], 
+       "Node Type": "Aggregate", 
+       "Strategy": "Hashed", 
+       "Plan Rows": 130, 
+       "Parallel Aware": false, 
+       "Output": [
+        "customer_1.c_customer_id", 
+        "customer_1.c_first_name", 
+        "customer_1.c_last_name", 
+        "customer_1.c_preferred_cust_flag", 
+        "customer_1.c_birth_country", 
+        "customer_1.c_login", 
+        "customer_1.c_email_address", 
+        "date_dim_1.d_year", 
+        "sum((web_sales.ws_ext_list_price - web_sales.ws_ext_discount_amt))", 
+        "'w'::text"
+       ], 
+       "Parent Relationship": "Member", 
+       "Plan Width": 670, 
+       "Total Cost": 49.86
+      }
+     ], 
+     "Node Type": "Append", 
+     "Plan Rows": 300, 
+     "Parallel Aware": false, 
+     "Parent Relationship": "InitPlan", 
+     "Plan Width": 670, 
+     "Subplan Name": "CTE year_total", 
+     "Total Cost": 106.27
+    }, 
+    {
+     "Startup Cost": 31.56, 
+     "Plans": [
+      {
+       "Startup Cost": 0.0, 
+       "Plans": [
+        {
+         "Startup Cost": 0.0, 
+         "Plans": [
+          {
+           "Startup Cost": 0.0, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "CTE Name": "year_total", 
+             "Node Type": "CTE Scan", 
+             "Plan Rows": 1, 
+             "Filter": "((t_s_firstyear.year_total > '0'::numeric) AND (t_s_firstyear.sale_type = 's'::text) AND (t_s_firstyear.dyear = 1998))", 
+             "Alias": "t_s_firstyear", 
+             "Parallel Aware": false, 
+             "Output": [
+              "t_s_firstyear.customer_id", 
+              "t_s_firstyear.customer_first_name", 
+              "t_s_firstyear.customer_last_name", 
+              "t_s_firstyear.customer_preferred_cust_flag", 
+              "t_s_firstyear.customer_birth_country", 
+              "t_s_firstyear.customer_login", 
+              "t_s_firstyear.customer_email_address", 
+              "t_s_firstyear.dyear", 
+              "t_s_firstyear.year_total", 
+              "t_s_firstyear.sale_type"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Plan Width": 100, 
+             "Total Cost": 8.25
+            }, 
+            {
+             "Startup Cost": 0.0, 
+             "CTE Name": "year_total", 
+             "Node Type": "CTE Scan", 
+             "Plan Rows": 1, 
+             "Filter": "((t_s_secyear.sale_type = 's'::text) AND (t_s_secyear.dyear = 1999))", 
+             "Alias": "t_s_secyear", 
+             "Parallel Aware": false, 
+             "Output": [
+              "t_s_secyear.customer_id", 
+              "t_s_secyear.customer_first_name", 
+              "t_s_secyear.customer_last_name", 
+              "t_s_secyear.customer_preferred_cust_flag", 
+              "t_s_secyear.customer_birth_country", 
+              "t_s_secyear.customer_login", 
+              "t_s_secyear.customer_email_address", 
+              "t_s_secyear.dyear", 
+              "t_s_secyear.year_total", 
+              "t_s_secyear.sale_type"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Plan Width": 512, 
+             "Total Cost": 7.5
+            }
+           ], 
+           "Node Type": "Nested Loop", 
+           "Plan Rows": 1, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "t_s_firstyear.customer_id", 
+            "t_s_firstyear.year_total", 
+            "t_s_secyear.customer_id", 
+            "t_s_secyear.customer_first_name", 
+            "t_s_secyear.customer_last_name", 
+            "t_s_secyear.customer_email_address", 
+            "t_s_secyear.year_total"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 612, 
+           "Join Filter": "(t_s_firstyear.customer_id = t_s_secyear.customer_id)", 
+           "Total Cost": 15.76
+          }, 
+          {
+           "Startup Cost": 0.0, 
+           "CTE Name": "year_total", 
+           "Node Type": "CTE Scan", 
+           "Plan Rows": 1, 
+           "Filter": "((t_w_firstyear.year_total > '0'::numeric) AND (t_w_firstyear.sale_type = 'w'::text) AND (t_w_firstyear.dyear = 1998))", 
+           "Alias": "t_w_firstyear", 
+           "Parallel Aware": false, 
+           "Output": [
+            "t_w_firstyear.customer_id", 
+            "t_w_firstyear.customer_first_name", 
+            "t_w_firstyear.customer_last_name", 
+            "t_w_firstyear.customer_preferred_cust_flag", 
+            "t_w_firstyear.customer_birth_country", 
+            "t_w_firstyear.customer_login", 
+            "t_w_firstyear.customer_email_address", 
+            "t_w_firstyear.dyear", 
+            "t_w_firstyear.year_total", 
+            "t_w_firstyear.sale_type"
+           ], 
+           "Parent Relationship": "Inner", 
+           "Plan Width": 100, 
+           "Total Cost": 8.25
+          }
+         ], 
+         "Node Type": "Nested Loop", 
+         "Plan Rows": 1, 
+         "Join Type": "Inner", 
+         "Parallel Aware": false, 
+         "Output": [
+          "t_s_firstyear.customer_id", 
+          "t_s_firstyear.year_total", 
+          "t_s_secyear.customer_id", 
+          "t_s_secyear.customer_first_name", 
+          "t_s_secyear.customer_last_name", 
+          "t_s_secyear.customer_email_address", 
+          "t_s_secyear.year_total", 
+          "t_w_firstyear.customer_id", 
+          "t_w_firstyear.year_total"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 712, 
+         "Join Filter": "(t_s_secyear.customer_id = t_w_firstyear.customer_id)", 
+         "Total Cost": 24.03
+        }, 
+        {
+         "Startup Cost": 0.0, 
+         "CTE Name": "year_total", 
+         "Node Type": "CTE Scan", 
+         "Plan Rows": 1, 
+         "Filter": "((t_w_secyear.sale_type = 'w'::text) AND (t_w_secyear.dyear = 1999))", 
+         "Alias": "t_w_secyear", 
+         "Parallel Aware": false, 
+         "Output": [
+          "t_w_secyear.customer_id", 
+          "t_w_secyear.customer_first_name", 
+          "t_w_secyear.customer_last_name", 
+          "t_w_secyear.customer_preferred_cust_flag", 
+          "t_w_secyear.customer_birth_country", 
+          "t_w_secyear.customer_login", 
+          "t_w_secyear.customer_email_address", 
+          "t_w_secyear.dyear", 
+          "t_w_secyear.year_total", 
+          "t_w_secyear.sale_type"
+         ], 
+         "Parent Relationship": "Inner", 
+         "Plan Width": 100, 
+         "Total Cost": 7.5
+        }
+       ], 
+       "Node Type": "Nested Loop", 
+       "Plan Rows": 1, 
+       "Join Type": "Inner", 
+       "Parallel Aware": false, 
+       "Output": [
+        "t_s_secyear.customer_id", 
+        "t_s_secyear.customer_first_name", 
+        "t_s_secyear.customer_last_name", 
+        "t_s_secyear.customer_email_address"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 480, 
+       "Join Filter": "((t_s_secyear.customer_id = t_w_secyear.customer_id) AND (CASE WHEN (t_w_firstyear.year_total > '0'::numeric) THEN (t_w_secyear.year_total / t_w_firstyear.year_total) ELSE 0.0 END > CASE WHEN (t_s_firstyear.year_total > '0'::numeric) THEN (t_s_secyear.year_total / t_s_firstyear.year_total) ELSE 0.0 END))", 
+       "Total Cost": 31.55
+      }
+     ], 
+     "Sort Key": [
+      "t_s_secyear.customer_id", 
+      "t_s_secyear.customer_first_name", 
+      "t_s_secyear.customer_last_name", 
+      "t_s_secyear.customer_email_address"
+     ], 
+     "Node Type": "Sort", 
+     "Plan Rows": 1, 
+     "Parallel Aware": false, 
+     "Output": [
+      "t_s_secyear.customer_id", 
+      "t_s_secyear.customer_first_name", 
+      "t_s_secyear.customer_last_name", 
+      "t_s_secyear.customer_email_address"
+     ], 
+     "Parent Relationship": "Outer", 
+     "Plan Width": 480, 
+     "Total Cost": 31.57
+    }
+   ], 
+   "Node Type": "Limit", 
+   "Plan Rows": 1, 
+   "Parallel Aware": false, 
+   "Output": [
+    "t_s_secyear.customer_id", 
+    "t_s_secyear.customer_first_name", 
+    "t_s_secyear.customer_last_name", 
+    "t_s_secyear.customer_email_address"
+   ], 
+   "Plan Width": 480, 
+   "Total Cost": 137.84
+  }
+ }
+]

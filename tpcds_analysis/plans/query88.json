@@ -1,0 +1,1560 @@
+[
+ {
+  "Plan": {
+   "Startup Cost": 209.17, 
+   "Plans": [
+    {
+     "Startup Cost": 183.02, 
+     "Plans": [
+      {
+       "Startup Cost": 156.87, 
+       "Plans": [
+        {
+         "Startup Cost": 130.73, 
+         "Plans": [
+          {
+           "Startup Cost": 104.58, 
+           "Plans": [
+            {
+             "Startup Cost": 78.44, 
+             "Plans": [
+              {
+               "Startup Cost": 52.29, 
+               "Plans": [
+                {
+                 "Partial Mode": "Simple", 
+                 "Startup Cost": 26.15, 
+                 "Plans": [
+                  {
+                   "Startup Cost": 10.81, 
+                   "Plans": [
+                    {
+                     "Startup Cost": 10.66, 
+                     "Plans": [
+                      {
+                       "Hash Cond": "(store_sales.ss_store_sk = store.s_store_sk)", 
+                       "Startup Cost": 10.51, 
+                       "Plans": [
+                        {
+                         "Startup Cost": 0.0, 
+                         "Plan Width": 12, 
+                         "Node Type": "Seq Scan", 
+                         "Plan Rows": 340, 
+                         "Relation Name": "store_sales", 
+                         "Alias": "store_sales", 
+                         "Parallel Aware": false, 
+                         "Output": [
+                          "store_sales.ss_sold_date_sk", 
+                          "store_sales.ss_sold_time_sk", 
+                          "store_sales.ss_item_sk", 
+                          "store_sales.ss_customer_sk", 
+                          "store_sales.ss_cdemo_sk", 
+                          "store_sales.ss_hdemo_sk", 
+                          "store_sales.ss_addr_sk", 
+                          "store_sales.ss_store_sk", 
+                          "store_sales.ss_promo_sk", 
+                          "store_sales.ss_ticket_number", 
+                          "store_sales.ss_quantity", 
+                          "store_sales.ss_wholesale_cost", 
+                          "store_sales.ss_list_price", 
+                          "store_sales.ss_sales_price", 
+                          "store_sales.ss_ext_discount_amt", 
+                          "store_sales.ss_ext_sales_price", 
+                          "store_sales.ss_ext_wholesale_cost", 
+                          "store_sales.ss_ext_list_price", 
+                          "store_sales.ss_ext_tax", 
+                          "store_sales.ss_coupon_amt", 
+                          "store_sales.ss_net_paid", 
+                          "store_sales.ss_net_paid_inc_tax", 
+                          "store_sales.ss_net_profit"
+                         ], 
+                         "Parent Relationship": "Outer", 
+                         "Total Cost": 13.4, 
+                         "Schema": "pg_temp_2"
+                        }, 
+                        {
+                         "Startup Cost": 10.5, 
+                         "Plans": [
+                          {
+                           "Filter": "((store.s_store_name)::text = 'ese'::text)", 
+                           "Startup Cost": 0.0, 
+                           "Plan Width": 4, 
+                           "Node Type": "Seq Scan", 
+                           "Plan Rows": 1, 
+                           "Relation Name": "store", 
+                           "Alias": "store", 
+                           "Parallel Aware": false, 
+                           "Output": [
+                            "store.s_store_sk"
+                           ], 
+                           "Parent Relationship": "Outer", 
+                           "Total Cost": 10.5, 
+                           "Schema": "pg_temp_2"
+                          }
+                         ], 
+                         "Node Type": "Hash", 
+                         "Plan Rows": 1, 
+                         "Parallel Aware": false, 
+                         "Output": [
+                          "store.s_store_sk"
+                         ], 
+                         "Parent Relationship": "Inner", 
+                         "Plan Width": 4, 
+                         "Total Cost": 10.5
+                        }
+                       ], 
+                       "Node Type": "Hash Join", 
+                       "Plan Rows": 2, 
+                       "Join Type": "Inner", 
+                       "Parallel Aware": false, 
+                       "Output": [
+                        "store_sales.ss_sold_time_sk", 
+                        "store_sales.ss_hdemo_sk"
+                       ], 
+                       "Parent Relationship": "Outer", 
+                       "Plan Width": 8, 
+                       "Total Cost": 25.21
+                      }, 
+                      {
+                       "Index Cond": "(time_dim.t_time_sk = store_sales.ss_sold_time_sk)", 
+                       "Startup Cost": 0.14, 
+                       "Scan Direction": "Forward", 
+                       "Plan Width": 4, 
+                       "Node Type": "Index Scan", 
+                       "Total Cost": 0.3, 
+                       "Plan Rows": 1, 
+                       "Relation Name": "time_dim", 
+                       "Alias": "time_dim", 
+                       "Parallel Aware": false, 
+                       "Filter": "((time_dim.t_minute >= 30) AND (time_dim.t_hour = 8))", 
+                       "Output": [
+                        "time_dim.t_time_sk", 
+                        "time_dim.t_time_id", 
+                        "time_dim.t_time", 
+                        "time_dim.t_hour", 
+                        "time_dim.t_minute", 
+                        "time_dim.t_second", 
+                        "time_dim.t_am_pm", 
+                        "time_dim.t_shift", 
+                        "time_dim.t_sub_shift", 
+                        "time_dim.t_meal_time"
+                       ], 
+                       "Parent Relationship": "Inner", 
+                       "Schema": "pg_temp_2", 
+                       "Index Name": "time_dim_pkey"
+                      }
+                     ], 
+                     "Node Type": "Nested Loop", 
+                     "Plan Rows": 1, 
+                     "Join Type": "Inner", 
+                     "Parallel Aware": false, 
+                     "Output": [
+                      "store_sales.ss_hdemo_sk"
+                     ], 
+                     "Parent Relationship": "Outer", 
+                     "Plan Width": 4, 
+                     "Total Cost": 25.82
+                    }, 
+                    {
+                     "Index Cond": "(household_demographics.hd_demo_sk = store_sales.ss_hdemo_sk)", 
+                     "Startup Cost": 0.15, 
+                     "Scan Direction": "Forward", 
+                     "Plan Width": 4, 
+                     "Node Type": "Index Scan", 
+                     "Total Cost": 0.31, 
+                     "Plan Rows": 1, 
+                     "Relation Name": "household_demographics", 
+                     "Alias": "household_demographics", 
+                     "Parallel Aware": false, 
+                     "Filter": "(((household_demographics.hd_dep_count = 1) AND (household_demographics.hd_vehicle_count <= 3)) OR ((household_demographics.hd_dep_count = 0) AND (household_demographics.hd_vehicle_count <= 2)) OR ((household_demographics.hd_dep_count = 3) AND (household_demographics.hd_vehicle_count <= 5)))", 
+                     "Output": [
+                      "household_demographics.hd_demo_sk", 
+                      "household_demographics.hd_income_band_sk", 
+                      "household_demographics.hd_buy_potential", 
+                      "household_demographics.hd_dep_count", 
+                      "household_demographics.hd_vehicle_count"
+                     ], 
+                     "Parent Relationship": "Inner", 
+                     "Schema": "pg_temp_2", 
+                     "Index Name": "household_demographics_pkey"
+                    }
+                   ], 
+                   "Node Type": "Nested Loop", 
+                   "Plan Rows": 1, 
+                   "Join Type": "Inner", 
+                   "Parallel Aware": false, 
+                   "Parent Relationship": "Outer", 
+                   "Plan Width": 0, 
+                   "Total Cost": 26.14
+                  }
+                 ], 
+                 "Node Type": "Aggregate", 
+                 "Strategy": "Plain", 
+                 "Plan Rows": 1, 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "count(*)"
+                 ], 
+                 "Parent Relationship": "Outer", 
+                 "Plan Width": 8, 
+                 "Total Cost": 26.16
+                }, 
+                {
+                 "Partial Mode": "Simple", 
+                 "Startup Cost": 26.15, 
+                 "Plans": [
+                  {
+                   "Startup Cost": 10.81, 
+                   "Plans": [
+                    {
+                     "Startup Cost": 10.66, 
+                     "Plans": [
+                      {
+                       "Hash Cond": "(store_sales_1.ss_store_sk = store_1.s_store_sk)", 
+                       "Startup Cost": 10.51, 
+                       "Plans": [
+                        {
+                         "Startup Cost": 0.0, 
+                         "Plan Width": 12, 
+                         "Node Type": "Seq Scan", 
+                         "Plan Rows": 340, 
+                         "Relation Name": "store_sales", 
+                         "Alias": "store_sales_1", 
+                         "Parallel Aware": false, 
+                         "Output": [
+                          "store_sales_1.ss_sold_date_sk", 
+                          "store_sales_1.ss_sold_time_sk", 
+                          "store_sales_1.ss_item_sk", 
+                          "store_sales_1.ss_customer_sk", 
+                          "store_sales_1.ss_cdemo_sk", 
+                          "store_sales_1.ss_hdemo_sk", 
+                          "store_sales_1.ss_addr_sk", 
+                          "store_sales_1.ss_store_sk", 
+                          "store_sales_1.ss_promo_sk", 
+                          "store_sales_1.ss_ticket_number", 
+                          "store_sales_1.ss_quantity", 
+                          "store_sales_1.ss_wholesale_cost", 
+                          "store_sales_1.ss_list_price", 
+                          "store_sales_1.ss_sales_price", 
+                          "store_sales_1.ss_ext_discount_amt", 
+                          "store_sales_1.ss_ext_sales_price", 
+                          "store_sales_1.ss_ext_wholesale_cost", 
+                          "store_sales_1.ss_ext_list_price", 
+                          "store_sales_1.ss_ext_tax", 
+                          "store_sales_1.ss_coupon_amt", 
+                          "store_sales_1.ss_net_paid", 
+                          "store_sales_1.ss_net_paid_inc_tax", 
+                          "store_sales_1.ss_net_profit"
+                         ], 
+                         "Parent Relationship": "Outer", 
+                         "Total Cost": 13.4, 
+                         "Schema": "pg_temp_2"
+                        }, 
+                        {
+                         "Startup Cost": 10.5, 
+                         "Plans": [
+                          {
+                           "Filter": "((store_1.s_store_name)::text = 'ese'::text)", 
+                           "Startup Cost": 0.0, 
+                           "Plan Width": 4, 
+                           "Node Type": "Seq Scan", 
+                           "Plan Rows": 1, 
+                           "Relation Name": "store", 
+                           "Alias": "store_1", 
+                           "Parallel Aware": false, 
+                           "Output": [
+                            "store_1.s_store_sk"
+                           ], 
+                           "Parent Relationship": "Outer", 
+                           "Total Cost": 10.5, 
+                           "Schema": "pg_temp_2"
+                          }
+                         ], 
+                         "Node Type": "Hash", 
+                         "Plan Rows": 1, 
+                         "Parallel Aware": false, 
+                         "Output": [
+                          "store_1.s_store_sk"
+                         ], 
+                         "Parent Relationship": "Inner", 
+                         "Plan Width": 4, 
+                         "Total Cost": 10.5
+                        }
+                       ], 
+                       "Node Type": "Hash Join", 
+                       "Plan Rows": 2, 
+                       "Join Type": "Inner", 
+                       "Parallel Aware": false, 
+                       "Output": [
+                        "store_sales_1.ss_sold_time_sk", 
+                        "store_sales_1.ss_hdemo_sk"
+                       ], 
+                       "Parent Relationship": "Outer", 
+                       "Plan Width": 8, 
+                       "Total Cost": 25.21
+                      }, 
+                      {
+                       "Index Cond": "(time_dim_1.t_time_sk = store_sales_1.ss_sold_time_sk)", 
+                       "Startup Cost": 0.14, 
+                       "Scan Direction": "Forward", 
+                       "Plan Width": 4, 
+                       "Node Type": "Index Scan", 
+                       "Total Cost": 0.3, 
+                       "Plan Rows": 1, 
+                       "Relation Name": "time_dim", 
+                       "Alias": "time_dim_1", 
+                       "Parallel Aware": false, 
+                       "Filter": "((time_dim_1.t_minute < 30) AND (time_dim_1.t_hour = 9))", 
+                       "Output": [
+                        "time_dim_1.t_time_sk", 
+                        "time_dim_1.t_time_id", 
+                        "time_dim_1.t_time", 
+                        "time_dim_1.t_hour", 
+                        "time_dim_1.t_minute", 
+                        "time_dim_1.t_second", 
+                        "time_dim_1.t_am_pm", 
+                        "time_dim_1.t_shift", 
+                        "time_dim_1.t_sub_shift", 
+                        "time_dim_1.t_meal_time"
+                       ], 
+                       "Parent Relationship": "Inner", 
+                       "Schema": "pg_temp_2", 
+                       "Index Name": "time_dim_pkey"
+                      }
+                     ], 
+                     "Node Type": "Nested Loop", 
+                     "Plan Rows": 1, 
+                     "Join Type": "Inner", 
+                     "Parallel Aware": false, 
+                     "Output": [
+                      "store_sales_1.ss_hdemo_sk"
+                     ], 
+                     "Parent Relationship": "Outer", 
+                     "Plan Width": 4, 
+                     "Total Cost": 25.82
+                    }, 
+                    {
+                     "Index Cond": "(household_demographics_1.hd_demo_sk = store_sales_1.ss_hdemo_sk)", 
+                     "Startup Cost": 0.15, 
+                     "Scan Direction": "Forward", 
+                     "Plan Width": 4, 
+                     "Node Type": "Index Scan", 
+                     "Total Cost": 0.31, 
+                     "Plan Rows": 1, 
+                     "Relation Name": "household_demographics", 
+                     "Alias": "household_demographics_1", 
+                     "Parallel Aware": false, 
+                     "Filter": "(((household_demographics_1.hd_dep_count = 1) AND (household_demographics_1.hd_vehicle_count <= 3)) OR ((household_demographics_1.hd_dep_count = 0) AND (household_demographics_1.hd_vehicle_count <= 2)) OR ((household_demographics_1.hd_dep_count = 3) AND (household_demographics_1.hd_vehicle_count <= 5)))", 
+                     "Output": [
+                      "household_demographics_1.hd_demo_sk", 
+                      "household_demographics_1.hd_income_band_sk", 
+                      "household_demographics_1.hd_buy_potential", 
+                      "household_demographics_1.hd_dep_count", 
+                      "household_demographics_1.hd_vehicle_count"
+                     ], 
+                     "Parent Relationship": "Inner", 
+                     "Schema": "pg_temp_2", 
+                     "Index Name": "household_demographics_pkey"
+                    }
+                   ], 
+                   "Node Type": "Nested Loop", 
+                   "Plan Rows": 1, 
+                   "Join Type": "Inner", 
+                   "Parallel Aware": false, 
+                   "Parent Relationship": "Outer", 
+                   "Plan Width": 0, 
+                   "Total Cost": 26.14
+                  }
+                 ], 
+                 "Node Type": "Aggregate", 
+                 "Strategy": "Plain", 
+                 "Plan Rows": 1, 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "count(*)"
+                 ], 
+                 "Parent Relationship": "Inner", 
+                 "Plan Width": 8, 
+                 "Total Cost": 26.16
+                }
+               ], 
+               "Node Type": "Nested Loop", 
+               "Plan Rows": 1, 
+               "Join Type": "Inner", 
+               "Parallel Aware": false, 
+               "Output": [
+                "(count(*))", 
+                "(count(*))"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Plan Width": 16, 
+               "Total Cost": 52.34
+              }, 
+              {
+               "Partial Mode": "Simple", 
+               "Startup Cost": 26.15, 
+               "Plans": [
+                {
+                 "Startup Cost": 10.81, 
+                 "Plans": [
+                  {
+                   "Startup Cost": 10.66, 
+                   "Plans": [
+                    {
+                     "Hash Cond": "(store_sales_2.ss_store_sk = store_2.s_store_sk)", 
+                     "Startup Cost": 10.51, 
+                     "Plans": [
+                      {
+                       "Startup Cost": 0.0, 
+                       "Plan Width": 12, 
+                       "Node Type": "Seq Scan", 
+                       "Plan Rows": 340, 
+                       "Relation Name": "store_sales", 
+                       "Alias": "store_sales_2", 
+                       "Parallel Aware": false, 
+                       "Output": [
+                        "store_sales_2.ss_sold_date_sk", 
+                        "store_sales_2.ss_sold_time_sk", 
+                        "store_sales_2.ss_item_sk", 
+                        "store_sales_2.ss_customer_sk", 
+                        "store_sales_2.ss_cdemo_sk", 
+                        "store_sales_2.ss_hdemo_sk", 
+                        "store_sales_2.ss_addr_sk", 
+                        "store_sales_2.ss_store_sk", 
+                        "store_sales_2.ss_promo_sk", 
+                        "store_sales_2.ss_ticket_number", 
+                        "store_sales_2.ss_quantity", 
+                        "store_sales_2.ss_wholesale_cost", 
+                        "store_sales_2.ss_list_price", 
+                        "store_sales_2.ss_sales_price", 
+                        "store_sales_2.ss_ext_discount_amt", 
+                        "store_sales_2.ss_ext_sales_price", 
+                        "store_sales_2.ss_ext_wholesale_cost", 
+                        "store_sales_2.ss_ext_list_price", 
+                        "store_sales_2.ss_ext_tax", 
+                        "store_sales_2.ss_coupon_amt", 
+                        "store_sales_2.ss_net_paid", 
+                        "store_sales_2.ss_net_paid_inc_tax", 
+                        "store_sales_2.ss_net_profit"
+                       ], 
+                       "Parent Relationship": "Outer", 
+                       "Total Cost": 13.4, 
+                       "Schema": "pg_temp_2"
+                      }, 
+                      {
+                       "Startup Cost": 10.5, 
+                       "Plans": [
+                        {
+                         "Filter": "((store_2.s_store_name)::text = 'ese'::text)", 
+                         "Startup Cost": 0.0, 
+                         "Plan Width": 4, 
+                         "Node Type": "Seq Scan", 
+                         "Plan Rows": 1, 
+                         "Relation Name": "store", 
+                         "Alias": "store_2", 
+                         "Parallel Aware": false, 
+                         "Output": [
+                          "store_2.s_store_sk"
+                         ], 
+                         "Parent Relationship": "Outer", 
+                         "Total Cost": 10.5, 
+                         "Schema": "pg_temp_2"
+                        }
+                       ], 
+                       "Node Type": "Hash", 
+                       "Plan Rows": 1, 
+                       "Parallel Aware": false, 
+                       "Output": [
+                        "store_2.s_store_sk"
+                       ], 
+                       "Parent Relationship": "Inner", 
+                       "Plan Width": 4, 
+                       "Total Cost": 10.5
+                      }
+                     ], 
+                     "Node Type": "Hash Join", 
+                     "Plan Rows": 2, 
+                     "Join Type": "Inner", 
+                     "Parallel Aware": false, 
+                     "Output": [
+                      "store_sales_2.ss_sold_time_sk", 
+                      "store_sales_2.ss_hdemo_sk"
+                     ], 
+                     "Parent Relationship": "Outer", 
+                     "Plan Width": 8, 
+                     "Total Cost": 25.21
+                    }, 
+                    {
+                     "Index Cond": "(time_dim_2.t_time_sk = store_sales_2.ss_sold_time_sk)", 
+                     "Startup Cost": 0.14, 
+                     "Scan Direction": "Forward", 
+                     "Plan Width": 4, 
+                     "Node Type": "Index Scan", 
+                     "Total Cost": 0.3, 
+                     "Plan Rows": 1, 
+                     "Relation Name": "time_dim", 
+                     "Alias": "time_dim_2", 
+                     "Parallel Aware": false, 
+                     "Filter": "((time_dim_2.t_minute >= 30) AND (time_dim_2.t_hour = 9))", 
+                     "Output": [
+                      "time_dim_2.t_time_sk", 
+                      "time_dim_2.t_time_id", 
+                      "time_dim_2.t_time", 
+                      "time_dim_2.t_hour", 
+                      "time_dim_2.t_minute", 
+                      "time_dim_2.t_second", 
+                      "time_dim_2.t_am_pm", 
+                      "time_dim_2.t_shift", 
+                      "time_dim_2.t_sub_shift", 
+                      "time_dim_2.t_meal_time"
+                     ], 
+                     "Parent Relationship": "Inner", 
+                     "Schema": "pg_temp_2", 
+                     "Index Name": "time_dim_pkey"
+                    }
+                   ], 
+                   "Node Type": "Nested Loop", 
+                   "Plan Rows": 1, 
+                   "Join Type": "Inner", 
+                   "Parallel Aware": false, 
+                   "Output": [
+                    "store_sales_2.ss_hdemo_sk"
+                   ], 
+                   "Parent Relationship": "Outer", 
+                   "Plan Width": 4, 
+                   "Total Cost": 25.82
+                  }, 
+                  {
+                   "Index Cond": "(household_demographics_2.hd_demo_sk = store_sales_2.ss_hdemo_sk)", 
+                   "Startup Cost": 0.15, 
+                   "Scan Direction": "Forward", 
+                   "Plan Width": 4, 
+                   "Node Type": "Index Scan", 
+                   "Total Cost": 0.31, 
+                   "Plan Rows": 1, 
+                   "Relation Name": "household_demographics", 
+                   "Alias": "household_demographics_2", 
+                   "Parallel Aware": false, 
+                   "Filter": "(((household_demographics_2.hd_dep_count = 1) AND (household_demographics_2.hd_vehicle_count <= 3)) OR ((household_demographics_2.hd_dep_count = 0) AND (household_demographics_2.hd_vehicle_count <= 2)) OR ((household_demographics_2.hd_dep_count = 3) AND (household_demographics_2.hd_vehicle_count <= 5)))", 
+                   "Output": [
+                    "household_demographics_2.hd_demo_sk", 
+                    "household_demographics_2.hd_income_band_sk", 
+                    "household_demographics_2.hd_buy_potential", 
+                    "household_demographics_2.hd_dep_count", 
+                    "household_demographics_2.hd_vehicle_count"
+                   ], 
+                   "Parent Relationship": "Inner", 
+                   "Schema": "pg_temp_2", 
+                   "Index Name": "household_demographics_pkey"
+                  }
+                 ], 
+                 "Node Type": "Nested Loop", 
+                 "Plan Rows": 1, 
+                 "Join Type": "Inner", 
+                 "Parallel Aware": false, 
+                 "Parent Relationship": "Outer", 
+                 "Plan Width": 0, 
+                 "Total Cost": 26.14
+                }
+               ], 
+               "Node Type": "Aggregate", 
+               "Strategy": "Plain", 
+               "Plan Rows": 1, 
+               "Parallel Aware": false, 
+               "Output": [
+                "count(*)"
+               ], 
+               "Parent Relationship": "Inner", 
+               "Plan Width": 8, 
+               "Total Cost": 26.16
+              }
+             ], 
+             "Node Type": "Nested Loop", 
+             "Plan Rows": 1, 
+             "Join Type": "Inner", 
+             "Parallel Aware": false, 
+             "Output": [
+              "(count(*))", 
+              "(count(*))", 
+              "(count(*))"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Plan Width": 24, 
+             "Total Cost": 78.52
+            }, 
+            {
+             "Partial Mode": "Simple", 
+             "Startup Cost": 26.15, 
+             "Plans": [
+              {
+               "Startup Cost": 10.81, 
+               "Plans": [
+                {
+                 "Startup Cost": 10.66, 
+                 "Plans": [
+                  {
+                   "Hash Cond": "(store_sales_3.ss_store_sk = store_3.s_store_sk)", 
+                   "Startup Cost": 10.51, 
+                   "Plans": [
+                    {
+                     "Startup Cost": 0.0, 
+                     "Plan Width": 12, 
+                     "Node Type": "Seq Scan", 
+                     "Plan Rows": 340, 
+                     "Relation Name": "store_sales", 
+                     "Alias": "store_sales_3", 
+                     "Parallel Aware": false, 
+                     "Output": [
+                      "store_sales_3.ss_sold_date_sk", 
+                      "store_sales_3.ss_sold_time_sk", 
+                      "store_sales_3.ss_item_sk", 
+                      "store_sales_3.ss_customer_sk", 
+                      "store_sales_3.ss_cdemo_sk", 
+                      "store_sales_3.ss_hdemo_sk", 
+                      "store_sales_3.ss_addr_sk", 
+                      "store_sales_3.ss_store_sk", 
+                      "store_sales_3.ss_promo_sk", 
+                      "store_sales_3.ss_ticket_number", 
+                      "store_sales_3.ss_quantity", 
+                      "store_sales_3.ss_wholesale_cost", 
+                      "store_sales_3.ss_list_price", 
+                      "store_sales_3.ss_sales_price", 
+                      "store_sales_3.ss_ext_discount_amt", 
+                      "store_sales_3.ss_ext_sales_price", 
+                      "store_sales_3.ss_ext_wholesale_cost", 
+                      "store_sales_3.ss_ext_list_price", 
+                      "store_sales_3.ss_ext_tax", 
+                      "store_sales_3.ss_coupon_amt", 
+                      "store_sales_3.ss_net_paid", 
+                      "store_sales_3.ss_net_paid_inc_tax", 
+                      "store_sales_3.ss_net_profit"
+                     ], 
+                     "Parent Relationship": "Outer", 
+                     "Total Cost": 13.4, 
+                     "Schema": "pg_temp_2"
+                    }, 
+                    {
+                     "Startup Cost": 10.5, 
+                     "Plans": [
+                      {
+                       "Filter": "((store_3.s_store_name)::text = 'ese'::text)", 
+                       "Startup Cost": 0.0, 
+                       "Plan Width": 4, 
+                       "Node Type": "Seq Scan", 
+                       "Plan Rows": 1, 
+                       "Relation Name": "store", 
+                       "Alias": "store_3", 
+                       "Parallel Aware": false, 
+                       "Output": [
+                        "store_3.s_store_sk"
+                       ], 
+                       "Parent Relationship": "Outer", 
+                       "Total Cost": 10.5, 
+                       "Schema": "pg_temp_2"
+                      }
+                     ], 
+                     "Node Type": "Hash", 
+                     "Plan Rows": 1, 
+                     "Parallel Aware": false, 
+                     "Output": [
+                      "store_3.s_store_sk"
+                     ], 
+                     "Parent Relationship": "Inner", 
+                     "Plan Width": 4, 
+                     "Total Cost": 10.5
+                    }
+                   ], 
+                   "Node Type": "Hash Join", 
+                   "Plan Rows": 2, 
+                   "Join Type": "Inner", 
+                   "Parallel Aware": false, 
+                   "Output": [
+                    "store_sales_3.ss_sold_time_sk", 
+                    "store_sales_3.ss_hdemo_sk"
+                   ], 
+                   "Parent Relationship": "Outer", 
+                   "Plan Width": 8, 
+                   "Total Cost": 25.21
+                  }, 
+                  {
+                   "Index Cond": "(time_dim_3.t_time_sk = store_sales_3.ss_sold_time_sk)", 
+                   "Startup Cost": 0.14, 
+                   "Scan Direction": "Forward", 
+                   "Plan Width": 4, 
+                   "Node Type": "Index Scan", 
+                   "Total Cost": 0.3, 
+                   "Plan Rows": 1, 
+                   "Relation Name": "time_dim", 
+                   "Alias": "time_dim_3", 
+                   "Parallel Aware": false, 
+                   "Filter": "((time_dim_3.t_minute < 30) AND (time_dim_3.t_hour = 10))", 
+                   "Output": [
+                    "time_dim_3.t_time_sk", 
+                    "time_dim_3.t_time_id", 
+                    "time_dim_3.t_time", 
+                    "time_dim_3.t_hour", 
+                    "time_dim_3.t_minute", 
+                    "time_dim_3.t_second", 
+                    "time_dim_3.t_am_pm", 
+                    "time_dim_3.t_shift", 
+                    "time_dim_3.t_sub_shift", 
+                    "time_dim_3.t_meal_time"
+                   ], 
+                   "Parent Relationship": "Inner", 
+                   "Schema": "pg_temp_2", 
+                   "Index Name": "time_dim_pkey"
+                  }
+                 ], 
+                 "Node Type": "Nested Loop", 
+                 "Plan Rows": 1, 
+                 "Join Type": "Inner", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "store_sales_3.ss_hdemo_sk"
+                 ], 
+                 "Parent Relationship": "Outer", 
+                 "Plan Width": 4, 
+                 "Total Cost": 25.82
+                }, 
+                {
+                 "Index Cond": "(household_demographics_3.hd_demo_sk = store_sales_3.ss_hdemo_sk)", 
+                 "Startup Cost": 0.15, 
+                 "Scan Direction": "Forward", 
+                 "Plan Width": 4, 
+                 "Node Type": "Index Scan", 
+                 "Total Cost": 0.31, 
+                 "Plan Rows": 1, 
+                 "Relation Name": "household_demographics", 
+                 "Alias": "household_demographics_3", 
+                 "Parallel Aware": false, 
+                 "Filter": "(((household_demographics_3.hd_dep_count = 1) AND (household_demographics_3.hd_vehicle_count <= 3)) OR ((household_demographics_3.hd_dep_count = 0) AND (household_demographics_3.hd_vehicle_count <= 2)) OR ((household_demographics_3.hd_dep_count = 3) AND (household_demographics_3.hd_vehicle_count <= 5)))", 
+                 "Output": [
+                  "household_demographics_3.hd_demo_sk", 
+                  "household_demographics_3.hd_income_band_sk", 
+                  "household_demographics_3.hd_buy_potential", 
+                  "household_demographics_3.hd_dep_count", 
+                  "household_demographics_3.hd_vehicle_count"
+                 ], 
+                 "Parent Relationship": "Inner", 
+                 "Schema": "pg_temp_2", 
+                 "Index Name": "household_demographics_pkey"
+                }
+               ], 
+               "Node Type": "Nested Loop", 
+               "Plan Rows": 1, 
+               "Join Type": "Inner", 
+               "Parallel Aware": false, 
+               "Parent Relationship": "Outer", 
+               "Plan Width": 0, 
+               "Total Cost": 26.14
+              }
+             ], 
+             "Node Type": "Aggregate", 
+             "Strategy": "Plain", 
+             "Plan Rows": 1, 
+             "Parallel Aware": false, 
+             "Output": [
+              "count(*)"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Plan Width": 8, 
+             "Total Cost": 26.16
+            }
+           ], 
+           "Node Type": "Nested Loop", 
+           "Plan Rows": 1, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "(count(*))", 
+            "(count(*))", 
+            "(count(*))", 
+            "(count(*))"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 32, 
+           "Total Cost": 104.69
+          }, 
+          {
+           "Partial Mode": "Simple", 
+           "Startup Cost": 26.15, 
+           "Plans": [
+            {
+             "Startup Cost": 10.81, 
+             "Plans": [
+              {
+               "Startup Cost": 10.66, 
+               "Plans": [
+                {
+                 "Hash Cond": "(store_sales_4.ss_store_sk = store_4.s_store_sk)", 
+                 "Startup Cost": 10.51, 
+                 "Plans": [
+                  {
+                   "Startup Cost": 0.0, 
+                   "Plan Width": 12, 
+                   "Node Type": "Seq Scan", 
+                   "Plan Rows": 340, 
+                   "Relation Name": "store_sales", 
+                   "Alias": "store_sales_4", 
+                   "Parallel Aware": false, 
+                   "Output": [
+                    "store_sales_4.ss_sold_date_sk", 
+                    "store_sales_4.ss_sold_time_sk", 
+                    "store_sales_4.ss_item_sk", 
+                    "store_sales_4.ss_customer_sk", 
+                    "store_sales_4.ss_cdemo_sk", 
+                    "store_sales_4.ss_hdemo_sk", 
+                    "store_sales_4.ss_addr_sk", 
+                    "store_sales_4.ss_store_sk", 
+                    "store_sales_4.ss_promo_sk", 
+                    "store_sales_4.ss_ticket_number", 
+                    "store_sales_4.ss_quantity", 
+                    "store_sales_4.ss_wholesale_cost", 
+                    "store_sales_4.ss_list_price", 
+                    "store_sales_4.ss_sales_price", 
+                    "store_sales_4.ss_ext_discount_amt", 
+                    "store_sales_4.ss_ext_sales_price", 
+                    "store_sales_4.ss_ext_wholesale_cost", 
+                    "store_sales_4.ss_ext_list_price", 
+                    "store_sales_4.ss_ext_tax", 
+                    "store_sales_4.ss_coupon_amt", 
+                    "store_sales_4.ss_net_paid", 
+                    "store_sales_4.ss_net_paid_inc_tax", 
+                    "store_sales_4.ss_net_profit"
+                   ], 
+                   "Parent Relationship": "Outer", 
+                   "Total Cost": 13.4, 
+                   "Schema": "pg_temp_2"
+                  }, 
+                  {
+                   "Startup Cost": 10.5, 
+                   "Plans": [
+                    {
+                     "Filter": "((store_4.s_store_name)::text = 'ese'::text)", 
+                     "Startup Cost": 0.0, 
+                     "Plan Width": 4, 
+                     "Node Type": "Seq Scan", 
+                     "Plan Rows": 1, 
+                     "Relation Name": "store", 
+                     "Alias": "store_4", 
+                     "Parallel Aware": false, 
+                     "Output": [
+                      "store_4.s_store_sk"
+                     ], 
+                     "Parent Relationship": "Outer", 
+                     "Total Cost": 10.5, 
+                     "Schema": "pg_temp_2"
+                    }
+                   ], 
+                   "Node Type": "Hash", 
+                   "Plan Rows": 1, 
+                   "Parallel Aware": false, 
+                   "Output": [
+                    "store_4.s_store_sk"
+                   ], 
+                   "Parent Relationship": "Inner", 
+                   "Plan Width": 4, 
+                   "Total Cost": 10.5
+                  }
+                 ], 
+                 "Node Type": "Hash Join", 
+                 "Plan Rows": 2, 
+                 "Join Type": "Inner", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "store_sales_4.ss_sold_time_sk", 
+                  "store_sales_4.ss_hdemo_sk"
+                 ], 
+                 "Parent Relationship": "Outer", 
+                 "Plan Width": 8, 
+                 "Total Cost": 25.21
+                }, 
+                {
+                 "Index Cond": "(time_dim_4.t_time_sk = store_sales_4.ss_sold_time_sk)", 
+                 "Startup Cost": 0.14, 
+                 "Scan Direction": "Forward", 
+                 "Plan Width": 4, 
+                 "Node Type": "Index Scan", 
+                 "Total Cost": 0.3, 
+                 "Plan Rows": 1, 
+                 "Relation Name": "time_dim", 
+                 "Alias": "time_dim_4", 
+                 "Parallel Aware": false, 
+                 "Filter": "((time_dim_4.t_minute >= 30) AND (time_dim_4.t_hour = 10))", 
+                 "Output": [
+                  "time_dim_4.t_time_sk", 
+                  "time_dim_4.t_time_id", 
+                  "time_dim_4.t_time", 
+                  "time_dim_4.t_hour", 
+                  "time_dim_4.t_minute", 
+                  "time_dim_4.t_second", 
+                  "time_dim_4.t_am_pm", 
+                  "time_dim_4.t_shift", 
+                  "time_dim_4.t_sub_shift", 
+                  "time_dim_4.t_meal_time"
+                 ], 
+                 "Parent Relationship": "Inner", 
+                 "Schema": "pg_temp_2", 
+                 "Index Name": "time_dim_pkey"
+                }
+               ], 
+               "Node Type": "Nested Loop", 
+               "Plan Rows": 1, 
+               "Join Type": "Inner", 
+               "Parallel Aware": false, 
+               "Output": [
+                "store_sales_4.ss_hdemo_sk"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Plan Width": 4, 
+               "Total Cost": 25.82
+              }, 
+              {
+               "Index Cond": "(household_demographics_4.hd_demo_sk = store_sales_4.ss_hdemo_sk)", 
+               "Startup Cost": 0.15, 
+               "Scan Direction": "Forward", 
+               "Plan Width": 4, 
+               "Node Type": "Index Scan", 
+               "Total Cost": 0.31, 
+               "Plan Rows": 1, 
+               "Relation Name": "household_demographics", 
+               "Alias": "household_demographics_4", 
+               "Parallel Aware": false, 
+               "Filter": "(((household_demographics_4.hd_dep_count = 1) AND (household_demographics_4.hd_vehicle_count <= 3)) OR ((household_demographics_4.hd_dep_count = 0) AND (household_demographics_4.hd_vehicle_count <= 2)) OR ((household_demographics_4.hd_dep_count = 3) AND (household_demographics_4.hd_vehicle_count <= 5)))", 
+               "Output": [
+                "household_demographics_4.hd_demo_sk", 
+                "household_demographics_4.hd_income_band_sk", 
+                "household_demographics_4.hd_buy_potential", 
+                "household_demographics_4.hd_dep_count", 
+                "household_demographics_4.hd_vehicle_count"
+               ], 
+               "Parent Relationship": "Inner", 
+               "Schema": "pg_temp_2", 
+               "Index Name": "household_demographics_pkey"
+              }
+             ], 
+             "Node Type": "Nested Loop", 
+             "Plan Rows": 1, 
+             "Join Type": "Inner", 
+             "Parallel Aware": false, 
+             "Parent Relationship": "Outer", 
+             "Plan Width": 0, 
+             "Total Cost": 26.14
+            }
+           ], 
+           "Node Type": "Aggregate", 
+           "Strategy": "Plain", 
+           "Plan Rows": 1, 
+           "Parallel Aware": false, 
+           "Output": [
+            "count(*)"
+           ], 
+           "Parent Relationship": "Inner", 
+           "Plan Width": 8, 
+           "Total Cost": 26.16
+          }
+         ], 
+         "Node Type": "Nested Loop", 
+         "Plan Rows": 1, 
+         "Join Type": "Inner", 
+         "Parallel Aware": false, 
+         "Output": [
+          "(count(*))", 
+          "(count(*))", 
+          "(count(*))", 
+          "(count(*))", 
+          "(count(*))"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 40, 
+         "Total Cost": 130.87
+        }, 
+        {
+         "Partial Mode": "Simple", 
+         "Startup Cost": 26.15, 
+         "Plans": [
+          {
+           "Startup Cost": 10.81, 
+           "Plans": [
+            {
+             "Startup Cost": 10.66, 
+             "Plans": [
+              {
+               "Hash Cond": "(store_sales_5.ss_store_sk = store_5.s_store_sk)", 
+               "Startup Cost": 10.51, 
+               "Plans": [
+                {
+                 "Startup Cost": 0.0, 
+                 "Plan Width": 12, 
+                 "Node Type": "Seq Scan", 
+                 "Plan Rows": 340, 
+                 "Relation Name": "store_sales", 
+                 "Alias": "store_sales_5", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "store_sales_5.ss_sold_date_sk", 
+                  "store_sales_5.ss_sold_time_sk", 
+                  "store_sales_5.ss_item_sk", 
+                  "store_sales_5.ss_customer_sk", 
+                  "store_sales_5.ss_cdemo_sk", 
+                  "store_sales_5.ss_hdemo_sk", 
+                  "store_sales_5.ss_addr_sk", 
+                  "store_sales_5.ss_store_sk", 
+                  "store_sales_5.ss_promo_sk", 
+                  "store_sales_5.ss_ticket_number", 
+                  "store_sales_5.ss_quantity", 
+                  "store_sales_5.ss_wholesale_cost", 
+                  "store_sales_5.ss_list_price", 
+                  "store_sales_5.ss_sales_price", 
+                  "store_sales_5.ss_ext_discount_amt", 
+                  "store_sales_5.ss_ext_sales_price", 
+                  "store_sales_5.ss_ext_wholesale_cost", 
+                  "store_sales_5.ss_ext_list_price", 
+                  "store_sales_5.ss_ext_tax", 
+                  "store_sales_5.ss_coupon_amt", 
+                  "store_sales_5.ss_net_paid", 
+                  "store_sales_5.ss_net_paid_inc_tax", 
+                  "store_sales_5.ss_net_profit"
+                 ], 
+                 "Parent Relationship": "Outer", 
+                 "Total Cost": 13.4, 
+                 "Schema": "pg_temp_2"
+                }, 
+                {
+                 "Startup Cost": 10.5, 
+                 "Plans": [
+                  {
+                   "Filter": "((store_5.s_store_name)::text = 'ese'::text)", 
+                   "Startup Cost": 0.0, 
+                   "Plan Width": 4, 
+                   "Node Type": "Seq Scan", 
+                   "Plan Rows": 1, 
+                   "Relation Name": "store", 
+                   "Alias": "store_5", 
+                   "Parallel Aware": false, 
+                   "Output": [
+                    "store_5.s_store_sk"
+                   ], 
+                   "Parent Relationship": "Outer", 
+                   "Total Cost": 10.5, 
+                   "Schema": "pg_temp_2"
+                  }
+                 ], 
+                 "Node Type": "Hash", 
+                 "Plan Rows": 1, 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "store_5.s_store_sk"
+                 ], 
+                 "Parent Relationship": "Inner", 
+                 "Plan Width": 4, 
+                 "Total Cost": 10.5
+                }
+               ], 
+               "Node Type": "Hash Join", 
+               "Plan Rows": 2, 
+               "Join Type": "Inner", 
+               "Parallel Aware": false, 
+               "Output": [
+                "store_sales_5.ss_sold_time_sk", 
+                "store_sales_5.ss_hdemo_sk"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Plan Width": 8, 
+               "Total Cost": 25.21
+              }, 
+              {
+               "Index Cond": "(time_dim_5.t_time_sk = store_sales_5.ss_sold_time_sk)", 
+               "Startup Cost": 0.14, 
+               "Scan Direction": "Forward", 
+               "Plan Width": 4, 
+               "Node Type": "Index Scan", 
+               "Total Cost": 0.3, 
+               "Plan Rows": 1, 
+               "Relation Name": "time_dim", 
+               "Alias": "time_dim_5", 
+               "Parallel Aware": false, 
+               "Filter": "((time_dim_5.t_minute < 30) AND (time_dim_5.t_hour = 11))", 
+               "Output": [
+                "time_dim_5.t_time_sk", 
+                "time_dim_5.t_time_id", 
+                "time_dim_5.t_time", 
+                "time_dim_5.t_hour", 
+                "time_dim_5.t_minute", 
+                "time_dim_5.t_second", 
+                "time_dim_5.t_am_pm", 
+                "time_dim_5.t_shift", 
+                "time_dim_5.t_sub_shift", 
+                "time_dim_5.t_meal_time"
+               ], 
+               "Parent Relationship": "Inner", 
+               "Schema": "pg_temp_2", 
+               "Index Name": "time_dim_pkey"
+              }
+             ], 
+             "Node Type": "Nested Loop", 
+             "Plan Rows": 1, 
+             "Join Type": "Inner", 
+             "Parallel Aware": false, 
+             "Output": [
+              "store_sales_5.ss_hdemo_sk"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Plan Width": 4, 
+             "Total Cost": 25.82
+            }, 
+            {
+             "Index Cond": "(household_demographics_5.hd_demo_sk = store_sales_5.ss_hdemo_sk)", 
+             "Startup Cost": 0.15, 
+             "Scan Direction": "Forward", 
+             "Plan Width": 4, 
+             "Node Type": "Index Scan", 
+             "Total Cost": 0.31, 
+             "Plan Rows": 1, 
+             "Relation Name": "household_demographics", 
+             "Alias": "household_demographics_5", 
+             "Parallel Aware": false, 
+             "Filter": "(((household_demographics_5.hd_dep_count = 1) AND (household_demographics_5.hd_vehicle_count <= 3)) OR ((household_demographics_5.hd_dep_count = 0) AND (household_demographics_5.hd_vehicle_count <= 2)) OR ((household_demographics_5.hd_dep_count = 3) AND (household_demographics_5.hd_vehicle_count <= 5)))", 
+             "Output": [
+              "household_demographics_5.hd_demo_sk", 
+              "household_demographics_5.hd_income_band_sk", 
+              "household_demographics_5.hd_buy_potential", 
+              "household_demographics_5.hd_dep_count", 
+              "household_demographics_5.hd_vehicle_count"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Schema": "pg_temp_2", 
+             "Index Name": "household_demographics_pkey"
+            }
+           ], 
+           "Node Type": "Nested Loop", 
+           "Plan Rows": 1, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 0, 
+           "Total Cost": 26.14
+          }
+         ], 
+         "Node Type": "Aggregate", 
+         "Strategy": "Plain", 
+         "Plan Rows": 1, 
+         "Parallel Aware": false, 
+         "Output": [
+          "count(*)"
+         ], 
+         "Parent Relationship": "Inner", 
+         "Plan Width": 8, 
+         "Total Cost": 26.16
+        }
+       ], 
+       "Node Type": "Nested Loop", 
+       "Plan Rows": 1, 
+       "Join Type": "Inner", 
+       "Parallel Aware": false, 
+       "Output": [
+        "(count(*))", 
+        "(count(*))", 
+        "(count(*))", 
+        "(count(*))", 
+        "(count(*))", 
+        "(count(*))"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 48, 
+       "Total Cost": 157.04
+      }, 
+      {
+       "Partial Mode": "Simple", 
+       "Startup Cost": 26.15, 
+       "Plans": [
+        {
+         "Startup Cost": 10.81, 
+         "Plans": [
+          {
+           "Startup Cost": 10.66, 
+           "Plans": [
+            {
+             "Hash Cond": "(store_sales_6.ss_store_sk = store_6.s_store_sk)", 
+             "Startup Cost": 10.51, 
+             "Plans": [
+              {
+               "Startup Cost": 0.0, 
+               "Plan Width": 12, 
+               "Node Type": "Seq Scan", 
+               "Plan Rows": 340, 
+               "Relation Name": "store_sales", 
+               "Alias": "store_sales_6", 
+               "Parallel Aware": false, 
+               "Output": [
+                "store_sales_6.ss_sold_date_sk", 
+                "store_sales_6.ss_sold_time_sk", 
+                "store_sales_6.ss_item_sk", 
+                "store_sales_6.ss_customer_sk", 
+                "store_sales_6.ss_cdemo_sk", 
+                "store_sales_6.ss_hdemo_sk", 
+                "store_sales_6.ss_addr_sk", 
+                "store_sales_6.ss_store_sk", 
+                "store_sales_6.ss_promo_sk", 
+                "store_sales_6.ss_ticket_number", 
+                "store_sales_6.ss_quantity", 
+                "store_sales_6.ss_wholesale_cost", 
+                "store_sales_6.ss_list_price", 
+                "store_sales_6.ss_sales_price", 
+                "store_sales_6.ss_ext_discount_amt", 
+                "store_sales_6.ss_ext_sales_price", 
+                "store_sales_6.ss_ext_wholesale_cost", 
+                "store_sales_6.ss_ext_list_price", 
+                "store_sales_6.ss_ext_tax", 
+                "store_sales_6.ss_coupon_amt", 
+                "store_sales_6.ss_net_paid", 
+                "store_sales_6.ss_net_paid_inc_tax", 
+                "store_sales_6.ss_net_profit"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Total Cost": 13.4, 
+               "Schema": "pg_temp_2"
+              }, 
+              {
+               "Startup Cost": 10.5, 
+               "Plans": [
+                {
+                 "Filter": "((store_6.s_store_name)::text = 'ese'::text)", 
+                 "Startup Cost": 0.0, 
+                 "Plan Width": 4, 
+                 "Node Type": "Seq Scan", 
+                 "Plan Rows": 1, 
+                 "Relation Name": "store", 
+                 "Alias": "store_6", 
+                 "Parallel Aware": false, 
+                 "Output": [
+                  "store_6.s_store_sk"
+                 ], 
+                 "Parent Relationship": "Outer", 
+                 "Total Cost": 10.5, 
+                 "Schema": "pg_temp_2"
+                }
+               ], 
+               "Node Type": "Hash", 
+               "Plan Rows": 1, 
+               "Parallel Aware": false, 
+               "Output": [
+                "store_6.s_store_sk"
+               ], 
+               "Parent Relationship": "Inner", 
+               "Plan Width": 4, 
+               "Total Cost": 10.5
+              }
+             ], 
+             "Node Type": "Hash Join", 
+             "Plan Rows": 2, 
+             "Join Type": "Inner", 
+             "Parallel Aware": false, 
+             "Output": [
+              "store_sales_6.ss_sold_time_sk", 
+              "store_sales_6.ss_hdemo_sk"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Plan Width": 8, 
+             "Total Cost": 25.21
+            }, 
+            {
+             "Index Cond": "(time_dim_6.t_time_sk = store_sales_6.ss_sold_time_sk)", 
+             "Startup Cost": 0.14, 
+             "Scan Direction": "Forward", 
+             "Plan Width": 4, 
+             "Node Type": "Index Scan", 
+             "Total Cost": 0.3, 
+             "Plan Rows": 1, 
+             "Relation Name": "time_dim", 
+             "Alias": "time_dim_6", 
+             "Parallel Aware": false, 
+             "Filter": "((time_dim_6.t_minute >= 30) AND (time_dim_6.t_hour = 11))", 
+             "Output": [
+              "time_dim_6.t_time_sk", 
+              "time_dim_6.t_time_id", 
+              "time_dim_6.t_time", 
+              "time_dim_6.t_hour", 
+              "time_dim_6.t_minute", 
+              "time_dim_6.t_second", 
+              "time_dim_6.t_am_pm", 
+              "time_dim_6.t_shift", 
+              "time_dim_6.t_sub_shift", 
+              "time_dim_6.t_meal_time"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Schema": "pg_temp_2", 
+             "Index Name": "time_dim_pkey"
+            }
+           ], 
+           "Node Type": "Nested Loop", 
+           "Plan Rows": 1, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "store_sales_6.ss_hdemo_sk"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 4, 
+           "Total Cost": 25.82
+          }, 
+          {
+           "Index Cond": "(household_demographics_6.hd_demo_sk = store_sales_6.ss_hdemo_sk)", 
+           "Startup Cost": 0.15, 
+           "Scan Direction": "Forward", 
+           "Plan Width": 4, 
+           "Node Type": "Index Scan", 
+           "Total Cost": 0.31, 
+           "Plan Rows": 1, 
+           "Relation Name": "household_demographics", 
+           "Alias": "household_demographics_6", 
+           "Parallel Aware": false, 
+           "Filter": "(((household_demographics_6.hd_dep_count = 1) AND (household_demographics_6.hd_vehicle_count <= 3)) OR ((household_demographics_6.hd_dep_count = 0) AND (household_demographics_6.hd_vehicle_count <= 2)) OR ((household_demographics_6.hd_dep_count = 3) AND (household_demographics_6.hd_vehicle_count <= 5)))", 
+           "Output": [
+            "household_demographics_6.hd_demo_sk", 
+            "household_demographics_6.hd_income_band_sk", 
+            "household_demographics_6.hd_buy_potential", 
+            "household_demographics_6.hd_dep_count", 
+            "household_demographics_6.hd_vehicle_count"
+           ], 
+           "Parent Relationship": "Inner", 
+           "Schema": "pg_temp_2", 
+           "Index Name": "household_demographics_pkey"
+          }
+         ], 
+         "Node Type": "Nested Loop", 
+         "Plan Rows": 1, 
+         "Join Type": "Inner", 
+         "Parallel Aware": false, 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 0, 
+         "Total Cost": 26.14
+        }
+       ], 
+       "Node Type": "Aggregate", 
+       "Strategy": "Plain", 
+       "Plan Rows": 1, 
+       "Parallel Aware": false, 
+       "Output": [
+        "count(*)"
+       ], 
+       "Parent Relationship": "Inner", 
+       "Plan Width": 8, 
+       "Total Cost": 26.16
+      }
+     ], 
+     "Node Type": "Nested Loop", 
+     "Plan Rows": 1, 
+     "Join Type": "Inner", 
+     "Parallel Aware": false, 
+     "Output": [
+      "(count(*))", 
+      "(count(*))", 
+      "(count(*))", 
+      "(count(*))", 
+      "(count(*))", 
+      "(count(*))", 
+      "(count(*))"
+     ], 
+     "Parent Relationship": "Outer", 
+     "Plan Width": 56, 
+     "Total Cost": 183.22
+    }, 
+    {
+     "Partial Mode": "Simple", 
+     "Startup Cost": 26.15, 
+     "Plans": [
+      {
+       "Startup Cost": 10.81, 
+       "Plans": [
+        {
+         "Startup Cost": 10.66, 
+         "Plans": [
+          {
+           "Hash Cond": "(store_sales_7.ss_store_sk = store_7.s_store_sk)", 
+           "Startup Cost": 10.51, 
+           "Plans": [
+            {
+             "Startup Cost": 0.0, 
+             "Plan Width": 12, 
+             "Node Type": "Seq Scan", 
+             "Plan Rows": 340, 
+             "Relation Name": "store_sales", 
+             "Alias": "store_sales_7", 
+             "Parallel Aware": false, 
+             "Output": [
+              "store_sales_7.ss_sold_date_sk", 
+              "store_sales_7.ss_sold_time_sk", 
+              "store_sales_7.ss_item_sk", 
+              "store_sales_7.ss_customer_sk", 
+              "store_sales_7.ss_cdemo_sk", 
+              "store_sales_7.ss_hdemo_sk", 
+              "store_sales_7.ss_addr_sk", 
+              "store_sales_7.ss_store_sk", 
+              "store_sales_7.ss_promo_sk", 
+              "store_sales_7.ss_ticket_number", 
+              "store_sales_7.ss_quantity", 
+              "store_sales_7.ss_wholesale_cost", 
+              "store_sales_7.ss_list_price", 
+              "store_sales_7.ss_sales_price", 
+              "store_sales_7.ss_ext_discount_amt", 
+              "store_sales_7.ss_ext_sales_price", 
+              "store_sales_7.ss_ext_wholesale_cost", 
+              "store_sales_7.ss_ext_list_price", 
+              "store_sales_7.ss_ext_tax", 
+              "store_sales_7.ss_coupon_amt", 
+              "store_sales_7.ss_net_paid", 
+              "store_sales_7.ss_net_paid_inc_tax", 
+              "store_sales_7.ss_net_profit"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Total Cost": 13.4, 
+             "Schema": "pg_temp_2"
+            }, 
+            {
+             "Startup Cost": 10.5, 
+             "Plans": [
+              {
+               "Filter": "((store_7.s_store_name)::text = 'ese'::text)", 
+               "Startup Cost": 0.0, 
+               "Plan Width": 4, 
+               "Node Type": "Seq Scan", 
+               "Plan Rows": 1, 
+               "Relation Name": "store", 
+               "Alias": "store_7", 
+               "Parallel Aware": false, 
+               "Output": [
+                "store_7.s_store_sk"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Total Cost": 10.5, 
+               "Schema": "pg_temp_2"
+              }
+             ], 
+             "Node Type": "Hash", 
+             "Plan Rows": 1, 
+             "Parallel Aware": false, 
+             "Output": [
+              "store_7.s_store_sk"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Plan Width": 4, 
+             "Total Cost": 10.5
+            }
+           ], 
+           "Node Type": "Hash Join", 
+           "Plan Rows": 2, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "store_sales_7.ss_sold_time_sk", 
+            "store_sales_7.ss_hdemo_sk"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 8, 
+           "Total Cost": 25.21
+          }, 
+          {
+           "Index Cond": "(time_dim_7.t_time_sk = store_sales_7.ss_sold_time_sk)", 
+           "Startup Cost": 0.14, 
+           "Scan Direction": "Forward", 
+           "Plan Width": 4, 
+           "Node Type": "Index Scan", 
+           "Total Cost": 0.3, 
+           "Plan Rows": 1, 
+           "Relation Name": "time_dim", 
+           "Alias": "time_dim_7", 
+           "Parallel Aware": false, 
+           "Filter": "((time_dim_7.t_minute < 30) AND (time_dim_7.t_hour = 12))", 
+           "Output": [
+            "time_dim_7.t_time_sk", 
+            "time_dim_7.t_time_id", 
+            "time_dim_7.t_time", 
+            "time_dim_7.t_hour", 
+            "time_dim_7.t_minute", 
+            "time_dim_7.t_second", 
+            "time_dim_7.t_am_pm", 
+            "time_dim_7.t_shift", 
+            "time_dim_7.t_sub_shift", 
+            "time_dim_7.t_meal_time"
+           ], 
+           "Parent Relationship": "Inner", 
+           "Schema": "pg_temp_2", 
+           "Index Name": "time_dim_pkey"
+          }
+         ], 
+         "Node Type": "Nested Loop", 
+         "Plan Rows": 1, 
+         "Join Type": "Inner", 
+         "Parallel Aware": false, 
+         "Output": [
+          "store_sales_7.ss_hdemo_sk"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 4, 
+         "Total Cost": 25.82
+        }, 
+        {
+         "Index Cond": "(household_demographics_7.hd_demo_sk = store_sales_7.ss_hdemo_sk)", 
+         "Startup Cost": 0.15, 
+         "Scan Direction": "Forward", 
+         "Plan Width": 4, 
+         "Node Type": "Index Scan", 
+         "Total Cost": 0.31, 
+         "Plan Rows": 1, 
+         "Relation Name": "household_demographics", 
+         "Alias": "household_demographics_7", 
+         "Parallel Aware": false, 
+         "Filter": "(((household_demographics_7.hd_dep_count = 1) AND (household_demographics_7.hd_vehicle_count <= 3)) OR ((household_demographics_7.hd_dep_count = 0) AND (household_demographics_7.hd_vehicle_count <= 2)) OR ((household_demographics_7.hd_dep_count = 3) AND (household_demographics_7.hd_vehicle_count <= 5)))", 
+         "Output": [
+          "household_demographics_7.hd_demo_sk", 
+          "household_demographics_7.hd_income_band_sk", 
+          "household_demographics_7.hd_buy_potential", 
+          "household_demographics_7.hd_dep_count", 
+          "household_demographics_7.hd_vehicle_count"
+         ], 
+         "Parent Relationship": "Inner", 
+         "Schema": "pg_temp_2", 
+         "Index Name": "household_demographics_pkey"
+        }
+       ], 
+       "Node Type": "Nested Loop", 
+       "Plan Rows": 1, 
+       "Join Type": "Inner", 
+       "Parallel Aware": false, 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 0, 
+       "Total Cost": 26.14
+      }
+     ], 
+     "Node Type": "Aggregate", 
+     "Strategy": "Plain", 
+     "Plan Rows": 1, 
+     "Parallel Aware": false, 
+     "Output": [
+      "count(*)"
+     ], 
+     "Parent Relationship": "Inner", 
+     "Plan Width": 8, 
+     "Total Cost": 26.16
+    }
+   ], 
+   "Node Type": "Nested Loop", 
+   "Plan Rows": 1, 
+   "Join Type": "Inner", 
+   "Parallel Aware": false, 
+   "Output": [
+    "(count(*))", 
+    "(count(*))", 
+    "(count(*))", 
+    "(count(*))", 
+    "(count(*))", 
+    "(count(*))", 
+    "(count(*))", 
+    "(count(*))"
+   ], 
+   "Plan Width": 64, 
+   "Total Cost": 209.4
+  }
+ }
+]

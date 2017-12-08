@@ -1,0 +1,264 @@
+[
+ {
+  "Plan": {
+   "Startup Cost": 30.39, 
+   "Plans": [
+    {
+     "Startup Cost": 30.39, 
+     "Plans": [
+      {
+       "Partial Mode": "Simple", 
+       "Startup Cost": 30.25, 
+       "Plans": [
+        {
+         "Startup Cost": 30.25, 
+         "Plans": [
+          {
+           "Startup Cost": 4.36, 
+           "Plans": [
+            {
+             "Startup Cost": 4.22, 
+             "Plans": [
+              {
+               "Filter": "((date_dim.d_month_seq >= 1176) AND (date_dim.d_month_seq <= 1187))", 
+               "Startup Cost": 0.0, 
+               "Plan Width": 4, 
+               "Node Type": "Seq Scan", 
+               "Plan Rows": 1, 
+               "Relation Name": "date_dim", 
+               "Alias": "date_dim", 
+               "Parallel Aware": false, 
+               "Output": [
+                "date_dim.d_date_sk", 
+                "date_dim.d_date_id", 
+                "date_dim.d_date", 
+                "date_dim.d_month_seq", 
+                "date_dim.d_week_seq", 
+                "date_dim.d_quarter_seq", 
+                "date_dim.d_year", 
+                "date_dim.d_dow", 
+                "date_dim.d_moy", 
+                "date_dim.d_dom", 
+                "date_dim.d_qoy", 
+                "date_dim.d_fy_year", 
+                "date_dim.d_fy_quarter_seq", 
+                "date_dim.d_fy_week_seq", 
+                "date_dim.d_day_name", 
+                "date_dim.d_quarter_name", 
+                "date_dim.d_holiday", 
+                "date_dim.d_weekend", 
+                "date_dim.d_following_holiday", 
+                "date_dim.d_first_dom", 
+                "date_dim.d_last_dom", 
+                "date_dim.d_same_day_ly", 
+                "date_dim.d_same_day_lq", 
+                "date_dim.d_current_day", 
+                "date_dim.d_current_week", 
+                "date_dim.d_current_month", 
+                "date_dim.d_current_quarter", 
+                "date_dim.d_current_year"
+               ], 
+               "Parent Relationship": "Outer", 
+               "Total Cost": 14.05, 
+               "Schema": "pg_temp_2"
+              }, 
+              {
+               "Startup Cost": 4.22, 
+               "Plan Width": 12, 
+               "Plans": [
+                {
+                 "Startup Cost": 0.0, 
+                 "Plan Width": 0, 
+                 "Node Type": "Bitmap Index Scan", 
+                 "Index Cond": "(inventory.inv_date_sk = date_dim.d_date_sk)", 
+                 "Plan Rows": 9, 
+                 "Parallel Aware": false, 
+                 "Parent Relationship": "Outer", 
+                 "Total Cost": 4.22, 
+                 "Index Name": "inventory_pkey"
+                }
+               ], 
+               "Recheck Cond": "(inventory.inv_date_sk = date_dim.d_date_sk)", 
+               "Node Type": "Bitmap Heap Scan", 
+               "Plan Rows": 9, 
+               "Relation Name": "inventory", 
+               "Alias": "inventory", 
+               "Parallel Aware": false, 
+               "Output": [
+                "inventory.inv_date_sk", 
+                "inventory.inv_item_sk", 
+                "inventory.inv_warehouse_sk", 
+                "inventory.inv_quantity_on_hand"
+               ], 
+               "Parent Relationship": "Inner", 
+               "Total Cost": 14.76, 
+               "Schema": "pg_temp_2"
+              }
+             ], 
+             "Node Type": "Nested Loop", 
+             "Plan Rows": 7, 
+             "Join Type": "Inner", 
+             "Parallel Aware": false, 
+             "Output": [
+              "inventory.inv_quantity_on_hand", 
+              "inventory.inv_item_sk"
+             ], 
+             "Parent Relationship": "Outer", 
+             "Plan Width": 8, 
+             "Total Cost": 28.9
+            }, 
+            {
+             "Index Cond": "(item.i_item_sk = inventory.inv_item_sk)", 
+             "Startup Cost": 0.14, 
+             "Scan Direction": "Forward", 
+             "Plan Width": 820, 
+             "Node Type": "Index Scan", 
+             "Total Cost": 0.18, 
+             "Plan Rows": 1, 
+             "Relation Name": "item", 
+             "Alias": "item", 
+             "Parallel Aware": false, 
+             "Output": [
+              "item.i_item_sk", 
+              "item.i_item_id", 
+              "item.i_rec_start_date", 
+              "item.i_rec_end_date", 
+              "item.i_item_desc", 
+              "item.i_current_price", 
+              "item.i_wholesale_cost", 
+              "item.i_brand_id", 
+              "item.i_brand", 
+              "item.i_class_id", 
+              "item.i_class", 
+              "item.i_category_id", 
+              "item.i_category", 
+              "item.i_manufact_id", 
+              "item.i_manufact", 
+              "item.i_size", 
+              "item.i_formulation", 
+              "item.i_color", 
+              "item.i_units", 
+              "item.i_container", 
+              "item.i_manager_id", 
+              "item.i_product_name"
+             ], 
+             "Parent Relationship": "Inner", 
+             "Schema": "pg_temp_2", 
+             "Index Name": "item_pkey"
+            }
+           ], 
+           "Node Type": "Nested Loop", 
+           "Plan Rows": 1, 
+           "Join Type": "Inner", 
+           "Parallel Aware": false, 
+           "Output": [
+            "item.i_product_name", 
+            "item.i_brand", 
+            "item.i_class", 
+            "item.i_category", 
+            "inventory.inv_quantity_on_hand"
+           ], 
+           "Parent Relationship": "Outer", 
+           "Plan Width": 820, 
+           "Total Cost": 30.24
+          }
+         ], 
+         "Sort Key": [
+          "item.i_product_name", 
+          "item.i_brand", 
+          "item.i_class", 
+          "item.i_category"
+         ], 
+         "Node Type": "Sort", 
+         "Plan Rows": 1, 
+         "Parallel Aware": false, 
+         "Output": [
+          "item.i_product_name", 
+          "item.i_brand", 
+          "item.i_class", 
+          "item.i_category", 
+          "inventory.inv_quantity_on_hand"
+         ], 
+         "Parent Relationship": "Outer", 
+         "Plan Width": 820, 
+         "Total Cost": 30.26
+        }
+       ], 
+       "Grouping Sets": [
+        {
+         "Group Keys": [
+          [
+           "item.i_product_name", 
+           "item.i_brand", 
+           "item.i_class", 
+           "item.i_category"
+          ], 
+          [
+           "item.i_product_name", 
+           "item.i_brand", 
+           "item.i_class"
+          ], 
+          [
+           "item.i_product_name", 
+           "item.i_brand"
+          ], 
+          [
+           "item.i_product_name"
+          ], 
+          []
+         ]
+        }
+       ], 
+       "Node Type": "Aggregate", 
+       "Strategy": "Sorted", 
+       "Plan Rows": 5, 
+       "Parallel Aware": false, 
+       "Output": [
+        "item.i_product_name", 
+        "item.i_brand", 
+        "item.i_class", 
+        "item.i_category", 
+        "avg(inventory.inv_quantity_on_hand)"
+       ], 
+       "Parent Relationship": "Outer", 
+       "Plan Width": 848, 
+       "Total Cost": 30.33
+      }
+     ], 
+     "Sort Key": [
+      "(avg(inventory.inv_quantity_on_hand))", 
+      "item.i_product_name", 
+      "item.i_brand", 
+      "item.i_class", 
+      "item.i_category"
+     ], 
+     "Node Type": "Sort", 
+     "Plan Rows": 5, 
+     "Parallel Aware": false, 
+     "Output": [
+      "item.i_product_name", 
+      "item.i_brand", 
+      "item.i_class", 
+      "item.i_category", 
+      "(avg(inventory.inv_quantity_on_hand))"
+     ], 
+     "Parent Relationship": "Outer", 
+     "Plan Width": 848, 
+     "Total Cost": 30.4
+    }
+   ], 
+   "Node Type": "Limit", 
+   "Plan Rows": 5, 
+   "Parallel Aware": false, 
+   "Output": [
+    "item.i_product_name", 
+    "item.i_brand", 
+    "item.i_class", 
+    "item.i_category", 
+    "(avg(inventory.inv_quantity_on_hand))"
+   ], 
+   "Plan Width": 848, 
+   "Total Cost": 30.4
+  }
+ }
+]
