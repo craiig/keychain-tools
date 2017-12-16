@@ -8,7 +8,7 @@ queries := $(wildcard $(tpcds_dir)/query_templates/query*.tpl)
 generated_queries := $(patsubst $(tpcds_dir)/query_templates/%.tpl, queries/%.sql, $(queries))
 explained_queries := $(patsubst queries/%.sql, plans/%.json, $(wildcard queries/*.sql))
 
-all: $(generated_queries) $(explained_queries)
+all: $(generated_queries) $(explained_queries) flattened.json
 
 #WARNING dsqgen is very sensitive to long paths on the output_dir so we just
 # keep it simple and copy from there
@@ -20,6 +20,9 @@ queries/%.sql: $(tpcds_dir)/query_templates/%.tpl
 plans/%.json: queries/%.sql
 	mkdir -p $(dir $@)
 	./postgres_explain.py $< -o $@
+
+flattened.json: $(wildcard plans/*.json)
+	./flatten_plans.py $^ > $@
 
 .PHONY: clean
 clean:

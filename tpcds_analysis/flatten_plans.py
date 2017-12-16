@@ -34,7 +34,7 @@ for fn in args.filenames:
         plans = plans[0]["Plan"]
     flattened = flattened + flatten_plans_recur(fn, [plans])
 
-print json.dumps(flattened)
+print json.dumps(flattened, indent=1)
 #pprint(flattened)
 #print "total plans: %s" % (len(flattened))
 #print "total plans: %s" % (plan_id_counter)
