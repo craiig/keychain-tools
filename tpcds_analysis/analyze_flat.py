@@ -20,6 +20,8 @@ args = parser.parse_args()
 # things we folded into higher level groups:
 #   functions of single column
 #   aggregates of single column
+#   identifier names
+#   coalesce replaced with it's first argument
 #   binary operations, disregarding operator
 
 ###
@@ -32,7 +34,7 @@ def parser_preprocess(sql):
 
     #canonicalize subplan references
     #what is the difference between SubPlan \d and $2?
-    # SubPLan is a plan that has dependencies on other parts of the query
+    # SubPlan is a plan that has dependencies on other parts of the query
     # InitPlan ($\d)+ references are plans that have no dependencies and can be executed once
     #  InitPlans are as good as constants assuming no updates to the underlying data happens
     #  for our purposes we group them together as one
@@ -92,7 +94,20 @@ def erase_identifier_names_recur(node, in_function=False, debug=False):
         }
         if node.value in func_renames:
             node.tokens = [sqlparse.sql.Token(sqlparse.tokens.Name, func_renames[node.value])]
-
+    elif type(node)==sqlparse.sql.Function and node.tokens[0].value == 'COALESCE':
+        #transform coalesce into just the identifier reference (first argument)
+        # this is OK for our analysis because coalesce is written in a very specific way
+        cand = node.tokens[1].tokens[1]
+        if(type(cand) == sqlparse.sql.IdentifierList):
+            #sometimes an expression list can be parsed as an identifier list, sometimes not
+            # tests cases:
+            #   "COALESCE(identifier0, '0'::numeric)"
+            #   "sum(COALESCE((store_sales.ss_sales_price * (store_sales.ss_quantity)::numeric), '0'::numeric))"
+            cand = cand.tokens[0]
+        if debug:
+            print "coalesce replacement candidate: {} type: {} tokens: {}".format( cand, type(cand), cand.tokens)
+        node.tokens = [cand]
+        pass
     elif type(node) == sqlparse.sql.Token and (node.ttype == sqlparse.tokens.Number.Integer or node.ttype == sqlparse.tokens.Number.Float):
         if debug:
             print 'number: {}'.format(node)
@@ -158,18 +173,22 @@ def transform_statement(ty, stmnt):
 # total occurences of an expression
 # number of unique queries expression appears in
 #
-dfQuery = pd.DataFrame(columns=['query','type','expression'])
+queries = [] #faster to load them all at once
 def analyze_outputs(p):
-    global dfQuery
+    global queries
 
     def process_statement(query, ty, in_stmnt):
-        global dfQuery
+        global queries
         # TODO ignore some nodes to avoid 'over counting'
         # because basic col outputs are very high, (or we just don't report it in that way)
         #transform outputs
         # the way we'll avoid this is giving occurences relative to different queries
         # instead of relative to some 'total number of expressions'
-        out_stmnt = transform_statement(ty,in_stmnt)
+        try: 
+            out_stmnt = transform_statement(ty,in_stmnt)
+        except Exception as inst:
+            print "exception parsing statement: {}".format(in_stmnt)
+            print inst
 
         if args.filter and args.filter == out_stmnt:
             print in_stmnt
@@ -179,9 +198,7 @@ def analyze_outputs(p):
             'type': ty,
             'expression': out_stmnt
         }
-        dfQuery = dfQuery.append(obj, ignore_index=True);
-        #outputs[out_stmnt] += 1
-        #all_output_cols = all_output_cols + 1
+        queries.append(obj)
 
     #what are the column transformations?
     if "Output" in p:
@@ -211,19 +228,15 @@ def analyze_outputs(p):
 
 def outputs_stats():
     global dfQuery
-    #print "total output columns: %s" % (all_output_cols)
-    #print "total unique cols after post-proessing: {}".format(len(outputs))
-    #pprint( outputs.most_common(len(outputs)) )
-    print dfQuery
-    pass
+    dfQuery = pd.DataFrame(data=queries, columns=['query','type','expression'])
+    #print dfQuery
 
-# testing the sql parse identifier erasure
-#test = "(catalog_sales.cs_ext_sales_price - COALESCE(catalog_returns.cr_return_amount, 0.0))"
-#test = "(item_1.i_category = 'Books'::bpchar)"
-#r = erase_identifier_names(sqlparse.parse(test)[0])
-#print ''.join(token.value for token in r.flatten())
-#print transform_statement('test', test)
-#sys.exit(1)
+    unique_expressions_per_query = dfQuery.groupby(['expression'])['query'].nunique().sort_values()
+
+    print "Total expressions: {}".format( len(unique_expressions_per_query) )
+    with pd.option_context('display.max_rows', None):
+        # expressions PER query!! cool
+        print unique_expressions_per_query.to_string()
 
 if(args.test):
     r = erase_identifier_names(parse(args.test), debug=True)
