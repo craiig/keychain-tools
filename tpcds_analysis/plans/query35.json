@@ -39,7 +39,7 @@
              ], 
              "Parent Relationship": "Outer", 
              "Total Cost": 14.2, 
-             "Schema": "pg_temp_2"
+             "Schema": "pg_temp_3"
             }, 
             {
              "Startup Cost": 72.01, 
@@ -90,7 +90,7 @@
                      ], 
                      "Parent Relationship": "Outer", 
                      "Total Cost": 13.4, 
-                     "Schema": "pg_temp_2"
+                     "Schema": "pg_temp_3"
                     }, 
                     {
                      "Startup Cost": 14.05, 
@@ -109,7 +109,7 @@
                        ], 
                        "Parent Relationship": "Outer", 
                        "Total Cost": 14.05, 
-                       "Schema": "pg_temp_2"
+                       "Schema": "pg_temp_3"
                       }
                      ], 
                      "Node Type": "Hash", 
@@ -205,7 +205,7 @@
                      ], 
                      "Parent Relationship": "Outer", 
                      "Total Cost": 13.25, 
-                     "Schema": "pg_temp_2"
+                     "Schema": "pg_temp_3"
                     }, 
                     {
                      "Index Cond": "(date_dim_1.d_date_sk = web_sales.ws_sold_date_sk)", 
@@ -250,7 +250,7 @@
                       "date_dim_1.d_current_year"
                      ], 
                      "Parent Relationship": "Inner", 
-                     "Schema": "pg_temp_2", 
+                     "Schema": "pg_temp_3", 
                      "Index Name": "date_dim_pkey"
                     }
                    ], 
@@ -313,7 +313,7 @@
                      ], 
                      "Parent Relationship": "Outer", 
                      "Total Cost": 12.6, 
-                     "Schema": "pg_temp_2"
+                     "Schema": "pg_temp_3"
                     }, 
                     {
                      "Startup Cost": 14.05, 
@@ -332,7 +332,7 @@
                        ], 
                        "Parent Relationship": "Outer", 
                        "Total Cost": 14.05, 
-                       "Schema": "pg_temp_2"
+                       "Schema": "pg_temp_3"
                       }
                      ], 
                      "Node Type": "Hash", 
@@ -408,7 +408,7 @@
                      ], 
                      "Parent Relationship": "Outer", 
                      "Total Cost": 13.25, 
-                     "Schema": "pg_temp_2"
+                     "Schema": "pg_temp_3"
                     }, 
                     {
                      "Index Cond": "(date_dim_3.d_date_sk = catalog_sales.cs_sold_date_sk)", 
@@ -453,7 +453,7 @@
                       "date_dim_3.d_current_year"
                      ], 
                      "Parent Relationship": "Inner", 
-                     "Schema": "pg_temp_2", 
+                     "Schema": "pg_temp_3", 
                      "Index Name": "date_dim_pkey"
                     }
                    ], 
@@ -516,7 +516,7 @@
                      ], 
                      "Parent Relationship": "Outer", 
                      "Total Cost": 12.6, 
-                     "Schema": "pg_temp_2"
+                     "Schema": "pg_temp_3"
                     }, 
                     {
                      "Startup Cost": 14.05, 
@@ -535,7 +535,7 @@
                        ], 
                        "Parent Relationship": "Outer", 
                        "Total Cost": 14.05, 
-                       "Schema": "pg_temp_2"
+                       "Schema": "pg_temp_3"
                       }
                      ], 
                      "Node Type": "Hash", 
@@ -590,7 +590,7 @@
                   "c.c_last_review_date"
                  ], 
                  "Parent Relationship": "Inner", 
-                 "Schema": "pg_temp_2", 
+                 "Schema": "pg_temp_3", 
                  "Index Name": "customer_pkey"
                 }
                ], 
@@ -652,7 +652,7 @@
              ], 
              "Parent Relationship": "Outer", 
              "Total Cost": 11.0, 
-             "Schema": "pg_temp_2"
+             "Schema": "pg_temp_3"
             }
            ], 
            "Node Type": "Hash", 

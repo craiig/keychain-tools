@@ -24,6 +24,17 @@ plans/%.json: queries/%.sql
 flattened.json: $(wildcard plans/*.json)
 	./flatten_plans.py $^ > $@
 
+expressions.csv: flattened.json ./analyze_flat.py
+	./analyze_flat.py -f $< -c $@
+
+csv_loaded: expressions.csv
+	psql -c 'create schema if not exists hls_research'
+	ogr2ogr -f PGDump /vsistdout/ './expressions.csv' -lco SCHEMA=hls_research \
+		-lco DROP_TABLE=IF_EXISTS -lco CREATE_SCHEMA=OFF -nln tpcds_expressions \
+		--config PG_USE_COPY YES \
+		| psql -v ON_ERROR_STOP=1
+	touch $@
+
 .PHONY: clean
 clean:
 	#-rm -rf build/query*.sql

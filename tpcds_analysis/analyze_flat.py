@@ -14,6 +14,7 @@ parser.add_argument('--test', '-t', help='test statement to parse')
 parser.add_argument('--filter', help='print all original statements that match the given string, used in conjunction with --filename')
 parser.add_argument('--filter_re', help='print all original statements that match the given regex, used in conjunction with --filename')
 parser.add_argument('--print_sorted', '-s', help='sort by expression before outputting', action='store_true')
+parser.add_argument('--csv', '-c', help='csv file to dump')
 args = parser.parse_args()
 
 # The overall methodology here is to group statements together that DO NOT have
@@ -71,12 +72,14 @@ def parse(sql):
         print "parse: {}".format(p)
     return p
 
-def erase_identifier_names(node, debug=False):
+def erase_identifier_names(node, stats, debug=False):
     global identifier_numbering, id_map
     id_map = {}
     identifier_numbering = 0;
     node = remove_outer_paranthesis(node)
-    return erase_identifier_names_recur(node, debug=debug)
+    if args.test:
+        pprint_tree(node)
+    return erase_identifier_names_recur(node, stats, debug=debug)
 
 def remove_outer_paranthesis(node):
     #remove any outer paranthesis so we can keep it similar
@@ -101,7 +104,7 @@ def remove_outer_paranthesis(node):
     return node
     pass
 
-def erase_identifier_names_recur(node, in_function=False, debug=False):
+def erase_identifier_names_recur(node, stats, in_function=False, debug=False):
     # walk each parse node and modify any identifier name into basic name
     global identifier_numbering, id_map
 
@@ -141,34 +144,77 @@ def erase_identifier_names_recur(node, in_function=False, debug=False):
                 ,'sum': 'agg'
                 ,'max': 'agg'
                 ,'min': 'agg'
+                ,'count': 'agg'
                 ,'stddev_samp': 'agg'
                 ,'round': 'func'
         }
-        if node.value in func_renames:
-            node.tokens = [sqlparse.sql.Token(sqlparse.tokens.Name, func_renames[node.value])]
+        #if node.value in func_renames:
+            #node.tokens = [sqlparse.sql.Token(sqlparse.tokens.Name, func_renames[node.value])]
     elif type(node)==sqlparse.sql.Function and node.tokens[0].value == 'COALESCE':
         #transform coalesce into just the identifier reference (first argument)
         # this is OK for our analysis because coalesce is written in a very specific way
+        if debug:
+            print "coalesce node.tokens: {} node.tokens[1]: {}".format(node.tokens, node.tokens[1].tokens)
         cand = node.tokens[1].tokens[1]
         if(type(cand) == sqlparse.sql.IdentifierList):
             #sometimes an expression list can be parsed as an identifier list, sometimes not
             # tests cases:
             #   "COALESCE(identifier0, '0'::numeric)"
             #   "sum(COALESCE((store_sales.ss_sales_price * (store_sales.ss_quantity)::numeric), '0'::numeric))"
-            cand = cand.tokens[0]
+            # when it's an identifier list we may need to add a parenthesis
+            # node to preserve order of ops for other parts of this analysis
+            #cand = cand.tokens[0]
+            cand = [sqlparse.sql.Token(sqlparse.tokens.Punctuation, '('),
+                    cand.tokens[0],
+                    sqlparse.sql.Token(sqlparse.tokens.Punctuation, ')')
+                    ]
+            node.tokens = cand
+        else:
+            node.tokens = [cand]
         if debug:
-            print "coalesce replacement candidate: {} type: {} tokens: {}".format( cand, type(cand), cand.tokens)
-        if(cand.tokens[0].value == '(' and cand.tokens[-1].value == ')'):
-            if debug:
-                print "trimming parenthesis from coalesce in: {} out: {}".format(cand.tokens, cand.tokens[1:-1])
-            cand.tokens = cand.tokens[1:-1]
-        node.tokens = [cand]
+            print "coalesce replacement candidate: {} type: {}".format( cand, type(cand))
+        # this transform can mess with ordering of operations for things inside the coalesce statement
+        # we actually need to do the INVERSE and make sure a parenthesis gets added if it not already there
+        # test case: 'round(((ss.ss_qty / COALESCE((ws.ws_qty + cs.cs_qty), '1'::bigint)))::numeric, 2)'
+        #if(cand.tokens[0].value == '(' and cand.tokens[-1].value == ')'):
+            #if debug:
+                #print "trimming parenthesis from coalesce in: {} out: {}".format(cand.tokens, cand.tokens[1:-1])
+            #cand.tokens = cand.tokens[1:-1]
         #TODO coalesce needs to trip column identifier stuff too
         #since we removed coalesce we can mark ourseles as not being in a function anymore
         next_in_function = False
         pass
+    elif isinstance(node, sqlparse.sql.TokenList) and len(node.tokens) == 3 and node.tokens[1].value == '::':
+        #detect constants and expression casts
+        # rewrite constants and remove expression casts
+        left = node.tokens[0]
+        right = node.tokens[2]
+        if args.test:
+            print 'cast detected left:{} right{}'.format(type(left), type(right))
+        if type(left) == sqlparse.sql.Parenthesis:
+            # [<Parenthesis '(((sr_...' at 0x10577A2D0>, <Punctuation '::' at 0x1057989A8>, <Builtin 'numeric' at 0x105798A10>
+            if args.test:
+                print "removing expression cast: expression: {}".format(left)
+            node.tokens = [left]
+        elif type(right) == sqlparse.sql.Token:
+            # [<Integer '-1' at 0x106188870>, <Punctuation '::' at 0x1061888D8>, <Builtin 'integer' at 0x106188940>]
+            # [<Keyword 'NULL' at 0x10C3B4A78>, <Punctuation '::' at 0x10C3B4AE0>, <Builtin 'text' at 0x10C3B4B48>]
+            #use a type mapping to throw an error if we have a unhandled type
+            type_map = {
+                    'integer': 'numeric',
+                    'numeric': 'numeric',
+                    'bigint': 'numeric',
+                    'text': 'text',
+                    'date': 'date',
+                    'timestamp': 'date'
+                    }
+            name = "{}_constant".format(type_map[right.value])
+            node.tokens = [sqlparse.sql.Token(sqlparse.tokens.Name, name)]
+            if args.test:
+                print "rewrote const cast as {}".format(name)
+
     elif type(node) == sqlparse.sql.Token and (node.ttype == sqlparse.tokens.Number.Integer or node.ttype == sqlparse.tokens.Number.Float):
-        #detect numeric constants
+        #detect certain numeric constants that the parser picks up
         if debug:
             print 'number: {}'.format(node)
         node.value = 'numeric_constant'
@@ -192,7 +238,7 @@ def erase_identifier_names_recur(node, in_function=False, debug=False):
             #to avoid re-writing parts of identifiers, including any casts, we won't descend into identifiers
             # this is actually preventing a re-write of an expression
             #if type(node) != sqlparse.sql.Identifier:
-            erase_identifier_names_recur(n, in_function=next_in_function, debug=debug)
+            erase_identifier_names_recur(n, stats, in_function=next_in_function, debug=debug)
     if debug:
         print "<---"
 
@@ -201,9 +247,40 @@ def erase_identifier_names_recur(node, in_function=False, debug=False):
     oldval = node.value
     return node
 
-def transform_statement(ty, stmnt):
+def pprint_tree(node):
+    def pprint_tree_recur(node):
+        ret = {
+            'type': type(node)
+            , 'value': node.value
+            , 'token_list': isinstance(node, sqlparse.sql.TokenList)
+        }
+        if(isinstance(node, sqlparse.sql.TokenList)):
+            ret['tokens'] = [ pprint_tree_recur(n) for n in node.tokens ]     
+        return ret
+
+    #just flip this into something pprint will handle
+    pprint(pprint_tree_recur(node))
+
+def stats_keys():
+    return ['query', 'type',
+            'columns_count' ,'constants_count' ,'aggregates_count'
+            ,'operators_count' ,'conditionals_count']
+
+def compute_stats(node, transformed_statement, stats):
+    #pprint_tree(node)
+    stats['columns_count'] = len(id_map)
+    
+    constants = re.findall('[A-z]+_constant', transformed_statement)
+    stats['constants_count'] = len(constants)
+    aggregates = re.findall('agg\(', transformed_statement)
+    stats['aggregates_count'] = len(aggregates)
+    conditionals = re.findall('case ', transformed_statement)
+    stats['conditionals_count'] = len(conditionals)
+
+def transform_statement(ty, stmnt, stats, debug=False):
     o = stmnt
-    o = str(erase_identifier_names(parse(o)))
+    orig_node = erase_identifier_names(parse(o), stats, debug=debug)
+    o = str(orig_node)
 
     r = {
         #"col" : "[0-9A-z_\.]+"
@@ -218,43 +295,41 @@ def transform_statement(ty, stmnt):
     for k in r.iterkeys():
         r[k] = r[k].format(**r)
 
+    # constant placeholders superseded
     #o = re.sub("^'.*'::text$", "'.*'::text constant", o) 
-    o = re.sub("{text_constant}".format(**r), "text_constant", o) #pretty common
-    o = re.sub("'[^']+?'::numeric".format(**r), "numeric_constant", o) 
-    o = re.sub("'[^']+?'::integer".format(**r), "numeric_constant", o) 
-    o = re.sub("NULL::numeric".format(**r), "numeric_constant", o) 
-    o = re.sub("NULL::integer".format(**r), "numeric_constant", o) 
-    o = re.sub("NULL::bigint".format(**r), "numeric_constant", o) 
-    o = re.sub("'[^']+?'::timestamp without time zone", "time_constant", o)
-    o = re.sub("{date_constant}".format(**r), "time_constant", o) 
+    #o = re.sub("{text_constant}".format(**r), "text_constant", o) #pretty common
+    #o = re.sub("'[^']+?'::numeric".format(**r), "numeric_constant", o) 
+    #o = re.sub("'[^']+?'::integer".format(**r), "numeric_constant", o) 
+    #o = re.sub("NULL::numeric".format(**r), "numeric_constant", o) 
+    #o = re.sub("NULL::integer".format(**r), "numeric_constant", o) 
+    #o = re.sub("NULL::bigint".format(**r), "numeric_constant", o) 
+    #o = re.sub("'[^']+?'::timestamp without time zone", "time_constant", o)
+    #o = re.sub("{date_constant}".format(**r), "time_constant", o) 
 
     #fix numeric casts on identifiers and expressions since we don't really care
     #note some of this is in the regex preprocessor too
-    o = re.sub("\(({col})\)::numeric".format(**r), "\\1", o)
+    #o = re.sub("\(({col})\)::numeric".format(**r), "\\1", o)
     #o = re.sub("\(({col})\)text".format(**r), "\\1", o)
 
     #TODO stop replacing here to perform a summary of:
     # # of cols, # of identifiers, # of operators used for each query
 
     #high level ops
-    o = re.sub("{col} ({op}) {col}".format(**r), "col op col", o)
-    #o = re.sub("{col} ({op}) \({col}\)::numeric".format(**r), "col op col", o) # are these two needed?
+    #higher level summaries disabled so we can focus on purely unique
+    #o = re.sub("{col} ({op}) {col}".format(**r), "col op col", o)
+    #o = re.sub("{col} ({op}) (numeric|text|time)_constant".format(**r), "col op constant", o)
+    # are these two below needed?
+    #o = re.sub("{col} ({op}) \({col}\)::numeric".format(**r), "col op col", o) 
     #o = re.sub("\({col}\)::numeric ({op}) {col}".format(**r), "col op col", o)
-    o = re.sub("{col} ({op}) (numeric|text|time)_constant".format(**r), "col op constant", o)
 
     #some control flow patterns
     # i think a few conditional aggregations would be good to add to a test
-    o = re.sub("^agg\(CASE WHEN \(.*\) THEN numeric_constant ELSE numeric_constant END\)$", "conditional aggregate", o)
-    o = re.sub("^agg\(CASE WHEN \(.*\) THEN {col} ELSE numeric_constant END\)$".format(**r), "conditional aggregate", o)
-    o = re.sub("agg\(CASE WHEN \(.*\) THEN .*? ELSE .*? END\)".format(**r), "conditional aggregate", o) #catch all to isolate this category entirely
+    #o = re.sub("^agg\(CASE WHEN \(.*\) THEN numeric_constant ELSE numeric_constant END\)$", "conditional aggregate", o)
+    #o = re.sub("^agg\(CASE WHEN \(.*\) THEN {col} ELSE numeric_constant END\)$".format(**r), "conditional aggregate", o)
+    #o = re.sub("agg\(CASE WHEN \(.*\) THEN .*? ELSE .*? END\)".format(**r), "conditional aggregate", o) #catch all to isolate this category entirely
 
-    o = re.sub("^\(([^\(\)]*?)\)$", "\\1", o) #eliminate outer parenthesis as long as there are no inner paranthesis
-    #o = re.sub("^sum\([0-9A-z_\.]*\)$", "sum(column)", o) #explicitly match sum
-    #o = re.sub("^avg\([0-9A-z_\.]*\)$", "avg(column)", o) 
-    #o = re.sub("^max\([0-9A-z_\.]*\)$", "max(column)", o) 
-    #o = re.sub("^substr\([0-9A-z_\.]*\)$", "substr(column)", o) 
-
-    #o = re.sub("^round\(\([0-9A-z_\.]*? / [0-9A-z\.]*?\), \d+\)$", "rounded_division", o)
+    #o = re.sub("^\(([^\(\)]*?)\)$", "\\1", o) #eliminate outer parenthesis as long as there are no inner paranthesis
+        #o = re.sub("^round\(\([0-9A-z_\.]*? / [0-9A-z\.]*?\), \d+\)$", "rounded_division", o)
 
     #o = re.sub("^{col} ({op}) {col}$".format(**r), "col1 \\1 col2", o)
     #o = re.sub("{col} ({op}) {col}".format(**r), "col1 \\1 col2", o)
@@ -262,6 +337,8 @@ def transform_statement(ty, stmnt):
 
     #o = re.sub("{function}".format(**r), "col1 \\1 col2", o)
     #o = re.sub("{col} ({op}) {function}".format(**r), "col1 \\1 col2", o)
+
+    compute_stats(orig_node, o, stats)
     return o
 
 #want to satisfy a few queries:
@@ -279,8 +356,17 @@ def analyze_outputs(p):
         #transform outputs
         # the way we'll avoid this is giving occurences relative to different queries
         # instead of relative to some 'total number of expressions'
+        stats = {
+            'query': query,
+            'type': ty,
+            'columns_count': 0
+            ,'constants_count': 0
+            ,'aggregates_count': 0
+            ,'conditionals_count': 0 
+        }
         try: 
-            out_stmnt = transform_statement(ty,in_stmnt)
+            out_stmnt = transform_statement(ty,in_stmnt,stats)
+            stats['expression'] = out_stmnt
         except Exception as inst:
             print "exception parsing statement: {}".format(in_stmnt)
             raise
@@ -290,12 +376,7 @@ def analyze_outputs(p):
         if args.filter_re and re.match(args.filter_re, out_stmnt):
             print in_stmnt
  
-        obj = {
-            'query': query,
-            'type': ty,
-            'expression': out_stmnt
-        }
-        queries.append(obj)
+        queries.append(stats)
 
     #what are the column transformations?
     if "Output" in p:
@@ -326,26 +407,43 @@ def analyze_outputs(p):
 def outputs_stats():
     global dfQuery
     global unique_expressions_per_query
-    dfQuery = pd.DataFrame(data=queries, columns=['query','type','expression'])
+    dfQuery = pd.DataFrame(data=queries, columns=['query','type','expression',
+        'columns_count', 'constants_count', 'aggregates_count', 'conditionals_count'])
     #print dfQuery
 
     unique_expressions_per_query = dfQuery.groupby(['expression'])['query'].nunique().sort_values().to_frame()
     unique_expressions_per_query.reset_index(level=0, inplace=True)
 
+    #sum up numeric stats across expressions? queries?
+    # sum up across expressions and sort by number of identifiers
+    # let's take the PER expression stats and I think finally it's time to get
+    # these out of pandas
+    #pprint( dfQuery.groupby(['expression'])['query'].sum().sort_values('expression').to_dict('records').sort_values('expression').to_dict('records') )
+
     print "Total expressions: {}".format( len(unique_expressions_per_query) )
 
+    if args.csv:
+        with open(args.csv, 'w+') as fh:
+            dfQuery.to_csv(fh, index=False)
+
     with pd.option_context('display.max_rows', None):
-        # expressions PER query!! cool
         if args.print_sorted:
+            # expressions PER query!! cool
             pprint( unique_expressions_per_query.sort_values('expression').to_dict('records') )
         else:
             #print unique_expressions_per_query.to_string()
             pprint( unique_expressions_per_query.to_dict('records') )
 
 if(args.test):
-    r = erase_identifier_names(parse(args.test), debug=True)
-    print ''.join(token.value for token in r.flatten())
-    print transform_statement('test', args.test)
+    stats = {
+        'columns_count': 0
+        ,'constants_count': 0
+        ,'aggregates_count': 0
+        ,'conditionals_count': 0 
+    }
+    #r = erase_identifier_names(parse(args.test), stats, debug=True)
+    #print ''.join(token.value for token in r.flatten())
+    print transform_statement('test', args.test, stats, debug=True)
     sys.exit(1)
 
 with open(args.filename) as fh:
