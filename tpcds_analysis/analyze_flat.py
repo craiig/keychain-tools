@@ -137,8 +137,6 @@ def erase_identifier_names_recur(node, stats, in_function=False, debug=False):
         node.tokens = [sqlparse.sql.Token(sqlparse.tokens.Name, name)]
     elif type(node) == sqlparse.sql.Identifier and in_function and re.match("^[0-9A-z_\.]*$", node.value):
         #replace function names
-        if debug:
-            print "agg replacement"
         func_renames = {
                 'avg': 'agg'
                 ,'sum': 'agg'
@@ -147,17 +145,23 @@ def erase_identifier_names_recur(node, stats, in_function=False, debug=False):
                 ,'count': 'agg'
                 ,'stddev_samp': 'agg'
                 ,'round': 'func'
+                ,'GROUPING': 'agg'
         }
-        stats['codes'].append( 'agg' )
-        #if node.value in func_renames:
-            #node.tokens = [sqlparse.sql.Token(sqlparse.tokens.Name, func_renames[node.value])]
+        if node.value in func_renames:
+            if debug:
+                print "func replacement"
+            #disable coding functions for now, they are the same as expressions?
+            #stats['codes'].append( func_renames[node.value] )
+            node.tokens = [sqlparse.sql.Token(sqlparse.tokens.Name, func_renames[node.value])]
     elif type(node)==sqlparse.sql.Function and node.tokens[0].value == 'COALESCE':
         #transform coalesce into just the identifier reference (first argument)
         # this is OK for our analysis because coalesce is written in a very specific way
         if debug:
-            print "coalesce node.tokens: {} node.tokens[1]: {}".format(node.tokens, node.tokens[1].tokens)
+            print "coalesce node.tokens: {} node.tokens[1].tokens: {}".format(node.tokens, node.tokens[1].tokens)
         cand = node.tokens[1].tokens[1]
         if(type(cand) == sqlparse.sql.IdentifierList):
+            if debug:
+                print 'identifier list tokens: {}'.format(cand.tokens)
             #sometimes an expression list can be parsed as an identifier list, sometimes not
             # tests cases:
             #   "COALESCE(identifier0, '0'::numeric)"
@@ -165,9 +169,9 @@ def erase_identifier_names_recur(node, stats, in_function=False, debug=False):
             # when it's an identifier list we may need to add a parenthesis
             # node to preserve order of ops for other parts of this analysis
             #cand = cand.tokens[0]
-            cand = [sqlparse.sql.Token(sqlparse.tokens.Punctuation, '('),
-                    cand.tokens[0],
-                    sqlparse.sql.Token(sqlparse.tokens.Punctuation, ')')
+            cand = [ #sqlparse.sql.Token(sqlparse.tokens.Punctuation, '('),
+                    cand.tokens[0]
+                    #sqlparse.sql.Token(sqlparse.tokens.Punctuation, ')')
                     ]
             node.tokens = cand
         else:
@@ -304,7 +308,10 @@ def transform_statement(ty, stmnt, stats, debug=False):
         "col" : "identifier[0-9]+"
         ,"constant": "[A-z]+_constant"
         ,"col_or_constant": "({col}|{constant})"
-        , "op": "(<|>|==|<=|>=|=|/|-|\*|<>|\+)"
+        , "op": "(<|>|==|<=|>=|=|/|-|\*|<>|\+|OR|AND)"
+        , "math_op": "(/|-|\*|\+)"
+        , "comparison_op": "(<|>|==|<=|>=|=|<>)"
+        , "logical_op": "(OR|AND)"
         , "non_commute_op": "(\|\|)"
         , "text_constant": "'[^']+?'::text"
         , "date_constant": "'[^']+?'::date"
@@ -314,32 +321,42 @@ def transform_statement(ty, stmnt, stats, debug=False):
     for k in r.iterkeys():
         r[k] = r[k].format(**r)
 
+
+    #the process of coding we're doing here is to directly map expressions into 
+    # what we can test will test with regard to the compiler optimizations, so we
+    # write regexes that will match expression patterns and output a CODE for each
+    # compiler optimization that can be tested
+
     codes = {
-            '{op}': 'binary_op'
-            , '{col} {op} {col}': 'col_op_col'
-            , "{col} {op} {constant}": 'col_op_constant'
+            '{op}': 'binary_op' #variant type 2
+            , '{constant}': 'constant_folding' #variant type 2
+            , 'case.*?when': 'conditional' #variant type 3, reordering and equivalencies
+
+            #left over categories
+            #, '{col} {op} {col}': 'col_op_col'
+            #, '{col} {op} {constant}': 'col_op_constant'
+            #, 'agg\(case when' : 'aggregate_conditional'
+
+            #further classify some operands (not part of the variant types)
+            , '{math_op}': 'math_op'
+            , '{comparison_op}': 'comparison_op'
+            , '{logical_op}': 'logical_op'
+            #, '{non_commute_op}': 'non_commute_op'
+
+            , 'ANY\s*\(': 'array_any'
+            , 'ALL\s*\(': 'array_all'
+
+            # these patterns don't correspond to a compiler feature but we assign
+            # a code here so that every expression gets a code, 
+            # actually we don't need to do this
+            #, '^{col}$': 'single_column'
+            #, 'rank\(\) OVER \(\?\)': 'columnless_aggregate'
+            #, '^{col} is null$': 'column_to_null_compare'
+            #, '^{col} is not null$': 'column_to_null_compare'
     }
     for (regexp,code) in codes.iteritems():
         if re.search(regexp.format(**r), o, re.IGNORECASE):
             stats['codes'].append(code)
-
-    #if re.search("{col_or_constant} {op} {col_or_constant}".format(**r), o):
-    if re.search("{op}".format(**r), o):
-        stats['codes'].append('binary_op')
-    if re.search("{col} {op} {col}".format(**r), o):
-        stats['codes'].append('col_op_col')
-    if re.search("{col} {op} {constant}".format(**r), o):
-        stats['codes'].append('col_op_constant')
-    #if re.search("{op} {constant}".format(**r), o):
-        #stats['codes'].append('??_op_constant')
-
-    #high level ops
-    #higher level summaries disabled so we can focus on purely unique
-    #o = re.sub("{col} ({op}) {col}".format(**r), "col op col", o)
-    #o = re.sub("{col} ({op}) (numeric|text|time)_constant".format(**r), "col op constant", o)
-    # are these two below needed?
-    #o = re.sub("{col} ({op}) \({col}\)::numeric".format(**r), "col op col", o) 
-    #o = re.sub("\({col}\)::numeric ({op}) {col}".format(**r), "col op col", o)
 
     #some control flow patterns
     # i think a few conditional aggregations would be good to add to a test
@@ -356,6 +373,10 @@ def transform_statement(ty, stmnt, stats, debug=False):
 
     #o = re.sub("{function}".format(**r), "col1 \\1 col2", o)
     #o = re.sub("{col} ({op}) {function}".format(**r), "col1 \\1 col2", o)
+
+    #unique and sorted
+    stats['codes'] = list(set(stats['codes']))
+    stats['codes'].sort()
 
     compute_stats(orig_node, o, stats)
     return o
