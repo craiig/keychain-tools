@@ -148,6 +148,7 @@ def erase_identifier_names_recur(node, stats, in_function=False, debug=False):
                 ,'stddev_samp': 'agg'
                 ,'round': 'func'
         }
+        stats['codes'].append( 'agg' )
         #if node.value in func_renames:
             #node.tokens = [sqlparse.sql.Token(sqlparse.tokens.Name, func_renames[node.value])]
     elif type(node)==sqlparse.sql.Function and node.tokens[0].value == 'COALESCE':
@@ -262,9 +263,25 @@ def pprint_tree(node):
     pprint(pprint_tree_recur(node))
 
 def stats_keys():
-    return ['query', 'type',
-            'columns_count' ,'constants_count' ,'aggregates_count'
-            ,'operators_count' ,'conditionals_count']
+    return stats_defaults().keys()
+
+def stats_init_defaults(s):
+    for k,v in stats_defaults().iteritems():
+        if k not in s:
+            s[k] = v;
+    return s
+
+def stats_defaults():
+    return {'query': '',
+            'type': '',
+            'expression': '',
+            'columns_count': 0,
+            'constants_count': 0,
+            'aggregates_count': 0,
+            'operators_count': 0,
+            'conditionals_count': 0,
+            'codes': []
+        } 
 
 def compute_stats(node, transformed_statement, stats):
     #pprint_tree(node)
@@ -272,9 +289,9 @@ def compute_stats(node, transformed_statement, stats):
     
     constants = re.findall('[A-z]+_constant', transformed_statement)
     stats['constants_count'] = len(constants)
-    aggregates = re.findall('agg\(', transformed_statement)
+    aggregates = re.findall('agg\(', transformed_statement, re.IGNORECASE)
     stats['aggregates_count'] = len(aggregates)
-    conditionals = re.findall('case ', transformed_statement)
+    conditionals = re.findall('case ', transformed_statement, re.IGNORECASE)
     stats['conditionals_count'] = len(conditionals)
 
 def transform_statement(ty, stmnt, stats, debug=False):
@@ -285,6 +302,8 @@ def transform_statement(ty, stmnt, stats, debug=False):
     r = {
         #"col" : "[0-9A-z_\.]+"
         "col" : "identifier[0-9]+"
+        ,"constant": "[A-z]+_constant"
+        ,"col_or_constant": "({col}|{constant})"
         , "op": "(<|>|==|<=|>=|=|/|-|\*|<>|\+)"
         , "non_commute_op": "(\|\|)"
         , "text_constant": "'[^']+?'::text"
@@ -295,24 +314,24 @@ def transform_statement(ty, stmnt, stats, debug=False):
     for k in r.iterkeys():
         r[k] = r[k].format(**r)
 
-    # constant placeholders superseded
-    #o = re.sub("^'.*'::text$", "'.*'::text constant", o) 
-    #o = re.sub("{text_constant}".format(**r), "text_constant", o) #pretty common
-    #o = re.sub("'[^']+?'::numeric".format(**r), "numeric_constant", o) 
-    #o = re.sub("'[^']+?'::integer".format(**r), "numeric_constant", o) 
-    #o = re.sub("NULL::numeric".format(**r), "numeric_constant", o) 
-    #o = re.sub("NULL::integer".format(**r), "numeric_constant", o) 
-    #o = re.sub("NULL::bigint".format(**r), "numeric_constant", o) 
-    #o = re.sub("'[^']+?'::timestamp without time zone", "time_constant", o)
-    #o = re.sub("{date_constant}".format(**r), "time_constant", o) 
+    codes = {
+            '{op}': 'binary_op'
+            , '{col} {op} {col}': 'col_op_col'
+            , "{col} {op} {constant}": 'col_op_constant'
+    }
+    for (regexp,code) in codes.iteritems():
+        if re.search(regexp.format(**r), o, re.IGNORECASE):
+            stats['codes'].append(code)
 
-    #fix numeric casts on identifiers and expressions since we don't really care
-    #note some of this is in the regex preprocessor too
-    #o = re.sub("\(({col})\)::numeric".format(**r), "\\1", o)
-    #o = re.sub("\(({col})\)text".format(**r), "\\1", o)
-
-    #TODO stop replacing here to perform a summary of:
-    # # of cols, # of identifiers, # of operators used for each query
+    #if re.search("{col_or_constant} {op} {col_or_constant}".format(**r), o):
+    if re.search("{op}".format(**r), o):
+        stats['codes'].append('binary_op')
+    if re.search("{col} {op} {col}".format(**r), o):
+        stats['codes'].append('col_op_col')
+    if re.search("{col} {op} {constant}".format(**r), o):
+        stats['codes'].append('col_op_constant')
+    #if re.search("{op} {constant}".format(**r), o):
+        #stats['codes'].append('??_op_constant')
 
     #high level ops
     #higher level summaries disabled so we can focus on purely unique
@@ -359,11 +378,9 @@ def analyze_outputs(p):
         stats = {
             'query': query,
             'type': ty,
-            'columns_count': 0
-            ,'constants_count': 0
-            ,'aggregates_count': 0
-            ,'conditionals_count': 0 
         }
+        #init other columns to zero
+        stats = stats_init_defaults(stats)
         try: 
             out_stmnt = transform_statement(ty,in_stmnt,stats)
             stats['expression'] = out_stmnt
@@ -407,9 +424,7 @@ def analyze_outputs(p):
 def outputs_stats():
     global dfQuery
     global unique_expressions_per_query
-    dfQuery = pd.DataFrame(data=queries, columns=['query','type','expression',
-        'columns_count', 'constants_count', 'aggregates_count', 'conditionals_count'])
-    #print dfQuery
+    dfQuery = pd.DataFrame(data=queries, columns=stats_keys())
 
     unique_expressions_per_query = dfQuery.groupby(['expression'])['query'].nunique().sort_values().to_frame()
     unique_expressions_per_query.reset_index(level=0, inplace=True)
@@ -435,15 +450,11 @@ def outputs_stats():
             pprint( unique_expressions_per_query.to_dict('records') )
 
 if(args.test):
-    stats = {
-        'columns_count': 0
-        ,'constants_count': 0
-        ,'aggregates_count': 0
-        ,'conditionals_count': 0 
-    }
+    stats = stats_init_defaults({})
     #r = erase_identifier_names(parse(args.test), stats, debug=True)
     #print ''.join(token.value for token in r.flatten())
     print transform_statement('test', args.test, stats, debug=True)
+    pprint(stats)
     sys.exit(1)
 
 with open(args.filename) as fh:
