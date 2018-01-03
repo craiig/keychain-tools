@@ -8,7 +8,8 @@ queries := $(wildcard $(tpcds_dir)/query_templates/query*.tpl)
 generated_queries := $(patsubst $(tpcds_dir)/query_templates/%.tpl, queries/%.sql, $(queries))
 explained_queries := $(patsubst queries/%.sql, plans/%.json, $(wildcard queries/*.sql))
 
-all: $(generated_queries) $(explained_queries) flattened.json
+all: ${build_dir}/representative_expression_per_code.csv ${build_dir}/representative_expression_per_unique_codes.csv
+	cat ${build_dir}/representative_expression_per_code.csv
 
 #WARNING dsqgen is very sensitive to long paths on the output_dir so we just
 # keep it simple and copy from there
@@ -21,15 +22,21 @@ plans/%.json: queries/%.sql
 	mkdir -p $(dir $@)
 	./postgres_explain.py $< -o $@
 
-flattened.json: $(wildcard plans/*.json)
+${build_dir}/representative_expression_per_code.csv: ./representative_expression_per_code.sql ${build_dir}/csv_loaded
+	psql -f $< > $@
+
+${build_dir}/representative_expression_per_unique_codes.csv: ./representative_expression_per_unique_codes.sql ${build_dir}/csv_loaded
+	psql -f $< > $@
+
+${build_dir}/flattened.json: $(wildcard plans/*.json)
 	./flatten_plans.py $^ > $@
 
-expressions.csv: flattened.json ./analyze_flat.py
+${build_dir}/expressions.csv: ${build_dir}/flattened.json ./analyze_flat.py
 	./analyze_flat.py -f $< -c $@
 
-csv_loaded: expressions.csv
+${build_dir}/csv_loaded: ${build_dir}/expressions.csv
 	psql -c 'create schema if not exists hls_research'
-	ogr2ogr -f PGDump /vsistdout/ './expressions.csv' -lco SCHEMA=hls_research \
+	ogr2ogr -f PGDump /vsistdout/ '$<' -lco SCHEMA=hls_research \
 		-lco DROP_TABLE=IF_EXISTS -lco CREATE_SCHEMA=OFF -nln tpcds_expressions \
 		--config PG_USE_COPY YES \
 		| psql -v ON_ERROR_STOP=1
@@ -37,7 +44,7 @@ csv_loaded: expressions.csv
 
 .PHONY: clean
 clean:
-	#-rm -rf build/query*.sql
+	-rm  build/*
 
 install:
 	pip install --upgrade sqlparse

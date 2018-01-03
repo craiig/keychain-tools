@@ -1,0 +1,22 @@
+codes,num_expressions,num_expressions_pct,total_occurences,num_queries_appears,first_expression
+"['array_any', 'comparison_op', 'constant_folding', 'logical_op']",14,0.09,14,14,(identifier0 = ANY (numeric_constant[])) AND (identifier1 = ANY (numeric_constant[]))
+"['array_any', 'comparison_op', 'constant_folding']",35,0.23,35,25,(identifier0) = ANY (text_constant[])
+"['comparison_op', 'conditional', 'constant_folding', 'logical_op', 'math_op']",23,0.15,23,8,agg(CASE WHEN (((identifier0 - identifier1) > numeric_constant) AND ((identifier0 - identifier1) <= numeric_constant)) THEN numeric_constant ELSE numeric_constant END)
+"['comparison_op', 'conditional', 'constant_folding', 'math_op']",173,1.16,173,12,CASE WHEN ((agg(identifier0) + agg(identifier1)) = numeric_constant) THEN identifier0 ELSE text_constant END
+"['comparison_op', 'conditional', 'constant_folding']",59,0.40,59,8,agg(CASE WHEN (identifier0 = text_constant) THEN identifier1 ELSE numeric_constant END)
+"['comparison_op', 'constant_folding', 'logical_op']",221,1.48,221,81,(identifier0 >= numeric_constant) AND (identifier0 <= numeric_constant) AND (identifier1 = numeric_constant)
+"['comparison_op', 'constant_folding', 'math_op']",6,0.04,6,5,agg((identifier0) * identifier1) > (numeric_constant * identifier2)
+"['comparison_op', 'constant_folding']",115,0.77,115,54,(identifier0) = text_constant
+"['comparison_op', 'logical_op']",1,0.01,1,1,(identifier0 >= identifier1) AND (identifier0 <= identifier2)
+"['comparison_op', 'math_op']",5,0.03,5,2,agg((identifier0) * identifier1) > identifier2
+['comparison_op'],32,0.21,32,20,identifier0 = identifier1
+"['conditional', 'constant_folding', 'logical_op']",6,0.04,6,1,agg(CASE WHEN ((identifier0 IS NULL) AND (identifier1 IS NOT NULL)) THEN numeric_constant ELSE numeric_constant END)
+"['conditional', 'constant_folding', 'math_op']",1,0.01,1,1,CASE identifier0 WHEN numeric_constant THEN numeric_constant ELSE (identifier1 / identifier0) END
+"['conditional', 'constant_folding']",6,0.04,6,1,agg(CASE WHEN (identifier0 IS NOT NULL) THEN numeric_constant ELSE numeric_constant END)
+"['conditional', 'math_op']",3,0.02,3,1,agg(CASE WHEN (identifier0 IS NOT NULL) THEN ((identifier1 - identifier0) * identifier2) ELSE ((identifier1) * identifier2) END)
+['conditional'],6,0.04,6,1,CASE WHEN (identifier0 IS NOT NULL) THEN identifier0 ELSE identifier1 END
+"['constant_folding', 'math_op']",70,0.47,70,17,agg(identifier0) * numeric_constant
+['constant_folding'],187,1.26,187,23,"substr((identifier0), numeric_constant, numeric_constant)"
+['logical_op'],2,0.01,2,2,identifier0 OR identifier1
+['math_op'],151,1.01,151,23,agg(identifier0) + agg(identifier1)
+[],19985,134.13,19985,102,identifier0

@@ -1,0 +1,7 @@
+code,expression,num_queries_appears,rank,num_queries_code_appears
+'array_any',identifier0 = ANY (text_constant[]),10,1,33
+'comparison_op',identifier0 = numeric_constant,38,1,101
+'conditional',CASE WHEN (agg(identifier0) = numeric_constant) THEN identifier1 ELSE text_constant END,3,1,25
+'constant_folding',identifier0 = numeric_constant,38,1,102
+'logical_op',(identifier0 = numeric_constant) AND (identifier1 = numeric_constant),23,1,85
+'math_op',identifier0 - identifier1,6,1,53

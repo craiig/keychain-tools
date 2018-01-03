@@ -309,7 +309,7 @@ def transform_statement(ty, stmnt, stats, debug=False):
         ,"constant": "[A-z]+_constant"
         ,"col_or_constant": "({col}|{constant})"
         , "op": "(<|>|==|<=|>=|=|/|-|\*|<>|\+|OR|AND)"
-        , "math_op": "(/|-|\*|\+)"
+        , "math_op": "(/|-|[^\(]\*[^\)]|\+)"
         , "comparison_op": "(<|>|==|<=|>=|=|<>)"
         , "logical_op": "(OR|AND)"
         , "non_commute_op": "(\|\|)"
@@ -328,8 +328,8 @@ def transform_statement(ty, stmnt, stats, debug=False):
     # compiler optimization that can be tested
 
     codes = {
-            '{op}': 'binary_op' #variant type 2
-            , '{constant}': 'constant_folding' #variant type 2
+            #'{op}': 'binary_op' #variant type 2
+            '{constant}': 'constant_folding' #variant type 2
             , 'case.*?when': 'conditional' #variant type 3, reordering and equivalencies
 
             #left over categories
@@ -343,7 +343,7 @@ def transform_statement(ty, stmnt, stats, debug=False):
             , '{logical_op}': 'logical_op'
             #, '{non_commute_op}': 'non_commute_op'
 
-            , 'ANY\s*\(': 'array_any'
+            , 'ANY\s*\(': 'array_any' #this is actually a compact if/or clause
             , 'ALL\s*\(': 'array_all'
 
             # these patterns don't correspond to a compiler feature but we assign
