@@ -11,6 +11,22 @@ build/representative_expression_per_unique_codes.csv // the most frequent expres
 For ease of investigation, these final output files are included in the git
 repo. No need to download and run this repo just to look at the results.
 
+# Coding Procedure and Codes used
+I manually examined each statement and wrote down a list of different syntactic
+variations that could occur when writing the statement. I used this to build a
+simple regular expression matcher to consistently tag all expressions with
+these codes. The codes and regexes used are listed
+[here.](tpcds_analysis/analyze_flat.py#L301)]. I did not code expressions that
+did not have significant syntactic variation.
+
+Codes I used were:
+* constant folding
+* conditional operations
+* array any comparisons
+* math operations
+* comparison operations
+* logical operations
+
 # Requirements
 
 1. Sqlparse: `pip install sqlparse` used to analyze the expressions
