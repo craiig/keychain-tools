@@ -16,7 +16,7 @@ I manually examined each statement and wrote down a list of different syntactic
 variations that could occur when writing the statement. I used this to build a
 simple regular expression matcher to consistently tag all expressions with
 these codes. The codes and regexes used are listed
-[here.](tpcds_analysis/analyze_flat.py#L301)]. I did not code expressions that
+[here.](analyze_flat.py#L301) I did not code expressions that
 did not have significant syntactic variation.
 
 Codes I used were:
