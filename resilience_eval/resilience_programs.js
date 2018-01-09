@@ -40,12 +40,12 @@
 		, {
 			"name": "conditional",
 			"origin": "tpcds_survey",
-			"input_types": ["int"],
+			"input_types": ["int", "int"],
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "if( input0 == 10 ){ return input1 } else { return 100 }" }
-				, { "code": "if( input0 != 10 ){ return 100 } else { return input1 }" }
+				{ "code": "if( input0 == 10 ){ return input1; } else { return 100; }" }
+				, { "code": "if( input0 != 10 ){ return 100; } else { return input1; }" }
 			]
 		}
 		, {
@@ -54,10 +54,9 @@
 			"input_types": ["int","int"],
 			"return_type": "boolean",
 			"variants": [
-				{ "code": "(input0 == 10) AND (input1 == 20)" }
-				, { "code": "(input0 == 10) AND (input1 == 20)" }
-				, { "code": "(input1 == 20) AND (input0 == 10)" }
-				, { "code": "!((input1 != 20) OR (input0 != 10))" }
+				{ "code": "(input0 == 10) && (input1 == 20)" }
+				, { "code": "(input1 == 20) && (input0 == 10)" }
+				, { "code": "!((input1 != 20) || (input0 != 10))" }
 			]
 		}
 		, {
