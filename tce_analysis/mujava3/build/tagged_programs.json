@@ -1,0 +1,2288 @@
+[
+    {
+        "equivalent_mutants": [
+            {
+                "diff": "-             if (diff < 0) {\n+             if (diff++ < 0) {\n?                     ++\n", 
+                "mutant": "AOIS", 
+                "num": "31", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "non realistic"
+                ]
+            }, 
+            {
+                "diff": "-                 x = (M + x) / 2;\n+                 x = (M + x++) / 2;\n?                           ++\n", 
+                "mutant": "AOIS", 
+                "num": "43", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                 x = (M + x) / 2;\n+                 x = (M + x--) / 2;\n?                           ++\n", 
+                "mutant": "AOIS", 
+                "num": "44", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                 if (diff > 0) {\n+                 if (++diff > 0) {\n?                     ++\n", 
+                "mutant": "AOIS", 
+                "num": "45", 
+                "tags": [
+                    "pre fix increment", 
+                    "dead code", 
+                    "unrealistic", 
+                    "non functional"
+                ]
+            }, 
+            {
+                "diff": "-                 if (diff > 0) {\n+                 if (diff++ > 0) {\n?                         ++\n", 
+                "mutant": "AOIS", 
+                "num": "47", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                 if (diff > 0) {\n+                 if (diff-- > 0) {\n?                         ++\n", 
+                "mutant": "AOIS", 
+                "num": "48", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                     x = (m + x) / 2;\n+                     x = (m + x++) / 2;\n?                               ++\n", 
+                "mutant": "AOIS", 
+                "num": "59", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                     x = (m + x) / 2;\n+                     x = (m + x--) / 2;\n?                               ++\n", 
+                "mutant": "AOIS", 
+                "num": "60", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         r = x;\n+         r = x++;\n?              ++\n", 
+                "mutant": "AOIS", 
+                "num": "73", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         r = x;\n+         r = x--;\n?              ++\n", 
+                "mutant": "AOIS", 
+                "num": "74", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         return r;\n+         return r++;\n?                 ++\n", 
+                "mutant": "AOIS", 
+                "num": "79", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         return r;\n+         return r--;\n?                 ++\n", 
+                "mutant": "AOIS", 
+                "num": "80", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         return r;\n+         return r--;\n?                 ++\n", 
+                "mutant": "AOIS", 
+                "num": "80", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         double M = N;\n+         double M = -N;\n?                    +\n", 
+                "mutant": "AOIU", 
+                "num": "3", 
+                "tags": [
+                    "inverted assignment", 
+                    "dead code", 
+                    "non functional", 
+                    "realistic (typo)", 
+                    "numerical values and dead value analysis"
+                ]
+            }, 
+            {
+                "diff": "-         double r = x;\n+         double r = -x;\n?                    +\n", 
+                "mutant": "AOIU", 
+                "num": "4", 
+                "tags": [
+                    "invert assignment", 
+                    "dead code", 
+                    "realistic (typo)", 
+                    "dead value assignment"
+                ]
+            }, 
+            {
+                "diff": "-                 if (diff > 0) {\n?                          ^\n+                 if (diff != 0) {\n?                          ^^\n", 
+                "mutant": "ROR", 
+                "num": "12", 
+                "tags": [
+                    "operand replacement", 
+                    "realistic (typo)", 
+                    "functional", 
+                    "mislabeled"
+                ]
+            }, 
+            {
+                "diff": "-                 if (diff > 0) {\n?                     ^^^^^^^^\n+                 if (true) {\n?                     ^^^^\n", 
+                "mutant": "ROR", 
+                "num": "13", 
+                "tags": [
+                    "conditional replaced with true", 
+                    "functional", 
+                    "realistic (alternate implementation)"
+                ]
+            }, 
+            {
+                "diff": "-                 if (diff > 0) {\n+                 if (diff >= 0) {\n?                           +\n", 
+                "mutant": "ROR", 
+                "num": "8", 
+                "tags": [
+                    "operand replacement", 
+                    "functional", 
+                    "realistic (alternate implementation)", 
+                    "mislabeled"
+                ]
+            }
+        ], 
+        "benchmark": "Bisect"
+    }, 
+    {
+        "equivalent_mutants": [
+            {
+                "diff": "-         int delimLen = delimiters == null ? -1 : delimiters.length;\n?                                             -\n+         int delimLen = delimiters == null ? 1 : delimiters.length;\n", 
+                "mutant": "AODU", 
+                "num": "1", 
+                "tags": [
+                    "constant inversion", 
+                    "early exit removal", 
+                    "functional", 
+                    "realistic (typo)"
+                ]
+            }, 
+            {
+                "diff": "-         if (str == null || str.length() == 0 || delimLen == 0) {\n+         if (str == null || str.length() == 0 || delimLen++ == 0) {\n?                                                         ++\n", 
+                "mutant": "AOIS", 
+                "num": "95", 
+                "tags": [
+                    "post fix increment", 
+                    "non functional", 
+                    "unrealistic", 
+                    "dead code"
+                ]
+            }, 
+            {
+                "diff": "-         if (str == null || str.length() == 0 || delimLen == 0) {\n+         if (str == null || str.length() == 0 || delimLen-- == 0) {\n?                                                         ++\n", 
+                "mutant": "AOIS", 
+                "num": "96", 
+                "tags": [
+                    "post fix decrement", 
+                    "non functional", 
+                    "unrealistic", 
+                    "dead code"
+                ]
+            }, 
+            {
+                "diff": "-                 buffer.append( ch );\n+                 buffer.append( ch++ );\n?                                  ++\n", 
+                "mutant": "AOIS", 
+                "num": "111", 
+                "tags": [
+                    "post fix increment", 
+                    "unrealistic", 
+                    "non functional", 
+                    "dead code"
+                ]
+            }, 
+            {
+                "diff": "-                 buffer.append( ch );\n+                 buffer.append( ch-- );\n?                                  ++\n", 
+                "mutant": "AOIS", 
+                "num": "112", 
+                "tags": [
+                    "post fix decrement", 
+                    "non functional", 
+                    "unrealistic", 
+                    "dead code"
+                ]
+            }, 
+            {
+                "diff": "-                     buffer.append( Character.toTitleCase( ch ) );\n+                     buffer.append( Character.toTitleCase( ch++ ) );\n?                                                             ++\n", 
+                "mutant": "AOIS", 
+                "num": "113", 
+                "tags": [
+                    "post fix increment", 
+                    "non functional", 
+                    "unrealistic", 
+                    "dead code"
+                ]
+            }, 
+            {
+                "diff": "-                     buffer.append( Character.toTitleCase( ch ) );\n+                     buffer.append( Character.toTitleCase( ch-- ) );\n?                                                             ++\n", 
+                "mutant": "AOIS", 
+                "num": "114", 
+                "tags": [
+                    "post fix decrement", 
+                    "non functional", 
+                    "unrealistic", 
+                    "dead code"
+                ]
+            }, 
+            {
+                "diff": "-                     buffer.append( ch );\n+                     buffer.append( ch++ );\n?                                      ++\n", 
+                "mutant": "AOIS", 
+                "num": "115", 
+                "tags": [
+                    "post fix increment", 
+                    "non functional", 
+                    "unrealistic", 
+                    "dead code"
+                ]
+            }, 
+            {
+                "diff": "-                     buffer.append( ch );\n+                     buffer.append( ch-- );\n?                                      ++\n", 
+                "mutant": "AOIS", 
+                "num": "116", 
+                "tags": [
+                    "post fix decrement", 
+                    "non functional", 
+                    "unrealistic", 
+                    "dead code"
+                ]
+            }, 
+            {
+                "diff": "-         int delimLen = delimiters == null ? -1 : delimiters.length;\n+         int delimLen = delimiters == null ? -1 : -delimiters.length;\n?                                                  +\n", 
+                "mutant": "AOIU", 
+                "num": "17", 
+                "tags": [
+                    "expression inversion", 
+                    "early exit removal", 
+                    "realistic (typo)", 
+                    "functional"
+                ]
+            }, 
+            {
+                "diff": "-         int delimLen = delimiters == null ? -1 : delimiters.length;\n+         int delimLen = delimiters == null ? -1 : -delimiters.length;\n?                                                  +\n", 
+                "mutant": "LOI", 
+                "num": "29", 
+                "tags": [
+                    "expression inversion", 
+                    "early exit removal", 
+                    "realistic (typo)", 
+                    "functional"
+                ]
+            }, 
+            {
+                "diff": "-         if (str == null || str.length() == 0 || delimLen == 0) {\n?                                         ^^\n+         if (str == null || str.length() < 0 || delimLen == 0) {\n?                                         ^\n", 
+                "mutant": "ROR", 
+                "num": "35", 
+                "tags": [
+                    "operator replacement", 
+                    "early exit removal", 
+                    "realistic (typo)", 
+                    "functional"
+                ]
+            }, 
+            {
+                "diff": "-         if (str == null || str.length() == 0 || delimLen == 0) {\n?                                          -\n+         if (str == null || str.length() <= 0 || delimLen == 0) {\n?                                         +\n", 
+                "mutant": "ROR", 
+                "num": "36", 
+                "tags": [
+                    "operator replacement", 
+                    "early exit", 
+                    "non functional", 
+                    "realistic (typo)"
+                ]
+            }, 
+            {
+                "diff": "-         if (str == null || str.length() == 0 || delimLen == 0) {\n?                             ---- -----------\n+         if (str == null || false || delimLen == 0) {\n?                            +++\n", 
+                "mutant": "ROR", 
+                "num": "39", 
+                "tags": [
+                    "expression replacement with false", 
+                    "early exit removal", 
+                    "functional", 
+                    "realistic (alternate implementation)"
+                ]
+            }
+        ], 
+        "benchmark": "Commons-Lang: capitalize"
+    }, 
+    {
+        "equivalent_mutants": [
+            {
+                "diff": "-                 wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n+                 wrappedLine.append( str.substring( offset++, spaceToWrapAt ) );\n?                                                          ++\n", 
+                "mutant": "AOIS", 
+                "num": "41", 
+                "tags": [
+                    "post fix increment", 
+                    "non-functional", 
+                    "dead code", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                 wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n+                 wrappedLine.append( str.substring( offset--, spaceToWrapAt ) );\n?                                                          ++\n", 
+                "mutant": "AOIS", 
+                "num": "42", 
+                "tags": [
+                    "post fix decrement", 
+                    "non-functional", 
+                    "dead code", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                 offset = spaceToWrapAt + 1;\n?                                       -\n+                 offset = spaceToWrapAt++ + 1;\n?                                        +++\n", 
+                "mutant": "AOIS", 
+                "num": "47", 
+                "tags": [
+                    "post fix increment", 
+                    "non-functional", 
+                    "dead code", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                 offset = spaceToWrapAt + 1;\n+                 offset = spaceToWrapAt-- + 1;\n?                                       ++\n", 
+                "mutant": "AOIS", 
+                "num": "48", 
+                "tags": [
+                    "post fix decrement", 
+                    "non-functional", 
+                    "dead code", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                         wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n+                         wrappedLine.append( str.substring( offset++, spaceToWrapAt ) );\n?                                                                  ++\n", 
+                "mutant": "AOIS", 
+                "num": "75", 
+                "tags": [
+                    "post fix increment", 
+                    "non-functional", 
+                    "dead code", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                         wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n+                         wrappedLine.append( str.substring( offset--, spaceToWrapAt ) );\n?                                                                  ++\n", 
+                "mutant": "AOIS", 
+                "num": "76", 
+                "tags": [
+                    "post fix decrement", 
+                    "non-functional", 
+                    "dead code", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                         offset = spaceToWrapAt + 1;\n?                                               -\n+                         offset = spaceToWrapAt++ + 1;\n?                                                +++\n", 
+                "mutant": "AOIS", 
+                "num": "81", 
+                "tags": [
+                    "post fix increment", 
+                    "non-functional", 
+                    "dead code", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                         offset = spaceToWrapAt + 1;\n+                         offset = spaceToWrapAt-- + 1;\n?                                               ++\n", 
+                "mutant": "AOIS", 
+                "num": "82", 
+                "tags": [
+                    "post fix decrement", 
+                    "non-functional", 
+                    "dead code", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                         wrappedLine.append( str.substring( offset ) );\n+                         wrappedLine.append( str.substring( offset++ ) );\n?                                                                  ++\n", 
+                "mutant": "AOIS", 
+                "num": "83", 
+                "tags": [
+                    "post fix increment", 
+                    "non-functional", 
+                    "dead code", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                         wrappedLine.append( str.substring( offset ) );\n+                         wrappedLine.append( str.substring( offset-- ) );\n?                                                                  ++\n", 
+                "mutant": "AOIS", 
+                "num": "84", 
+                "tags": [
+                    "post fix decrement", 
+                    "non-functional", 
+                    "dead code", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                         offset = inputLineLength;\n+                         offset = inputLineLength++;\n?                                                 ++\n", 
+                "mutant": "AOIS", 
+                "num": "87", 
+                "tags": [
+                    "post fix increment", 
+                    "mislabeled", 
+                    "functional", 
+                    "unrealistic", 
+                    "extra loop"
+                ]
+            }, 
+            {
+                "diff": "-                         offset = inputLineLength;\n+                         offset = inputLineLength--;\n?                                                 ++\n", 
+                "mutant": "AOIS", 
+                "num": "88", 
+                "tags": [
+                    "post fix decrement", 
+                    "functional", 
+                    "mislabeled", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         wrappedLine.append( str.substring( offset ) );\n+         wrappedLine.append( str.substring( offset++ ) );\n?                                                  ++\n", 
+                "mutant": "AOIS", 
+                "num": "89", 
+                "tags": [
+                    "post fix increment", 
+                    "unrealistic", 
+                    "dead code", 
+                    "non functional"
+                ]
+            }, 
+            {
+                "diff": "-         wrappedLine.append( str.substring( offset ) );\n+         wrappedLine.append( str.substring( offset-- ) );\n?                                                  ++\n", 
+                "mutant": "AOIS", 
+                "num": "90", 
+                "tags": [
+                    "post fix decrement", 
+                    "unrealistic", 
+                    "dead code", 
+                    "non functional"
+                ]
+            }, 
+            {
+                "diff": "-         java.lang.StringBuffer wrappedLine = new java.lang.StringBuffer( inputLineLength + 32 );\n?                                                                                          ^\n+         java.lang.StringBuffer wrappedLine = new java.lang.StringBuffer( inputLineLength * 32 );\n?                                                                                          ^\n", 
+                "mutant": "AORB", 
+                "num": "1", 
+                "tags": [
+                    "operator replacement", 
+                    "non-functional", 
+                    "side effect (memory)", 
+                    "realistic", 
+                    "interesting"
+                ]
+            }, 
+            {
+                "diff": "-         java.lang.StringBuffer wrappedLine = new java.lang.StringBuffer( inputLineLength + 32 );\n?                                                                                          ^\n+         java.lang.StringBuffer wrappedLine = new java.lang.StringBuffer( inputLineLength / 32 );\n?                                                                                          ^\n", 
+                "mutant": "AORB", 
+                "num": "2", 
+                "tags": [
+                    "operator replacement", 
+                    "non-functional", 
+                    "side effect (memory)", 
+                    "realistic", 
+                    "interesting"
+                ]
+            }, 
+            {
+                "diff": "-         java.lang.StringBuffer wrappedLine = new java.lang.StringBuffer( inputLineLength + 32 );\n?                                                                                          ^\n+         java.lang.StringBuffer wrappedLine = new java.lang.StringBuffer( inputLineLength % 32 );\n?                                                                                          ^\n", 
+                "mutant": "AORB", 
+                "num": "3", 
+                "tags": [
+                    "operator replacement", 
+                    "non-functional", 
+                    "side effect (memory)", 
+                    "realistic", 
+                    "interesting"
+                ]
+            }, 
+            {
+                "diff": "-             if (spaceToWrapAt >= offset) {\n?                                -\n+             if (spaceToWrapAt > offset) {\n", 
+                "mutant": "ROR", 
+                "num": "17", 
+                "tags": [
+                    "comparison operator replacement", 
+                    "non functional", 
+                    "realistic (alternate implementation)", 
+                    "control flow", 
+                    ""
+                ]
+            }, 
+            {
+                "diff": "-                     if (spaceToWrapAt >= 0) {\n?                                        -\n+                     if (spaceToWrapAt > 0) {\n", 
+                "mutant": "ROR", 
+                "num": "24", 
+                "tags": [
+                    "comparison operator replacement", 
+                    "non functional", 
+                    "realistic", 
+                    "conditional equivalence", 
+                    "loop analysis"
+                ]
+            }
+        ], 
+        "benchmark": "Commons-Lang: wrap"
+    }, 
+    {
+        "equivalent_mutants": [
+            {
+                "diff": "-             return instant;\n+             return instant++;\n?                           ++\n", 
+                "mutant": "AOIS", 
+                "num": "13", 
+                "tags": [
+                    "post fix increment", 
+                    "non functional", 
+                    "dead code", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             return instant;\n+             return instant--;\n?                           ++\n", 
+                "mutant": "AOIS", 
+                "num": "14", 
+                "tags": [
+                    "post fix decrement", 
+                    "non functional", 
+                    "dead code", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         int monthToUse = thisMonth - 1 + months;\n+         int monthToUse = thisMonth - 1 + months++;\n?                                                ++\n", 
+                "mutant": "AOIS", 
+                "num": "27", 
+                "tags": [
+                    "post fix increment", 
+                    "non functional", 
+                    "dead code", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         int monthToUse = thisMonth - 1 + months;\n+         int monthToUse = thisMonth - 1 + months--;\n?                                                ++\n", 
+                "mutant": "AOIS", 
+                "num": "28", 
+                "tags": [
+                    "post fix decrement", 
+                    "non functional", 
+                    "dead code", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             monthToUse = monthToUse % iMax + 1;\n+             monthToUse = monthToUse++ % iMax + 1;\n?                                    ++\n", 
+                "mutant": "AOIS", 
+                "num": "47", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             monthToUse = monthToUse % iMax + 1;\n+             monthToUse = monthToUse-- % iMax + 1;\n?                                    ++\n", 
+                "mutant": "AOIS", 
+                "num": "48", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             monthToUse = Math.abs( monthToUse );\n+             monthToUse = Math.abs( monthToUse++ );\n?                                              ++\n", 
+                "mutant": "AOIS", 
+                "num": "67", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             monthToUse = Math.abs( monthToUse );\n+             monthToUse = Math.abs( monthToUse-- );\n?                                              ++\n", 
+                "mutant": "AOIS", 
+                "num": "68", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             int remMonthToUse = monthToUse % iMax;\n+             int remMonthToUse = monthToUse++ % iMax;\n?                                           ++\n", 
+                "mutant": "AOIS", 
+                "num": "71", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             int remMonthToUse = monthToUse % iMax;\n+             int remMonthToUse = monthToUse-- % iMax;\n?                                           ++\n", 
+                "mutant": "AOIS", 
+                "num": "72", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             monthToUse = iMax - remMonthToUse + 1;\n?                                              -\n+             monthToUse = iMax - remMonthToUse++ + 1;\n?                                               +++\n", 
+                "mutant": "AOIS", 
+                "num": "91", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             monthToUse = iMax - remMonthToUse + 1;\n+             monthToUse = iMax - remMonthToUse-- + 1;\n?                                              ++\n", 
+                "mutant": "AOIS", 
+                "num": "92", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         int dayToUse = iChronology.getDayOfMonth( instant, thisYear, thisMonth );\n+         int dayToUse = iChronology.getDayOfMonth( instant++, thisYear, thisMonth );\n?                                                          ++\n", 
+                "mutant": "AOIS", 
+                "num": "97", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         int dayToUse = iChronology.getDayOfMonth( instant, thisYear, thisMonth );\n+         int dayToUse = iChronology.getDayOfMonth( instant--, thisYear, thisMonth );\n?                                                          ++\n", 
+                "mutant": "AOIS", 
+                "num": "98", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         int dayToUse = iChronology.getDayOfMonth( instant, thisYear, thisMonth );\n+         int dayToUse = iChronology.getDayOfMonth( instant, thisYear++, thisMonth );\n?                                                                    ++\n", 
+                "mutant": "AOIS", 
+                "num": "99", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         int dayToUse = iChronology.getDayOfMonth( instant, thisYear, thisMonth );\n+         int dayToUse = iChronology.getDayOfMonth( instant, thisYear--, thisMonth );\n?                                                                    ++\n", 
+                "mutant": "AOIS", 
+                "num": "100", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         int dayToUse = iChronology.getDayOfMonth( instant, thisYear, thisMonth );\n+         int dayToUse = iChronology.getDayOfMonth( instant, thisYear, thisMonth++ );\n?                                                                               ++\n", 
+                "mutant": "AOIS", 
+                "num": "101", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         int dayToUse = iChronology.getDayOfMonth( instant, thisYear, thisMonth );\n+         int dayToUse = iChronology.getDayOfMonth( instant, thisYear, thisMonth-- );\n?                                                                               ++\n", 
+                "mutant": "AOIS", 
+                "num": "102", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             dayToUse = maxDay;\n+             dayToUse = maxDay++;\n?                              ++\n", 
+                "mutant": "AOIS", 
+                "num": "117", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             dayToUse = maxDay;\n+             dayToUse = maxDay--;\n?                              ++\n", 
+                "mutant": "AOIS", 
+                "num": "118", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "nonfunctional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n+         long datePart = iChronology.getYearMonthDayMillis( yearToUse++, monthToUse, dayToUse );\n?                                                                     ++\n", 
+                "mutant": "AOIS", 
+                "num": "119", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "nonfunctional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n+         long datePart = iChronology.getYearMonthDayMillis( yearToUse--, monthToUse, dayToUse );\n?                                                                     ++\n", 
+                "mutant": "AOIS", 
+                "num": "120", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "nonfunctional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n+         long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse++, dayToUse );\n?                                                                                 ++\n", 
+                "mutant": "AOIS", 
+                "num": "121", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "nonfunctional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n+         long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse--, dayToUse );\n?                                                                                 ++\n", 
+                "mutant": "AOIS", 
+                "num": "122", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "nonfunctional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n+         long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse++ );\n?                                                                                           ++\n", 
+                "mutant": "AOIS", 
+                "num": "123", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "nonfunctional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n+         long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse-- );\n?                                                                                           ++\n", 
+                "mutant": "AOIS", 
+                "num": "124", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "nonfunctional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         return datePart + timePart;\n?                        -\n+         return datePart++ + timePart;\n?                         +++\n", 
+                "mutant": "AOIS", 
+                "num": "127", 
+                "tags": [
+                    "postfix increment", 
+                    "dead code", 
+                    "nonfunctional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         return datePart + timePart;\n+         return datePart-- + timePart;\n?                        ++\n", 
+                "mutant": "AOIS", 
+                "num": "128", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "nonfunctional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         return datePart + timePart;\n+         return datePart + timePart++;\n?                                   ++\n", 
+                "mutant": "AOIS", 
+                "num": "131", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "nonfunctional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         return datePart + timePart;\n+         return datePart + timePart--;\n?                                   ++\n", 
+                "mutant": "AOIS", 
+                "num": "132", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "nonfunctional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             monthToUse = Math.abs( monthToUse );\n+             monthToUse = Math.abs( -monthToUse );\n?                                    +\n", 
+                "mutant": "AOIU", 
+                "num": "13", 
+                "tags": [
+                    "expression negation", 
+                    "non functional", 
+                    "dead code", 
+                    "constant propagation and function inlining", 
+                    "interesting"
+                ]
+            }, 
+            {
+                "diff": "-         int maxDay = iChronology.getDaysInYearMonth( yearToUse, monthToUse );\n+         int maxDay = iChronology.getDaysInYearMonth( -yearToUse, monthToUse );\n?                                                      +\n", 
+                "mutant": "AOIU", 
+                "num": "20", 
+                "tags": [
+                    "expression inversion", 
+                    "function inlining and analysis", 
+                    "virtual function", 
+                    "mislabeled", 
+                    "interesting", 
+                    "functional", 
+                    "realistic (typo)"
+                ]
+            }, 
+            {
+                "diff": "-         if (months == 0) {\n+         if (false) {\n", 
+                "mutant": "ROR", 
+                "num": "7", 
+                "tags": [
+                    "replace expression with false", 
+                    "non functional", 
+                    "early exit removal", 
+                    "realistic (alternate implementation)"
+                ]
+            }, 
+            {
+                "diff": "-         if (monthToUse >= 0) {\n?                         -\n+         if (monthToUse > 0) {\n", 
+                "mutant": "ROR", 
+                "num": "8", 
+                "tags": [
+                    "comparison operation change", 
+                    "functional", 
+                    "mathematically equivalent", 
+                    "mislabled", 
+                    "requires testing", 
+                    "interesting", 
+                    "realistic (typo)"
+                ]
+            }, 
+            {
+                "diff": "-             if (remMonthToUse == 0) {\n?                                -\n+             if (remMonthToUse <= 0) {\n?                               +\n", 
+                "mutant": "ROR", 
+                "num": "18", 
+                "tags": [
+                    "comparison operator change", 
+                    "non-functional", 
+                    "mathematical analysis", 
+                    "realistic (typo)"
+                ]
+            }, 
+            {
+                "diff": "-             if (monthToUse == 1) {\n?                             -\n+             if (monthToUse <= 1) {\n?                            +\n", 
+                "mutant": "ROR", 
+                "num": "25", 
+                "tags": [
+                    "comparison operator change", 
+                    "mathematical analysis", 
+                    "non-functional", 
+                    "interesting", 
+                    "realistic (typo)", 
+                    "realistic (alternate implementation)", 
+                    "unclear"
+                ]
+            }, 
+            {
+                "diff": "-         if (dayToUse > maxDay) {\n+         if (dayToUse >= maxDay) {\n?                       +\n", 
+                "mutant": "ROR", 
+                "num": "29", 
+                "tags": [
+                    "comparison operator change", 
+                    "functional", 
+                    "dead code", 
+                    "mathematically equivalent", 
+                    "interesting"
+                ]
+            }
+        ], 
+        "benchmark": "Joda-Time: add"
+    }, 
+    {
+        "equivalent_mutants": [
+            {
+                "diff": "-             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n+             nd.params.InitParams( id++, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n?                                     ++\n", 
+                "mutant": "AOIS", 
+                "num": "2255", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n+             nd.params.InitParams( id--, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n?                                     ++\n", 
+                "mutant": "AOIS", 
+                "num": "2256", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n+             nd.params.InitParams( id, rate++, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n?                                           ++\n", 
+                "mutant": "AOIS", 
+                "num": "2257", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n+             nd.params.InitParams( id, rate--, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n?                                           ++\n", 
+                "mutant": "AOIS", 
+                "num": "2258", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n+             nd.params.InitParams( id, rate, xPosition++, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n?                                                      ++\n", 
+                "mutant": "AOIS", 
+                "num": "2259", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n+             nd.params.InitParams( id, rate, xPosition--, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n?                                                      ++\n", 
+                "mutant": "AOIS", 
+                "num": "2260", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n+             nd.params.InitParams( id, rate, xPosition, yPosition++, coverage, ac, nAifsd, nCwMin, nCwMax );\n?                                                                 ++\n", 
+                "mutant": "AOIS", 
+                "num": "2261", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n+             nd.params.InitParams( id, rate, xPosition, yPosition--, coverage, ac, nAifsd, nCwMin, nCwMax );\n?                                                                 ++\n", 
+                "mutant": "AOIS", 
+                "num": "2262", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n+             nd.params.InitParams( id, rate, xPosition, yPosition, coverage++, ac, nAifsd, nCwMin, nCwMax );\n?                                                                           ++\n", 
+                "mutant": "AOIS", 
+                "num": "2263", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n+             nd.params.InitParams( id, rate, xPosition, yPosition, coverage--, ac, nAifsd, nCwMin, nCwMax );\n?                                                                           ++\n", 
+                "mutant": "AOIS", 
+                "num": "2264", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n+             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac++, nAifsd, nCwMin, nCwMax );\n?                                                                               ++\n", 
+                "mutant": "AOIS", 
+                "num": "2265", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n+             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac--, nAifsd, nCwMin, nCwMax );\n?                                                                               ++\n", 
+                "mutant": "AOIS", 
+                "num": "2266", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n+             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd++, nCwMin, nCwMax );\n?                                                                                       ++\n", 
+                "mutant": "AOIS", 
+                "num": "2267", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n+             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd--, nCwMin, nCwMax );\n?                                                                                       ++\n", 
+                "mutant": "AOIS", 
+                "num": "2268", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n+             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin++, nCwMax );\n?                                                                                               ++\n", 
+                "mutant": "AOIS", 
+                "num": "2269", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic", 
+                    "interesting"
+                ]
+            }, 
+            {
+                "diff": "-             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n+             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin--, nCwMax );\n?                                                                                               ++\n", 
+                "mutant": "AOIS", 
+                "num": "2270", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic", 
+                    "interesting"
+                ]
+            }, 
+            {
+                "diff": "-             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n+             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax++ );\n?                                                                                                       ++\n", 
+                "mutant": "AOIS", 
+                "num": "2271", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax );\n+             nd.params.InitParams( id, rate, xPosition, yPosition, coverage, ac, nAifsd, nCwMin, nCwMax-- );\n?                                                                                                       ++\n", 
+                "mutant": "AOIS", 
+                "num": "2272", 
+                "tags": [
+                    "post fix decrement", 
+                    "non functional", 
+                    "dead code", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             int nCwMin = cwMin;\n+             int nCwMin = -cwMin;\n?                          +\n", 
+                "mutant": "AOIU", 
+                "num": "256", 
+                "tags": [
+                    "expression inversion", 
+                    "dead code", 
+                    "dead store", 
+                    "non functional", 
+                    "realistic (typo)"
+                ]
+            }, 
+            {
+                "diff": "-             int nCwMax = SpecParams.CW_MAX;\n+             int nCwMax = -SpecParams.CW_MAX;\n?                          +\n", 
+                "mutant": "AOIU", 
+                "num": "257", 
+                "tags": [
+                    "expression inversion", 
+                    "dead code", 
+                    "dead store", 
+                    "non functional", 
+                    "realistic (typo)"
+                ]
+            }, 
+            {
+                "diff": "-             float nAifsd = sifs + 2 * slot;\n+             float nAifsd = -sifs + 2 * slot;\n?                            +\n", 
+                "mutant": "AOIU", 
+                "num": "258", 
+                "tags": [
+                    "expression inversion", 
+                    "dead code", 
+                    "dead store", 
+                    "non functional", 
+                    "realistic (typo)"
+                ]
+            }, 
+            {
+                "diff": "-             float nAifsd = sifs + 2 * slot;\n?                                     ^\n+             float nAifsd = sifs + 2 / slot;\n?                                     ^\n", 
+                "mutant": "AORB", 
+                "num": "949", 
+                "tags": [
+                    "mathematical operator change", 
+                    "dead code", 
+                    "dead store", 
+                    "non functional", 
+                    "realistic (typo)"
+                ]
+            }, 
+            {
+                "diff": "-             float nAifsd = sifs + 2 * slot;\n?                                     ^\n+             float nAifsd = sifs + 2 % slot;\n?                                     ^\n", 
+                "mutant": "AORB", 
+                "num": "950", 
+                "tags": [
+                    "mathematical operator change", 
+                    "dead code", 
+                    "dead store", 
+                    "non functional", 
+                    "realistic (typo)"
+                ]
+            }, 
+            {
+                "diff": "-             float nAifsd = sifs + 2 * slot;\n?                                     ^\n+             float nAifsd = sifs + 2 + slot;\n?                                     ^\n", 
+                "mutant": "AORB", 
+                "num": "951", 
+                "tags": [
+                    "mathematical operator change", 
+                    "dead code", 
+                    "dead store", 
+                    "non functional", 
+                    "realistic (typo)"
+                ]
+            }, 
+            {
+                "diff": "-             float nAifsd = sifs + 2 * slot;\n?                                     ^\n+             float nAifsd = sifs + 2 - slot;\n?                                     ^\n", 
+                "mutant": "AORB", 
+                "num": "952", 
+                "tags": [
+                    "mathematical operator change", 
+                    "dead code", 
+                    "dead store", 
+                    "non functional", 
+                    "realistic (typo)", 
+                    "interesting"
+                ]
+            }, 
+            {
+                "diff": "-             float nAifsd = sifs + 2 * slot;\n?                                 ^^\n+             float nAifsd = sifs * (2 * slot);\n?                                 ^^^        +\n", 
+                "mutant": "AORB", 
+                "num": "953", 
+                "tags": [
+                    "mathematical operator change", 
+                    "dead code", 
+                    "dead store", 
+                    "non functional", 
+                    "realistic (typo)"
+                ]
+            }, 
+            {
+                "diff": "-             float nAifsd = sifs + 2 * slot;\n?                                 ^^\n+             float nAifsd = sifs / (2 * slot);\n?                                 ^^^        +\n", 
+                "mutant": "AORB", 
+                "num": "954", 
+                "tags": [
+                    "mathematical operator change", 
+                    "dead code", 
+                    "dead store", 
+                    "non functional", 
+                    "realistic (typo)"
+                ]
+            }, 
+            {
+                "diff": "-             float nAifsd = sifs + 2 * slot;\n?                                 ^^\n+             float nAifsd = sifs % (2 * slot);\n?                                 ^^^        +\n", 
+                "mutant": "AORB", 
+                "num": "955", 
+                "tags": [
+                    "mathematical operator change", 
+                    "dead code", 
+                    "dead store", 
+                    "non functional", 
+                    "realistic (typo)", 
+                    "interesting", 
+                    "conditional analysis"
+                ]
+            }, 
+            {
+                "diff": "-             float nAifsd = sifs + 2 * slot;\n?                                 ^\n+             float nAifsd = sifs - 2 * slot;\n?                                 ^\n", 
+                "mutant": "AORB", 
+                "num": "956", 
+                "tags": [
+                    "mathematical operator change", 
+                    "dead code", 
+                    "dead store", 
+                    "non functional", 
+                    "realistic (typo)"
+                ]
+            }, 
+            {
+                "diff": "-             int nCwMin = cwMin;\n+             int nCwMin = ~cwMin;\n?                          +\n", 
+                "mutant": "LOI", 
+                "num": "657", 
+                "tags": [
+                    "mathematical operator change", 
+                    "dead code", 
+                    "dead store", 
+                    "non functional", 
+                    "realistic (typo)"
+                ]
+            }, 
+            {
+                "diff": "-             int nCwMax = SpecParams.CW_MAX;\n+             int nCwMax = -SpecParams.CW_MAX;\n?                          +\n", 
+                "mutant": "LOI", 
+                "num": "658", 
+                "tags": [
+                    "mathematical operator change", 
+                    "dead code", 
+                    "dead store", 
+                    "non functional", 
+                    "realistic (typo)"
+                ]
+            }, 
+            {
+                "diff": "-             throw new pamvotis.exceptions.ElementExistsException( \"Node \" + id + \" already exists.\" );\n?                                                                               -\n+             throw new pamvotis.exceptions.ElementExistsException( \"Node \" + id++ + \" already exists.\" );\n?                                                                                +++\n", 
+                "mutant": "AOIS", 
+                "num": "2127", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             throw new pamvotis.exceptions.ElementExistsException( \"Node \" + id + \" already exists.\" );\n+             throw new pamvotis.exceptions.ElementExistsException( \"Node \" + id-- + \" already exists.\" );\n?                                                                               ++\n", 
+                "mutant": "AOIS", 
+                "num": "2128", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }
+        ], 
+        "benchmark": "Pamvotis: addNode"
+    }, 
+    {
+        "equivalent_mutants": [
+            {
+                "diff": "-                 position = i;\n+                 position = i++;\n?                             ++\n", 
+                "mutant": "AOIS", 
+                "num": "2291", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                 position = i;\n+                 position = i--;\n?                             ++\n", 
+                "mutant": "AOIS", 
+                "num": "2292", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         if (position != -1) {\n?                      ^^\n+         if (position > -1) {\n?                      ^\n", 
+                "mutant": "ROR", 
+                "num": "456", 
+                "tags": [
+                    "comparison operator change", 
+                    "non functional", 
+                    "realistic (typo)", 
+                    "realistic (alternate implementation)"
+                ]
+            }, 
+            {
+                "diff": "-             nodesList.removeElementAt( position );\n+             nodesList.removeElementAt( position++ );\n?                                                ++\n", 
+                "mutant": "AOIS", 
+                "num": "2297", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             nodesList.removeElementAt( position );\n+             nodesList.removeElementAt( position-- );\n?                                                ++\n", 
+                "mutant": "AOIS", 
+                "num": "2298", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             throw new pamvotis.exceptions.ElementDoesNotExistException( \"Node \" + nodeId + \" does not exist.\" );\n?                                                                                         -\n+             throw new pamvotis.exceptions.ElementDoesNotExistException( \"Node \" + nodeId++ + \" does not exist.\" );\n?                                                                                          +++\n", 
+                "mutant": "AOIS", 
+                "num": "2301", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             throw new pamvotis.exceptions.ElementDoesNotExistException( \"Node \" + nodeId + \" does not exist.\" );\n+             throw new pamvotis.exceptions.ElementDoesNotExistException( \"Node \" + nodeId-- + \" does not exist.\" );\n?                                                                                         ++\n", 
+                "mutant": "AOIS", 
+                "num": "2302", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }
+        ], 
+        "benchmark": "Pamvotis: removeNode"
+    }, 
+    {
+        "equivalent_mutants": [
+            {
+                "diff": "-             trian = trian + 1;\n+             trian = -trian + 1;\n?                     +\n", 
+                "mutant": "AOIU", 
+                "num": "2", 
+                "tags": [
+                    "expression inversion", 
+                    "dead code", 
+                    "non functional", 
+                    "mathematical analysis", 
+                    "interesting"
+                ]
+            }, 
+            {
+                "diff": "-             trian = trian + 1;\n?                          -\n+             trian = trian++ + 1;\n?                           +++\n", 
+                "mutant": "AOIS", 
+                "num": "25", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             trian = trian + 1;\n+             trian = trian-- + 1;\n?                          ++\n", 
+                "mutant": "AOIS", 
+                "num": "26", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             trian = trian + 2;\n+             trian = -trian + 2;\n?                     +\n", 
+                "mutant": "AOIU", 
+                "num": "3", 
+                "tags": [
+                    "expression inversion", 
+                    "functional", 
+                    "realistic (typo)", 
+                    "interesting", 
+                    "mathematical and comparison analysis"
+                ]
+            }, 
+            {
+                "diff": "-             trian = trian + 2;\n?                          -\n+             trian = trian++ + 2;\n?                           +++\n", 
+                "mutant": "AOIS", 
+                "num": "37", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             trian = trian + 2;\n+             trian = trian-- + 2;\n?                          ++\n", 
+                "mutant": "AOIS", 
+                "num": "38", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             trian = trian + 3;\n?                          -\n+             trian = trian++ + 3;\n?                           +++\n", 
+                "mutant": "AOIS", 
+                "num": "49", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             trian = trian + 3;\n+             trian = trian-- + 3;\n?                          ++\n", 
+                "mutant": "AOIS", 
+                "num": "50", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-         if (trian == 1 && a + b > c) {\n?                            -\n+         if (trian == 1 && a++ + b > c) {\n?                             +++\n", 
+                "mutant": "AOIS", 
+                "num": "101", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic", 
+                    "mathematic and constant analysis", 
+                    "interesting"
+                ]
+            }, 
+            {
+                "diff": "-         if (trian == 1 && a + b > c) {\n+         if (trian == 1 && a-- + b > c) {\n?                            ++\n", 
+                "mutant": "AOIS", 
+                "num": "102", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic", 
+                    "mathematical and comparison analysis", 
+                    "interesting"
+                ]
+            }, 
+            {
+                "diff": "-         if (trian == 1 && a + b > c) {\n+         if (trian == 1 && a + b++ > c) {\n?                                ++\n", 
+                "mutant": "AOIS", 
+                "num": "105", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic", 
+                    "interesting (repeated)", 
+                    "mathematical and comparison analysis"
+                ]
+            }, 
+            {
+                "diff": "-         if (trian == 1 && a + b > c) {\n+         if (trian == 1 && a + b-- > c) {\n?                                ++\n", 
+                "mutant": "AOIS", 
+                "num": "106", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic", 
+                    "interesting (repeated)"
+                ]
+            }, 
+            {
+                "diff": "-         if (trian == 1 && a + b > c) {\n+         if (trian == 1 && a + b > c++) {\n?                                    ++\n", 
+                "mutant": "AOIS", 
+                "num": "107", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic", 
+                    "interesting (repeated)"
+                ]
+            }, 
+            {
+                "diff": "-         if (trian == 1 && a + b > c) {\n+         if (trian == 1 && a + b > c--) {\n?                                    ++\n", 
+                "mutant": "AOIS", 
+                "num": "108", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic", 
+                    "interesting (repeated)"
+                ]
+            }, 
+            {
+                "diff": "-         if (trian == 1 && a + b > c) {\n?                    -\n+         if (trian <= 1 && a + b > c) {\n?                   +\n", 
+                "mutant": "ROR", 
+                "num": "60", 
+                "tags": [
+                    "comparison operator change", 
+                    "non functional", 
+                    "mathematical and comparison analysis", 
+                    "realistic (typo)"
+                ]
+            }, 
+            {
+                "diff": "-             if (trian == 2 && a + c > b) {\n?                                -\n+             if (trian == 2 && a++ + c > b) {\n?                                 +++\n", 
+                "mutant": "AOIS", 
+                "num": "117", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "comparison and mathematical analysis", 
+                    "interesting", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             if (trian == 2 && a + c > b) {\n+             if (trian == 2 && a-- + c > b) {\n?                                ++\n", 
+                "mutant": "AOIS", 
+                "num": "118", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "unrealistic", 
+                    "non-functional", 
+                    "interesting (repeated)", 
+                    "mathematical and comparison analysis"
+                ]
+            }, 
+            {
+                "diff": "-             if (trian == 2 && a + c > b) {\n+             if (trian == 2 && a + c++ > b) {\n?                                    ++\n", 
+                "mutant": "AOIS", 
+                "num": "121", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "mathematical and constant analysis", 
+                    "interesting (repeated)"
+                ]
+            }, 
+            {
+                "diff": "-             if (trian == 2 && a + c > b) {\n+             if (trian == 2 && a + c-- > b) {\n?                                    ++\n", 
+                "mutant": "AOIS", 
+                "num": "122", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic", 
+                    "interesting (repeated)"
+                ]
+            }, 
+            {
+                "diff": "-             if (trian == 2 && a + c > b) {\n+             if (trian == 2 && a + c > b++) {\n?                                        ++\n", 
+                "mutant": "AOIS", 
+                "num": "123", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic", 
+                    "interesting (repeated)"
+                ]
+            }, 
+            {
+                "diff": "-             if (trian == 2 && a + c > b) {\n+             if (trian == 2 && a + c > b--) {\n?                                        ++\n", 
+                "mutant": "AOIS", 
+                "num": "124", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic", 
+                    "interesting (repeated)"
+                ]
+            }, 
+            {
+                "diff": "-                 if (trian == 3 && b + c > a) {\n+                 if (trian++ == 3 && b + c > a) {\n?                          ++\n", 
+                "mutant": "AOIS", 
+                "num": "129", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                 if (trian == 3 && b + c > a) {\n+                 if (trian-- == 3 && b + c > a) {\n?                          ++\n", 
+                "mutant": "AOIS", 
+                "num": "130", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                 if (trian == 3 && b + c > a) {\n?                                    -\n+                 if (trian == 3 && b++ + c > a) {\n?                                     +++\n", 
+                "mutant": "AOIS", 
+                "num": "133", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                 if (trian == 3 && b + c > a) {\n+                 if (trian == 3 && b-- + c > a) {\n?                                    ++\n", 
+                "mutant": "AOIS", 
+                "num": "134", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                 if (trian == 3 && b + c > a) {\n+                 if (trian == 3 && b + c++ > a) {\n?                                        ++\n", 
+                "mutant": "AOIS", 
+                "num": "137", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                 if (trian == 3 && b + c > a) {\n+                 if (trian == 3 && b + c-- > a) {\n?                                        ++\n", 
+                "mutant": "AOIS", 
+                "num": "138", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                 if (trian == 3 && b + c > a) {\n+                 if (trian == 3 && b + c > a++) {\n?                                            ++\n", 
+                "mutant": "AOIS", 
+                "num": "139", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                 if (trian == 3 && b + c > a) {\n+                 if (trian == 3 && b + c > a--) {\n?                                            ++\n", 
+                "mutant": "AOIS", 
+                "num": "140", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                 if (trian == 3 && b + c > a) {\n?                            -\n+                 if (trian >= 3 && b + c > a) {\n?                           +\n", 
+                "mutant": "ROR", 
+                "num": "86", 
+                "tags": [
+                    "comparison operator change", 
+                    "non functional", 
+                    "comparison analysis", 
+                    "idea: provable bounds comparison canonicalization"
+                ]
+            }, 
+            {
+                "diff": "-             if (a + b < c || a + c < b || b + c < a) {\n?                                            -\n+             if (a + b < c || a + c < b || b++ + c < a) {\n?                                             +++\n", 
+                "mutant": "AOIS", 
+                "num": "77", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "unrealistic", 
+                    "non functional"
+                ]
+            }, 
+            {
+                "diff": "-             if (a + b < c || a + c < b || b + c < a) {\n+             if (a + b < c || a + c < b || b-- + c < a) {\n?                                            ++\n", 
+                "mutant": "AOIS", 
+                "num": "78", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "unrealistic", 
+                    "non functional"
+                ]
+            }, 
+            {
+                "diff": "-             if (a + b < c || a + c < b || b + c < a) {\n+             if (a + b < c || a + c < b || b + c++ < a) {\n?                                                ++\n", 
+                "mutant": "AOIS", 
+                "num": "81", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "unrealistic", 
+                    "non functional"
+                ]
+            }, 
+            {
+                "diff": "-             if (a + b < c || a + c < b || b + c < a) {\n+             if (a + b < c || a + c < b || b + c-- < a) {\n?                                                ++\n", 
+                "mutant": "AOIS", 
+                "num": "82", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "unrealistic", 
+                    "non functional"
+                ]
+            }, 
+            {
+                "diff": "-             if (a + b < c || a + c < b || b + c < a) {\n+             if (a + b < c || a + c < b || b + c < a++) {\n?                                                    ++\n", 
+                "mutant": "AOIS", 
+                "num": "83", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "unrealistic", 
+                    "non functional"
+                ]
+            }, 
+            {
+                "diff": "-             if (a + b < c || a + c < b || b + c < a) {\n+             if (a + b < c || a + c < b || b + c < a--) {\n?                                                    ++\n", 
+                "mutant": "AOIS", 
+                "num": "84", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "unrealistic", 
+                    "non functional"
+                ]
+            }, 
+            {
+                "diff": "-         if (a <= 0 || b <= 0 || c <= 0) {\n+         if (a <= 0 ^ b <= 0 || c <= 0) {\n", 
+                "mutant": "COR", 
+                "num": "2", 
+                "tags": [
+                    "comparison operator change", 
+                    "early exit removal", 
+                    "functional", 
+                    "mathematical and comparison analysis", 
+                    "idea: early exit insertion"
+                ]
+            }, 
+            {
+                "diff": "-             if (a + b < c || a + c < b || b + c < a) {\n?                              ^      -------------\n+             if (a + b < c ^ a + c < b || b + c < a) {\n?                          ++++++++++++    ^\n", 
+                "mutant": "COR", 
+                "num": "6", 
+                "tags": [
+                    "comparison operator change", 
+                    "non functional", 
+                    "comparison and mathematical analysis", 
+                    "idea: comparison narrowing and simplification", 
+                    "interesting"
+                ]
+            }, 
+            {
+                "diff": "-             if (a + b < c || a + c < b || b + c < a) {\n?                                       ^^^\n+             if ((a + b < c || a + c < b) ^ b + c < a) {\n?                +                       ^^^\n", 
+                "mutant": "COR", 
+                "num": "8", 
+                "tags": [
+                    "comparison operator change", 
+                    "non functional", 
+                    "unrealistic", 
+                    "mathematical and comparison analysis"
+                ]
+            }, 
+            {
+                "diff": "-         if (trian == 0) {\n?                    -\n+         if (trian <= 0) {\n?                   +\n", 
+                "mutant": "ROR", 
+                "num": "46", 
+                "tags": [
+                    "comparison operator change", 
+                    "non functional", 
+                    "mathematical and comparison analysis", 
+                    "comparison narrowing"
+                ]
+            }
+        ], 
+        "benchmark": "Triangle"
+    }, 
+    {
+        "equivalent_mutants": [
+            {
+                "diff": "-                 if (c == dollarReplacementFirstChar && name.startsWith( dollarReplacement, i )) {\n?                        -\n+                 if (c >= dollarReplacementFirstChar && name.startsWith( dollarReplacement, i )) {\n?                       +\n", 
+                "mutant": "ROR", 
+                "num": "76", 
+                "tags": [
+                    "comparison operator change", 
+                    "non-functional", 
+                    "early exit removal", 
+                    "comparison and string analysis"
+                ]
+            }, 
+            {
+                "diff": "-                 if (c == dollarReplacementFirstChar && name.startsWith( dollarReplacement, i )) {\n?                        -\n+                 if (c <= dollarReplacementFirstChar && name.startsWith( dollarReplacement, i )) {\n?                       +\n", 
+                "mutant": "ROR", 
+                "num": "78", 
+                "tags": [
+                    "comparison operator change", 
+                    "non-functional", 
+                    "early exit removal", 
+                    "comparison and string analysis"
+                ]
+            }, 
+            {
+                "diff": "-                 if (c == dollarReplacementFirstChar && name.startsWith( dollarReplacement, i )) {\n?                     ^^^^^^^^^^ ^ ------------------\n+                 if (true && name.startsWith( dollarReplacement, i )) {\n?                     ^ ^\n", 
+                "mutant": "ROR", 
+                "num": "80", 
+                "tags": [
+                    "comparison operator change", 
+                    "non-functional", 
+                    "early exit removal", 
+                    "comparison and string analysis"
+                ]
+            }, 
+            {
+                "diff": "-                     if (c == escapeReplacementFirstChar && name.startsWith( escapeCharReplacement, i )) {\n?                            -\n+                     if (c >= escapeReplacementFirstChar && name.startsWith( escapeCharReplacement, i )) {\n?                           +\n", 
+                "mutant": "ROR", 
+                "num": "83", 
+                "tags": [
+                    "comparison operator change", 
+                    "non-functional", 
+                    "early exit removal", 
+                    "comparison and string analysis"
+                ]
+            }, 
+            {
+                "diff": "-                     if (c == escapeReplacementFirstChar && name.startsWith( escapeCharReplacement, i )) {\n?                            -\n+                     if (c <= escapeReplacementFirstChar && name.startsWith( escapeCharReplacement, i )) {\n?                           +\n", 
+                "mutant": "ROR", 
+                "num": "85", 
+                "tags": [
+                    "comparison operator change", 
+                    "non-functional", 
+                    "early exit removal", 
+                    "comparison and string analysis", 
+                    "interesting"
+                ]
+            }, 
+            {
+                "diff": "-                     if (c == escapeReplacementFirstChar && name.startsWith( escapeCharReplacement, i )) {\n?                         ^^^^^ -------------------------\n+                     if (true && name.startsWith( escapeCharReplacement, i )) {\n?                         ^^^\n", 
+                "mutant": "ROR", 
+                "num": "87", 
+                "tags": [
+                    "comparison operator change", 
+                    "non-functional", 
+                    "early exit removal", 
+                    "comparison and string analysis", 
+                    "interesting"
+                ]
+            }, 
+            {
+                "diff": "-             for (; i < length; i++) {\n+             for (; !(i < length); i++) {\n?                    ++          +\n", 
+                "mutant": "COI", 
+                "num": "14", 
+                "tags": [
+                    "invert conditional", 
+                    "early exit removal", 
+                    "fast path removal", 
+                    "comparison and string analysis", 
+                    "realistic (alternate implementation)"
+                ]
+            }, 
+            {
+                "diff": "-             for (; i < length; i++) {\n+             for (; i < ~length; i++) {\n?                        +\n", 
+                "mutant": "LOI", 
+                "num": "20", 
+                "tags": [
+                    "invert conditional", 
+                    "early exit removal", 
+                    "fast path removal", 
+                    "comparison and string analysis", 
+                    "realistic (alternate implementation)"
+                ]
+            }, 
+            {
+                "diff": "-                 if (c == dollarReplacementFirstChar || c == escapeReplacementFirstChar) {\n?                        -\n+                 if (c <= dollarReplacementFirstChar || c == escapeReplacementFirstChar) {\n?                       +\n", 
+                "mutant": "ROR", 
+                "num": "50", 
+                "tags": [
+                    "invert conditional", 
+                    "early exit removal", 
+                    "fast path removal", 
+                    "comparison and string analysis", 
+                    "realistic (alternate implementation)"
+                ]
+            }, 
+            {
+                "diff": "-                         result.append( c );\n+                         result.append( c++ );\n?                                         ++\n", 
+                "mutant": "AOIS", 
+                "num": "131", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                         result.append( c );\n+                         result.append( c-- );\n?                                         ++\n", 
+                "mutant": "AOIS", 
+                "num": "132", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                 if (c == dollarReplacementFirstChar || c == escapeReplacementFirstChar) {\n+                 if (c == dollarReplacementFirstChar || c++ == escapeReplacementFirstChar) {\n?                                                         ++\n", 
+                "mutant": "AOIS", 
+                "num": "77", 
+                "tags": [
+                    "post fix increment", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-                 if (c == dollarReplacementFirstChar || c == escapeReplacementFirstChar) {\n+                 if (c == dollarReplacementFirstChar || c-- == escapeReplacementFirstChar) {\n?                                                         ++\n", 
+                "mutant": "AOIS", 
+                "num": "78", 
+                "tags": [
+                    "post fix decrement", 
+                    "dead code", 
+                    "non functional", 
+                    "unrealistic"
+                ]
+            }, 
+            {
+                "diff": "-             final java.lang.StringBuffer result = new java.lang.StringBuffer( length + 8 );\n?                                                                                      ^\n+             final java.lang.StringBuffer result = new java.lang.StringBuffer( length * 8 );\n?                                                                                      ^\n", 
+                "mutant": "AORB", 
+                "num": "5", 
+                "tags": [
+                    "mathematical operator change", 
+                    "side effect (memory)", 
+                    "realistic", 
+                    "interesting", 
+                    "non functional"
+                ]
+            }, 
+            {
+                "diff": "-             final java.lang.StringBuffer result = new java.lang.StringBuffer( length + 8 );\n?                                                                                      ^\n+             final java.lang.StringBuffer result = new java.lang.StringBuffer( length / 8 );\n?                                                                                      ^\n", 
+                "mutant": "AORB", 
+                "num": "6", 
+                "tags": [
+                    "mathematical operator change", 
+                    "side effect (memory)", 
+                    "realistic", 
+                    "interesting", 
+                    "non functional"
+                ]
+            }, 
+            {
+                "diff": "-             final java.lang.StringBuffer result = new java.lang.StringBuffer( length + 8 );\n?                                                                                      ^\n+             final java.lang.StringBuffer result = new java.lang.StringBuffer( length % 8 );\n?                                                                                      ^\n", 
+                "mutant": "AORB", 
+                "num": "7", 
+                "tags": [
+                    "mathematical operator change", 
+                    "side effect (memory)", 
+                    "realistic", 
+                    "interesting", 
+                    "non functional"
+                ]
+            }, 
+            {
+                "diff": "-             if (i == length) {\n+             if (~i == length) {\n?                 +\n", 
+                "mutant": "LOI", 
+                "num": "27", 
+                "tags": [
+                    "comparison operator change", 
+                    "early exit removal", 
+                    "functional", 
+                    "realistic (typo)", 
+                    "realistic (alternate implementation)"
+                ]
+            }, 
+            {
+                "diff": "-             if (i == length) {\n+             if (i == ~length) {\n?                      +\n", 
+                "mutant": "LOI", 
+                "num": "28", 
+                "tags": [
+                    "comparison operator change", 
+                    "early exit removal", 
+                    "functional", 
+                    "realistic (typo)", 
+                    "realistic (alternate implementation)"
+                ]
+            }, 
+            {
+                "diff": "-                 if (c == dollarReplacementFirstChar || c == escapeReplacementFirstChar) {\n?                        -\n+                 if (c >= dollarReplacementFirstChar || c == escapeReplacementFirstChar) {\n?                       +\n", 
+                "mutant": "ROR", 
+                "num": "48", 
+                "tags": [
+                    "comparison operator change", 
+                    "early exit removal", 
+                    "functional", 
+                    "realistic (typo)", 
+                    "realistic (alternate implementation)"
+                ]
+            }, 
+            {
+                "diff": "-                 if (c == dollarReplacementFirstChar || c == escapeReplacementFirstChar) {\n+                 if (true || c == escapeReplacementFirstChar) {\n", 
+                "mutant": "ROR", 
+                "num": "52", 
+                "tags": [
+                    "comparison operator change", 
+                    "early exit removal", 
+                    "functional", 
+                    "realistic (typo)", 
+                    "realistic (alternate implementation)"
+                ]
+            }, 
+            {
+                "diff": "-                 if (c == dollarReplacementFirstChar || c == escapeReplacementFirstChar) {\n?                                                           -\n+                 if (c == dollarReplacementFirstChar || c >= escapeReplacementFirstChar) {\n?                                                          +\n", 
+                "mutant": "ROR", 
+                "num": "55", 
+                "tags": [
+                    "comparison operator change", 
+                    "early exit removal", 
+                    "functional", 
+                    "realistic (typo)", 
+                    "realistic (alternate implementation)"
+                ]
+            }, 
+            {
+                "diff": "-                 if (c == dollarReplacementFirstChar || c == escapeReplacementFirstChar) {\n?                                                           -\n+                 if (c == dollarReplacementFirstChar || c <= escapeReplacementFirstChar) {\n?                                                          +\n", 
+                "mutant": "ROR", 
+                "num": "57", 
+                "tags": [
+                    "comparison operator change", 
+                    "early exit removal", 
+                    "functional", 
+                    "realistic (typo)", 
+                    "realistic (alternate implementation)"
+                ]
+            }, 
+            {
+                "diff": "-                 if (c == dollarReplacementFirstChar || c == escapeReplacementFirstChar) {\n?                                                        ^^^^^ -------------------------\n+                 if (c == dollarReplacementFirstChar || true) {\n?                                                        ^^^\n", 
+                "mutant": "ROR", 
+                "num": "59", 
+                "tags": [
+                    "comparison operator change", 
+                    "early exit removal", 
+                    "functional", 
+                    "realistic (typo)", 
+                    "realistic (alternate implementation)"
+                ]
+            }, 
+            {
+                "diff": "-             if (i == length) {\n?                   ^^\n+             if (i > length) {\n?                   ^\n", 
+                "mutant": "ROR", 
+                "num": "61", 
+                "tags": [
+                    "comparison operator change", 
+                    "early exit removal", 
+                    "functional", 
+                    "realistic (typo)", 
+                    "realistic (alternate implementation)", 
+                    "mathematical and comparison analysis", 
+                    "dead code", 
+                    "interesting"
+                ]
+            }, 
+            {
+                "diff": "-             if (i == length) {\n?                    -\n+             if (i >= length) {\n?                   +\n", 
+                "mutant": "ROR", 
+                "num": "62", 
+                "tags": [
+                    "comparison operator change", 
+                    "early exit removal", 
+                    "functional", 
+                    "realistic (typo)", 
+                    "realistic (alternate implementation)", 
+                    "mathematical and comparison analysis", 
+                    "interesting"
+                ]
+            }, 
+            {
+                "diff": "-             if (i == length) {\n?                 ^^^^^  ----\n+             if (false) {\n?                 ^^ +\n", 
+                "mutant": "ROR", 
+                "num": "67", 
+                "tags": [
+                    "comparison operator change", 
+                    "early exit removal", 
+                    "functional", 
+                    "realistic (typo)", 
+                    "realistic (alternate implementation)"
+                ]
+            }, 
+            {
+                "diff": "-             if (i > 0) {\n+             if (i >= 0) {\n?                    +\n", 
+                "mutant": "ROR", 
+                "num": "68", 
+                "tags": [
+                    "comparison operator change", 
+                    "non functional", 
+                    "realistic (typo)"
+                ]
+            }, 
+            {
+                "diff": "-             if (i > 0) {\n?                   ^\n+             if (i != 0) {\n?                   ^^\n", 
+                "mutant": "ROR", 
+                "num": "72", 
+                "tags": [
+                    "comparison operator change", 
+                    "early exit removal", 
+                    "functional", 
+                    "realistic (typo)", 
+                    "realistic (alternate implementation)"
+                ]
+            }, 
+            {
+                "diff": "-             if (i > 0) {\n?                 ^^^^^\n+             if (true) {\n?                 ^^^^\n", 
+                "mutant": "ROR", 
+                "num": "73", 
+                "tags": [
+                    "comparison operator change", 
+                    "early exit removal", 
+                    "functional", 
+                    "realistic (typo)", 
+                    "realistic (alternate implementation)"
+                ]
+            }
+        ], 
+        "benchmark": "XStream"
+    }
+]

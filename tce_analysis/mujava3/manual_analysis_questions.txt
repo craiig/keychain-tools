@@ -1,0 +1,10 @@
+1. What mutant was applied?
+2. Why was it tagged as equivalent?
+3. How might a compiler detect that it is equivalent?
+	list a compiler optimization (might be the same tag as #2)
+4. Does this code change have a functional difference?
+	I.e. can a code chang actually affect a change in functional behaviour?
+	tag with functional/non-functional
+5. Could it realistically occur in practice due to some typo, misunderstanding
+or otherwise?
+	tag with realistic/unrealistic

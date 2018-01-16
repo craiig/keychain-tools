@@ -3,10 +3,13 @@
 # them from the generated mutants
 
 import sys
+import tempfile
+import argparse
 import re
 import json
 import subprocess
 import os
+import difflib
 from pprint import pprint
 
 def parse_programs(file_handle):
@@ -51,7 +54,23 @@ def parse_programs(file_handle):
 
     return programs
 
-def tag_equivalent_variants(programs):
+def filter_ndiff(diff):
+    #print ''.join( difflib.ndiff(l, r))
+    def filter(i):
+        if i[0] == ' ':
+            return False
+        elif i[0] == '+':
+            return True
+        elif i[0] == '-':
+            return True
+        elif i[0] == '?':
+            return True
+        sys.stdout.write(i)
+    for i in diff:
+        if filter(i):
+            yield i
+
+def tag_equivalent_variants(programs, args):
     # to aid our review process, we want to present a VIM window with:
     # 1. the original source
     # 2. the equivalent source
@@ -91,7 +110,6 @@ def tag_equivalent_variants(programs):
     #}
     
     for p in programs:
-        pprint(p)
         benchmark = p['benchmark']
         mutants = p['equivalent_mutants']
 
@@ -108,31 +126,106 @@ def tag_equivalent_variants(programs):
         if not os.path.exists(original):
             raise ValueError("{} does not exist! Read README.md and run make to generate mutants.".format(original))
 
+        #for the diff, read the original into an array of lines
+        def readlines(f):
+            with open(f, "r") as fh:
+                return [line for line in fh]
+
+        original_lines = readlines(original)
+
         for m in mutants:
-            mutant_path = os.path.join( path, "{}_{}".format(m['mutant'], m['num']), source_map[benchmark])
+            variant_name = "{}_{}".format(m['mutant'], m['num'])
+            mutant_path = os.path.join( path, variant_name, source_map[benchmark])
             #verify mutant exists
             if not os.path.exists(mutant_path):
                 raise ValueError("{} mutant does not exist! Read README.md and run make to generate mutants.".format(mutant_path))
 
-            #vim doesn't quite work, so instead let's use the built in diff tools we use for the HLS trace analysis
-            #args = ['vim','-d', original, mutant_path]
-            #subprocess.call(args)
-            #subprocess.call(['reset'])
+            # compute a diff that we store as part of the json to make it easy
+            # to examine variants after tagging
+            print "tags: {}".format(m)
+            mutant_lines = readlines(mutant_path)
+            diff = filter_ndiff(difflib.ndiff(original_lines, mutant_lines))
+            compact_diff = ''.join(diff)
+            m['diff'] = compact_diff
 
-            cont = raw_input('continue? (y|n)')
-            if cont != 'y':
-                sys.exit(1)
+            if args.skip_tagged and len(m.get('tags', [])) > 0:
+                print "skipping {} because already tagged".format(mutant_path)
+                continue
 
-            print 'supposed to continue'
-            sys.exit(1)
+            print "editing {}".format(mutant_path)
+
+            #figure out the right spot to put tags
+            #IMO we should output a json file so the resulsts are easy to read
+            # so we'll write to a tmp file, and read it back into the json as
+            # an array
+            tmp_file = tempfile.NamedTemporaryFile(mode="w+", delete=True)
+            tags_file = tmp_file.name
+            if 'tags' in m:
+                tmp_file.write(", ".join(m['tags']))
+                tmp_file.flush()
+
+            #loop in case we make mistakes
+            cont = 'r' #repeat by default unless we go next or no
+            while cont != 'y':
+                # btw vim works only when we aren't redirecting stdin
+                cmd_args = ['vim','-d'
+                    , original, mutant_path
+                    , "+:top split | view manual_analysis_questions.txt"
+                    , "+:resize 10"
+                    , "+:bot split +:edit {tags}".format(tags=tags_file)
+                    , "+:resize 2"
+                ]
+                subprocess.call(cmd_args)
+                #subprocess.call(['reset'])
+
+                tmp_file.seek(0)
+                tags = tmp_file.read()
+                tags = [s.strip() for s in tags.split(',')]
+                m['tags'] = tags
+                print "parsed tags for variant {}: {}".format(variant_name, tags)
+
+                cont = raw_input('continue? (y|n|r)')
+                if cont == 'n':
+                    return
+                    #sys.exit(1)
 
             #shell_cmd = re.sub("[\(\)]", "\\\1", " ".join(args))
             #print shell_cmd
             #os.system(shell_cmd)
-            
-            print mutant_path
+            save_programs(programs, args)
+
             pass
 
+def save_programs(programs, args):
+    if args.output:
+        with open(args.output, "w+") as out:
+            json.dump(programs, out, indent=4)
+
 if __name__ == "__main__":
-    programs = parse_programs(sys.stdin)
-    tag_equivalent_variants(programs)
+    parser = argparse.ArgumentParser(description='read the html page on the manually verified mutants from TCE and tag each one with relevant codes')
+    parser.add_argument('--file', '-f', required=True, help="the html page from TCE")
+    parser.add_argument('--output', '-o', required=True, help="the output json file")
+    parser.add_argument('--skip_tagged', '-s', action="store_true")
+    args = parser.parse_args()
+
+    programs = None
+
+    # if the output file already exists, use it as the program instead
+    if args.output and os.path.exists(args.output):
+        print "loading existing program json"
+        try:
+            with open(args.output) as fh:
+                programs = json.load(fh)
+        except ValueError as e:
+            print "error parsing json"
+            print e
+            programs = None
+
+    if not programs:
+        print "parsing html file to create new program json"
+        with open(args.file) as fh:
+            programs = parse_programs(fh)
+
+    tag_equivalent_variants(programs, args)
+
+    save_programs(programs, args)

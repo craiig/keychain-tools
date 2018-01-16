@@ -23,6 +23,10 @@ MUTANTS := result/Bisect/traditional_mutants/double_sqrt(double)/ \
 # targets results  in it being run once per file, but we desire one invocation
 all: build/mutants 
 
+# start the manual analysis workflow
+.PHONY: analyze
+analyze: build/tagged_programs.json
+
 # call the mujava gui to generate mutants
 $(MUTANTS):
 	@echo Please use mujava GUI to generate $@
@@ -41,8 +45,8 @@ clean:
 build/manual_analysis.html:
 	curl -L -o $@ http://pages.cs.aueb.gr/~kintism/papers/tce/equivalents.html
 
-build/equivalent_mutants.json: build/manual_analysis.html
-	./do_manual_analysis.py < $< > $@
+build/tagged_programs.json: build/manual_analysis.html build/mutants
+	./do_manual_analysis.py -f $< -o $@
 
 #source code examined by TCE
 TCE_SOURCES := src/Bisect.java \
