@@ -151,9 +151,11 @@
                 "tags": [
                     "inverted assignment", 
                     "dead code", 
+                    "dead store", 
                     "non functional", 
                     "realistic (typo)", 
-                    "numerical values and dead value analysis"
+                    "numerical values and dead value analysis", 
+                    "tested"
                 ]
             }, 
             {
@@ -164,7 +166,8 @@
                     "invert assignment", 
                     "dead code", 
                     "realistic (typo)", 
-                    "dead value assignment"
+                    "dead value assignment", 
+                    "tested"
                 ]
             }, 
             {
@@ -175,7 +178,8 @@
                     "operand replacement", 
                     "realistic (typo)", 
                     "functional", 
-                    "mislabeled"
+                    "realistic (alternate implementation)", 
+                    "tested"
                 ]
             }, 
             {
@@ -185,7 +189,8 @@
                 "tags": [
                     "conditional replaced with true", 
                     "functional", 
-                    "realistic (alternate implementation)"
+                    "realistic (alternate implementation)", 
+                    "tested"
                 ]
             }, 
             {
@@ -196,7 +201,8 @@
                     "operand replacement", 
                     "functional", 
                     "realistic (alternate implementation)", 
-                    "mislabeled"
+                    "comparison widening", 
+                    "tested"
                 ]
             }
         ], 
@@ -212,7 +218,8 @@
                     "constant inversion", 
                     "early exit removal", 
                     "functional", 
-                    "realistic (typo)"
+                    "realistic (typo)", 
+                    "tested"
                 ]
             }, 
             {
@@ -311,7 +318,8 @@
                     "expression inversion", 
                     "early exit removal", 
                     "realistic (typo)", 
-                    "functional"
+                    "functional", 
+                    "tested"
                 ]
             }, 
             {
@@ -322,7 +330,8 @@
                     "expression inversion", 
                     "early exit removal", 
                     "realistic (typo)", 
-                    "functional"
+                    "non functional", 
+                    "tested"
                 ]
             }, 
             {
@@ -333,7 +342,8 @@
                     "operator replacement", 
                     "early exit removal", 
                     "realistic (typo)", 
-                    "functional"
+                    "functional", 
+                    "tested"
                 ]
             }, 
             {
@@ -344,7 +354,8 @@
                     "operator replacement", 
                     "early exit", 
                     "non functional", 
-                    "realistic (typo)"
+                    "realistic (typo)", 
+                    "tested"
                 ]
             }, 
             {
@@ -355,7 +366,8 @@
                     "expression replacement with false", 
                     "early exit removal", 
                     "functional", 
-                    "realistic (alternate implementation)"
+                    "realistic (alternate implementation)", 
+                    "tested"
                 ]
             }
         ], 
@@ -527,7 +539,8 @@
                     "non-functional", 
                     "side effect (memory)", 
                     "realistic", 
-                    "interesting"
+                    "interesting", 
+                    "tested"
                 ]
             }, 
             {
@@ -539,7 +552,8 @@
                     "non-functional", 
                     "side effect (memory)", 
                     "realistic", 
-                    "interesting"
+                    "interesting", 
+                    "tested"
                 ]
             }, 
             {
@@ -551,7 +565,8 @@
                     "non-functional", 
                     "side effect (memory)", 
                     "realistic", 
-                    "interesting"
+                    "interesting", 
+                    "tested"
                 ]
             }, 
             {
@@ -563,7 +578,7 @@
                     "non functional", 
                     "realistic (alternate implementation)", 
                     "control flow", 
-                    ""
+                    "tested"
                 ]
             }, 
             {
@@ -575,7 +590,8 @@
                     "non functional", 
                     "realistic", 
                     "conditional equivalence", 
-                    "loop analysis"
+                    "loop analysis", 
+                    "tested"
                 ]
             }
         ], 
@@ -874,7 +890,7 @@
                 "mutant": "AOIS", 
                 "num": "127", 
                 "tags": [
-                    "postfix increment", 
+                    "post fix increment", 
                     "dead code", 
                     "nonfunctional", 
                     "unrealistic"
@@ -922,7 +938,8 @@
                     "non functional", 
                     "dead code", 
                     "constant propagation and function inlining", 
-                    "interesting"
+                    "interesting", 
+                    "tested"
                 ]
             }, 
             {
@@ -936,7 +953,8 @@
                     "mislabeled", 
                     "interesting", 
                     "functional", 
-                    "realistic (typo)"
+                    "realistic (typo)", 
+                    "tested"
                 ]
             }, 
             {
@@ -947,7 +965,8 @@
                     "replace expression with false", 
                     "non functional", 
                     "early exit removal", 
-                    "realistic (alternate implementation)"
+                    "realistic (alternate implementation)", 
+                    "tested"
                 ]
             }, 
             {
@@ -961,7 +980,8 @@
                     "mislabled", 
                     "requires testing", 
                     "interesting", 
-                    "realistic (typo)"
+                    "realistic (typo)", 
+                    "tested"
                 ]
             }, 
             {
@@ -972,7 +992,8 @@
                     "comparison operator change", 
                     "non-functional", 
                     "mathematical analysis", 
-                    "realistic (typo)"
+                    "realistic (typo)", 
+                    "tested"
                 ]
             }, 
             {
@@ -986,7 +1007,8 @@
                     "interesting", 
                     "realistic (typo)", 
                     "realistic (alternate implementation)", 
-                    "unclear"
+                    "unclear", 
+                    "tested"
                 ]
             }, 
             {
@@ -998,7 +1020,8 @@
                     "functional", 
                     "dead code", 
                     "mathematically equivalent", 
-                    "interesting"
+                    "interesting", 
+                    "tested"
                 ]
             }
         ], 
@@ -1215,7 +1238,8 @@
                     "dead code", 
                     "dead store", 
                     "non functional", 
-                    "realistic (typo)"
+                    "realistic (typo)", 
+                    "tested"
                 ]
             }, 
             {
@@ -1227,7 +1251,8 @@
                     "dead code", 
                     "dead store", 
                     "non functional", 
-                    "realistic (typo)"
+                    "realistic (typo)", 
+                    "tested"
                 ]
             }, 
             {
@@ -1239,7 +1264,8 @@
                     "dead code", 
                     "dead store", 
                     "non functional", 
-                    "realistic (typo)"
+                    "realistic (typo)", 
+                    "tested"
                 ]
             }, 
             {
@@ -1251,7 +1277,8 @@
                     "dead code", 
                     "dead store", 
                     "non functional", 
-                    "realistic (typo)"
+                    "realistic (typo)", 
+                    "tested"
                 ]
             }, 
             {
@@ -1263,7 +1290,8 @@
                     "dead code", 
                     "dead store", 
                     "non functional", 
-                    "realistic (typo)"
+                    "realistic (typo)", 
+                    "tested"
                 ]
             }, 
             {
@@ -1275,7 +1303,8 @@
                     "dead code", 
                     "dead store", 
                     "non functional", 
-                    "realistic (typo)"
+                    "realistic (typo)", 
+                    "tested"
                 ]
             }, 
             {
@@ -1288,7 +1317,8 @@
                     "dead store", 
                     "non functional", 
                     "realistic (typo)", 
-                    "interesting"
+                    "interesting", 
+                    "tested"
                 ]
             }, 
             {
@@ -1300,7 +1330,8 @@
                     "dead code", 
                     "dead store", 
                     "non functional", 
-                    "realistic (typo)"
+                    "realistic (typo)", 
+                    "tested"
                 ]
             }, 
             {
@@ -1312,7 +1343,8 @@
                     "dead code", 
                     "dead store", 
                     "non functional", 
-                    "realistic (typo)"
+                    "realistic (typo)", 
+                    "tested"
                 ]
             }, 
             {
@@ -1326,7 +1358,8 @@
                     "non functional", 
                     "realistic (typo)", 
                     "interesting", 
-                    "conditional analysis"
+                    "conditional analysis", 
+                    "tested"
                 ]
             }, 
             {
@@ -1338,7 +1371,8 @@
                     "dead code", 
                     "dead store", 
                     "non functional", 
-                    "realistic (typo)"
+                    "realistic (typo)", 
+                    "tested"
                 ]
             }, 
             {
@@ -1350,7 +1384,8 @@
                     "dead code", 
                     "dead store", 
                     "non functional", 
-                    "realistic (typo)"
+                    "realistic (typo)", 
+                    "tested"
                 ]
             }, 
             {
@@ -1362,7 +1397,8 @@
                     "dead code", 
                     "dead store", 
                     "non functional", 
-                    "realistic (typo)"
+                    "realistic (typo)", 
+                    "tested"
                 ]
             }, 
             {
@@ -1422,7 +1458,8 @@
                     "comparison operator change", 
                     "non functional", 
                     "realistic (typo)", 
-                    "realistic (alternate implementation)"
+                    "realistic (alternate implementation)", 
+                    "tested"
                 ]
             }, 
             {
@@ -1483,7 +1520,8 @@
                     "dead code", 
                     "non functional", 
                     "mathematical analysis", 
-                    "interesting"
+                    "interesting", 
+                    "tested"
                 ]
             }, 
             {
@@ -1517,7 +1555,8 @@
                     "functional", 
                     "realistic (typo)", 
                     "interesting", 
-                    "mathematical and comparison analysis"
+                    "mathematical and comparison analysis", 
+                    "tested"
                 ]
             }, 
             {
@@ -1647,7 +1686,8 @@
                     "comparison operator change", 
                     "non functional", 
                     "mathematical and comparison analysis", 
-                    "realistic (typo)"
+                    "realistic (typo)", 
+                    "tested"
                 ]
             }, 
             {
@@ -1819,7 +1859,8 @@
                     "comparison operator change", 
                     "non functional", 
                     "comparison analysis", 
-                    "idea: provable bounds comparison canonicalization"
+                    "idea: provable bounds comparison canonicalization", 
+                    "tested"
                 ]
             }, 
             {
@@ -1897,7 +1938,8 @@
                     "early exit removal", 
                     "functional", 
                     "mathematical and comparison analysis", 
-                    "idea: early exit insertion"
+                    "idea: early exit insertion", 
+                    "tested"
                 ]
             }, 
             {
@@ -1909,7 +1951,8 @@
                     "non functional", 
                     "comparison and mathematical analysis", 
                     "idea: comparison narrowing and simplification", 
-                    "interesting"
+                    "interesting", 
+                    "tested"
                 ]
             }, 
             {
@@ -1920,7 +1963,8 @@
                     "comparison operator change", 
                     "non functional", 
                     "unrealistic", 
-                    "mathematical and comparison analysis"
+                    "mathematical and comparison analysis", 
+                    "tested"
                 ]
             }, 
             {
@@ -1931,7 +1975,8 @@
                     "comparison operator change", 
                     "non functional", 
                     "mathematical and comparison analysis", 
-                    "comparison narrowing"
+                    "comparison narrowing", 
+                    "tested"
                 ]
             }
         ], 
@@ -1947,7 +1992,8 @@
                     "comparison operator change", 
                     "non-functional", 
                     "early exit removal", 
-                    "comparison and string analysis"
+                    "comparison and string analysis", 
+                    "tested"
                 ]
             }, 
             {
@@ -1958,7 +2004,8 @@
                     "comparison operator change", 
                     "non-functional", 
                     "early exit removal", 
-                    "comparison and string analysis"
+                    "comparison and string analysis", 
+                    "tested"
                 ]
             }, 
             {
@@ -1969,7 +2016,8 @@
                     "comparison operator change", 
                     "non-functional", 
                     "early exit removal", 
-                    "comparison and string analysis"
+                    "comparison and string analysis", 
+                    "tested"
                 ]
             }, 
             {
@@ -1980,7 +2028,9 @@
                     "comparison operator change", 
                     "non-functional", 
                     "early exit removal", 
-                    "comparison and string analysis"
+                    "comparison and string analysis", 
+                    "fast path removal", 
+                    "tested"
                 ]
             }, 
             {
@@ -1992,7 +2042,9 @@
                     "non-functional", 
                     "early exit removal", 
                     "comparison and string analysis", 
-                    "interesting"
+                    "interesting", 
+                    "fast path removal", 
+                    "tested"
                 ]
             }, 
             {
@@ -2004,7 +2056,9 @@
                     "non-functional", 
                     "early exit removal", 
                     "comparison and string analysis", 
-                    "interesting"
+                    "interesting", 
+                    "fast path removal", 
+                    "tested"
                 ]
             }, 
             {
@@ -2016,7 +2070,8 @@
                     "early exit removal", 
                     "fast path removal", 
                     "comparison and string analysis", 
-                    "realistic (alternate implementation)"
+                    "realistic (alternate implementation)", 
+                    "tested"
                 ]
             }, 
             {
@@ -2028,7 +2083,8 @@
                     "early exit removal", 
                     "fast path removal", 
                     "comparison and string analysis", 
-                    "realistic (alternate implementation)"
+                    "realistic (alternate implementation)", 
+                    "tested"
                 ]
             }, 
             {
@@ -2040,7 +2096,8 @@
                     "early exit removal", 
                     "fast path removal", 
                     "comparison and string analysis", 
-                    "realistic (alternate implementation)"
+                    "realistic (alternate implementation)", 
+                    "tested"
                 ]
             }, 
             {
@@ -2096,7 +2153,8 @@
                     "side effect (memory)", 
                     "realistic", 
                     "interesting", 
-                    "non functional"
+                    "non functional", 
+                    "tested"
                 ]
             }, 
             {
@@ -2108,7 +2166,8 @@
                     "side effect (memory)", 
                     "realistic", 
                     "interesting", 
-                    "non functional"
+                    "non functional", 
+                    "tested"
                 ]
             }, 
             {
@@ -2120,7 +2179,8 @@
                     "side effect (memory)", 
                     "realistic", 
                     "interesting", 
-                    "non functional"
+                    "non functional", 
+                    "tested"
                 ]
             }, 
             {
@@ -2132,7 +2192,8 @@
                     "early exit removal", 
                     "functional", 
                     "realistic (typo)", 
-                    "realistic (alternate implementation)"
+                    "realistic (alternate implementation)", 
+                    "tested"
                 ]
             }, 
             {
@@ -2144,7 +2205,8 @@
                     "early exit removal", 
                     "functional", 
                     "realistic (typo)", 
-                    "realistic (alternate implementation)"
+                    "realistic (alternate implementation)", 
+                    "tested"
                 ]
             }, 
             {
@@ -2156,7 +2218,8 @@
                     "early exit removal", 
                     "functional", 
                     "realistic (typo)", 
-                    "realistic (alternate implementation)"
+                    "realistic (alternate implementation)", 
+                    "tested"
                 ]
             }, 
             {
@@ -2168,7 +2231,8 @@
                     "early exit removal", 
                     "functional", 
                     "realistic (typo)", 
-                    "realistic (alternate implementation)"
+                    "realistic (alternate implementation)", 
+                    "tested"
                 ]
             }, 
             {
@@ -2180,7 +2244,8 @@
                     "early exit removal", 
                     "functional", 
                     "realistic (typo)", 
-                    "realistic (alternate implementation)"
+                    "realistic (alternate implementation)", 
+                    "tested"
                 ]
             }, 
             {
@@ -2192,7 +2257,8 @@
                     "early exit removal", 
                     "functional", 
                     "realistic (typo)", 
-                    "realistic (alternate implementation)"
+                    "realistic (alternate implementation)", 
+                    "tested"
                 ]
             }, 
             {
@@ -2204,7 +2270,8 @@
                     "early exit removal", 
                     "functional", 
                     "realistic (typo)", 
-                    "realistic (alternate implementation)"
+                    "realistic (alternate implementation)", 
+                    "tested"
                 ]
             }, 
             {
@@ -2219,7 +2286,8 @@
                     "realistic (alternate implementation)", 
                     "mathematical and comparison analysis", 
                     "dead code", 
-                    "interesting"
+                    "interesting", 
+                    "tested"
                 ]
             }, 
             {
@@ -2233,7 +2301,8 @@
                     "realistic (typo)", 
                     "realistic (alternate implementation)", 
                     "mathematical and comparison analysis", 
-                    "interesting"
+                    "interesting", 
+                    "tested"
                 ]
             }, 
             {
@@ -2245,7 +2314,8 @@
                     "early exit removal", 
                     "functional", 
                     "realistic (typo)", 
-                    "realistic (alternate implementation)"
+                    "realistic (alternate implementation)", 
+                    "tested"
                 ]
             }, 
             {
@@ -2255,7 +2325,10 @@
                 "tags": [
                     "comparison operator change", 
                     "non functional", 
-                    "realistic (typo)"
+                    "realistic (typo)", 
+                    "tested", 
+                    "irrelevant side effect", 
+                    "tested"
                 ]
             }, 
             {
@@ -2267,7 +2340,9 @@
                     "early exit removal", 
                     "functional", 
                     "realistic (typo)", 
-                    "realistic (alternate implementation)"
+                    "realistic (alternate implementation)", 
+                    "comparison widening", 
+                    "tested"
                 ]
             }, 
             {
@@ -2279,7 +2354,8 @@
                     "early exit removal", 
                     "functional", 
                     "realistic (typo)", 
-                    "realistic (alternate implementation)"
+                    "realistic (alternate implementation)", 
+                    "tested"
                 ]
             }
         ], 

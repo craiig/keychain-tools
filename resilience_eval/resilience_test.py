@@ -102,6 +102,8 @@ def generate_all_code(overall, args):
     #
     # TODO the larger code examples might not fit into this framework
     # but i'm trying this anyways?
+    total_variants = 1
+    total_unique_programs = 0
     for p in overall.get('programs', []):
         #generate_scala_code(p, args)
         program_hashes = generate_c_code(p, args)
@@ -115,6 +117,12 @@ def generate_all_code(overall, args):
         p['success_overall'] = len(unique_hashes) == 1
         p['success_partial'] = len(unique_hashes) < len(p['variants'])
         p['failure_total'] = len(unique_hashes) == len(p['variants'])
+        total_unique_programs = total_unique_programs + len(unique_hashes)
+        total_variants = total_variants + len(program_hashes)
+
+    overall['total_programs'] = len(overall.get('programs', []))
+    overall['total_unique_programs'] = total_unique_programs
+    overall['total_variants'] = total_variants
 
 def main():
     parser = argparse.ArgumentParser(description='run resilience test using input')

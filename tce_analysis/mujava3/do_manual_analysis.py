@@ -152,6 +152,22 @@ def tag_equivalent_variants(programs, args):
                 print "skipping {} because already tagged".format(mutant_path)
                 continue
 
+
+            if args.filter_tags:
+                match = False
+                matched_filer = None
+                for f in args.filter_tags:
+                    for t in m.get('tags', []):
+                        if re.search(f, t):
+                            matched_filter = f
+                            match = True
+                            break
+                    if match:
+                        break
+                if match:
+                    print "skipping {} because filter {} matched".format(mutant_path, matched_filter)
+                    continue
+
             print "editing {}".format(mutant_path)
 
             #figure out the right spot to put tags
@@ -206,6 +222,7 @@ if __name__ == "__main__":
     parser.add_argument('--file', '-f', required=True, help="the html page from TCE")
     parser.add_argument('--output', '-o', required=True, help="the output json file")
     parser.add_argument('--skip_tagged', '-s', action="store_true")
+    parser.add_argument('--filter_tags', '-t', action='append', help="filter out programs when tags match the expression")
     args = parser.parse_args()
 
     programs = None
