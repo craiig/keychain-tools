@@ -149,7 +149,7 @@
                 "mutant": "AOIU", 
                 "num": "3", 
                 "tags": [
-                    "inverted assignment", 
+                    "expression inversion", 
                     "dead code", 
                     "dead store", 
                     "non functional", 
@@ -163,10 +163,10 @@
                 "mutant": "AOIU", 
                 "num": "4", 
                 "tags": [
-                    "invert assignment", 
+                    "expression inversion", 
                     "dead code", 
                     "realistic (typo)", 
-                    "dead value assignment", 
+                    "dead store", 
                     "tested"
                 ]
             }, 
@@ -175,7 +175,7 @@
                 "mutant": "ROR", 
                 "num": "12", 
                 "tags": [
-                    "operand replacement", 
+                    "operator replacement", 
                     "realistic (typo)", 
                     "functional", 
                     "realistic (alternate implementation)", 
@@ -198,7 +198,7 @@
                 "mutant": "ROR", 
                 "num": "8", 
                 "tags": [
-                    "operand replacement", 
+                    "operator replacement", 
                     "functional", 
                     "realistic (alternate implementation)", 
                     "comparison widening", 
@@ -934,7 +934,7 @@
                 "mutant": "AOIU", 
                 "num": "13", 
                 "tags": [
-                    "expression negation", 
+                    "expression inversion", 
                     "non functional", 
                     "dead code", 
                     "constant propagation and function inlining", 
@@ -1018,10 +1018,9 @@
                 "tags": [
                     "comparison operator change", 
                     "functional", 
-                    "dead code", 
                     "mathematically equivalent", 
                     "interesting", 
-                    "tested"
+                    "comparison widening"
                 ]
             }
         ], 

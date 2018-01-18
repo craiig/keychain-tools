@@ -111,9 +111,20 @@
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "{int} x = input0 + input 1; return x;" }
-				, { "code": "{int} x = input0 * 10; x = input0 + input 1; return x;" }
+				{ "code": "{int} x = input0 + input1; return x;" }
+				, { "code": "{int} x = input0 * 10; x = input0 + input1; return x;" }
 				, { "code": "{int} x = input0 * 10; if(input0==100) x = 100; else x = input0; return x;" }
+			]
+		}
+		, {
+			"name": "dead store negate zero",
+			"origin": "tce",
+			"input_types": ["int"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "return input0;" }
+				, { "code": "{int} x = 0; return -x + input0;" }
 			]
 		}
 		, {
