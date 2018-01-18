@@ -1,0 +1,4 @@
+loading existing program json
+categorizing variants
+Categorizations: Counter({'categorized': 197, 'post fix': 126, 'early exit': 29, 'dead store': 16, 'context aware equivalance': 16, 'memory side effect': 6, 'context aware equivalence': 4})
+Uncategorized tags: Counter()

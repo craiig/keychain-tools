@@ -25,7 +25,8 @@ all: build/mutants
 
 # start the manual analysis workflow
 .PHONY: analyze
-analyze: build/tagged_programs.json
+analyze: build/tagged_programs.json build/final_analysis
+	cat build/final_analysis
 
 # call the mujava gui to generate mutants
 $(MUTANTS):
@@ -35,7 +36,7 @@ build/mutants: $(MUTANTS) | build/
 	make mutants
 	touch $@
 
-# remove the relevant files from mujavas path
+# remove the relevant files from mujavas path so we can regenerate mutants
 clean:
 	-rm -rf classes/*
 	-rm -rf src/*
@@ -46,7 +47,10 @@ build/manual_analysis.html:
 	curl -L -o $@ http://pages.cs.aueb.gr/~kintism/papers/tce/equivalents.html
 
 build/tagged_programs.json: build/manual_analysis.html build/mutants
-	./do_manual_analysis.py -f $< -o $@
+	./do_manual_analysis.py -f $< -o $@ -m
+
+build/final_analysis: build/tagged_programs.json
+	./do_manual_analysis.py -o $< | tee $@
 
 #source code examined by TCE
 TCE_SOURCES := src/Bisect.java \

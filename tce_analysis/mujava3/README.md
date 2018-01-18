@@ -1,4 +1,8 @@
 # Usage
+1. To produce the set of categories used in the paper, run `make analyze`
+2. To re-do any of the steps performed to achieve the analysis, see below
+
+## Usage to generate mutants
 1. Run `make` to unpack all dependent files and run the mujava interface that
 can be used to generate the mutants.
 2. In Mujava gui, Check off all .java source files on the left, there should be
@@ -9,6 +13,12 @@ can be used to generate the mutants.
    in particular generates a large number of variants.
 4. Close the Java GUI to continue the Makefile process (don't ctrl+C in the
    terminal).
+
+## Perform variant level analysis
+1. Run `make analyze` to start the analysis loop. Read the questions and write down tags until done
+2. After tagging, an overall analysis will be run that analyzes each tag and
+   generates higher level categories. Edit the `categorize_variants` function
+   in do_manual_analysis.py to change tags 
 
 # Requirements
 1. make, java

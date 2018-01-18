@@ -273,7 +273,7 @@ def categorize_variants(programs, args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='read the html page on the manually verified mutants from TCE and tag each one with relevant codes')
-    parser.add_argument('--file', '-f', required=True, help="the html page from TCE")
+    parser.add_argument('--file', '-f', help="the html page from TCE")
     parser.add_argument('--output', '-o', required=True, help="the output json file")
     parser.add_argument('--manual_analysis', '-m', help="perform manual analysis step")
     parser.add_argument('--skip_tagged', '-s', action="store_true")
@@ -295,6 +295,9 @@ if __name__ == "__main__":
 
     if not programs:
         print "parsing html file to create new program json"
+        if not args.file:
+            print "error: html page does not exist"
+            sys.exit(1)
         with open(args.file) as fh:
             programs = parse_programs(fh)
 
