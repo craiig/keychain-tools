@@ -10,6 +10,7 @@ import json
 import subprocess
 import os
 import difflib
+import collections
 from pprint import pprint
 
 def parse_programs(file_handle):
@@ -217,10 +218,64 @@ def save_programs(programs, args):
         with open(args.output, "w+") as out:
             json.dump(programs, out, indent=4)
 
+def categorize_variants(programs, args):
+    # starting from this 'query'
+    # jq -c --raw-output '.[].equivalent_mutants[]' build/tagged_programs.json
+    # | grep -v " fix " | grep -v "dead store" | grep -v "early exit" | grep -v
+    # "side effect (memory)" | jq '.' | vim -
+
+    print 'categorizing variants'
+
+    # make sure to get the ordering right here
+    #so it's important this is actually a list of tuples
+    tag2category = [
+        ("^post fix.*" , "post fix")
+        , ("^dead store$", "dead store")
+        , ("^early exit.*", "early exit")
+        , ("side effect \(memory\)", "memory side effect")
+        , ("comparison operator change", "context aware equivalance")
+        , ("expression inversion", "context aware equivalence")
+    ]
+
+    categorization = collections.Counter()
+    uncategorized_tags = collections.Counter()
+
+    for p in programs:
+        for v in p.get('equivalent_mutants', []):
+            tags = v.get('tags', [])
+            if len(tags) == 0:
+                print "Warning: variant {mutant}_{num} of {program} is not tagged".format(program=p['benchmark'], mutant=v.mutant, num=v.num)
+
+            done = False
+            #important that our filters get done first
+            for r,category in tag2category:
+                for t in tags:
+                    if re.search(r, t):
+                        #print "tagged as: {}".format(category)
+                        categorization[category] += 1
+                        categorization['categorized'] += 1
+                        done = True
+                        break
+                if done:
+                    break
+
+            if not done:
+                categorization['uncategorized'] += 1
+                print "uncategorized:"
+                pprint(v)
+                for t in tags:
+                    uncategorized_tags[t] += 1
+
+            #pprint(p)
+
+    print "Categorizations: {}".format(categorization)
+    print "Uncategorized tags: {}".format(uncategorized_tags)
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='read the html page on the manually verified mutants from TCE and tag each one with relevant codes')
     parser.add_argument('--file', '-f', required=True, help="the html page from TCE")
     parser.add_argument('--output', '-o', required=True, help="the output json file")
+    parser.add_argument('--manual_analysis', '-m', help="perform manual analysis step")
     parser.add_argument('--skip_tagged', '-s', action="store_true")
     parser.add_argument('--filter_tags', '-t', action='append', help="filter out programs when tags match the expression")
     args = parser.parse_args()
@@ -243,6 +298,8 @@ if __name__ == "__main__":
         with open(args.file) as fh:
             programs = parse_programs(fh)
 
-    tag_equivalent_variants(programs, args)
+    if args.manual_analysis:
+        tag_equivalent_variants(programs, args)
+        save_programs(programs, args)
 
-    save_programs(programs, args)
+    categorize_variants(programs, args)
