@@ -40,7 +40,7 @@
                 "num": "45", 
                 "tags": [
                     "pre fix increment", 
-					"dead store",
+                    "dead store", 
                     "dead code", 
                     "unrealistic", 
                     "non functional"
@@ -937,7 +937,7 @@
                 "num": "13", 
                 "tags": [
                     "expression inversion", 
-					"provably equivalent",
+                    "provably equivalent", 
                     "non functional", 
                     "dead code", 
                     "constant propagation and function inlining", 
@@ -1521,7 +1521,7 @@
                     "expression inversion", 
                     "dead code", 
                     "non functional", 
-					"provably equivalent",
+                    "provably equivalent", 
                     "mathematical analysis", 
                     "interesting", 
                     "tested"

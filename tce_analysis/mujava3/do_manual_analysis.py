@@ -275,7 +275,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='read the html page on the manually verified mutants from TCE and tag each one with relevant codes')
     parser.add_argument('--file', '-f', help="the html page from TCE")
     parser.add_argument('--output', '-o', required=True, help="the output json file")
-    parser.add_argument('--manual_analysis', '-m', help="perform manual analysis step")
+    parser.add_argument('--manual_analysis', '-m', help="perform manual analysis step", action="store_true")
     parser.add_argument('--skip_tagged', '-s', action="store_true")
     parser.add_argument('--filter_tags', '-t', action='append', help="filter out programs when tags match the expression")
     args = parser.parse_args()

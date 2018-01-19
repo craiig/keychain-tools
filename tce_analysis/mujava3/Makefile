@@ -142,7 +142,7 @@ src/xcom/thoughtworks/xstream/io/xml/XmlFriendlyNameCoder.java: build/xstream/sr
 	rsync -mra build/xstream/src/ src/ --include="XmlFriendlyNameCoder.java" --include "*/" --exclude="*"
 
 classes/xcom/thoughtworks/xstream/io/xml/XmlFriendlyNameCoder.class: build/xstream/src/xcom/thoughtworks/xstream/io/xml/XmlFriendlyNameCoder.java
-	find build/xstream -iname "*.java" -exec javac {} -d classes/ -sourcepath build/xstream/src/ -classpath build/xstream/lib/\*
+	find build/xstream -iname "*.java" -exec javac {} -d classes/ -sourcepath build/xstream/src/ -classpath build/xstream/lib/\* \;
 
 # xstream supporting materials
 build/xstream.zip:

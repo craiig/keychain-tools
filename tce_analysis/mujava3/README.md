@@ -1,17 +1,19 @@
 # Usage
 1. To produce the set of categories used in the paper, run `make analyze`
-2. To re-do any of the steps performed to achieve the analysis, see below
+2. To re-do any of the steps performed to achieve the analysis, see below.
+3. The variants and tags are stored in git at build/tagged_programs.json
 
 ## Usage to generate mutants
-1. Run `make` to unpack all dependent files and run the mujava interface that
-can be used to generate the mutants.
-2. In Mujava gui, Check off all .java source files on the left, there should be
+1. Run `make clean` to clear existing mutants and source code
+2. Run `make` to unpack all dependent files and run the mujava interface that
+   can be used to generate the mutants.
+3. In Mujava gui, Check off all .java source files on the left, there should be
    six.
-3. Check off all Method-level mutations
-3. Click generate and wait. Watch the terminal. Errors are OK. Wait for `all
+4. Check off all Method-level mutations
+5. Click generate and wait. Watch the terminal. Errors are OK. Wait for `all
    files are handled` message. This can take a while (~10mins) because Pamvotis
    in particular generates a large number of variants.
-4. Close the Java GUI to continue the Makefile process (don't ctrl+C in the
+6. Close the Java GUI to continue the Makefile process (don't ctrl+C in the
    terminal).
 
 ## Perform variant level analysis
@@ -23,6 +25,7 @@ can be used to generate the mutants.
 # Requirements
 1. make, java
 2. maven (to build test samples)
+3. various unix utilities
 
 # Attribution
 Most files in this directory were downloaded from:
