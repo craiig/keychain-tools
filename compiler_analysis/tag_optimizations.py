@@ -35,18 +35,21 @@ def parse_gcc(db, filename):
 
     all_opts = []
     current_opt = None
+    seen_desc = False
     while len(opt_list) > 0:
         c = opt_list.pop(0)
         if c.name == 'dt':
             if current_opt:
                 if not seen_desc:
                     current_opt['alternate_names'] = current_opt.get('alternate_names', [])
-                    current_opt['alternate_names'].append(c.string)
+                    current_opt['alternate_names'].append(c.text)
                 else:
                     all_opts.append( current_opt )
                     current_opt = { "name": c.text }
+                    seen_desc = False
             else:
                 current_opt = { "name": c.text }
+                seen_desc = False
 
         if c.name == 'dd':
             assert current_opt, "saw dd without a dt"
@@ -57,6 +60,7 @@ def parse_gcc(db, filename):
             current_opt['description'] = c.text
 
     #apply to db
+    # TODO tag these optimizations as coming from GCC
     for o in all_opts:
         if not o['name'] in db:
             db[o['name']] = {}
@@ -67,6 +71,10 @@ def parse_gcc(db, filename):
 def manually_tag_opts(db, args):
     # show a vim window with the opt description and a window to add tags
     for name,o in db.iteritems():
+
+        if args.manually_skip_tagged and 'tags' in o and len(o['tags']) > 0:
+            print "skipping {}".format(name)
+            continue
 
         tags_fh = tempfile.NamedTemporaryFile(mode="w+", delete=True)
         tags_file = tags_fh.name
@@ -79,6 +87,9 @@ def manually_tag_opts(db, args):
         if 'description' in o:
             desc_fh.write(name)
             desc_fh.write("\n")
+            if 'alternate_names' in o:
+                desc_fh.write(" ".join(o['alternate_names']))
+                desc_fh.write("\n")
             desc_fh.write(o['description'])
             desc_fh.flush()
 
@@ -111,6 +122,7 @@ if __name__ == "__main__":
     parser.add_argument('--db', help="where to store data on the optimizations", required=True)
     parser.add_argument('--gcc_parse', '-g', help='parse gcc html docs and enrich database')
     parser.add_argument('--manually_tag', '-m', help='manually tag the optimizatins with tags', action='store_true')
+    parser.add_argument('--manually_skip_tagged', '-mst', help='skip already tagged', action='store_true')
     args = parser.parse_args()
 
     db = load_database(args.db)

@@ -7,6 +7,13 @@
             "inlining"
         ]
     }, 
+    "-ftree-fre": {
+        "description": "\nPerform full redundancy elimination (FRE) on trees.  The difference\nbetween FRE and PRE is that FRE only considers expressions\nthat are computed on all paths leading to the redundant computation.\nThis analysis is faster than PRE, though it exposes fewer redundancies.\nThis flag is enabled by default at -O and higher.\n\n", 
+        "tags": [
+            "relevant", 
+            "redundant computations"
+        ]
+    }, 
     "-ftree-sink": {
         "description": "\nPerform forward store motion on trees.  This flag is\nenabled by default at -O and higher.\n\n", 
         "tags": [
@@ -101,16 +108,22 @@
         ]
     }, 
     "-falign-labels": {
-        "description": null
+        "description": "\nAlign all branch targets to a power-of-two boundary, skipping up to\nn bytes like -falign-functions.  This option can easily\nmake code slower, because it must insert dummy operations for when the\nbranch target is reached in the usual flow of the code.\n\n-fno-align-labels and -falign-labels=1 are\nequivalent and mean that labels are not aligned.\n\nIf -falign-loops or -falign-jumps are applicable and\nare greater than this value, then their values are used instead.\n\nIf n is not specified or is zero, use a machine-dependent default\nwhich is very likely to be \u20181\u2019, meaning no alignment.\n\nEnabled at levels -O2, -O3.\n\n"
     }, 
-    "-fkeep-inline-functions": {
-        "description": "\nIn C, emit static functions that are declared inline\ninto the object file, even if the function has been inlined into all\nof its callers.  This switch does not affect functions using the\nextern inline extension in GNU C90.  In C++, emit any and all\ninline functions into the object file.\n\n"
+    "-fsel-sched-pipelining": {
+        "description": "\nEnable software pipelining of innermost loops during selective scheduling.\nThis option has no effect unless one of -fselective-scheduling or\n-fselective-scheduling2 is turned on.\n\n"
     }, 
     "-falign-jumps=n": {
         "description": "\nAlign branch targets to a power-of-two boundary, for branch targets\nwhere the targets can only be reached by jumping, skipping up to n\nbytes like -falign-functions.  In this case, no dummy operations\nneed be executed.\n\n-fno-align-jumps and -falign-jumps=1 are\nequivalent and mean that loops are not aligned.\n\nIf n is not specified or is zero, use a machine-dependent default.\n\nEnabled at levels -O2, -O3.\n\n"
     }, 
+    "-ftree-loop-im": {
+        "description": "\nPerform loop invariant motion on trees.  This pass moves only invariants that\nare hard to handle at RTL level (function calls, operations that expand to\nnontrivial sequences of insns).  With -funswitch-loops it also moves\noperands of conditions that are invariant out of the loop, so that we can use\njust trivial invariantness analysis in loop unswitching.  The pass also includes\nstore motion.\n\n"
+    }, 
     "-fsched-rank-heuristic": {
         "description": "\nEnable the rank heuristic in the scheduler.  This heuristic favors\nthe instruction belonging to a basic block with greater size or frequency.\nThis is enabled by default when scheduling is enabled, i.e.\nwith -fschedule-insns or -fschedule-insns2 or\nat -O2 or higher.\n\n"
+    }, 
+    "-fssa-backprop": {
+        "description": "\nPropagate information about uses of a value up the definition chain\nin order to simplify the definitions.  For example, this pass strips\nsign operations if the sign of a value never matters.  The flag is\nenabled by default at -O and higher.\n\n"
     }, 
     "-fif-conversion": {
         "description": "\nAttempt to transform conditional jumps into branch-less equivalents.  This\nincludes use of conditional moves, min, max, set flags and abs instructions, and\nsome tricks doable by standard arithmetics.  The use of conditional execution\non chips where it is available is controlled by -fif-conversion2.\n\nEnabled at levels -O, -O2, -O3, -Os.\n\n"
@@ -120,9 +133,6 @@
     }, 
     "-fselective-scheduling": {
         "description": "\nSchedule instructions using selective scheduling algorithm.  Selective\nscheduling runs instead of the first scheduler pass.\n\n"
-    }, 
-    "-fisolate-erroneous-paths-attribute": {
-        "description": "\nDetect paths that trigger erroneous or undefined behavior due a null value\nbeing used in a way forbidden by a returns_nonnull or nonnull\nattribute.  Isolate those paths from the main control flow and turn the\nstatement with erroneous or undefined behavior into a trap.  This is not\ncurrently enabled, but may be enabled by -O2 in the future.\n\n"
     }, 
     "-fgcse-las": {
         "description": "\nWhen -fgcse-las is enabled, the global common subexpression\nelimination pass eliminates redundant loads that come after stores to the\nsame memory location (both partial and full redundancies).\n\nNot enabled at any optimization level.\n\n"
@@ -182,13 +192,13 @@
         "description": "\nAttempt to transform conditional jumps in the innermost loops to\nbranch-less equivalents.  The intent is to remove control-flow from\nthe innermost loops in order to improve the ability of the\nvectorization pass to handle these loops.  This is enabled by default\nif vectorization is enabled.\n\n"
     }, 
     "-falign-functions": {
-        "description": null
+        "description": "\nAlign the start of functions to the next power-of-two greater than\nn, skipping up to n bytes.  For instance,\n-falign-functions=32 aligns functions to the next 32-byte\nboundary, but -falign-functions=24 aligns to the next\n32-byte boundary only if this can be done by skipping 23 bytes or less.\n\n-fno-align-functions and -falign-functions=1 are\nequivalent and mean that functions are not aligned.\n\nSome assemblers only support this flag when n is a power of two;\nin that case, it is rounded up.\n\nIf n is not specified or is zero, use a machine-dependent default.\n\nEnabled at levels -O2, -O3.\n\n"
     }, 
     "-ftree-reassoc": {
         "description": "\nPerform reassociation on trees.  This flag is enabled by default\nat -O and higher.\n\n"
     }, 
     "-fsched-stalled-insns": {
-        "description": null
+        "description": "\nDefine how many insns (if any) can be moved prematurely from the queue\nof stalled insns into the ready list during the second scheduling pass.\n-fno-sched-stalled-insns means that no insns are moved\nprematurely, -fsched-stalled-insns=0 means there is no limit\non how many queued insns can be moved prematurely.\n-fsched-stalled-insns without a value is equivalent to\n-fsched-stalled-insns=1.\n\n"
     }, 
     "-fivopts": {
         "description": "\nPerform induction variable optimizations (strength reduction, induction\nvariable merging and induction variable elimination) on trees.\n\n"
@@ -224,7 +234,7 @@
         "description": "\nWhen enabled, perform interprocedural propagation of value\nranges. This flag is enabled by default at -O2. It requires\nthat -fipa-cp is enabled.\n\n"
     }, 
     "-fsched-stalled-insns-dep": {
-        "description": null
+        "description": "\nDefine how many insn groups (cycles) are examined for a dependency\non a stalled insn that is a candidate for premature removal from the queue\nof stalled insns.  This has an effect only during the second scheduling pass,\nand only if -fsched-stalled-insns is used.\n-fno-sched-stalled-insns-dep is equivalent to\n-fsched-stalled-insns-dep=0.\n-fsched-stalled-insns-dep without a value is equivalent to\n-fsched-stalled-insns-dep=1.\n\n"
     }, 
     "-fsched-spec-load-dangerous": {
         "description": "\nAllow speculative motion of more load instructions.  This only makes\nsense when scheduling before register allocation, i.e. with\n-fschedule-insns or at -O2 or higher.\n\n"
@@ -241,6 +251,9 @@
     "-fstore-merging": {
         "description": "\nPerform merging of narrow stores to consecutive memory addresses.  This pass\nmerges contiguous stores of immediate values narrower than a word into fewer\nwider stores to reduce the number of instructions.  This is enabled by default\nat -O2 and higher as well as -Os.\n\n"
     }, 
+    "-fprofile-correction": {
+        "description": "\nProfiles collected using an instrumented binary for multi-threaded programs may\nbe inconsistent due to missed counter updates. When this option is specified,\nGCC uses heuristics to correct or smooth out such inconsistencies. By\ndefault, GCC emits an error message when an inconsistent profile is detected.\n\n"
+    }, 
     "-fipa-sra": {
         "description": "\nPerform interprocedural scalar replacement of aggregates, removal of\nunused parameters and replacement of parameters passed by reference\nby parameters passed by value.\n\nEnabled at levels -O2, -O3 and -Os.\n\n"
     }, 
@@ -250,8 +263,8 @@
     "-fomit-frame-pointer": {
         "description": "\nOmit the frame pointer in functions that don\u2019t need one.  This avoids the\ninstructions to save, set up and restore the frame pointer; on many targets\nit also makes an extra register available.\n\nOn some targets this flag has no effect because the standard calling sequence\nalways uses a frame pointer, so it cannot be omitted.\n\nNote that -fno-omit-frame-pointer doesn\u2019t guarantee the frame pointer\nis used in all functions.  Several targets always omit the frame pointer in\nleaf functions.\n\nEnabled by default at -O and higher.\n\n"
     }, 
-    "-fno-branch-count-reg": {
-        "description": "\nAvoid running a pass scanning for opportunities to use \u201cdecrement and\nbranch\u201d instructions on a count register instead of generating sequences\nof instructions that decrement a register, compare it against zero, and\nthen branch based upon the result.  This option is only meaningful on\narchitectures that support such instructions, which include x86, PowerPC,\nIA-64 and S/390.  Note that the -fno-branch-count-reg option\ndoesn\u2019t remove the decrement and branch instructions from the generated\ninstruction stream introduced by other optimization passes.\n\nEnabled by default at -O1 and higher.\n\nThe default is -fbranch-count-reg.\n\n"
+    "-floop-block": {
+        "description": "\n\n\nPerform loop nest optimizations.  Same as\n-floop-nest-optimize.  To use this code transformation, GCC has\nto be configured with --with-isl to enable the Graphite loop\ntransformation infrastructure.\n\n"
     }, 
     "-fira-hoist-pressure": {
         "description": "\nUse IRA to evaluate register pressure in the code hoisting pass for\ndecisions to hoist expressions.  This option usually results in smaller\ncode, but it can slow the compiler down.\n\nThis option is enabled at level -Os for all targets.\n\n"
@@ -298,14 +311,11 @@
     "-ftree-loop-ivcanon": {
         "description": "\nCreate a canonical counter for number of iterations in loops for which\ndetermining number of iterations requires complicated analysis.  Later\noptimizations then may determine the number easily.  Useful especially\nin connection with unrolling.\n\n"
     }, 
-    "-fipa-cp": {
-        "description": "\nPerform interprocedural constant propagation.\nThis optimization analyzes the program to determine when values passed\nto functions are constants and then optimizes accordingly.\nThis optimization can substantially increase performance\nif the application has constants passed to functions.\nThis flag is enabled by default at -O2, -Os and -O3.\n\n"
-    }, 
     "-fipa-reference": {
         "description": "\nDiscover which static variables do not escape the\ncompilation unit.\nEnabled by default at -O and higher.\n\n"
     }, 
-    "-fdelete-null-pointer-checks": {
-        "description": "\nAssume that programs cannot safely dereference null pointers, and that\nno code or data element resides at address zero.\nThis option enables simple constant\nfolding optimizations at all optimization levels.  In addition, other\noptimization passes in GCC use this flag to control global dataflow\nanalyses that eliminate useless checks for null pointers; these assume\nthat a memory access to address zero always results in a trap, so\nthat if a pointer is checked after it has already been dereferenced,\nit cannot be null.\n\nNote however that in some environments this assumption is not true.\nUse -fno-delete-null-pointer-checks to disable this optimization\nfor programs that depend on that behavior.\n\nThis option is enabled by default on most targets.  On Nios II ELF, it\ndefaults to off.  On AVR, CR16, and MSP430, this option is completely disabled.\n\nPasses that use the dataflow information\nare enabled independently at different optimization levels.\n\n"
+    "-fschedule-insns": {
+        "description": "\nIf supported for the target machine, attempt to reorder instructions to\neliminate execution stalls due to required data being unavailable.  This\nhelps machines that have slow floating point or memory load instructions\nby allowing other instructions to be issued until the result of the load\nor floating-point instruction is required.\n\nEnabled at levels -O2, -O3.\n\n"
     }, 
     "-finline-limit=n": {
         "description": "\nBy default, GCC limits the size of functions that can be inlined.  This flag\nallows coarse control of this limit.  n is the size of functions that\ncan be inlined in number of pseudo instructions.\n\nInlining is actually controlled by a number of parameters, which may be\nspecified individually by using --param name=value.\nThe -finline-limit=n option sets some of these parameters\nas follows:\n\n\nmax-inline-insns-single\nis set to n/2.\n\nmax-inline-insns-auto\nis set to n/2.\n\n\nSee below for a documentation of the individual\nparameters controlling inlining and for the defaults of these parameters.\n\nNote: there may be no value to -finline-limit that results\nin default behavior.\n\nNote: pseudo instruction represents, in this particular context, an\nabstract measurement of function\u2019s size.  In no way does it represent a count\nof assembly instructions and as such its exact meaning might change from one\nrelease to an another.\n\n"
@@ -325,11 +335,8 @@
     "-findirect-inlining": {
         "description": "\nInline also indirect calls that are discovered to be known at compile\ntime thanks to previous inlining.  This option has any effect only\nwhen inlining itself is turned on by the -finline-functions\nor -finline-small-functions options.\n\nEnabled at level -O2.\n\n"
     }, 
-    "-fsel-sched-pipelining": {
-        "description": "\nEnable software pipelining of innermost loops during selective scheduling.\nThis option has no effect unless one of -fselective-scheduling or\n-fselective-scheduling2 is turned on.\n\n"
-    }, 
-    "-ftree-bit-ccp": {
-        "description": "\nPerform sparse conditional bit constant propagation on trees and propagate\npointer alignment information.\nThis pass only operates on local scalar variables and is enabled by default\nat -O and higher.  It requires that -ftree-ccp is enabled.\n\n"
+    "-fkeep-inline-functions": {
+        "description": "\nIn C, emit static functions that are declared inline\ninto the object file, even if the function has been inlined into all\nof its callers.  This switch does not affect functions using the\nextern inline extension in GNU C90.  In C++, emit any and all\ninline functions into the object file.\n\n"
     }, 
     "-fsemantic-interposition": {
         "description": "\nSome object formats, like ELF, allow interposing of symbols by the \ndynamic linker.\nThis means that for symbols exported from the DSO, the compiler cannot perform\ninterprocedural propagation, inlining and other optimizations in anticipation\nthat the function or variable in question may change. While this feature is\nuseful, for example, to rewrite memory allocation functions by a debugging\nimplementation, it is expensive in the terms of code quality.\nWith -fno-semantic-interposition the compiler assumes that \nif interposition happens for functions the overwriting function will have \nprecisely the same semantics (and side effects). \nSimilarly if interposition happens\nfor variables, the constructor of the variable will be the same. The flag\nhas no effect for functions explicitly declared inline \n(where it is never allowed for interposition to change semantics) \nand for symbols explicitly declared weak.\n\n"
@@ -352,8 +359,8 @@
     "-fipa-bit-cp": {
         "description": "\nWhen enabled, perform interprocedural bitwise constant\npropagation. This flag is enabled by default at -O2. It\nrequires that -fipa-cp is enabled.\n\n"
     }, 
-    "-fselective-scheduling2": {
-        "description": "\nSchedule instructions using selective scheduling algorithm.  Selective\nscheduling runs instead of the second scheduler pass.\n\n"
+    "-ftree-sra": {
+        "description": "\nPerform scalar replacement of aggregates.  This pass replaces structure\nreferences with scalars to prevent committing structures to memory too\nearly.  This flag is enabled by default at -O and higher.\n\n"
     }, 
     "-ftree-builtin-call-dce": {
         "description": "\nPerform conditional dead code elimination (DCE) for calls to built-in functions\nthat may set errno but are otherwise side-effect free.  This flag is\nenabled by default at -O2 and higher if -Os is not also\nspecified.\n\n"
@@ -367,41 +374,44 @@
     "-ftree-ccp": {
         "description": "\nPerform sparse conditional constant propagation (CCP) on trees.  This\npass only operates on local scalar variables and is enabled by default\nat -O and higher.\n\n"
     }, 
-    "-fira-loop-pressure": {
-        "description": "\nUse IRA to evaluate register pressure in loops for decisions to move\nloop invariants.  This option usually results in generation\nof faster and smaller code on machines with large register files (>= 32\nregisters), but it can slow the compiler down.\n\nThis option is enabled at level -O3 for some targets.\n\n"
+    "-ftree-dominator-opts": {
+        "description": "\nPerform a variety of simple scalar cleanups (constant/copy\npropagation, redundancy elimination, range propagation and expression\nsimplification) based on a dominator tree traversal.  This also\nperforms jump threading (to reduce jumps to jumps). This flag is\nenabled by default at -O and higher.\n\n"
     }, 
-    "-fkeep-static-consts": {
-        "description": "\nEmit variables declared static const when optimization isn\u2019t turned\non, even if the variables aren\u2019t referenced.\n\nGCC enables this option by default.  If you want to force the compiler to\ncheck if a variable is referenced, regardless of whether or not\noptimization is turned on, use the -fno-keep-static-consts option.\n\n"
+    "-ftree-loop-distribute-patterns": {
+        "description": "\nPerform loop distribution of patterns that can be code generated with\ncalls to a library.  This flag is enabled by default at -O3.\n\nThis pass distributes the initialization loops and generates a call to\nmemset zero.  For example, the loop\n\nDO I = 1, N\n  A(I) = 0\n  B(I) = A(I) + I\nENDDO\n\nis transformed to\n\nDO I = 1, N\n   A(I) = 0\nENDDO\nDO I = 1, N\n   B(I) = A(I) + I\nENDDO\n\nand the initialization loop is transformed into a call to memset zero.\n\n"
+    }, 
+    "-fipa-profile": {
+        "description": "\nPerform interprocedural profile propagation.  The functions called only from\ncold functions are marked as cold. Also functions executed once (such as\ncold, noreturn, static constructors or destructors) are identified. Cold\nfunctions and loop less parts of functions executed once are then optimized for\nsize.\nEnabled by default at -O and higher.\n\n"
     }, 
     "-funconstrained-commons": {
         "description": "\nThis option tells the compiler that variables declared in common blocks\n(e.g. Fortran) may later be overridden with longer trailing arrays. This\nprevents certain optimizations that depend on knowing the array bounds.\n\n"
     }, 
-    "-fschedule-insns": {
-        "description": "\nIf supported for the target machine, attempt to reorder instructions to\neliminate execution stalls due to required data being unavailable.  This\nhelps machines that have slow floating point or memory load instructions\nby allowing other instructions to be issued until the result of the load\nor floating-point instruction is required.\n\nEnabled at levels -O2, -O3.\n\n"
+    "-fdelete-null-pointer-checks": {
+        "description": "\nAssume that programs cannot safely dereference null pointers, and that\nno code or data element resides at address zero.\nThis option enables simple constant\nfolding optimizations at all optimization levels.  In addition, other\noptimization passes in GCC use this flag to control global dataflow\nanalyses that eliminate useless checks for null pointers; these assume\nthat a memory access to address zero always results in a trap, so\nthat if a pointer is checked after it has already been dereferenced,\nit cannot be null.\n\nNote however that in some environments this assumption is not true.\nUse -fno-delete-null-pointer-checks to disable this optimization\nfor programs that depend on that behavior.\n\nThis option is enabled by default on most targets.  On Nios II ELF, it\ndefaults to off.  On AVR, CR16, and MSP430, this option is completely disabled.\n\nPasses that use the dataflow information\nare enabled independently at different optimization levels.\n\n"
     }, 
     "-fno-zero-initialized-in-bss": {
         "description": "\nIf the target supports a BSS section, GCC by default puts variables that\nare initialized to zero into BSS.  This can save space in the resulting\ncode.\n\nThis option turns off this behavior because some programs explicitly\nrely on variables going to the data section\u2014e.g., so that the\nresulting executable can find the beginning of that section and/or make\nassumptions based on that.\n\nThe default is -fzero-initialized-in-bss.\n\n"
     }, 
-    "-ftree-sra": {
-        "description": "\nPerform scalar replacement of aggregates.  This pass replaces structure\nreferences with scalars to prevent committing structures to memory too\nearly.  This flag is enabled by default at -O and higher.\n\n"
+    "-ftree-bit-ccp": {
+        "description": "\nPerform sparse conditional bit constant propagation on trees and propagate\npointer alignment information.\nThis pass only operates on local scalar variables and is enabled by default\nat -O and higher.  It requires that -ftree-ccp is enabled.\n\n"
     }, 
     "-fsched-critical-path-heuristic": {
         "description": "\nEnable the critical-path heuristic in the scheduler.  This heuristic favors\ninstructions on the critical path.  This is enabled by default when\nscheduling is enabled, i.e. with -fschedule-insns\nor -fschedule-insns2 or at -O2 or higher.\n\n"
     }, 
     "-ftree-loop-linear": {
-        "description": null
+        "description": "\n\n\nPerform loop nest optimizations.  Same as\n-floop-nest-optimize.  To use this code transformation, GCC has\nto be configured with --with-isl to enable the Graphite loop\ntransformation infrastructure.\n\n"
     }, 
     "-falign-loops=n": {
         "description": "\nAlign loops to a power-of-two boundary, skipping up to n bytes\nlike -falign-functions.  If the loops are\nexecuted many times, this makes up for any execution of the dummy\noperations.\n\n-fno-align-loops and -falign-loops=1 are\nequivalent and mean that loops are not aligned.\n\nIf n is not specified or is zero, use a machine-dependent default.\n\nEnabled at levels -O2, -O3.\n\n"
     }, 
-    "-floop-nest-optimize": {
-        "description": "\nEnable the isl based loop nest optimizer.  This is a generic loop nest\noptimizer based on the Pluto optimization algorithms.  It calculates a loop\nstructure optimized for data-locality and parallelism.  This option\nis experimental.\n\n"
+    "-fwhole-program": {
+        "description": "\nAssume that the current compilation unit represents the whole program being\ncompiled.  All public functions and variables with the exception of main\nand those merged by attribute externally_visible become static functions\nand in effect are optimized more aggressively by interprocedural optimizers.\n\nThis option should not be used in combination with -flto.\nInstead relying on a linker plugin should provide safer and more precise\ninformation.\n\n"
     }, 
     "-fno-function-cse": {
         "description": "\nDo not put function addresses in registers; make each instruction that\ncalls a constant function contain the function\u2019s address explicitly.\n\nThis option results in less efficient code, but some strange hacks\nthat alter the assembler output may be confused by the optimizations\nperformed when this option is not used.\n\nThe default is -ffunction-cse\n\n"
     }, 
-    "-fschedule-insns2": {
-        "description": "\nSimilar to -fschedule-insns, but requests an additional pass of\ninstruction scheduling after register allocation has been done.  This is\nespecially useful on machines with a relatively small number of\nregisters and where memory load instructions take more than one cycle.\n\nEnabled at levels -O2, -O3, -Os.\n\n"
+    "-fipa-ra": {
+        "description": "\nUse caller save registers for allocation if those registers are not used by\nany called function.  In that case it is not necessary to save and restore\nthem around calls.  This is only possible if called functions are part of\nsame compilation unit as current function and they are compiled before it.\n\nEnabled at levels -O2, -O3, -Os, however the option\nis disabled if generated code will be instrumented for profiling\n(-p, or -pg) or if callee\u2019s register usage cannot be known\nexactly (this happens on targets that do not expose prologues\nand epilogues in RTL).\n\n"
     }, 
     "-fprefetch-loop-arrays": {
         "description": "\nIf supported by the target machine, generate instructions to prefetch\nmemory to improve the performance of loops that access large arrays.\n\nThis option may generate better or worse code; results are highly\ndependent on the structure of loops within the source code.\n\nDisabled at level -Os.\n\n"
@@ -409,17 +419,14 @@
     "-foptimize-sibling-calls": {
         "description": "\nOptimize sibling and tail recursive calls.\n\nEnabled at levels -O2, -O3, -Os.\n\n"
     }, 
-    "-flto-odr-type-merging": {
-        "description": "\nEnable streaming of mangled types names of C++ types and their unification\nat link time.  This increases size of LTO object files, but enables\ndiagnostics about One Definition Rule violations.\n\n"
-    }, 
     "-freorder-functions": {
         "description": "\nReorder functions in the object file in order to\nimprove code locality.  This is implemented by using special\nsubsections .text.hot for most frequently executed functions and\n.text.unlikely for unlikely executed functions.  Reordering is done by\nthe linker so object file format must support named sections and linker must\nplace them in a reasonable way.\n\nAlso profile feedback must be available to make this option effective.  See\n-fprofile-arcs for details.\n\nEnabled at levels -O2, -O3, -Os.\n\n"
     }, 
     "-ffat-lto-objects": {
         "description": "\nFat LTO objects are object files that contain both the intermediate language\nand the object code. This makes them usable for both LTO linking and normal\nlinking. This option is effective only when compiling with -flto\nand is ignored at link time.\n\n-fno-fat-lto-objects improves compilation time over plain LTO, but\nrequires the complete toolchain to be aware of LTO. It requires a linker with\nlinker plugin support for basic functionality.  Additionally,\nnm, ar and ranlib\nneed to support linker plugins to allow a full-featured build environment\n(capable of building static libraries etc).  GCC provides the gcc-ar,\ngcc-nm, gcc-ranlib wrappers to pass the right options\nto these tools. With non fat LTO makefiles need to be modified to use them.\n\nThe default is -fno-fat-lto-objects on targets with linker plugin\nsupport.\n\n"
     }, 
-    "-ftree-dominator-opts": {
-        "description": "\nPerform a variety of simple scalar cleanups (constant/copy\npropagation, redundancy elimination, range propagation and expression\nsimplification) based on a dominator tree traversal.  This also\nperforms jump threading (to reduce jumps to jumps). This flag is\nenabled by default at -O and higher.\n\n"
+    "-flto-odr-type-merging": {
+        "description": "\nEnable streaming of mangled types names of C++ types and their unification\nat link time.  This increases size of LTO object files, but enables\ndiagnostics about One Definition Rule violations.\n\n"
     }, 
     "-fgcse": {
         "description": "\nPerform a global common subexpression elimination pass.\nThis pass also performs global constant and copy propagation.\n\nNote: When compiling a program using computed gotos, a GCC\nextension, you may get better run-time performance if you disable\nthe global common subexpression elimination pass by adding\n-fno-gcse to the command line.\n\nEnabled at levels -O2, -O3, -Os.\n\n"
@@ -430,8 +437,8 @@
     "-fvect-cost-model=model": {
         "description": "\nAlter the cost model used for vectorization.  The model argument\nshould be one of \u2018unlimited\u2019, \u2018dynamic\u2019 or \u2018cheap\u2019.\nWith the \u2018unlimited\u2019 model the vectorized code-path is assumed\nto be profitable while with the \u2018dynamic\u2019 model a runtime check\nguards the vectorized code-path to enable it only for iteration\ncounts that will likely execute faster than when executing the original\nscalar loop.  The \u2018cheap\u2019 model disables vectorization of\nloops where doing so would be cost prohibitive for example due to\nrequired runtime checks for data dependence or alignment but otherwise\nis equal to the \u2018dynamic\u2019 model.\nThe default cost model depends on other optimization flags and is\neither \u2018dynamic\u2019 or \u2018cheap\u2019.\n\n"
     }, 
-    "-ftree-loop-im": {
-        "description": "\nPerform loop invariant motion on trees.  This pass moves only invariants that\nare hard to handle at RTL level (function calls, operations that expand to\nnontrivial sequences of insns).  With -funswitch-loops it also moves\noperands of conditions that are invariant out of the loop, so that we can use\njust trivial invariantness analysis in loop unswitching.  The pass also includes\nstore motion.\n\n"
+    "-fisolate-erroneous-paths-attribute": {
+        "description": "\nDetect paths that trigger erroneous or undefined behavior due a null value\nbeing used in a way forbidden by a returns_nonnull or nonnull\nattribute.  Isolate those paths from the main control flow and turn the\nstatement with erroneous or undefined behavior into a trap.  This is not\ncurrently enabled, but may be enabled by -O2 in the future.\n\n"
     }, 
     "-fdevirtualize-speculatively": {
         "description": "\nAttempt to convert calls to virtual functions to speculative direct calls.\nBased on the analysis of the type inheritance graph, determine for a given call\nthe set of likely targets. If the set is small, preferably of size 1, change\nthe call into a conditional deciding between direct and indirect calls.  The\nspeculative calls enable more optimizations, such as inlining.  When they seem\nuseless after further optimization, they are converted back into original form.\n\n"
@@ -451,8 +458,8 @@
     "-fmerge-all-constants": {
         "description": "\nAttempt to merge identical constants and identical variables.\n\nThis option implies -fmerge-constants.  In addition to\n-fmerge-constants this considers e.g. even constant initialized\narrays or initialized constant variables with integral or floating-point\ntypes.  Languages like C or C++ require each variable, including multiple\ninstances of the same variable in recursive calls, to have distinct locations,\nso using this option results in non-conforming\nbehavior.\n\n"
     }, 
-    "-fhoist-adjacent-loads": {
-        "description": "\nSpeculatively hoist loads from both branches of an if-then-else if the\nloads are from adjacent locations in the same structure and the target\narchitecture has a conditional move instruction.  This flag is enabled\nby default at -O2 and higher.\n\n"
+    "-ftree-loop-distribution": {
+        "description": "\nPerform loop distribution.  This flag can improve cache performance on\nbig loop bodies and allow further loop optimizations, like\nparallelization or vectorization, to take place.  For example, the loop\n\nDO I = 1, N\n  A(I) = B(I) + C\n  D(I) = E(I) * F\nENDDO\n\nis transformed to\n\nDO I = 1, N\n   A(I) = B(I) + C\nENDDO\nDO I = 1, N\n   D(I) = E(I) * F\nENDDO\n\n"
     }, 
     "-fipa-pure-const": {
         "description": "\nDiscover which functions are pure or constant.\nEnabled by default at -O and higher.\n\n"
@@ -460,8 +467,8 @@
     "-fsched-stalled-insns-dep=n": {
         "description": "\nDefine how many insn groups (cycles) are examined for a dependency\non a stalled insn that is a candidate for premature removal from the queue\nof stalled insns.  This has an effect only during the second scheduling pass,\nand only if -fsched-stalled-insns is used.\n-fno-sched-stalled-insns-dep is equivalent to\n-fsched-stalled-insns-dep=0.\n-fsched-stalled-insns-dep without a value is equivalent to\n-fsched-stalled-insns-dep=1.\n\n"
     }, 
-    "-floop-block": {
-        "description": "\n\n\nPerform loop nest optimizations.  Same as\n-floop-nest-optimize.  To use this code transformation, GCC has\nto be configured with --with-isl to enable the Graphite loop\ntransformation infrastructure.\n\n"
+    "-fno-branch-count-reg": {
+        "description": "\nAvoid running a pass scanning for opportunities to use \u201cdecrement and\nbranch\u201d instructions on a count register instead of generating sequences\nof instructions that decrement a register, compare it against zero, and\nthen branch based upon the result.  This option is only meaningful on\narchitectures that support such instructions, which include x86, PowerPC,\nIA-64 and S/390.  Note that the -fno-branch-count-reg option\ndoesn\u2019t remove the decrement and branch instructions from the generated\ninstruction stream introduced by other optimization passes.\n\nEnabled by default at -O1 and higher.\n\nThe default is -fbranch-count-reg.\n\n"
     }, 
     "-ftree-parallelize-loops=n": {
         "description": "\nParallelize loops, i.e., split their iteration space to run in n threads.\nThis is only possible for loops whose iterations are independent\nand can be arbitrarily reordered.  The optimization is only\nprofitable on multiprocessor machines, for loops that are CPU-intensive,\nrather than constrained e.g. by memory bandwidth.  This option\nimplies -pthread, and thus is only supported on targets\nthat have support for -pthread.\n\n"
@@ -470,7 +477,7 @@
         "description": "\nThis is a more fine-grained version of -fkeep-inline-functions,\nwhich applies only to functions that are declared using the dllexport\nattribute or declspec.  See Declaring Attributes of\nFunctions.\n\n"
     }, 
     "-falign-loops": {
-        "description": null
+        "description": "\nAlign loops to a power-of-two boundary, skipping up to n bytes\nlike -falign-functions.  If the loops are\nexecuted many times, this makes up for any execution of the dummy\noperations.\n\n-fno-align-loops and -falign-loops=1 are\nequivalent and mean that loops are not aligned.\n\nIf n is not specified or is zero, use a machine-dependent default.\n\nEnabled at levels -O2, -O3.\n\n"
     }, 
     "-freorder-blocks-algorithm=algorithm": {
         "description": "\nUse the specified algorithm for basic block reordering.  The\nalgorithm argument can be \u2018simple\u2019, which does not increase\ncode size (except sometimes due to secondary effects like alignment),\nor \u2018stc\u2019, the \u201csoftware trace cache\u201d algorithm, which tries to\nput all often executed code together, minimizing the number of branches\nexecuted by making extra copies of code.\n\nThe default is \u2018simple\u2019 at levels -O, -Os, and\n\u2018stc\u2019 at levels -O2, -O3.\n\n"
@@ -490,23 +497,23 @@
     "-fsched-group-heuristic": {
         "description": "\nEnable the group heuristic in the scheduler.  This heuristic favors\nthe instruction that belongs to a schedule group.  This is enabled\nby default when scheduling is enabled, i.e. with -fschedule-insns\nor -fschedule-insns2 or at -O2 or higher.\n\n"
     }, 
-    "-fipa-profile": {
-        "description": "\nPerform interprocedural profile propagation.  The functions called only from\ncold functions are marked as cold. Also functions executed once (such as\ncold, noreturn, static constructors or destructors) are identified. Cold\nfunctions and loop less parts of functions executed once are then optimized for\nsize.\nEnabled by default at -O and higher.\n\n"
+    "-fkeep-static-consts": {
+        "description": "\nEmit variables declared static const when optimization isn\u2019t turned\non, even if the variables aren\u2019t referenced.\n\nGCC enables this option by default.  If you want to force the compiler to\ncheck if a variable is referenced, regardless of whether or not\noptimization is turned on, use the -fno-keep-static-consts option.\n\n"
     }, 
     "-fforward-propagate": {
         "description": "\nPerform a forward propagation pass on RTL.  The pass tries to combine two\ninstructions and checks if the result can be simplified.  If loop unrolling\nis active, two passes are performed and the second is scheduled after\nloop unrolling.\n\nThis option is enabled by default at optimization levels -O,\n-O2, -O3, -Os.\n\n"
     }, 
-    "-fwhole-program": {
-        "description": "\nAssume that the current compilation unit represents the whole program being\ncompiled.  All public functions and variables with the exception of main\nand those merged by attribute externally_visible become static functions\nand in effect are optimized more aggressively by interprocedural optimizers.\n\nThis option should not be used in combination with -flto.\nInstead relying on a linker plugin should provide safer and more precise\ninformation.\n\n"
+    "-floop-nest-optimize": {
+        "description": "\nEnable the isl based loop nest optimizer.  This is a generic loop nest\noptimizer based on the Pluto optimization algorithms.  It calculates a loop\nstructure optimized for data-locality and parallelism.  This option\nis experimental.\n\n"
     }, 
-    "-fipa-ra": {
-        "description": "\nUse caller save registers for allocation if those registers are not used by\nany called function.  In that case it is not necessary to save and restore\nthem around calls.  This is only possible if called functions are part of\nsame compilation unit as current function and they are compiled before it.\n\nEnabled at levels -O2, -O3, -Os, however the option\nis disabled if generated code will be instrumented for profiling\n(-p, or -pg) or if callee\u2019s register usage cannot be known\nexactly (this happens on targets that do not expose prologues\nand epilogues in RTL).\n\n"
+    "-fschedule-insns2": {
+        "description": "\nSimilar to -fschedule-insns, but requests an additional pass of\ninstruction scheduling after register allocation has been done.  This is\nespecially useful on machines with a relatively small number of\nregisters and where memory load instructions take more than one cycle.\n\nEnabled at levels -O2, -O3, -Os.\n\n"
     }, 
     "-fisolate-erroneous-paths-dereference": {
         "description": "\nDetect paths that trigger erroneous or undefined behavior due to\ndereferencing a null pointer.  Isolate those paths from the main control\nflow and turn the statement with erroneous or undefined behavior into a trap.\nThis flag is enabled by default at -O2 and higher and depends on\n-fdelete-null-pointer-checks also being enabled.\n\n"
     }, 
-    "-fssa-backprop": {
-        "description": "\nPropagate information about uses of a value up the definition chain\nin order to simplify the definitions.  For example, this pass strips\nsign operations if the sign of a value never matters.  The flag is\nenabled by default at -O and higher.\n\n"
+    "-fipa-cp": {
+        "description": "\nPerform interprocedural constant propagation.\nThis optimization analyzes the program to determine when values passed\nto functions are constants and then optimizes accordingly.\nThis optimization can substantially increase performance\nif the application has constants passed to functions.\nThis flag is enabled by default at -O2, -Os and -O3.\n\n"
     }, 
     "-fcprop-registers": {
         "description": "\nAfter register allocation and post-register allocation instruction splitting,\nperform a copy-propagation pass to try to reduce scheduling dependencies\nand occasionally eliminate the copy.\n\nEnabled at levels -O, -O2, -O3, -Os.\n\n"
@@ -527,7 +534,7 @@
         "description": "\nIn common subexpression elimination (CSE), scan through jump instructions\nwhen the target of the jump is not reached by any other path.  For\nexample, when CSE encounters an if statement with an\nelse clause, CSE follows the jump when the condition\ntested is false.\n\nEnabled at levels -O2, -O3, -Os.\n\n"
     }, 
     "-fno-peephole": {
-        "description": null
+        "description": "\n\nDisable any machine-specific peephole optimizations.  The difference\nbetween -fno-peephole and -fno-peephole2 is in how they\nare implemented in the compiler; some targets use one, some use the\nother, a few use both.\n\n-fpeephole is enabled by default.\n-fpeephole2 enabled at levels -O2, -O3, -Os.\n\n"
     }, 
     "-flimit-function-alignment": {
         "description": "If this option is enabled, the compiler tries to avoid unnecessarily\noveraligning functions. It attempts to instruct the assembler to align\nby the amount specified by -falign-functions, but not to\nskip more bytes than the size of the function.\n\n"
@@ -539,7 +546,7 @@
         "description": "\nUse the specified coloring algorithm for the integrated register\nallocator.  The algorithm argument can be \u2018priority\u2019, which\nspecifies Chow\u2019s priority coloring, or \u2018CB\u2019, which specifies\nChaitin-Briggs coloring.  Chaitin-Briggs coloring is not implemented\nfor all architectures, but for those targets that do support it, it is\nthe default because it generates better code.\n\n"
     }, 
     "-fprofile-use": {
-        "description": null
+        "description": "\nEnable profile feedback-directed optimizations, \nand the following optimizations\nwhich are generally profitable only with profile feedback available:\n-fbranch-probabilities, -fvpt,\n-funroll-loops, -fpeel-loops, -ftracer, \n-ftree-vectorize, and ftree-loop-distribute-patterns.\n\nBefore you can use this option, you must first generate profiling information.\nSee Instrumentation Options, for information about the\n-fprofile-generate option.\n\nBy default, GCC emits an error message if the feedback profiles do not\nmatch the source code.  This error can be turned into a warning by using\n-Wcoverage-mismatch.  Note this may result in poorly optimized\ncode.\n\nIf path is specified, GCC looks at the path to find\nthe profile feedback data files. See -fprofile-dir.\n\n"
     }, 
     "-ftree-dce": {
         "description": "\nPerform dead code elimination (DCE) on trees.  This flag is enabled by\ndefault at -O and higher.\n\n"
@@ -553,9 +560,6 @@
     "-ftree-tail-merge": {
         "description": "\nLook for identical code sequences.  When found, replace one with a jump to the\nother.  This optimization is known as tail merging or cross jumping.  This flag\nis enabled by default at -O2 and higher.  The compilation time\nin this pass can\nbe limited using max-tail-merge-comparisons parameter and\nmax-tail-merge-iterations parameter.\n\n"
     }, 
-    "-fuse-linker-plugin": {
-        "description": "\nEnables the use of a linker plugin during link-time optimization.  This\noption relies on plugin support in the linker, which is available in gold\nor in GNU ld 2.21 or newer.\n\nThis option enables the extraction of object files with GIMPLE bytecode out\nof library archives. This improves the quality of optimization by exposing\nmore code to the link-time optimizer.  This information specifies what\nsymbols can be accessed externally (by non-LTO object or during dynamic\nlinking).  Resulting code quality improvements on binaries (and shared\nlibraries that use hidden visibility) are similar to -fwhole-program.\nSee -flto for a description of the effect of this flag and how to\nuse it.\n\nThis option is enabled by default when LTO support in GCC is enabled\nand GCC was configured for use with\na linker supporting plugins (GNU ld 2.21 or newer or gold).\n\n"
-    }, 
     "-fgcse-sm": {
         "description": "\nWhen -fgcse-sm is enabled, a store motion pass is run after\nglobal common subexpression elimination.  This pass attempts to move\nstores out of loops.  When used in conjunction with -fgcse-lm,\nloops containing a load/store sequence can be changed to a load before\nthe loop and a store after the loop.\n\nNot enabled at any optimization level.\n\n"
     }, 
@@ -568,15 +572,11 @@
     "-fsplit-paths": {
         "description": "\nSplit paths leading to loop backedges.  This can improve dead code\nelimination and common subexpression elimination.  This is enabled by\ndefault at -O2 and above.\n\n"
     }, 
-    "-ftree-fre": {
-        "description": "\nPerform full redundancy elimination (FRE) on trees.  The difference\nbetween FRE and PRE is that FRE only considers expressions\nthat are computed on all paths leading to the redundant computation.\nThis analysis is faster than PRE, though it exposes fewer redundancies.\nThis flag is enabled by default at -O and higher.\n\n", 
-        "tags": [
-            "relevant", 
-            "redundant computations"
-        ]
+    "-fselective-scheduling2": {
+        "description": "\nSchedule instructions using selective scheduling algorithm.  Selective\nscheduling runs instead of the second scheduler pass.\n\n"
     }, 
-    "-ftree-loop-distribute-patterns": {
-        "description": "\nPerform loop distribution of patterns that can be code generated with\ncalls to a library.  This flag is enabled by default at -O3.\n\nThis pass distributes the initialization loops and generates a call to\nmemset zero.  For example, the loop\n\nDO I = 1, N\n  A(I) = 0\n  B(I) = A(I) + I\nENDDO\n\nis transformed to\n\nDO I = 1, N\n   A(I) = 0\nENDDO\nDO I = 1, N\n   B(I) = A(I) + I\nENDDO\n\nand the initialization loop is transformed into a call to memset zero.\n\n"
+    "-fira-loop-pressure": {
+        "description": "\nUse IRA to evaluate register pressure in loops for decisions to move\nloop invariants.  This option usually results in generation\nof faster and smaller code on machines with large register files (>= 32\nregisters), but it can slow the compiler down.\n\nThis option is enabled at level -O3 for some targets.\n\n"
     }, 
     "-ftree-copy-prop": {
         "description": "\nPerform copy propagation on trees.  This pass eliminates unnecessary\ncopy operations.  This flag is enabled by default at -O and\nhigher.\n\n"
@@ -587,8 +587,8 @@
     "-flto[=n]": {
         "description": "\nThis option runs the standard link-time optimizer.  When invoked\nwith source code, it generates GIMPLE (one of GCC\u2019s internal\nrepresentations) and writes it to special ELF sections in the object\nfile.  When the object files are linked together, all the function\nbodies are read from these ELF sections and instantiated as if they\nhad been part of the same translation unit.\n\nTo use the link-time optimizer, -flto and optimization\noptions should be specified at compile time and during the final link.\nIt is recommended that you compile all the files participating in the\nsame link with the same options and also specify those options at\nlink time.  \nFor example:\n\n\ngcc -c -O2 -flto foo.c\ngcc -c -O2 -flto bar.c\ngcc -o myprog -flto -O2 foo.o bar.o\n\nThe first two invocations to GCC save a bytecode representation\nof GIMPLE into special ELF sections inside foo.o and\nbar.o.  The final invocation reads the GIMPLE bytecode from\nfoo.o and bar.o, merges the two files into a single\ninternal image, and compiles the result as usual.  Since both\nfoo.o and bar.o are merged into a single image, this\ncauses all the interprocedural analyses and optimizations in GCC to\nwork across the two files as if they were a single one.  This means,\nfor example, that the inliner is able to inline functions in\nbar.o into functions in foo.o and vice-versa.\n\nAnother (simpler) way to enable link-time optimization is:\n\n\ngcc -o myprog -flto -O2 foo.c bar.c\n\nThe above generates bytecode for foo.c and bar.c,\nmerges them together into a single GIMPLE representation and optimizes\nthem as usual to produce myprog.\n\nThe only important thing to keep in mind is that to enable link-time\noptimizations you need to use the GCC driver to perform the link step.\nGCC then automatically performs link-time optimization if any of the\nobjects involved were compiled with the -flto command-line option.  \nYou generally\nshould specify the optimization options to be used for link-time\noptimization though GCC tries to be clever at guessing an\noptimization level to use from the options used at compile time\nif you fail to specify one at link time.  You can always override\nthe automatic decision to do link-time optimization\nby passing -fno-lto to the link command.\n\nTo make whole program optimization effective, it is necessary to make\ncertain whole program assumptions.  The compiler needs to know\nwhat functions and variables can be accessed by libraries and runtime\noutside of the link-time optimized unit.  When supported by the linker,\nthe linker plugin (see -fuse-linker-plugin) passes information\nto the compiler about used and externally visible symbols.  When\nthe linker plugin is not available, -fwhole-program should be\nused to allow the compiler to make these assumptions, which leads\nto more aggressive optimization decisions.\n\nWhen -fuse-linker-plugin is not enabled, when a file is\ncompiled with -flto, the generated object file is larger than\na regular object file because it contains GIMPLE bytecodes and the usual\nfinal code (see -ffat-lto-objects.  This means that\nobject files with LTO information can be linked as normal object\nfiles; if -fno-lto is passed to the linker, no\ninterprocedural optimizations are applied.  Note that when\n-fno-fat-lto-objects is enabled the compile stage is faster\nbut you cannot perform a regular, non-LTO link on them.\n\nAdditionally, the optimization flags used to compile individual files\nare not necessarily related to those used at link time.  For instance,\n\n\ngcc -c -O0 -ffat-lto-objects -flto foo.c\ngcc -c -O0 -ffat-lto-objects -flto bar.c\ngcc -o myprog -O3 foo.o bar.o\n\nThis produces individual object files with unoptimized assembler\ncode, but the resulting binary myprog is optimized at\n-O3.  If, instead, the final binary is generated with\n-fno-lto, then myprog is not optimized.\n\nWhen producing the final binary, GCC only\napplies link-time optimizations to those files that contain bytecode.\nTherefore, you can mix and match object files and libraries with\nGIMPLE bytecodes and final object code.  GCC automatically selects\nwhich files to optimize in LTO mode and which files to link without\nfurther processing.\n\nThere are some code generation flags preserved by GCC when\ngenerating bytecodes, as they need to be used during the final link\nstage.  Generally options specified at link time override those\nspecified at compile time.\n\nIf you do not specify an optimization level option -O at\nlink time, then GCC uses the highest optimization level \nused when compiling the object files.\n\nCurrently, the following options and their settings are taken from\nthe first object file that explicitly specifies them: \n-fPIC, -fpic, -fpie, -fcommon,\n-fexceptions, -fnon-call-exceptions, -fgnu-tm\nand all the -m target flags.\n\nCertain ABI-changing flags are required to match in all compilation units,\nand trying to override this at link time with a conflicting value\nis ignored.  This includes options such as -freg-struct-return\nand -fpcc-struct-return. \n\nOther options such as -ffp-contract, -fno-strict-overflow,\n-fwrapv, -fno-trapv or -fno-strict-aliasing\nare passed through to the link stage and merged conservatively for\nconflicting translation units.  Specifically\n-fno-strict-overflow, -fwrapv and -fno-trapv take\nprecedence; and for example -ffp-contract=off takes precedence\nover -ffp-contract=fast.  You can override them at link time.\n\nIf LTO encounters objects with C linkage declared with incompatible\ntypes in separate translation units to be linked together (undefined\nbehavior according to ISO C99 6.2.7), a non-fatal diagnostic may be\nissued.  The behavior is still undefined at run time.  Similar\ndiagnostics may be raised for other languages.\n\nAnother feature of LTO is that it is possible to apply interprocedural\noptimizations on files written in different languages:\n\n\ngcc -c -flto foo.c\ng++ -c -flto bar.cc\ngfortran -c -flto baz.f90\ng++ -o myprog -flto -O3 foo.o bar.o baz.o -lgfortran\n\nNotice that the final link is done with g++ to get the C++\nruntime libraries and -lgfortran is added to get the Fortran\nruntime libraries.  In general, when mixing languages in LTO mode, you\nshould use the same link command options as when mixing languages in a\nregular (non-LTO) compilation.\n\nIf object files containing GIMPLE bytecode are stored in a library archive, say\nlibfoo.a, it is possible to extract and use them in an LTO link if you\nare using a linker with plugin support.  To create static libraries suitable\nfor LTO, use gcc-ar and gcc-ranlib instead of ar\nand ranlib; \nto show the symbols of object files with GIMPLE bytecode, use\ngcc-nm.  Those commands require that ar, ranlib\nand nm have been compiled with plugin support.  At link time, use the the\nflag -fuse-linker-plugin to ensure that the library participates in\nthe LTO optimization process:\n\n\ngcc -o myprog -O2 -flto -fuse-linker-plugin a.o b.o -lfoo\n\nWith the linker plugin enabled, the linker extracts the needed\nGIMPLE files from libfoo.a and passes them on to the running GCC\nto make them part of the aggregated GIMPLE image to be optimized.\n\nIf you are not using a linker with plugin support and/or do not\nenable the linker plugin, then the objects inside libfoo.a\nare extracted and linked as usual, but they do not participate\nin the LTO optimization process.  In order to make a static library suitable\nfor both LTO optimization and usual linkage, compile its object files with\n-flto -ffat-lto-objects.\n\nLink-time optimizations do not require the presence of the whole program to\noperate.  If the program does not require any symbols to be exported, it is\npossible to combine -flto and -fwhole-program to allow\nthe interprocedural optimizers to use more aggressive assumptions which may\nlead to improved optimization opportunities.\nUse of -fwhole-program is not needed when linker plugin is\nactive (see -fuse-linker-plugin).\n\nThe current implementation of LTO makes no\nattempt to generate bytecode that is portable between different\ntypes of hosts.  The bytecode files are versioned and there is a\nstrict version check, so bytecode files generated in one version of\nGCC do not work with an older or newer version of GCC.\n\nLink-time optimization does not work well with generation of debugging\ninformation.  Combining -flto with\n-g is currently experimental and expected to produce unexpected\nresults.\n\nIf you specify the optional n, the optimization and code\ngeneration done at link time is executed in parallel using n\nparallel jobs by utilizing an installed make program.  The\nenvironment variable MAKE may be used to override the program\nused.  The default value for n is 1.\n\nYou can also specify -flto=jobserver to use GNU make\u2019s\njob server mode to determine the number of parallel jobs. This\nis useful when the Makefile calling GCC is already executing in parallel.\nYou must prepend a \u2018+\u2019 to the command recipe in the parent Makefile\nfor this to work.  This option likely only works if MAKE is\nGNU make.\n\n"
     }, 
-    "-ftree-loop-distribution": {
-        "description": "\nPerform loop distribution.  This flag can improve cache performance on\nbig loop bodies and allow further loop optimizations, like\nparallelization or vectorization, to take place.  For example, the loop\n\nDO I = 1, N\n  A(I) = B(I) + C\n  D(I) = E(I) * F\nENDDO\n\nis transformed to\n\nDO I = 1, N\n   A(I) = B(I) + C\nENDDO\nDO I = 1, N\n   D(I) = E(I) * F\nENDDO\n\n"
+    "-fhoist-adjacent-loads": {
+        "description": "\nSpeculatively hoist loads from both branches of an if-then-else if the\nloads are from adjacent locations in the same structure and the target\narchitecture has a conditional move instruction.  This flag is enabled\nby default at -O2 and higher.\n\n"
     }, 
     "-fsched-stalled-insns=n": {
         "description": "\nDefine how many insns (if any) can be moved prematurely from the queue\nof stalled insns into the ready list during the second scheduling pass.\n-fno-sched-stalled-insns means that no insns are moved\nprematurely, -fsched-stalled-insns=0 means there is no limit\non how many queued insns can be moved prematurely.\n-fsched-stalled-insns without a value is equivalent to\n-fsched-stalled-insns=1.\n\n"
@@ -602,11 +602,11 @@
     "-fweb": {
         "description": "\nConstructs webs as commonly used for register allocation purposes and assign\neach web individual pseudo register.  This allows the register allocation pass\nto operate on pseudos directly, but also strengthens several other optimization\npasses, such as CSE, loop optimizer and trivial dead code remover.  It can,\nhowever, make debugging impossible, since variables no longer stay in a\n\u201chome register\u201d.\n\nEnabled by default with -funroll-loops.\n\n"
     }, 
-    "-fprofile-correction": {
-        "description": "\nProfiles collected using an instrumented binary for multi-threaded programs may\nbe inconsistent due to missed counter updates. When this option is specified,\nGCC uses heuristics to correct or smooth out such inconsistencies. By\ndefault, GCC emits an error message when an inconsistent profile is detected.\n\n"
+    "-fuse-linker-plugin": {
+        "description": "\nEnables the use of a linker plugin during link-time optimization.  This\noption relies on plugin support in the linker, which is available in gold\nor in GNU ld 2.21 or newer.\n\nThis option enables the extraction of object files with GIMPLE bytecode out\nof library archives. This improves the quality of optimization by exposing\nmore code to the link-time optimizer.  This information specifies what\nsymbols can be accessed externally (by non-LTO object or during dynamic\nlinking).  Resulting code quality improvements on binaries (and shared\nlibraries that use hidden visibility) are similar to -fwhole-program.\nSee -flto for a description of the effect of this flag and how to\nuse it.\n\nThis option is enabled by default when LTO support in GCC is enabled\nand GCC was configured for use with\na linker supporting plugins (GNU ld 2.21 or newer or gold).\n\n"
     }, 
     "-falign-jumps": {
-        "description": null
+        "description": "\nAlign branch targets to a power-of-two boundary, for branch targets\nwhere the targets can only be reached by jumping, skipping up to n\nbytes like -falign-functions.  In this case, no dummy operations\nneed be executed.\n\n-fno-align-jumps and -falign-jumps=1 are\nequivalent and mean that loops are not aligned.\n\nIf n is not specified or is zero, use a machine-dependent default.\n\nEnabled at levels -O2, -O3.\n\n"
     }, 
     "-fsched-last-insn-heuristic": {
         "description": "\nEnable the last-instruction heuristic in the scheduler.  This heuristic\nfavors the instruction that is less dependent on the last instruction\nscheduled.  This is enabled by default when scheduling is enabled,\ni.e. with -fschedule-insns or -fschedule-insns2 or\nat -O2 or higher.\n\n"
