@@ -57,7 +57,7 @@ def parse_gcc(db, filename):
             assert current_opt.get('description', False) == False, "dont overwrite a previous description"
             seen_desc = True
 
-            current_opt['description'] = c.text
+            current_opt['description'] = c.text.encode('utf-8')
 
     #apply to db
     # TODO tag these optimizations as coming from GCC
@@ -67,6 +67,8 @@ def parse_gcc(db, filename):
 
         entry = db[o['name']]
         entry['description'] = o.get('description', None)
+        if 'alternate_names' in o:
+            entry['alternate_names'] = o['alternate_names']
 
 def manually_tag_opts(db, args):
     # show a vim window with the opt description and a window to add tags

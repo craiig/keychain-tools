@@ -4,35 +4,44 @@
         "tags": [
             "relevant", 
             "inter-function", 
-            "inlining"
+            "inlining", 
+            "jvm", 
+            "native"
         ]
     }, 
     "-ftree-fre": {
         "description": "\nPerform full redundancy elimination (FRE) on trees.  The difference\nbetween FRE and PRE is that FRE only considers expressions\nthat are computed on all paths leading to the redundant computation.\nThis analysis is faster than PRE, though it exposes fewer redundancies.\nThis flag is enabled by default at -O and higher.\n\n", 
         "tags": [
             "relevant", 
-            "redundant computations"
+            "redundant computations", 
+            "jvm", 
+            "native"
         ]
     }, 
     "-ftree-sink": {
         "description": "\nPerform forward store motion on trees.  This flag is\nenabled by default at -O and higher.\n\n", 
         "tags": [
             "relevant", 
-            "code movement"
+            "code movement", 
+            "jvm", 
+            "native"
         ]
     }, 
     "-ftree-slsr": {
         "description": "\nPerform straight-line strength reduction on trees.  This recognizes related\nexpressions involving multiplications and replaces them by less expensive\ncalculations when possible.  This is enabled by default at -O and\nhigher.\n\n", 
         "tags": [
             "relevant", 
-            "mathematical expression optimization"
+            "mathematical expression optimization", 
+            "jvm", 
+            "native"
         ]
     }, 
     "-fdevirtualize-at-ltrans": {
         "description": "\nStream extra information needed for aggressive devirtualization when running\nthe link-time optimizer in local transformation mode.  \nThis option enables more devirtualization but\nsignificantly increases the size of streamed data. For this reason it is\ndisabled by default.\n\n", 
         "tags": [
-            "not relevant", 
-            "devirtualization"
+            "relevant", 
+            "devirtualization", 
+            "native"
         ]
     }, 
     "-funit-at-a-time": {
@@ -51,9 +60,10 @@
     "-ftree-slp-vectorize": {
         "description": "\nPerform basic block vectorization on trees. This flag is enabled by default at\n-O3 and when -ftree-vectorize is enabled.\n\n", 
         "tags": [
-            "not relevant", 
+            "relevant", 
             "vectorization", 
-            "loops"
+            "loops", 
+            "native"
         ]
     }, 
     "-flive-range-shrinkage": {
@@ -108,226 +118,592 @@
         ]
     }, 
     "-falign-labels": {
-        "description": "\nAlign all branch targets to a power-of-two boundary, skipping up to\nn bytes like -falign-functions.  This option can easily\nmake code slower, because it must insert dummy operations for when the\nbranch target is reached in the usual flow of the code.\n\n-fno-align-labels and -falign-labels=1 are\nequivalent and mean that labels are not aligned.\n\nIf -falign-loops or -falign-jumps are applicable and\nare greater than this value, then their values are used instead.\n\nIf n is not specified or is zero, use a machine-dependent default\nwhich is very likely to be \u20181\u2019, meaning no alignment.\n\nEnabled at levels -O2, -O3.\n\n"
+        "alternate_names": [
+            "-falign-labels=n"
+        ], 
+        "description": "\nAlign all branch targets to a power-of-two boundary, skipping up to\nn bytes like -falign-functions.  This option can easily\nmake code slower, because it must insert dummy operations for when the\nbranch target is reached in the usual flow of the code.\n\n-fno-align-labels and -falign-labels=1 are\nequivalent and mean that labels are not aligned.\n\nIf -falign-loops or -falign-jumps are applicable and\nare greater than this value, then their values are used instead.\n\nIf n is not specified or is zero, use a machine-dependent default\nwhich is very likely to be \u20181\u2019, meaning no alignment.\n\nEnabled at levels -O2, -O3.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "native"
+        ]
     }, 
     "-fsel-sched-pipelining": {
-        "description": "\nEnable software pipelining of innermost loops during selective scheduling.\nThis option has no effect unless one of -fselective-scheduling or\n-fselective-scheduling2 is turned on.\n\n"
+        "description": "\nEnable software pipelining of innermost loops during selective scheduling.\nThis option has no effect unless one of -fselective-scheduling or\n-fselective-scheduling2 is turned on.\n\n", 
+        "tags": [
+            ""
+        ]
     }, 
     "-falign-jumps=n": {
-        "description": "\nAlign branch targets to a power-of-two boundary, for branch targets\nwhere the targets can only be reached by jumping, skipping up to n\nbytes like -falign-functions.  In this case, no dummy operations\nneed be executed.\n\n-fno-align-jumps and -falign-jumps=1 are\nequivalent and mean that loops are not aligned.\n\nIf n is not specified or is zero, use a machine-dependent default.\n\nEnabled at levels -O2, -O3.\n\n"
+        "description": "\nAlign branch targets to a power-of-two boundary, for branch targets\nwhere the targets can only be reached by jumping, skipping up to n\nbytes like -falign-functions.  In this case, no dummy operations\nneed be executed.\n\n-fno-align-jumps and -falign-jumps=1 are\nequivalent and mean that loops are not aligned.\n\nIf n is not specified or is zero, use a machine-dependent default.\n\nEnabled at levels -O2, -O3.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "native"
+        ]
     }, 
     "-ftree-loop-im": {
-        "description": "\nPerform loop invariant motion on trees.  This pass moves only invariants that\nare hard to handle at RTL level (function calls, operations that expand to\nnontrivial sequences of insns).  With -funswitch-loops it also moves\noperands of conditions that are invariant out of the loop, so that we can use\njust trivial invariantness analysis in loop unswitching.  The pass also includes\nstore motion.\n\n"
+        "description": "\nPerform loop invariant motion on trees.  This pass moves only invariants that\nare hard to handle at RTL level (function calls, operations that expand to\nnontrivial sequences of insns).  With -funswitch-loops it also moves\noperands of conditions that are invariant out of the loop, so that we can use\njust trivial invariantness analysis in loop unswitching.  The pass also includes\nstore motion.\n\n", 
+        "tags": [
+            "relevant", 
+            "loops", 
+            "unswitch loops", 
+            "code motion"
+        ]
     }, 
     "-fsched-rank-heuristic": {
-        "description": "\nEnable the rank heuristic in the scheduler.  This heuristic favors\nthe instruction belonging to a basic block with greater size or frequency.\nThis is enabled by default when scheduling is enabled, i.e.\nwith -fschedule-insns or -fschedule-insns2 or\nat -O2 or higher.\n\n"
+        "description": "\nEnable the rank heuristic in the scheduler.  This heuristic favors\nthe instruction belonging to a basic block with greater size or frequency.\nThis is enabled by default when scheduling is enabled, i.e.\nwith -fschedule-insns or -fschedule-insns2 or\nat -O2 or higher.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "instruction scheduling"
+        ]
     }, 
     "-fssa-backprop": {
-        "description": "\nPropagate information about uses of a value up the definition chain\nin order to simplify the definitions.  For example, this pass strips\nsign operations if the sign of a value never matters.  The flag is\nenabled by default at -O and higher.\n\n"
+        "description": "\nPropagate information about uses of a value up the definition chain\nin order to simplify the definitions.  For example, this pass strips\nsign operations if the sign of a value never matters.  The flag is\nenabled by default at -O and higher.\n\n", 
+        "tags": [
+            "relevant", 
+            "sign replacement", 
+            "analysis pass"
+        ]
     }, 
     "-fif-conversion": {
-        "description": "\nAttempt to transform conditional jumps into branch-less equivalents.  This\nincludes use of conditional moves, min, max, set flags and abs instructions, and\nsome tricks doable by standard arithmetics.  The use of conditional execution\non chips where it is available is controlled by -fif-conversion2.\n\nEnabled at levels -O, -O2, -O3, -Os.\n\n"
+        "description": "\nAttempt to transform conditional jumps into branch-less equivalents.  This\nincludes use of conditional moves, min, max, set flags and abs instructions, and\nsome tricks doable by standard arithmetics.  The use of conditional execution\non chips where it is available is controlled by -fif-conversion2.\n\nEnabled at levels -O, -O2, -O3, -Os.\n\n", 
+        "tags": [
+            "relevant", 
+            "branch to conditional expression"
+        ]
     }, 
     "-faggressive-loop-optimizations": {
-        "description": "\nThis option tells the loop optimizer to use language constraints to\nderive bounds for the number of iterations of a loop.  This assumes that\nloop code does not invoke undefined behavior by for example causing signed\ninteger overflows or out-of-bound array accesses.  The bounds for the\nnumber of iterations of a loop are used to guide loop unrolling and peeling\nand loop exit test optimizations.\nThis option is enabled by default.\n\n"
+        "description": "\nThis option tells the loop optimizer to use language constraints to\nderive bounds for the number of iterations of a loop.  This assumes that\nloop code does not invoke undefined behavior by for example causing signed\ninteger overflows or out-of-bound array accesses.  The bounds for the\nnumber of iterations of a loop are used to guide loop unrolling and peeling\nand loop exit test optimizations.\nThis option is enabled by default.\n\n", 
+        "tags": [
+            "not relevant", 
+            "loops", 
+            "loop optimizations", 
+            "analysis"
+        ]
     }, 
     "-fselective-scheduling": {
-        "description": "\nSchedule instructions using selective scheduling algorithm.  Selective\nscheduling runs instead of the first scheduler pass.\n\n"
+        "description": "\nSchedule instructions using selective scheduling algorithm.  Selective\nscheduling runs instead of the first scheduler pass.\n\n", 
+        "tags": [
+            "relevant", 
+            "instruction scheduling", 
+            "native"
+        ]
     }, 
     "-fgcse-las": {
-        "description": "\nWhen -fgcse-las is enabled, the global common subexpression\nelimination pass eliminates redundant loads that come after stores to the\nsame memory location (both partial and full redundancies).\n\nNot enabled at any optimization level.\n\n"
+        "description": "\nWhen -fgcse-las is enabled, the global common subexpression\nelimination pass eliminates redundant loads that come after stores to the\nsame memory location (both partial and full redundancies).\n\nNot enabled at any optimization level.\n\n", 
+        "tags": [
+            "relevant", 
+            "not enabled", 
+            "native"
+        ]
     }, 
     "-flto-partition=alg": {
-        "description": "\nSpecify the partitioning algorithm used by the link-time optimizer.\nThe value is either \u20181to1\u2019 to specify a partitioning mirroring\nthe original source files or \u2018balanced\u2019 to specify partitioning\ninto equally sized chunks (whenever possible) or \u2018max\u2019 to create\nnew partition for every symbol where possible.  Specifying \u2018none\u2019\nas an algorithm disables partitioning and streaming completely. \nThe default value is \u2018balanced\u2019. While \u20181to1\u2019 can be used\nas an workaround for various code ordering issues, the \u2018max\u2019\npartitioning is intended for internal testing only.\nThe value \u2018one\u2019 specifies that exactly one partition should be\nused while the value \u2018none\u2019 bypasses partitioning and executes\nthe link-time optimization step directly from the WPA phase.\n\n"
+        "description": "\nSpecify the partitioning algorithm used by the link-time optimizer.\nThe value is either \u20181to1\u2019 to specify a partitioning mirroring\nthe original source files or \u2018balanced\u2019 to specify partitioning\ninto equally sized chunks (whenever possible) or \u2018max\u2019 to create\nnew partition for every symbol where possible.  Specifying \u2018none\u2019\nas an algorithm disables partitioning and streaming completely. \nThe default value is \u2018balanced\u2019. While \u20181to1\u2019 can be used\nas an workaround for various code ordering issues, the \u2018max\u2019\npartitioning is intended for internal testing only.\nThe value \u2018one\u2019 specifies that exactly one partition should be\nused while the value \u2018none\u2019 bypasses partitioning and executes\nthe link-time optimization step directly from the WPA phase.\n\n", 
+        "tags": [
+            "not relevant", 
+            "link time optimization", 
+            "native"
+        ]
     }, 
     "-ftree-forwprop": {
-        "description": "\nPerform forward propagation on trees.  This flag is enabled by default\nat -O and higher.\n\n"
+        "description": "\nPerform forward propagation on trees.  This flag is enabled by default\nat -O and higher.\n\n", 
+        "tags": [
+            "relevant", 
+            "constant propagation"
+        ]
     }, 
     "-fconserve-stack": {
-        "description": "\nAttempt to minimize stack usage.  The compiler attempts to use less\nstack space, even if that makes the program slower.  This option\nimplies setting the large-stack-frame parameter to 100\nand the large-stack-frame-growth parameter to 400.\n\n"
-    }, 
-    "-falign-labels=n": {
-        "description": "\nAlign all branch targets to a power-of-two boundary, skipping up to\nn bytes like -falign-functions.  This option can easily\nmake code slower, because it must insert dummy operations for when the\nbranch target is reached in the usual flow of the code.\n\n-fno-align-labels and -falign-labels=1 are\nequivalent and mean that labels are not aligned.\n\nIf -falign-loops or -falign-jumps are applicable and\nare greater than this value, then their values are used instead.\n\nIf n is not specified or is zero, use a machine-dependent default\nwhich is very likely to be \u20181\u2019, meaning no alignment.\n\nEnabled at levels -O2, -O3.\n\n"
+        "description": "\nAttempt to minimize stack usage.  The compiler attempts to use less\nstack space, even if that makes the program slower.  This option\nimplies setting the large-stack-frame parameter to 100\nand the large-stack-frame-growth parameter to 400.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "native"
+        ]
     }, 
     "-fgcse-lm": {
-        "description": "\nWhen -fgcse-lm is enabled, global common subexpression elimination\nattempts to move loads that are only killed by stores into themselves.  This\nallows a loop containing a load/store sequence to be changed to a load outside\nthe loop, and a copy/store within the loop.\n\nEnabled by default when -fgcse is enabled.\n\n"
+        "description": "\nWhen -fgcse-lm is enabled, global common subexpression elimination\nattempts to move loads that are only killed by stores into themselves.  This\nallows a loop containing a load/store sequence to be changed to a load outside\nthe loop, and a copy/store within the loop.\n\nEnabled by default when -fgcse is enabled.\n\n", 
+        "tags": [
+            "relevant", 
+            "common subexpression elimination", 
+            "dead load", 
+            "dead code"
+        ]
     }, 
     "-fsched-spec-insn-heuristic": {
-        "description": "\nEnable the speculative instruction heuristic in the scheduler.  This\nheuristic favors speculative instructions with greater dependency weakness.\nThis is enabled by default when scheduling is enabled, i.e.\nwith -fschedule-insns or -fschedule-insns2\nor at -O2 or higher.\n\n"
+        "description": "\nEnable the speculative instruction heuristic in the scheduler.  This\nheuristic favors speculative instructions with greater dependency weakness.\nThis is enabled by default when scheduling is enabled, i.e.\nwith -fschedule-insns or -fschedule-insns2\nor at -O2 or higher.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "native"
+        ]
     }, 
     "-fno-sched-interblock": {
-        "description": "\nDon\u2019t schedule instructions across basic blocks.  This is normally\nenabled by default when scheduling before register allocation, i.e.\nwith -fschedule-insns or at -O2 or higher.\n\n"
+        "description": "\nDon\u2019t schedule instructions across basic blocks.  This is normally\nenabled by default when scheduling before register allocation, i.e.\nwith -fschedule-insns or at -O2 or higher.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "native"
+        ]
     }, 
     "-ftree-coalesce-vars": {
-        "description": "\nWhile transforming the program out of the SSA representation, attempt to\nreduce copying by coalescing versions of different user-defined\nvariables, instead of just compiler temporaries.  This may severely\nlimit the ability to debug an optimized program compiled with\n-fno-var-tracking-assignments.  In the negated form, this flag\nprevents SSA coalescing of user variables.  This option is enabled by\ndefault if optimization is enabled, and it does very little otherwise.\n\n"
+        "description": "\nWhile transforming the program out of the SSA representation, attempt to\nreduce copying by coalescing versions of different user-defined\nvariables, instead of just compiler temporaries.  This may severely\nlimit the ability to debug an optimized program compiled with\n-fno-var-tracking-assignments.  In the negated form, this flag\nprevents SSA coalescing of user variables.  This option is enabled by\ndefault if optimization is enabled, and it does very little otherwise.\n\n", 
+        "tags": [
+            "not relevant", 
+            "analysis pass"
+        ]
     }, 
     "-fno-toplevel-reorder": {
-        "description": "\nDo not reorder top-level functions, variables, and asm\nstatements.  Output them in the same order that they appear in the\ninput file.  When this option is used, unreferenced static variables\nare not removed.  This option is intended to support existing code\nthat relies on a particular ordering.  For new code, it is better to\nuse attributes when possible.\n\nEnabled at level -O0.  When disabled explicitly, it also implies\n-fno-section-anchors, which is otherwise enabled at -O0 on some\ntargets.\n\n"
+        "description": "\nDo not reorder top-level functions, variables, and asm\nstatements.  Output them in the same order that they appear in the\ninput file.  When this option is used, unreferenced static variables\nare not removed.  This option is intended to support existing code\nthat relies on a particular ordering.  For new code, it is better to\nuse attributes when possible.\n\nEnabled at level -O0.  When disabled explicitly, it also implies\n-fno-section-anchors, which is otherwise enabled at -O0 on some\ntargets.\n\n", 
+        "tags": [
+            "not relevant", 
+            "program layout"
+        ]
     }, 
     "-ftree-vrp": {
-        "description": "\nPerform Value Range Propagation on trees.  This is similar to the\nconstant propagation pass, but instead of values, ranges of values are\npropagated.  This allows the optimizers to remove unnecessary range\nchecks like array bound checks and null pointer checks.  This is\nenabled by default at -O2 and higher.  Null pointer check\nelimination is only done if -fdelete-null-pointer-checks is\nenabled.\n\n"
+        "description": "\nPerform Value Range Propagation on trees.  This is similar to the\nconstant propagation pass, but instead of values, ranges of values are\npropagated.  This allows the optimizers to remove unnecessary range\nchecks like array bound checks and null pointer checks.  This is\nenabled by default at -O2 and higher.  Null pointer check\nelimination is only done if -fdelete-null-pointer-checks is\nenabled.\n\n", 
+        "tags": [
+            "relevant", 
+            "bounds check", 
+            "analysis", 
+            "bounds propagation", 
+            "comparison analysis"
+        ]
     }, 
     "-fsched-pressure": {
-        "description": "\nEnable register pressure sensitive insn scheduling before register\nallocation.  This only makes sense when scheduling before register\nallocation is enabled, i.e. with -fschedule-insns or at\n-O2 or higher.  Usage of this option can improve the\ngenerated code and decrease its size by preventing register pressure\nincrease above the number of available hard registers and subsequent\nspills in register allocation.\n\n"
+        "description": "\nEnable register pressure sensitive insn scheduling before register\nallocation.  This only makes sense when scheduling before register\nallocation is enabled, i.e. with -fschedule-insns or at\n-O2 or higher.  Usage of this option can improve the\ngenerated code and decrease its size by preventing register pressure\nincrease above the number of available hard registers and subsequent\nspills in register allocation.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "register allocation"
+        ]
     }, 
     "-fmodulo-sched": {
-        "description": "\nPerform swing modulo scheduling immediately before the first scheduling\npass.  This pass looks at innermost loops and reorders their\ninstructions by overlapping different iterations.\n\n"
+        "description": "\nPerform swing modulo scheduling immediately before the first scheduling\npass.  This pass looks at innermost loops and reorders their\ninstructions by overlapping different iterations.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "instruction scheduling"
+        ]
     }, 
     "-ftree-ter": {
-        "description": "\nPerform temporary expression replacement during the SSA->normal phase.  Single\nuse/single def temporaries are replaced at their use location with their\ndefining expression.  This results in non-GIMPLE code, but gives the expanders\nmuch more complex trees to work on resulting in better RTL generation.  This is\nenabled by default at -O and higher.\n\n"
+        "description": "\nPerform temporary expression replacement during the SSA->normal phase.  Single\nuse/single def temporaries are replaced at their use location with their\ndefining expression.  This results in non-GIMPLE code, but gives the expanders\nmuch more complex trees to work on resulting in better RTL generation.  This is\nenabled by default at -O and higher.\n\n", 
+        "tags": [
+            "not relevant", 
+            "internal optimization"
+        ]
     }, 
     "-free": {
-        "description": "\nAttempt to remove redundant extension instructions.  This is especially\nhelpful for the x86-64 architecture, which implicitly zero-extends in 64-bit\nregisters after writing to their lower 32-bit half.\n\nEnabled for Alpha, AArch64 and x86 at levels -O2,\n-O3, -Os.\n\n"
+        "description": "\nAttempt to remove redundant extension instructions.  This is especially\nhelpful for the x86-64 architecture, which implicitly zero-extends in 64-bit\nregisters after writing to their lower 32-bit half.\n\nEnabled for Alpha, AArch64 and x86 at levels -O2,\n-O3, -Os.\n\n", 
+        "tags": [
+            "relevant", 
+            "signedness replacement"
+        ]
     }, 
     "-flra-remat": {
-        "description": "\nEnable CFG-sensitive rematerialization in LRA.  Instead of loading\nvalues of spilled pseudos, LRA tries to rematerialize (recalculate)\nvalues if it is profitable.\n\nEnabled at levels -O2, -O3, -Os.\n\n"
+        "description": "\nEnable CFG-sensitive rematerialization in LRA.  Instead of loading\nvalues of spilled pseudos, LRA tries to rematerialize (recalculate)\nvalues if it is profitable.\n\nEnabled at levels -O2, -O3, -Os.\n\n", 
+        "tags": [
+            "not relevant", 
+            "register allocation"
+        ]
     }, 
     "-frerun-cse-after-loop": {
-        "description": "\nRe-run common subexpression elimination after loop optimizations are\nperformed.\n\nEnabled at levels -O2, -O3, -Os.\n\n"
+        "description": "\nRe-run common subexpression elimination after loop optimizations are\nperformed.\n\nEnabled at levels -O2, -O3, -Os.\n\n", 
+        "tags": [
+            "relevant", 
+            "common subexpression elimination", 
+            "loops"
+        ]
     }, 
     "-ftree-phiprop": {
-        "description": "\nPerform hoisting of loads from conditional pointers on trees.  This\npass is enabled by default at -O and higher.\n\n"
+        "description": "\nPerform hoisting of loads from conditional pointers on trees.  This\npass is enabled by default at -O and higher.\n\n", 
+        "tags": [
+            "relevant", 
+            "code hoisting", 
+            "load hoisting"
+        ]
     }, 
     "-ftree-loop-if-convert": {
-        "description": "\nAttempt to transform conditional jumps in the innermost loops to\nbranch-less equivalents.  The intent is to remove control-flow from\nthe innermost loops in order to improve the ability of the\nvectorization pass to handle these loops.  This is enabled by default\nif vectorization is enabled.\n\n"
+        "description": "\nAttempt to transform conditional jumps in the innermost loops to\nbranch-less equivalents.  The intent is to remove control-flow from\nthe innermost loops in order to improve the ability of the\nvectorization pass to handle these loops.  This is enabled by default\nif vectorization is enabled.\n\n", 
+        "tags": [
+            "relevant", 
+            "loops", 
+            "vectorization", 
+            "native", 
+            "branch conversion"
+        ]
     }, 
     "-falign-functions": {
-        "description": "\nAlign the start of functions to the next power-of-two greater than\nn, skipping up to n bytes.  For instance,\n-falign-functions=32 aligns functions to the next 32-byte\nboundary, but -falign-functions=24 aligns to the next\n32-byte boundary only if this can be done by skipping 23 bytes or less.\n\n-fno-align-functions and -falign-functions=1 are\nequivalent and mean that functions are not aligned.\n\nSome assemblers only support this flag when n is a power of two;\nin that case, it is rounded up.\n\nIf n is not specified or is zero, use a machine-dependent default.\n\nEnabled at levels -O2, -O3.\n\n"
+        "alternate_names": [
+            "-falign-functions=n"
+        ], 
+        "description": "\nAlign the start of functions to the next power-of-two greater than\nn, skipping up to n bytes.  For instance,\n-falign-functions=32 aligns functions to the next 32-byte\nboundary, but -falign-functions=24 aligns to the next\n32-byte boundary only if this can be done by skipping 23 bytes or less.\n\n-fno-align-functions and -falign-functions=1 are\nequivalent and mean that functions are not aligned.\n\nSome assemblers only support this flag when n is a power of two;\nin that case, it is rounded up.\n\nIf n is not specified or is zero, use a machine-dependent default.\n\nEnabled at levels -O2, -O3.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "instruction layout"
+        ]
     }, 
     "-ftree-reassoc": {
-        "description": "\nPerform reassociation on trees.  This flag is enabled by default\nat -O and higher.\n\n"
+        "description": "\nPerform reassociation on trees.  This flag is enabled by default\nat -O and higher.\n\n", 
+        "tags": [
+            "relevant", 
+            "tree reassociation", 
+            "canonicalization", 
+            "expression canonicalization", 
+            "interesting"
+        ]
     }, 
     "-fsched-stalled-insns": {
-        "description": "\nDefine how many insns (if any) can be moved prematurely from the queue\nof stalled insns into the ready list during the second scheduling pass.\n-fno-sched-stalled-insns means that no insns are moved\nprematurely, -fsched-stalled-insns=0 means there is no limit\non how many queued insns can be moved prematurely.\n-fsched-stalled-insns without a value is equivalent to\n-fsched-stalled-insns=1.\n\n"
+        "alternate_names": [
+            "-fsched-stalled-insns=n"
+        ], 
+        "description": "\nDefine how many insns (if any) can be moved prematurely from the queue\nof stalled insns into the ready list during the second scheduling pass.\n-fno-sched-stalled-insns means that no insns are moved\nprematurely, -fsched-stalled-insns=0 means there is no limit\non how many queued insns can be moved prematurely.\n-fsched-stalled-insns without a value is equivalent to\n-fsched-stalled-insns=1.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "instruction scheduling"
+        ]
     }, 
     "-fivopts": {
-        "description": "\nPerform induction variable optimizations (strength reduction, induction\nvariable merging and induction variable elimination) on trees.\n\n"
+        "description": "\nPerform induction variable optimizations (strength reduction, induction\nvariable merging and induction variable elimination) on trees.\n\n", 
+        "tags": [
+            "relevant", 
+            "loops", 
+            "induction variables", 
+            "strength reduction", 
+            "variable merging", 
+            "variable elimination"
+        ]
     }, 
     "-fcombine-stack-adjustments": {
-        "description": "\nTracks stack adjustments (pushes and pops) and stack memory references\nand then tries to find ways to combine them.\n\nEnabled by default at -O1 and higher.\n\n"
+        "description": "\nTracks stack adjustments (pushes and pops) and stack memory references\nand then tries to find ways to combine them.\n\nEnabled by default at -O1 and higher.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "stack adjustment combination"
+        ]
     }, 
     "-fdce": {
-        "description": "\nPerform dead code elimination (DCE) on RTL.\nEnabled by default at -O and higher.\n\n"
+        "description": "\nPerform dead code elimination (DCE) on RTL.\nEnabled by default at -O and higher.\n\n", 
+        "tags": [
+            "relevant", 
+            "dead code elimination"
+        ]
     }, 
     "-floop-parallelize-all": {
-        "description": "\nUse the Graphite data dependence analysis to identify loops that can\nbe parallelized.  Parallelize all the loops that can be analyzed to\nnot contain loop carried dependences without checking that it is\nprofitable to parallelize the loops.\n\n"
+        "description": "\nUse the Graphite data dependence analysis to identify loops that can\nbe parallelized.  Parallelize all the loops that can be analyzed to\nnot contain loop carried dependences without checking that it is\nprofitable to parallelize the loops.\n\n", 
+        "tags": [
+            "not relevant", 
+            "loops", 
+            "autoparallelization"
+        ]
     }, 
     "-finline-functions": {
-        "description": "\nConsider all functions for inlining, even if they are not declared inline.\nThe compiler heuristically decides which functions are worth integrating\nin this way.\n\nIf all calls to a given function are integrated, and the function is\ndeclared static, then the function is normally not output as\nassembler code in its own right.\n\nEnabled at level -O3.\n\n"
+        "description": "\nConsider all functions for inlining, even if they are not declared inline.\nThe compiler heuristically decides which functions are worth integrating\nin this way.\n\nIf all calls to a given function are integrated, and the function is\ndeclared static, then the function is normally not output as\nassembler code in its own right.\n\nEnabled at level -O3.\n\n", 
+        "tags": [
+            "relevant", 
+            "functions", 
+            "function inlining"
+        ]
     }, 
     "-fcompare-elim": {
-        "description": "\nAfter register allocation and post-register allocation instruction splitting,\nidentify arithmetic instructions that compute processor flags similar to a\ncomparison operation based on that arithmetic.  If possible, eliminate the\nexplicit comparison operation.\n\nThis pass only applies to certain targets that cannot explicitly represent\nthe comparison operation before register allocation is complete.\n\nEnabled at levels -O, -O2, -O3, -Os.\n\n"
+        "description": "\nAfter register allocation and post-register allocation instruction splitting,\nidentify arithmetic instructions that compute processor flags similar to a\ncomparison operation based on that arithmetic.  If possible, eliminate the\nexplicit comparison operation.\n\nThis pass only applies to certain targets that cannot explicitly represent\nthe comparison operation before register allocation is complete.\n\nEnabled at levels -O, -O2, -O3, -Os.\n\n", 
+        "tags": [
+            "not relevant", 
+            "native", 
+            "instruction level"
+        ]
     }, 
     "-fearly-inlining": {
-        "description": "\nInline functions marked by always_inline and functions whose body seems\nsmaller than the function call overhead early before doing\n-fprofile-generate instrumentation and real inlining pass.  Doing so\nmakes profiling significantly cheaper and usually inlining faster on programs\nhaving large chains of nested wrapper functions.\n\nEnabled by default.\n\n"
+        "description": "\nInline functions marked by always_inline and functions whose body seems\nsmaller than the function call overhead early before doing\n-fprofile-generate instrumentation and real inlining pass.  Doing so\nmakes profiling significantly cheaper and usually inlining faster on programs\nhaving large chains of nested wrapper functions.\n\nEnabled by default.\n\n", 
+        "tags": [
+            "relevant", 
+            "function inlining", 
+            "early inlining"
+        ]
     }, 
     "-fcaller-saves": {
-        "description": "\nEnable allocation of values to registers that are clobbered by\nfunction calls, by emitting extra instructions to save and restore the\nregisters around such calls.  Such allocation is done only when it\nseems to result in better code.\n\nThis option is always enabled by default on certain machines, usually\nthose which have no call-preserved registers to use instead.\n\nEnabled at levels -O2, -O3, -Os.\n\n"
+        "description": "\nEnable allocation of values to registers that are clobbered by\nfunction calls, by emitting extra instructions to save and restore the\nregisters around such calls.  Such allocation is done only when it\nseems to result in better code.\n\nThis option is always enabled by default on certain machines, usually\nthose which have no call-preserved registers to use instead.\n\nEnabled at levels -O2, -O3, -Os.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "register allocation"
+        ]
     }, 
     "-foptimize-strlen": {
-        "description": "\nOptimize various standard C string functions (e.g. strlen,\nstrchr or strcpy) and\ntheir _FORTIFY_SOURCE counterparts into faster alternatives.\n\nEnabled at levels -O2, -O3.\n\n"
+        "description": "\nOptimize various standard C string functions (e.g. strlen,\nstrchr or strcpy) and\ntheir _FORTIFY_SOURCE counterparts into faster alternatives.\n\nEnabled at levels -O2, -O3.\n\n", 
+        "tags": [
+            "not relevant", 
+            "library optimizations"
+        ]
     }, 
     "-fsel-sched-pipelining-outer-loops": {
-        "description": "\nWhen pipelining loops during selective scheduling, also pipeline outer loops.\nThis option has no effect unless -fsel-sched-pipelining is turned on.\n\n"
+        "description": "\nWhen pipelining loops during selective scheduling, also pipeline outer loops.\nThis option has no effect unless -fsel-sched-pipelining is turned on.\n\n", 
+        "tags": [
+            "not relevant", 
+            "loops", 
+            "instruction level", 
+            "instruction scheduling"
+        ]
     }, 
     "-fipa-vrp": {
-        "description": "\nWhen enabled, perform interprocedural propagation of value\nranges. This flag is enabled by default at -O2. It requires\nthat -fipa-cp is enabled.\n\n"
+        "description": "\nWhen enabled, perform interprocedural propagation of value\nranges. This flag is enabled by default at -O2. It requires\nthat -fipa-cp is enabled.\n\n", 
+        "tags": [
+            "relevant", 
+            "functions", 
+            "constant propagation", 
+            "inter procedural"
+        ]
     }, 
     "-fsched-stalled-insns-dep": {
-        "description": "\nDefine how many insn groups (cycles) are examined for a dependency\non a stalled insn that is a candidate for premature removal from the queue\nof stalled insns.  This has an effect only during the second scheduling pass,\nand only if -fsched-stalled-insns is used.\n-fno-sched-stalled-insns-dep is equivalent to\n-fsched-stalled-insns-dep=0.\n-fsched-stalled-insns-dep without a value is equivalent to\n-fsched-stalled-insns-dep=1.\n\n"
+        "alternate_names": [
+            "-fsched-stalled-insns-dep=n"
+        ], 
+        "description": "\nDefine how many insn groups (cycles) are examined for a dependency\non a stalled insn that is a candidate for premature removal from the queue\nof stalled insns.  This has an effect only during the second scheduling pass,\nand only if -fsched-stalled-insns is used.\n-fno-sched-stalled-insns-dep is equivalent to\n-fsched-stalled-insns-dep=0.\n-fsched-stalled-insns-dep without a value is equivalent to\n-fsched-stalled-insns-dep=1.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "instruction scheduling"
+        ]
     }, 
     "-fsched-spec-load-dangerous": {
-        "description": "\nAllow speculative motion of more load instructions.  This only makes\nsense when scheduling before register allocation, i.e. with\n-fschedule-insns or at -O2 or higher.\n\n"
+        "description": "\nAllow speculative motion of more load instructions.  This only makes\nsense when scheduling before register allocation, i.e. with\n-fschedule-insns or at -O2 or higher.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction", 
+            "instruction scheduling"
+        ]
     }, 
     "-ftree-switch-conversion": {
-        "description": "\nPerform conversion of simple initializations in a switch to\ninitializations from a scalar array.  This flag is enabled by default\nat -O2 and higher.\n\n"
+        "description": "\nPerform conversion of simple initializations in a switch to\ninitializations from a scalar array.  This flag is enabled by default\nat -O2 and higher.\n\n", 
+        "tags": [
+            "not relevant", 
+            "switch initialization", 
+            "lookup table"
+        ]
     }, 
     "-fira-region=region": {
-        "description": "\nUse specified regions for the integrated register allocator.  The\nregion argument should be one of the following:\n\n\n\u2018all\u2019\nUse all loops as register allocation regions.\nThis can give the best results for machines with a small and/or\nirregular register set.\n\n\n\u2018mixed\u2019\nUse all loops except for loops with small register pressure \nas the regions.  This value usually gives\nthe best results in most cases and for most architectures,\nand is enabled by default when compiling with optimization for speed\n(-O, -O2, \u2026).\n\n\n\u2018one\u2019\nUse all functions as a single region.  \nThis typically results in the smallest code size, and is enabled by default for\n-Os or -O0.\n\n\n\n"
+        "description": "\nUse specified regions for the integrated register allocator.  The\nregion argument should be one of the following:\n\n\n\u2018all\u2019\nUse all loops as register allocation regions.\nThis can give the best results for machines with a small and/or\nirregular register set.\n\n\n\u2018mixed\u2019\nUse all loops except for loops with small register pressure \nas the regions.  This value usually gives\nthe best results in most cases and for most architectures,\nand is enabled by default when compiling with optimization for speed\n(-O, -O2, \u2026).\n\n\n\u2018one\u2019\nUse all functions as a single region.  \nThis typically results in the smallest code size, and is enabled by default for\n-Os or -O0.\n\n\n\n", 
+        "tags": [
+            "not relevant", 
+            "register allocation", 
+            "instruction level"
+        ]
     }, 
     "-fprofile-use=path": {
-        "description": "\nEnable profile feedback-directed optimizations, \nand the following optimizations\nwhich are generally profitable only with profile feedback available:\n-fbranch-probabilities, -fvpt,\n-funroll-loops, -fpeel-loops, -ftracer, \n-ftree-vectorize, and ftree-loop-distribute-patterns.\n\nBefore you can use this option, you must first generate profiling information.\nSee Instrumentation Options, for information about the\n-fprofile-generate option.\n\nBy default, GCC emits an error message if the feedback profiles do not\nmatch the source code.  This error can be turned into a warning by using\n-Wcoverage-mismatch.  Note this may result in poorly optimized\ncode.\n\nIf path is specified, GCC looks at the path to find\nthe profile feedback data files. See -fprofile-dir.\n\n"
+        "description": "\nEnable profile feedback-directed optimizations, \nand the following optimizations\nwhich are generally profitable only with profile feedback available:\n-fbranch-probabilities, -fvpt,\n-funroll-loops, -fpeel-loops, -ftracer, \n-ftree-vectorize, and ftree-loop-distribute-patterns.\n\nBefore you can use this option, you must first generate profiling information.\nSee Instrumentation Options, for information about the\n-fprofile-generate option.\n\nBy default, GCC emits an error message if the feedback profiles do not\nmatch the source code.  This error can be turned into a warning by using\n-Wcoverage-mismatch.  Note this may result in poorly optimized\ncode.\n\nIf path is specified, GCC looks at the path to find\nthe profile feedback data files. See -fprofile-dir.\n\n", 
+        "tags": [
+            "not relevant", 
+            "profiling"
+        ]
     }, 
     "-fstore-merging": {
-        "description": "\nPerform merging of narrow stores to consecutive memory addresses.  This pass\nmerges contiguous stores of immediate values narrower than a word into fewer\nwider stores to reduce the number of instructions.  This is enabled by default\nat -O2 and higher as well as -Os.\n\n"
+        "description": "\nPerform merging of narrow stores to consecutive memory addresses.  This pass\nmerges contiguous stores of immediate values narrower than a word into fewer\nwider stores to reduce the number of instructions.  This is enabled by default\nat -O2 and higher as well as -Os.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "hand optimization"
+        ]
     }, 
     "-fprofile-correction": {
         "description": "\nProfiles collected using an instrumented binary for multi-threaded programs may\nbe inconsistent due to missed counter updates. When this option is specified,\nGCC uses heuristics to correct or smooth out such inconsistencies. By\ndefault, GCC emits an error message when an inconsistent profile is detected.\n\n"
     }, 
     "-fipa-sra": {
-        "description": "\nPerform interprocedural scalar replacement of aggregates, removal of\nunused parameters and replacement of parameters passed by reference\nby parameters passed by value.\n\nEnabled at levels -O2, -O3 and -Os.\n\n"
+        "description": "\nPerform interprocedural scalar replacement of aggregates, removal of\nunused parameters and replacement of parameters passed by reference\nby parameters passed by value.\n\nEnabled at levels -O2, -O3 and -Os.\n\n", 
+        "tags": [
+            "not relevant", 
+            "interprocedural", 
+            "hand optimization", 
+            "functions"
+        ]
     }, 
     "-fsimd-cost-model=model": {
-        "description": "\nAlter the cost model used for vectorization of loops marked with the OpenMP\nor Cilk Plus simd directive.  The model argument should be one of\n\u2018unlimited\u2019, \u2018dynamic\u2019, \u2018cheap\u2019.  All values of model\nhave the same meaning as described in -fvect-cost-model and by\ndefault a cost model defined with -fvect-cost-model is used.\n\n"
+        "description": "\nAlter the cost model used for vectorization of loops marked with the OpenMP\nor Cilk Plus simd directive.  The model argument should be one of\n\u2018unlimited\u2019, \u2018dynamic\u2019, \u2018cheap\u2019.  All values of model\nhave the same meaning as described in -fvect-cost-model and by\ndefault a cost model defined with -fvect-cost-model is used.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction scheduling", 
+            "autovectorization", 
+            "loops", 
+            "simd"
+        ]
     }, 
     "-fomit-frame-pointer": {
-        "description": "\nOmit the frame pointer in functions that don\u2019t need one.  This avoids the\ninstructions to save, set up and restore the frame pointer; on many targets\nit also makes an extra register available.\n\nOn some targets this flag has no effect because the standard calling sequence\nalways uses a frame pointer, so it cannot be omitted.\n\nNote that -fno-omit-frame-pointer doesn\u2019t guarantee the frame pointer\nis used in all functions.  Several targets always omit the frame pointer in\nleaf functions.\n\nEnabled by default at -O and higher.\n\n"
+        "description": "\nOmit the frame pointer in functions that don\u2019t need one.  This avoids the\ninstructions to save, set up and restore the frame pointer; on many targets\nit also makes an extra register available.\n\nOn some targets this flag has no effect because the standard calling sequence\nalways uses a frame pointer, so it cannot be omitted.\n\nNote that -fno-omit-frame-pointer doesn\u2019t guarantee the frame pointer\nis used in all functions.  Several targets always omit the frame pointer in\nleaf functions.\n\nEnabled by default at -O and higher.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level"
+        ]
     }, 
     "-floop-block": {
         "description": "\n\n\nPerform loop nest optimizations.  Same as\n-floop-nest-optimize.  To use this code transformation, GCC has\nto be configured with --with-isl to enable the Graphite loop\ntransformation infrastructure.\n\n"
     }, 
     "-fira-hoist-pressure": {
-        "description": "\nUse IRA to evaluate register pressure in the code hoisting pass for\ndecisions to hoist expressions.  This option usually results in smaller\ncode, but it can slow the compiler down.\n\nThis option is enabled at level -Os for all targets.\n\n"
+        "description": "\nUse IRA to evaluate register pressure in the code hoisting pass for\ndecisions to hoist expressions.  This option usually results in smaller\ncode, but it can slow the compiler down.\n\nThis option is enabled at level -Os for all targets.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "register allocation"
+        ]
     }, 
     "-fshrink-wrap": {
-        "description": "\nEmit function prologues only before parts of the function that need it,\nrather than at the top of the function.  This flag is enabled by default at\n-O and higher.\n\n"
+        "description": "\nEmit function prologues only before parts of the function that need it,\nrather than at the top of the function.  This flag is enabled by default at\n-O and higher.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "function"
+        ]
     }, 
     "-fgcse-after-reload": {
-        "description": "\nWhen -fgcse-after-reload is enabled, a redundant load elimination\npass is performed after reload.  The purpose of this pass is to clean up\nredundant spilling.\n\n"
+        "description": "\nWhen -fgcse-after-reload is enabled, a redundant load elimination\npass is performed after reload.  The purpose of this pass is to clean up\nredundant spilling.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "register allocation"
+        ]
     }, 
     "-fipa-icf": {
-        "description": "\nPerform Identical Code Folding for functions and read-only variables.\nThe optimization reduces code size and may disturb unwind stacks by replacing\na function by equivalent one with a different name. The optimization works\nmore effectively with link-time optimization enabled.\n\nNevertheless the behavior is similar to Gold Linker ICF optimization, GCC ICF\nworks on different levels and thus the optimizations are not same - there are\nequivalences that are found only by GCC and equivalences found only by Gold.\n\nThis flag is enabled by default at -O2 and -Os.\n\n"
+        "description": "\nPerform Identical Code Folding for functions and read-only variables.\nThe optimization reduces code size and may disturb unwind stacks by replacing\na function by equivalent one with a different name. The optimization works\nmore effectively with link-time optimization enabled.\n\nNevertheless the behavior is similar to Gold Linker ICF optimization, GCC ICF\nworks on different levels and thus the optimizations are not same - there are\nequivalences that are found only by GCC and equivalences found only by Gold.\n\nThis flag is enabled by default at -O2 and -Os.\n\n", 
+        "tags": [
+            "not relevant", 
+            "link time optimizations", 
+            "instruction level", 
+            "program layout"
+        ]
     }, 
     "-fpredictive-commoning": {
-        "description": "\nPerform predictive commoning optimization, i.e., reusing computations\n(especially memory loads and stores) performed in previous\niterations of loops.\n\nThis option is enabled at level -O3.\n\n"
+        "description": "\nPerform predictive commoning optimization, i.e., reusing computations\n(especially memory loads and stores) performed in previous\niterations of loops.\n\nThis option is enabled at level -O3.\n\n", 
+        "tags": [
+            "not relevant", 
+            "hand optimization", 
+            "loops", 
+            "redundant code elimination"
+        ]
     }, 
     "-floop-interchange": {
-        "description": "\nPerform loop interchange outside of graphite.  This flag can improve cache\nperformance on loop nest and allow further loop optimizations, like\nvectorization, to take place.  For example, the loop\n\nfor (int i = 0; i < N; i++)\n  for (int j = 0; j < N; j++)\n    for (int k = 0; k < N; k++)\n      c[i][j] = c[i][j] + a[i][k]*b[k][j];\n\nis transformed to\n\nfor (int i = 0; i < N; i++)\n  for (int k = 0; k < N; k++)\n    for (int j = 0; j < N; j++)\n      c[i][j] = c[i][j] + a[i][k]*b[k][j];\n\n"
+        "description": "\nPerform loop interchange outside of graphite.  This flag can improve cache\nperformance on loop nest and allow further loop optimizations, like\nvectorization, to take place.  For example, the loop\n\nfor (int i = 0; i < N; i++)\n  for (int j = 0; j < N; j++)\n    for (int k = 0; k < N; k++)\n      c[i][j] = c[i][j] + a[i][k]*b[k][j];\n\nis transformed to\n\nfor (int i = 0; i < N; i++)\n  for (int k = 0; k < N; k++)\n    for (int j = 0; j < N; j++)\n      c[i][j] = c[i][j] + a[i][k]*b[k][j];\n\n", 
+        "tags": [
+            "relevant", 
+            "hand optimization", 
+            "loops", 
+            "loop tiling"
+        ]
     }, 
     "-fssa-phiopt": {
-        "description": "\nPerform pattern matching on SSA PHI nodes to optimize conditional\ncode.  This pass is enabled by default at -O and higher.\n\n"
+        "description": "\nPerform pattern matching on SSA PHI nodes to optimize conditional\ncode.  This pass is enabled by default at -O and higher.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "basic block layout", 
+            "conditional stores"
+        ]
     }, 
     "-fno-lifetime-dse": {
-        "description": "\nIn C++ the value of an object is only affected by changes within its\nlifetime: when the constructor begins, the object has an indeterminate\nvalue, and any changes during the lifetime of the object are dead when\nthe object is destroyed.  Normally dead store elimination will take\nadvantage of this; if your code relies on the value of the object\nstorage persisting beyond the lifetime of the object, you can use this\nflag to disable this optimization.  To preserve stores before the\nconstructor starts (e.g. because your operator new clears the object\nstorage) but still treat the object as dead after the destructor you,\ncan use -flifetime-dse=1.  The default behavior can be\nexplicitly selected with -flifetime-dse=2.\n-flifetime-dse=0 is equivalent to -fno-lifetime-dse.\n\n"
+        "description": "\nIn C++ the value of an object is only affected by changes within its\nlifetime: when the constructor begins, the object has an indeterminate\nvalue, and any changes during the lifetime of the object are dead when\nthe object is destroyed.  Normally dead store elimination will take\nadvantage of this; if your code relies on the value of the object\nstorage persisting beyond the lifetime of the object, you can use this\nflag to disable this optimization.  To preserve stores before the\nconstructor starts (e.g. because your operator new clears the object\nstorage) but still treat the object as dead after the destructor you,\ncan use -flifetime-dse=1.  The default behavior can be\nexplicitly selected with -flifetime-dse=2.\n-flifetime-dse=0 is equivalent to -fno-lifetime-dse.\n\n", 
+        "tags": [
+            "not relevant", 
+            "c++", 
+            "language quirk workaround"
+        ]
     }, 
     "-fdse": {
-        "description": "\nPerform dead store elimination (DSE) on RTL.\nEnabled by default at -O and higher.\n\n"
+        "description": "\nPerform dead store elimination (DSE) on RTL.\nEnabled by default at -O and higher.\n\n", 
+        "tags": [
+            "relevant", 
+            "dead store elimination"
+        ]
     }, 
     "-ftree-ch": {
-        "description": "\nPerform loop header copying on trees.  This is beneficial since it increases\neffectiveness of code motion optimizations.  It also saves one jump.  This flag\nis enabled by default at -O and higher.  It is not enabled\nfor -Os, since it usually increases code size.\n\n"
+        "description": "\nPerform loop header copying on trees.  This is beneficial since it increases\neffectiveness of code motion optimizations.  It also saves one jump.  This flag\nis enabled by default at -O and higher.  It is not enabled\nfor -Os, since it usually increases code size.\n\n", 
+        "tags": [
+            "not relevant", 
+            "hand optimization", 
+            "loops", 
+            "loop optimization"
+        ]
     }, 
     "-fthread-jumps": {
-        "description": "\nPerform optimizations that check to see if a jump branches to a\nlocation where another comparison subsumed by the first is found.  If\nso, the first branch is redirected to either the destination of the\nsecond branch or a point immediately following it, depending on whether\nthe condition is known to be true or false.\n\nEnabled at levels -O2, -O3, -Os.\n\n"
+        "description": "\nPerform optimizations that check to see if a jump branches to a\nlocation where another comparison subsumed by the first is found.  If\nso, the first branch is redirected to either the destination of the\nsecond branch or a point immediately following it, depending on whether\nthe condition is known to be true or false.\n\nEnabled at levels -O2, -O3, -Os.\n\n", 
+        "tags": [
+            "not relevant", 
+            "hand optimization", 
+            "branch optimization"
+        ]
     }, 
     "-flto-compression-level=n": {
-        "description": "\nThis option specifies the level of compression used for intermediate\nlanguage written to LTO object files, and is only meaningful in\nconjunction with LTO mode (-flto).  Valid\nvalues are 0 (no compression) to 9 (maximum compression).  Values\noutside this range are clamped to either 0 or 9.  If the option is not\ngiven, a default balanced compression setting is used.\n\n"
+        "description": "\nThis option specifies the level of compression used for intermediate\nlanguage written to LTO object files, and is only meaningful in\nconjunction with LTO mode (-flto).  Valid\nvalues are 0 (no compression) to 9 (maximum compression).  Values\noutside this range are clamped to either 0 or 9.  If the option is not\ngiven, a default balanced compression setting is used.\n\n", 
+        "tags": [
+            "not relevant", 
+            "link time optimization", 
+            "parameter setting"
+        ]
     }, 
     "-freschedule-modulo-scheduled-loops": {
-        "description": "\nModulo scheduling is performed before traditional scheduling.  If a loop\nis modulo scheduled, later scheduling passes may change its schedule.  \nUse this option to control that behavior.\n\n"
+        "description": "\nModulo scheduling is performed before traditional scheduling.  If a loop\nis modulo scheduled, later scheduling passes may change its schedule.  \nUse this option to control that behavior.\n\n", 
+        "tags": [
+            "not relevant", 
+            "loops", 
+            "loop scheduling", 
+            "parameter"
+        ]
     }, 
     "-fdevirtualize": {
-        "description": "\nAttempt to convert calls to virtual functions to direct calls.  This\nis done both within a procedure and interprocedurally as part of\nindirect inlining (-findirect-inlining) and interprocedural constant\npropagation (-fipa-cp).\nEnabled at levels -O2, -O3, -Os.\n\n"
+        "description": "\nAttempt to convert calls to virtual functions to direct calls.  This\nis done both within a procedure and interprocedurally as part of\nindirect inlining (-findirect-inlining) and interprocedural constant\npropagation (-fipa-cp).\nEnabled at levels -O2, -O3, -Os.\n\n", 
+        "tags": [
+            "not relevant", 
+            "hand optimization", 
+            "devirtualization"
+        ]
     }, 
     "-ftree-loop-ivcanon": {
-        "description": "\nCreate a canonical counter for number of iterations in loops for which\ndetermining number of iterations requires complicated analysis.  Later\noptimizations then may determine the number easily.  Useful especially\nin connection with unrolling.\n\n"
+        "description": "\nCreate a canonical counter for number of iterations in loops for which\ndetermining number of iterations requires complicated analysis.  Later\noptimizations then may determine the number easily.  Useful especially\nin connection with unrolling.\n\n", 
+        "tags": [
+            "not relevant", 
+            "loop optimization", 
+            "helper pass"
+        ]
     }, 
     "-fipa-reference": {
-        "description": "\nDiscover which static variables do not escape the\ncompilation unit.\nEnabled by default at -O and higher.\n\n"
+        "description": "\nDiscover which static variables do not escape the\ncompilation unit.\nEnabled by default at -O and higher.\n\n", 
+        "tags": [
+            "not relevant", 
+            "helper pass", 
+            "interprocedural"
+        ]
     }, 
     "-fschedule-insns": {
         "description": "\nIf supported for the target machine, attempt to reorder instructions to\neliminate execution stalls due to required data being unavailable.  This\nhelps machines that have slow floating point or memory load instructions\nby allowing other instructions to be issued until the result of the load\nor floating-point instruction is required.\n\nEnabled at levels -O2, -O3.\n\n"
     }, 
     "-finline-limit=n": {
-        "description": "\nBy default, GCC limits the size of functions that can be inlined.  This flag\nallows coarse control of this limit.  n is the size of functions that\ncan be inlined in number of pseudo instructions.\n\nInlining is actually controlled by a number of parameters, which may be\nspecified individually by using --param name=value.\nThe -finline-limit=n option sets some of these parameters\nas follows:\n\n\nmax-inline-insns-single\nis set to n/2.\n\nmax-inline-insns-auto\nis set to n/2.\n\n\nSee below for a documentation of the individual\nparameters controlling inlining and for the defaults of these parameters.\n\nNote: there may be no value to -finline-limit that results\nin default behavior.\n\nNote: pseudo instruction represents, in this particular context, an\nabstract measurement of function\u2019s size.  In no way does it represent a count\nof assembly instructions and as such its exact meaning might change from one\nrelease to an another.\n\n"
+        "description": "\nBy default, GCC limits the size of functions that can be inlined.  This flag\nallows coarse control of this limit.  n is the size of functions that\ncan be inlined in number of pseudo instructions.\n\nInlining is actually controlled by a number of parameters, which may be\nspecified individually by using --param name=value.\nThe -finline-limit=n option sets some of these parameters\nas follows:\n\n\nmax-inline-insns-single\nis set to n/2.\n\nmax-inline-insns-auto\nis set to n/2.\n\n\nSee below for a documentation of the individual\nparameters controlling inlining and for the defaults of these parameters.\n\nNote: there may be no value to -finline-limit that results\nin default behavior.\n\nNote: pseudo instruction represents, in this particular context, an\nabstract measurement of function\u2019s size.  In no way does it represent a count\nof assembly instructions and as such its exact meaning might change from one\nrelease to an another.\n\n", 
+        "tags": [
+            "not relevant", 
+            "function inlining", 
+            "parameter"
+        ]
     }, 
     "-fdelayed-branch": {
-        "description": "\nIf supported for the target machine, attempt to reorder instructions\nto exploit instruction slots available after delayed branch\ninstructions.\n\nEnabled at levels -O, -O2, -O3, -Os.\n\n"
+        "description": "\nIf supported for the target machine, attempt to reorder instructions\nto exploit instruction slots available after delayed branch\ninstructions.\n\nEnabled at levels -O, -O2, -O3, -Os.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "instruction scheduling"
+        ]
     }, 
     "-fmodulo-sched-allow-regmoves": {
-        "description": "\nPerform more aggressive SMS-based modulo scheduling with register moves\nallowed.  By setting this flag certain anti-dependences edges are\ndeleted, which triggers the generation of reg-moves based on the\nlife-range analysis.  This option is effective only with\n-fmodulo-sched enabled.\n\n"
+        "description": "\nPerform more aggressive SMS-based modulo scheduling with register moves\nallowed.  By setting this flag certain anti-dependences edges are\ndeleted, which triggers the generation of reg-moves based on the\nlife-range analysis.  This option is effective only with\n-fmodulo-sched enabled.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "instruction scheduling"
+        ]
     }, 
     "-fno-sched-spec": {
-        "description": "\nDon\u2019t allow speculative motion of non-load instructions.  This is normally\nenabled by default when scheduling before register allocation, i.e.\nwith -fschedule-insns or at -O2 or higher.\n\n"
+        "description": "\nDon\u2019t allow speculative motion of non-load instructions.  This is normally\nenabled by default when scheduling before register allocation, i.e.\nwith -fschedule-insns or at -O2 or higher.\n\n", 
+        "tags": [
+            ""
+        ]
     }, 
     "-fvariable-expansion-in-unroller": {
         "description": "\nWith this option, the compiler creates multiple copies of some\nlocal variables when unrolling a loop, which can result in superior code.\n\n"
@@ -336,7 +712,13 @@
         "description": "\nInline also indirect calls that are discovered to be known at compile\ntime thanks to previous inlining.  This option has any effect only\nwhen inlining itself is turned on by the -finline-functions\nor -finline-small-functions options.\n\nEnabled at level -O2.\n\n"
     }, 
     "-fkeep-inline-functions": {
-        "description": "\nIn C, emit static functions that are declared inline\ninto the object file, even if the function has been inlined into all\nof its callers.  This switch does not affect functions using the\nextern inline extension in GNU C90.  In C++, emit any and all\ninline functions into the object file.\n\n"
+        "description": "\nIn C, emit static functions that are declared inline\ninto the object file, even if the function has been inlined into all\nof its callers.  This switch does not affect functions using the\nextern inline extension in GNU C90.  In C++, emit any and all\ninline functions into the object file.\n\n", 
+        "tags": [
+            "not relevant", 
+            "functions", 
+            "inlining", 
+            "native"
+        ]
     }, 
     "-fsemantic-interposition": {
         "description": "\nSome object formats, like ELF, allow interposing of symbols by the \ndynamic linker.\nThis means that for symbols exported from the DSO, the compiler cannot perform\ninterprocedural propagation, inlining and other optimizations in anticipation\nthat the function or variable in question may change. While this feature is\nuseful, for example, to rewrite memory allocation functions by a debugging\nimplementation, it is expensive in the terms of code quality.\nWith -fno-semantic-interposition the compiler assumes that \nif interposition happens for functions the overwriting function will have \nprecisely the same semantics (and side effects). \nSimilarly if interposition happens\nfor variables, the constructor of the variable will be the same. The flag\nhas no effect for functions explicitly declared inline \n(where it is never allowed for interposition to change semantics) \nand for symbols explicitly declared weak.\n\n"
@@ -387,7 +769,13 @@
         "description": "\nThis option tells the compiler that variables declared in common blocks\n(e.g. Fortran) may later be overridden with longer trailing arrays. This\nprevents certain optimizations that depend on knowing the array bounds.\n\n"
     }, 
     "-fdelete-null-pointer-checks": {
-        "description": "\nAssume that programs cannot safely dereference null pointers, and that\nno code or data element resides at address zero.\nThis option enables simple constant\nfolding optimizations at all optimization levels.  In addition, other\noptimization passes in GCC use this flag to control global dataflow\nanalyses that eliminate useless checks for null pointers; these assume\nthat a memory access to address zero always results in a trap, so\nthat if a pointer is checked after it has already been dereferenced,\nit cannot be null.\n\nNote however that in some environments this assumption is not true.\nUse -fno-delete-null-pointer-checks to disable this optimization\nfor programs that depend on that behavior.\n\nThis option is enabled by default on most targets.  On Nios II ELF, it\ndefaults to off.  On AVR, CR16, and MSP430, this option is completely disabled.\n\nPasses that use the dataflow information\nare enabled independently at different optimization levels.\n\n"
+        "description": "\nAssume that programs cannot safely dereference null pointers, and that\nno code or data element resides at address zero.\nThis option enables simple constant\nfolding optimizations at all optimization levels.  In addition, other\noptimization passes in GCC use this flag to control global dataflow\nanalyses that eliminate useless checks for null pointers; these assume\nthat a memory access to address zero always results in a trap, so\nthat if a pointer is checked after it has already been dereferenced,\nit cannot be null.\n\nNote however that in some environments this assumption is not true.\nUse -fno-delete-null-pointer-checks to disable this optimization\nfor programs that depend on that behavior.\n\nThis option is enabled by default on most targets.  On Nios II ELF, it\ndefaults to off.  On AVR, CR16, and MSP430, this option is completely disabled.\n\nPasses that use the dataflow information\nare enabled independently at different optimization levels.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "null pointer check elimination", 
+            "interesting"
+        ]
     }, 
     "-fno-zero-initialized-in-bss": {
         "description": "\nIf the target supports a BSS section, GCC by default puts variables that\nare initialized to zero into BSS.  This can save space in the resulting\ncode.\n\nThis option turns off this behavior because some programs explicitly\nrely on variables going to the data section\u2014e.g., so that the\nresulting executable can find the beginning of that section and/or make\nassumptions based on that.\n\nThe default is -fzero-initialized-in-bss.\n\n"
@@ -399,6 +787,10 @@
         "description": "\nEnable the critical-path heuristic in the scheduler.  This heuristic favors\ninstructions on the critical path.  This is enabled by default when\nscheduling is enabled, i.e. with -fschedule-insns\nor -fschedule-insns2 or at -O2 or higher.\n\n"
     }, 
     "-ftree-loop-linear": {
+        "alternate_names": [
+            "-floop-strip-mine", 
+            "-floop-block"
+        ], 
         "description": "\n\n\nPerform loop nest optimizations.  Same as\n-floop-nest-optimize.  To use this code transformation, GCC has\nto be configured with --with-isl to enable the Graphite loop\ntransformation infrastructure.\n\n"
     }, 
     "-falign-loops=n": {
@@ -438,7 +830,11 @@
         "description": "\nAlter the cost model used for vectorization.  The model argument\nshould be one of \u2018unlimited\u2019, \u2018dynamic\u2019 or \u2018cheap\u2019.\nWith the \u2018unlimited\u2019 model the vectorized code-path is assumed\nto be profitable while with the \u2018dynamic\u2019 model a runtime check\nguards the vectorized code-path to enable it only for iteration\ncounts that will likely execute faster than when executing the original\nscalar loop.  The \u2018cheap\u2019 model disables vectorization of\nloops where doing so would be cost prohibitive for example due to\nrequired runtime checks for data dependence or alignment but otherwise\nis equal to the \u2018dynamic\u2019 model.\nThe default cost model depends on other optimization flags and is\neither \u2018dynamic\u2019 or \u2018cheap\u2019.\n\n"
     }, 
     "-fisolate-erroneous-paths-attribute": {
-        "description": "\nDetect paths that trigger erroneous or undefined behavior due a null value\nbeing used in a way forbidden by a returns_nonnull or nonnull\nattribute.  Isolate those paths from the main control flow and turn the\nstatement with erroneous or undefined behavior into a trap.  This is not\ncurrently enabled, but may be enabled by -O2 in the future.\n\n"
+        "description": "\nDetect paths that trigger erroneous or undefined behavior due a null value\nbeing used in a way forbidden by a returns_nonnull or nonnull\nattribute.  Isolate those paths from the main control flow and turn the\nstatement with erroneous or undefined behavior into a trap.  This is not\ncurrently enabled, but may be enabled by -O2 in the future.\n\n", 
+        "tags": [
+            "not relevant", 
+            "not enabled"
+        ]
     }, 
     "-fdevirtualize-speculatively": {
         "description": "\nAttempt to convert calls to virtual functions to speculative direct calls.\nBased on the analysis of the type inheritance graph, determine for a given call\nthe set of likely targets. If the set is small, preferably of size 1, change\nthe call into a conditional deciding between direct and indirect calls.  The\nspeculative calls enable more optimizations, such as inlining.  When they seem\nuseless after further optimization, they are converted back into original form.\n\n"
@@ -468,7 +864,13 @@
         "description": "\nDefine how many insn groups (cycles) are examined for a dependency\non a stalled insn that is a candidate for premature removal from the queue\nof stalled insns.  This has an effect only during the second scheduling pass,\nand only if -fsched-stalled-insns is used.\n-fno-sched-stalled-insns-dep is equivalent to\n-fsched-stalled-insns-dep=0.\n-fsched-stalled-insns-dep without a value is equivalent to\n-fsched-stalled-insns-dep=1.\n\n"
     }, 
     "-fno-branch-count-reg": {
-        "description": "\nAvoid running a pass scanning for opportunities to use \u201cdecrement and\nbranch\u201d instructions on a count register instead of generating sequences\nof instructions that decrement a register, compare it against zero, and\nthen branch based upon the result.  This option is only meaningful on\narchitectures that support such instructions, which include x86, PowerPC,\nIA-64 and S/390.  Note that the -fno-branch-count-reg option\ndoesn\u2019t remove the decrement and branch instructions from the generated\ninstruction stream introduced by other optimization passes.\n\nEnabled by default at -O1 and higher.\n\nThe default is -fbranch-count-reg.\n\n"
+        "description": "\nAvoid running a pass scanning for opportunities to use \u201cdecrement and\nbranch\u201d instructions on a count register instead of generating sequences\nof instructions that decrement a register, compare it against zero, and\nthen branch based upon the result.  This option is only meaningful on\narchitectures that support such instructions, which include x86, PowerPC,\nIA-64 and S/390.  Note that the -fno-branch-count-reg option\ndoesn\u2019t remove the decrement and branch instructions from the generated\ninstruction stream introduced by other optimization passes.\n\nEnabled by default at -O1 and higher.\n\nThe default is -fbranch-count-reg.\n\n", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "branches", 
+            "instruction optimization"
+        ]
     }, 
     "-ftree-parallelize-loops=n": {
         "description": "\nParallelize loops, i.e., split their iteration space to run in n threads.\nThis is only possible for loops whose iterations are independent\nand can be arbitrarily reordered.  The optimization is only\nprofitable on multiprocessor machines, for loops that are CPU-intensive,\nrather than constrained e.g. by memory bandwidth.  This option\nimplies -pthread, and thus is only supported on targets\nthat have support for -pthread.\n\n"
@@ -477,6 +879,9 @@
         "description": "\nThis is a more fine-grained version of -fkeep-inline-functions,\nwhich applies only to functions that are declared using the dllexport\nattribute or declspec.  See Declaring Attributes of\nFunctions.\n\n"
     }, 
     "-falign-loops": {
+        "alternate_names": [
+            "-falign-loops=n"
+        ], 
         "description": "\nAlign loops to a power-of-two boundary, skipping up to n bytes\nlike -falign-functions.  If the loops are\nexecuted many times, this makes up for any execution of the dummy\noperations.\n\n-fno-align-loops and -falign-loops=1 are\nequivalent and mean that loops are not aligned.\n\nIf n is not specified or is zero, use a machine-dependent default.\n\nEnabled at levels -O2, -O3.\n\n"
     }, 
     "-freorder-blocks-algorithm=algorithm": {
@@ -513,7 +918,12 @@
         "description": "\nDetect paths that trigger erroneous or undefined behavior due to\ndereferencing a null pointer.  Isolate those paths from the main control\nflow and turn the statement with erroneous or undefined behavior into a trap.\nThis flag is enabled by default at -O2 and higher and depends on\n-fdelete-null-pointer-checks also being enabled.\n\n"
     }, 
     "-fipa-cp": {
-        "description": "\nPerform interprocedural constant propagation.\nThis optimization analyzes the program to determine when values passed\nto functions are constants and then optimizes accordingly.\nThis optimization can substantially increase performance\nif the application has constants passed to functions.\nThis flag is enabled by default at -O2, -Os and -O3.\n\n"
+        "description": "\nPerform interprocedural constant propagation.\nThis optimization analyzes the program to determine when values passed\nto functions are constants and then optimizes accordingly.\nThis optimization can substantially increase performance\nif the application has constants passed to functions.\nThis flag is enabled by default at -O2, -Os and -O3.\n\n", 
+        "tags": [
+            "relevant", 
+            "function", 
+            "constant propagation"
+        ]
     }, 
     "-fcprop-registers": {
         "description": "\nAfter register allocation and post-register allocation instruction splitting,\nperform a copy-propagation pass to try to reduce scheduling dependencies\nand occasionally eliminate the copy.\n\nEnabled at levels -O, -O2, -O3, -Os.\n\n"
@@ -534,6 +944,9 @@
         "description": "\nIn common subexpression elimination (CSE), scan through jump instructions\nwhen the target of the jump is not reached by any other path.  For\nexample, when CSE encounters an if statement with an\nelse clause, CSE follows the jump when the condition\ntested is false.\n\nEnabled at levels -O2, -O3, -Os.\n\n"
     }, 
     "-fno-peephole": {
+        "alternate_names": [
+            "-fno-peephole2"
+        ], 
         "description": "\n\nDisable any machine-specific peephole optimizations.  The difference\nbetween -fno-peephole and -fno-peephole2 is in how they\nare implemented in the compiler; some targets use one, some use the\nother, a few use both.\n\n-fpeephole is enabled by default.\n-fpeephole2 enabled at levels -O2, -O3, -Os.\n\n"
     }, 
     "-flimit-function-alignment": {
@@ -546,6 +959,9 @@
         "description": "\nUse the specified coloring algorithm for the integrated register\nallocator.  The algorithm argument can be \u2018priority\u2019, which\nspecifies Chow\u2019s priority coloring, or \u2018CB\u2019, which specifies\nChaitin-Briggs coloring.  Chaitin-Briggs coloring is not implemented\nfor all architectures, but for those targets that do support it, it is\nthe default because it generates better code.\n\n"
     }, 
     "-fprofile-use": {
+        "alternate_names": [
+            "-fprofile-use=path"
+        ], 
         "description": "\nEnable profile feedback-directed optimizations, \nand the following optimizations\nwhich are generally profitable only with profile feedback available:\n-fbranch-probabilities, -fvpt,\n-funroll-loops, -fpeel-loops, -ftracer, \n-ftree-vectorize, and ftree-loop-distribute-patterns.\n\nBefore you can use this option, you must first generate profiling information.\nSee Instrumentation Options, for information about the\n-fprofile-generate option.\n\nBy default, GCC emits an error message if the feedback profiles do not\nmatch the source code.  This error can be turned into a warning by using\n-Wcoverage-mismatch.  Note this may result in poorly optimized\ncode.\n\nIf path is specified, GCC looks at the path to find\nthe profile feedback data files. See -fprofile-dir.\n\n"
     }, 
     "-ftree-dce": {
@@ -606,6 +1022,9 @@
         "description": "\nEnables the use of a linker plugin during link-time optimization.  This\noption relies on plugin support in the linker, which is available in gold\nor in GNU ld 2.21 or newer.\n\nThis option enables the extraction of object files with GIMPLE bytecode out\nof library archives. This improves the quality of optimization by exposing\nmore code to the link-time optimizer.  This information specifies what\nsymbols can be accessed externally (by non-LTO object or during dynamic\nlinking).  Resulting code quality improvements on binaries (and shared\nlibraries that use hidden visibility) are similar to -fwhole-program.\nSee -flto for a description of the effect of this flag and how to\nuse it.\n\nThis option is enabled by default when LTO support in GCC is enabled\nand GCC was configured for use with\na linker supporting plugins (GNU ld 2.21 or newer or gold).\n\n"
     }, 
     "-falign-jumps": {
+        "alternate_names": [
+            "-falign-jumps=n"
+        ], 
         "description": "\nAlign branch targets to a power-of-two boundary, for branch targets\nwhere the targets can only be reached by jumping, skipping up to n\nbytes like -falign-functions.  In this case, no dummy operations\nneed be executed.\n\n-fno-align-jumps and -falign-jumps=1 are\nequivalent and mean that loops are not aligned.\n\nIf n is not specified or is zero, use a machine-dependent default.\n\nEnabled at levels -O2, -O3.\n\n"
     }, 
     "-fsched-last-insn-heuristic": {
