@@ -1,3 +1,10 @@
+Optimizations were categorized into relevant/non-relevant based on two conditions:
+1) whether or not they could make equivalent programs with different syntax
+similar after the optimization was applied.
+2) whether or not achieving the syntactic difference would require a manual
+transformation that would essentially re-implement the compiler optimization.
+3) is this option enabled by the commonly used default optimization levels?
+
 1. is this a relevant optimization that could transform two pieces of
    code into the same thing?
    	why / why not?

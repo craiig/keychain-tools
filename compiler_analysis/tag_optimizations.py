@@ -118,7 +118,7 @@ def manually_tag_opts(db, args):
             if 'alternate_names' in o:
                 desc_fh.write(" ".join(o['alternate_names']))
                 desc_fh.write("\n")
-            desc_fh.write(o['description'])
+            desc_fh.write(o['description'].encode('utf-8'))
             desc_fh.flush()
 
         #loop in case we make mistakes

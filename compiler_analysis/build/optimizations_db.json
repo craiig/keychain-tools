@@ -66,7 +66,8 @@
         "tags": [
             "relevant", 
             "inlining", 
-            "functions"
+            "functions", 
+            "small functions"
         ]
     }, 
     "-findirect-inlining": {
@@ -232,7 +233,8 @@
         "tags": [
             "not relevant", 
             "hand optimization", 
-            "branch optimization"
+            "branch optimization", 
+            "instruction level"
         ]
     }, 
     "-fsplit-wide-types": {
@@ -258,7 +260,7 @@
         "tags": [
             "not relevant", 
             "common subexpression elimination", 
-            "optimization parameter"
+            "parameter"
         ]
     }, 
     "-frerun-cse-after-loop": {
@@ -293,7 +295,7 @@
         "origin": "gcc", 
         "description": "\nWhen -fgcse-sm is enabled, a store motion pass is run after\nglobal common subexpression elimination.  This pass attempts to move\nstores out of loops.  When used in conjunction with -fgcse-lm,\nloops containing a load/store sequence can be changed to a load before\nthe loop and a store after the loop.\n\nNot enabled at any optimization level.\n\n", 
         "tags": [
-            "relevant", 
+            "not relevant", 
             "store motion", 
             "global common subexpression elimination", 
             "non default"
@@ -305,7 +307,9 @@
         "tags": [
             "relevant", 
             "not enabled", 
-            "native"
+            "native", 
+            "common subexpression elimination", 
+            "redundant loads"
         ]
     }, 
     "-fgcse-after-reload": {
@@ -372,17 +376,22 @@
         "origin": "gcc", 
         "description": "\nAttempt to transform conditional jumps into branch-less equivalents.  This\nincludes use of conditional moves, min, max, set flags and abs instructions, and\nsome tricks doable by standard arithmetics.  The use of conditional execution\non chips where it is available is controlled by -fif-conversion2.\n\nEnabled at levels -O, -O2, -O3, -Os.\n\n", 
         "tags": [
-            "relevant", 
-            "branch to conditional expression"
+            "not relevant", 
+            "hand optimization", 
+            "branch to conditional expression", 
+            "conditional execution", 
+            "instruction level"
         ]
     }, 
     "-fif-conversion2": {
         "origin": "gcc", 
         "description": "\nUse conditional execution (where available) to transform conditional jumps into\nbranch-less equivalents.\n\nEnabled at levels -O, -O2, -O3, -Os.\n\n", 
         "tags": [
-            "relevant", 
+            "not relevant", 
+            "hand optimization", 
             "branch transformation", 
-            "conditional execution"
+            "conditional execution", 
+            "instruction level"
         ]
     }, 
     "-fdeclone-ctor-dtor": {
@@ -401,7 +410,8 @@
             "not relevant", 
             "instruction level", 
             "null pointer check elimination", 
-            "interesting"
+            "interesting", 
+            "null check propagation"
         ]
     }, 
     "-fdevirtualize": {
@@ -428,7 +438,8 @@
         "tags": [
             "relevant", 
             "devirtualization", 
-            "native"
+            "native", 
+            "linker"
         ]
     }, 
     "-fexpensive-optimizations": {
@@ -436,15 +447,18 @@
         "description": "\nPerform a number of minor optimizations that are relatively expensive.\n\nEnabled at levels -O2, -O3, -Os.\n\n", 
         "tags": [
             "relevant", 
-            "unclear"
+            "unclear", 
+            "parameter"
         ]
     }, 
     "-free": {
         "origin": "gcc", 
         "description": "\nAttempt to remove redundant extension instructions.  This is especially\nhelpful for the x86-64 architecture, which implicitly zero-extends in 64-bit\nregisters after writing to their lower 32-bit half.\n\nEnabled for Alpha, AArch64 and x86 at levels -O2,\n-O3, -Os.\n\n", 
         "tags": [
-            "relevant", 
-            "signedness replacement"
+            "not relevant", 
+            "hand optimization", 
+            "signedness replacement", 
+            "instruction level"
         ]
     }, 
     "-fno-lifetime-dse": {
@@ -470,7 +484,8 @@
         "description": "\nUse the specified coloring algorithm for the integrated register\nallocator.  The algorithm argument can be \u2018priority\u2019, which\nspecifies Chow\u2019s priority coloring, or \u2018CB\u2019, which specifies\nChaitin-Briggs coloring.  Chaitin-Briggs coloring is not implemented\nfor all architectures, but for those targets that do support it, it is\nthe default because it generates better code.\n\n", 
         "tags": [
             "not relevant", 
-            "register allocation"
+            "register allocation", 
+            "parameter"
         ]
     }, 
     "-fira-region=region": {
@@ -479,7 +494,8 @@
         "tags": [
             "not relevant", 
             "register allocation", 
-            "instruction level"
+            "instruction level", 
+            "parameter"
         ]
     }, 
     "-fira-hoist-pressure": {
@@ -488,7 +504,8 @@
         "tags": [
             "not relevant", 
             "instruction level", 
-            "register allocation"
+            "register allocation", 
+            "parameter"
         ]
     }, 
     "-fira-loop-pressure": {
@@ -496,7 +513,8 @@
         "description": "\nUse IRA to evaluate register pressure in loops for decisions to move\nloop invariants.  This option usually results in generation\nof faster and smaller code on machines with large register files (>= 32\nregisters), but it can slow the compiler down.\n\nThis option is enabled at level -O3 for some targets.\n\n", 
         "tags": [
             "not relevant", 
-            "register allocation"
+            "register allocation", 
+            "parameter"
         ]
     }, 
     "-fno-ira-share-save-slots": {
@@ -564,7 +582,9 @@
         "origin": "gcc", 
         "description": "\nDon\u2019t allow speculative motion of non-load instructions.  This is normally\nenabled by default when scheduling before register allocation, i.e.\nwith -fschedule-insns or at -O2 or higher.\n\n", 
         "tags": [
-            ""
+            "not relevant", 
+            "instruction scheduling", 
+            "hand optimization"
         ]
     }, 
     "-fsched-pressure": {
@@ -774,7 +794,8 @@
         "description": "\nUse caller save registers for allocation if those registers are not used by\nany called function.  In that case it is not necessary to save and restore\nthem around calls.  This is only possible if called functions are part of\nsame compilation unit as current function and they are compiled before it.\n\nEnabled at levels -O2, -O3, -Os, however the option\nis disabled if generated code will be instrumented for profiling\n(-p, or -pg) or if callee\u2019s register usage cannot be known\nexactly (this happens on targets that do not expose prologues\nand epilogues in RTL).\n\n", 
         "tags": [
             "not relevant", 
-            "register allocation"
+            "register allocation", 
+            "instruction level"
         ]
     }, 
     "-fconserve-stack": {
@@ -804,7 +825,8 @@
             "relevant", 
             "code motion", 
             "code hoisting", 
-            "conditional paths"
+            "conditional paths", 
+            "functions"
         ]
     }, 
     "-ftree-pre": {
@@ -820,7 +842,9 @@
         "description": "\nMake partial redundancy elimination (PRE) more aggressive.  This flag is\nenabled by default at -O3.\n\n", 
         "tags": [
             "relevant", 
-            "redundant computation"
+            "redundant computation", 
+            "parameter", 
+            "partial redundancy elimination"
         ]
     }, 
     "-ftree-forwprop": {
@@ -828,7 +852,9 @@
         "description": "\nPerform forward propagation on trees.  This flag is enabled by default\nat -O and higher.\n\n", 
         "tags": [
             "relevant", 
-            "constant propagation"
+            "partial redundancy elimination", 
+            "expression simplification", 
+            "forward propagation"
         ]
     }, 
     "-ftree-fre": {
@@ -838,25 +864,29 @@
             "relevant", 
             "redundant computations", 
             "jvm", 
-            "native"
+            "native", 
+            "full redundancy elimination"
         ]
     }, 
     "-ftree-phiprop": {
         "origin": "gcc", 
         "description": "\nPerform hoisting of loads from conditional pointers on trees.  This\npass is enabled by default at -O and higher.\n\n", 
         "tags": [
-            "relevant", 
-            "code hoisting", 
-            "load hoisting"
+            "not relevant", 
+            "load hoisting", 
+            "phi analyis"
         ]
     }, 
     "-fhoist-adjacent-loads": {
         "origin": "gcc", 
         "description": "\nSpeculatively hoist loads from both branches of an if-then-else if the\nloads are from adjacent locations in the same structure and the target\narchitecture has a conditional move instruction.  This flag is enabled\nby default at -O2 and higher.\n\n", 
         "tags": [
-            "relevant", 
-            "load hoising", 
-            "branches"
+            "not relevant", 
+            "hand optimization", 
+            "load hoisting", 
+            "branches", 
+            "speculative", 
+            "conditional move"
         ]
     }, 
     "-ftree-copy-prop": {
@@ -882,7 +912,8 @@
         "tags": [
             "not relevant", 
             "helper pass", 
-            "interprocedural"
+            "interprocedural", 
+            "analysis pass"
         ]
     }, 
     "-fipa-pta": {
@@ -910,7 +941,8 @@
         "tags": [
             "relevant", 
             "function", 
-            "constant propagation"
+            "constant propagation", 
+            "interprocedural"
         ]
     }, 
     "-fipa-cp-clone": {
@@ -919,7 +951,8 @@
         "tags": [
             "relevant", 
             "functions", 
-            "constant propagation"
+            "constant propagation", 
+            "function cloning"
         ]
     }, 
     "-fipa-bit-cp": {
@@ -929,17 +962,20 @@
             "not relevant", 
             "hand optimization", 
             "interprocedural optimization", 
-            "constant propagation"
+            "constant propagation", 
+            "bitwise"
         ]
     }, 
     "-fipa-vrp": {
         "origin": "gcc", 
         "description": "\nWhen enabled, perform interprocedural propagation of value\nranges. This flag is enabled by default at -O2. It requires\nthat -fipa-cp is enabled.\n\n", 
         "tags": [
-            "relevant", 
+            "not relevant", 
+            "hand optimization", 
             "functions", 
             "constant propagation", 
-            "inter procedural"
+            "interprocedural", 
+            "value ranges"
         ]
     }, 
     "-fipa-icf": {
@@ -949,7 +985,8 @@
             "not relevant", 
             "link time optimizations", 
             "instruction level", 
-            "program layout"
+            "program layout", 
+            "identical code folding"
         ]
     }, 
     "-fisolate-erroneous-paths-dereference": {
@@ -966,7 +1003,8 @@
         "description": "\nDetect paths that trigger erroneous or undefined behavior due a null value\nbeing used in a way forbidden by a returns_nonnull or nonnull\nattribute.  Isolate those paths from the main control flow and turn the\nstatement with erroneous or undefined behavior into a trap.  This is not\ncurrently enabled, but may be enabled by -O2 in the future.\n\n", 
         "tags": [
             "not relevant", 
-            "not enabled"
+            "not enabled", 
+            "trap"
         ]
     }, 
     "-ftree-sink": {
@@ -975,8 +1013,8 @@
         "tags": [
             "relevant", 
             "code movement", 
-            "jvm", 
-            "native"
+            "line motion", 
+            "store motion"
         ]
     }, 
     "-ftree-bit-ccp": {
@@ -986,7 +1024,8 @@
             "not relevant", 
             "hand optimization", 
             "constant propagation", 
-            "bitwise"
+            "bitwise", 
+            "sparse constant propagation"
         ]
     }, 
     "-ftree-ccp": {
@@ -1002,7 +1041,7 @@
         "origin": "gcc", 
         "description": "\nPropagate information about uses of a value up the definition chain\nin order to simplify the definitions.  For example, this pass strips\nsign operations if the sign of a value never matters.  The flag is\nenabled by default at -O and higher.\n\n", 
         "tags": [
-            "relevant", 
+            "not relevant", 
             "sign replacement", 
             "analysis pass"
         ]
@@ -1032,7 +1071,8 @@
         "tags": [
             "not relevant", 
             "hand optimization", 
-            "code size optimization"
+            "code size optimization", 
+            "identical code"
         ]
     }, 
     "-ftree-dce": {
@@ -1040,7 +1080,7 @@
         "description": "\nPerform dead code elimination (DCE) on trees.  This flag is enabled by\ndefault at -O and higher.\n\n", 
         "tags": [
             "relevant", 
-            "dead code"
+            "dead code elimination"
         ]
     }, 
     "-ftree-builtin-call-dce": {
@@ -1048,8 +1088,10 @@
         "description": "\nPerform conditional dead code elimination (DCE) for calls to built-in functions\nthat may set errno but are otherwise side-effect free.  This flag is\nenabled by default at -O2 and higher if -Os is not also\nspecified.\n\n", 
         "tags": [
             "not relevant", 
+            "hand optimization", 
             "dead code elimination", 
-            "built-in functions"
+            "built-in functions", 
+            "conditional"
         ]
     }, 
     "-ftree-dominator-opts": {
@@ -1104,6 +1146,7 @@
         "description": "\n\n\nPerform loop nest optimizations.  Same as\n-floop-nest-optimize.  To use this code transformation, GCC has\nto be configured with --with-isl to enable the Graphite loop\ntransformation infrastructure.\n\n", 
         "tags": [
             "not relevant", 
+            "hand optimization", 
             "loops", 
             "loop optimization", 
             "non default"
@@ -1141,19 +1184,20 @@
         "origin": "gcc", 
         "description": "\nWhile transforming the program out of the SSA representation, attempt to\nreduce copying by coalescing versions of different user-defined\nvariables, instead of just compiler temporaries.  This may severely\nlimit the ability to debug an optimized program compiled with\n-fno-var-tracking-assignments.  In the negated form, this flag\nprevents SSA coalescing of user variables.  This option is enabled by\ndefault if optimization is enabled, and it does very little otherwise.\n\n", 
         "tags": [
-            "not relevant", 
-            "analysis pass"
+            "relevant", 
+            "variable coalescing"
         ]
     }, 
     "-ftree-loop-if-convert": {
         "origin": "gcc", 
         "description": "\nAttempt to transform conditional jumps in the innermost loops to\nbranch-less equivalents.  The intent is to remove control-flow from\nthe innermost loops in order to improve the ability of the\nvectorization pass to handle these loops.  This is enabled by default\nif vectorization is enabled.\n\n", 
         "tags": [
-            "relevant", 
+            "not relevant", 
+            "hand optimization", 
             "loops", 
             "vectorization", 
-            "native", 
-            "branch conversion"
+            "branch conversion", 
+            "conditional execution"
         ]
     }, 
     "-ftree-loop-distribution": {
@@ -1269,8 +1313,7 @@
         "tags": [
             "relevant", 
             "mathematical expression optimization", 
-            "jvm", 
-            "native"
+            "strength reduction"
         ]
     }, 
     "-ftree-vectorize": {
@@ -1297,7 +1340,8 @@
         "origin": "gcc", 
         "description": "\nPerform basic block vectorization on trees. This flag is enabled by default at\n-O3 and when -ftree-vectorize is enabled.\n\n", 
         "tags": [
-            "relevant", 
+            "not relevant", 
+            "hand optimization", 
             "vectorization", 
             "loops", 
             "native"
@@ -1308,7 +1352,8 @@
         "description": "\nAlter the cost model used for vectorization.  The model argument\nshould be one of \u2018unlimited\u2019, \u2018dynamic\u2019 or \u2018cheap\u2019.\nWith the \u2018unlimited\u2019 model the vectorized code-path is assumed\nto be profitable while with the \u2018dynamic\u2019 model a runtime check\nguards the vectorized code-path to enable it only for iteration\ncounts that will likely execute faster than when executing the original\nscalar loop.  The \u2018cheap\u2019 model disables vectorization of\nloops where doing so would be cost prohibitive for example due to\nrequired runtime checks for data dependence or alignment but otherwise\nis equal to the \u2018dynamic\u2019 model.\nThe default cost model depends on other optimization flags and is\neither \u2018dynamic\u2019 or \u2018cheap\u2019.\n\n", 
         "tags": [
             "not relevant", 
-            "parameter setting"
+            "parameter setting", 
+            "vectorization"
         ]
     }, 
     "-fsimd-cost-model=model": {
@@ -1357,6 +1402,7 @@
         "description": "\nWith this option, the compiler creates multiple copies of some\nlocal variables when unrolling a loop, which can result in superior code.\n\n", 
         "tags": [
             "not relevant", 
+            "hand optimization", 
             "loops", 
             "loop optimization"
         ]
@@ -1367,9 +1413,7 @@
         "tags": [
             "relevant", 
             "inter-function", 
-            "inlining", 
-            "jvm", 
-            "native"
+            "inlining"
         ]
     }, 
     "-fpredictive-commoning": {
@@ -1427,6 +1471,7 @@
         "description": "\nReorder basic blocks in the compiled function in order to reduce number of\ntaken branches and improve code locality.\n\nEnabled at levels -O, -O2, -O3, -Os.\n\n", 
         "tags": [
             "not relevant", 
+            "hand optimization", 
             "instruction level", 
             "program layout"
         ]
@@ -1437,7 +1482,9 @@
         "tags": [
             "not relevant", 
             "instruction level", 
-            "program layout"
+            "program layout", 
+            "basic block reordering", 
+            "parameter"
         ]
     }, 
     "-freorder-blocks-and-partition": {
@@ -1445,7 +1492,9 @@
         "description": "\nIn addition to reordering basic blocks in the compiled function, in order\nto reduce number of taken branches, partitions hot and cold basic blocks\ninto separate sections of the assembly and .o files, to improve\npaging and cache locality performance.\n\nThis optimization is automatically turned off in the presence of\nexception handling or unwind tables (on targets using setjump/longjump or target specific scheme), for linkonce sections, for functions with a user-defined\nsection attribute and on any architecture that does not support named\nsections.  When -fsplit-stack is used this option is not\nenabled by default (to avoid linker errors), but may be enabled\nexplicitly (if using a working linker).\n\nEnabled for x86 at levels -O2, -O3.\n\n", 
         "tags": [
             "not relevant", 
-            "program layout"
+            "program layout", 
+            "basic block reordering", 
+            "profiling"
         ]
     }, 
     "-freorder-functions": {
@@ -1454,7 +1503,8 @@
         "tags": [
             "not relevant", 
             "linker", 
-            "program layout"
+            "program layout", 
+            "function layout"
         ]
     }, 
     "-fstrict-aliasing": {
@@ -1463,7 +1513,8 @@
         "tags": [
             "not relevant", 
             "parameter", 
-            "helper pass"
+            "helper pass", 
+            "strict aliasing"
         ]
     }, 
     "-falign-functions": {
@@ -1475,7 +1526,8 @@
         "tags": [
             "not relevant", 
             "instruction level", 
-            "program layout"
+            "program layout", 
+            "function alignment"
         ]
     }, 
     "-flimit-function-alignment": {
@@ -1484,7 +1536,8 @@
         "tags": [
             "not relevant", 
             "instruction level", 
-            "program layout"
+            "program layout", 
+            "function alignment"
         ]
     }, 
     "-falign-labels": {
@@ -1496,7 +1549,8 @@
         "tags": [
             "not relevant", 
             "instruction level", 
-            "native"
+            "native", 
+            "instruction alignment"
         ]
     }, 
     "-falign-loops": {
@@ -1509,7 +1563,8 @@
             "not relevant", 
             "instruction level", 
             "program layout", 
-            "instruction scheduling"
+            "instruction scheduling", 
+            "instruction alignment"
         ]
     }, 
     "-falign-jumps": {
@@ -1521,7 +1576,8 @@
         "tags": [
             "not relevant", 
             "instruction level", 
-            "program layout"
+            "program layout", 
+            "instruction alignment"
         ]
     }, 
     "-funit-at-a-time": {
@@ -1616,7 +1672,9 @@
         "tags": [
             "not relevant", 
             "native", 
-            "instruction level"
+            "instruction level", 
+            "processor flags", 
+            "comparison operation elimination"
         ]
     }, 
     "-fcprop-registers": {
