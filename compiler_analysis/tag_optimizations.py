@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 import sys
 import tempfile
 import collections
+import re
 
 def load_database(filename):
     #database = {}
@@ -103,6 +104,22 @@ def manually_tag_opts(db, args):
         if args.manually_skip_tagged and 'tags' in o and len(o['tags']) > 0:
             print "skipping {}".format(name)
             continue
+        
+        if args.filter_tags:
+            visit = False
+            for ft in args.filter_tags:
+                for t in o.get('tags', []):
+                    m = re.match(ft, t)
+                    if m:
+                        print "{} re.match {}, visiting".format(ft, t)
+                        visit = True
+                        break
+
+                if visit:
+                    break
+            if not visit:
+                print "skipping {}".format(name)
+                continue
 
         tags_fh = tempfile.NamedTemporaryFile(mode="w+", delete=True)
         tags_file = tags_fh.name
@@ -151,6 +168,7 @@ if __name__ == "__main__":
     parser.add_argument('--gcc_parse', '-g', help='parse gcc html docs and enrich database')
     parser.add_argument('--manually_tag', '-m', help='manually tag the optimizatins with tags', action='store_true')
     parser.add_argument('--manually_skip_tagged', '-mst', help='skip already tagged', action='store_true')
+    parser.add_argument('--filter_tags', '-f', help='filter tags when manually tagging', action='append')
 
     parser.add_argument('--remove_old_entries', help="remove old entries", action='store_true')
 
