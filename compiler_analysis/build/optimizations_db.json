@@ -1722,281 +1722,554 @@
     "-adce: Aggressive Dead Code Elimination": {
         "origin": "llvm", 
         "description": "ADCE aggressively tries to eliminate code.  This pass is similar to DCE but it assumes that values are dead until proven otherwise.  This\nis similar to SCCP, except applied to the liveness of\nvalues.", 
-        "name": "-adce: Aggressive Dead Code Elimination"
+        "name": "-adce: Aggressive Dead Code Elimination", 
+        "tags": [
+            "relevant", 
+            "dead code elimination"
+        ]
     }, 
     "-always-inline: Inliner for always_inline functions": {
         "origin": "llvm", 
         "description": "A custom inliner that handles only functions that are marked as \u201calways\ninline\u201d.", 
-        "name": "-always-inline: Inliner for always_inline functions"
+        "name": "-always-inline: Inliner for always_inline functions", 
+        "tags": [
+            "not relevant", 
+            "functions", 
+            "inlining"
+        ]
     }, 
     "-argpromotion: Promote \u2018by reference\u2019 arguments to scalars": {
         "origin": "llvm", 
-        "description": "This pass promotes \u201cby reference\u201d arguments to be \u201cby value\u201d arguments.  In\npractice, this means looking for internal functions that have pointer\narguments.  If it can prove, through the use of alias analysis, that an\nargument is only loaded, then it can pass the value into the function instead\nof the address of the value.  This can cause recursive simplification of code\nand lead to the elimination of allocas (especially in C++ template code like\nthe STL).", 
-        "name": "-argpromotion: Promote \u2018by reference\u2019 arguments to scalars"
+        "description": "This pass promotes \u201cby reference\u201d arguments to be \u201cby value\u201d arguments.  In\npractice, this means looking for internal functions that have pointer\narguments.  If it can prove, through the use of alias analysis, that an\nargument is only loaded, then it can pass the value into the function instead\nof the address of the value.  This can cause recursive simplification of code\nand lead to the elimination of allocas (especially in C++ template code like\nthe STL).\nThis pass also handles aggregate arguments that are passed into a function,\nscalarizing them if the elements of the aggregate are only loaded.  Note that\nit refuses to scalarize aggregates which would require passing in more than\nthree operands to the function, because passing thousands of operands for a\nlarge array or structure is unprofitable!\nNote that this transformation could also be done for arguments that are only\nstored to (returning the value instead), but does not currently.  This case\nwould be best handled when and if LLVM starts supporting multiple return values\nfrom functions.", 
+        "name": "-argpromotion: Promote \u2018by reference\u2019 arguments to scalars", 
+        "tags": [
+            "not relevant", 
+            "hand optimization", 
+            "interprocedural"
+        ]
     }, 
     "-bb-vectorize: Basic-Block Vectorization": {
         "origin": "llvm", 
         "description": "This pass combines instructions inside basic blocks to form vector\ninstructions.  It iterates over each basic block, attempting to pair compatible\ninstructions, repeating this process until no additional pairs are selected for\nvectorization.  When the outputs of some pair of compatible instructions are\nused as inputs by some other pair of compatible instructions, those pairs are\npart of a potential vectorization chain.  Instruction pairs are only fused into\nvector instructions when they are part of a chain longer than some threshold\nlength.  Moreover, the pass attempts to find the best possible chain for each\npair of compatible instructions.  These heuristics are intended to prevent\nvectorization in cases where it would not yield a performance increase of the\nresulting code.", 
-        "name": "-bb-vectorize: Basic-Block Vectorization"
+        "name": "-bb-vectorize: Basic-Block Vectorization", 
+        "tags": [
+            "not relevant", 
+            "vectorization", 
+            "hand optimization"
+        ]
     }, 
     "-block-placement: Profile Guided Basic Block Placement": {
         "origin": "llvm", 
         "description": "This pass is a very simple profile guided basic block placement algorithm.  The\nidea is to put frequently executed blocks together at the start of the function\nand hopefully increase the number of fall-through conditional branches.  If\nthere is no profile information for a particular function, this pass basically\norders blocks in depth-first order.", 
-        "name": "-block-placement: Profile Guided Basic Block Placement"
+        "name": "-block-placement: Profile Guided Basic Block Placement", 
+        "tags": [
+            "not relevant", 
+            "instruction layout", 
+            "profile guided"
+        ]
     }, 
     "-break-crit-edges: Break critical edges in CFG": {
         "origin": "llvm", 
         "description": "Break all of the critical edges in the CFG by inserting a dummy basic block.\nIt may be \u201crequired\u201d by passes that cannot deal with critical edges.  This\ntransformation obviously invalidates the CFG, but can update forward dominator\n(set, immediate dominators, tree, and frontier) information.", 
-        "name": "-break-crit-edges: Break critical edges in CFG"
+        "name": "-break-crit-edges: Break critical edges in CFG", 
+        "tags": [
+            "not relevant", 
+            "helper pass", 
+            "instruction level"
+        ]
     }, 
     "-codegenprepare: Optimize for code generation": {
         "origin": "llvm", 
         "description": "This pass munges the code in the input function to better prepare it for\nSelectionDAG-based code generation.  This works around limitations in its\nbasic-block-at-a-time approach.  It should eventually be removed.", 
-        "name": "-codegenprepare: Optimize for code generation"
+        "name": "-codegenprepare: Optimize for code generation", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "instruction scheduling"
+        ]
     }, 
     "-constmerge: Merge Duplicate Global Constants": {
         "origin": "llvm", 
         "description": "Merges duplicate global constants together into a single constant that is\nshared.  This is useful because some passes (i.e., TraceValues) insert a lot of\nstring constants into the program, regardless of whether or not an existing\nstring is available.", 
-        "name": "-constmerge: Merge Duplicate Global Constants"
+        "name": "-constmerge: Merge Duplicate Global Constants", 
+        "tags": [
+            "relevant", 
+            "constant merging", 
+            "subexpression elimination"
+        ]
     }, 
     "-constprop: Simple constant propagation": {
         "origin": "llvm", 
-        "description": "This pass implements constant propagation and merging.  It looks for\ninstructions involving only constant operands and replaces them with a constant\nvalue instead of an instruction.  For example:", 
-        "name": "-constprop: Simple constant propagation"
+        "description": "This pass implements constant propagation and merging.  It looks for\ninstructions involving only constant operands and replaces them with a constant\nvalue instead of an instruction.  For example:\nadd i32 1, 2\n\n\nbecomes\ni32 3\n\n\nNOTE: this pass has a habit of making definitions be dead.  It is a good idea\nto run a Dead Instruction Elimination pass sometime after\nrunning this pass.", 
+        "name": "-constprop: Simple constant propagation", 
+        "tags": [
+            "relevant", 
+            "constant propagation"
+        ]
     }, 
     "-dce: Dead Code Elimination": {
         "origin": "llvm", 
         "description": "Dead code elimination is similar to dead instruction elimination, but it rechecks instructions that were used by removed\ninstructions to see if they are newly dead.", 
-        "name": "-dce: Dead Code Elimination"
+        "name": "-dce: Dead Code Elimination", 
+        "tags": [
+            "relevant", 
+            "dead code elimination"
+        ]
     }, 
     "-deadargelim: Dead Argument Elimination": {
         "origin": "llvm", 
-        "description": "This pass deletes dead arguments from internal functions.  Dead argument\nelimination removes arguments which are directly dead, as well as arguments\nonly passed into function calls as dead arguments of other functions.  This\npass also deletes dead arguments in a similar way.", 
-        "name": "-deadargelim: Dead Argument Elimination"
+        "description": "This pass deletes dead arguments from internal functions.  Dead argument\nelimination removes arguments which are directly dead, as well as arguments\nonly passed into function calls as dead arguments of other functions.  This\npass also deletes dead arguments in a similar way.\nThis pass is often useful as a cleanup pass to run after aggressive\ninterprocedural passes, which add possibly-dead arguments.", 
+        "name": "-deadargelim: Dead Argument Elimination", 
+        "tags": [
+            "not relevant", 
+            "hand optimization", 
+            "interprocedural", 
+            "helper pass"
+        ]
     }, 
     "-deadtypeelim: Dead Type Elimination": {
         "origin": "llvm", 
         "description": "This pass is used to cleanup the output of GCC.  It eliminate names for types\nthat are unused in the entire translation unit, using the find used types pass.", 
-        "name": "-deadtypeelim: Dead Type Elimination"
+        "name": "-deadtypeelim: Dead Type Elimination", 
+        "tags": [
+            "not relevant", 
+            "helper pass", 
+            "dead type elimination"
+        ]
     }, 
     "-die: Dead Instruction Elimination": {
         "origin": "llvm", 
         "description": "Dead instruction elimination performs a single pass over the function, removing\ninstructions that are obviously dead.", 
-        "name": "-die: Dead Instruction Elimination"
+        "name": "-die: Dead Instruction Elimination", 
+        "tags": [
+            "relevant", 
+            "dead code elimination"
+        ]
     }, 
     "-dse: Dead Store Elimination": {
         "origin": "llvm", 
         "description": "A trivial dead store elimination that only considers basic-block local\nredundant stores.", 
-        "name": "-dse: Dead Store Elimination"
+        "name": "-dse: Dead Store Elimination", 
+        "tags": [
+            "relevant", 
+            "dead store elimination"
+        ]
     }, 
     "-functionattrs: Deduce function attributes": {
         "origin": "llvm", 
         "description": "A simple interprocedural pass which walks the call-graph, looking for functions\nwhich do not access or only read non-local memory, and marking them\nreadnone/readonly.  In addition, it marks function arguments (of\npointer type) \u201cnocapture\u201d if a call to the function does not create any\ncopies of the pointer value that outlive the call.  This more or less means\nthat the pointer is only dereferenced, and not returned from the function or\nstored in a global.  This pass is implemented as a bottom-up traversal of the\ncall-graph.", 
-        "name": "-functionattrs: Deduce function attributes"
+        "name": "-functionattrs: Deduce function attributes", 
+        "tags": [
+            "not relevant", 
+            "helper pass", 
+            "analysis"
+        ]
     }, 
     "-globaldce: Dead Global Elimination": {
         "origin": "llvm", 
         "description": "This transform is designed to eliminate unreachable internal globals from the\nprogram.  It uses an aggressive algorithm, searching out globals that are known\nto be alive.  After it finds all of the globals which are needed, it deletes\nwhatever is left over.  This allows it to delete recursive chunks of the\nprogram which are unreachable.", 
-        "name": "-globaldce: Dead Global Elimination"
+        "name": "-globaldce: Dead Global Elimination", 
+        "tags": [
+            "not relevant", 
+            "hand optimization", 
+            "dead global elimination"
+        ]
     }, 
     "-globalopt: Global Variable Optimizer": {
         "origin": "llvm", 
         "description": "This pass transforms simple global variables that never have their address\ntaken.  If obviously true, it marks read/write globals as constant, deletes\nvariables only stored to, etc.", 
-        "name": "-globalopt: Global Variable Optimizer"
+        "name": "-globalopt: Global Variable Optimizer", 
+        "tags": [
+            "not relevant", 
+            "hand optimization", 
+            "global variables"
+        ]
     }, 
     "-gvn: Global Value Numbering": {
         "origin": "llvm", 
         "description": "This pass performs global value numbering to eliminate fully and partially\nredundant instructions.  It also performs redundant load elimination.", 
-        "name": "-gvn: Global Value Numbering"
+        "name": "-gvn: Global Value Numbering", 
+        "tags": [
+            "relevant", 
+            "common subexpression elimination", 
+            "global value numbering", 
+            "interesting"
+        ]
     }, 
     "-indvars: Canonicalize Induction Variables": {
         "origin": "llvm", 
-        "description": "This transformation analyzes and transforms the induction variables (and\ncomputations derived from them) into simpler forms suitable for subsequent\nanalysis and transformation.", 
-        "name": "-indvars: Canonicalize Induction Variables"
+        "description": "This transformation analyzes and transforms the induction variables (and\ncomputations derived from them) into simpler forms suitable for subsequent\nanalysis and transformation.\nThis transformation makes the following changes to each loop with an\nidentifiable induction variable:\n\nAll loops are transformed to have a single canonical induction variable\nwhich starts at zero and steps by one.\nThe canonical induction variable is guaranteed to be the first PHI node in\nthe loop header block.\nAny pointer arithmetic recurrences are raised to use array subscripts.\n\nIf the trip count of a loop is computable, this pass also makes the following\nchanges:\n\nThe exit condition for the loop is canonicalized to compare the induction\nvalue against the exit value.  This turns loops like:\nfor (i = 7; i*i < 1000; ++i)\n\ninto\n\n\nfor (i = 0; i != 25; ++i)\n\n\n\nAny use outside of the loop of an expression derived from the indvar is\nchanged to compute the derived value outside of the loop, eliminating the\ndependence on the exit value of the induction variable.  If the only purpose\nof the loop is to compute the exit value of some derived expression, this\ntransformation will make the loop dead.\n\n\nThis transformation should be followed by strength reduction after all of the\ndesired loop transformations have been performed.  Additionally, on targets\nwhere it is profitable, the loop could be transformed to count down to zero\n(the \u201cdo loop\u201d optimization).", 
+        "name": "-indvars: Canonicalize Induction Variables", 
+        "tags": [
+            "relevant", 
+            "induction variables", 
+            "loops", 
+            "induction variable canonicalization"
+        ]
     }, 
     "-inline: Function Integration/Inlining": {
         "origin": "llvm", 
         "description": "Bottom-up inlining of functions into callees.", 
-        "name": "-inline: Function Integration/Inlining"
+        "name": "-inline: Function Integration/Inlining", 
+        "tags": [
+            "relevant", 
+            "function", 
+            "inlining"
+        ]
     }, 
     "-instcombine: Combine redundant instructions": {
         "origin": "llvm", 
-        "description": "Combine instructions to form fewer, simple instructions.  This pass does not\nmodify the CFG. This pass is where algebraic simplification happens.", 
-        "name": "-instcombine: Combine redundant instructions"
+        "description": "Combine instructions to form fewer, simple instructions.  This pass does not\nmodify the CFG. This pass is where algebraic simplification happens.\nThis pass combines things like:\n%Y = add i32 %X, 1\n%Z = add i32 %Y, 1\n\n\ninto:\n%Z = add i32 %X, 2\n\n\nThis is a simple worklist driven algorithm.\nThis pass guarantees that the following canonicalizations are performed on the\nprogram:\n\nIf a binary operator has a constant operand, it is moved to the right-hand\nside.\nBitwise operators with constant operands are always grouped so that shifts\nare performed first, then ors, then ands, then xors.\nCompare instructions are converted from <, >, \u2264, or \u2265 to\n= or \u2260 if possible.\nAll cmp instructions on boolean values are replaced with logical\noperations.\nadd X, X is represented as mul X, 2 \u21d2 shl X, 1\nMultiplies with a constant power-of-two argument are transformed into\nshifts.\n\u2026 etc.\n\nThis pass can also simplify calls to specific well-known function calls (e.g.\nruntime library functions).  For example, a call exit(3) that occurs within\nthe main() function can be transformed into simply return 3. Whether or\nnot library calls are simplified is controlled by the\n-functionattrs pass and LLVM\u2019s knowledge of\nlibrary calls on different targets.", 
+        "name": "-instcombine: Combine redundant instructions", 
+        "tags": [
+            "relevant", 
+            "expression optimization", 
+            "expression simplification"
+        ]
     }, 
     "-internalize: Internalize Global Symbols": {
         "origin": "llvm", 
         "description": "This pass loops over all of the functions in the input module, looking for a\nmain function.  If a main function is found, all other functions and all global\nvariables with initializers are marked as internal.", 
-        "name": "-internalize: Internalize Global Symbols"
+        "name": "-internalize: Internalize Global Symbols", 
+        "tags": [
+            "not relevant", 
+            "helper pass"
+        ]
     }, 
     "-ipconstprop: Interprocedural constant propagation": {
         "origin": "llvm", 
         "description": "This pass implements an extremely simple interprocedural constant propagation\npass.  It could certainly be improved in many different ways, like using a\nworklist.  This pass makes arguments dead, but does not remove them.  The\nexisting dead argument elimination pass should be run after this to clean up\nthe mess.", 
-        "name": "-ipconstprop: Interprocedural constant propagation"
+        "name": "-ipconstprop: Interprocedural constant propagation", 
+        "tags": [
+            "relevant", 
+            "interprocedural constant propagation"
+        ]
     }, 
     "-ipsccp: Interprocedural Sparse Conditional Constant Propagation": {
         "origin": "llvm", 
         "description": "An interprocedural variant of Sparse Conditional Constant Propagation.", 
-        "name": "-ipsccp: Interprocedural Sparse Conditional Constant Propagation"
+        "name": "-ipsccp: Interprocedural Sparse Conditional Constant Propagation", 
+        "tags": [
+            "not relevant", 
+            "hand optimization", 
+            "interprocedural", 
+            "sparse constant propagation"
+        ]
     }, 
     "-jump-threading: Jump Threading": {
         "origin": "llvm", 
-        "description": "Jump threading tries to find distinct threads of control flow running through a\nbasic block.  This pass looks at blocks that have multiple predecessors and\nmultiple successors.  If one or more of the predecessors of the block can be\nproven to always cause a jump to one of the successors, we forward the edge\nfrom the predecessor to the successor by duplicating the contents of this\nblock.", 
-        "name": "-jump-threading: Jump Threading"
+        "description": "Jump threading tries to find distinct threads of control flow running through a\nbasic block.  This pass looks at blocks that have multiple predecessors and\nmultiple successors.  If one or more of the predecessors of the block can be\nproven to always cause a jump to one of the successors, we forward the edge\nfrom the predecessor to the successor by duplicating the contents of this\nblock.\nAn example of when this can occur is code like this:\nif () { ...\n  X = 4;\n}\nif (X < 3) {\n\n\nIn this case, the unconditional branch at the end of the first if can be\nrevectored to the false side of the second if.", 
+        "name": "-jump-threading: Jump Threading", 
+        "tags": [
+            "relevant", 
+            "hand optimization", 
+            "branch layout", 
+            "conditional analysis"
+        ]
     }, 
     "-lcssa: Loop-Closed SSA Form Pass": {
         "origin": "llvm", 
-        "description": "This pass transforms loops by placing phi nodes at the end of the loops for all\nvalues that are live across the loop boundary.  For example, it turns the left\ninto the right code:", 
-        "name": "-lcssa: Loop-Closed SSA Form Pass"
+        "description": "This pass transforms loops by placing phi nodes at the end of the loops for all\nvalues that are live across the loop boundary.  For example, it turns the left\ninto the right code:\nfor (...)                for (...)\n    if (c)                   if (c)\n        X1 = ...                 X1 = ...\n    else                     else\n        X2 = ...                 X2 = ...\n    X3 = phi(X1, X2)         X3 = phi(X1, X2)\n... = X3 + 4              X4 = phi(X3)\n                            ... = X4 + 4\n\n\nThis is still valid LLVM; the extra phi nodes are purely redundant, and will be\ntrivially eliminated by InstCombine.  The major benefit of this\ntransformation is that it makes many other loop optimizations, such as\nLoopUnswitching, simpler.", 
+        "name": "-lcssa: Loop-Closed SSA Form Pass", 
+        "tags": [
+            "not relevant", 
+            "helper pass"
+        ]
     }, 
     "-licm: Loop Invariant Code Motion": {
         "origin": "llvm", 
-        "description": "This pass performs loop invariant code motion, attempting to remove as much\ncode from the body of a loop as possible.  It does this by either hoisting code\ninto the preheader block, or by sinking code to the exit blocks if it is safe.\nThis pass also promotes must-aliased memory locations in the loop to live in\nregisters, thus hoisting and sinking \u201cinvariant\u201d loads and stores.", 
-        "name": "-licm: Loop Invariant Code Motion"
+        "description": "This pass performs loop invariant code motion, attempting to remove as much\ncode from the body of a loop as possible.  It does this by either hoisting code\ninto the preheader block, or by sinking code to the exit blocks if it is safe.\nThis pass also promotes must-aliased memory locations in the loop to live in\nregisters, thus hoisting and sinking \u201cinvariant\u201d loads and stores.\nThis pass uses alias analysis for two purposes:\n\nMoving loop invariant loads and calls out of loops.  If we can determine\nthat a load or call inside of a loop never aliases anything stored to, we\ncan hoist it or sink it like any other instruction.\n\nScalar Promotion of Memory.  If there is a store instruction inside of the\nloop, we try to move the store to happen AFTER the loop instead of inside of\nthe loop.  This can only happen if a few conditions are true:\n\nThe pointer stored through is loop invariant.\nThere are no stores or loads in the loop which may alias the pointer.\nThere are no calls in the loop which mod/ref the pointer.\n\nIf these conditions are true, we can promote the loads and stores in the\nloop of the pointer to use a temporary alloca\u2019d variable.  We then use the\nmem2reg functionality to construct the appropriate\nSSA form for the variable.", 
+        "name": "-licm: Loop Invariant Code Motion", 
+        "tags": [
+            "relevant", 
+            "code motion", 
+            "loops"
+        ]
     }, 
     "-loop-deletion: Delete dead loops": {
         "origin": "llvm", 
         "description": "This file implements the Dead Loop Deletion Pass.  This pass is responsible for\neliminating loops with non-infinite computable trip counts that have no side\neffects or volatile instructions, and do not contribute to the computation of\nthe function\u2019s return value.", 
-        "name": "-loop-deletion: Delete dead loops"
+        "name": "-loop-deletion: Delete dead loops", 
+        "tags": [
+            "relevant", 
+            "dead code elimination", 
+            "dead loops", 
+            "helper pass"
+        ]
     }, 
     "-loop-extract: Extract loops into new functions": {
         "origin": "llvm", 
         "description": "A pass wrapper around the ExtractLoop() scalar transformation to extract\neach top-level loop into its own new function.  If the loop is the only loop\nin a given function, it is not touched.  This is a pass most useful for\ndebugging via bugpoint.", 
-        "name": "-loop-extract: Extract loops into new functions"
+        "name": "-loop-extract: Extract loops into new functions", 
+        "tags": [
+            "not relevant", 
+            "loop analysis"
+        ]
     }, 
     "-loop-extract-single: Extract at most one loop into a new function": {
         "origin": "llvm", 
         "description": "Similar to Extract loops into new functions, this\npass extracts one natural loop from the program into a function if it can.\nThis is used by bugpoint.", 
-        "name": "-loop-extract-single: Extract at most one loop into a new function"
+        "name": "-loop-extract-single: Extract at most one loop into a new function", 
+        "tags": [
+            "not relevant", 
+            "loop analysis"
+        ]
     }, 
     "-loop-reduce: Loop Strength Reduction": {
         "origin": "llvm", 
         "description": "This pass performs a strength reduction on array references inside loops that\nhave as one or more of their components the loop induction variable.  This is\naccomplished by creating a new value to hold the initial value of the array\naccess for the first iteration, and then creating a new GEP instruction in the\nloop to increment the value by the appropriate amount.", 
-        "name": "-loop-reduce: Loop Strength Reduction"
+        "name": "-loop-reduce: Loop Strength Reduction", 
+        "tags": [
+            "relevant", 
+            "strength reduction", 
+            "induction variables", 
+            ""
+        ]
     }, 
     "-loop-rotate: Rotate Loops": {
         "origin": "llvm", 
         "description": "A simple loop rotation transformation.", 
-        "name": "-loop-rotate: Rotate Loops"
+        "name": "-loop-rotate: Rotate Loops", 
+        "tags": [
+            "not relevant", 
+            "hand optimization", 
+            "loops"
+        ]
     }, 
     "-loop-simplify: Canonicalize natural loops": {
         "origin": "llvm", 
-        "description": "This pass performs several transformations to transform natural loops into a\nsimpler form, which makes subsequent analyses and transformations simpler and\nmore effective.", 
-        "name": "-loop-simplify: Canonicalize natural loops"
+        "description": "This pass performs several transformations to transform natural loops into a\nsimpler form, which makes subsequent analyses and transformations simpler and\nmore effective.\nLoop pre-header insertion guarantees that there is a single, non-critical entry\nedge from outside of the loop to the loop header.  This simplifies a number of\nanalyses and transformations, such as LICM.\nLoop exit-block insertion guarantees that all exit blocks from the loop (blocks\nwhich are outside of the loop that have predecessors inside of the loop) only\nhave predecessors from inside of the loop (and are thus dominated by the loop\nheader).  This simplifies transformations such as store-sinking that are built\ninto LICM.\nThis pass also guarantees that loops will have exactly one backedge.\nNote that the simplifycfg pass will clean up blocks\nwhich are split out but end up being unnecessary, so usage of this pass should\nnot pessimize generated code.\nThis pass obviously modifies the CFG, but updates loop information and\ndominator information.", 
+        "name": "-loop-simplify: Canonicalize natural loops", 
+        "tags": [
+            "not relevant", 
+            "loop canonicalization", 
+            "helper pass"
+        ]
     }, 
     "-loop-unroll: Unroll loops": {
         "origin": "llvm", 
         "description": "This pass implements a simple loop unroller.  It works best when loops have\nbeen canonicalized by the indvars pass, allowing it to\ndetermine the trip counts of loops easily.", 
-        "name": "-loop-unroll: Unroll loops"
+        "name": "-loop-unroll: Unroll loops", 
+        "tags": [
+            "not relevant", 
+            "hand optimization"
+        ]
     }, 
     "-loop-unswitch: Unswitch loops": {
         "origin": "llvm", 
-        "description": "This pass transforms loops that contain branches on loop-invariant conditions\nto have multiple loops.  For example, it turns the left into the right code:", 
-        "name": "-loop-unswitch: Unswitch loops"
+        "description": "This pass transforms loops that contain branches on loop-invariant conditions\nto have multiple loops.  For example, it turns the left into the right code:\nfor (...)                  if (lic)\n    A                          for (...)\n    if (lic)                       A; B; C\n        B                  else\n    C                          for (...)\n                                   A; C\n\n\nThis can increase the size of the code exponentially (doubling it every time a\nloop is unswitched) so we only unswitch if the resultant code will be smaller\nthan a threshold.\nThis pass expects LICM to be run before it to hoist\ninvariant conditions out of the loop, to make the unswitching opportunity\nobvious.", 
+        "name": "-loop-unswitch: Unswitch loops", 
+        "tags": [
+            "relevant", 
+            "loop unswitching"
+        ]
     }, 
     "-loweratomic: Lower atomic intrinsics to non-atomic form": {
         "origin": "llvm", 
-        "description": "This pass lowers atomic intrinsics to non-atomic form for use in a known\nnon-preemptible environment.", 
-        "name": "-loweratomic: Lower atomic intrinsics to non-atomic form"
+        "description": "This pass lowers atomic intrinsics to non-atomic form for use in a known\nnon-preemptible environment.\nThe pass does not verify that the environment is non-preemptible (in general\nthis would require knowledge of the entire call graph of the program including\nany libraries which may not be available in bitcode form); it simply lowers\nevery atomic intrinsic.", 
+        "name": "-loweratomic: Lower atomic intrinsics to non-atomic form", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "atomics"
+        ]
     }, 
     "-lowerinvoke: Lower invokes to calls, for unwindless code generators": {
         "origin": "llvm", 
         "description": "This transformation is designed for use by code generators which do not yet\nsupport stack unwinding.  This pass converts invoke instructions to\ncall instructions, so that any exception-handling landingpad blocks\nbecome dead code (which can be removed by running the -simplifycfg pass\nafterwards).", 
-        "name": "-lowerinvoke: Lower invokes to calls, for unwindless code generators"
+        "name": "-lowerinvoke: Lower invokes to calls, for unwindless code generators", 
+        "tags": [
+            "not relevant", 
+            "instruction level"
+        ]
     }, 
     "-lowerswitch: Lower SwitchInsts to branches": {
         "origin": "llvm", 
         "description": "Rewrites switch instructions with a sequence of branches, which allows targets\nto get away with not implementing the switch instruction until it is\nconvenient.", 
-        "name": "-lowerswitch: Lower SwitchInsts to branches"
+        "name": "-lowerswitch: Lower SwitchInsts to branches", 
+        "tags": [
+            "not relevant", 
+            "non default"
+        ]
     }, 
     "-mem2reg: Promote Memory to Register": {
         "origin": "llvm", 
         "description": "This file promotes memory references to be register references.  It promotes\nalloca instructions which only have loads and stores as uses.  An alloca is\ntransformed by using dominator frontiers to place phi nodes, then traversing\nthe function in depth-first order to rewrite loads and stores as appropriate.\nThis is just the standard SSA construction algorithm to construct \u201cpruned\u201d SSA\nform.", 
-        "name": "-mem2reg: Promote Memory to Register"
+        "name": "-mem2reg: Promote Memory to Register", 
+        "tags": [
+            "not relevant", 
+            "instruction level", 
+            "ssa construction"
+        ]
     }, 
     "-memcpyopt: MemCpy Optimization": {
         "origin": "llvm", 
         "description": "This pass performs various transformations related to eliminating memcpy\ncalls, or transforming sets of stores into memsets.", 
-        "name": "-memcpyopt: MemCpy Optimization"
+        "name": "-memcpyopt: MemCpy Optimization", 
+        "tags": [
+            "not relevant", 
+            "library optimizations"
+        ]
     }, 
     "-mergefunc: Merge Functions": {
         "origin": "llvm", 
-        "description": "This pass looks for equivalent functions that are mergable and folds them.", 
-        "name": "-mergefunc: Merge Functions"
+        "description": "This pass looks for equivalent functions that are mergable and folds them.\nTotal-ordering is introduced among the functions set: we define comparison\nthat answers for every two functions which of them is greater. It allows to\narrange functions into the binary tree.\nFor every new function we check for equivalent in tree.\nIf equivalent exists we fold such functions. If both functions are overridable,\nwe move the functionality into a new internal function and leave two\noverridable thunks to it.\nIf there is no equivalent, then we add this function to tree.\nLookup routine has O(log(n)) complexity, while whole merging process has\ncomplexity of O(n*log(n)).\nRead\nthis\narticle for more details.", 
+        "name": "-mergefunc: Merge Functions", 
+        "tags": [
+            "not relevant", 
+            "interprocedural", 
+            "hand optimization", 
+            "equivalent functions"
+        ]
     }, 
     "-mergereturn: Unify function exit nodes": {
         "origin": "llvm", 
         "description": "Ensure that functions have at most one ret instruction in them.\nAdditionally, it keeps track of which node is the new exit node of the CFG.", 
-        "name": "-mergereturn: Unify function exit nodes"
+        "name": "-mergereturn: Unify function exit nodes", 
+        "tags": [
+            "not relevant", 
+            "intruction level"
+        ]
     }, 
     "-partial-inliner: Partial Inliner": {
         "origin": "llvm", 
         "description": "This pass performs partial inlining, typically by inlining an if statement\nthat surrounds the body of the function.", 
-        "name": "-partial-inliner: Partial Inliner"
+        "name": "-partial-inliner: Partial Inliner", 
+        "tags": [
+            "not relevant", 
+            "hand optimization", 
+            "interprocedural", 
+            "inlining"
+        ]
     }, 
     "-prune-eh: Remove unused exception handling info": {
         "origin": "llvm", 
         "description": "This file implements a simple interprocedural pass which walks the call-graph,\nturning invoke instructions into call instructions if and only if the callee\ncannot throw an exception.  It implements this as a bottom-up traversal of the\ncall-graph.", 
-        "name": "-prune-eh: Remove unused exception handling info"
+        "name": "-prune-eh: Remove unused exception handling info", 
+        "tags": [
+            "not relevant", 
+            "interprocedural", 
+            "exception handling"
+        ]
     }, 
     "-reassociate: Reassociate expressions": {
         "origin": "llvm", 
-        "description": "This pass reassociates commutative expressions in an order that is designed to\npromote better constant propagation, GCSE, LICM, PRE, etc.", 
-        "name": "-reassociate: Reassociate expressions"
+        "description": "This pass reassociates commutative expressions in an order that is designed to\npromote better constant propagation, GCSE, LICM, PRE, etc.\nFor example: 4 + (x + 5) \u21d2 x + (4 + 5)\nIn the implementation of this algorithm, constants are assigned rank = 0,\nfunction arguments are rank = 1, and other values are assigned ranks\ncorresponding to the reverse post order traversal of current function (starting\nat 2), which effectively gives values in deep loops higher rank than values not\nin loops.", 
+        "name": "-reassociate: Reassociate expressions", 
+        "tags": [
+            "relevant", 
+            "tree reassociation", 
+            "expression canonicalization", 
+            "helper pass"
+        ]
     }, 
     "-reg2mem: Demote all values to stack slots": {
         "origin": "llvm", 
         "description": "This file demotes all registers to memory references.  It is intended to be the\ninverse of mem2reg.  By converting to load\ninstructions, the only values live across basic blocks are alloca\ninstructions and load instructions before phi nodes.  It is intended\nthat this should make CFG hacking much easier.  To make later hacking easier,\nthe entry block is split into two, such that all introduced alloca\ninstructions (and nothing else) are in the entry block.", 
-        "name": "-reg2mem: Demote all values to stack slots"
+        "name": "-reg2mem: Demote all values to stack slots", 
+        "tags": [
+            "not relevant", 
+            "non default", 
+            "helper pass"
+        ]
     }, 
     "-sroa: Scalar Replacement of Aggregates": {
         "origin": "llvm", 
         "description": "The well-known scalar replacement of aggregates transformation.  This transform\nbreaks up alloca instructions of aggregate type (structure or array) into\nindividual alloca instructions for each member if possible.  Then, if\npossible, it transforms the individual alloca instructions into nice clean\nscalar SSA form.", 
-        "name": "-sroa: Scalar Replacement of Aggregates"
+        "name": "-sroa: Scalar Replacement of Aggregates", 
+        "tags": [
+            "not relevant", 
+            "scalar replacement of aggregates", 
+            "structure optimizations"
+        ]
     }, 
     "-sccp: Sparse Conditional Constant Propagation": {
         "origin": "llvm", 
-        "description": "Sparse conditional constant propagation and merging, which can be summarized\nas:", 
-        "name": "-sccp: Sparse Conditional Constant Propagation"
+        "description": "Sparse conditional constant propagation and merging, which can be summarized\nas:\n\nAssumes values are constant unless proven otherwise\nAssumes BasicBlocks are dead unless proven otherwise\nProves values to be constant, and replaces them with constants\nProves conditional branches to be unconditional\n\nNote that this pass has a habit of making definitions be dead.  It is a good\nidea to run a DCE pass sometime after running this pass.", 
+        "name": "-sccp: Sparse Conditional Constant Propagation", 
+        "tags": [
+            "relevant", 
+            "hand optimization", 
+            "constant propagation", 
+            "conditional constant propagation"
+        ]
     }, 
     "-simplifycfg: Simplify the CFG": {
         "origin": "llvm", 
-        "description": "Performs dead code elimination and basic block merging.  Specifically:", 
-        "name": "-simplifycfg: Simplify the CFG"
+        "description": "Performs dead code elimination and basic block merging.  Specifically:\n\nRemoves basic blocks with no predecessors.\nMerges a basic block into its predecessor if there is only one and the\npredecessor only has one successor.\nEliminates PHI nodes for basic blocks with a single predecessor.\nEliminates a basic block that only contains an unconditional branch.", 
+        "name": "-simplifycfg: Simplify the CFG", 
+        "tags": [
+            "not relevant", 
+            "instruction level"
+        ]
     }, 
     "-sink: Code sinking": {
         "origin": "llvm", 
         "description": "This pass moves instructions into successor blocks, when possible, so that they\naren\u2019t executed on paths where their results aren\u2019t needed.", 
-        "name": "-sink: Code sinking"
+        "name": "-sink: Code sinking", 
+        "tags": [
+            "relevant", 
+            "code sinking", 
+            "code motion"
+        ]
     }, 
     "-strip: Strip all symbols from a module": {
         "origin": "llvm", 
-        "description": "Performs code stripping.  This transformation can delete:", 
-        "name": "-strip: Strip all symbols from a module"
+        "description": "Performs code stripping.  This transformation can delete:\n\nnames for virtual registers\nsymbols for internal globals and functions\ndebug information\n\nNote that this transformation makes code much less readable, so it should only\nbe used in situations where the strip utility would be used, such as reducing\ncode size or making it harder to reverse engineer code.", 
+        "name": "-strip: Strip all symbols from a module", 
+        "tags": [
+            "not relevant", 
+            "linker", 
+            "instruction level"
+        ]
     }, 
     "-strip-dead-debug-info: Strip debug info for unused symbols": {
         "origin": "llvm", 
-        "description": "performs code stripping. this transformation can delete:", 
-        "name": "-strip-dead-debug-info: Strip debug info for unused symbols"
+        "description": "performs code stripping. this transformation can delete:\n\nnames for virtual registers\nsymbols for internal globals and functions\ndebug information\n\nnote that this transformation makes code much less readable, so it should only\nbe used in situations where the strip utility would be used, such as reducing\ncode size or making it harder to reverse engineer code.", 
+        "name": "-strip-dead-debug-info: Strip debug info for unused symbols", 
+        "tags": [
+            "not relevant", 
+            "linker", 
+            "symbols"
+        ]
     }, 
     "-strip-dead-prototypes: Strip Unused Function Prototypes": {
         "origin": "llvm", 
         "description": "This pass loops over all of the functions in the input module, looking for dead\ndeclarations and removes them.  Dead declarations are declarations of functions\nfor which no implementation is available (i.e., declarations for unused library\nfunctions).", 
-        "name": "-strip-dead-prototypes: Strip Unused Function Prototypes"
+        "name": "-strip-dead-prototypes: Strip Unused Function Prototypes", 
+        "tags": [
+            "not relevant", 
+            "linker", 
+            "symbols"
+        ]
     }, 
     "-strip-debug-declare: Strip all llvm.dbg.declare intrinsics": {
         "origin": "llvm", 
-        "description": "This pass implements code stripping.  Specifically, it can delete:", 
-        "name": "-strip-debug-declare: Strip all llvm.dbg.declare intrinsics"
+        "description": "This pass implements code stripping.  Specifically, it can delete:\n\nnames for virtual registers\nsymbols for internal globals and functions\ndebug information\n\nNote that this transformation makes code much less readable, so it should only\nbe used in situations where the \u2018strip\u2019 utility would be used, such as reducing\ncode size or making it harder to reverse engineer code.", 
+        "name": "-strip-debug-declare: Strip all llvm.dbg.declare intrinsics", 
+        "tags": [
+            "not relevant", 
+            "linker", 
+            "stripping"
+        ]
     }, 
     "-strip-nondebug: Strip all symbols, except dbg symbols, from a module": {
         "origin": "llvm", 
-        "description": "This pass implements code stripping.  Specifically, it can delete:", 
-        "name": "-strip-nondebug: Strip all symbols, except dbg symbols, from a module"
+        "description": "This pass implements code stripping.  Specifically, it can delete:\n\nnames for virtual registers\nsymbols for internal globals and functions\ndebug information\n\nNote that this transformation makes code much less readable, so it should only\nbe used in situations where the \u2018strip\u2019 utility would be used, such as reducing\ncode size or making it harder to reverse engineer code.", 
+        "name": "-strip-nondebug: Strip all symbols, except dbg symbols, from a module", 
+        "tags": [
+            "not relevant", 
+            "linker", 
+            "stripping"
+        ]
     }, 
     "-tailcallelim: Tail Call Elimination": {
         "origin": "llvm", 
-        "description": "This file transforms calls of the current function (self recursion) followed by\na return instruction with a branch to the entry of the function, creating a\nloop.  This pass also implements the following extensions to the basic\nalgorithm:", 
-        "name": "-tailcallelim: Tail Call Elimination"
+        "description": "This file transforms calls of the current function (self recursion) followed by\na return instruction with a branch to the entry of the function, creating a\nloop.  This pass also implements the following extensions to the basic\nalgorithm:\n\nTrivial instructions between the call and return do not prevent the\ntransformation from taking place, though currently the analysis cannot\nsupport moving any really useful instructions (only dead ones).\nThis pass transforms functions that are prevented from being tail recursive\nby an associative expression to use an accumulator variable, thus compiling\nthe typical naive factorial or fib implementation into efficient code.\nTRE is performed if the function returns void, if the return returns the\nresult returned by the call, or if the function returns a run-time constant\non all exits from the function.  It is possible, though unlikely, that the\nreturn returns something else (like constant 0), and can still be TRE\u2019d.  It\ncan be TRE\u2019d if all other return instructions in the function return the\nexact same value.\nIf it can prove that callees do not access theier caller stack frame, they\nare marked as eligible for tail call elimination (by the code generator).", 
+        "name": "-tailcallelim: Tail Call Elimination", 
+        "tags": [
+            "not relevant", 
+            "hand optimization"
+        ]
     }
 }

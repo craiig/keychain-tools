@@ -102,7 +102,12 @@ def parse_llvm(db, filename):
     entries = []
     for transform in transforms:
         name = transform.select('a')[0].text
-        desc = transform.select('p')[0].text
+
+        #remove name and return char
+        #desc = transform.select('p')[0].text
+        transform.select('a')[0].extract()
+        transform.select('a')[0].extract()
+        desc = transform.text.strip()
 
         if name not in db:
             db[name] = {}
@@ -126,7 +131,7 @@ def remove_old_entries(db, new_entries):
 def manually_tag_opts(db, args):
     # show a vim window with the opt description and a window to add tags
     for name,o in db.iteritems():
-
+        name = name.encode('utf-8')
         if args.manually_skip_tagged and 'tags' in o and len(o['tags']) > 0:
             print "skipping {}".format(name)
             continue
