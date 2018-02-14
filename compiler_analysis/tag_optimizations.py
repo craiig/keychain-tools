@@ -77,7 +77,9 @@ def parse_gcc(db, filename):
     for o in all_opts:
         if not o['name'] in db:
             db[o['name']] = {}
-        #else:
+        else:
+            #safety
+            assert db[o['name']]['origin'] == 'gcc'
             ##ordered dict hack, do a removal and reinsert to establish good order (to fix a badly ordered file)
             ## can remove after this is done once?
             #entry = db[o['name']]
@@ -91,6 +93,30 @@ def parse_gcc(db, filename):
         entry['origin'] = 'gcc'
 
     return all_opts
+
+def parse_llvm(db, filename):
+    with open(filename) as fh:
+        soup = BeautifulSoup(fh, "lxml")
+
+    transforms = soup.select('#transform-passes .section')
+    entries = []
+    for transform in transforms:
+        name = transform.select('a')[0].text
+        desc = transform.select('p')[0].text
+
+        if name not in db:
+            db[name] = {}
+        else:
+            #safety
+            assert db[name]['origin'] == 'llvm'
+
+        entry = db[name]
+        entry['description'] = desc
+        entry['name'] = name
+        entry['origin'] = 'llvm'
+        entries.append(entry)
+
+    return entries
 
 def remove_old_entries(db, new_entries):
     for k,v in db.iteritems():
@@ -166,6 +192,7 @@ if __name__ == "__main__":
     parser.add_argument('--opt_inputs', '-oi', help="a structure list of optimizations")
     parser.add_argument('--db', help="where to store data on the optimizations", required=True)
     parser.add_argument('--gcc_parse', '-g', help='parse gcc html docs and enrich database')
+    parser.add_argument('--llvm_parse', '-l', help='parse gcc html docs and enrich database')
     parser.add_argument('--manually_tag', '-m', help='manually tag the optimizatins with tags', action='store_true')
     parser.add_argument('--manually_skip_tagged', '-mst', help='skip already tagged', action='store_true')
     parser.add_argument('--filter_tags', '-f', help='filter tags when manually tagging', action='append')
@@ -176,12 +203,23 @@ if __name__ == "__main__":
 
     db = load_database(args.db)
 
+
+    gcc_entries = []
     if args.gcc_parse:
         gcc_entries = parse_gcc(db, args.gcc_parse)
 
+    llvm_entries = []
+    if args.llvm_parse:
+        llvm_entries = parse_llvm(db, args.llvm_parse)
+
+    if args.gcc_parse and args.llvm_parse:
+        # todo fix this up after llvm has been implemented
         if args.remove_old_entries:
-            new_entries = [e['name'] for e in gcc_entries]
+            new_entries = [e['name'] for e in gcc_entries] + [e['name'] for e in llvm_entries]
             remove_old_entries(db, new_entries)
+    elif args.remove_old_entries:
+        print "error: specific all optimizations to parse if you want to remove old entries"
+        sys.exit(1)
 
     if args.manually_tag:
         manually_tag_opts(db, args)
