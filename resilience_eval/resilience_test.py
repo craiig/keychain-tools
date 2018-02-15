@@ -6,6 +6,7 @@ from pprint import pprint
 import subprocess
 import sys
 import hashlib
+import re
 
 #templates used to generate code
 import resilience_templates
@@ -27,7 +28,8 @@ def gcc_compile_and_hash(program, variant_idx, variant_path, program_text):
     #OS X gcc is ACTUALLY CLANG so we use one from homebrew
     # TODO use a much more recent version of gcc
     asm_path = "{}.S".format(variant_path)
-    compile_cmd = "/usr/local/bin/gcc-4.9 -o {} -c -S -O3 {}.c".format(asm_path, variant_path)
+    compile_cmd = "/usr/local/bin/gcc-4.9 -o {} -c -S -O3 -std=gnu11 {}.c".format(asm_path, variant_path)
+    #compile_cmd = "clang -o {} -c -S -O3 {}.c".format(asm_path, variant_path)
     print compile_cmd
 
     try:
@@ -61,6 +63,11 @@ def generate_c_code(program, args):
     body = resilience_templates.CProgram.body
     program_hashes = []
     for idx,v in enumerate(program.get('variants', [])):
+        if 'code' not in v:
+            print 'skipping variant {} for {} because no compatible code specified'.format(
+                idx, program['name']
+            )
+            continue
         program_text = body.format(
             expression=v['code']
             , return_type = return_type
@@ -76,7 +83,7 @@ def generate_c_code(program, args):
         # we chose to write to files because this is easier to debug mismatches
         if not os.path.exists(os.path.dirname(code_path)):
             os.makedirs(os.path.dirname(code_path))
-        with open(variant_path, "w+") as fh:
+        with open(code_path, "w+") as fh:
             fh.write(program_text)
 
         if True: #if debug:
@@ -105,6 +112,9 @@ def generate_all_code(overall, args):
     total_variants = 1
     total_unique_programs = 0
     for p in overall.get('programs', []):
+        # uncomment to only do a specific eval
+        #if p['name'] != 'constant_folding_associativity':
+            #continue
         #generate_scala_code(p, args)
         program_hashes = generate_c_code(p, args)
 
@@ -124,6 +134,13 @@ def generate_all_code(overall, args):
     overall['total_unique_programs'] = total_unique_programs
     overall['total_variants'] = total_variants
 
+def clean_programs(program):
+    for p in program['programs']:
+        if re.search(' ', p['name']):
+            newname = re.sub(r' ', '_', p['name'])
+            print >> sys.stderr, "warning: renaming '{}' to {}".format(p['name'], newname)
+            p['name'] = newname
+
 def main():
     parser = argparse.ArgumentParser(description='run resilience test using input')
     parser.add_argument('--filename', '-f', help='filename of resilience test definitions', required=True)
@@ -133,6 +150,8 @@ def main():
 
     with open(args.filename) as fh:
         program = json.load(fh)
+
+    clean_programs(program)
 
     generate_all_code(program, args)
 
