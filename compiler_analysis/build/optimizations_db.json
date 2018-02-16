@@ -67,7 +67,8 @@
             "relevant", 
             "inlining", 
             "functions", 
-            "small functions"
+            "small functions", 
+            "covered"
         ]
     }, 
     "-findirect-inlining": {
@@ -86,7 +87,8 @@
         "tags": [
             "relevant", 
             "functions", 
-            "function inlining"
+            "function inlining", 
+            "covered"
         ]
     }, 
     "-finline-functions-called-once": {
@@ -94,7 +96,8 @@
         "description": "\nConsider all static functions called once for inlining into their\ncaller even if they are not marked inline.  If a call to a given\nfunction is integrated, then the function is not output as assembler code\nin its own right.\n\nEnabled at levels -O1, -O2, -O3 and -Os.\n\n", 
         "tags": [
             "relevant", 
-            "function inlining"
+            "function inlining", 
+            "covered"
         ]
     }, 
     "-fearly-inlining": {
@@ -103,7 +106,8 @@
         "tags": [
             "relevant", 
             "function inlining", 
-            "early inlining"
+            "early inlining", 
+            "covered"
         ]
     }, 
     "-fipa-sra": {
@@ -165,20 +169,24 @@
         "origin": "gcc", 
         "description": "\nAttempt to merge identical constants (string constants and floating-point\nconstants) across compilation units.\n\nThis option is the default for optimized compilation if the assembler and\nlinker support it.  Use -fno-merge-constants to inhibit this\nbehavior.\n\nEnabled at levels -O, -O2, -O3, -Os.\n\n", 
         "tags": [
-            "relevant", 
+            "not relevant", 
             "constants", 
             "constant merging", 
-            "subexpression elimination"
+            "subexpression elimination", 
+            "linker", 
+            "inter compilation unit"
         ]
     }, 
     "-fmerge-all-constants": {
         "origin": "gcc", 
         "description": "\nAttempt to merge identical constants and identical variables.\n\nThis option implies -fmerge-constants.  In addition to\n-fmerge-constants this considers e.g. even constant initialized\narrays or initialized constant variables with integral or floating-point\ntypes.  Languages like C or C++ require each variable, including multiple\ninstances of the same variable in recursive calls, to have distinct locations,\nso using this option results in non-conforming\nbehavior.\n\n", 
         "tags": [
-            "relevant", 
+            "not relevant", 
+            "non default", 
             "constants", 
             "constant merging", 
-            "subexpression elimination"
+            "subexpression elimination", 
+            "non conforming behaviour"
         ]
     }, 
     "-fmodulo-sched": {
@@ -269,7 +277,8 @@
         "tags": [
             "relevant", 
             "common subexpression elimination", 
-            "loops"
+            "loops", 
+            "covered"
         ]
     }, 
     "-fgcse": {
@@ -278,7 +287,8 @@
         "tags": [
             "relevant", 
             "common subexpression elimination", 
-            "constant propagation"
+            "constant propagation", 
+            "covered"
         ]
     }, 
     "-fgcse-lm": {
@@ -288,7 +298,9 @@
             "relevant", 
             "common subexpression elimination", 
             "dead load", 
-            "dead code"
+            "dead code", 
+            "loops", 
+            "covered"
         ]
     }, 
     "-fgcse-sm": {
@@ -309,7 +321,8 @@
             "not enabled", 
             "native", 
             "common subexpression elimination", 
-            "redundant loads"
+            "redundant loads", 
+            "covered"
         ]
     }, 
     "-fgcse-after-reload": {
@@ -361,7 +374,8 @@
         "description": "\nPerform dead code elimination (DCE) on RTL.\nEnabled by default at -O and higher.\n\n", 
         "tags": [
             "relevant", 
-            "dead code elimination"
+            "dead code elimination", 
+            "covered"
         ]
     }, 
     "-fdse": {
@@ -369,7 +383,8 @@
         "description": "\nPerform dead store elimination (DSE) on RTL.\nEnabled by default at -O and higher.\n\n", 
         "tags": [
             "relevant", 
-            "dead store elimination"
+            "dead store elimination", 
+            "covered"
         ]
     }, 
     "-fif-conversion": {
@@ -436,18 +451,18 @@
         "origin": "gcc", 
         "description": "\nStream extra information needed for aggressive devirtualization when running\nthe link-time optimizer in local transformation mode.  \nThis option enables more devirtualization but\nsignificantly increases the size of streamed data. For this reason it is\ndisabled by default.\n\n", 
         "tags": [
-            "relevant", 
+            "not relevant", 
             "devirtualization", 
             "native", 
-            "linker"
+            "linker", 
+            "non default"
         ]
     }, 
     "-fexpensive-optimizations": {
         "origin": "gcc", 
         "description": "\nPerform a number of minor optimizations that are relatively expensive.\n\nEnabled at levels -O2, -O3, -Os.\n\n", 
         "tags": [
-            "relevant", 
-            "unclear", 
+            "not relevant", 
             "parameter"
         ]
     }, 
@@ -711,7 +726,7 @@
         "origin": "gcc", 
         "description": "\nSchedule instructions using selective scheduling algorithm.  Selective\nscheduling runs instead of the first scheduler pass.\n\n", 
         "tags": [
-            "relevant", 
+            "not relevant", 
             "instruction scheduling", 
             "native"
         ]
@@ -815,7 +830,8 @@
             "tree reassociation", 
             "canonicalization", 
             "expression canonicalization", 
-            "interesting"
+            "interesting", 
+            "covered"
         ]
     }, 
     "-fcode-hoisting": {
@@ -826,7 +842,8 @@
             "code motion", 
             "code hoisting", 
             "conditional paths", 
-            "functions"
+            "functions", 
+            "covered"
         ]
     }, 
     "-ftree-pre": {

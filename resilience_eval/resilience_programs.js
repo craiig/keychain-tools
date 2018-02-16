@@ -80,6 +80,158 @@
 			]
 		}
 		, {
+			"name": "function_inlining_trivial",
+			"origin": "compiler_survey",
+			"input_types": ["int", "int"],
+			"return_type": "int",
+			"variants": [
+				{ "code": "input0 + input1" }
+				, { "type": "file", "c": "./benchmarks/function_inlining_1.c" }
+			]
+		}
+		, {
+			"name": "common_subexpression_elimination",
+			"origin": "compiler_survey",
+			"note": "trying to cover -fgcse",
+			"input_types": ["int", "int"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int w = (input0*input1); int x = (w) + 1234; int y = (w) + 5678; return x+y;" }
+				, { "code": "int x = (input0 * input1) + 1234; int y = (input0 * input1) + 5678; return x+y;" }
+			]
+		}
+		, {
+			"name": "copy_propagation",
+			"origin": "compiler_survey",
+			"note": "trying to cover -fgcse",
+			"input_types": ["int", "int"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int w = (input0*input1); int x = (w) + 1234; int y = (w) + 5678; return x+y;" }
+				, { "code": "int w = (input0*input1); int w2 = w; int x = (w) + 1234; int y = (w2) + 5678; return x+y;" }
+			]
+		}
+		, {
+			"name": "constant_propagation",
+			"origin": "compiler_survey",
+			"input_types": ["int", "int"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int w = (input0*input1); int x = (w) + 1234; int y = (w) + 5678; return x+y;" }
+				, { "code": "int a = 1200+34; b = 5600+78; int w = (input0*input1); int w2 = w; int x = (w) + a; int y = (w2) + b; return x+y;" }
+			]
+		}
+		, {
+			"name": "gcse_kill_load_store_in_loop",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -fgcse-lm",
+			"input_types": ["int*", "int", "int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int x; for(int i=0; i<input1; i++){ *input0 = i; x = *input0; }; return x; " }
+				{ "code": "int x; for(int i=0; i<input1; i++){ *input0 = i; x = i; }; return x; " }
+			]
+		}
+		, {
+			"name": "gcse_kill_load_after_stores",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -fgcse-las",
+			"input_types": ["int*", "int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "*input0 = *input1; return *input0;" }
+				, { "code": "*input0 = *input1; return *input1;" }
+			]
+		}
+		, {
+			"name": "dead_code_elimination",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -fdce",
+			"input_types": ["int*", "int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "return *input0 + *input1" }
+				, { "code": "int x = 100; return *input0 + *input1;" }
+				, { "code": "int x = 100; for(int i=0; i<x; i++){ if(i==101){ return x; } } return *input0 + *input1;" }
+			]
+		}
+		, {
+			"name": "dead_store_elimination",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -fdse",
+			"input_types": ["int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "*input0 = 200; return *input0" }
+				, { "code": "*input0 = 100; *input0 = 200; return *input0" }
+			]
+		}
+		, {
+			"name": "tree_reassociation_subtraction_reassociation",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -ftree-reassoc subtraction case",
+			"input_types": ["int", "int", "int", "int"],
+			"return_type": "int",
+			"variants": [
+				{ "code": "(input0+input1)-(input2+input3)" }
+				,{ "code": "(((input0+input1)-input2)-input3)" }
+				,{ "code": "(input0+input1-input2)-input3" }
+			]
+		}
+		, {
+			"name": "tree_reassociation_linearization",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -ftree-reassoc linearization",
+			"input_types": ["int", "int", "int", "int"],
+			"return_type": "int",
+			"variants": [
+				{ "code": "(input0+input1)+(input2+input3)" }
+				,{ "code": "(((input0+input1)+input2)+input3)" }
+				,{ "code": "(input0+input1+input2)+input3" }
+			]
+		}
+		, {
+			"name": "tree_reassociation_operand_lists",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -ftree-reassoc subtraction case",
+			"input_types": ["int", "int"],
+			"return_type": "int",
+			"variants": [
+				{ "code": "input0 + -input1" }
+				, { "code": "input0 - input1" }
+				, { "code": "input0 - (input1 & input1)" }
+			]
+		}
+		, {
+			"name": "tree_reassociation_repeated_factors",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -ftree-reassoc repeated factors",
+			"input_types": ["int"],
+			"return_type": "int",
+			"variants": [
+				{ "code": "(input0 * input0 * input0) + (input0 * input0 * input0)" }
+				, { "code": "2*(input0 * input0 * input0)" }
+			]
+		}
+		, {
+			"name": "code_hoisting",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -fcode-hoisting",
+			"input_types": ["int*", "int*"],
+			"return_type": "int",
+			"variants": [
+				{ "code": "int x = *input0; if(x > 100){ *input0 = x*x; *input1 = 0; } else { *input0 = x*x; *input1 = 1; } " }
+				, { "code": "int x = *input0;  *input0 = x*x; if(x > 100){ *input1 = 0; } else { *input1 = 1; } " }
+			]
+		}
+		, {
 			"name": "for_loop_nothing",
 			"origin": "semantics preserving transformations",
 			"input_types": ["int", "int"],
