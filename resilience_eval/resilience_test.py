@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import json
 import argparse
-import os
+import os, shutil
 from pprint import pprint
 import subprocess
 import sys
@@ -24,7 +24,7 @@ def generate_scala_code(program, args):
     pass
 
 # return hash or false if error
-def gcc_compile_and_hash(program, variant_idx, variant_path, program_text):
+def gcc_compile_and_hash(variant_path):
     #OS X gcc is ACTUALLY CLANG so we use one from homebrew
     # TODO use a much more recent version of gcc
     asm_path = "{}.S".format(variant_path)
@@ -44,14 +44,12 @@ def gcc_compile_and_hash(program, variant_idx, variant_path, program_text):
 
     return h
 
-def generate_c_code(program, args):
-    #program_dir = os.path.join(args.output_dir, 'c', program['name'])
-
+def c_codegen(variant, program, output_dir):
     type_map = resilience_templates.CProgram.type_map
 
     #generate type signature for input, passing it through the type map to get C types
     input_types = [ type_map.get(ty,ty)  for ty in program.get('input_types', []) ]
-    input_sig = [ '{t} input{i}'.format(t=ty, i=idx) for idx,ty in enumerate(input_types) ]
+    input_sig = [ '{t} input{i}'.format(t=ty, i=tyidx) for tyidx,ty in enumerate(input_types) ]
     inputs = ', '.join( input_sig )
 
     # !!! watch out for the mutability and potential cycles 
@@ -61,38 +59,63 @@ def generate_c_code(program, args):
     return_stmnt = program.get('return', 'return')
 
     body = resilience_templates.CProgram.body
+
+    # TODO hoist all above code into a class?
+    program_text = body.format(
+        expression=variant['code']
+        , return_type = return_type
+        , name = program['name']
+        , inputs = inputs
+        , return_stmnt=return_stmnt
+    )
+
+    # computed variant path lacks extension, be mindful of this.
+    idx = variant['_idx']
+    variant_path = os.path.join(output_dir, 'c', '{}-{}'.format(program['name'], idx) )
+    code_path = "{}.c".format(variant_path)
+
+    # we chose to write to files because this is easier to debug mismatches
+    if not os.path.exists(os.path.dirname(code_path)):
+        os.makedirs(os.path.dirname(code_path))
+    with open(code_path, "w+") as fh:
+        fh.write(program_text)
+
+    if True: #if debug:
+        print "****** {}".format(code_path)
+        pprint(program, indent=4)
+        print program_text
+
+    return variant_path
+
+#returns a file path with the generated variant
+def generate_c_code(variant, program, output_dir):
+    if 'code' in variant:
+        return c_codegen(variant, program, output_dir)
+    elif 'type' in variant:
+        if variant['type'] == 'file':
+            #copy to output dir so it's easy to handle
+            variant_path = os.path.join(output_dir, 'c', '{}-{}'.format(program['name'], variant['_idx']) )
+            code_path = "{}.c".format(variant_path)
+            if 'c' in variant:
+                shutil.copyfile(variant['c'], code_path)
+            return variant_path
+
+def perform_c_tests(program, args):
     program_hashes = []
     for idx,v in enumerate(program.get('variants', [])):
-        if 'code' not in v:
+        v['_idx'] = idx
+        variant_path = generate_c_code(v, program, args.output_dir)
+        print "variant path: {}".format(variant_path)
+
+        #if 'code' not in v:
+        if not variant_path:
             print 'skipping variant {} for {} because no compatible code specified'.format(
                 idx, program['name']
             )
             continue
-        program_text = body.format(
-            expression=v['code']
-            , return_type = return_type
-            , name = program['name']
-            , inputs = inputs
-            , return_stmnt=return_stmnt
-        )
-
-        # computed variant path lacks extension, be mindful of this.
-        variant_path = os.path.join(args.output_dir, 'c', '{}-{}'.format(program['name'], idx) )
-        code_path = "{}.c".format(variant_path)
-
-        # we chose to write to files because this is easier to debug mismatches
-        if not os.path.exists(os.path.dirname(code_path)):
-            os.makedirs(os.path.dirname(code_path))
-        with open(code_path, "w+") as fh:
-            fh.write(program_text)
-
-        if True: #if debug:
-            print "****** {}".format(code_path)
-            pprint(program, indent=4)
-            print program_text
 
         #todo general compiler interface
-        ret = gcc_compile_and_hash(program, idx, variant_path, program_text)
+        ret = gcc_compile_and_hash(variant_path)
         if not ret:
             # test failure
             sys.exit(1)
@@ -115,8 +138,21 @@ def generate_all_code(overall, args):
         # uncomment to only do a specific eval
         #if p['name'] != 'constant_folding_associativity':
             #continue
+        
+        visit = (args.filter_programs == None)
+        if not visit: #i.e. filter programs is not none
+            for ft in args.filter_programs:
+                m = re.match(ft, p['name'])
+                if m:
+                    print "{} re.match {}, visiting".format(ft, p['name'])
+                    visit = True
+                    break
+        if not visit:
+            print "skipping {} due to no filter match".format(p['name'])
+            continue
+
         #generate_scala_code(p, args)
-        program_hashes = generate_c_code(p, args)
+        program_hashes = perform_c_tests(p, args)
 
         # i think it would be good to save a report, so we add a variant_hashes
         # member to the program dict and output it
@@ -146,6 +182,7 @@ def main():
     parser.add_argument('--filename', '-f', help='filename of resilience test definitions', required=True)
     parser.add_argument('--output_dir', '-o', help='output directory for code generation', required=True)
     parser.add_argument('--report_output', '-r', help='output destination for report')
+    parser.add_argument('--filter_programs', '-fp', help='only run selected programs', action='append')
     args = parser.parse_args()
 
     with open(args.filename) as fh:

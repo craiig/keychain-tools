@@ -82,6 +82,7 @@
 		, {
 			"name": "function_inlining_trivial",
 			"origin": "compiler_survey",
+			"notes": "TODO these ARE equivalent but we need to better parse the asm code to demonstrate that",
 			"input_types": ["int", "int"],
 			"return_type": "int",
 			"variants": [
@@ -121,7 +122,7 @@
 			"return": "",
 			"variants": [
 				{ "code": "int w = (input0*input1); int x = (w) + 1234; int y = (w) + 5678; return x+y;" }
-				, { "code": "int a = 1200+34; b = 5600+78; int w = (input0*input1); int w2 = w; int x = (w) + a; int y = (w2) + b; return x+y;" }
+				, { "code": "int a = 1200+34; int b = 5600+78; int w = (input0*input1); int w2 = w; int x = (w) + a; int y = (w2) + b; return x+y;" }
 			]
 		}
 		, {
@@ -133,7 +134,7 @@
 			"return": "",
 			"variants": [
 				{ "code": "int x; for(int i=0; i<input1; i++){ *input0 = i; x = *input0; }; return x; " }
-				{ "code": "int x; for(int i=0; i<input1; i++){ *input0 = i; x = i; }; return x; " }
+				, { "code": "int x; for(int i=0; i<input1; i++){ *input0 = i; x = i; }; return x; " }
 			]
 		}
 		, {
@@ -226,11 +227,110 @@
 			"note": "trying to cover gcc -fcode-hoisting",
 			"input_types": ["int*", "int*"],
 			"return_type": "int",
+			"return": "",
 			"variants": [
 				{ "code": "int x = *input0; if(x > 100){ *input0 = x*x; *input1 = 0; } else { *input0 = x*x; *input1 = 1; } " }
 				, { "code": "int x = *input0;  *input0 = x*x; if(x > 100){ *input1 = 0; } else { *input1 = 1; } " }
 			]
 		}
+		, {
+			"name": "pre",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -fpre, tree-ssa-pre.c, example pulled from https://cs.wheaton.edu/~tvandrun/writings/cc04.pdf. this fails in a really weird way on gcc but works on llvm! this is great!",
+			"input_types": ["int", "int", "int"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int c = input0 + input1; int d; if(input2){ c = input0; d = c + input1; } else { c = 5; } return c + input1; " }
+				, { "code": "int c = input0 + input1; int d,t; if(input2){ c = input0; d = c + input1; t = d; } else { c = 5; t = c + input1; } return t; " }
+			]
+		}
+		, {
+			"name": "forward_prop",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -ftree-forwprop",
+			"input_types": ["int", "int"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int x = input0 & input1; if(x){ return 0; } else { return 1; }" } 
+				, { "code": "if(input0 & input1){ return 0; } else { return 1; }" } 
+			]
+		}
+		, {
+			"name": "fre",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -ftree-fre, example based on global value numbering: https://courses.cs.washington.edu/courses/cse501/04wi/papers/click-pldi95.pdf",
+			"input_types": ["int", "int"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int x = input0 * input1 + input1; int y = input0 * input1 + input0; return x+y;" }
+				, { "code": "int a = input0*input1; int x = a + input1; int y = a + input0; return x+y;" }
+			]
+		}
+		, {
+			"name": "copy_propagation",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -ftree-copy-prop, TODO improve",
+			"input_types": ["int", "int"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int x = input0 * input1; int y = x; return y;" }
+				, { "code": "return input0*input1;" }
+			]
+		}
+		, {
+			"name": "ipa_cp",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -fipa-cp. TODO this are equivalent but we need to better parse the insns to understand it",
+			"input_types": ["int", "int"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "return input0+input1+1;" }
+				, { "type": "file", "c": "./benchmarks/ipa_cp_1.c" }
+			]
+		}
+		, {
+			"name": "forward_store_motion",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -ftree-sink. example from gcc/tree-ssa-sink.c",
+			"input_types": ["int*", "int", "int"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int ret; *input0 = input1; input1 = input1 + 1; if(input2){ *input0 = 123; } else { ret = *input0; } return ret;"  }
+				, { "code": "int ret; int sinktemp = input1; input1 = input1 + 1; if(input2){ *input0 = 123; } else { *input0 = sinktemp; ret = *input0; } return ret;"  }
+			]
+		}
+		, {
+			"name": "ccp",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -ftree-ccp. example from gcc/tree-ssa-ccp.c",
+			"input_types": ["int"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int x = 100; if(input0>0 || input0<=0){ x=200; } else { x=300; } return x;"  }
+				, { "code": "return 200;"  }
+				, { "code": "int x; if(1){ x=200; } else { x=300; } return x;"  }
+			]
+		}
+		, {
+			"name": "dce",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -ftree-dce. example from gcc/tree-ssa-dce.c",
+			"input_types": ["int"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "return 100;" }
+				, { "code": "int x=1; if(input0){ x=2; } else { x=3; } return 100;" }
+			]
+		}
+
 		, {
 			"name": "for_loop_nothing",
 			"origin": "semantics preserving transformations",
