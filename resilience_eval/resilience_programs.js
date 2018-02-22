@@ -330,7 +330,54 @@
 				, { "code": "int x=1; if(input0){ x=2; } else { x=3; } return 100;" }
 			]
 		}
-
+		, {
+			"name": "dse",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -ftree-dse. see gcc/tree-ssa-dse.c",
+			"input_types": ["int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "*input0 = 100; *input0 = 200;" }
+				, { "code": "*input0 = 200;" }
+			]
+		}
+		, {
+			"name": "loop_unswitch",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -ftree-loop-optimize. example from gcc/tree-ssa-loop-unswitch.c TODO revisit",
+			"input_types": ["int", "int", "int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int x=0; for(int i=0; i<input0; i++){ if(input1){ x++; } else { x--; } } return x;" }
+				, { "code": "int x=0; if(input1){ for(int i=0; i<input0; i++) x++; } else { for(int i=0; i<input0; i++) x--; } return x; " }
+			]
+		}
+		, {
+			"name": "loop_unswitch_harder",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -ftree-loop-optimize. example from gcc/tree-ssa-loop-unswitch.c TODO revisit",
+			"input_types": ["int", "int", "int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int x=0; for(int i=0; i<input0; i++){ if(input1){ x++; } else { input2[i] = x--; } } return x;" }
+				, { "code": "int x=0; if(input1){ for(int i=0; i<input0; i++) x++; } else { for(int i=0; i<input0; i++) input2[i] = x--; } return x;" }
+			]
+		}
+		, {
+			"name": "loop_splitting",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -ftree-loop-optimize. example from gcc/tree-ssa-loop-split.c. WOW this is weird on older clang/gcc, godbolt shows newer clang/gcc are ok",
+			"input_types": ["int"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int x=0; int i; for(i=0; i<200; i++){ if(i<150){ x++; } else { x--; } } return x;" }
+				, { "code": "int x=0; int i; for(i=0; i<150; i++){ x++; } for(; i<200; i++){ x--; } return x;" }
+			]
+		}
 		, {
 			"name": "for_loop_nothing",
 			"origin": "semantics preserving transformations",
