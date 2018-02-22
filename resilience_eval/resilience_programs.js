@@ -379,6 +379,114 @@
 			]
 		}
 		, {
+			"name": "loop_interchange",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -floop-interchange. example from gcc/gimple-loop-interchange.cc",
+			"input_types": ["int", "int**", "int**", "int**"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int N = input0; int** a = input1; int** b = input2; int** c = input3; for (int j = 0; j < N; j++) for (int k = 0; k < N; k++) for (int i = 0; i < N; i++) c[i][j] = c[i][j] + a[i][k]*b[k][j];" }
+				, { "code": "int N = input0; int** a = input1; int** b = input2; int** c = input3; for (int i = 0; i < N; i++) for (int j = 0; j < N; j++) for (int k = 0; k < N; k++) c[i][j] = c[i][j] + a[i][k]*b[k][j];" }
+			]
+		}
+		, {
+			"name": "loop_invariant_motion",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -floop-im. example from gcc/tree-ssa-loop-im.c",
+			"input_types": ["int", "int*", "int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int a; for (int i=0; i<input0; i++) { if (input0) { a = input0; input1[i] = input2[i]; } }; return a" }
+				, { "code": "int a; a = input0; for (int i=0; i<input0; i++) { if (input0) { input1[i] = input2[i]; } }; return a" }
+			]
+		}
+		, {
+			"name": "loop_iv_strength_reduction",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -fivopts. example from gcc/tree-ssa-loop-ivopts.c",
+			"input_types": ["int", "int*", "int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "for(int i=0; i<input0; i++){ input1[i*8] = input2[i]; }" }
+				, { "code": "int y = 0; for(int i=0; i<input0; i++){ input1[y] = input2[i]; y += 8; }" }
+			]
+		}
+		, {
+			"name": "loop_iv_variable_merging",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -fivopts. example from gcc/tree-ssa-loop-ivopts.c",
+			"input_types": ["int", "int*", "int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "for(int i=0; i<input0; i++){ input1[i] = input2[i]; }" }
+				, { "code": "int y = 0; for(int i=0; i<input0; i++){ input1[y] = input2[i]; y += 1; }" }
+			]
+		}
+		, {
+			"name": "loop_iv_variable_elimination",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -fivopts. example from http://www.nullstone.com/htmls/category/ive.htm",
+			"input_types": ["int", "int*", "int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int i1; for (i1 = 0; i1 < input0; i1++) input1[i1] = input2[i1]; " }
+				, { "code": "int i1, i2, i3; for (i1 = 0, i2 = 0, i3 = 0; i1 < input0; i1++) input1[i2++] = input2[i3++];" }
+			]
+		}
+		, {
+			"name": "straight_line_strength_reduction",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -ftree-slsr. example from https://gcc.gnu.org/wiki/cauldron2012?action=AttachFile&do=get&target=wschmidt.pdf",
+			"input_types": ["int"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int a = input0; int c = a+2; int d = c*2; int e = a*2; int f = e+4; return d + f;" }
+				, { "code": "int a = input0; int c = a+2; int d = c*2; int e = a+2; int f = e*2; return d+f;" }
+			]
+		}
+		, {
+			"name": "value_range_propagation_ne",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -ftree-vrp.c, example: https://llvm.org/devmtg/2007-05/05-Lewycky-Predsimplify.pdf",
+			"input_types": ["int*", "int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "if(input0 != input1) return 0;" }
+				, { "code": "if(input0 != input1) return 0; if(input0 != input1) input0[0]++;" }
+			]
+		}
+		, {
+			"name": "value_range_propagation_eq",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -ftree-vrp.c, example: https://llvm.org/devmtg/2007-05/05-Lewycky-Predsimplify.pdf",
+			"input_types": ["int*", "int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "if(input0 == input1){ input0[0]++; }" }
+				, { "code": "if(input0 == input1){ input0[0]++; if(input0 != input1) input0[1]++;  }" }
+			]
+		}
+		, {
+			"name": "value_range_propagation_lt",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -ftree-vrp.c, example: https://llvm.org/devmtg/2007-05/05-Lewycky-Predsimplify.pdf",
+			"input_types": ["int*", "int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "if(input0 < input1){ input0[0]++; }" }
+				, { "code": "if(input0 < input1){ input0[0]++; if(input0 == input1) input0[1]++;  }" }
+			]
+		}
+		, {
 			"name": "for_loop_nothing",
 			"origin": "semantics preserving transformations",
 			"input_types": ["int", "int"],
