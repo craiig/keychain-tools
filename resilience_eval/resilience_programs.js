@@ -91,6 +91,18 @@
 			]
 		}
 		, {
+			"name": "function_inlining_partial",
+			"origin": "compiler_survey",
+			"notes": "TODO hard to induce. TODO these ARE equivalent but we need to better parse the asm code to demonstrate that",
+			"input_types": ["int", "int"],
+			"return_type": "int",
+			"variants": [
+				{ "type": "file", "c": "./benchmarks/function_inlining_partial_0.c" }
+				, { "type": "file", "c": "./benchmarks/function_inlining_partial_1.c" }
+				, { "type": "file", "c": "./benchmarks/function_inlining_partial_2.c" }
+			]
+		}
+		, {
 			"name": "common_subexpression_elimination",
 			"origin": "compiler_survey",
 			"note": "trying to cover -fgcse",
