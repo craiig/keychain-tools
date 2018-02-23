@@ -71,7 +71,7 @@
 		}
 		, {
 			"name": "math_add",
-			"origin": "craig",
+			"origin": "tpcds_survey",
 			"input_types": ["int", "int"],
 			"return_type": "int",
 			"variants": [
@@ -105,7 +105,7 @@
 		, {
 			"name": "common_subexpression_elimination",
 			"origin": "compiler_survey",
-			"note": "trying to cover -fgcse",
+			"note": "trying to cover -fgcse and llvm -gvn",
 			"input_types": ["int", "int"],
 			"return_type": "int",
 			"return": "",
@@ -117,7 +117,7 @@
 		, {
 			"name": "copy_propagation",
 			"origin": "compiler_survey",
-			"note": "trying to cover -fgcse",
+			"note": "trying to cover -fgcse and llvm -gvn",
 			"input_types": ["int", "int"],
 			"return_type": "int",
 			"return": "",
@@ -129,6 +129,7 @@
 		, {
 			"name": "constant_propagation",
 			"origin": "compiler_survey",
+			"note": "trying to cover general constant prop",
 			"input_types": ["int", "int"],
 			"return_type": "int",
 			"return": "",
@@ -140,38 +141,13 @@
 		, {
 			"name": "gcse_kill_load_store_in_loop",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -fgcse-lm",
+			"note": "trying to cover gcc -fgcse-lm, llvm -dce etc",
 			"input_types": ["int*", "int", "int*"],
 			"return_type": "int",
 			"return": "",
 			"variants": [
 				{ "code": "int x; for(int i=0; i<input1; i++){ *input0 = i; x = *input0; }; return x; " }
 				, { "code": "int x; for(int i=0; i<input1; i++){ *input0 = i; x = i; }; return x; " }
-			]
-		}
-		, {
-			"name": "gcse_kill_load_after_stores",
-			"origin": "compiler_survey",
-			"note": "trying to cover gcc -fgcse-las",
-			"input_types": ["int*", "int*"],
-			"return_type": "int",
-			"return": "",
-			"variants": [
-				{ "code": "*input0 = *input1; return *input0;" }
-				, { "code": "*input0 = *input1; return *input1;" }
-			]
-		}
-		, {
-			"name": "dead_code_elimination",
-			"origin": "compiler_survey",
-			"note": "trying to cover gcc -fdce",
-			"input_types": ["int*", "int*"],
-			"return_type": "int",
-			"return": "",
-			"variants": [
-				{ "code": "return *input0 + *input1" }
-				, { "code": "int x = 100; return *input0 + *input1;" }
-				, { "code": "int x = 100; for(int i=0; i<x; i++){ if(i==101){ return x; } } return *input0 + *input1;" }
 			]
 		}
 		, {
@@ -187,9 +163,43 @@
 			]
 		}
 		, {
+			"name": "binary_operator_canonicalization",
+			"origin": "compiler_survey",
+			"note": "llvm's instcombine, and gcc's canonicalization and tree reassociation",
+			"input_types": ["int"],
+			"return_type": "int",
+			"variants": [
+				{ "code": "input0 + 10" }
+				, { "code": "10 + input0" }
+			]
+		}
+		, {
+			"name": "comparison_canonicalization",
+			"origin": "compiler_survey",
+			"note": "llvm's instcombine, and gcc's canonicalization and tree reassociation",
+			"input_types": ["int", "int*"],
+			"return_type": "int",
+			"variants": [
+				{ "code": "input0 >= 10" }
+				, { "code": "input0 != 10" }
+			]
+		}
+		, {
+			"name": "bitwise_canonicalization",
+			"origin": "compiler_survey",
+			"note": "llvm's instcombine, and gcc's canonicalization and tree reassociation, see https://github.com/llvm-mirror/llvm/blob/master/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp",
+			"input_types": ["int", "int", "int", "int"],
+			"return_type": "int",
+			"variants": [
+				{ "code": "((input0 & input1) | input2) ^ input3" }
+				, { "code": "((input0 | input2) & (input1 | input2)) ^ input3" }
+				, { "code": "input3 ^ ((input0 | input2) & (input1 | input2))" }
+			]
+		}
+		, {
 			"name": "tree_reassociation_subtraction_reassociation",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -ftree-reassoc subtraction case",
+			"note": "trying to cover gcc -ftree-reassoc subtraction case and llvm -reassociate",
 			"input_types": ["int", "int", "int", "int"],
 			"return_type": "int",
 			"variants": [
@@ -201,7 +211,7 @@
 		, {
 			"name": "tree_reassociation_linearization",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -ftree-reassoc linearization",
+			"note": "trying to cover gcc -ftree-reassoc linearization and llvm -reassociate",
 			"input_types": ["int", "int", "int", "int"],
 			"return_type": "int",
 			"variants": [
@@ -213,7 +223,7 @@
 		, {
 			"name": "tree_reassociation_operand_lists",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -ftree-reassoc subtraction case",
+			"note": "trying to cover gcc -ftree-reassoc subtraction case and llvm -reassociate",
 			"input_types": ["int", "int"],
 			"return_type": "int",
 			"variants": [
@@ -225,7 +235,7 @@
 		, {
 			"name": "tree_reassociation_repeated_factors",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -ftree-reassoc repeated factors",
+			"note": "trying to cover gcc -ftree-reassoc repeated factors and llvm -reassociate",
 			"input_types": ["int"],
 			"return_type": "int",
 			"variants": [
@@ -248,7 +258,7 @@
 		, {
 			"name": "pre",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -fpre, tree-ssa-pre.c, example pulled from https://cs.wheaton.edu/~tvandrun/writings/cc04.pdf. this fails in a really weird way on gcc but works on llvm! this is great!",
+			"note": "trying to cover gcc -fpre, tree-ssa-pre.c, example pulled from https://cs.wheaton.edu/~tvandrun/writings/cc04.pdf. this fails in a really weird way on gcc but works on llvm! this is great! also covers LLVM GVN optimizations",
 			"input_types": ["int", "int", "int"],
 			"return_type": "int",
 			"return": "",
@@ -272,7 +282,7 @@
 		, {
 			"name": "fre",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -ftree-fre, example based on global value numbering: https://courses.cs.washington.edu/courses/cse501/04wi/papers/click-pldi95.pdf",
+			"note": "trying to cover gcc -ftree-fre, also covers llvm GVN. example based on global value numbering: https://courses.cs.washington.edu/courses/cse501/04wi/papers/click-pldi95.pdf",
 			"input_types": ["int", "int"],
 			"return_type": "int",
 			"return": "",
@@ -296,7 +306,7 @@
 		, {
 			"name": "ipa_cp",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -fipa-cp. TODO this are equivalent but we need to better parse the insns to understand it",
+			"note": "trying to cover gcc -fipa-cp and llvm's -ipconstprop. TODO this are equivalent but we need to better parse the insns to understand it",
 			"input_types": ["int", "int"],
 			"return_type": "int",
 			"return": "",
@@ -318,9 +328,34 @@
 			]
 		}
 		, {
-			"name": "ccp",
+			"name": "code_sinking_math",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -ftree-ccp. example from gcc/tree-ssa-ccp.c",
+			"note": "trying to cover llvm -sink. example from https://github.com/llvm-mirror/llvm/blob/master/lib/Transforms/Scalar/Sink.cpp",
+			"input_types": ["int", "int", "int"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int x = input1*input2; int y = input1+input2; int z; if(input0){z=x;}else{z=y;} return z; "  }
+				, { "code": "int z; if(input0){z=input1*input2;}else{z=input1+input2;} return z; "  }
+			]
+		}
+		, {
+			"name": "code_sinking_pure_function",
+			"origin": "compiler_survey",
+			"note": "trying to cover llvm -sink. example from https://github.com/llvm-mirror/llvm/blob/master/lib/Transforms/Scalar/Sink.cpp",
+			"input_types": ["int", "int", "int"],
+			"return_type": "int",
+			"return": "",
+			"header": "__attribute__((pure)) int extern_do_pos(); __attribute__((pure)) int extern_do_neg();",
+			"variants": [
+				{ "code": "int x = extern_do_pos(); int y = extern_do_neg(); int z; if(input0){z=x;}else{z=y;} return z; "  }
+				, { "code": "int z; if(input0){z=extern_do_pos();}else{z=extern_do_neg();} return z; "  }
+			]
+		}
+		, {
+			"name": "constant_propagation_conditional",
+			"origin": "compiler_survey",
+			"note": "trying to cover gcc -ftree-ccp and llvm -sccp. example from gcc/tree-ssa-ccp.c",
 			"input_types": ["int"],
 			"return_type": "int",
 			"return": "",
@@ -331,15 +366,16 @@
 			]
 		}
 		, {
-			"name": "dce",
+			"name": "dead_code_elimination",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -ftree-dce. example from gcc/tree-ssa-dce.c",
-			"input_types": ["int"],
+			"note": "trying to cover gcc -fdce -ftree-dce and llvm -adce. example from gcc/tree-ssa-dce.c",
+			"input_types": ["int*", "int*"],
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "return 100;" }
-				, { "code": "int x=1; if(input0){ x=2; } else { x=3; } return 100;" }
+				{ "code": "return *input0 + *input1" }
+				, { "code": "int x = 100; return *input0 + *input1;" }
+				, { "code": "int x = 100; for(int i=0; i<x; i++){ if(i==101){ return x; } } return *input0 + *input1;" }
 			]
 		}
 		, {
@@ -357,13 +393,14 @@
 		, {
 			"name": "loop_unswitch",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -ftree-loop-optimize. example from gcc/tree-ssa-loop-unswitch.c TODO revisit",
+			"note": "trying to cover gcc -ftree-loop-optimize and llvm -loop-unswitch. example from gcc/tree-ssa-loop-unswitch.c",
 			"input_types": ["int", "int", "int*"],
 			"return_type": "int",
 			"return": "",
+			"header": "void extern_do_pos(); void extern_do_neg();",
 			"variants": [
-				{ "code": "int x=0; for(int i=0; i<input0; i++){ if(input1){ x++; } else { x--; } } return x;" }
-				, { "code": "int x=0; if(input1){ for(int i=0; i<input0; i++) x++; } else { for(int i=0; i<input0; i++) x--; } return x; " }
+				{ "code": "for(int i=0; i<input0; i++){ if(input1){ extern_do_pos(); } else { extern_do_neg(); } } return 0;" }
+				, { "code": "if(input1){ for(int i=0; i<input0; i++) extern_do_pos(); } else { for(int i=0; i<input0; i++) extern_do_neg(); } return 0;" }
 			]
 		}
 		, {
@@ -405,7 +442,7 @@
 		, {
 			"name": "loop_invariant_motion",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -floop-im. example from gcc/tree-ssa-loop-im.c",
+			"note": "trying to cover gcc -floop-im and llvm -licm. example from gcc/tree-ssa-loop-im.c",
 			"input_types": ["int", "int*", "int*"],
 			"return_type": "int",
 			"return": "",
@@ -417,19 +454,19 @@
 		, {
 			"name": "loop_iv_strength_reduction",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -fivopts. example from gcc/tree-ssa-loop-ivopts.c",
+			"note": "trying to cover gcc -fivopts and llvm -loop-reduce. example from gcc/tree-ssa-loop-ivopts.c. for godbolt, adding return 0 seemed neccessary to get the code generation right. weird. behaves better in newer clang versions",
 			"input_types": ["int", "int*", "int*"],
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "for(int i=0; i<input0; i++){ input1[i*8] = input2[i]; }" }
-				, { "code": "int y = 0; for(int i=0; i<input0; i++){ input1[y] = input2[i]; y += 8; }" }
+				{ "code": "for(int i=0; i<input0; i++){ input1[i*8] = input2[i]; }; return 0;" }
+				, { "code": "int y = 0; for(int i=0; i<input0; i++){ input1[y] = input2[i]; y += 8; }; return 0;" }
 			]
 		}
 		, {
 			"name": "loop_iv_variable_merging",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -fivopts. example from gcc/tree-ssa-loop-ivopts.c",
+			"note": "trying to cover gcc -fivopts. also covers llvm indvars. example from gcc/tree-ssa-loop-ivopts.c",
 			"input_types": ["int", "int*", "int*"],
 			"return_type": "int",
 			"return": "",
@@ -441,13 +478,25 @@
 		, {
 			"name": "loop_iv_variable_elimination",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -fivopts. example from http://www.nullstone.com/htmls/category/ive.htm",
+			"note": "trying to cover gcc -fivopts. also covers LLVM indvars. example from http://www.nullstone.com/htmls/category/ive.htm",
 			"input_types": ["int", "int*", "int*"],
 			"return_type": "int",
 			"return": "",
 			"variants": [
 				{ "code": "int i1; for (i1 = 0; i1 < input0; i1++) input1[i1] = input2[i1]; " }
 				, { "code": "int i1, i2, i3; for (i1 = 0, i2 = 0, i3 = 0; i1 < input0; i1++) input1[i2++] = input2[i3++];" }
+			]
+		}
+		, {
+			"name": "loop_iv_canonicalization",
+			"origin": "compiler_survey",
+			"note": "trying to cover llvm -indvars and also -loop-deletion. example from http://llvm.org/docs/Passes.html#indvars-canonicalize-induction-variables",
+			"input_types": ["int", "int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int i = 7; for (; i*i < 1000; ++i) input1[0]++;" }
+				, { "code": "int i = 0; for (; i != 25; ++i) input1[0]++;" }
 			]
 		}
 		, {
@@ -496,6 +545,54 @@
 			"variants": [
 				{ "code": "if(input0 < input1){ input0[0]++; }" }
 				, { "code": "if(input0 < input1){ input0[0]++; if(input0 == input1) input0[1]++;  }" }
+			]
+		}
+		, {
+			"name": "constant_merging",
+			"origin": "compiler_survey",
+			"note": "trying to cover llvm constmerge",
+			"input_types": ["int*", "int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int x = 100; return x*2;" }
+				, { "code": "if(input0 < input1){ input0[0]++; if(input0 == input1) input0[1]++;  }" }
+			]
+		}
+		, {
+			"name": "constant_sparse_conditional",
+			"origin": "compiler_survey",
+			"note": "trying to cover llvm -sccp",
+			"input_types": ["int*", "int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int x = 100; return x*2;" }
+				, { "code": "if(input0 < input1){ input0[0]++; if(input0 == input1) input0[1]++;  }" }
+			]
+		}
+		, {
+			"name": "redundant_load_elimination",
+			"origin": "compiler_survey",
+			"note": "trying to cover llvm gvn redundant load elimination",
+			"input_types": ["int*", "int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int x = *input0; int y = *input1; int z = *input0; return x+y+z;" }
+				, { "code": "int x = *input0; int y = *input1; return x+y+x;" }
+			]
+		}
+		, {
+			"name": "jump_threading",
+			"origin": "compiler_survey",
+			"note": "trying to cover llvm -jump-threading, example from http://llvm.org/docs/Passes.html#jump-threading-jump-threading. fails on clang/gcc",
+			"input_types": ["int", "int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "int x=0; if(input0 > 10){ x = 4; } if(x<3){ *input1 = 10; } else { *input1 = 20; }; return x;" }
+				, { "code": "int x=0; if(input0 > 10){ x = 4; *input1 = 20; } else { *input1 = 10; }; return x;" }
 			]
 		}
 		, {
