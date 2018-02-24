@@ -28,8 +28,8 @@ def gcc_compile_and_hash(variant_path):
     #OS X gcc is ACTUALLY CLANG so we use one from homebrew
     # TODO use a much more recent version of gcc
     asm_path = "{}.S".format(variant_path)
-    compile_cmd = "/usr/local/bin/gcc-4.9 -o {} -c -S -O3 -std=gnu11 {}.c".format(asm_path, variant_path)
-    #compile_cmd = "clang -o {} -c -S -O3 {}.c".format(asm_path, variant_path)
+    #compile_cmd = "/usr/local/bin/gcc-4.9 -o {} -c -S -O3 -std=gnu11 {}.c".format(asm_path, variant_path)
+    compile_cmd = "clang -o {} -c -S -O3 {}.c".format(asm_path, variant_path)
     print compile_cmd
 
     try:
@@ -58,6 +58,8 @@ def c_codegen(variant, program, output_dir):
     # if there isn't a default return insert one
     return_stmnt = program.get('return', 'return')
 
+    header_stmnt = program.get('header', '')
+
     body = resilience_templates.CProgram.body
 
     # TODO hoist all above code into a class?
@@ -67,6 +69,7 @@ def c_codegen(variant, program, output_dir):
         , name = program['name']
         , inputs = inputs
         , return_stmnt=return_stmnt
+        , header=header_stmnt
     )
 
     # computed variant path lacks extension, be mindful of this.

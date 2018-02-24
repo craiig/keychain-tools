@@ -151,18 +151,6 @@
 			]
 		}
 		, {
-			"name": "dead_store_elimination",
-			"origin": "compiler_survey",
-			"note": "trying to cover gcc -fdse",
-			"input_types": ["int*"],
-			"return_type": "int",
-			"return": "",
-			"variants": [
-				{ "code": "*input0 = 200; return *input0" }
-				, { "code": "*input0 = 100; *input0 = 200; return *input0" }
-			]
-		}
-		, {
 			"name": "binary_operator_canonicalization",
 			"origin": "compiler_survey",
 			"note": "llvm's instcombine, and gcc's canonicalization and tree reassociation",
@@ -256,9 +244,9 @@
 			]
 		}
 		, {
-			"name": "pre",
+			"name": "partial_redundancy_elimination",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -fpre, tree-ssa-pre.c, example pulled from https://cs.wheaton.edu/~tvandrun/writings/cc04.pdf. this fails in a really weird way on gcc but works on llvm! this is great! also covers LLVM GVN optimizations",
+			"note": "trying to cover gcc -fpre -ftree-pre and llvm -gvn, tree-ssa-pre.c, example pulled from https://cs.wheaton.edu/~tvandrun/writings/cc04.pdf. this fails in a really weird way on gcc but works on llvm! this is great! also covers LLVM GVN optimizations",
 			"input_types": ["int", "int", "int"],
 			"return_type": "int",
 			"return": "",
@@ -280,7 +268,7 @@
 			]
 		}
 		, {
-			"name": "fre",
+			"name": "full_redundancy_elimination",
 			"origin": "compiler_survey",
 			"note": "trying to cover gcc -ftree-fre, also covers llvm GVN. example based on global value numbering: https://courses.cs.washington.edu/courses/cse501/04wi/papers/click-pldi95.pdf",
 			"input_types": ["int", "int"],
@@ -304,7 +292,7 @@
 			]
 		}
 		, {
-			"name": "ipa_cp",
+			"name": "interprocedural_constant_propagation",
 			"origin": "compiler_survey",
 			"note": "trying to cover gcc -fipa-cp and llvm's -ipconstprop. TODO this are equivalent but we need to better parse the insns to understand it",
 			"input_types": ["int", "int"],
@@ -355,7 +343,7 @@
 		, {
 			"name": "constant_propagation_conditional",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -ftree-ccp and llvm -sccp. example from gcc/tree-ssa-ccp.c",
+			"note": "trying to cover gcc -ftree-ccp and llvm -sccp -constprop. example from gcc/tree-ssa-ccp.c",
 			"input_types": ["int"],
 			"return_type": "int",
 			"return": "",
@@ -363,6 +351,19 @@
 				{ "code": "int x = 100; if(input0>0 || input0<=0){ x=200; } else { x=300; } return x;"  }
 				, { "code": "return 200;"  }
 				, { "code": "int x; if(1){ x=200; } else { x=300; } return x;"  }
+				, { "code": "int x = 100; return x*2;" }
+			]
+		}
+		, {
+			"name": "constant_propagation_conditional2",
+			"origin": "compiler_survey",
+			"note": "trying to cover llvm -sccp TODO is this scpp? more like value range prop",
+			"input_types": ["int*", "int*"],
+			"return_type": "int",
+			"return": "",
+			"variants": [
+				{ "code": "if(input0 < input1){ input0[0]++; }" }
+				, { "code": "if(input0 < input1){ input0[0]++; if(input0 == input1) input0[1]++;  }" }
 			]
 		}
 		, {
@@ -379,21 +380,21 @@
 			]
 		}
 		, {
-			"name": "dse",
+			"name": "dead_store_elimination",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -ftree-dse. see gcc/tree-ssa-dse.c",
+			"note": "trying to cover gcc -fdse -ftree-dse llvm -dse. see gcc/tree-ssa-dse.c",
 			"input_types": ["int*"],
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "*input0 = 100; *input0 = 200;" }
-				, { "code": "*input0 = 200;" }
+				{ "code": "*input0 = 200;" }
+				, { "code": "*input0 = 100; *input0 = 200;" }
 			]
 		}
 		, {
 			"name": "loop_unswitch",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -ftree-loop-optimize and llvm -loop-unswitch. example from gcc/tree-ssa-loop-unswitch.c",
+			"note": "trying to cover gcc -ftree-loop-optimize and llvm -loop-unswitch. example from gcc/tree-ssa-loop-unswitch.c. functions are not marked pure on purpose",
 			"input_types": ["int", "int", "int*"],
 			"return_type": "int",
 			"return": "",
@@ -418,7 +419,7 @@
 		, {
 			"name": "loop_splitting",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -ftree-loop-optimize. example from gcc/tree-ssa-loop-split.c. WOW this is weird on older clang/gcc, godbolt shows newer clang/gcc are ok",
+			"note": "trying to cover gcc -ftree-loop-optimize and llvm -loop-simplify. example from gcc/tree-ssa-loop-split.c. WOW this is weird on older clang/gcc, godbolt shows newer clang/gcc are ok",
 			"input_types": ["int"],
 			"return_type": "int",
 			"return": "",
@@ -466,7 +467,7 @@
 		, {
 			"name": "loop_iv_variable_merging",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -fivopts. also covers llvm indvars. example from gcc/tree-ssa-loop-ivopts.c",
+			"note": "trying to cover gcc -fivopts. also covers llvm -indvars. example from gcc/tree-ssa-loop-ivopts.c",
 			"input_types": ["int", "int*", "int*"],
 			"return_type": "int",
 			"return": "",
@@ -478,7 +479,7 @@
 		, {
 			"name": "loop_iv_variable_elimination",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -fivopts. also covers LLVM indvars. example from http://www.nullstone.com/htmls/category/ive.htm",
+			"note": "trying to cover gcc -fivopts. also covers LLVM -indvars. example from http://www.nullstone.com/htmls/category/ive.htm",
 			"input_types": ["int", "int*", "int*"],
 			"return_type": "int",
 			"return": "",
@@ -551,18 +552,6 @@
 			"name": "constant_merging",
 			"origin": "compiler_survey",
 			"note": "trying to cover llvm constmerge",
-			"input_types": ["int*", "int*"],
-			"return_type": "int",
-			"return": "",
-			"variants": [
-				{ "code": "int x = 100; return x*2;" }
-				, { "code": "if(input0 < input1){ input0[0]++; if(input0 == input1) input0[1]++;  }" }
-			]
-		}
-		, {
-			"name": "constant_sparse_conditional",
-			"origin": "compiler_survey",
-			"note": "trying to cover llvm -sccp",
 			"input_types": ["int*", "int*"],
 			"return_type": "int",
 			"return": "",

@@ -317,12 +317,12 @@
         "origin": "gcc", 
         "description": "\nWhen -fgcse-las is enabled, the global common subexpression\nelimination pass eliminates redundant loads that come after stores to the\nsame memory location (both partial and full redundancies).\n\nNot enabled at any optimization level.\n\n", 
         "tags": [
-            "relevant", 
+            "not relevant", 
             "not enabled", 
             "native", 
             "common subexpression elimination", 
             "redundant loads", 
-            "covered"
+            "non default"
         ]
     }, 
     "-fgcse-after-reload": {
@@ -851,7 +851,9 @@
         "description": "\nPerform partial redundancy elimination (PRE) on trees.  This flag is\nenabled by default at -O2 and -O3.\n\n", 
         "tags": [
             "relevant", 
-            "partial redundancy elimination"
+            "partial redundancy elimination", 
+            "covered", 
+            "lit review"
         ]
     }, 
     "-ftree-partial-pre": {
@@ -861,7 +863,8 @@
             "relevant", 
             "redundant computation", 
             "parameter", 
-            "partial redundancy elimination"
+            "partial redundancy elimination", 
+            "covered"
         ]
     }, 
     "-ftree-forwprop": {
@@ -871,7 +874,8 @@
             "relevant", 
             "partial redundancy elimination", 
             "expression simplification", 
-            "forward propagation"
+            "forward propagation", 
+            "covered"
         ]
     }, 
     "-ftree-fre": {
@@ -882,7 +886,8 @@
             "redundant computations", 
             "jvm", 
             "native", 
-            "full redundancy elimination"
+            "full redundancy elimination", 
+            "covered"
         ]
     }, 
     "-ftree-phiprop": {
@@ -911,7 +916,8 @@
         "description": "\nPerform copy propagation on trees.  This pass eliminates unnecessary\ncopy operations.  This flag is enabled by default at -O and\nhigher.\n\n", 
         "tags": [
             "relevant", 
-            "copy propagation"
+            "copy propagation", 
+            "covered"
         ]
     }, 
     "-fipa-pure-const": {
@@ -959,17 +965,20 @@
             "relevant", 
             "function", 
             "constant propagation", 
-            "interprocedural"
+            "interprocedural", 
+            "covered"
         ]
     }, 
     "-fipa-cp-clone": {
         "origin": "gcc", 
         "description": "\nPerform function cloning to make interprocedural constant propagation stronger.\nWhen enabled, interprocedural constant propagation performs function cloning\nwhen externally visible function can be called with constant arguments.\nBecause this optimization can create multiple copies of functions,\nit may significantly increase code size\n(see --param ipcp-unit-growth=value).\nThis flag is enabled by default at -O3.\n\n", 
         "tags": [
-            "relevant", 
+            "not relevant", 
             "functions", 
             "constant propagation", 
-            "function cloning"
+            "function cloning", 
+            "interprocedural", 
+            "parameter"
         ]
     }, 
     "-fipa-bit-cp": {
@@ -1031,7 +1040,8 @@
             "relevant", 
             "code movement", 
             "line motion", 
-            "store motion"
+            "store motion", 
+            "covered"
         ]
     }, 
     "-ftree-bit-ccp": {
@@ -1051,7 +1061,8 @@
         "tags": [
             "relevant", 
             "conditional constant propagation", 
-            "constant propagation"
+            "constant propagation", 
+            "covered"
         ]
     }, 
     "-fssa-backprop": {
@@ -1097,7 +1108,8 @@
         "description": "\nPerform dead code elimination (DCE) on trees.  This flag is enabled by\ndefault at -O and higher.\n\n", 
         "tags": [
             "relevant", 
-            "dead code elimination"
+            "dead code elimination", 
+            "covered"
         ]
     }, 
     "-ftree-builtin-call-dce": {
@@ -1120,7 +1132,9 @@
             "redundancy elimination", 
             "range propagation", 
             "expression simplification", 
-            "scalars"
+            "scalars", 
+            "covered", 
+            "implicitly covered"
         ]
     }, 
     "-ftree-dse": {
@@ -1129,7 +1143,8 @@
         "tags": [
             "relevant", 
             "dead store", 
-            "dead code"
+            "dead code", 
+            "covered"
         ]
     }, 
     "-ftree-ch": {
@@ -1151,7 +1166,9 @@
             "code motion", 
             "loop unswitching", 
             "loop splitting", 
-            "polyhedral optimization"
+            "polyhedral optimization", 
+            "covered", 
+            "skipped polyhedral"
         ]
     }, 
     "-ftree-loop-linear": {
@@ -1201,7 +1218,7 @@
         "origin": "gcc", 
         "description": "\nWhile transforming the program out of the SSA representation, attempt to\nreduce copying by coalescing versions of different user-defined\nvariables, instead of just compiler temporaries.  This may severely\nlimit the ability to debug an optimized program compiled with\n-fno-var-tracking-assignments.  In the negated form, this flag\nprevents SSA coalescing of user variables.  This option is enabled by\ndefault if optimization is enabled, and it does very little otherwise.\n\n", 
         "tags": [
-            "relevant", 
+            "not relevant", 
             "variable coalescing"
         ]
     }, 
@@ -1243,7 +1260,8 @@
             "relevant", 
             "hand optimization", 
             "loops", 
-            "loop tiling"
+            "loop tiling", 
+            "covered"
         ]
     }, 
     "-ftree-loop-im": {
@@ -1253,7 +1271,8 @@
             "relevant", 
             "loops", 
             "unswitch loops", 
-            "code motion"
+            "code motion", 
+            "covered"
         ]
     }, 
     "-ftree-loop-ivcanon": {
@@ -1274,7 +1293,8 @@
             "induction variables", 
             "strength reduction", 
             "variable merging", 
-            "variable elimination"
+            "variable elimination", 
+            "covered"
         ]
     }, 
     "-ftree-parallelize-loops=n": {
@@ -1330,7 +1350,8 @@
         "tags": [
             "relevant", 
             "mathematical expression optimization", 
-            "strength reduction"
+            "strength reduction", 
+            "covered"
         ]
     }, 
     "-ftree-vectorize": {
@@ -1392,7 +1413,8 @@
             "bounds check", 
             "analysis", 
             "bounds propagation", 
-            "comparison analysis"
+            "comparison analysis", 
+            "covered"
         ]
     }, 
     "-fsplit-paths": {
@@ -1430,7 +1452,10 @@
         "tags": [
             "relevant", 
             "inter-function", 
-            "inlining"
+            "inlining", 
+            "skipped", 
+            "hard to induce", 
+            "covered"
         ]
     }, 
     "-fpredictive-commoning": {
@@ -1742,7 +1767,8 @@
         "name": "-adce: Aggressive Dead Code Elimination", 
         "tags": [
             "relevant", 
-            "dead code elimination"
+            "dead code elimination", 
+            "covered"
         ]
     }, 
     "-always-inline: Inliner for always_inline functions": {
@@ -1810,9 +1836,10 @@
         "description": "Merges duplicate global constants together into a single constant that is\nshared.  This is useful because some passes (i.e., TraceValues) insert a lot of\nstring constants into the program, regardless of whether or not an existing\nstring is available.", 
         "name": "-constmerge: Merge Duplicate Global Constants", 
         "tags": [
-            "relevant", 
+            "not relevant", 
             "constant merging", 
-            "subexpression elimination"
+            "subexpression elimination", 
+            "skipped"
         ]
     }, 
     "-constprop: Simple constant propagation": {
@@ -1821,7 +1848,8 @@
         "name": "-constprop: Simple constant propagation", 
         "tags": [
             "relevant", 
-            "constant propagation"
+            "constant propagation", 
+            "covered"
         ]
     }, 
     "-dce: Dead Code Elimination": {
@@ -1830,7 +1858,8 @@
         "name": "-dce: Dead Code Elimination", 
         "tags": [
             "relevant", 
-            "dead code elimination"
+            "dead code elimination", 
+            "covered"
         ]
     }, 
     "-deadargelim: Dead Argument Elimination": {
@@ -1860,7 +1889,8 @@
         "name": "-die: Dead Instruction Elimination", 
         "tags": [
             "relevant", 
-            "dead code elimination"
+            "dead code elimination", 
+            "covered"
         ]
     }, 
     "-dse: Dead Store Elimination": {
@@ -1869,7 +1899,8 @@
         "name": "-dse: Dead Store Elimination", 
         "tags": [
             "relevant", 
-            "dead store elimination"
+            "dead store elimination", 
+            "covered"
         ]
     }, 
     "-functionattrs: Deduce function attributes": {
@@ -1910,7 +1941,8 @@
             "relevant", 
             "common subexpression elimination", 
             "global value numbering", 
-            "interesting"
+            "interesting", 
+            "covered"
         ]
     }, 
     "-indvars: Canonicalize Induction Variables": {
@@ -1921,7 +1953,9 @@
             "relevant", 
             "induction variables", 
             "loops", 
-            "induction variable canonicalization"
+            "induction variable canonicalization", 
+            "covered", 
+            "debatably relevant"
         ]
     }, 
     "-inline: Function Integration/Inlining": {
@@ -1931,7 +1965,8 @@
         "tags": [
             "relevant", 
             "function", 
-            "inlining"
+            "inlining", 
+            "covered"
         ]
     }, 
     "-instcombine: Combine redundant instructions": {
@@ -1941,7 +1976,10 @@
         "tags": [
             "relevant", 
             "expression optimization", 
-            "expression simplification"
+            "expression simplification", 
+            "covered", 
+            "skipped", 
+            "could do more"
         ]
     }, 
     "-internalize: Internalize Global Symbols": {
@@ -1959,7 +1997,9 @@
         "name": "-ipconstprop: Interprocedural constant propagation", 
         "tags": [
             "relevant", 
-            "interprocedural constant propagation"
+            "interprocedural constant propagation", 
+            "could do more", 
+            "covered"
         ]
     }, 
     "-ipsccp: Interprocedural Sparse Conditional Constant Propagation": {
@@ -1981,7 +2021,8 @@
             "relevant", 
             "hand optimization", 
             "branch layout", 
-            "conditional analysis"
+            "conditional analysis", 
+            "covered"
         ]
     }, 
     "-lcssa: Loop-Closed SSA Form Pass": {
@@ -2000,7 +2041,8 @@
         "tags": [
             "relevant", 
             "code motion", 
-            "loops"
+            "loops", 
+            "covered"
         ]
     }, 
     "-loop-deletion: Delete dead loops": {
@@ -2011,7 +2053,8 @@
             "relevant", 
             "dead code elimination", 
             "dead loops", 
-            "helper pass"
+            "helper pass", 
+            "covered"
         ]
     }, 
     "-loop-extract: Extract loops into new functions": {
@@ -2040,7 +2083,7 @@
             "relevant", 
             "strength reduction", 
             "induction variables", 
-            ""
+            "covered"
         ]
     }, 
     "-loop-rotate: Rotate Loops": {
@@ -2078,7 +2121,8 @@
         "name": "-loop-unswitch: Unswitch loops", 
         "tags": [
             "relevant", 
-            "loop unswitching"
+            "loop unswitching", 
+            "covered"
         ]
     }, 
     "-loweratomic: Lower atomic intrinsics to non-atomic form": {
@@ -2177,7 +2221,8 @@
             "relevant", 
             "tree reassociation", 
             "expression canonicalization", 
-            "helper pass"
+            "helper pass", 
+            "covered"
         ]
     }, 
     "-reg2mem: Demote all values to stack slots": {
@@ -2208,7 +2253,8 @@
             "relevant", 
             "hand optimization", 
             "constant propagation", 
-            "conditional constant propagation"
+            "conditional constant propagation", 
+            "covered"
         ]
     }, 
     "-simplifycfg: Simplify the CFG": {
@@ -2227,7 +2273,8 @@
         "tags": [
             "relevant", 
             "code sinking", 
-            "code motion"
+            "code motion", 
+            "covered"
         ]
     }, 
     "-strip: Strip all symbols from a module": {

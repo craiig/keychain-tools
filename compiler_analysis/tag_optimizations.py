@@ -137,6 +137,16 @@ def manually_tag_opts(db, args):
             continue
         
         if args.filter_tags:
+            skip = False
+            for ft in (args.filter_tag_skip if args.filter_tag_skip != None else []):
+                for t in o.get('tags', []):
+                    m = re.match(ft, t)
+                    if m:
+                        skip = True
+            if skip:
+                print "skipping {} due to skip tag".format(name)
+                continue
+
             visit = False
             for ft in args.filter_tags:
                 for t in o.get('tags', []):
@@ -149,7 +159,7 @@ def manually_tag_opts(db, args):
                 if visit:
                     break
             if not visit:
-                print "skipping {}".format(name)
+                print "skipping {} due to no filter match".format(name)
                 continue
 
         tags_fh = tempfile.NamedTemporaryFile(mode="w+", delete=True)
@@ -201,6 +211,7 @@ if __name__ == "__main__":
     parser.add_argument('--manually_tag', '-m', help='manually tag the optimizatins with tags', action='store_true')
     parser.add_argument('--manually_skip_tagged', '-mst', help='skip already tagged', action='store_true')
     parser.add_argument('--filter_tags', '-f', help='filter tags when manually tagging', action='append')
+    parser.add_argument('--filter_tag_skip', '-fs', help='tags to skip when manually tagging', action='append')
 
     parser.add_argument('--remove_old_entries', help="remove old entries", action='store_true')
 
