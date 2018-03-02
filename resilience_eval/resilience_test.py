@@ -3,128 +3,44 @@ import json
 import argparse
 import os, shutil
 from pprint import pprint
-import subprocess
 import sys
-import hashlib
 import re
 
 #templates used to generate code
 import resilience_templates
-
-def util_hash(hash_object, file_path):
-    with open(file_path, "rb") as f:
-        for chunk in iter(lambda: f.read(4096), b""):
-            hash_object.update(chunk)
-    return hash_object.hexdigest()
-
-def util_sha256_hash(file_path):
-    return util_hash(hashlib.sha256(), file_path)
+from compilers import CompilerDefinitions
 
 def generate_scala_code(program, args):
     pass
 
-# return hash or false if error
-def gcc_compile_and_hash(variant_path):
-    #OS X gcc is ACTUALLY CLANG so we use one from homebrew
-    # TODO use a much more recent version of gcc
-    asm_path = "{}.S".format(variant_path)
-    #compile_cmd = "/usr/local/bin/gcc-4.9 -o {} -c -S -O3 -std=gnu11 {}.c".format(asm_path, variant_path)
-    compile_cmd = "clang -o {} -c -S -O3 {}.c".format(asm_path, variant_path)
-    print compile_cmd
-
-    try:
-        output = subprocess.check_output(compile_cmd, shell=True, stderr=subprocess.STDOUT)
-    except subprocess.CalledProcessError as cpe:
-        print "{} returned {}".format(compile_cmd, cpe.returncode)
-        print cpe.output
-        return False
-
-    # program is compiled, so hash asm
-    h = util_sha256_hash(asm_path)
-
-    return h
-
-def c_codegen(variant, program, output_dir):
-    type_map = resilience_templates.CProgram.type_map
-
-    #generate type signature for input, passing it through the type map to get C types
-    input_types = [ type_map.get(ty,ty)  for ty in program.get('input_types', []) ]
-    input_sig = [ '{t} input{i}'.format(t=ty, i=tyidx) for tyidx,ty in enumerate(input_types) ]
-    inputs = ', '.join( input_sig )
-
-    # !!! watch out for the mutability and potential cycles 
-    return_type = type_map.get(program['return_type'], program['return_type'])
-
-    # if there isn't a default return insert one
-    return_stmnt = program.get('return', 'return')
-
-    header_stmnt = program.get('header', '')
-
-    body = resilience_templates.CProgram.body
-
-    # TODO hoist all above code into a class?
-    program_text = body.format(
-        expression=variant['code']
-        , return_type = return_type
-        , name = program['name']
-        , inputs = inputs
-        , return_stmnt=return_stmnt
-        , header=header_stmnt
-    )
-
-    # computed variant path lacks extension, be mindful of this.
-    idx = variant['_idx']
-    variant_path = os.path.join(output_dir, 'c', '{}-{}'.format(program['name'], idx) )
-    code_path = "{}.c".format(variant_path)
-
-    # we chose to write to files because this is easier to debug mismatches
-    if not os.path.exists(os.path.dirname(code_path)):
-        os.makedirs(os.path.dirname(code_path))
-    with open(code_path, "w+") as fh:
-        fh.write(program_text)
-
-    if True: #if debug:
-        print "****** {}".format(code_path)
-        pprint(program, indent=4)
-        print program_text
-
-    return variant_path
-
-#returns a file path with the generated variant
-def generate_c_code(variant, program, output_dir):
-    if 'code' in variant:
-        return c_codegen(variant, program, output_dir)
-    elif 'type' in variant:
-        if variant['type'] == 'file':
-            #copy to output dir so it's easy to handle
-            variant_path = os.path.join(output_dir, 'c', '{}-{}'.format(program['name'], variant['_idx']) )
-            code_path = "{}.c".format(variant_path)
-            if 'c' in variant:
-                shutil.copyfile(variant['c'], code_path)
-            return variant_path
-
-def perform_c_tests(program, args):
-    program_hashes = []
+def perform_tests(program, args):
+    program_hashes = {}
     for idx,v in enumerate(program.get('variants', [])):
-        v['_idx'] = idx
-        variant_path = generate_c_code(v, program, args.output_dir)
-        print "variant path: {}".format(variant_path)
+        for compiler in CompilerDefinitions:
+            print compiler.name()
+            v['_idx'] = idx
 
-        #if 'code' not in v:
-        if not variant_path:
-            print 'skipping variant {} for {} because no compatible code specified'.format(
-                idx, program['name']
-            )
-            continue
+            variant_path = compiler.generate_code(v, program, args.output_dir)
+            print "variant path: {}".format(variant_path)
 
-        #todo general compiler interface
-        ret = gcc_compile_and_hash(variant_path)
-        if not ret:
-            # test failure
-            sys.exit(1)
-        else:
-            print "success"
-            program_hashes.append(ret)
+            if not variant_path:
+                print 'skipping variant {} for {} because no compatible code specified'.format(
+                    idx, program['name']
+                )
+                continue
+
+            #todo general compiler interface
+            ret = compiler.compile_and_hash(variant_path, program)
+            if not ret:
+                # test failure
+                print "test failure"
+                sys.exit(1)
+            else:
+                print "success"
+                compiler_name = compiler.name()
+                if compiler_name not in program_hashes:
+                    program_hashes[compiler_name] = []
+                program_hashes[compiler_name].append(ret)
 
     # after variant loop hash
     return program_hashes
@@ -155,23 +71,62 @@ def generate_all_code(overall, args):
             continue
 
         #generate_scala_code(p, args)
-        program_hashes = perform_c_tests(p, args)
+        program_hashes = perform_tests(p, args)
+        p['program_hashes'] = program_hashes
 
         # i think it would be good to save a report, so we add a variant_hashes
         # member to the program dict and output it
-        unique_hashes = list(set(program_hashes)) # cast set back to list for json serializability
-        p['tested_on'] = 'GCC 4.9 O3'
-        p['program_hashes'] = program_hashes
-        p['unique_hashes'] = unique_hashes
-        p['success_overall'] = len(unique_hashes) == 1
-        p['success_partial'] = len(unique_hashes) < len(p['variants'])
-        p['failure_total'] = len(unique_hashes) == len(p['variants'])
-        total_unique_programs = total_unique_programs + len(unique_hashes)
-        total_variants = total_variants + len(program_hashes)
+        # old stats from before the addition of multi-compilers
+        #unique_hashes = list(set(program_hashes)) # cast set back to list for json serializability
+        #p['unique_hashes'] = unique_hashes
+        #p['success_overall'] = len(unique_hashes) == 1
+        #p['success_partial'] = len(unique_hashes) < len(p['variants'])
+        #p['failure_total'] = len(unique_hashes) == len(p['variants'])
+        #total_unique_programs = total_unique_programs + len(unique_hashes)
+        #total_variants = total_variants + len(program_hashes)
+
+    # old stats from before the addition of multi-compilers
+    #overall['total_unique_programs'] = total_unique_programs
+    #overall['total_variants'] = total_variants
+
+def analyze_programs_minmax(overall):
+    #one way to look at these stats is to do min/max:
+    # what is the minimum number of unique hashes? one per program
+    # maximum? one per variant
+
+    total_variants = 0
+    compiler_results = {}
+    per_origin = {}
+    for p in overall['programs']:
+        total_variants = total_variants + len(p['variants'])
+
+        origin = p['origin'] #get program origin to classify
+        per_origin[origin] = per_origin.get(origin, {}) #create if not exists
+        origin_stats = per_origin[origin] # look up
+        origin_stats['total_programs'] = origin_stats.get('total_programs', 0) + 1
+        origin_stats['total_variants'] = origin_stats.get('total_variants', 0) + len(p['variants'])
+
+        #iterate over each compiler's results
+        for c in p['program_hashes'].iterkeys():
+            program_hashes = p['program_hashes'][c]
+            unique_hashes = list(set(program_hashes)) # cast set back to list for json serializability
+
+            if c not in compiler_results:
+                compiler_results[c] = {}
+            cr = compiler_results[c]
+
+            cr['unique_hashes'] = cr.get('unique_hashes', 0) + len(unique_hashes)
+
+            # break these out by benchmark so we can get an idea of each one does
+            if origin not in cr:
+                cr[origin] = {}
+            cro = cr[origin]
+            cro['unique_hashes'] = cro.get('unique_hashes', 0) + len(unique_hashes)
 
     overall['total_programs'] = len(overall.get('programs', []))
-    overall['total_unique_programs'] = total_unique_programs
+    overall['total_compiler_results'] = compiler_results
     overall['total_variants'] = total_variants
+    overall['total_origin_stats'] = per_origin
 
 def clean_programs(program):
     for p in program['programs']:
@@ -194,6 +149,8 @@ def main():
     clean_programs(program)
 
     generate_all_code(program, args)
+
+    analyze_programs_minmax(program)
 
     if(args.report_output):
          with open(args.report_output, 'w+') as fh:
