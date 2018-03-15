@@ -53,6 +53,7 @@
 			"origin": "tpcds_survey",
 			"input_types": ["int","int"],
 			"return_type": "boolean",
+			"expect_failure": {"c": true},
 			"variants": [
 				{ "code": "(input0 == 10) && (input1 == 20)" }
 				, { "code": "(input1 == 20) && (input0 == 10)" }
@@ -610,7 +611,7 @@
 			]
 		}
 		, {
-			"name": "dead_store",
+			"name": "tce_dead_store",
 			"origin": "tce",
 			"input_types": ["int", "int"],
 			"return_type": "int",
@@ -618,11 +619,10 @@
 			"variants": [
 				{ "code": "int x = input0 + input1; return x;" }
 				, { "code": "int x = input0 * 10; x = input0 + input1; return x;" }
-				, { "code": "int x = input0 * 10; if(input0==100) x = 100; else x = input0; return x;" }
 			]
 		}
 		, {
-			"name": "dead_store_negate_zero",
+			"name": "tce_dead_store_negate_zero",
 			"origin": "tce",
 			"input_types": ["int"],
 			"return_type": "int",

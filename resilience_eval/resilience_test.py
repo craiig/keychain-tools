@@ -112,21 +112,50 @@ def analyze_programs_minmax(overall):
             unique_hashes = list(set(program_hashes)) # cast set back to list for json serializability
 
             if c not in compiler_results:
-                compiler_results[c] = {}
+                compiler_results[c] = {'origins':{}}
             cr = compiler_results[c]
 
             cr['unique_hashes'] = cr.get('unique_hashes', 0) + len(unique_hashes)
 
             # break these out by benchmark so we can get an idea of each one does
-            if origin not in cr:
-                cr[origin] = {}
-            cro = cr[origin]
+            if origin not in cr['origins']:
+                cr['origins'][origin] = {}
+            cro = cr['origins'][origin]
             cro['unique_hashes'] = cro.get('unique_hashes', 0) + len(unique_hashes)
 
     overall['total_programs'] = len(overall.get('programs', []))
     overall['total_compiler_results'] = compiler_results
     overall['total_variants'] = total_variants
     overall['total_origin_stats'] = per_origin
+
+def analyze_program_tests_success(overall):
+    # analyze success from the perspective of whether or not a particular test passed or failed
+    # pass = a single hash
+    
+    compilers_pass_fail = {}
+
+    for p in overall['programs']:
+        origin = p['origin'] #get program origin to classify
+        for c in p['program_hashes'].iterkeys():
+            if c not in compilers_pass_fail:
+                compilers_pass_fail[c] = {'passes': 0, 'fails': 0, 'passed_tests': [], 'failed_tests': [], 'origins':{}}
+            cr = compilers_pass_fail[c]
+
+            if origin not in cr['origins']:
+                cr['origins'][origin] = {'passes': 0, 'fails': 0, 'passed_tests': [], 'failed_tests': []}
+
+            program_hashes = p['program_hashes'][c]
+            unique_hashes = list(set(program_hashes)) # cast set back to list for json serializability
+            if len(unique_hashes) > 1:
+                cr['fails'] += 1
+                cr['origins'][origin]['fails'] += 1
+                cr['origins'][origin]['failed_tests'].append(p['name'])
+            else:
+                cr['passes'] += 1
+                cr['origins'][origin]['passes'] += 1
+                cr['origins'][origin]['passed_tests'].append(p['name'])
+
+    overall['total_compiler_pass_fail'] = compilers_pass_fail
 
 def clean_programs(program):
     for p in program['programs']:
@@ -151,6 +180,7 @@ def main():
     generate_all_code(program, args)
 
     analyze_programs_minmax(program)
+    analyze_program_tests_success(program)
 
     if(args.report_output):
          with open(args.report_output, 'w+') as fh:
