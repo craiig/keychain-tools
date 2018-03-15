@@ -18,7 +18,7 @@ class Compiler(object):
         raise ValueError("no name function defined")
 
     def supported_languages(self):
-        print "warning: implement your supported languages function"
+        raise ValueError("implement your supported languages function")
 
     # generate_code and compile_and_hash are split so that we can enforce code
     # is generated and placed in the right build folder to support debugging
@@ -26,11 +26,11 @@ class Compiler(object):
 
     # return a file path or false
     def generate_code(self, variant, program, output_dir):
-        print "warning: implement your code generation function"
+        raise ValueError("implement your code generation function")
 
     # return a hash or false
     def compile_and_hash(self, variant_path, program):
-        print "warning: implement your compile and hash function"
+        raise ValueError("implement your compile and hash function")
 
 class CCompiler(Compiler):
 
@@ -43,6 +43,10 @@ class CCompiler(Compiler):
         self.compiler_name = compiler_name
         self.compiler_template = compiler_map[compiler_name]
         self.opt_level = opt_level
+
+    # TODO i think we need to write a CLI library for the udf-hashing
+    # program so we can use it to disassemble compiled java?
+    # otheriwse we can use javap -c ...
 
     def name(self):
         return "{name}_{opt_level}".format(name=self.compiler_name,
@@ -139,8 +143,80 @@ class CCompiler(Compiler):
 
         return h
 
+class JavaCompiler(Compiler):
+    def __init__(self, path):
+        self.version = subprocess.check_output("{} -version".format(path), shell=True, stderr=subprocess.STDOUT)
+        self.version = self.version.strip(' \n\t')
+        self.version = self.version.replace(' ', '')
+        pass
+
+    def name(self):
+        return self.version
+
+    def supported_languages(self):
+        return ["java"]
+
+    def java_codegen(self, variant, program, output_dir):
+        type_map = resilience_templates.JavaProgram.type_map
+
+        #generate type signature for input, passing it through the type map to get C types
+        input_types = [ type_map.get(ty,ty)  for ty in program.get('input_types', []) ]
+        input_sig = [ '{t} input{i}'.format(t=ty, i=tyidx) for tyidx,ty in enumerate(input_types) ]
+        inputs = ', '.join( input_sig )
+
+        # !!! watch out for the mutability and potential cycles 
+        return_type = type_map.get(program['return_type'], program['return_type'])
+
+        # if there isn't a default return insert one
+        return_stmnt = program.get('return', 'return')
+
+        header_stmnt = program.get('header', '')
+
+        body = resilience_templates.JavaProgram.body
+
+        # TODO hoist all above code into a class?
+        program_text = body.format(
+            expression=variant['code']
+            , return_type = return_type
+            , name = program['name']
+            , inputs = inputs
+            , return_stmnt=return_stmnt
+            , header=header_stmnt
+        )
+
+        # computed variant path lacks extension, be mindful of this.
+        idx = variant['_idx']
+        variant_path = os.path.join(output_dir, 'java', self.name(), '{}-{}'.format(program['name'], idx) )
+        code_path = "{}.java".format(variant_path)
+
+        # we chose to write to files because this is easier to debug mismatches
+        if not os.path.exists(os.path.dirname(code_path)):
+            os.makedirs(os.path.dirname(code_path))
+        with open(code_path, "w+") as fh:
+            fh.write(program_text)
+
+        if True: #if debug:
+            print "****** {}".format(code_path)
+            pprint(program, indent=4)
+            print program_text
+
+        return variant_path
+
+    def generate_code(self, variant, program, output_dir):
+        if 'code' in variant:
+            return self.java_codegen(variant, program, output_dir)
+        elif 'type' in variant:
+            if variant['type'] == 'file':
+                #copy to output dir so it's easy to handle
+                variant_path = os.path.join(output_dir, 'java', self.name(),  '{}-{}'.format(program['name'], variant['_idx']) )
+                code_path = "{}.java".format(variant_path)
+                if 'java' in variant:
+                    shutil.copyfile(variant['java'], code_path)
+                return variant_path
+
+
 CompilerDefinitions = [
-    #JavaCompiler(),
+    JavaCompiler("javac"),
     #ScalaCompiler(),
     CCompiler('gcc49', '-O0'),
     CCompiler('gcc49', '-O3'),

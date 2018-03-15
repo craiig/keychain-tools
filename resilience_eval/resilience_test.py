@@ -27,6 +27,7 @@ def perform_tests(program, args):
                 print 'skipping variant {} for {} because no compatible code specified'.format(
                     idx, program['name']
                 )
+                raise ValueError("please make all programs work on all compilers")
                 continue
 
             #todo general compiler interface
