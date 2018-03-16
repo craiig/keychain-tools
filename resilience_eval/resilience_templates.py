@@ -16,9 +16,9 @@ class JavaProgram:
     }
     body = """
 {header}
-class clz_{name} {{
+class {name} {{
     {return_type} {name}({inputs}){{
-        {return_stmnt} {expression};
+        {return_stmnt} {expression}
     }}
 }}
 """

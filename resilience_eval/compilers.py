@@ -9,6 +9,15 @@ import subprocess
 from util import util_sha256_hash
 import resilience_templates
 
+def subprocess_exception_catch(cmd):
+    try:
+        output = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
+    except subprocess.CalledProcessError as cpe:
+        print "{} returned {}".format(cmd, cpe.returncode)
+        print cpe.output
+        return False
+    return True
+
 class Compiler(object):
 
     def __init__(self):
@@ -43,10 +52,6 @@ class CCompiler(Compiler):
         self.compiler_name = compiler_name
         self.compiler_template = compiler_map[compiler_name]
         self.opt_level = opt_level
-
-    # TODO i think we need to write a CLI library for the udf-hashing
-    # program so we can use it to disassemble compiled java?
-    # otheriwse we can use javap -c ...
 
     def name(self):
         return "{name}_{opt_level}".format(name=self.compiler_name,
@@ -145,6 +150,9 @@ class CCompiler(Compiler):
 
 class JavaCompiler(Compiler):
     def __init__(self, path):
+        self.compiler_template = "{path} {variant_path}.java"
+
+        self.path = path
         self.version = subprocess.check_output("{} -version".format(path), shell=True, stderr=subprocess.STDOUT)
         self.version = self.version.strip(' \n\t')
         self.version = self.version.replace(' ', '')
@@ -167,8 +175,14 @@ class JavaCompiler(Compiler):
         # !!! watch out for the mutability and potential cycles 
         return_type = type_map.get(program['return_type'], program['return_type'])
 
+        expression = variant['code']
+
         # if there isn't a default return insert one
         return_stmnt = program.get('return', 'return')
+        if len(return_stmnt) > 0:
+            #could propagate to the c compiler too
+            #but it's less strict
+            expression += ';'
 
         header_stmnt = program.get('header', '')
 
@@ -176,7 +190,7 @@ class JavaCompiler(Compiler):
 
         # TODO hoist all above code into a class?
         program_text = body.format(
-            expression=variant['code']
+            expression=expression
             , return_type = return_type
             , name = program['name']
             , inputs = inputs
@@ -205,7 +219,7 @@ class JavaCompiler(Compiler):
     def generate_code(self, variant, program, output_dir):
         if 'code' in variant:
             return self.java_codegen(variant, program, output_dir)
-        elif 'type' in variant:
+        elif 'type' in variant and 'java' in variant:
             if variant['type'] == 'file':
                 #copy to output dir so it's easy to handle
                 variant_path = os.path.join(output_dir, 'java', self.name(),  '{}-{}'.format(program['name'], variant['_idx']) )
@@ -214,12 +228,43 @@ class JavaCompiler(Compiler):
                     shutil.copyfile(variant['java'], code_path)
                 return variant_path
 
+    # TODO i think we need to write a CLI library for the udf-hashing
+    # program so we can use it to disassemble compiled java?
+    # otheriwse we can use javap -c ...
+    # 
+    # gonna try javap -c for now, could be an option in the future
+    def compile_and_hash(self, variant_path, program):
+        # challenge here is javac produces an object file that corresponds
+        # to the class name. how to catch it?
+        # generate with specific class name (proram name)
+        
+        compile_cmd = self.compiler_template.format(
+            path = self.path,
+            variant_path = variant_path,
+        )
+        print compile_cmd
+        res = subprocess_exception_catch(compile_cmd)
+        if not res:
+            return False
+
+        # read the bytecode off the class
+        class_file = os.path.join(os.path.dirname(variant_path), program['name']) + '.class'
+        asm_file = variant_path + '.bc'
+        bytecode_cmd = "javap -c {} > {}".format(class_file, asm_file)
+        res = subprocess_exception_catch(bytecode_cmd)
+        print res
+        if not res:
+            return False
+
+        # program is compiled, so hash asm
+        h = util_sha256_hash(asm_file)
+        return h
 
 CompilerDefinitions = [
     JavaCompiler("javac"),
     #ScalaCompiler(),
-    CCompiler('gcc49', '-O0'),
-    CCompiler('gcc49', '-O3'),
-    CCompiler('clang', '-O0'),
-    CCompiler('clang', '-O3')
+    #CCompiler('gcc49', '-O0'),
+    #CCompiler('gcc49', '-O3'),
+    #CCompiler('clang', '-O0'),
+    #CCompiler('clang', '-O3')
 ]

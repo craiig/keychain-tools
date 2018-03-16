@@ -27,7 +27,7 @@ def perform_tests(program, args):
                 print 'skipping variant {} for {} because no compatible code specified'.format(
                     idx, program['name']
                 )
-                raise ValueError("please make all programs work on all compilers")
+                #raise ValueError("please make all programs work on all compilers")
                 continue
 
             #todo general compiler interface
@@ -71,7 +71,6 @@ def generate_all_code(overall, args):
             print "skipping {} due to no filter match".format(p['name'])
             continue
 
-        #generate_scala_code(p, args)
         program_hashes = perform_tests(p, args)
         p['program_hashes'] = program_hashes
 
