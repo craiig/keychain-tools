@@ -13,6 +13,7 @@ class CProgram:
 class JavaProgram:
     type_map = {
             "boolean": "boolean" #map boolean to int for now
+            , "int*": "int[]"
     }
     body = """
 {header}

@@ -88,7 +88,7 @@
 			"return_type": "int",
 			"variants": [
 				{ "code": "input0 + input1" }
-				, { "type": "file", "c": "./benchmarks/function_inlining_1.c" }
+				, { "type": "file", "c": "./benchmarks/function_inlining_1.c", "java": "./benchmarks/function_inlining_1.java"  }
 			]
 		}
 		, {
@@ -143,12 +143,14 @@
 			"name": "gcse_kill_load_store_in_loop",
 			"origin": "compiler_survey",
 			"note": "trying to cover gcc -fgcse-lm, llvm -dce etc",
-			"input_types": ["int*", "int", "int*"],
+			"input_types": ["int*", "int"],
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "int x; for(int i=0; i<input1; i++){ *input0 = i; x = *input0; }; return x; " }
-				, { "code": "int x; for(int i=0; i<input1; i++){ *input0 = i; x = i; }; return x; " }
+				{ "c_code": "int x=0; for(int i=0; i<input1; i++){ *input0 = i; x = *input0; }; return x; "
+				 ,"java_code": "int x=0; for(int i=0; i<input1; i++){ input0[0] = i; x = input0[0]; }; return x; " }
+				, { "c_code": "int x=0; for(int i=0; i<input1; i++){ *input0 = i; x = i; }; return x; " 
+				 ,"java_code": "int x=0; for(int i=0; i<input1; i++){ input0[0] = i; x = i; }; return x; " }
 			]
 		}
 		, {
@@ -166,7 +168,7 @@
 			"name": "comparison_canonicalization",
 			"origin": "compiler_survey",
 			"note": "llvm's instcombine, and gcc's canonicalization and tree reassociation",
-			"input_types": ["int", "int*"],
+			"input_types": ["int"],
 			"return_type": "int",
 			"variants": [
 				{ "code": "input0 >= 10" }

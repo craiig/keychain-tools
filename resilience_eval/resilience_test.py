@@ -5,6 +5,7 @@ import os, shutil
 from pprint import pprint
 import sys
 import re
+import traceback
 
 #templates used to generate code
 import resilience_templates
@@ -20,10 +21,44 @@ def perform_tests(program, args):
             print compiler.name()
             v['_idx'] = idx
 
-            variant_path = compiler.generate_code(v, program, args.output_dir)
-            print "variant path: {}".format(variant_path)
+            languages = compiler.supported_languages()
+            assert len(languages) == 1, "multiple langs per compiler not supported yet"
+            lang = languages[0]
+            lang_code = '{}_code'.format(lang)
 
-            if not variant_path:
+            variant_path = os.path.join(args.output_dir, lang, compiler.name(),  '{}-{}'.format(program['name'], v['_idx']) )
+            code_path = "{}.{}".format(variant_path, lang)
+            
+            if os.path.exists(code_path):
+                #this exists so skip
+                print 'skipping code gen for {}'.format(code_path)
+                pass
+            elif 'type' in v and v['type'] == 'file':
+                if lang in v:
+                    #copy to output dir so it's easy to investigate failures later
+                    shutil.copyfile(v[lang], code_path)
+                else:
+                    # no file specified for this variant
+                    print 'error no file specified for this variant and language combo'
+                    print "language: {}".format(lang)
+                    pprint(v)
+                    #raise ValueError('error no file specified for this variant and language combo')
+            elif 'code' in v or lang_code in v: 
+                #TODO fix code key error when calling c_codegen
+                # ask compiler to generate code if file isn't provided
+                try:
+                    compiler.generate_code(v, program, code_path)
+                except Exception as e:
+                    print 'error generating code for variant:'
+                    pprint(v)
+                    traceback.print_exc()
+                    raise e
+            else:
+                # no matching code to use, so exit?
+                pass
+
+            print "variant path: {}".format(variant_path)
+            if not variant_path or not os.path.exists(code_path):
                 print 'skipping variant {} for {} because no compatible code specified'.format(
                     idx, program['name']
                 )
@@ -35,6 +70,7 @@ def perform_tests(program, args):
             if not ret:
                 # test failure
                 print "test failure"
+                pprint(v)
                 sys.exit(1)
             else:
                 print "success"

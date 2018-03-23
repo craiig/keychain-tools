@@ -34,12 +34,13 @@ class Compiler(object):
     # this is basically the only reason 
 
     # return a file path or false
-    def generate_code(self, variant, program, output_dir):
-        raise ValueError("implement your code generation function")
+    def generate_code(self, variant, program, code_path):
+        raise ValueError("implement the code generation function")
 
     # return a hash or false
     def compile_and_hash(self, variant_path, program):
-        raise ValueError("implement your compile and hash function")
+        raise ValueError("implement the compile and hash function")
+
 
 class CCompiler(Compiler):
 
@@ -60,7 +61,7 @@ class CCompiler(Compiler):
     def supported_languages(self):
         return ["c"]
 
-    def c_codegen(self, variant, program, output_dir):
+    def c_codegen(self, variant, program, code_path):
         type_map = resilience_templates.CProgram.type_map
 
         #generate type signature for input, passing it through the type map to get C types
@@ -78,20 +79,20 @@ class CCompiler(Compiler):
 
         body = resilience_templates.CProgram.body
 
+        if 'c_code' in variant:
+            expression = variant['c_code']
+        else:
+            expression = variant['code']
+
         # TODO hoist all above code into a class?
         program_text = body.format(
-            expression=variant['code']
+            expression=expression
             , return_type = return_type
             , name = program['name']
             , inputs = inputs
             , return_stmnt=return_stmnt
             , header=header_stmnt
         )
-
-        # computed variant path lacks extension, be mindful of this.
-        idx = variant['_idx']
-        variant_path = os.path.join(output_dir, 'c', self.name(), '{}-{}'.format(program['name'], idx) )
-        code_path = "{}.c".format(variant_path)
 
         # we chose to write to files because this is easier to debug mismatches
         if not os.path.exists(os.path.dirname(code_path)):
@@ -104,20 +105,11 @@ class CCompiler(Compiler):
             pprint(program, indent=4)
             print program_text
 
-        return variant_path
+        return True
 
     #returns a file path with the generated variant
-    def generate_code(self, variant, program, output_dir):
-        if 'code' in variant:
-            return self.c_codegen(variant, program, output_dir)
-        elif 'type' in variant:
-            if variant['type'] == 'file':
-                #copy to output dir so it's easy to handle
-                variant_path = os.path.join(output_dir, 'c', self.name(),  '{}-{}'.format(program['name'], variant['_idx']) )
-                code_path = "{}.c".format(variant_path)
-                if 'c' in variant:
-                    shutil.copyfile(variant['c'], code_path)
-                return variant_path
+    def generate_code(self, variant, program, code_path):
+        return self.c_codegen(variant, program, code_path)
 
     # accept path to a file and the program spec. the program spec is used to find
     # the relevant function to be hashed. this can help when testing function
@@ -127,21 +119,24 @@ class CCompiler(Compiler):
         #OS X gcc is ACTUALLY CLANG so we use one from homebrew
         # TODO use a much more recent version of gcc
         asm_path = "{}.S".format(variant_path)
-        #compile_cmd = "/usr/local/bin/gcc-4.9 -o {} -c -S -O3 -std=gnu11 {}.c".format(asm_path, variant_path)
-        #compile_cmd = "clang -o {} -c -S -O3 {}.c".format(asm_path, variant_path)
-        compile_cmd = self.compiler_template.format(
-            asm_path = asm_path,
-            variant_path = variant_path,
-            opt_level = self.opt_level
-        )
-        print compile_cmd
+        if not os.path.exists(asm_path):
+            #compile_cmd = "/usr/local/bin/gcc-4.9 -o {} -c -S -O3 -std=gnu11 {}.c".format(asm_path, variant_path)
+            #compile_cmd = "clang -o {} -c -S -O3 {}.c".format(asm_path, variant_path)
+            compile_cmd = self.compiler_template.format(
+                asm_path = asm_path,
+                variant_path = variant_path,
+                opt_level = self.opt_level
+            )
+            print compile_cmd
 
-        try:
-            output = subprocess.check_output(compile_cmd, shell=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as cpe:
-            print "{} returned {}".format(compile_cmd, cpe.returncode)
-            print cpe.output
-            return False
+            try:
+                output = subprocess.check_output(compile_cmd, shell=True, stderr=subprocess.STDOUT)
+            except subprocess.CalledProcessError as cpe:
+                print "{} returned {}".format(compile_cmd, cpe.returncode)
+                print cpe.output
+                return False
+        else:
+            print 'skipping compile because asm path exists: {}'.format(asm_path)
 
         # program is compiled, so hash asm
         h = util_sha256_hash(asm_path)
@@ -164,7 +159,7 @@ class JavaCompiler(Compiler):
     def supported_languages(self):
         return ["java"]
 
-    def java_codegen(self, variant, program, output_dir):
+    def java_codegen(self, variant, program, code_path):
         type_map = resilience_templates.JavaProgram.type_map
 
         #generate type signature for input, passing it through the type map to get C types
@@ -175,7 +170,10 @@ class JavaCompiler(Compiler):
         # !!! watch out for the mutability and potential cycles 
         return_type = type_map.get(program['return_type'], program['return_type'])
 
-        expression = variant['code']
+        if 'java_code' in variant:
+            expression = variant['java_code']
+        else:
+            expression = variant['code']
 
         # if there isn't a default return insert one
         return_stmnt = program.get('return', 'return')
@@ -198,11 +196,6 @@ class JavaCompiler(Compiler):
             , header=header_stmnt
         )
 
-        # computed variant path lacks extension, be mindful of this.
-        idx = variant['_idx']
-        variant_path = os.path.join(output_dir, 'java', self.name(), '{}-{}'.format(program['name'], idx) )
-        code_path = "{}.java".format(variant_path)
-
         # we chose to write to files because this is easier to debug mismatches
         if not os.path.exists(os.path.dirname(code_path)):
             os.makedirs(os.path.dirname(code_path))
@@ -214,19 +207,10 @@ class JavaCompiler(Compiler):
             pprint(program, indent=4)
             print program_text
 
-        return variant_path
+        return True
 
-    def generate_code(self, variant, program, output_dir):
-        if 'code' in variant:
-            return self.java_codegen(variant, program, output_dir)
-        elif 'type' in variant and 'java' in variant:
-            if variant['type'] == 'file':
-                #copy to output dir so it's easy to handle
-                variant_path = os.path.join(output_dir, 'java', self.name(),  '{}-{}'.format(program['name'], variant['_idx']) )
-                code_path = "{}.java".format(variant_path)
-                if 'java' in variant:
-                    shutil.copyfile(variant['java'], code_path)
-                return variant_path
+    def generate_code(self, variant, program, code_path):
+        return self.java_codegen(variant, program, code_path)
 
     # TODO i think we need to write a CLI library for the udf-hashing
     # program so we can use it to disassemble compiled java?
@@ -237,27 +221,26 @@ class JavaCompiler(Compiler):
         # challenge here is javac produces an object file that corresponds
         # to the class name. how to catch it?
         # generate with specific class name (proram name)
-        
-        compile_cmd = self.compiler_template.format(
-            path = self.path,
-            variant_path = variant_path,
-        )
-        print compile_cmd
-        res = subprocess_exception_catch(compile_cmd)
-        if not res:
-            return False
+        asm_path = variant_path + '.bc'
+        if not os.path.exists(asm_path):
+            compile_cmd = self.compiler_template.format(
+                path = self.path,
+                variant_path = variant_path,
+            )
+            print compile_cmd
+            res = subprocess_exception_catch(compile_cmd)
+            if not res:
+                return False
 
-        # read the bytecode off the class
-        class_file = os.path.join(os.path.dirname(variant_path), program['name']) + '.class'
-        asm_file = variant_path + '.bc'
-        bytecode_cmd = "javap -c {} > {}".format(class_file, asm_file)
-        res = subprocess_exception_catch(bytecode_cmd)
-        print res
-        if not res:
-            return False
+            # read the bytecode off the class
+            class_file = os.path.join(os.path.dirname(variant_path), program['name']) + '.class'
+            bytecode_cmd = "javap -c {} > {}".format(class_file, asm_path)
+            res = subprocess_exception_catch(bytecode_cmd)
+            if not res:
+                return False
 
         # program is compiled, so hash asm
-        h = util_sha256_hash(asm_file)
+        h = util_sha256_hash(asm_path)
         return h
 
 CompilerDefinitions = [
