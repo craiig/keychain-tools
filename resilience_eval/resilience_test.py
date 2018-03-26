@@ -28,6 +28,11 @@ def perform_tests(program, args):
 
             variant_path = os.path.join(args.output_dir, lang, compiler.name(),  '{}-{}'.format(program['name'], v['_idx']) )
             code_path = "{}.{}".format(variant_path, lang)
+
+            #set up where to store results
+            compiler_name = compiler.name()
+            if compiler_name not in program_hashes:
+                program_hashes[compiler_name] = []
             
             if os.path.exists(code_path):
                 #this exists so skip
@@ -63,6 +68,7 @@ def perform_tests(program, args):
                     idx, program['name']
                 )
                 #raise ValueError("please make all programs work on all compilers")
+                program_hashes[compiler_name].append('skipped_no_code_specified')
                 continue
 
             #todo general compiler interface
@@ -71,12 +77,12 @@ def perform_tests(program, args):
                 # test failure
                 print "test failure"
                 pprint(v)
+                #clean up code files because this failed and we should re-run
+                #can't do this if there's a bug in codegen and we want to look
+                os.remove(code_path)
                 sys.exit(1)
             else:
                 print "success"
-                compiler_name = compiler.name()
-                if compiler_name not in program_hashes:
-                    program_hashes[compiler_name] = []
                 program_hashes[compiler_name].append(ret)
 
     # after variant loop hash

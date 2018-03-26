@@ -28,6 +28,32 @@
 			]
 		}
 		, {
+			"name": "implicit_zero_comparison",
+			"origin": "craig",
+			"input_types": ["int", "int"],
+			"return": "",
+			"return_type": "int",
+			"note": "java implicitly passes this",
+			"variants": [
+				{ "c_code": "if(input0){ return 1; } else { return 0; }"
+				 , "java_code": "if(input0 != 0){ return 1; } else { return 0; }" }
+				, { "code": "if(input0 != 0){ return 1; } else { return 0; }" }
+			]
+		}
+		, {
+			"name": "pointer_deref_equivalence",
+			"origin": "craig",
+			"note": "everything should pass this",
+			"input_types": ["int*"],
+			"return": "",
+			"return_type": "int",
+			"variants": [
+				{ "c_code": "return *input0;"
+				 , "java_code": "return input0[0];" }
+				, { "code": "return input0[0];" }
+			]
+		}
+		, {
 			"name": "comparison",
 			"origin": "tpcds_survey",
 			"input_types": ["int"],
@@ -169,7 +195,7 @@
 			"origin": "compiler_survey",
 			"note": "llvm's instcombine, and gcc's canonicalization and tree reassociation",
 			"input_types": ["int"],
-			"return_type": "int",
+			"return_type": "boolean",
 			"variants": [
 				{ "code": "input0 >= 10" }
 				, { "code": "input0 != 10" }
@@ -239,11 +265,11 @@
 			"origin": "compiler_survey",
 			"note": "trying to cover gcc -fcode-hoisting",
 			"input_types": ["int*", "int*"],
-			"return_type": "int",
+			"return_type": "",
 			"return": "",
 			"variants": [
-				{ "code": "int x = *input0; if(x > 100){ *input0 = x*x; *input1 = 0; } else { *input0 = x*x; *input1 = 1; } " }
-				, { "code": "int x = *input0;  *input0 = x*x; if(x > 100){ *input1 = 0; } else { *input1 = 1; } " }
+				{ "code": "int x = input0[0]; if(x > 100){ input0[0] = x*x; input1[0] = 0; } else { input0[0] = x*x; input1[0] = 1; } " }
+				, { "code": "int x = input0[0];  input0[0] = x*x; if(x > 100){ input1[0] = 0; } else { input1[0] = 1; } " }
 			]
 		}
 		, {
@@ -254,8 +280,8 @@
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "int c = input0 + input1; int d; if(input2){ c = input0; d = c + input1; } else { c = 5; } return c + input1; " }
-				, { "code": "int c = input0 + input1; int d,t; if(input2){ c = input0; d = c + input1; t = d; } else { c = 5; t = c + input1; } return t; " }
+				{ "code": "int c = input0 + input1; int d; if(input2 != 0){ c = input0; d = c + input1; } else { c = 5; } return c + input1; " }
+				, { "code": "int c = input0 + input1; int d,t; if(input2 != 0){ c = input0; d = c + input1; t = d; } else { c = 5; t = c + input1; } return t; " }
 			]
 		}
 		, {
@@ -266,8 +292,8 @@
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "int x = input0 & input1; if(x){ return 0; } else { return 1; }" } 
-				, { "code": "if(input0 & input1){ return 0; } else { return 1; }" } 
+				{ "code": "int x = input0 & input1; if(x!=0){ return 0; } else { return 1; }" } 
+				, { "code": "if((input0 & input1) != 0){ return 0; } else { return 1; }" } 
 			]
 		}
 		, {
@@ -314,8 +340,8 @@
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "int ret; *input0 = input1; input1 = input1 + 1; if(input2){ *input0 = 123; } else { ret = *input0; } return ret;"  }
-				, { "code": "int ret; int sinktemp = input1; input1 = input1 + 1; if(input2){ *input0 = 123; } else { *input0 = sinktemp; ret = *input0; } return ret;"  }
+				{ "code": "int ret=0; input0[0] = input1; input1 = input1 + 1; if(input2!=0){ input0[0] = 123; } else { ret = input0[0]; } return ret;"  }
+				, { "code": "int ret=0; int sinktemp = input1; input1 = input1 + 1; if(input2!=0){ input0[0] = 123; } else { input0[0] = sinktemp; ret = input0[0]; } return ret;"  }
 			]
 		}
 		, {
@@ -326,8 +352,8 @@
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "int x = input1*input2; int y = input1+input2; int z; if(input0){z=x;}else{z=y;} return z; "  }
-				, { "code": "int z; if(input0){z=input1*input2;}else{z=input1+input2;} return z; "  }
+				{ "code": "int x = input1*input2; int y = input1+input2; int z; if(input0!=0){z=x;}else{z=y;} return z; "  }
+				, { "code": "int z; if(input0!=0){z=input1*input2;}else{z=input1+input2;} return z; "  }
 			]
 		}
 		, {
@@ -339,8 +365,8 @@
 			"return": "",
 			"header": "__attribute__((pure)) int extern_do_pos(); __attribute__((pure)) int extern_do_neg();",
 			"variants": [
-				{ "code": "int x = extern_do_pos(); int y = extern_do_neg(); int z; if(input0){z=x;}else{z=y;} return z; "  }
-				, { "code": "int z; if(input0){z=extern_do_pos();}else{z=extern_do_neg();} return z; "  }
+				{ "c_code": "int x = extern_do_pos(); int y = extern_do_neg(); int z; if(input0){z=x;}else{z=y;} return z; "  }
+				, { "c_code": "int z; if(input0){z=extern_do_pos();}else{z=extern_do_neg();} return z; "  }
 			]
 		}
 		, {
@@ -353,7 +379,8 @@
 			"variants": [
 				{ "code": "int x = 100; if(input0>0 || input0<=0){ x=200; } else { x=300; } return x;"  }
 				, { "code": "return 200;"  }
-				, { "code": "int x; if(1){ x=200; } else { x=300; } return x;"  }
+				, { "code": "int x; if(1){ x=200; } else { x=300; } return x;"  
+					,  "java_code": "int x; if(true){ x=200; } else { x=300; } return x;"  }
 				, { "code": "int x = 100; return x*2;" }
 			]
 		}
@@ -362,11 +389,11 @@
 			"origin": "compiler_survey",
 			"note": "trying to cover llvm -sccp TODO is this scpp? more like value range prop",
 			"input_types": ["int*", "int*"],
-			"return_type": "int",
+			"return_type": "void",
 			"return": "",
 			"variants": [
-				{ "code": "if(input0 < input1){ input0[0]++; }" }
-				, { "code": "if(input0 < input1){ input0[0]++; if(input0 == input1) input0[1]++;  }" }
+				{ "code": "if(input0[0] < input1[0]){ input0[0]++; }" }
+				, { "code": "if(input0[0] < input1[0]){ input0[0]++; if(input0[0] == input1[0]) input0[1]++; }" }
 			]
 		}
 		, {
@@ -377,9 +404,9 @@
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "return *input0 + *input1" }
-				, { "code": "int x = 100; return *input0 + *input1;" }
-				, { "code": "int x = 100; for(int i=0; i<x; i++){ if(i==101){ return x; } } return *input0 + *input1;" }
+				{ "code": "return input0[0] + input1[0];" }
+				, { "code": "int x = 100; return input0[0] + input1[0];" }
+				, { "code": "int x = 100; for(int i=0; i<x; i++){ if(i==101){ return x; } } return input0[0] + input1[0];" }
 			]
 		}
 		, {
@@ -387,11 +414,11 @@
 			"origin": "compiler_survey",
 			"note": "trying to cover gcc -fdse -ftree-dse llvm -dse. see gcc/tree-ssa-dse.c",
 			"input_types": ["int*"],
-			"return_type": "int",
+			"return_type": "void",
 			"return": "",
 			"variants": [
-				{ "code": "*input0 = 200;" }
-				, { "code": "*input0 = 100; *input0 = 200;" }
+				{ "code": "input0[0] = 200;" }
+				, { "code": "input0[0] = 100; input0[0] = 200;" }
 			]
 		}
 		, {
@@ -401,10 +428,11 @@
 			"input_types": ["int", "int", "int*"],
 			"return_type": "int",
 			"return": "",
-			"header": "void extern_do_pos(); void extern_do_neg();",
+			"c_header": "void extern_do_pos(); void extern_do_neg();",
+			"java_class_header": "public native void extern_do_pos(); public native void extern_do_neg();",
 			"variants": [
-				{ "code": "for(int i=0; i<input0; i++){ if(input1){ extern_do_pos(); } else { extern_do_neg(); } } return 0;" }
-				, { "code": "if(input1){ for(int i=0; i<input0; i++) extern_do_pos(); } else { for(int i=0; i<input0; i++) extern_do_neg(); } return 0;" }
+				{ "code": "for(int i=0; i<input0; i++){ if(input1!=0){ extern_do_pos(); } else { extern_do_neg(); } } return 0;" }
+				, { "code": "if(input1!=0){ for(int i=0; i<input0; i++) extern_do_pos(); } else { for(int i=0; i<input0; i++) extern_do_neg(); } return 0;" }
 			]
 		}
 		, {
@@ -415,8 +443,8 @@
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "int x=0; for(int i=0; i<input0; i++){ if(input1){ x++; } else { input2[i] = x--; } } return x;" }
-				, { "code": "int x=0; if(input1){ for(int i=0; i<input0; i++) x++; } else { for(int i=0; i<input0; i++) input2[i] = x--; } return x;" }
+				{ "code": "int x=0; for(int i=0; i<input0; i++){ if(input1!=0){ x++; } else { input2[i] = x--; } } return x;" }
+				, { "code": "int x=0; if(input1!=0){ for(int i=0; i<input0; i++) x++; } else { for(int i=0; i<input0; i++) input2[i] = x--; } return x;" }
 			]
 		}
 		, {
@@ -436,11 +464,13 @@
 			"origin": "compiler_survey",
 			"note": "trying to cover gcc -floop-interchange. example from gcc/gimple-loop-interchange.cc",
 			"input_types": ["int", "int**", "int**", "int**"],
-			"return_type": "int",
+			"return_type": "void",
 			"return": "",
 			"variants": [
-				{ "code": "int N = input0; int** a = input1; int** b = input2; int** c = input3; for (int j = 0; j < N; j++) for (int k = 0; k < N; k++) for (int i = 0; i < N; i++) c[i][j] = c[i][j] + a[i][k]*b[k][j];" }
-				, { "code": "int N = input0; int** a = input1; int** b = input2; int** c = input3; for (int i = 0; i < N; i++) for (int j = 0; j < N; j++) for (int k = 0; k < N; k++) c[i][j] = c[i][j] + a[i][k]*b[k][j];" }
+				{ "code": "int N = input0; int** a = input1; int** b = input2; int** c = input3; for (int j = 0; j < N; j++) for (int k = 0; k < N; k++) for (int i = 0; i < N; i++) c[i][j] = c[i][j] + a[i][k]*b[k][j];" 
+				 , "java_code": "int N = input0; int[][] a = input1; int[][] b = input2; int[][] c = input3; for (int j = 0; j < N; j++) for (int k = 0; k < N; k++) for (int i = 0; i < N; i++) c[i][j] = c[i][j] + a[i][k]*b[k][j];" }
+				, { "code": "int N = input0; int** a = input1; int** b = input2; int** c = input3; for (int i = 0; i < N; i++) for (int j = 0; j < N; j++) for (int k = 0; k < N; k++) c[i][j] = c[i][j] + a[i][k]*b[k][j];"
+				, "java_code": "int N = input0; int[][] a = input1; int[][] b = input2; int[][] c = input3; for (int i = 0; i < N; i++) for (int j = 0; j < N; j++) for (int k = 0; k < N; k++) c[i][j] = c[i][j] + a[i][k]*b[k][j];" }
 			]
 		}
 		, {
@@ -451,8 +481,8 @@
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "int a; for (int i=0; i<input0; i++) { if (input0) { a = input0; input1[i] = input2[i]; } }; return a" }
-				, { "code": "int a; a = input0; for (int i=0; i<input0; i++) { if (input0) { input1[i] = input2[i]; } }; return a" }
+				{ "code": "int a=0; for (int i=0; i<input0; i++) { if (input0!=0) { a = input0; input1[i] = input2[i]; } }; return a;" }
+				, { "code": "int a=0; a = input0; for (int i=0; i<input0; i++) { if (input0!=0) { input1[i] = input2[i]; } }; return a;" }
 			]
 		}
 		, {
@@ -472,7 +502,7 @@
 			"origin": "compiler_survey",
 			"note": "trying to cover gcc -fivopts. also covers llvm -indvars. example from gcc/tree-ssa-loop-ivopts.c",
 			"input_types": ["int", "int*", "int*"],
-			"return_type": "int",
+			"return_type": "void",
 			"return": "",
 			"variants": [
 				{ "code": "for(int i=0; i<input0; i++){ input1[i] = input2[i]; }" }
@@ -484,7 +514,7 @@
 			"origin": "compiler_survey",
 			"note": "trying to cover gcc -fivopts. also covers LLVM -indvars. example from http://www.nullstone.com/htmls/category/ive.htm",
 			"input_types": ["int", "int*", "int*"],
-			"return_type": "int",
+			"return_type": "void",
 			"return": "",
 			"variants": [
 				{ "code": "int i1; for (i1 = 0; i1 < input0; i1++) input1[i1] = input2[i1]; " }
@@ -496,7 +526,7 @@
 			"origin": "compiler_survey",
 			"note": "trying to cover llvm -indvars and also -loop-deletion. example from http://llvm.org/docs/Passes.html#indvars-canonicalize-induction-variables",
 			"input_types": ["int", "int*"],
-			"return_type": "int",
+			"return_type": "void",
 			"return": "",
 			"variants": [
 				{ "code": "int i = 7; for (; i*i < 1000; ++i) input1[0]++;" }
@@ -518,13 +548,13 @@
 		, {
 			"name": "value_range_propagation_ne",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -ftree-vrp.c, example: https://llvm.org/devmtg/2007-05/05-Lewycky-Predsimplify.pdf",
+			"note": "trying to cover gcc -ftree-vrp.c, purposeful unreachable code where first condition subsumes second. example: https://llvm.org/devmtg/2007-05/05-Lewycky-Predsimplify.pdf",
 			"input_types": ["int*", "int*"],
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "if(input0 != input1) return 0;" }
-				, { "code": "if(input0 != input1) return 0; if(input0 != input1) input0[0]++;" }
+				{ "code": "if(input0 != input1) return 0; return 1;" }
+				, { "code": "if(input0 != input1) return 0; if(input0[0] != input1[0]) input0[0]++; return 1;" }
 			]
 		}
 		, {
@@ -532,7 +562,7 @@
 			"origin": "compiler_survey",
 			"note": "trying to cover gcc -ftree-vrp.c, example: https://llvm.org/devmtg/2007-05/05-Lewycky-Predsimplify.pdf",
 			"input_types": ["int*", "int*"],
-			"return_type": "int",
+			"return_type": "void",
 			"return": "",
 			"variants": [
 				{ "code": "if(input0 == input1){ input0[0]++; }" }
@@ -544,23 +574,11 @@
 			"origin": "compiler_survey",
 			"note": "trying to cover gcc -ftree-vrp.c, example: https://llvm.org/devmtg/2007-05/05-Lewycky-Predsimplify.pdf",
 			"input_types": ["int*", "int*"],
-			"return_type": "int",
+			"return_type": "void",
 			"return": "",
 			"variants": [
-				{ "code": "if(input0 < input1){ input0[0]++; }" }
-				, { "code": "if(input0 < input1){ input0[0]++; if(input0 == input1) input0[1]++;  }" }
-			]
-		}
-		, {
-			"name": "constant_merging",
-			"origin": "compiler_survey",
-			"note": "trying to cover llvm constmerge",
-			"input_types": ["int*", "int*"],
-			"return_type": "int",
-			"return": "",
-			"variants": [
-				{ "code": "int x = 100; return x*2;" }
-				, { "code": "if(input0 < input1){ input0[0]++; if(input0 == input1) input0[1]++;  }" }
+				{ "code": "if(input0[0] < input1[0]){ input0[0]++; }" }
+				, { "code": "if(input0[0] < input1[0]){ input0[0]++; if(input0 == input1) input0[1]++;  }" }
 			]
 		}
 		, {
@@ -571,8 +589,8 @@
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "int x = *input0; int y = *input1; int z = *input0; return x+y+z;" }
-				, { "code": "int x = *input0; int y = *input1; return x+y+x;" }
+				{ "code": "int x = input0[0]; int y = input1[0]; int z = input0[0]; return x+y+z;" }
+				, { "code": "int x = input0[0]; int y = input1[0]; return x+y+x;" }
 			]
 		}
 		, {
@@ -583,20 +601,21 @@
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "int x=0; if(input0 > 10){ x = 4; } if(x<3){ *input1 = 10; } else { *input1 = 20; }; return x;" }
-				, { "code": "int x=0; if(input0 > 10){ x = 4; *input1 = 20; } else { *input1 = 10; }; return x;" }
+				{ "code": "int x=0; if(input0 > 10){ x = 4; } if(x<3){ input1[0] = 10; } else { input1[0] = 20; }; return x;" }
+				, { "code": "int x=0; if(input0 > 10){ x = 4; input1[0] = 20; } else { input1[0] = 10; }; return x;" }
 			]
 		}
 		, {
 			"name": "for_loop_nothing",
 			"origin": "semantics preserving transformations",
+			"note": "interesting",
 			"input_types": ["int", "int"],
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "return input0 + input1" }
-				, { "code": "return input1 + input0" }
-				, { "code": "for(int i=0; i<1; i++){ return input1 + input0; }" }
+				{ "code": "return input0 + input1;" }
+				, { "code": "return input1 + input0;" }
+				, { "code": "for(int i=0; i<1; i++){ return input1 + input0; } return 0;" }
 				, { "code": "int ret = input1; for(int i=0; i<1; i++){ ret += input0; } return ret;" }
 			]
 		}
@@ -640,14 +659,15 @@
 			"input_types": ["double"],
 			"return_type": "double",
 			"return": "",
+			"java_class_header": "double mEpsilon; double mResult;",
 			"variants": [
 				{ "java_code": "double N = input0;\n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (diff > 0) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n ",
 				  "variant_class": "original"}
 				, { "java_code": "\n double N = input0;\n double x = N;\n double M = -N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (diff > 0) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n ",
 					"variant_class": "negate expression"}
-				, { "java_code": "doubt N = input0; \n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (diff != 0) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n ", 
+				, { "java_code": "double N = input0; \n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (diff != 0) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n ", 
 					"variant_class": "alternate implementation"}
-				, { "java_code": "doubt N = input0; \n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (true) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n ",
+				, { "java_code": "double N = input0; \n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (true) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n ",
 					"variant_class": "alternate implementation"}
 			]
 		}
@@ -658,18 +678,10 @@
 			"return_type": "double",
 			"return": "",
 			"variants": [
-					{ "java_code": "\n public static java.lang.String capitalize( java.lang.String str, char[] delimiters )\n {\n int delimLen = delimiters == null ? -1 : delimiters.length;\n if (str == null || str.length() == 0 || delimLen == 0) {\n return str;\n }\n int strLen = str.length();\n java.lang.StringBuffer buffer = new java.lang.StringBuffer( strLen );\n boolean capitalizeNext = true;\n for (int i = 0; i < strLen; i++) {\n char ch = str.charAt( i );\n if (isDelimiter( ch, delimiters )) {\n buffer.append( ch );\n capitalizeNext = true;\n } else {\n if (capitalizeNext) {\n buffer.append( Character.toTitleCase( ch ) );\n capitalizeNext = false;\n } else {\n buffer.append( ch );\n }\n }\n }\n return buffer.toString();\n }"
-						, "variant_class": "original"
-					}
-					, { "java_code": "\n public static java.lang.String capitalize( java.lang.String str, char[] delimiters )\n {\n int delimLen = delimiters == null ? 1 : delimiters.length;\n if (str == null || str.length() == 0 || delimLen == 0) {\n return str;\n }\n int strLen = str.length();\n java.lang.StringBuffer buffer = new java.lang.StringBuffer( strLen );\n boolean capitalizeNext = true;\n for (int i = 0; i < strLen; i++) {\n char ch = str.charAt( i );\n if (isDelimiter( ch, delimiters )) {\n buffer.append( ch );\n capitalizeNext = true;\n } else {\n if (capitalizeNext) {\n buffer.append( Character.toTitleCase( ch ) );\n capitalizeNext = false;\n } else {\n buffer.append( ch );\n }\n }\n }\n return buffer.toString();\n }"
-						, "variant_class": "early exit removal"
-					}
-					, { "java_code": "\n public static java.lang.String capitalize( java.lang.String str, char[] delimiters )\n {\n int delimLen = delimiters == null ? -1 : -delimiters.length;\n if (str == null || str.length() == 0 || delimLen == 0) {\n return str;\n }\n int strLen = str.length();\n java.lang.StringBuffer buffer = new java.lang.StringBuffer( strLen );\n boolean capitalizeNext = true;\n for (int i = 0; i < strLen; i++) {\n char ch = str.charAt( i );\n if (isDelimiter( ch, delimiters )) {\n buffer.append( ch );\n capitalizeNext = true;\n } else {\n if (capitalizeNext) {\n buffer.append( Character.toTitleCase( ch ) );\n capitalizeNext = false;\n } else {\n buffer.append( ch );\n }\n }\n }\n return buffer.toString();\n }"
-						, "variant_class": "early exit removal"
-					}
-					, { "java_code": "\n public static java.lang.String capitalize( java.lang.String str, char[] delimiters )\n {\n int delimLen = delimiters == null ? -1 : delimiters.length;\n if (str == null || false || delimLen == 0) {\n return str;\n }\n int strLen = str.length();\n java.lang.StringBuffer buffer = new java.lang.StringBuffer( strLen );\n boolean capitalizeNext = true;\n for (int i = 0; i < strLen; i++) {\n char ch = str.charAt( i );\n if (isDelimiter( ch, delimiters )) {\n buffer.append( ch );\n capitalizeNext = true;\n } else {\n if (capitalizeNext) {\n buffer.append( Character.toTitleCase( ch ) );\n capitalizeNext = false;\n } else {\n buffer.append( ch );\n }\n }\n }\n return buffer.toString();\n }"
-						, "variant_class": "early exit removal"
-					}
+				{"type": "file", "java": "./benchmarks/java/tce_capitalize_1.java"}
+				, {"type": "file", "java": "./benchmarks/java/tce_capitalize_2.java"}
+				, {"type": "file", "java": "./benchmarks/java/tce_capitalize_3.java"}
+				, {"type": "file", "java": "./benchmarks/java/tce_capitalize_4.java"}
 			]
 		}
 		, {
@@ -679,63 +691,27 @@
 			"return_type": "double",
 			"return": "",
 			"variants": [
-				{
-					"java_code": "\n public static java.lang.String wrap( java.lang.String str, int wrapLength, java.lang.String newLineStr, boolean wrapLongWords )\n {\n if (str == null) {\n return null;\n }\n if (newLineStr == null) {\n newLineStr = SystemUtils.LINE_SEPARATOR;\n }\n if (wrapLength < 1) {\n wrapLength = 1;\n }\n int inputLineLength = str.length();\n int offset = 0;\n java.lang.StringBuffer wrappedLine = new java.lang.StringBuffer( inputLineLength + 32 );\n while (inputLineLength - offset > wrapLength) {\n if (str.charAt( offset ) == ' ') {\n offset++;\n continue;\n }\n int spaceToWrapAt = str.lastIndexOf( ' ', wrapLength + offset );\n if (spaceToWrapAt >= offset) {\n wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n wrappedLine.append( newLineStr );\n offset = spaceToWrapAt + 1;\n } else {\n if (wrapLongWords) {\n wrappedLine.append( str.substring( offset, wrapLength + offset ) );\n wrappedLine.append( newLineStr );\n offset += wrapLength;\n } else {\n spaceToWrapAt = str.indexOf( ' ', wrapLength + offset );\n if (spaceToWrapAt >= 0) {\n wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n wrappedLine.append( newLineStr );\n offset = spaceToWrapAt + 1;\n } else {\n wrappedLine.append( str.substring( offset ) );\n offset = inputLineLength;\n }\n }\n }\n }\n wrappedLine.append( str.substring( offset ) );\n return wrappedLine.toString();\n }\n "
-					, "variant_class": "original"
-				}
-				, {
-					"java_code": "\n public static java.lang.String wrap( java.lang.String str, int wrapLength, java.lang.String newLineStr, boolean wrapLongWords )\n {\n if (str == null) {\n return null;\n }\n if (newLineStr == null) {\n newLineStr = SystemUtils.LINE_SEPARATOR;\n }\n if (wrapLength < 1) {\n wrapLength = 1;\n }\n int inputLineLength = str.length();\n int offset = 0;\n java.lang.StringBuffer wrappedLine = new java.lang.StringBuffer( inputLineLength * 32 );\n while (inputLineLength - offset > wrapLength) {\n if (str.charAt( offset ) == ' ') {\n offset++;\n continue;\n }\n int spaceToWrapAt = str.lastIndexOf( ' ', wrapLength + offset );\n if (spaceToWrapAt >= offset) {\n wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n wrappedLine.append( newLineStr );\n offset = spaceToWrapAt + 1;\n } else {\n if (wrapLongWords) {\n wrappedLine.append( str.substring( offset, wrapLength + offset ) );\n wrappedLine.append( newLineStr );\n offset += wrapLength;\n } else {\n spaceToWrapAt = str.indexOf( ' ', wrapLength + offset );\n if (spaceToWrapAt >= 0) {\n wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n wrappedLine.append( newLineStr );\n offset = spaceToWrapAt + 1;\n } else {\n wrappedLine.append( str.substring( offset ) );\n offset = inputLineLength;\n }\n }\n }\n }\n wrappedLine.append( str.substring( offset ) );\n return wrappedLine.toString();\n }\n "
-					, "variant_class": "memory allocation size change"
-				}
-				, {
-					"java_code": "\n public static java.lang.String wrap( java.lang.String str, int wrapLength, java.lang.String newLineStr, boolean wrapLongWords )\n {\n if (str == null) {\n return null;\n }\n if (newLineStr == null) {\n newLineStr = SystemUtils.LINE_SEPARATOR;\n }\n if (wrapLength < 1) {\n wrapLength = 1;\n }\n int inputLineLength = str.length();\n int offset = 0;\n java.lang.StringBuffer wrappedLine = new java.lang.StringBuffer( inputLineLength + 32 );\n while (inputLineLength - offset > wrapLength) {\n if (str.charAt( offset ) == ' ') {\n offset++;\n continue;\n }\n int spaceToWrapAt = str.lastIndexOf( ' ', wrapLength + offset );\n if (spaceToWrapAt > offset) {\n wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n wrappedLine.append( newLineStr );\n offset = spaceToWrapAt + 1;\n } else {\n if (wrapLongWords) {\n wrappedLine.append( str.substring( offset, wrapLength + offset ) );\n wrappedLine.append( newLineStr );\n offset += wrapLength;\n } else {\n spaceToWrapAt = str.indexOf( ' ', wrapLength + offset );\n if (spaceToWrapAt >= 0) {\n wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n wrappedLine.append( newLineStr );\n offset = spaceToWrapAt + 1;\n } else {\n wrappedLine.append( str.substring( offset ) );\n offset = inputLineLength;\n }\n }\n }\n }\n wrappedLine.append( str.substring( offset ) );\n return wrappedLine.toString();\n }\n "
-					, "variant_class": "alternate implementation"
-				}
-				, {
-					"java_code": "\n public static java.lang.String wrap( java.lang.String str, int wrapLength, java.lang.String newLineStr, boolean wrapLongWords )\n {\n if (str == null) {\n return null;\n }\n if (newLineStr == null) {\n newLineStr = SystemUtils.LINE_SEPARATOR;\n }\n if (wrapLength < 1) {\n wrapLength = 1;\n }\n int inputLineLength = str.length();\n int offset = 0;\n java.lang.StringBuffer wrappedLine = new java.lang.StringBuffer( inputLineLength + 32 );\n while (inputLineLength - offset > wrapLength) {\n if (str.charAt( offset ) == ' ') {\n offset++;\n continue;\n }\n int spaceToWrapAt = str.lastIndexOf( ' ', wrapLength + offset );\n if (spaceToWrapAt >= offset) {\n wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n wrappedLine.append( newLineStr );\n offset = spaceToWrapAt + 1;\n } else {\n if (wrapLongWords) {\n wrappedLine.append( str.substring( offset, wrapLength + offset ) );\n wrappedLine.append( newLineStr );\n offset += wrapLength;\n } else {\n spaceToWrapAt = str.indexOf( ' ', wrapLength + offset );\n if (spaceToWrapAt > 0) {\n wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n wrappedLine.append( newLineStr );\n offset = spaceToWrapAt + 1;\n } else {\n wrappedLine.append( str.substring( offset ) );\n offset = inputLineLength;\n }\n }\n }\n }\n wrappedLine.append( str.substring( offset ) );\n return wrappedLine.toString();\n }\n "
-					, "variant_class": "alternate implementation"
-				}
+				{"type": "file", "java": "./benchmarks/java/tce_wrap_1.java"}
+				, {"type": "file", "java": "./benchmarks/java/tce_wrap_2.java"}
+				, {"type": "file", "java": "./benchmarks/java/tce_wrap_3.java"}
+				, {"type": "file", "java": "./benchmarks/java/tce_wrap_4.java"}
 			]
 		}
 		, {
-			"name": "add (jodatime)",
+			"name": "add_jodatime",
 			"origin": "tce",
 			"input_types": ["long", "int"],
 			"return_type": "long",
 			"return": "",
 			"variants": [
-				{
-					"java_code": " public long add( long instant, int months )\n {\n if (months == 0) {\n return instant;\n }\n long timePart = 1516149603588; //iChronology.getMillisOfDay( instant );\n int thisYear = 2018; //iChronology.getYear( instant );\n int thisMonth = 0; //iChronology.getMonthOfYear( instant, thisYear );\n int yearToUse;\n int monthToUse = thisMonth - 1 + months;\n if (monthToUse >= 0) {\n yearToUse = thisYear + monthToUse / iMax;\n monthToUse = monthToUse % iMax + 1;\n } else {\n yearToUse = thisYear + monthToUse / iMax - 1;\n monthToUse = Math.abs( monthToUse );\n int remMonthToUse = monthToUse % iMax;\n if (remMonthToUse == 0) {\n remMonthToUse = iMax;\n }\n monthToUse = iMax - remMonthToUse + 1;\n if (monthToUse == 1) {\n yearToUse += 1;\n }\n }\n int dayToUse = 16; /* iChronology.getDayOfMonth( instant, thisYear, thisMonth ); */\n int maxDay = 31; /* iChronology.getDaysInYearMonth( yearToUse, monthToUse ); */\n if (dayToUse > maxDay) {\n dayToUse = maxDay;\n }\n /*long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n return datePart + timePart; */\n return yearToUse + monthToUse + dayToUse + timePart; //not a real time but ok\n }\n "
-					, "variant_class": "original"
-				}
-				, {
-					"java_code": " public long add( long instant, int months )\n {\n if (months == 0) {\n return instant;\n }\n long timePart = 1516149603588; //iChronology.getMillisOfDay( instant );\n int thisYear = 2018; //iChronology.getYear( instant );\n int thisMonth = 0; //iChronology.getMonthOfYear( instant, thisYear );\n int yearToUse;\n int monthToUse = thisMonth - 1 + months;\n if (monthToUse >= 0) {\n yearToUse = thisYear + monthToUse / iMax;\n monthToUse = monthToUse % iMax + 1;\n } else {\n yearToUse = thisYear + monthToUse / iMax - 1;\n monthToUse = Math.abs( -monthToUse );\n int remMonthToUse = monthToUse % iMax;\n if (remMonthToUse == 0) {\n remMonthToUse = iMax;\n }\n monthToUse = iMax - remMonthToUse + 1;\n if (monthToUse == 1) {\n yearToUse += 1;\n }\n }\n int dayToUse = 16; /* iChronology.getDayOfMonth( instant, thisYear, thisMonth ); */\n int maxDay = 31; /* iChronology.getDaysInYearMonth( yearToUse, monthToUse ); */\n if (dayToUse > maxDay) {\n dayToUse = maxDay;\n }\n /*long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n return datePart + timePart; */\n return yearToUse + monthToUse + dayToUse + timePart; //not a real time but ok\n }\n "
-					, "variant_class": "negate expression"
-				}
-				, {
-					"java_code": " public long add( long instant, int months )\n {\n if (false) {\n return instant;\n }\n long timePart = 1516149603588; //iChronology.getMillisOfDay( instant );\n int thisYear = 2018; //iChronology.getYear( instant );\n int thisMonth = 0; //iChronology.getMonthOfYear( instant, thisYear );\n int yearToUse;\n int monthToUse = thisMonth - 1 + months;\n if (monthToUse >= 0) {\n yearToUse = thisYear + monthToUse / iMax;\n monthToUse = monthToUse % iMax + 1;\n } else {\n yearToUse = thisYear + monthToUse / iMax - 1;\n monthToUse = Math.abs( monthToUse );\n int remMonthToUse = monthToUse % iMax;\n if (remMonthToUse == 0) {\n remMonthToUse = iMax;\n }\n monthToUse = iMax - remMonthToUse + 1;\n if (monthToUse == 1) {\n yearToUse += 1;\n }\n }\n int dayToUse = 16; /* iChronology.getDayOfMonth( instant, thisYear, thisMonth ); */\n int maxDay = 31; /* iChronology.getDaysInYearMonth( yearToUse, monthToUse ); */\n if (dayToUse > maxDay) {\n dayToUse = maxDay;\n }\n /*long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n return datePart + timePart; */\n return yearToUse + monthToUse + dayToUse + timePart; //not a real time but ok\n }\n "
-					, "variant_class": "early exit removal"
-				}
-				, {
-					"java_code": " public long add( long instant, int months )\n {\n if (months == 0) {\n return instant;\n }\n long timePart = 1516149603588; //iChronology.getMillisOfDay( instant );\n int thisYear = 2018; //iChronology.getYear( instant );\n int thisMonth = 0; //iChronology.getMonthOfYear( instant, thisYear );\n int yearToUse;\n int monthToUse = thisMonth - 1 + months;\n if (monthToUse > 0) {\n yearToUse = thisYear + monthToUse / iMax;\n monthToUse = monthToUse % iMax + 1;\n } else {\n yearToUse = thisYear + monthToUse / iMax - 1;\n monthToUse = Math.abs( monthToUse );\n int remMonthToUse = monthToUse % iMax;\n if (remMonthToUse == 0) {\n remMonthToUse = iMax;\n }\n monthToUse = iMax - remMonthToUse + 1;\n if (monthToUse == 1) {\n yearToUse += 1;\n }\n }\n int dayToUse = 16; /* iChronology.getDayOfMonth( instant, thisYear, thisMonth ); */\n int maxDay = 31; /* iChronology.getDaysInYearMonth( yearToUse, monthToUse ); */\n if (dayToUse > maxDay) {\n dayToUse = maxDay;\n }\n /*long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n return datePart + timePart; */\n return yearToUse + monthToUse + dayToUse + timePart; //not a real time but ok\n }\n "
-					, "variant_class": "mathematically equivalent"
-				}
-				, {
-					"java_code": " public long add( long instant, int months )\n {\n if (months == 0) {\n return instant;\n }\n long timePart = 1516149603588; //iChronology.getMillisOfDay( instant );\n int thisYear = 2018; //iChronology.getYear( instant );\n int thisMonth = 0; //iChronology.getMonthOfYear( instant, thisYear );\n int yearToUse;\n int monthToUse = thisMonth - 1 + months;\n if (monthToUse >= 0) {\n yearToUse = thisYear + monthToUse / iMax;\n monthToUse = monthToUse % iMax + 1;\n } else {\n yearToUse = thisYear + monthToUse / iMax - 1;\n monthToUse = Math.abs( monthToUse );\n int remMonthToUse = monthToUse % iMax;\n if (remMonthToUse <= 0) {\n remMonthToUse = iMax;\n }\n monthToUse = iMax - remMonthToUse + 1;\n if (monthToUse == 1) {\n yearToUse += 1;\n }\n }\n int dayToUse = 16; /* iChronology.getDayOfMonth( instant, thisYear, thisMonth ); */\n int maxDay = 31; /* iChronology.getDaysInYearMonth( yearToUse, monthToUse ); */\n if (dayToUse > maxDay) {\n dayToUse = maxDay;\n }\n /*long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n return datePart + timePart; */\n return yearToUse + monthToUse + dayToUse + timePart; //not a real time but ok\n }\n "
-					, "variant_class": "mathematically equivalent"
-				}
-				, {
-					"java_code": " public long add( long instant, int months )\n {\n if (months == 0) {\n return instant;\n }\n long timePart = 1516149603588; //iChronology.getMillisOfDay( instant );\n int thisYear = 2018; //iChronology.getYear( instant );\n int thisMonth = 0; //iChronology.getMonthOfYear( instant, thisYear );\n int yearToUse;\n int monthToUse = thisMonth - 1 + months;\n if (monthToUse >= 0) {\n yearToUse = thisYear + monthToUse / iMax;\n monthToUse = monthToUse % iMax + 1;\n } else {\n yearToUse = thisYear + monthToUse / iMax - 1;\n monthToUse = Math.abs( monthToUse );\n int remMonthToUse = monthToUse % iMax;\n if (remMonthToUse <= 0) {\n remMonthToUse = iMax;\n }\n monthToUse = iMax - remMonthToUse + 1;\n if (monthToUse == 1) {\n yearToUse += 1;\n }\n }\n int dayToUse = 16; /* iChronology.getDayOfMonth( instant, thisYear, thisMonth ); */\n int maxDay = 31; /* iChronology.getDaysInYearMonth( yearToUse, monthToUse ); */\n if (dayToUse > maxDay) {\n dayToUse = maxDay;\n }\n /*long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n return datePart + timePart; */\n return yearToUse + monthToUse + dayToUse + timePart; //not a real time but ok\n }\n "
-					, "variant_class": "mathematically equivalent"
-				}
-				, {
-					"java_code": " public long add( long instant, int months )\n {\n if (months == 0) {\n return instant;\n }\n long timePart = 1516149603588; //iChronology.getMillisOfDay( instant );\n int thisYear = 2018; //iChronology.getYear( instant );\n int thisMonth = 0; //iChronology.getMonthOfYear( instant, thisYear );\n int yearToUse;\n int monthToUse = thisMonth - 1 + months;\n if (monthToUse >= 0) {\n yearToUse = thisYear + monthToUse / iMax;\n monthToUse = monthToUse % iMax + 1;\n } else {\n yearToUse = thisYear + monthToUse / iMax - 1;\n monthToUse = Math.abs( monthToUse );\n int remMonthToUse = monthToUse % iMax;\n if (remMonthToUse == 0) {\n remMonthToUse = iMax;\n }\n monthToUse = iMax - remMonthToUse + 1;\n if (monthToUse <= 1) {\n yearToUse += 1;\n }\n }\n int dayToUse = 16; /* iChronology.getDayOfMonth( instant, thisYear, thisMonth ); */\n int maxDay = 31; /* iChronology.getDaysInYearMonth( yearToUse, monthToUse ); */\n if (dayToUse > maxDay) {\n dayToUse = maxDay;\n }\n /*long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n return datePart + timePart; */\n return yearToUse + monthToUse + dayToUse + timePart; //not a real time but ok\n }\n "
-					, "variant_class": "mathematically equivalent"
-				},
-				{
-					"java_code": " public long add( long instant, int months )\n {\n if (months == 0) {\n return instant;\n }\n long timePart = 1516149603588; //iChronology.getMillisOfDay( instant );\n int thisYear = 2018; //iChronology.getYear( instant );\n int thisMonth = 0; //iChronology.getMonthOfYear( instant, thisYear );\n int yearToUse;\n int monthToUse = thisMonth - 1 + months;\n if (monthToUse >= 0) {\n yearToUse = thisYear + monthToUse / iMax;\n monthToUse = monthToUse % iMax + 1;\n } else {\n yearToUse = thisYear + monthToUse / iMax - 1;\n monthToUse = Math.abs( monthToUse );\n int remMonthToUse = monthToUse % iMax;\n if (remMonthToUse == 0) {\n remMonthToUse = iMax;\n }\n monthToUse = iMax - remMonthToUse + 1;\n if (monthToUse == 1) {\n yearToUse += 1;\n }\n }\n int dayToUse = 16; /* iChronology.getDayOfMonth( instant, thisYear, thisMonth ); */\n int maxDay = 31; /* iChronology.getDaysInYearMonth( yearToUse, monthToUse ); */\n if (dayToUse >= maxDay) {\n dayToUse = maxDay;\n }\n /*long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n return datePart + timePart; */\n return yearToUse + monthToUse + dayToUse + timePart; //not a real time but ok\n }\n "
-					, "variant_class": "mathematically equivalent"
-				}
+				{"type": "file", "java": "./benchmarks/java/tce_add_1.java", "variant_class": "original"}
+				, {"type": "file", "java": "./benchmarks/java/tce_add_2.java", "variant_class": "negate expression"}
+				, {"type": "file", "java": "./benchmarks/java/tce_add_3.java", "variant_class": "early exit removal"}
+				, {"type": "file", "java": "./benchmarks/java/tce_add_4.java", "variant_class": "mathematically equivalent"}
+				, {"type": "file", "java": "./benchmarks/java/tce_add_5.java", "variant_class": "mathematically equivalent"}
+				, {"type": "file", "java": "./benchmarks/java/tce_add_6.java", "variant_class": "mathematically equivalent"}
+				, {"type": "file", "java": "./benchmarks/java/tce_add_7.java", "variant_class": "mathematically equivalent"}
+				, {"type": "file", "java": "./benchmarks/java/tce_add_8.java", "variant_class": "mathematically equivalent"}
 			]
 		}
 		, {

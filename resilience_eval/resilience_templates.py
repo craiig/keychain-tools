@@ -14,10 +14,13 @@ class JavaProgram:
     type_map = {
             "boolean": "boolean" #map boolean to int for now
             , "int*": "int[]"
+            , "char*": "char[]"
+            , "int**": "int[][]"
     }
     body = """
 {header}
 class {name} {{
+    {class_header}
     {return_type} {name}({inputs}){{
         {return_stmnt} {expression}
     }}

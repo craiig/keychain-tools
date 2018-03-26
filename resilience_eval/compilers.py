@@ -75,7 +75,9 @@ class CCompiler(Compiler):
         # if there isn't a default return insert one
         return_stmnt = program.get('return', 'return')
 
+        # append c_header to header
         header_stmnt = program.get('header', '')
+        header_stmnt += program.get('c_header', '')
 
         body = resilience_templates.CProgram.body
 
@@ -183,6 +185,7 @@ class JavaCompiler(Compiler):
             expression += ';'
 
         header_stmnt = program.get('header', '')
+        header_stmnt += program.get('java_header', '')
 
         body = resilience_templates.JavaProgram.body
 
@@ -194,6 +197,7 @@ class JavaCompiler(Compiler):
             , inputs = inputs
             , return_stmnt=return_stmnt
             , header=header_stmnt
+            , class_header = program.get('java_class_header',  '')
         )
 
         # we chose to write to files because this is easier to debug mismatches
@@ -246,8 +250,8 @@ class JavaCompiler(Compiler):
 CompilerDefinitions = [
     JavaCompiler("javac"),
     #ScalaCompiler(),
-    #CCompiler('gcc49', '-O0'),
-    #CCompiler('gcc49', '-O3'),
-    #CCompiler('clang', '-O0'),
-    #CCompiler('clang', '-O3')
+    CCompiler('gcc49', '-O0'),
+    CCompiler('gcc49', '-O3'),
+    CCompiler('clang', '-O0'),
+    CCompiler('clang', '-O3')
 ]
