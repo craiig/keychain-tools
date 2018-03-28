@@ -372,7 +372,7 @@
 		, {
 			"name": "constant_propagation_conditional",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -ftree-ccp and llvm -sccp -constprop. example from gcc/tree-ssa-ccp.c",
+			"note": "trying to cover gcc -ftree-ccp and llvm -constprop. example from gcc/tree-ssa-ccp.c",
 			"input_types": ["int"],
 			"return_type": "int",
 			"return": "",
@@ -387,13 +387,14 @@
 		, {
 			"name": "constant_propagation_conditional2",
 			"origin": "compiler_survey",
-			"note": "trying to cover llvm -sccp TODO is this scpp? more like value range prop",
-			"input_types": ["int*", "int*"],
-			"return_type": "void",
+			"note": "trying to cover llvm -sccp example: https://gcc.gnu.org/news/ssa-ccp.html",
+			"input_types": ["int", "int", "int"],
+			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "if(input0[0] < input1[0]){ input0[0]++; }" }
-				, { "code": "if(input0[0] < input1[0]){ input0[0]++; if(input0[0] == input1[0]) input0[1]++; }" }
+				{ "code": "int neg = 0; if(input0<0){neg=!neg;} if(input1<0){neg=!neg;} if(neg!=0){ input2 = -input2;} return input2;"
+				, "java_code": "boolean neg = false; if(input0<0){neg=!neg;} if(input1<0){neg=!neg;} if(neg){ input2 = -input2;} return input2;" }
+				, { "code": "if((input0<0 && !(input1<0)) || (!(input0<0) && input1<0)){ return -input2; } else {return input2;}" }
 			]
 		}
 		, {
@@ -477,12 +478,12 @@
 			"name": "loop_invariant_motion",
 			"origin": "compiler_survey",
 			"note": "trying to cover gcc -floop-im and llvm -licm. example from gcc/tree-ssa-loop-im.c",
-			"input_types": ["int", "int*", "int*"],
+			"input_types": ["int", "int*", "int*", "int"],
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "int a=0; for (int i=0; i<input0; i++) { if (input0!=0) { a = input0; input1[i] = input2[i]; } }; return a;" }
-				, { "code": "int a=0; a = input0; for (int i=0; i<input0; i++) { if (input0!=0) { input1[i] = input2[i]; } }; return a;" }
+				{ "code": "int a=123; for (int i=0; i<input0; i++) { if (input3!=0) { a = input0; input1[i] = input2[i]; } }; return a;" }
+				, { "code": "int a=123; if(input3!=0){ a = input0; }; for (int i=0; i<input0; i++) { if (input3!=0) { input1[i] = input2[i]; } }; return a;" }
 			]
 		}
 		, {
@@ -549,36 +550,36 @@
 			"name": "value_range_propagation_ne",
 			"origin": "compiler_survey",
 			"note": "trying to cover gcc -ftree-vrp.c, purposeful unreachable code where first condition subsumes second. example: https://llvm.org/devmtg/2007-05/05-Lewycky-Predsimplify.pdf",
-			"input_types": ["int*", "int*"],
-			"return_type": "int",
+			"input_types": ["int*", "int*", "int", "int"],
+			"return_type": "void",
 			"return": "",
 			"variants": [
-				{ "code": "if(input0 != input1) return 0; return 1;" }
-				, { "code": "if(input0 != input1) return 0; if(input0[0] != input1[0]) input0[0]++; return 1;" }
+				{ "code": "if(input2 != input3){ input0[0]++; }" }
+				, { "code": "if(input2 != input3){ input0[0]++; if(input2 == input3) input0[1]++; }" }
 			]
 		}
 		, {
 			"name": "value_range_propagation_eq",
 			"origin": "compiler_survey",
 			"note": "trying to cover gcc -ftree-vrp.c, example: https://llvm.org/devmtg/2007-05/05-Lewycky-Predsimplify.pdf",
-			"input_types": ["int*", "int*"],
+			"input_types": ["int*", "int*", "int", "int"],
 			"return_type": "void",
 			"return": "",
 			"variants": [
-				{ "code": "if(input0 == input1){ input0[0]++; }" }
-				, { "code": "if(input0 == input1){ input0[0]++; if(input0 != input1) input0[1]++;  }" }
+				{ "code": "if(input2 == input3){ input0[0]++; }" }
+				, { "code": "if(input2 == input3){ input0[0]++; if(input2 != input3) input0[1]++; }" }
 			]
 		}
 		, {
 			"name": "value_range_propagation_lt",
 			"origin": "compiler_survey",
 			"note": "trying to cover gcc -ftree-vrp.c, example: https://llvm.org/devmtg/2007-05/05-Lewycky-Predsimplify.pdf",
-			"input_types": ["int*", "int*"],
+			"input_types": ["int*", "int*", "int", "int"],
 			"return_type": "void",
 			"return": "",
 			"variants": [
-				{ "code": "if(input0[0] < input1[0]){ input0[0]++; }" }
-				, { "code": "if(input0[0] < input1[0]){ input0[0]++; if(input0 == input1) input0[1]++;  }" }
+				{ "code": "if(input2 < input3){ input0[0]++; }" }
+				, { "code": "if(input2 < input3){ input0[0]++; if(input2 == input3) input0[1]++; }" }
 			]
 		}
 		, {

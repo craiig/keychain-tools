@@ -58,6 +58,7 @@ def diff_outcomes(old, new):
         diff_sets(old_compilers, new_compilers, "Compilers used in {}".format(old_name))
 
         for old_c,old_hashes in old_p['program_hashes'].iteritems():
+            #print old_c
             #count old unique, count new unique
             new_hashes = new_p['program_hashes'].get(old_c, None)
             if not new_hashes:
@@ -67,12 +68,19 @@ def diff_outcomes(old, new):
 
             old_unique = len(set( old_hashes ))
             new_unique = len(set( new_hashes ))
+            #print "Old Unique Hashes: {} New Unique Hashes: {}".format(old_unique, new_unique)
             if old_unique != new_unique:
-                print c.Fore.RED + "Differing number of unique hashes in tests {} for compiler {}".format(old_name, old_c)
+                if old_unique < new_unique:
+                    print c.Fore.RED + "*** Greater number of unique hashes in tests {} for compiler {}".format(old_name, old_c)
+                if old_unique > new_unique:
+                    print c.Fore.GREEN + "*** Lower number of unique hashes in tests {} for compiler {}".format(old_name, old_c)
                 print "Old Unique Hashes: {} New Unique Hashes: {}".format(old_unique, new_unique)
-                pprint(old_hashes)
-                print c.Fore.GREEN
-                pprint(new_hashes)
+                #pprint(old_hashes)
+                print c.Fore.RED,
+                pprint(old_p)
+                print c.Fore.GREEN,
+                #pprint(new_hashes)
+                pprint(new_p)
                 print c.Style.RESET_ALL,
 
 def main():
