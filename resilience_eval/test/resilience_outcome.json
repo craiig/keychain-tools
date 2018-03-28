@@ -1,0 +1,3252 @@
+{
+    "total_origin_stats": {
+        "tce": {
+            "total_programs": 11, 
+            "total_variants": 43
+        }, 
+        "tpcds_survey": {
+            "total_programs": 6, 
+            "total_variants": 16
+        }, 
+        "semantics preserving transformations": {
+            "total_programs": 1, 
+            "total_variants": 4
+        }, 
+        "compiler_survey": {
+            "total_programs": 42, 
+            "total_variants": 92
+        }, 
+        "craig": {
+            "total_programs": 1, 
+            "total_variants": 6
+        }
+    }, 
+    "programs": [
+        {
+            "origin": "tpcds_survey", 
+            "name": "constant_folding_basic", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "9b6286e2fab42e5cd194736de60aecfa471e30ab21157f06d031d190d2bb5aa6", 
+                    "9b6286e2fab42e5cd194736de60aecfa471e30ab21157f06d031d190d2bb5aa6", 
+                    "9b6286e2fab42e5cd194736de60aecfa471e30ab21157f06d031d190d2bb5aa6", 
+                    "9b6286e2fab42e5cd194736de60aecfa471e30ab21157f06d031d190d2bb5aa6", 
+                    "9b6286e2fab42e5cd194736de60aecfa471e30ab21157f06d031d190d2bb5aa6"
+                ], 
+                "gcc49_-O3": [
+                    "707a8651ad7d67bd9cb39e85e5813e6278fda3e7c44126dc3883d3436e9dff35", 
+                    "707a8651ad7d67bd9cb39e85e5813e6278fda3e7c44126dc3883d3436e9dff35", 
+                    "707a8651ad7d67bd9cb39e85e5813e6278fda3e7c44126dc3883d3436e9dff35", 
+                    "707a8651ad7d67bd9cb39e85e5813e6278fda3e7c44126dc3883d3436e9dff35", 
+                    "707a8651ad7d67bd9cb39e85e5813e6278fda3e7c44126dc3883d3436e9dff35"
+                ], 
+                "clang_-O3": [
+                    "09cd826dc276ac0ab726433f0310085ddf270cb1f43e07a3cc7f87a5d295cee5", 
+                    "09cd826dc276ac0ab726433f0310085ddf270cb1f43e07a3cc7f87a5d295cee5", 
+                    "09cd826dc276ac0ab726433f0310085ddf270cb1f43e07a3cc7f87a5d295cee5", 
+                    "09cd826dc276ac0ab726433f0310085ddf270cb1f43e07a3cc7f87a5d295cee5", 
+                    "09cd826dc276ac0ab726433f0310085ddf270cb1f43e07a3cc7f87a5d295cee5"
+                ], 
+                "clang_-O0": [
+                    "b46be86b2d395772b167d15f8da34e198a28dcf37ceb9a6e35d0dcf9532c466f", 
+                    "b46be86b2d395772b167d15f8da34e198a28dcf37ceb9a6e35d0dcf9532c466f", 
+                    "b46be86b2d395772b167d15f8da34e198a28dcf37ceb9a6e35d0dcf9532c466f", 
+                    "b46be86b2d395772b167d15f8da34e198a28dcf37ceb9a6e35d0dcf9532c466f", 
+                    "b46be86b2d395772b167d15f8da34e198a28dcf37ceb9a6e35d0dcf9532c466f"
+                ]
+            }, 
+            "input_types": [
+                "int"
+            ], 
+            "return_type": "boolean", 
+            "variants": [
+                {
+                    "code": "input0 == 10", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "input0 == 1+1+8", 
+                    "_idx": 1
+                }, 
+                {
+                    "code": "input0 == 8+1+1", 
+                    "_idx": 2
+                }, 
+                {
+                    "code": "input0 == 2*5", 
+                    "_idx": 3
+                }, 
+                {
+                    "code": "input0 == 5*2", 
+                    "_idx": 4
+                }
+            ]
+        }, 
+        {
+            "origin": "craig", 
+            "name": "constant_folding_associativity", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "cff301b7b85a70dc58aa0bd13a084774e4a3f0a39a5beef1175fc4d779957bbc", 
+                    "cff301b7b85a70dc58aa0bd13a084774e4a3f0a39a5beef1175fc4d779957bbc", 
+                    "cff301b7b85a70dc58aa0bd13a084774e4a3f0a39a5beef1175fc4d779957bbc", 
+                    "cff301b7b85a70dc58aa0bd13a084774e4a3f0a39a5beef1175fc4d779957bbc", 
+                    "cff301b7b85a70dc58aa0bd13a084774e4a3f0a39a5beef1175fc4d779957bbc", 
+                    "cff301b7b85a70dc58aa0bd13a084774e4a3f0a39a5beef1175fc4d779957bbc"
+                ], 
+                "gcc49_-O3": [
+                    "de0b696d2237c08f88a4a8171c03989bce9ecb9c36585388524a16da20e7aa8d", 
+                    "de0b696d2237c08f88a4a8171c03989bce9ecb9c36585388524a16da20e7aa8d", 
+                    "de0b696d2237c08f88a4a8171c03989bce9ecb9c36585388524a16da20e7aa8d", 
+                    "de0b696d2237c08f88a4a8171c03989bce9ecb9c36585388524a16da20e7aa8d", 
+                    "de0b696d2237c08f88a4a8171c03989bce9ecb9c36585388524a16da20e7aa8d", 
+                    "de0b696d2237c08f88a4a8171c03989bce9ecb9c36585388524a16da20e7aa8d"
+                ], 
+                "clang_-O3": [
+                    "c3a14bec7caccad65edd12592374955f5276a1859533863a96dbebe106435278", 
+                    "c3a14bec7caccad65edd12592374955f5276a1859533863a96dbebe106435278", 
+                    "c3a14bec7caccad65edd12592374955f5276a1859533863a96dbebe106435278", 
+                    "c3a14bec7caccad65edd12592374955f5276a1859533863a96dbebe106435278", 
+                    "c3a14bec7caccad65edd12592374955f5276a1859533863a96dbebe106435278", 
+                    "c3a14bec7caccad65edd12592374955f5276a1859533863a96dbebe106435278"
+                ], 
+                "clang_-O0": [
+                    "9d9ef79bf3cf4535ef6b6ac0d8d71de6cb00855d7823248fab5941f1f185878e", 
+                    "917dcc2d75c4f455f2438ff965a3cc5d4a79ef7d2f878f03f15c5575745f02e4", 
+                    "9d9ef79bf3cf4535ef6b6ac0d8d71de6cb00855d7823248fab5941f1f185878e", 
+                    "9d9ef79bf3cf4535ef6b6ac0d8d71de6cb00855d7823248fab5941f1f185878e", 
+                    "9d9ef79bf3cf4535ef6b6ac0d8d71de6cb00855d7823248fab5941f1f185878e", 
+                    "9d9ef79bf3cf4535ef6b6ac0d8d71de6cb00855d7823248fab5941f1f185878e"
+                ]
+            }, 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "return_type": "boolean", 
+            "variants": [
+                {
+                    "code": "input0 == input1+2", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "input0 == input1+1+1", 
+                    "_idx": 1
+                }, 
+                {
+                    "code": "input0 == input1+(1+1)", 
+                    "_idx": 2
+                }, 
+                {
+                    "code": "input0 == 1+1+input1", 
+                    "_idx": 3
+                }, 
+                {
+                    "code": "input0 == (1+1)+input1", 
+                    "_idx": 4
+                }, 
+                {
+                    "code": "input0 == 2+input1", 
+                    "_idx": 5
+                }
+            ]
+        }, 
+        {
+            "origin": "tpcds_survey", 
+            "name": "comparison", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "53e01cbe2cb7024bc195dda65c9266e9cd11a22773c562b95e871649a2c904e7", 
+                    "53e01cbe2cb7024bc195dda65c9266e9cd11a22773c562b95e871649a2c904e7"
+                ], 
+                "gcc49_-O3": [
+                    "667252a51273b58399bf7f007bc5e5656b2b8c626283251fed6c49d78a965152", 
+                    "667252a51273b58399bf7f007bc5e5656b2b8c626283251fed6c49d78a965152"
+                ], 
+                "clang_-O3": [
+                    "6436c28e81b3c8a636026879ae9a7b39673fb0c2ba6f185c374eb3fe202cd1ad", 
+                    "6436c28e81b3c8a636026879ae9a7b39673fb0c2ba6f185c374eb3fe202cd1ad"
+                ], 
+                "clang_-O0": [
+                    "e8bbe61ed8007b904a971f1925745efe12a82776e5f21e14328f809540f03ead", 
+                    "d6b84f10b9fa1a43b4d95b5797c33821ee3166a6ef01c6baa253a767373a8406"
+                ]
+            }, 
+            "input_types": [
+                "int"
+            ], 
+            "return_type": "boolean", 
+            "variants": [
+                {
+                    "code": "input0 == 10", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "10 == input0", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "tpcds_survey", 
+            "return": "", 
+            "name": "conditional", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "d6eb36964404e0feaa7c89f265cebc73f9114a66a7b9a06a2dbc83728e6ed713", 
+                    "43fab78f90f1b17c2037f550e1a99ffc9f4513d5b4dba00a97835ec991555a08"
+                ], 
+                "gcc49_-O3": [
+                    "94b4ba3213bcfd7020f1c70921c90610707b406548e1be86cd561a2341a1e33f", 
+                    "94b4ba3213bcfd7020f1c70921c90610707b406548e1be86cd561a2341a1e33f"
+                ], 
+                "clang_-O3": [
+                    "1a63beeaf6bf63f4123b3ca7fe62e154170ffbd7960b823b052559fb6cb78915", 
+                    "1a63beeaf6bf63f4123b3ca7fe62e154170ffbd7960b823b052559fb6cb78915"
+                ], 
+                "clang_-O0": [
+                    "10b92e32376930136da2ba3b68b1c8ec150e56b0f2b6aaa3e704f123d2d5c3ca", 
+                    "29ba72a76ffcfed455db50bbcb696c1a8f57fecbaa7a379941753df17239d1a8"
+                ]
+            }, 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "if( input0 == 10 ){ return input1; } else { return 100; }", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "if( input0 != 10 ){ return 100; } else { return input1; }", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "tpcds_survey", 
+            "name": "logical_op", 
+            "expect_failure": {
+                "c": true
+            }, 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "84abd63b0c7372fc2ec9f2246594f00d9c1ee55ceed60c7e1e661b705bab212c", 
+                    "e1a45b904a6bf9e58bf2c53b3ab607105e86405c138e1a781676d441c3a029b7", 
+                    "e1a45b904a6bf9e58bf2c53b3ab607105e86405c138e1a781676d441c3a029b7"
+                ], 
+                "gcc49_-O3": [
+                    "5d56a8b1d15a2ae7eb703eaeaa7cc07c4a0e3ac94b71971cd61619aa50fd9c9b", 
+                    "aa5f363d173ae47adca7dcbb547ead67cae1b1bf0194020d6e72d5ee07860c3e", 
+                    "aa5f363d173ae47adca7dcbb547ead67cae1b1bf0194020d6e72d5ee07860c3e"
+                ], 
+                "clang_-O3": [
+                    "1cfde175b88dba6808732b92cdcb7695e9cf8eab2b18cdd4bd025fffc5f6fda6", 
+                    "a5377ebc7425f788a1ba0453f27050f1f4a2799280673f7ddc978492365ea524", 
+                    "a5377ebc7425f788a1ba0453f27050f1f4a2799280673f7ddc978492365ea524"
+                ], 
+                "clang_-O0": [
+                    "bb50c367b77e66dbfaacf9086093da2ce5f9b43b85a468d9e7ac371d434519ec", 
+                    "eff1946ede938b190b428dcb7b4250f21785fc1398ec656ea3a71b2b3715584f", 
+                    "3b849f9c6097d456f573918a4366221a667d09663be3a50c0861a041dc0f0e15"
+                ]
+            }, 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "return_type": "boolean", 
+            "variants": [
+                {
+                    "code": "(input0 == 10) && (input1 == 20)", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "(input1 == 20) && (input0 == 10)", 
+                    "_idx": 1
+                }, 
+                {
+                    "code": "!((input1 != 20) || (input0 != 10))", 
+                    "_idx": 2
+                }
+            ]
+        }, 
+        {
+            "origin": "tpcds_survey", 
+            "name": "math_sub", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "a0583ef7ec8f84183fb1bb8322f501ee4089177f89b2b4a811e209d8ccf3940c", 
+                    "a0583ef7ec8f84183fb1bb8322f501ee4089177f89b2b4a811e209d8ccf3940c"
+                ], 
+                "gcc49_-O3": [
+                    "5e454d6e18ac382325b810d933c44c65004683f1af5ed900b6cd915f140e9b4d", 
+                    "5e454d6e18ac382325b810d933c44c65004683f1af5ed900b6cd915f140e9b4d"
+                ], 
+                "clang_-O3": [
+                    "f4f331987f4fb7da91dd87a31b64473ac3725e7688e4d9479fb9cc760dca8c3b", 
+                    "f4f331987f4fb7da91dd87a31b64473ac3725e7688e4d9479fb9cc760dca8c3b"
+                ], 
+                "clang_-O0": [
+                    "c05751cef9e3777629838af45eff1dfc7509ab0778bbad0057e8f34c4b12a331", 
+                    "6d36926799331b867da68769b367d9f65093f929e2a5d3fa7cdf07035b26f562"
+                ]
+            }, 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "input0 - input1", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "-1 * (input1 - input0)", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "tpcds_survey", 
+            "name": "math_add", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "6378726204112d75ec60a87f3889e4117e70ff780b2c2134adef9e65cfbce69e", 
+                    "3dfae0cde5093cf9fa25cf9031be2ea8d0ee44c7690742385054fc7dcef48807"
+                ], 
+                "gcc49_-O3": [
+                    "dc4dc8dbd37a06c46dd59dc81f88d79f8c429c043045df87cbc0d592a8cb1954", 
+                    "dab8f275bb6b9ee615ab4d8a012c2f8cd78df3ef690ddc4dee75d9a3cc76e67d"
+                ], 
+                "clang_-O3": [
+                    "02cf54f667a61decf32e40d7487954d488d2e4f972ac4dfe6bf0267355a4a11c", 
+                    "02cf54f667a61decf32e40d7487954d488d2e4f972ac4dfe6bf0267355a4a11c"
+                ], 
+                "clang_-O0": [
+                    "0ccfc0f0ac058ae080de7daf56960f2c7e504bf5b684997f939c3348a44b879d", 
+                    "e3fdfeedf6136e0e2a544caa9403725eeb6e16612d1ce55cba5b9fed6b008865"
+                ]
+            }, 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "input0 + input1", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "input1 + input0", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "name": "function_inlining_trivial", 
+            "notes": "TODO these ARE equivalent but we need to better parse the asm code to demonstrate that", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "185bcca77a6e06d1116a74bbd7bdcf0f85545829e759411e2c8535c177d82edd", 
+                    "2faa2a75ed48507114f567f8f0924e97af1b62b64fe21093189cc600451cd804"
+                ], 
+                "gcc49_-O3": [
+                    "222856927000d610f5bc76f11036a57d843fa4d03b66973a1aebed40d941e19d", 
+                    "625876c3063b87e4cf0c8d2ed0f7e8b8d7b09b8ff6fcb4f0bfeb960833801fe2"
+                ], 
+                "clang_-O3": [
+                    "5a9efc42c1b000ec4fc290ffa2fb1d34db48501707766813cb7475f2f05ba0a5", 
+                    "afab7bf6b76887dfe37c70c3d157e39355403e455d67e952046e5d0d7c24d24e"
+                ], 
+                "clang_-O0": [
+                    "d158948e272cdd6b580d4822d9415dfd9bb6bc9065828b8c94f7f5ee69edd821", 
+                    "728733ccdab8491bfaf3a1f28c437dbeeb57772ec44502a21c95c13de18bae9e"
+                ]
+            }, 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "variants": [
+                {
+                    "code": "input0 + input1", 
+                    "_idx": 0
+                }, 
+                {
+                    "_idx": 1, 
+                    "c": "./benchmarks/function_inlining_1.c", 
+                    "type": "file"
+                }
+            ], 
+            "return_type": "int"
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "name": "function_inlining_partial", 
+            "notes": "TODO hard to induce. TODO these ARE equivalent but we need to better parse the asm code to demonstrate that", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "593890f0abb70ab9198bf8712f5198532a06bdabe1a550989b6c56c3ec024a91", 
+                    "0460f24baf9e2c849fbacca2371a49e447b704583586b2fd91c73b261499675e", 
+                    "0c6d39f48289e87079cfbde63507422c14835d09e6b3f9268af00b89eba930a6"
+                ], 
+                "gcc49_-O3": [
+                    "e9693695e8ad7865be03cccf81d26189323daf544626e8d1bb2aa65d304e154f", 
+                    "52e2e66640a6f65e731f0064eac3596a8ae8cb1716da33a379a33c892515cdd1", 
+                    "52e2e66640a6f65e731f0064eac3596a8ae8cb1716da33a379a33c892515cdd1"
+                ], 
+                "clang_-O3": [
+                    "d3215438d6f6b9d84ca3db909888094c80229fe4400e0236bfcbfc88c20f5aca", 
+                    "54dcae98bc03720a3c04f41aee5009852e235230753fdb6ef2d09449cf8060a8", 
+                    "54dcae98bc03720a3c04f41aee5009852e235230753fdb6ef2d09449cf8060a8"
+                ], 
+                "clang_-O0": [
+                    "3d160caf3a20084960c62b01395f901a3d9b7660018e405ef73e823858ccc594", 
+                    "4f5dbdaa5b7dfd5d7e4e7ccd140f235ebed4f31250544f24456503afe779365a", 
+                    "edd2e3f8d11b3f024cddc288669628cd40dc7affd007295a682f12ffdb56d30e"
+                ]
+            }, 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "variants": [
+                {
+                    "_idx": 0, 
+                    "c": "./benchmarks/function_inlining_partial_0.c", 
+                    "type": "file"
+                }, 
+                {
+                    "_idx": 1, 
+                    "c": "./benchmarks/function_inlining_partial_1.c", 
+                    "type": "file"
+                }, 
+                {
+                    "_idx": 2, 
+                    "c": "./benchmarks/function_inlining_partial_2.c", 
+                    "type": "file"
+                }
+            ], 
+            "return_type": "int"
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "common_subexpression_elimination", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "8f0fbcfd0deedff11bafc0fdfca8ddd1641ce2ff62f18a0fce43b5ffd63e2e0d", 
+                    "df2ff7bbb5ebacb5d8fe0f2e7388e75cd99ba9430aeeafa0e075ca23801a7420"
+                ], 
+                "gcc49_-O3": [
+                    "d85c55bd9ad98603efdc4a33a0ebd2f1f5c0aef182356a8ef1b9ce92f9d83a73", 
+                    "d85c55bd9ad98603efdc4a33a0ebd2f1f5c0aef182356a8ef1b9ce92f9d83a73"
+                ], 
+                "clang_-O3": [
+                    "b19781227f515fc1c22deaca8ba15805066a623c0abd3c7cfd02b077d0599d2b", 
+                    "b19781227f515fc1c22deaca8ba15805066a623c0abd3c7cfd02b077d0599d2b"
+                ], 
+                "clang_-O0": [
+                    "92b2a9ccc4902a0adbdb7dadffc3fce9664672ecf8c0a736d45d46a2afde496c", 
+                    "6fde148fbd06ea98837b427e60a4245b77270326096db1d6e8039773593f861c"
+                ]
+            }, 
+            "note": "trying to cover -fgcse and llvm -gvn", 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int w = (input0*input1); int x = (w) + 1234; int y = (w) + 5678; return x+y;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int x = (input0 * input1) + 1234; int y = (input0 * input1) + 5678; return x+y;", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "copy_propagation", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "da27ed9f53416c1c97d486033e1d4aaf3e887d602ede0130366a973dfce80afd", 
+                    "092ec868f84ec7bb2bf9883019045bb2825aad3e35003f4671ae61f14d2c79b2"
+                ], 
+                "gcc49_-O3": [
+                    "6a6681bcbd066765c443209f3f03613a9f0e7d591b3a4f1eebc1dfd4fc58e51b", 
+                    "6a6681bcbd066765c443209f3f03613a9f0e7d591b3a4f1eebc1dfd4fc58e51b"
+                ], 
+                "clang_-O3": [
+                    "8973db4aa37f23b50b1be3ef00dd366f1205acf59ed2071d17bbf92d87b2519b", 
+                    "8973db4aa37f23b50b1be3ef00dd366f1205acf59ed2071d17bbf92d87b2519b"
+                ], 
+                "clang_-O0": [
+                    "4e92fec8e09848916fef6c22d7fa7395fc1aeb22ec205c3336219a30afa2ad30", 
+                    "7a6dc6d65c511ac3ad50c9709602a52099104dd1e512b7753b6f1d88aa3ce918"
+                ]
+            }, 
+            "note": "trying to cover -fgcse and llvm -gvn", 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int w = (input0*input1); int x = (w) + 1234; int y = (w) + 5678; return x+y;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int w = (input0*input1); int w2 = w; int x = (w) + 1234; int y = (w2) + 5678; return x+y;", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "constant_propagation", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "0c2606c6bc5db124d23cd46bd609607f54f0c175b1640f65c24b1ac5eb08870f", 
+                    "b080ddd83f827d20d89e989ce76cf289e3b2432bbe2ba57fbfb8acd147b0903c"
+                ], 
+                "gcc49_-O3": [
+                    "247d89af49d8b68d7b21c3462530fc5d027cd65a0442a98489719c19fb03dc0e", 
+                    "247d89af49d8b68d7b21c3462530fc5d027cd65a0442a98489719c19fb03dc0e"
+                ], 
+                "clang_-O3": [
+                    "276933672c5042f2c92190c7985ce307d4794e0b8bc57db509030938c57ce5de", 
+                    "276933672c5042f2c92190c7985ce307d4794e0b8bc57db509030938c57ce5de"
+                ], 
+                "clang_-O0": [
+                    "dcc0d811a225c8254c7a773bb24b1a10ed32524db3480afc9eb3a8c24e6089e4", 
+                    "8b3356c1a5af2bc2aceb9b95d6efa0d2bcf4d42da169479731acb0437dd17e33"
+                ]
+            }, 
+            "note": "trying to cover general constant prop", 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int w = (input0*input1); int x = (w) + 1234; int y = (w) + 5678; return x+y;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int a = 1200+34; int b = 5600+78; int w = (input0*input1); int w2 = w; int x = (w) + a; int y = (w2) + b; return x+y;", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "gcse_kill_load_store_in_loop", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "483c828246279e7e30d2752a708f847a9e39d005bee933385c96acce68a7db14", 
+                    "62d83ff2d0c12a4b00e96068ddc9513642e3192b00a52aed264abe91afe41e91"
+                ], 
+                "gcc49_-O3": [
+                    "96cfefb54d93b6afd909b9afb7c2bd0aef6d7fddad3c4bde613b9aeb0b2ed8f4", 
+                    "96cfefb54d93b6afd909b9afb7c2bd0aef6d7fddad3c4bde613b9aeb0b2ed8f4"
+                ], 
+                "clang_-O3": [
+                    "44f88569f89a3dd80b059a79cd943dd10c08cc0d57a417043b699e212a720026", 
+                    "44f88569f89a3dd80b059a79cd943dd10c08cc0d57a417043b699e212a720026"
+                ], 
+                "clang_-O0": [
+                    "107d461ddccd5c246761116f2bd9f3e348b94637c76d90ff7ccad959243be9f4", 
+                    "44b76902738365e811ab5a33e25e24f103cdffbd7aeee064d1cb0d1600235539"
+                ]
+            }, 
+            "note": "trying to cover gcc -fgcse-lm, llvm -dce etc", 
+            "input_types": [
+                "int*", 
+                "int", 
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int x; for(int i=0; i<input1; i++){ *input0 = i; x = *input0; }; return x; ", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int x; for(int i=0; i<input1; i++){ *input0 = i; x = i; }; return x; ", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "name": "binary_operator_canonicalization", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "5e93ff8c5169b0b5277f461d0dd4debc9959b22d7184e90ea1612cde3ada2cc5", 
+                    "5e93ff8c5169b0b5277f461d0dd4debc9959b22d7184e90ea1612cde3ada2cc5"
+                ], 
+                "gcc49_-O3": [
+                    "1708a03811eb3ebab29b198a15a11d02b32f741a35da399d55218d49e703d17f", 
+                    "1708a03811eb3ebab29b198a15a11d02b32f741a35da399d55218d49e703d17f"
+                ], 
+                "clang_-O3": [
+                    "9a07c946f25aeda4effef8649a779bb59fef79efe5545018b84ba6f8dc2379d0", 
+                    "9a07c946f25aeda4effef8649a779bb59fef79efe5545018b84ba6f8dc2379d0"
+                ], 
+                "clang_-O0": [
+                    "47185d720a5331ffa1e539e48ec6cf0f3543e0d15c1613c39378ae65ce4a3fad", 
+                    "47185d720a5331ffa1e539e48ec6cf0f3543e0d15c1613c39378ae65ce4a3fad"
+                ]
+            }, 
+            "note": "llvm's instcombine, and gcc's canonicalization and tree reassociation", 
+            "input_types": [
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "input0 + 10", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "10 + input0", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "name": "comparison_canonicalization", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "ce63bb2b5dcc8a97eded5e056e446ddc3ba5120bb43e3bb8d3c6042a9ae744cf", 
+                    "0145a6f2d0fe79b0205b70e1c09aa5b7df6446044ea565b3819fa7890983e198"
+                ], 
+                "gcc49_-O3": [
+                    "abed45a414c2bcc0491019f09519313378a10d4accceb5f12768e9432d123aed", 
+                    "73be12b0a3a539cd2ceb1628eb37eaf4b3369cd016d81b69099d5eb8a2621961"
+                ], 
+                "clang_-O3": [
+                    "5ad2bd48adfc2f27443ad75d835442cc01b6c29c0f05ba0de25e199a6176c465", 
+                    "90c0662656805abf4e7b801fc2615b0720b77196fc1e69ad52891c86fd6312ba"
+                ], 
+                "clang_-O0": [
+                    "61fcf57a5f01a3400cb5baaeb186002d50da85c1c2f43dc0a2d6519ff1b32a7e", 
+                    "9c924f23b8efa01b9c064daf217f36506d990edfa9b6ef7a48bd826e07dc1219"
+                ]
+            }, 
+            "note": "llvm's instcombine, and gcc's canonicalization and tree reassociation", 
+            "input_types": [
+                "int", 
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "input0 >= 10", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "input0 != 10", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "name": "bitwise_canonicalization", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "fd83aeef8dd4577ffdd2005a52bbe5c624f83be304c4de2dd4389a4ebaa3d7b5", 
+                    "fd83aeef8dd4577ffdd2005a52bbe5c624f83be304c4de2dd4389a4ebaa3d7b5", 
+                    "fd83aeef8dd4577ffdd2005a52bbe5c624f83be304c4de2dd4389a4ebaa3d7b5"
+                ], 
+                "gcc49_-O3": [
+                    "f517cbdee94c63cf734a85233d0cf7c122209cdf8e9d02fbb338d02ed8563a8b", 
+                    "f517cbdee94c63cf734a85233d0cf7c122209cdf8e9d02fbb338d02ed8563a8b", 
+                    "f517cbdee94c63cf734a85233d0cf7c122209cdf8e9d02fbb338d02ed8563a8b"
+                ], 
+                "clang_-O3": [
+                    "816e41fc51eb0bcc24f8addd48dd9500242fef23f1f0bcf272e44f4c6c28aad2", 
+                    "816e41fc51eb0bcc24f8addd48dd9500242fef23f1f0bcf272e44f4c6c28aad2", 
+                    "816e41fc51eb0bcc24f8addd48dd9500242fef23f1f0bcf272e44f4c6c28aad2"
+                ], 
+                "clang_-O0": [
+                    "469fb0fd78d685b33ce6069ba0d012cb96d786dddc943af73c585664f51cecf8", 
+                    "416a9ab57135d12869825ca457385db2bc78f5aa2f7defdf8691250906c5850c", 
+                    "28768a31c3703d9970fa2b828560fc898b2d608e8c6c0874f979418e9172f6e6"
+                ]
+            }, 
+            "note": "llvm's instcombine, and gcc's canonicalization and tree reassociation, see https://github.com/llvm-mirror/llvm/blob/master/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp", 
+            "input_types": [
+                "int", 
+                "int", 
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "((input0 & input1) | input2) ^ input3", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "((input0 | input2) & (input1 | input2)) ^ input3", 
+                    "_idx": 1
+                }, 
+                {
+                    "code": "input3 ^ ((input0 | input2) & (input1 | input2))", 
+                    "_idx": 2
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "name": "tree_reassociation_subtraction_reassociation", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "600bddcd4796e3dfbed09dea1ae46ca88b7bfc082a2a0ea0f5357da36b515b93", 
+                    "3a1cda1c65c3d4b62f637e43f741555d6da635174cfde7adf31029356b27fbb5", 
+                    "3a1cda1c65c3d4b62f637e43f741555d6da635174cfde7adf31029356b27fbb5"
+                ], 
+                "gcc49_-O3": [
+                    "e7531da0e38a8e53f2a9dfae796b11d502ab32998b38678cd2bdac3c22b6a0f2", 
+                    "ce704e7c79d5606921daed6638bbd31825a8de3bbd54192dd4dd53e9e546d86a", 
+                    "ce704e7c79d5606921daed6638bbd31825a8de3bbd54192dd4dd53e9e546d86a"
+                ], 
+                "clang_-O3": [
+                    "822b20ef4d4efa7b280d9d760c72051819858b3f6d3a0632f219ce9c23c0e27b", 
+                    "822b20ef4d4efa7b280d9d760c72051819858b3f6d3a0632f219ce9c23c0e27b", 
+                    "822b20ef4d4efa7b280d9d760c72051819858b3f6d3a0632f219ce9c23c0e27b"
+                ], 
+                "clang_-O0": [
+                    "e2f54eacd1757da8006ceac96b5d90dccacbdad3fa3d67621a2223779a8a3108", 
+                    "ea579828a75b671c712192cfba4e61683ab040cb63d0eb5a63e7c6e0eb9b447c", 
+                    "ea579828a75b671c712192cfba4e61683ab040cb63d0eb5a63e7c6e0eb9b447c"
+                ]
+            }, 
+            "note": "trying to cover gcc -ftree-reassoc subtraction case and llvm -reassociate", 
+            "input_types": [
+                "int", 
+                "int", 
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "(input0+input1)-(input2+input3)", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "(((input0+input1)-input2)-input3)", 
+                    "_idx": 1
+                }, 
+                {
+                    "code": "(input0+input1-input2)-input3", 
+                    "_idx": 2
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "name": "tree_reassociation_linearization", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "4497db98d8fe1ee0170b844df84e94da6fd8dfbc2c299f043b3312e8f98c1c1f", 
+                    "0ca0851c1502b895fb0f850b142d5292e62929040bc46a52dc299d5ee710cb9d", 
+                    "0ca0851c1502b895fb0f850b142d5292e62929040bc46a52dc299d5ee710cb9d"
+                ], 
+                "gcc49_-O3": [
+                    "af8d66769245089a48fea7c2c00314ef1014661532e3359f9da59a8e3040432c", 
+                    "43c4def7a3f22208f6819f7fc8787d678aee543e0da5fa7cb00ea80c6f32309a", 
+                    "43c4def7a3f22208f6819f7fc8787d678aee543e0da5fa7cb00ea80c6f32309a"
+                ], 
+                "clang_-O3": [
+                    "dfc92b967cc6d5fb504b1ed968157faae4ae164f39bc1ce24d9a52eee77f33f5", 
+                    "dfc92b967cc6d5fb504b1ed968157faae4ae164f39bc1ce24d9a52eee77f33f5", 
+                    "dfc92b967cc6d5fb504b1ed968157faae4ae164f39bc1ce24d9a52eee77f33f5"
+                ], 
+                "clang_-O0": [
+                    "87404512348fb02a675669c470118bff4caec9cda1bd39b527ff91f246ee2d8a", 
+                    "5d44f1b972eb77d1add818c92debe07016a98499a9ef8476406532a3b8089fef", 
+                    "5d44f1b972eb77d1add818c92debe07016a98499a9ef8476406532a3b8089fef"
+                ]
+            }, 
+            "note": "trying to cover gcc -ftree-reassoc linearization and llvm -reassociate", 
+            "input_types": [
+                "int", 
+                "int", 
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "(input0+input1)+(input2+input3)", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "(((input0+input1)+input2)+input3)", 
+                    "_idx": 1
+                }, 
+                {
+                    "code": "(input0+input1+input2)+input3", 
+                    "_idx": 2
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "name": "tree_reassociation_operand_lists", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "40e74dda36730c957151748cc1d5135a541794d9b81fc95bef447f2e0078fe80", 
+                    "40e74dda36730c957151748cc1d5135a541794d9b81fc95bef447f2e0078fe80", 
+                    "40e74dda36730c957151748cc1d5135a541794d9b81fc95bef447f2e0078fe80"
+                ], 
+                "gcc49_-O3": [
+                    "a034fa8027ec5a8ff4b2fb3e9c2dedc554cd596d2dcc7dcbb2567d73c3ea7c4e", 
+                    "a034fa8027ec5a8ff4b2fb3e9c2dedc554cd596d2dcc7dcbb2567d73c3ea7c4e", 
+                    "a034fa8027ec5a8ff4b2fb3e9c2dedc554cd596d2dcc7dcbb2567d73c3ea7c4e"
+                ], 
+                "clang_-O3": [
+                    "86755d5b0a8ade270ac76a2385598c583e9f11c39fc9163c42486ad299b854f3", 
+                    "86755d5b0a8ade270ac76a2385598c583e9f11c39fc9163c42486ad299b854f3", 
+                    "86755d5b0a8ade270ac76a2385598c583e9f11c39fc9163c42486ad299b854f3"
+                ], 
+                "clang_-O0": [
+                    "c06b8fd3f1e22a8161486f126e0ad19021a052fc8c9290f5668d692251758c27", 
+                    "3abb7eee51bb49eb3d00d13c6ca3bceca9e5d97dcbcd5cc90d35baa13721c5ba", 
+                    "0b2b1cddf4b3ffdb5e4c54cf40c8f442e7d882d5f2258e8a49719f3c1de226c3"
+                ]
+            }, 
+            "note": "trying to cover gcc -ftree-reassoc subtraction case and llvm -reassociate", 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "input0 + -input1", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "input0 - input1", 
+                    "_idx": 1
+                }, 
+                {
+                    "code": "input0 - (input1 & input1)", 
+                    "_idx": 2
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "name": "tree_reassociation_repeated_factors", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "4ca56bab894375d6b5949b3c47ad3403f46f450cad0d6407e75ca22fa0de4655", 
+                    "de1b30b3ed389fde838961ae7cde9e8c8aa7901ddf4c17fe7eba66c060ac26fd"
+                ], 
+                "gcc49_-O3": [
+                    "4ecc0560d56b488db9afbc4e9f384c92a4021a0d5301b76a6e576752cfeafded", 
+                    "2cf5bda1aea4ca28aad9e5f242747f77aef86e2561c5c14f2fabbf0281404b34"
+                ], 
+                "clang_-O3": [
+                    "6522d84b3b036ea686f3ef131074b08708c19b49a5e5e03da6b6ef064e988382", 
+                    "6522d84b3b036ea686f3ef131074b08708c19b49a5e5e03da6b6ef064e988382"
+                ], 
+                "clang_-O0": [
+                    "2ce98b13a3d773e3b82109bf89a48ff075dc17d0ecd2a74c42dc6a6fcb02c77d", 
+                    "e672e475f5eb7db4b33ffc6eaf9509f2edd40c475b2997ebda686b9b5889e8be"
+                ]
+            }, 
+            "note": "trying to cover gcc -ftree-reassoc repeated factors and llvm -reassociate", 
+            "input_types": [
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "(input0 * input0 * input0) + (input0 * input0 * input0)", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "2*(input0 * input0 * input0)", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "code_hoisting", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "3265d32d052602bd751909ecd8bdb30cdee3e71356716d83eaa5544dbe8aa945", 
+                    "c35fc90841ec11d847a1d0d93920b0ddda3d8b8920df162865bf4eab9ec1a194"
+                ], 
+                "gcc49_-O3": [
+                    "8ad9b77c294b36b59737af3682ebd70237e036c7a86e98e71c17546413f39bd1", 
+                    "01aeeb9860ffa8f342025fc3ad9d0d5473f6fef222e770eb0ee0df67f8145ccb"
+                ], 
+                "clang_-O3": [
+                    "b39e8c1af84baeaf25dd5e77aa6c9169ea5ca81e6025aa2c28d8a3494fe45a57", 
+                    "b39e8c1af84baeaf25dd5e77aa6c9169ea5ca81e6025aa2c28d8a3494fe45a57"
+                ], 
+                "clang_-O0": [
+                    "4fa5f5267df033e6f1e6390a2782dc96082ac2a32cfaadbef054b4aac37838a5", 
+                    "2ece77d93be2ecbf05ddc376dd650f7cefc40acdcc3cddd4215e1a26a17e903d"
+                ]
+            }, 
+            "note": "trying to cover gcc -fcode-hoisting", 
+            "input_types": [
+                "int*", 
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int x = *input0; if(x > 100){ *input0 = x*x; *input1 = 0; } else { *input0 = x*x; *input1 = 1; } ", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int x = *input0;  *input0 = x*x; if(x > 100){ *input1 = 0; } else { *input1 = 1; } ", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "partial_redundancy_elimination", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "6b51bb531a21788920b24f56215f303ac6f274ff35083e09419a1eba23db35d3", 
+                    "23fd3f7d7659d447b2b5e601227feb6106f8235747837093ee3cb57acedb6645"
+                ], 
+                "gcc49_-O3": [
+                    "682cb31c236362a70f0d643af3facf4f5434029370edcba2c1ff2924e1c0fbed", 
+                    "9b8b7600e66426beb950873dca673f08ec93c426c75f774796f187e1d319b4ef"
+                ], 
+                "clang_-O3": [
+                    "b65277f620726ade9bf1a0af77735b7b9bc1a6a81d5ba9037077bb8c727858a1", 
+                    "b65277f620726ade9bf1a0af77735b7b9bc1a6a81d5ba9037077bb8c727858a1"
+                ], 
+                "clang_-O0": [
+                    "dd477033d66a004d0ec22b0f7aa514e25944336bc19516f54fe7f7c5116265a6", 
+                    "544a41c7d1815fa1362c42d032cc22776d09d20fb154ea8edc1bc6af52412256"
+                ]
+            }, 
+            "note": "trying to cover gcc -fpre -ftree-pre and llvm -gvn, tree-ssa-pre.c, example pulled from https://cs.wheaton.edu/~tvandrun/writings/cc04.pdf. this fails in a really weird way on gcc but works on llvm! this is great! also covers LLVM GVN optimizations", 
+            "input_types": [
+                "int", 
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int c = input0 + input1; int d; if(input2){ c = input0; d = c + input1; } else { c = 5; } return c + input1; ", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int c = input0 + input1; int d,t; if(input2){ c = input0; d = c + input1; t = d; } else { c = 5; t = c + input1; } return t; ", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "forward_prop", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "360136ac06b7cb473aeb6480946e69a58c288ee7cffe3ae2649fe6a37d1b38a7", 
+                    "8f313863a74d3cf36c9a35553bf8f63817b09950069312de1a6d2e0403e2e5fc"
+                ], 
+                "gcc49_-O3": [
+                    "e97f181a75d5005c7c9bd0b4653049bd250dd9d351835ef918da4d0e09e5102e", 
+                    "e97f181a75d5005c7c9bd0b4653049bd250dd9d351835ef918da4d0e09e5102e"
+                ], 
+                "clang_-O3": [
+                    "3628748981a9de23e3da703362f291ae011f66a31949a60007bce3e405b452dd", 
+                    "3628748981a9de23e3da703362f291ae011f66a31949a60007bce3e405b452dd"
+                ], 
+                "clang_-O0": [
+                    "08cf98dd7083ca101bbf2d5b4d2ce15ad8a93381e47b7fdc554ec17f226acefd", 
+                    "c4b8e9d503ff4b1afcb452524287b4db5c5b0699675e761ddfe30895eeb89c96"
+                ]
+            }, 
+            "note": "trying to cover gcc -ftree-forwprop", 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int x = input0 & input1; if(x){ return 0; } else { return 1; }", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "if(input0 & input1){ return 0; } else { return 1; }", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "full_redundancy_elimination", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "0115676b11ab92b63a7bc7cbc09765cbffea694be531649ccfcde3467f6eaa10", 
+                    "f4aea3734217385e3fa179120bff85becd267ab8e89737074982d5d5d638450d"
+                ], 
+                "gcc49_-O3": [
+                    "5dcc2642c5d55b4d1279bd7180f1f7acfc640cde5a7e71449e0c17cc2841e65c", 
+                    "c4b0dfd7345a47d61c3764b74f55559fa731ce2366d2172708f5fb49894371f9"
+                ], 
+                "clang_-O3": [
+                    "5c116085abfe532cf846296f0b7e6a46ea05d08eeb7ed9709cfc1886a8b8b87e", 
+                    "5c116085abfe532cf846296f0b7e6a46ea05d08eeb7ed9709cfc1886a8b8b87e"
+                ], 
+                "clang_-O0": [
+                    "9e2d779bde0a134e34ffdf54c82af8962461c1f12a084414ca1782241ae240f7", 
+                    "f5c94f2d76d5bcbd7b69ee9f1fe5b46de65082259ab014a29bb44f0024733c5b"
+                ]
+            }, 
+            "note": "trying to cover gcc -ftree-fre, also covers llvm GVN. example based on global value numbering: https://courses.cs.washington.edu/courses/cse501/04wi/papers/click-pldi95.pdf", 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int x = input0 * input1 + input1; int y = input0 * input1 + input0; return x+y;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int a = input0*input1; int x = a + input1; int y = a + input0; return x+y;", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "copy_propagation", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "da27ed9f53416c1c97d486033e1d4aaf3e887d602ede0130366a973dfce80afd", 
+                    "092ec868f84ec7bb2bf9883019045bb2825aad3e35003f4671ae61f14d2c79b2"
+                ], 
+                "gcc49_-O3": [
+                    "6a6681bcbd066765c443209f3f03613a9f0e7d591b3a4f1eebc1dfd4fc58e51b", 
+                    "6a6681bcbd066765c443209f3f03613a9f0e7d591b3a4f1eebc1dfd4fc58e51b"
+                ], 
+                "clang_-O3": [
+                    "8973db4aa37f23b50b1be3ef00dd366f1205acf59ed2071d17bbf92d87b2519b", 
+                    "8973db4aa37f23b50b1be3ef00dd366f1205acf59ed2071d17bbf92d87b2519b"
+                ], 
+                "clang_-O0": [
+                    "4e92fec8e09848916fef6c22d7fa7395fc1aeb22ec205c3336219a30afa2ad30", 
+                    "7a6dc6d65c511ac3ad50c9709602a52099104dd1e512b7753b6f1d88aa3ce918"
+                ]
+            }, 
+            "note": "trying to cover gcc -ftree-copy-prop, TODO improve", 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int x = input0 * input1; int y = x; return y;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "return input0*input1;", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "interprocedural_constant_propagation", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "c7ae413573ae41bea135e3e96af35bca35d5f427e23cfc6d11cbc9e00c04b5b2", 
+                    "9a9b1331b2e4dce9d80d8d5551e433e6ce50275d789f0571e0d556e6c7168f9b"
+                ], 
+                "gcc49_-O3": [
+                    "c9311916a3fd05eb2458539c96ce64b1934910b68ab7565c75f0e1d3ddcd72cb", 
+                    "0667b051d33bc9e8bea25f8c869a1922c58fd0cad3c0cd6a8e22409ce4b0290d"
+                ], 
+                "clang_-O3": [
+                    "bdae89ba1c72b3ad31c5a6cbb6738572e7054259b080dbde556718c509c45564", 
+                    "509e51ecbd545bbf93c94ebc6053e553e0c141567803e63477c0089e195edd8f"
+                ], 
+                "clang_-O0": [
+                    "2ce4b2faa881f91e8f433c5d291081652bf307eda2c93c7c6e90edcf2304e019", 
+                    "f40770475529c3bf5952aa1200fd7bc733d7ababb721557aa38ad66104c1cdf2"
+                ]
+            }, 
+            "note": "trying to cover gcc -fipa-cp and llvm's -ipconstprop. TODO this are equivalent but we need to better parse the insns to understand it", 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "return input0+input1+1;", 
+                    "_idx": 0
+                }, 
+                {
+                    "_idx": 1, 
+                    "c": "./benchmarks/ipa_cp_1.c", 
+                    "type": "file"
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "forward_store_motion", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "63e8d2292cd7a2dc78927664dd00e857e43f0b9f016b854d7883cd9dcb63a1aa", 
+                    "6697fbf850d270bc300c1c7a442186cbcd2894f9f59d7eda2fdd37e47341461b"
+                ], 
+                "gcc49_-O3": [
+                    "d545ee0bbea4f587ec45be7c263ea0fa28d84ac880aa393eeae3d862064d0169", 
+                    "d545ee0bbea4f587ec45be7c263ea0fa28d84ac880aa393eeae3d862064d0169"
+                ], 
+                "clang_-O3": [
+                    "0a514b782c03dc70f784b48befa5340f3399d24d65f32abdcd49705359983b9c", 
+                    "0a514b782c03dc70f784b48befa5340f3399d24d65f32abdcd49705359983b9c"
+                ], 
+                "clang_-O0": [
+                    "34c21641faa3f1cc84753d96da9b474dbefcdb2d5d56f38608f57972fde62351", 
+                    "c69064a48f8ebecb65b1282fda6ac451954566c1f366e67889ce3bd6e1afb983"
+                ]
+            }, 
+            "note": "trying to cover gcc -ftree-sink. example from gcc/tree-ssa-sink.c", 
+            "input_types": [
+                "int*", 
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int ret; *input0 = input1; input1 = input1 + 1; if(input2){ *input0 = 123; } else { ret = *input0; } return ret;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int ret; int sinktemp = input1; input1 = input1 + 1; if(input2){ *input0 = 123; } else { *input0 = sinktemp; ret = *input0; } return ret;", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "code_sinking_math", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "380e86b0ce6e2572bc07566b15491c8143a023b076e15616aa87982aee4b803b", 
+                    "bdab77fec4c998636fff184139a1346dcca4444994678f4b56703ddd57761347"
+                ], 
+                "gcc49_-O3": [
+                    "dd2c313ea726f0f4735689747994b1c91ca165bcb887850be92b7f0f6b387963", 
+                    "dd2c313ea726f0f4735689747994b1c91ca165bcb887850be92b7f0f6b387963"
+                ], 
+                "clang_-O3": [
+                    "51dff45a514a63dd0df4ae65705758f863cdac6267ea10646e1f8474f44873ad", 
+                    "51dff45a514a63dd0df4ae65705758f863cdac6267ea10646e1f8474f44873ad"
+                ], 
+                "clang_-O0": [
+                    "ecbf45bed9349144a52e326a030f2dafb89ef94f410fee3bda388ca8263bd806", 
+                    "dce077a70a3b95e0d9b58a8fc6425915ed700beb133709eabda5b6471911eb44"
+                ]
+            }, 
+            "note": "trying to cover llvm -sink. example from https://github.com/llvm-mirror/llvm/blob/master/lib/Transforms/Scalar/Sink.cpp", 
+            "input_types": [
+                "int", 
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int x = input1*input2; int y = input1+input2; int z; if(input0){z=x;}else{z=y;} return z; ", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int z; if(input0){z=input1*input2;}else{z=input1+input2;} return z; ", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "code_sinking_pure_function", 
+            "header": "__attribute__((pure)) int extern_do_pos(); __attribute__((pure)) int extern_do_neg();", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "4ef5ec85c040775705121c75a395b233a9c469d3d8fadbbf0e12ee817e7dc955", 
+                    "b84dcb42367f1dce2f33f73501746c88878bf4d06e964bc310063939a117c75f"
+                ], 
+                "gcc49_-O3": [
+                    "6fcde7c0c2e069b42850598ff0ae40addf10da69d8be87d70c3e94a9e3b62a7d", 
+                    "931ae460d00beb37dc189a704b2fe29fc430c19076c61602805c0dd8e0ec3ebe"
+                ], 
+                "clang_-O3": [
+                    "378a1166049080c4c05cc288ad35a3952915485423cbc3be3fb5a1783bdf3c90", 
+                    "378a1166049080c4c05cc288ad35a3952915485423cbc3be3fb5a1783bdf3c90"
+                ], 
+                "clang_-O0": [
+                    "48e377166b38b708f160ceabc46e894ca48f09bf64ac22f62fe192fdf7736d8c", 
+                    "8c20adb0d26d50a9c629ca6254f4573dfc7669b7abc549e55f3e32449dd48c13"
+                ]
+            }, 
+            "note": "trying to cover llvm -sink. example from https://github.com/llvm-mirror/llvm/blob/master/lib/Transforms/Scalar/Sink.cpp", 
+            "input_types": [
+                "int", 
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int x = extern_do_pos(); int y = extern_do_neg(); int z; if(input0){z=x;}else{z=y;} return z; ", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int z; if(input0){z=extern_do_pos();}else{z=extern_do_neg();} return z; ", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "constant_propagation_conditional", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "9cf8d0a46f0c141f3d600e22dac389f48bbaf5e46a79f9f5c01b38ca67a82306", 
+                    "1918021d7e7a88ece877a455d7b4897bee8191a85297e61a89cb760297280dbc", 
+                    "ebedfa40e937a1e38456c44d882cfddbcda14313f009cb1f25324ceb622ebcb1", 
+                    "c9e617c6c7002e44a68e337a87d3e40478c7d8297fd712c0b6cac1eab6cf6b80"
+                ], 
+                "gcc49_-O3": [
+                    "be81403e0fc490c8e18d5cce0da2fd115f61a476edf3f6cfb76c1d377d3dc5a6", 
+                    "be81403e0fc490c8e18d5cce0da2fd115f61a476edf3f6cfb76c1d377d3dc5a6", 
+                    "be81403e0fc490c8e18d5cce0da2fd115f61a476edf3f6cfb76c1d377d3dc5a6", 
+                    "be81403e0fc490c8e18d5cce0da2fd115f61a476edf3f6cfb76c1d377d3dc5a6"
+                ], 
+                "clang_-O3": [
+                    "627383aa93b978251f09fd3dc17ceb53b50226890fa91384bc2d1b109af29598", 
+                    "627383aa93b978251f09fd3dc17ceb53b50226890fa91384bc2d1b109af29598", 
+                    "627383aa93b978251f09fd3dc17ceb53b50226890fa91384bc2d1b109af29598", 
+                    "627383aa93b978251f09fd3dc17ceb53b50226890fa91384bc2d1b109af29598"
+                ], 
+                "clang_-O0": [
+                    "8c83d7a0daf824b0b24dcad002f4e5791996c9afd5a510e1fa28445f2923ef71", 
+                    "c61cfa42f46eb49895d29a5bcf23ae24e820f748e505065ed2559724217fd3d6", 
+                    "ca09c8a95a642a3c8f2ab032e5cb64a9f12fbf576490ea233efc6ae153deb4c1", 
+                    "7fd523a2cd38dfad72f9610a8c94d7f17606dd0cd04614d481be29fb5accf779"
+                ]
+            }, 
+            "note": "trying to cover gcc -ftree-ccp and llvm -sccp -constprop. example from gcc/tree-ssa-ccp.c", 
+            "input_types": [
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int x = 100; if(input0>0 || input0<=0){ x=200; } else { x=300; } return x;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "return 200;", 
+                    "_idx": 1
+                }, 
+                {
+                    "code": "int x; if(1){ x=200; } else { x=300; } return x;", 
+                    "_idx": 2
+                }, 
+                {
+                    "code": "int x = 100; return x*2;", 
+                    "_idx": 3
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "constant_propagation_conditional2", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "0e2264e480210a0acadee2617d82dc784490823ebbbabd87ae08c4531db360b9", 
+                    "56e2f36bcc2f6a3db720c3a8be9590eafae08b5f295dd8ed07bea665231af72b"
+                ], 
+                "gcc49_-O3": [
+                    "6577950f70c85ee04e2f817243e66d093188aedc4ea441b4c36b36b4f18b263b", 
+                    "08584394a62542b1bef493966d13b5eca34b4340e031e95386b69ddb8a01b783"
+                ], 
+                "clang_-O3": [
+                    "cfa630da0be9c473836c096d706baab46b8e81e1fe0f2b9bb72da2761a34f047", 
+                    "cfa630da0be9c473836c096d706baab46b8e81e1fe0f2b9bb72da2761a34f047"
+                ], 
+                "clang_-O0": [
+                    "2f636c67ac644bef20103eed3ba83bda83097e485591d5fde858b825eab5354b", 
+                    "bafb9d1b4aa826a353aa2bdd18ae1202b3aab737f7bedc7377651784edd75e2e"
+                ]
+            }, 
+            "note": "trying to cover llvm -sccp TODO is this scpp? more like value range prop", 
+            "input_types": [
+                "int*", 
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "if(input0 < input1){ input0[0]++; }", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "if(input0 < input1){ input0[0]++; if(input0 == input1) input0[1]++;  }", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "dead_code_elimination", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "5e761355040f823fa9ce05e0028b6fc3e33626ca4f3c97d32c49d15e382e8365", 
+                    "8b55791b0c9a1cbe5d0aeea7a745e810a8cdce3b25bbcfaa3db6f084d80f0a78", 
+                    "c76cea7d64410004ec43bc2687a39c6e8724dc1a88824e1fcb6a2867283047c8"
+                ], 
+                "gcc49_-O3": [
+                    "f97082f8e844af82ec5bfbfb565e95640cd667b713ffee9a5a2d4616c5da8aeb", 
+                    "f97082f8e844af82ec5bfbfb565e95640cd667b713ffee9a5a2d4616c5da8aeb", 
+                    "f97082f8e844af82ec5bfbfb565e95640cd667b713ffee9a5a2d4616c5da8aeb"
+                ], 
+                "clang_-O3": [
+                    "42312cbb045f127a5db33b0b8ab3fa2b099c3b5805173f6b58b0026f15bb9533", 
+                    "42312cbb045f127a5db33b0b8ab3fa2b099c3b5805173f6b58b0026f15bb9533", 
+                    "42312cbb045f127a5db33b0b8ab3fa2b099c3b5805173f6b58b0026f15bb9533"
+                ], 
+                "clang_-O0": [
+                    "c852703c073a788dcb9ba9cc1c9dfb49a32697dd401ee3a97c71412770f1b724", 
+                    "53cdc0d23da3e95b0e03be4599fe7e5ee50682af00edffc9a06cac84ec4f9b33", 
+                    "9929f59e02bfcdc2639a9abc38efbc142b3b4a3e15da9ef7ffb0435ccb86b7bf"
+                ]
+            }, 
+            "note": "trying to cover gcc -fdce -ftree-dce and llvm -adce. example from gcc/tree-ssa-dce.c", 
+            "input_types": [
+                "int*", 
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "return *input0 + *input1", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int x = 100; return *input0 + *input1;", 
+                    "_idx": 1
+                }, 
+                {
+                    "code": "int x = 100; for(int i=0; i<x; i++){ if(i==101){ return x; } } return *input0 + *input1;", 
+                    "_idx": 2
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "dead_store_elimination", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "411501c8c96414c3d542000f439ac1e2a368b77a995780de3e43393009680383", 
+                    "3a18e9f2e89a62922228fa242c0d93f0b4785b3090274665561b4fe0fdbba68b"
+                ], 
+                "gcc49_-O3": [
+                    "8705e66062633e8591bc9643c322af5f3f88f19b88b61203d5aac84d614a66ad", 
+                    "8705e66062633e8591bc9643c322af5f3f88f19b88b61203d5aac84d614a66ad"
+                ], 
+                "clang_-O3": [
+                    "48887b7bba63665274f0a1e392b2def5053a84f0eb83a15bdf7fa7f6d61a2dc6", 
+                    "48887b7bba63665274f0a1e392b2def5053a84f0eb83a15bdf7fa7f6d61a2dc6"
+                ], 
+                "clang_-O0": [
+                    "b70ccdc4c2078555ca007ee570caf8b496384597a717dcb4c289eaa77faf00d5", 
+                    "bdbb8073223725f84e0b41dd68adeee4c9bd12bde913c3d8b282252d3a3f04fa"
+                ]
+            }, 
+            "note": "trying to cover gcc -fdse -ftree-dse llvm -dse. see gcc/tree-ssa-dse.c", 
+            "input_types": [
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "*input0 = 200;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "*input0 = 100; *input0 = 200;", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "loop_unswitch", 
+            "header": "void extern_do_pos(); void extern_do_neg();", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "b07625c875b56089a8df59f6cebe6f5f170ef541f60d879bb72a01f2f8859d02", 
+                    "1d68a9b5d593f8714af27400a168026a7e5a122994dcb6036d5470b7ef16a3f6"
+                ], 
+                "gcc49_-O3": [
+                    "d4aab92a696c38d23bc4174243cb39351f95912aa309774a1d37da9a34ef42f5", 
+                    "974d706edddfa4bd3b262bda8d379746969375c3c14698cdd42f4c3652a8a2a5"
+                ], 
+                "clang_-O3": [
+                    "2e09f7776f752517de63ef754f4f32273d372ee147114e0b02f7550d9008f9a0", 
+                    "415fb545c69f3bee8349717c4b43ced8dbf2a00637f3523d4f0bb49730dfd47c"
+                ], 
+                "clang_-O0": [
+                    "8dae4b9401c245a55071a1a1158b011f99ca3ae47cbb4f53f659be06c6ae4c12", 
+                    "dc50ad5cce05bd73e7625746fd029f9d3acfca34d3bf7dad6d69569a323774d1"
+                ]
+            }, 
+            "note": "trying to cover gcc -ftree-loop-optimize and llvm -loop-unswitch. example from gcc/tree-ssa-loop-unswitch.c. functions are not marked pure on purpose", 
+            "input_types": [
+                "int", 
+                "int", 
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "for(int i=0; i<input0; i++){ if(input1){ extern_do_pos(); } else { extern_do_neg(); } } return 0;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "if(input1){ for(int i=0; i<input0; i++) extern_do_pos(); } else { for(int i=0; i<input0; i++) extern_do_neg(); } return 0;", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "loop_unswitch_harder", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "0c794382accd5b90e54e8c4b10b00897997f9cf3d2cd0b0677e1a83b03191240", 
+                    "0296a6386bc17a46c87840945d4985e3199a154317dcc5f5a004b6bcd52f075a"
+                ], 
+                "gcc49_-O3": [
+                    "990616c0b30ba0ff989afebd9284661ade273123fdbd8f034f9c84e450fff3ba", 
+                    "0d4ac616131995b335b600dce2e109993c5aa9a45100aead58526c1c283879d4"
+                ], 
+                "clang_-O3": [
+                    "36c16ade39ffdf1bf647a3385e13bf04d6d2289c7be5ec9b1803c2cad9db9659", 
+                    "6b0513c928f9fc150dc4bfd4e44af7239cd6da067bc3435da4839a54f20594e2"
+                ], 
+                "clang_-O0": [
+                    "5b9842310dc82e4d2550a16d07825162f85c358d4a07362dadf0694ef61bc9d4", 
+                    "24075ea952562e546d5d19aada243557f62ef693e7b2e375050791680a5a61e3"
+                ]
+            }, 
+            "note": "trying to cover gcc -ftree-loop-optimize. example from gcc/tree-ssa-loop-unswitch.c TODO revisit", 
+            "input_types": [
+                "int", 
+                "int", 
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int x=0; for(int i=0; i<input0; i++){ if(input1){ x++; } else { input2[i] = x--; } } return x;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int x=0; if(input1){ for(int i=0; i<input0; i++) x++; } else { for(int i=0; i<input0; i++) input2[i] = x--; } return x;", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "loop_splitting", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "9820571ea09c31de44c05200fac4f0f34d6af56f801e4a02496e99520afcab23", 
+                    "cc31937c1910a4e76c284214f940439dac883088e0eb134a0a98a5cf4791965b"
+                ], 
+                "gcc49_-O3": [
+                    "41a2db4384cd63054739dd7e723534d4e3df218a6123e4d9c3438d6278359ffa", 
+                    "affa6351d2deccfe8f8236a60942613e6c49058109623770c2f6374b140b75ca"
+                ], 
+                "clang_-O3": [
+                    "86adab01f90be18689af404cd1990d678d169bb4d825b64157f07bcf45c16a5d", 
+                    "c3f6ce40b2a4139ed25d35ab82b3453bfcfaf65bf8614a9cefda6e6ced22fa6b"
+                ], 
+                "clang_-O0": [
+                    "b5d65733807da21a17537a7bb4cdefbc0a2c868ff9551b508803aeed9c9c42fc", 
+                    "fcdf9829ea9d49da835c0c303952b257232b8f0a101823975dc581f3bb0dc47e"
+                ]
+            }, 
+            "note": "trying to cover gcc -ftree-loop-optimize and llvm -loop-simplify. example from gcc/tree-ssa-loop-split.c. WOW this is weird on older clang/gcc, godbolt shows newer clang/gcc are ok", 
+            "input_types": [
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int x=0; int i; for(i=0; i<200; i++){ if(i<150){ x++; } else { x--; } } return x;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int x=0; int i; for(i=0; i<150; i++){ x++; } for(; i<200; i++){ x--; } return x;", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "loop_interchange", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "133f18eedb4b41e87df15cf0f68a65bd96bcaceba748bb7edf0794e819169ce9", 
+                    "24b0f8352923e857144b3d2737ed3b26c4bd492984449073823005cb26092407"
+                ], 
+                "gcc49_-O3": [
+                    "50c20ed6b95a37ef844f93714175820b69615b1865336e0db8c5d9850e462357", 
+                    "07efb65c27dfeba3bd1ce468d111e60f796ffa612b716635e09c737f35d126ea"
+                ], 
+                "clang_-O3": [
+                    "d674263d7d58f0a5c81edf518670b55f6781779078bfe8675daf9f343e8754cb", 
+                    "5da023ad276a37473eb520f30918c337b1a6b8050d99869242d125cbf57b5077"
+                ], 
+                "clang_-O0": [
+                    "9dd2f32805f4c666db697afc81884c8b20f314199aa5f0a7926e34e12950d0b1", 
+                    "fcfb07e9c2d77bceae86357d150203090d4bb5640d9c3effed5d8afb6a8f2f48"
+                ]
+            }, 
+            "note": "trying to cover gcc -floop-interchange. example from gcc/gimple-loop-interchange.cc", 
+            "input_types": [
+                "int", 
+                "int**", 
+                "int**", 
+                "int**"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int N = input0; int** a = input1; int** b = input2; int** c = input3; for (int j = 0; j < N; j++) for (int k = 0; k < N; k++) for (int i = 0; i < N; i++) c[i][j] = c[i][j] + a[i][k]*b[k][j];", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int N = input0; int** a = input1; int** b = input2; int** c = input3; for (int i = 0; i < N; i++) for (int j = 0; j < N; j++) for (int k = 0; k < N; k++) c[i][j] = c[i][j] + a[i][k]*b[k][j];", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "loop_invariant_motion", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "c4a8fa9cb5d34dde687a520884e16f363d6580899103c092008652c2260dae44", 
+                    "a9075b1e393791632a6b4f2c7002e377a3985af9f45ba60a077f5d0475e0af7d"
+                ], 
+                "gcc49_-O3": [
+                    "bd5df04681d34227f088d681f41df830e444920ea67a3adfc897cc2435e85142", 
+                    "b6bd74492eb6f33a703af8752fbfa8e09b3047ca8ae97528b643d994b090edfa"
+                ], 
+                "clang_-O3": [
+                    "60c7dfa52a18aa6c1d590011a6d88a7ffc79a8c05b7bbe61af1ebe0ada588d39", 
+                    "60c7dfa52a18aa6c1d590011a6d88a7ffc79a8c05b7bbe61af1ebe0ada588d39"
+                ], 
+                "clang_-O0": [
+                    "dd3028fc6a92f567491b91a7c23f4add3f3e97e3ce758860169a47c0e7d907c9", 
+                    "c657ad7f9c513e7ddb4ddd5664c69b6fb81a7c834143af6eebaf2005b18478fa"
+                ]
+            }, 
+            "note": "trying to cover gcc -floop-im and llvm -licm. example from gcc/tree-ssa-loop-im.c", 
+            "input_types": [
+                "int", 
+                "int*", 
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int a; for (int i=0; i<input0; i++) { if (input0) { a = input0; input1[i] = input2[i]; } }; return a", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int a; a = input0; for (int i=0; i<input0; i++) { if (input0) { input1[i] = input2[i]; } }; return a", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "loop_iv_strength_reduction", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "84c653e88b9a981759317ab56a5b60024fdaa4d72c71413e7c70aca75df3defd", 
+                    "8fe27e86a800e94f22f4382bba1767bfd814e2b8795d80051751d61cedbeb807"
+                ], 
+                "gcc49_-O3": [
+                    "e935627b25d0e35671e346bda74d1aab4ec222a7eb03de18dc7d4e4e40b08466", 
+                    "e935627b25d0e35671e346bda74d1aab4ec222a7eb03de18dc7d4e4e40b08466"
+                ], 
+                "clang_-O3": [
+                    "60800c3ddf37486e6f2292f86740b857c6884530f0b1a89e29f5a4668a71a275", 
+                    "7f0706a060bc6ca98bc0f97bd3bae5e116b84fedc694973f4f38215baffce071"
+                ], 
+                "clang_-O0": [
+                    "c1b0bb6a1c18d746de44aa1492def324b7855459836091b83c90cdbbb86fddea", 
+                    "16170f11891dded81053e8402fd49605c70f22c4efd37b607fbb182e0a2aeafb"
+                ]
+            }, 
+            "note": "trying to cover gcc -fivopts and llvm -loop-reduce. example from gcc/tree-ssa-loop-ivopts.c. for godbolt, adding return 0 seemed neccessary to get the code generation right. weird. behaves better in newer clang versions", 
+            "input_types": [
+                "int", 
+                "int*", 
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "for(int i=0; i<input0; i++){ input1[i*8] = input2[i]; }; return 0;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int y = 0; for(int i=0; i<input0; i++){ input1[y] = input2[i]; y += 8; }; return 0;", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "loop_iv_variable_merging", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "882af2119367c7a77e77c167f3afb0cfc0eda66061444e7abb4b3e1e9cd3d048", 
+                    "b8b9eb3130c18dcdb7bd8e6a91898ca07ea46b7564331a022088440836e3459d"
+                ], 
+                "gcc49_-O3": [
+                    "601382b8fd1de173354576c9c0006e0b88ce511a69bdf6d89ddafcbc0e7dcf3a", 
+                    "441d2489f786eddaec75dc2f000ce7e76b68f5455cb77cf4925ed575e47662ef"
+                ], 
+                "clang_-O3": [
+                    "e687b3b6f4588436420eb315b3bc3494da9928dcae94323c11623f526c5a0d0f", 
+                    "e687b3b6f4588436420eb315b3bc3494da9928dcae94323c11623f526c5a0d0f"
+                ], 
+                "clang_-O0": [
+                    "d1873a2d216cfd67084a8292641473c89acee096072d93344812ece6d7c17521", 
+                    "c8e65c1732fccd894e8c52e5356ea781870579423597de361487a28ed0b6231f"
+                ]
+            }, 
+            "note": "trying to cover gcc -fivopts. also covers llvm -indvars. example from gcc/tree-ssa-loop-ivopts.c", 
+            "input_types": [
+                "int", 
+                "int*", 
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "for(int i=0; i<input0; i++){ input1[i] = input2[i]; }", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int y = 0; for(int i=0; i<input0; i++){ input1[y] = input2[i]; y += 1; }", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "loop_iv_variable_elimination", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "8ad5db5b22f2ce942c54b3bde4c1bba4aeaf14d9b9661599fb69dc1d4e68e597", 
+                    "b22df1f7c9513247bc480dcbb16b2f23f805e30b8f102121e930e17a43688609"
+                ], 
+                "gcc49_-O3": [
+                    "178279f27a731175ea253d1bb6afd3a3c59678f3e77561f97695423e8f08dedf", 
+                    "d6b7907fc40bcccb4c1747685dbace0097e62c2c074872b9fc3a2e43daaec45f"
+                ], 
+                "clang_-O3": [
+                    "eca65c79c8a7381a8dc0145cfc42120e059d41fd0d471323c8da68059fb300d6", 
+                    "eca65c79c8a7381a8dc0145cfc42120e059d41fd0d471323c8da68059fb300d6"
+                ], 
+                "clang_-O0": [
+                    "d69104e253ce72b4b0f9c075750171f3af02433adf1fc06fa7a51ddaa846bb13", 
+                    "625353742516d904f900cfc8fd566ea450a15b950cfdf5bc14a65195a294d0bb"
+                ]
+            }, 
+            "note": "trying to cover gcc -fivopts. also covers LLVM -indvars. example from http://www.nullstone.com/htmls/category/ive.htm", 
+            "input_types": [
+                "int", 
+                "int*", 
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int i1; for (i1 = 0; i1 < input0; i1++) input1[i1] = input2[i1]; ", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int i1, i2, i3; for (i1 = 0, i2 = 0, i3 = 0; i1 < input0; i1++) input1[i2++] = input2[i3++];", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "loop_iv_canonicalization", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "699d59a3fc3b44749992fdb0900e55fb95a8fc6073ad9d107ee7f304d1ee7303", 
+                    "5a75d222297f6b56fa758a2124498e8fd661fa711f414bee43a0514d7d998624"
+                ], 
+                "gcc49_-O3": [
+                    "28dcd4f778c07b320a02065bcff322927dd124f3640d7faba985ecf6b275ff55", 
+                    "a3b6d755aeb3e523df6b3f7b1e06929b89e1e8c017e1ffcf12c55afa9d7db2e7"
+                ], 
+                "clang_-O3": [
+                    "ad967482534f4a442c13613b9587dad4a7f521062364667ac648f2df38c4daca", 
+                    "ad967482534f4a442c13613b9587dad4a7f521062364667ac648f2df38c4daca"
+                ], 
+                "clang_-O0": [
+                    "ee920a4919c5421d1676a2c90cc8c5b65e139e05ef8fd860eb0dc1226bba4e64", 
+                    "278322cd9736bafdcc3b5ec8bf06c0b79c0cf5d767aadf2874708744700b9ab4"
+                ]
+            }, 
+            "note": "trying to cover llvm -indvars and also -loop-deletion. example from http://llvm.org/docs/Passes.html#indvars-canonicalize-induction-variables", 
+            "input_types": [
+                "int", 
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int i = 7; for (; i*i < 1000; ++i) input1[0]++;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int i = 0; for (; i != 25; ++i) input1[0]++;", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "straight_line_strength_reduction", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "950bf7d4ccf94967c52a0f62276c7f2b1847af09c04676ebd892753165eb028f", 
+                    "097dbc748be10e0a7c623f91d35ad749725ee40902184b17d93a08cf5d4d7bbd"
+                ], 
+                "gcc49_-O3": [
+                    "79bb88db8d2fd93e9eaf60c3a593c7a229249e13ad805484414eab335062ee91", 
+                    "79bb88db8d2fd93e9eaf60c3a593c7a229249e13ad805484414eab335062ee91"
+                ], 
+                "clang_-O3": [
+                    "d764d38df0cdf1229419118df2dd21aaf4f5061420e23415ffbb66b790bb26cf", 
+                    "d764d38df0cdf1229419118df2dd21aaf4f5061420e23415ffbb66b790bb26cf"
+                ], 
+                "clang_-O0": [
+                    "68dae687e1046457cdd743dfd585a978aad0d21783cc36d4a9fda8a4ed72d992", 
+                    "39000c76291c0722d8bc18b367b036544beb800b90a0b2c52a6cf807f075c56f"
+                ]
+            }, 
+            "note": "trying to cover gcc -ftree-slsr. example from https://gcc.gnu.org/wiki/cauldron2012?action=AttachFile&do=get&target=wschmidt.pdf", 
+            "input_types": [
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int a = input0; int c = a+2; int d = c*2; int e = a*2; int f = e+4; return d + f;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int a = input0; int c = a+2; int d = c*2; int e = a+2; int f = e*2; return d+f;", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "value_range_propagation_ne", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "db1051d520336f621cfe47f07be71a183f2d6504cfa5e3701e0271456eabdd41", 
+                    "dcbbb3a3e73fe6a1cfd956f173d3424f9e18c50acada7a1444527cfbb8c28a27"
+                ], 
+                "gcc49_-O3": [
+                    "2ace9d6b5fe2972fc35857d2ff445e02d46e6e0dec9d0b410019d28a70094ee7", 
+                    "2ace9d6b5fe2972fc35857d2ff445e02d46e6e0dec9d0b410019d28a70094ee7"
+                ], 
+                "clang_-O3": [
+                    "9db0c4d3f62330a58b9317ff5cadc53f4b474e7fb4ed76d6b007eedc960000f7", 
+                    "9db0c4d3f62330a58b9317ff5cadc53f4b474e7fb4ed76d6b007eedc960000f7"
+                ], 
+                "clang_-O0": [
+                    "7c31d8122de50b6b76bbc9770afed483e2f169759645b8d13747765508f6b886", 
+                    "6d9d7c8f86a84ef8288125aa26b5ed4e3beb01fa03cee9e9693e9c1b0e739dab"
+                ]
+            }, 
+            "note": "trying to cover gcc -ftree-vrp.c, example: https://llvm.org/devmtg/2007-05/05-Lewycky-Predsimplify.pdf", 
+            "input_types": [
+                "int*", 
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "if(input0 != input1) return 0;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "if(input0 != input1) return 0; if(input0 != input1) input0[0]++;", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "value_range_propagation_eq", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "48249b301e87eb0203b3ed29e2937c154738358e6d7bc97842442d65740b3ccf", 
+                    "b3c83462aa43e314d193fd310e177863055ff46213067f70b1eacd6e34ebb6a9"
+                ], 
+                "gcc49_-O3": [
+                    "60bba264623fc9933c5bcbb035931f97dd40bb43abfdff504fc5d57378b23c98", 
+                    "60bba264623fc9933c5bcbb035931f97dd40bb43abfdff504fc5d57378b23c98"
+                ], 
+                "clang_-O3": [
+                    "2d83f59a0f925ea5103a6931358b266651cb3877b4dd8b367b19db065b58ad43", 
+                    "2d83f59a0f925ea5103a6931358b266651cb3877b4dd8b367b19db065b58ad43"
+                ], 
+                "clang_-O0": [
+                    "28f750b33bd059924992e76ea1d573c5017750a87d21c332b7688f085607b99c", 
+                    "d86160f13d9d8367f8df3a362d368e8cdaa6878f8230104f2a42069761d9525b"
+                ]
+            }, 
+            "note": "trying to cover gcc -ftree-vrp.c, example: https://llvm.org/devmtg/2007-05/05-Lewycky-Predsimplify.pdf", 
+            "input_types": [
+                "int*", 
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "if(input0 == input1){ input0[0]++; }", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "if(input0 == input1){ input0[0]++; if(input0 != input1) input0[1]++;  }", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "value_range_propagation_lt", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "bf42de60796809a8422b56c9a560308fcdd5708f05f41276ee81b068cf699f14", 
+                    "b3a49594df61922aa6d7798d5516b5cd34f777dc1409a9726903499da4a8dadd"
+                ], 
+                "gcc49_-O3": [
+                    "6947f72a45f0641bed01d3230ef59e8e7e0d81ff06b331291b9043d8cd6c972e", 
+                    "ea068e0c0e361d3770e8f293a5c3b99676aa5d17c7fd1aadfc9c4589a466d9ec"
+                ], 
+                "clang_-O3": [
+                    "9a137385165bfa7fc155d85b1c4ebe9d378f9d3691d533dbde081de5f9186435", 
+                    "9a137385165bfa7fc155d85b1c4ebe9d378f9d3691d533dbde081de5f9186435"
+                ], 
+                "clang_-O0": [
+                    "fb7a851f3d454d143123696683ab6c8652d96758215215a2ed98fe83581a025b", 
+                    "6919547b4ea622d1c65756027caf487895a814003f40be007bc24a3187416ab5"
+                ]
+            }, 
+            "note": "trying to cover gcc -ftree-vrp.c, example: https://llvm.org/devmtg/2007-05/05-Lewycky-Predsimplify.pdf", 
+            "input_types": [
+                "int*", 
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "if(input0 < input1){ input0[0]++; }", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "if(input0 < input1){ input0[0]++; if(input0 == input1) input0[1]++;  }", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "constant_merging", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "a4998dddf97e542f717c0dfded2285c9a4c374cfb920f33281e0e29ec7de2f5e", 
+                    "07e9f850f0532bd141294baa03f121768bad2e2f7f7b75d937438bb2b1e8e21e"
+                ], 
+                "gcc49_-O3": [
+                    "323b8c0321e308b9fb743d326b26704141020487feb7ea3e015bf8135253e44c", 
+                    "6c8c2f60b8540e22a94caffa1f0a185d1a0157c09b8e96c381e5cbf714ee63be"
+                ], 
+                "clang_-O3": [
+                    "84b9ff45b70499a9de897ba0cb11ce2d42ec8e10f0b853d971758ef51f522158", 
+                    "8bc9956ac2ee361c477637e6787de39bab3e36d632482927fc79bd7f6c0f01f0"
+                ], 
+                "clang_-O0": [
+                    "4edb1d381f13191651e52d622bf93874c5d1aa5234e0ccc8040fb13abe91a761", 
+                    "84e75152f92b69f59c7468b935f7ae5945c35599613f9728805f362287bc85fd"
+                ]
+            }, 
+            "note": "trying to cover llvm constmerge", 
+            "input_types": [
+                "int*", 
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int x = 100; return x*2;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "if(input0 < input1){ input0[0]++; if(input0 == input1) input0[1]++;  }", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "redundant_load_elimination", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "37fedb35480ae672453c96d77e483b43b6b4e74ae3ca9765f177b5266dc555d1", 
+                    "2755123990aba6446e6317c17bd89dc73d34ae49ed4f4c95fd921cb5c6e1c873"
+                ], 
+                "gcc49_-O3": [
+                    "877e60b823a0ee2d88f83f9fc32008d707e2af734d1b1ca9fef301ddda115066", 
+                    "4dbf0ce678637a5ac6631bec664e385576edda676c8d9eb69f3451ac3554b85a"
+                ], 
+                "clang_-O3": [
+                    "35b75fe718cdfd65f2a0c486c598d8dc0d0b3e23e93bc43c0267a51152213a56", 
+                    "35b75fe718cdfd65f2a0c486c598d8dc0d0b3e23e93bc43c0267a51152213a56"
+                ], 
+                "clang_-O0": [
+                    "aa33e61459a419c7407e0d4a01e8edaaefe73e435ac3ccb6f17de4b0849a0891", 
+                    "037b955ea60f6d333e189b88b1abab6c006acd4d2ba1a1afc224dbb221616df7"
+                ]
+            }, 
+            "note": "trying to cover llvm gvn redundant load elimination", 
+            "input_types": [
+                "int*", 
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int x = *input0; int y = *input1; int z = *input0; return x+y+z;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int x = *input0; int y = *input1; return x+y+x;", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "compiler_survey", 
+            "return": "", 
+            "name": "jump_threading", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "b2a64f369ddddec445bfb625a952a80edcf88648ac1f794797d726778b5a3512", 
+                    "177268ef47f9cbfd9bb4d8c1c9bd9572f9a46c10691bb51d01dbf671ad05b445"
+                ], 
+                "gcc49_-O3": [
+                    "5d48c39a0051310b345ebeb7c200f2e3d3744f3e160b27ccddfff4a0caa7a86f", 
+                    "b3061c8387fbe80c622fea37b3d5ef78e858ccfb178f84551896d8a512b2df1d"
+                ], 
+                "clang_-O3": [
+                    "ce55037f63f20800dd9aff6dd029c097ddae0a360396a6cc2847c3441fdc292c", 
+                    "ce55037f63f20800dd9aff6dd029c097ddae0a360396a6cc2847c3441fdc292c"
+                ], 
+                "clang_-O0": [
+                    "eb079ff989341f718bccf4ff5adc58d4b621a8e56e948e9e33da60ef6c759736", 
+                    "03985528a902341cebb6c5fa9938243a7bf31d2ea82f211a13364cad5c149f8b"
+                ]
+            }, 
+            "note": "trying to cover llvm -jump-threading, example from http://llvm.org/docs/Passes.html#jump-threading-jump-threading. fails on clang/gcc", 
+            "input_types": [
+                "int", 
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int x=0; if(input0 > 10){ x = 4; } if(x<3){ *input1 = 10; } else { *input1 = 20; }; return x;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int x=0; if(input0 > 10){ x = 4; *input1 = 20; } else { *input1 = 10; }; return x;", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "semantics preserving transformations", 
+            "return": "", 
+            "name": "for_loop_nothing", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "7474de02d6aeb76bf7e7b58a9e8b9cbdd0926cc08b7040cc046e535451acf2c9", 
+                    "1c9ea2836410f5431cce13ecf8828a98ff8b1399604fc5418a474b415a025a02", 
+                    "b36b01af3320137e87253ab824a9252610709250ecaba88d43e9e958b3e664b7", 
+                    "34f13e5f9bf2ed87ecd3127b6d2bb47c1b9b3e581f25d3e7ba2c1aea10f2b19c"
+                ], 
+                "gcc49_-O3": [
+                    "07d1968407656ac8b7d815aeb943f0963d7f4ae69e799ff8be5572bd60d99296", 
+                    "30a95a981a803aa34c3483ee516f6633cced5cd656ed2a43cad798e25b6e3cfa", 
+                    "30a95a981a803aa34c3483ee516f6633cced5cd656ed2a43cad798e25b6e3cfa", 
+                    "30a95a981a803aa34c3483ee516f6633cced5cd656ed2a43cad798e25b6e3cfa"
+                ], 
+                "clang_-O3": [
+                    "b6beefd67be5032b544fd1e90b614b4d784a66cf6b12a2314b7457bff1e7ee1f", 
+                    "b6beefd67be5032b544fd1e90b614b4d784a66cf6b12a2314b7457bff1e7ee1f", 
+                    "b6beefd67be5032b544fd1e90b614b4d784a66cf6b12a2314b7457bff1e7ee1f", 
+                    "b6beefd67be5032b544fd1e90b614b4d784a66cf6b12a2314b7457bff1e7ee1f"
+                ], 
+                "clang_-O0": [
+                    "1f93191b89528e022e1849805c7a60ea9d12abf8c2688a84ad5d76e94ba6efcf", 
+                    "992de9847c82920dc0a7109ceeffb622fcc4315a605836bfa97cc601cdf499f8", 
+                    "8c09c35be5f1517f017b1c793006daac442977294fe7d24f539024ad1b92b24f", 
+                    "25ac4ba16e227ef2ae769fc2ef588339893b2def8a5a9922c5c0eb1b3fe90ce2"
+                ]
+            }, 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "return input0 + input1", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "return input1 + input0", 
+                    "_idx": 1
+                }, 
+                {
+                    "code": "for(int i=0; i<1; i++){ return input1 + input0; }", 
+                    "_idx": 2
+                }, 
+                {
+                    "code": "int ret = input1; for(int i=0; i<1; i++){ ret += input0; } return ret;", 
+                    "_idx": 3
+                }
+            ]
+        }, 
+        {
+            "origin": "tce", 
+            "name": "math_post_fix_increment", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "f847239467495dc2d37c8d273ee13d11aa00afefd00f2bd5c60463e0ec5a105f", 
+                    "249778f81c127052d4cb4a8605c340c65505a99b11a63b3b674f70bf86a40356", 
+                    "4c8af6fdb42e0f211e1ab254943d13a396d71915c03db085ccadfaaedbc04a3e", 
+                    "a7abb33fbc13e12f1978296113c49e3e6ee5eb238caf36d160b2c2903d04d047"
+                ], 
+                "gcc49_-O3": [
+                    "fae6e50396268fb63ff4fadc7cd59bfc9ac0630edf9dd44ff81c2ccb00c4d255", 
+                    "d80a23216d89a22a8b378c99d9daea63fed418398914afe38af38214322b70ea", 
+                    "d80a23216d89a22a8b378c99d9daea63fed418398914afe38af38214322b70ea", 
+                    "fae6e50396268fb63ff4fadc7cd59bfc9ac0630edf9dd44ff81c2ccb00c4d255"
+                ], 
+                "clang_-O3": [
+                    "fbdc79d30f7931d92991e3f836853522e1965e9393569f4c09ca1a69c7a16cdc", 
+                    "fbdc79d30f7931d92991e3f836853522e1965e9393569f4c09ca1a69c7a16cdc", 
+                    "fbdc79d30f7931d92991e3f836853522e1965e9393569f4c09ca1a69c7a16cdc", 
+                    "fbdc79d30f7931d92991e3f836853522e1965e9393569f4c09ca1a69c7a16cdc"
+                ], 
+                "clang_-O0": [
+                    "efa807457ca7fe8de70cbbc68949b67817de6e7c1b6a0edd97d6c4abf286a824", 
+                    "ef3df4d5a0dcfe301d9840fa4383d365a11f3f51357c819952cae78e71e0e6da", 
+                    "eafe31d8f99ac2815e0926d8874ac3e1efddb385ba645813e1eff3bad7846e02", 
+                    "b011e7d3a90c308c82fbfef884a94158ac991c301ef91f2f15bdc58b50afc0bc"
+                ]
+            }, 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "input0 + input1", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "input1++ + input0", 
+                    "_idx": 1
+                }, 
+                {
+                    "code": "input1++ + input0++", 
+                    "_idx": 2
+                }, 
+                {
+                    "code": "input1 + input0++", 
+                    "_idx": 3
+                }
+            ]
+        }, 
+        {
+            "origin": "tce", 
+            "return": "", 
+            "name": "tce_dead_store", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "22233a887349c2d0919b15dd2123342ec457f647ac9bde3ff315fd881817c048", 
+                    "c35ce39c7d3ee0f6511f56172bfe7c92255a236f72f0fd2568d30879920a79b0"
+                ], 
+                "gcc49_-O3": [
+                    "ff5625d5187f19812258fd4ca95732281faa3bd66b4c1977af544497b72313d1", 
+                    "ff5625d5187f19812258fd4ca95732281faa3bd66b4c1977af544497b72313d1"
+                ], 
+                "clang_-O3": [
+                    "65097bccb3d556c44fce93503b1e9ba3a9d34078683cd1bc5a3c7084619375a4", 
+                    "65097bccb3d556c44fce93503b1e9ba3a9d34078683cd1bc5a3c7084619375a4"
+                ], 
+                "clang_-O0": [
+                    "2952e7ea6e4d9a702586ec0529f543c69373c5d1467fd8bd536f9fea3d877fb8", 
+                    "4a04215c0dd95274f3650d8d07ee8a7cf346ebf10c4314c340722ed841e67e70"
+                ]
+            }, 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int x = input0 + input1; return x;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int x = input0 * 10; x = input0 + input1; return x;", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "tce", 
+            "return": "", 
+            "name": "tce_dead_store_negate_zero", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "129243ec44587fceb9fabb6d4b197d732b3bd31903cb1750a5e5279406e2ecda", 
+                    "6348870a9d3ac397edb5949982b2384a22f94c32c4388500edd84c2bc9ea88d2"
+                ], 
+                "gcc49_-O3": [
+                    "f7379a35872399abb7e10aa32c7fa0fdcf27883f79594d8fcdaa14754400a0ac", 
+                    "f7379a35872399abb7e10aa32c7fa0fdcf27883f79594d8fcdaa14754400a0ac"
+                ], 
+                "clang_-O3": [
+                    "2b20bc68bf4bbb93fa747b87c2f919bd22513bad846e28fe149e336acdc81bca", 
+                    "2b20bc68bf4bbb93fa747b87c2f919bd22513bad846e28fe149e336acdc81bca"
+                ], 
+                "clang_-O0": [
+                    "264e35d1048d5c769832d54d0c023b29d46ba28208d899052cc5421e40332a73", 
+                    "6ea65e88f6fe3a3cb6a7fc0e162e22b5e4ce3d297b071344f41a04a315d2962c"
+                ]
+            }, 
+            "input_types": [
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "return input0;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int x = 0; return -x + input0;", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "tce", 
+            "return": "", 
+            "name": "bisect_dead_store_alternate_implementations", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified"
+                ], 
+                "gcc49_-O3": [
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified"
+                ], 
+                "clang_-O3": [
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified"
+                ], 
+                "clang_-O0": [
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified"
+                ]
+            }, 
+            "input_types": [
+                "double"
+            ], 
+            "return_type": "double", 
+            "variants": [
+                {
+                    "variant_class": "original", 
+                    "_idx": 0, 
+                    "java_code": "double N = input0;\n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (diff > 0) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n "
+                }, 
+                {
+                    "variant_class": "negate expression", 
+                    "_idx": 1, 
+                    "java_code": "\n double N = input0;\n double x = N;\n double M = -N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (diff > 0) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n "
+                }, 
+                {
+                    "variant_class": "alternate implementation", 
+                    "_idx": 2, 
+                    "java_code": "doubt N = input0; \n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (diff != 0) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n "
+                }, 
+                {
+                    "variant_class": "alternate implementation", 
+                    "_idx": 3, 
+                    "java_code": "doubt N = input0; \n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (true) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n "
+                }
+            ]
+        }, 
+        {
+            "origin": "tce", 
+            "return": "", 
+            "name": "capitalize", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified"
+                ], 
+                "gcc49_-O3": [
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified"
+                ], 
+                "clang_-O3": [
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified"
+                ], 
+                "clang_-O0": [
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified"
+                ]
+            }, 
+            "input_types": [
+                "double"
+            ], 
+            "return_type": "double", 
+            "variants": [
+                {
+                    "variant_class": "original", 
+                    "_idx": 0, 
+                    "java_code": "\n public static java.lang.String capitalize( java.lang.String str, char[] delimiters )\n {\n int delimLen = delimiters == null ? -1 : delimiters.length;\n if (str == null || str.length() == 0 || delimLen == 0) {\n return str;\n }\n int strLen = str.length();\n java.lang.StringBuffer buffer = new java.lang.StringBuffer( strLen );\n boolean capitalizeNext = true;\n for (int i = 0; i < strLen; i++) {\n char ch = str.charAt( i );\n if (isDelimiter( ch, delimiters )) {\n buffer.append( ch );\n capitalizeNext = true;\n } else {\n if (capitalizeNext) {\n buffer.append( Character.toTitleCase( ch ) );\n capitalizeNext = false;\n } else {\n buffer.append( ch );\n }\n }\n }\n return buffer.toString();\n }"
+                }, 
+                {
+                    "variant_class": "early exit removal", 
+                    "_idx": 1, 
+                    "java_code": "\n public static java.lang.String capitalize( java.lang.String str, char[] delimiters )\n {\n int delimLen = delimiters == null ? 1 : delimiters.length;\n if (str == null || str.length() == 0 || delimLen == 0) {\n return str;\n }\n int strLen = str.length();\n java.lang.StringBuffer buffer = new java.lang.StringBuffer( strLen );\n boolean capitalizeNext = true;\n for (int i = 0; i < strLen; i++) {\n char ch = str.charAt( i );\n if (isDelimiter( ch, delimiters )) {\n buffer.append( ch );\n capitalizeNext = true;\n } else {\n if (capitalizeNext) {\n buffer.append( Character.toTitleCase( ch ) );\n capitalizeNext = false;\n } else {\n buffer.append( ch );\n }\n }\n }\n return buffer.toString();\n }"
+                }, 
+                {
+                    "variant_class": "early exit removal", 
+                    "_idx": 2, 
+                    "java_code": "\n public static java.lang.String capitalize( java.lang.String str, char[] delimiters )\n {\n int delimLen = delimiters == null ? -1 : -delimiters.length;\n if (str == null || str.length() == 0 || delimLen == 0) {\n return str;\n }\n int strLen = str.length();\n java.lang.StringBuffer buffer = new java.lang.StringBuffer( strLen );\n boolean capitalizeNext = true;\n for (int i = 0; i < strLen; i++) {\n char ch = str.charAt( i );\n if (isDelimiter( ch, delimiters )) {\n buffer.append( ch );\n capitalizeNext = true;\n } else {\n if (capitalizeNext) {\n buffer.append( Character.toTitleCase( ch ) );\n capitalizeNext = false;\n } else {\n buffer.append( ch );\n }\n }\n }\n return buffer.toString();\n }"
+                }, 
+                {
+                    "variant_class": "early exit removal", 
+                    "_idx": 3, 
+                    "java_code": "\n public static java.lang.String capitalize( java.lang.String str, char[] delimiters )\n {\n int delimLen = delimiters == null ? -1 : delimiters.length;\n if (str == null || false || delimLen == 0) {\n return str;\n }\n int strLen = str.length();\n java.lang.StringBuffer buffer = new java.lang.StringBuffer( strLen );\n boolean capitalizeNext = true;\n for (int i = 0; i < strLen; i++) {\n char ch = str.charAt( i );\n if (isDelimiter( ch, delimiters )) {\n buffer.append( ch );\n capitalizeNext = true;\n } else {\n if (capitalizeNext) {\n buffer.append( Character.toTitleCase( ch ) );\n capitalizeNext = false;\n } else {\n buffer.append( ch );\n }\n }\n }\n return buffer.toString();\n }"
+                }
+            ]
+        }, 
+        {
+            "origin": "tce", 
+            "return": "", 
+            "name": "wrap", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified"
+                ], 
+                "gcc49_-O3": [
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified"
+                ], 
+                "clang_-O3": [
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified"
+                ], 
+                "clang_-O0": [
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified"
+                ]
+            }, 
+            "input_types": [
+                "String", 
+                "int", 
+                "String", 
+                "boolean"
+            ], 
+            "return_type": "double", 
+            "variants": [
+                {
+                    "variant_class": "original", 
+                    "_idx": 0, 
+                    "java_code": "\n public static java.lang.String wrap( java.lang.String str, int wrapLength, java.lang.String newLineStr, boolean wrapLongWords )\n {\n if (str == null) {\n return null;\n }\n if (newLineStr == null) {\n newLineStr = SystemUtils.LINE_SEPARATOR;\n }\n if (wrapLength < 1) {\n wrapLength = 1;\n }\n int inputLineLength = str.length();\n int offset = 0;\n java.lang.StringBuffer wrappedLine = new java.lang.StringBuffer( inputLineLength + 32 );\n while (inputLineLength - offset > wrapLength) {\n if (str.charAt( offset ) == ' ') {\n offset++;\n continue;\n }\n int spaceToWrapAt = str.lastIndexOf( ' ', wrapLength + offset );\n if (spaceToWrapAt >= offset) {\n wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n wrappedLine.append( newLineStr );\n offset = spaceToWrapAt + 1;\n } else {\n if (wrapLongWords) {\n wrappedLine.append( str.substring( offset, wrapLength + offset ) );\n wrappedLine.append( newLineStr );\n offset += wrapLength;\n } else {\n spaceToWrapAt = str.indexOf( ' ', wrapLength + offset );\n if (spaceToWrapAt >= 0) {\n wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n wrappedLine.append( newLineStr );\n offset = spaceToWrapAt + 1;\n } else {\n wrappedLine.append( str.substring( offset ) );\n offset = inputLineLength;\n }\n }\n }\n }\n wrappedLine.append( str.substring( offset ) );\n return wrappedLine.toString();\n }\n "
+                }, 
+                {
+                    "variant_class": "memory allocation size change", 
+                    "_idx": 1, 
+                    "java_code": "\n public static java.lang.String wrap( java.lang.String str, int wrapLength, java.lang.String newLineStr, boolean wrapLongWords )\n {\n if (str == null) {\n return null;\n }\n if (newLineStr == null) {\n newLineStr = SystemUtils.LINE_SEPARATOR;\n }\n if (wrapLength < 1) {\n wrapLength = 1;\n }\n int inputLineLength = str.length();\n int offset = 0;\n java.lang.StringBuffer wrappedLine = new java.lang.StringBuffer( inputLineLength * 32 );\n while (inputLineLength - offset > wrapLength) {\n if (str.charAt( offset ) == ' ') {\n offset++;\n continue;\n }\n int spaceToWrapAt = str.lastIndexOf( ' ', wrapLength + offset );\n if (spaceToWrapAt >= offset) {\n wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n wrappedLine.append( newLineStr );\n offset = spaceToWrapAt + 1;\n } else {\n if (wrapLongWords) {\n wrappedLine.append( str.substring( offset, wrapLength + offset ) );\n wrappedLine.append( newLineStr );\n offset += wrapLength;\n } else {\n spaceToWrapAt = str.indexOf( ' ', wrapLength + offset );\n if (spaceToWrapAt >= 0) {\n wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n wrappedLine.append( newLineStr );\n offset = spaceToWrapAt + 1;\n } else {\n wrappedLine.append( str.substring( offset ) );\n offset = inputLineLength;\n }\n }\n }\n }\n wrappedLine.append( str.substring( offset ) );\n return wrappedLine.toString();\n }\n "
+                }, 
+                {
+                    "variant_class": "alternate implementation", 
+                    "_idx": 2, 
+                    "java_code": "\n public static java.lang.String wrap( java.lang.String str, int wrapLength, java.lang.String newLineStr, boolean wrapLongWords )\n {\n if (str == null) {\n return null;\n }\n if (newLineStr == null) {\n newLineStr = SystemUtils.LINE_SEPARATOR;\n }\n if (wrapLength < 1) {\n wrapLength = 1;\n }\n int inputLineLength = str.length();\n int offset = 0;\n java.lang.StringBuffer wrappedLine = new java.lang.StringBuffer( inputLineLength + 32 );\n while (inputLineLength - offset > wrapLength) {\n if (str.charAt( offset ) == ' ') {\n offset++;\n continue;\n }\n int spaceToWrapAt = str.lastIndexOf( ' ', wrapLength + offset );\n if (spaceToWrapAt > offset) {\n wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n wrappedLine.append( newLineStr );\n offset = spaceToWrapAt + 1;\n } else {\n if (wrapLongWords) {\n wrappedLine.append( str.substring( offset, wrapLength + offset ) );\n wrappedLine.append( newLineStr );\n offset += wrapLength;\n } else {\n spaceToWrapAt = str.indexOf( ' ', wrapLength + offset );\n if (spaceToWrapAt >= 0) {\n wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n wrappedLine.append( newLineStr );\n offset = spaceToWrapAt + 1;\n } else {\n wrappedLine.append( str.substring( offset ) );\n offset = inputLineLength;\n }\n }\n }\n }\n wrappedLine.append( str.substring( offset ) );\n return wrappedLine.toString();\n }\n "
+                }, 
+                {
+                    "variant_class": "alternate implementation", 
+                    "_idx": 3, 
+                    "java_code": "\n public static java.lang.String wrap( java.lang.String str, int wrapLength, java.lang.String newLineStr, boolean wrapLongWords )\n {\n if (str == null) {\n return null;\n }\n if (newLineStr == null) {\n newLineStr = SystemUtils.LINE_SEPARATOR;\n }\n if (wrapLength < 1) {\n wrapLength = 1;\n }\n int inputLineLength = str.length();\n int offset = 0;\n java.lang.StringBuffer wrappedLine = new java.lang.StringBuffer( inputLineLength + 32 );\n while (inputLineLength - offset > wrapLength) {\n if (str.charAt( offset ) == ' ') {\n offset++;\n continue;\n }\n int spaceToWrapAt = str.lastIndexOf( ' ', wrapLength + offset );\n if (spaceToWrapAt >= offset) {\n wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n wrappedLine.append( newLineStr );\n offset = spaceToWrapAt + 1;\n } else {\n if (wrapLongWords) {\n wrappedLine.append( str.substring( offset, wrapLength + offset ) );\n wrappedLine.append( newLineStr );\n offset += wrapLength;\n } else {\n spaceToWrapAt = str.indexOf( ' ', wrapLength + offset );\n if (spaceToWrapAt > 0) {\n wrappedLine.append( str.substring( offset, spaceToWrapAt ) );\n wrappedLine.append( newLineStr );\n offset = spaceToWrapAt + 1;\n } else {\n wrappedLine.append( str.substring( offset ) );\n offset = inputLineLength;\n }\n }\n }\n }\n wrappedLine.append( str.substring( offset ) );\n return wrappedLine.toString();\n }\n "
+                }
+            ]
+        }, 
+        {
+            "origin": "tce", 
+            "return": "", 
+            "name": "add_(jodatime)", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified"
+                ], 
+                "gcc49_-O3": [
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified"
+                ], 
+                "clang_-O3": [
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified"
+                ], 
+                "clang_-O0": [
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified", 
+                    "skipped_no_code_specified"
+                ]
+            }, 
+            "input_types": [
+                "long", 
+                "int"
+            ], 
+            "return_type": "long", 
+            "variants": [
+                {
+                    "variant_class": "original", 
+                    "_idx": 0, 
+                    "java_code": " public long add( long instant, int months )\n {\n if (months == 0) {\n return instant;\n }\n long timePart = 1516149603588; //iChronology.getMillisOfDay( instant );\n int thisYear = 2018; //iChronology.getYear( instant );\n int thisMonth = 0; //iChronology.getMonthOfYear( instant, thisYear );\n int yearToUse;\n int monthToUse = thisMonth - 1 + months;\n if (monthToUse >= 0) {\n yearToUse = thisYear + monthToUse / iMax;\n monthToUse = monthToUse % iMax + 1;\n } else {\n yearToUse = thisYear + monthToUse / iMax - 1;\n monthToUse = Math.abs( monthToUse );\n int remMonthToUse = monthToUse % iMax;\n if (remMonthToUse == 0) {\n remMonthToUse = iMax;\n }\n monthToUse = iMax - remMonthToUse + 1;\n if (monthToUse == 1) {\n yearToUse += 1;\n }\n }\n int dayToUse = 16; /* iChronology.getDayOfMonth( instant, thisYear, thisMonth ); */\n int maxDay = 31; /* iChronology.getDaysInYearMonth( yearToUse, monthToUse ); */\n if (dayToUse > maxDay) {\n dayToUse = maxDay;\n }\n /*long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n return datePart + timePart; */\n return yearToUse + monthToUse + dayToUse + timePart; //not a real time but ok\n }\n "
+                }, 
+                {
+                    "variant_class": "negate expression", 
+                    "_idx": 1, 
+                    "java_code": " public long add( long instant, int months )\n {\n if (months == 0) {\n return instant;\n }\n long timePart = 1516149603588; //iChronology.getMillisOfDay( instant );\n int thisYear = 2018; //iChronology.getYear( instant );\n int thisMonth = 0; //iChronology.getMonthOfYear( instant, thisYear );\n int yearToUse;\n int monthToUse = thisMonth - 1 + months;\n if (monthToUse >= 0) {\n yearToUse = thisYear + monthToUse / iMax;\n monthToUse = monthToUse % iMax + 1;\n } else {\n yearToUse = thisYear + monthToUse / iMax - 1;\n monthToUse = Math.abs( -monthToUse );\n int remMonthToUse = monthToUse % iMax;\n if (remMonthToUse == 0) {\n remMonthToUse = iMax;\n }\n monthToUse = iMax - remMonthToUse + 1;\n if (monthToUse == 1) {\n yearToUse += 1;\n }\n }\n int dayToUse = 16; /* iChronology.getDayOfMonth( instant, thisYear, thisMonth ); */\n int maxDay = 31; /* iChronology.getDaysInYearMonth( yearToUse, monthToUse ); */\n if (dayToUse > maxDay) {\n dayToUse = maxDay;\n }\n /*long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n return datePart + timePart; */\n return yearToUse + monthToUse + dayToUse + timePart; //not a real time but ok\n }\n "
+                }, 
+                {
+                    "variant_class": "early exit removal", 
+                    "_idx": 2, 
+                    "java_code": " public long add( long instant, int months )\n {\n if (false) {\n return instant;\n }\n long timePart = 1516149603588; //iChronology.getMillisOfDay( instant );\n int thisYear = 2018; //iChronology.getYear( instant );\n int thisMonth = 0; //iChronology.getMonthOfYear( instant, thisYear );\n int yearToUse;\n int monthToUse = thisMonth - 1 + months;\n if (monthToUse >= 0) {\n yearToUse = thisYear + monthToUse / iMax;\n monthToUse = monthToUse % iMax + 1;\n } else {\n yearToUse = thisYear + monthToUse / iMax - 1;\n monthToUse = Math.abs( monthToUse );\n int remMonthToUse = monthToUse % iMax;\n if (remMonthToUse == 0) {\n remMonthToUse = iMax;\n }\n monthToUse = iMax - remMonthToUse + 1;\n if (monthToUse == 1) {\n yearToUse += 1;\n }\n }\n int dayToUse = 16; /* iChronology.getDayOfMonth( instant, thisYear, thisMonth ); */\n int maxDay = 31; /* iChronology.getDaysInYearMonth( yearToUse, monthToUse ); */\n if (dayToUse > maxDay) {\n dayToUse = maxDay;\n }\n /*long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n return datePart + timePart; */\n return yearToUse + monthToUse + dayToUse + timePart; //not a real time but ok\n }\n "
+                }, 
+                {
+                    "variant_class": "mathematically equivalent", 
+                    "_idx": 3, 
+                    "java_code": " public long add( long instant, int months )\n {\n if (months == 0) {\n return instant;\n }\n long timePart = 1516149603588; //iChronology.getMillisOfDay( instant );\n int thisYear = 2018; //iChronology.getYear( instant );\n int thisMonth = 0; //iChronology.getMonthOfYear( instant, thisYear );\n int yearToUse;\n int monthToUse = thisMonth - 1 + months;\n if (monthToUse > 0) {\n yearToUse = thisYear + monthToUse / iMax;\n monthToUse = monthToUse % iMax + 1;\n } else {\n yearToUse = thisYear + monthToUse / iMax - 1;\n monthToUse = Math.abs( monthToUse );\n int remMonthToUse = monthToUse % iMax;\n if (remMonthToUse == 0) {\n remMonthToUse = iMax;\n }\n monthToUse = iMax - remMonthToUse + 1;\n if (monthToUse == 1) {\n yearToUse += 1;\n }\n }\n int dayToUse = 16; /* iChronology.getDayOfMonth( instant, thisYear, thisMonth ); */\n int maxDay = 31; /* iChronology.getDaysInYearMonth( yearToUse, monthToUse ); */\n if (dayToUse > maxDay) {\n dayToUse = maxDay;\n }\n /*long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n return datePart + timePart; */\n return yearToUse + monthToUse + dayToUse + timePart; //not a real time but ok\n }\n "
+                }, 
+                {
+                    "variant_class": "mathematically equivalent", 
+                    "_idx": 4, 
+                    "java_code": " public long add( long instant, int months )\n {\n if (months == 0) {\n return instant;\n }\n long timePart = 1516149603588; //iChronology.getMillisOfDay( instant );\n int thisYear = 2018; //iChronology.getYear( instant );\n int thisMonth = 0; //iChronology.getMonthOfYear( instant, thisYear );\n int yearToUse;\n int monthToUse = thisMonth - 1 + months;\n if (monthToUse >= 0) {\n yearToUse = thisYear + monthToUse / iMax;\n monthToUse = monthToUse % iMax + 1;\n } else {\n yearToUse = thisYear + monthToUse / iMax - 1;\n monthToUse = Math.abs( monthToUse );\n int remMonthToUse = monthToUse % iMax;\n if (remMonthToUse <= 0) {\n remMonthToUse = iMax;\n }\n monthToUse = iMax - remMonthToUse + 1;\n if (monthToUse == 1) {\n yearToUse += 1;\n }\n }\n int dayToUse = 16; /* iChronology.getDayOfMonth( instant, thisYear, thisMonth ); */\n int maxDay = 31; /* iChronology.getDaysInYearMonth( yearToUse, monthToUse ); */\n if (dayToUse > maxDay) {\n dayToUse = maxDay;\n }\n /*long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n return datePart + timePart; */\n return yearToUse + monthToUse + dayToUse + timePart; //not a real time but ok\n }\n "
+                }, 
+                {
+                    "variant_class": "mathematically equivalent", 
+                    "_idx": 5, 
+                    "java_code": " public long add( long instant, int months )\n {\n if (months == 0) {\n return instant;\n }\n long timePart = 1516149603588; //iChronology.getMillisOfDay( instant );\n int thisYear = 2018; //iChronology.getYear( instant );\n int thisMonth = 0; //iChronology.getMonthOfYear( instant, thisYear );\n int yearToUse;\n int monthToUse = thisMonth - 1 + months;\n if (monthToUse >= 0) {\n yearToUse = thisYear + monthToUse / iMax;\n monthToUse = monthToUse % iMax + 1;\n } else {\n yearToUse = thisYear + monthToUse / iMax - 1;\n monthToUse = Math.abs( monthToUse );\n int remMonthToUse = monthToUse % iMax;\n if (remMonthToUse <= 0) {\n remMonthToUse = iMax;\n }\n monthToUse = iMax - remMonthToUse + 1;\n if (monthToUse == 1) {\n yearToUse += 1;\n }\n }\n int dayToUse = 16; /* iChronology.getDayOfMonth( instant, thisYear, thisMonth ); */\n int maxDay = 31; /* iChronology.getDaysInYearMonth( yearToUse, monthToUse ); */\n if (dayToUse > maxDay) {\n dayToUse = maxDay;\n }\n /*long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n return datePart + timePart; */\n return yearToUse + monthToUse + dayToUse + timePart; //not a real time but ok\n }\n "
+                }, 
+                {
+                    "variant_class": "mathematically equivalent", 
+                    "_idx": 6, 
+                    "java_code": " public long add( long instant, int months )\n {\n if (months == 0) {\n return instant;\n }\n long timePart = 1516149603588; //iChronology.getMillisOfDay( instant );\n int thisYear = 2018; //iChronology.getYear( instant );\n int thisMonth = 0; //iChronology.getMonthOfYear( instant, thisYear );\n int yearToUse;\n int monthToUse = thisMonth - 1 + months;\n if (monthToUse >= 0) {\n yearToUse = thisYear + monthToUse / iMax;\n monthToUse = monthToUse % iMax + 1;\n } else {\n yearToUse = thisYear + monthToUse / iMax - 1;\n monthToUse = Math.abs( monthToUse );\n int remMonthToUse = monthToUse % iMax;\n if (remMonthToUse == 0) {\n remMonthToUse = iMax;\n }\n monthToUse = iMax - remMonthToUse + 1;\n if (monthToUse <= 1) {\n yearToUse += 1;\n }\n }\n int dayToUse = 16; /* iChronology.getDayOfMonth( instant, thisYear, thisMonth ); */\n int maxDay = 31; /* iChronology.getDaysInYearMonth( yearToUse, monthToUse ); */\n if (dayToUse > maxDay) {\n dayToUse = maxDay;\n }\n /*long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n return datePart + timePart; */\n return yearToUse + monthToUse + dayToUse + timePart; //not a real time but ok\n }\n "
+                }, 
+                {
+                    "variant_class": "mathematically equivalent", 
+                    "_idx": 7, 
+                    "java_code": " public long add( long instant, int months )\n {\n if (months == 0) {\n return instant;\n }\n long timePart = 1516149603588; //iChronology.getMillisOfDay( instant );\n int thisYear = 2018; //iChronology.getYear( instant );\n int thisMonth = 0; //iChronology.getMonthOfYear( instant, thisYear );\n int yearToUse;\n int monthToUse = thisMonth - 1 + months;\n if (monthToUse >= 0) {\n yearToUse = thisYear + monthToUse / iMax;\n monthToUse = monthToUse % iMax + 1;\n } else {\n yearToUse = thisYear + monthToUse / iMax - 1;\n monthToUse = Math.abs( monthToUse );\n int remMonthToUse = monthToUse % iMax;\n if (remMonthToUse == 0) {\n remMonthToUse = iMax;\n }\n monthToUse = iMax - remMonthToUse + 1;\n if (monthToUse == 1) {\n yearToUse += 1;\n }\n }\n int dayToUse = 16; /* iChronology.getDayOfMonth( instant, thisYear, thisMonth ); */\n int maxDay = 31; /* iChronology.getDaysInYearMonth( yearToUse, monthToUse ); */\n if (dayToUse >= maxDay) {\n dayToUse = maxDay;\n }\n /*long datePart = iChronology.getYearMonthDayMillis( yearToUse, monthToUse, dayToUse );\n return datePart + timePart; */\n return yearToUse + monthToUse + dayToUse + timePart; //not a real time but ok\n }\n "
+                }
+            ]
+        }, 
+        {
+            "origin": "tce", 
+            "return": "", 
+            "name": "pamvotis_dead_store", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "4b91c4d526da96cf63130d5cf45768e832549d1ad19e0ea275a619b91477a668", 
+                    "148ebe19f3161f5f400c10ebb69670448e0667e750ed260151419e78023f1a41", 
+                    "bd1052b898e8e57a2ca3d26d3237366dcd4ecf6f2c73fda7c016f59198f2d153"
+                ], 
+                "gcc49_-O3": [
+                    "51e5675789a708f1167a17cb6232508e4b0b8c72d436f35dc80a1c3b63360926", 
+                    "51e5675789a708f1167a17cb6232508e4b0b8c72d436f35dc80a1c3b63360926", 
+                    "51e5675789a708f1167a17cb6232508e4b0b8c72d436f35dc80a1c3b63360926"
+                ], 
+                "clang_-O3": [
+                    "3a5ee6cbb30346e28ec07b68b8e53f07380d3219154e918d02b0992170a340b7", 
+                    "3a5ee6cbb30346e28ec07b68b8e53f07380d3219154e918d02b0992170a340b7", 
+                    "3a5ee6cbb30346e28ec07b68b8e53f07380d3219154e918d02b0992170a340b7"
+                ], 
+                "clang_-O0": [
+                    "1daa9916e8912e4659030bf295962d7fad88e91c37ec1bcac0719750aca15e07", 
+                    "0f713605a5fa53e7c2e423200f78baf0f101b93d15ee06cb33c2313d0132abd6", 
+                    "0b6d09fa328cef74e064e3524166895ed20fbecfec599b27fc03b2b379c16b46"
+                ]
+            }, 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "return_type": "long", 
+            "variants": [
+                {
+                    "variant_class": "original", 
+                    "code": "int nCwMin = input0;\n switch(input0){\n case 1:\n nCwMin = 1;\n break;\n case 2:\n nCwMin = 2;\n break;\n case 3:\n nCwMin = 3;\n break;\n case 4:\n nCwMin = 4;\n break;\n default:\n nCwMin = 0;\n }\n return nCwMin;\n", 
+                    "_idx": 0
+                }, 
+                {
+                    "variant_class": "invert dead store", 
+                    "code": "int nCwMin = -input0;\n switch(input0){\n case 1:\n nCwMin = 1;\n break;\n case 2:\n nCwMin = 2;\n break;\n case 3:\n nCwMin = 3;\n break;\n case 4:\n nCwMin = 4;\n break;\n default:\n nCwMin = 0;\n }\n return nCwMin;\n", 
+                    "_idx": 1
+                }, 
+                {
+                    "variant_class": "math dead store", 
+                    "code": "int nCwMin = input1 * input0;\n switch(input0){\n case 1:\n nCwMin = 1;\n break;\n case 2:\n nCwMin = 2;\n break;\n case 3:\n nCwMin = 3;\n break;\n case 4:\n nCwMin = 4;\n break;\n default:\n nCwMin = 0;\n }\n return nCwMin;\n", 
+                    "_idx": 2
+                }
+            ]
+        }, 
+        {
+            "origin": "tce", 
+            "return": "", 
+            "name": "pamvotis_wider_comparison", 
+            "notes": "fails, but the difference is in how a 1 is stored in AX, not the comparison op itself, is this a bug? very weird", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "f55abedf599c87b462c10bff676d49ec3e2744247ab31cac3347a5c7fae0c13c", 
+                    "d4211856befe5a8284d229866cf953156688a7d05b20a327d14a7602818cf609"
+                ], 
+                "gcc49_-O3": [
+                    "16795a99ea53f4b8dc02f48d6716090b3be41695d2531cd2187c9be788ac1276", 
+                    "4cab2f97b8cb6f406ea7510458010a89801442a9cc93e042cdf88c21ff85c6ab"
+                ], 
+                "clang_-O3": [
+                    "30923e5c868754c5c41966f8240cd54bda2449d528cb7120569fa378c86d282c", 
+                    "c02be0c37aa949cfa162743629ede7ffa6c614874bfbb13852aea912357ad7fe"
+                ], 
+                "clang_-O0": [
+                    "2f2192eff57b16e6a78b941c9a5d22ee86bd653df92860200d11338595948a36", 
+                    "3ff4dfa6c1582eeb7136c6d5bee35d885623b5fd767dd1d2b5d883aa6e359e4d"
+                ]
+            }, 
+            "input_types": [
+                "int", 
+                "int*"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "variant_class": "original", 
+                    "code": "\n int position = -1;\n for(int i=0; i<input0; i++){\n if(input1[i] == 0){\n position = i;\n break;\n }\n }\n if(position != -1){\n return 1;\n }\n return 0;\n ", 
+                    "_idx": 0
+                }, 
+                {
+                    "variant_class": "comparison widening", 
+                    "code": "\n int position = -1;\n for(int i=0; i<input0; i++){\n if(input1[i] == 0){\n position = i;\n break;\n }\n }\n if(position > -1){\n return 1;\n }\n return 0;\n ", 
+                    "_idx": 1
+                }
+            ]
+        }, 
+        {
+            "origin": "tce", 
+            "return": "", 
+            "name": "triangle_classify", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "4cd21cf6b8d057e39ebb337bf92b85170dc2ef76e79cf781cdcdf01be813dc47", 
+                    "a1bf5641ca537888b5198982a46d91c4efc56375815a818d679d221309407f04", 
+                    "70a7ff9fd543e58f383e639da11f8749c510d2890cf8731931bea79ee1514eac", 
+                    "5a8992418a08ee90f3f1dff4b8b0245aa69106e3fccc4b103fce889bad9c3273", 
+                    "42fca945c7cf8c9f9b4e581d94676e4139ca1210135816d97bb4a49d7463134e", 
+                    "c44fc992f9e15926bcc7d751a0060caf08578eb4e4272d0f8242ba479d0d1527", 
+                    "7355fb5a3e5795cb59e7fd0ae85d244e1b2913a3e2887dfaeaaf23205c6c9b81", 
+                    "c0a8fb9e59f86957462e94b2acbbf9f03fa4e82271330b0c45392f535065e150"
+                ], 
+                "gcc49_-O3": [
+                    "ac567e4383939e87f9e7dbfb2f201a4d3b1525536ada7bd830fbe986cf7bd9aa", 
+                    "ac567e4383939e87f9e7dbfb2f201a4d3b1525536ada7bd830fbe986cf7bd9aa", 
+                    "16a62fc559dde7f27f7514cf7e206bba98a0f26ed23df6f0d811771d985b314e", 
+                    "ac567e4383939e87f9e7dbfb2f201a4d3b1525536ada7bd830fbe986cf7bd9aa", 
+                    "ced03c96202d72c5c78ab4d1cf45c56c941f09b631493d01c0091b181c9325e6", 
+                    "3293cd437b51bece0ec85381700169a3e2ab22cac72d8a290cfc1e0bff68ac7f", 
+                    "84172d8d66c6fb2e8b29ac2d577c744ce2f91b42c0eb14492d3f9543ae704558", 
+                    "173cff3ff9a967016ed3ca8340df5e85edc6d41ff27b9a1285b454e3b0d91a82"
+                ], 
+                "clang_-O3": [
+                    "468fff3fe81f50289fd3e7162c8ccdaee36504f9dae7b41a49d7a10018218bf6", 
+                    "468fff3fe81f50289fd3e7162c8ccdaee36504f9dae7b41a49d7a10018218bf6", 
+                    "0108a09ce35c30ab79967965259bc9b58d50df4deace792d2bb705153e44ebab", 
+                    "5fcccc609a77ac4634061aafc1c44cf270610a82cd5e2baae796005c36850ba9", 
+                    "d0049069dcc3d23ef1b0ea764346842d950972ea6889ecc3aa1eb78362426349", 
+                    "3c4318996e788193a82176c38af1aa5140bfca58377195d6682c1b8c5eb86011", 
+                    "f2e539fba5c7ca8710a5290f9372a06b6d7133e295a2dbf47babdb351659ff67", 
+                    "468fff3fe81f50289fd3e7162c8ccdaee36504f9dae7b41a49d7a10018218bf6"
+                ], 
+                "clang_-O0": [
+                    "c9ad0828d7a4e31164634bf48b34e97efae01844740c997fdb09aed09b3beb8c", 
+                    "e544bba789ece0653052d57142c4ef21e00fbdd1c9f87dc151b7d58242696cfa", 
+                    "c617ccddb65942cd50ef007b2cc687cf869028b9bcf9c7ec6a162b748707fe61", 
+                    "9a7373c84876b6b52e345ad1acf8ed5642ef8388b961c4922cde3febec84665d", 
+                    "50c5e8a03d20bdd48a0fc57a920bc265d192da3f4b82b4d9ab1d62584ef05b11", 
+                    "5a549f693ea5294d06d2deb0020528aa9ceb64c92b88bf584881428e51cabd5b", 
+                    "bf555fda576fa6a3c8af5e4a1cd2f532a622377892e7995158df00dda90c0f62", 
+                    "73203aadd7cb9b7ae74846bdd1a2bedcd9fde7dd3de740d0b566657c6fafdb01"
+                ]
+            }, 
+            "input_types": [
+                "int", 
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "variant_class": "original", 
+                    "code": "\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n ", 
+                    "_idx": 0
+                }, 
+                {
+                    "variant_class": "invert expression non functional", 
+                    "code": "\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = -trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n ", 
+                    "_idx": 1
+                }, 
+                {
+                    "variant_class": "invert expression functional", 
+                    "code": "\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = -trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n ", 
+                    "_idx": 2
+                }, 
+                {
+                    "variant_class": "comparison widening", 
+                    "code": "\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian <= 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n ", 
+                    "_idx": 3
+                }, 
+                {
+                    "variant_class": "comparison widening", 
+                    "code": "\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian >= 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n ", 
+                    "_idx": 4
+                }, 
+                {
+                    "variant_class": "early exit removal", 
+                    "code": "\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian;\n if (a <= 0 ^ b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n ", 
+                    "_idx": 5
+                }, 
+                {
+                    "variant_class": "comparison widening with mathematical proof", 
+                    "code": "\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c ^ a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n ", 
+                    "_idx": 6
+                }, 
+                {
+                    "variant_class": "comparison widening", 
+                    "code": "\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian <= 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n ", 
+                    "_idx": 7
+                }
+            ]
+        }, 
+        {
+            "origin": "tce", 
+            "return": "", 
+            "name": "xstream_decode_fast_path", 
+            "program_hashes": {
+                "gcc49_-O0": [
+                    "3cd3e1a54834243413b59da9991963c45f19b2b815e707b630156c922bf652f4", 
+                    "25c427741060cc4e628ef6a59c298b31ad5c1b29cfca3452a8d89c87441d135e"
+                ], 
+                "gcc49_-O3": [
+                    "1b4e60fc4b3bb0ab757a3677022d6e55268b69dc9ac91e1c4d64c3cf8e88fb46", 
+                    "a7ed2e271693b97fc62b99a30c954115705553c8cd121ba6c8eb6cd8c87415d1"
+                ], 
+                "clang_-O3": [
+                    "84775367d717d478c0a41d70f21de409c8358e3bbaeb65a038acaa6cab366272", 
+                    "c2719912d431d7d9a409f87452552d4caa68bdea1ada34ebff4d82a656e111d9"
+                ], 
+                "clang_-O0": [
+                    "2f762af38baf769fec20b9fd6b3daa42331ae1055187984c0826605ad56892ad", 
+                    "82ceaa7919dc4f29eca9f33b5ed0651f187585a8d787ca910e95b1f2241387fd"
+                ]
+            }, 
+            "input_types": [
+                "char*"
+            ], 
+            "return_type": "void", 
+            "variants": [
+                {
+                    "variant_class": "original", 
+                    "code": "\n int length = 256;\n char term = '$';\n char term2 = '$';\n int i=0;\n for(; i<length; i++){\n if(input0[i] == term){\n break;\n }\n }\n for(; i<length; i++){\n if(input0[i] == term && input0[i+1] == term2){\n input0[i] = '_'; input0[i+1] = '_';\n }\n }\n ", 
+                    "_idx": 0
+                }, 
+                {
+                    "variant_class": "fast path removal", 
+                    "code": "\n int length = 256;\n char term = '$';\n char term2 = '$';\n int i=0;\n for(; !(i<length); i++){\n if(input0[i] == term){\n break;\n }\n }\n for(; i<length; i++){\n if(input0[i] == term && input0[i+1] == term2){\n input0[i] = '_'; input0[i+1] = '_';\n }\n }\n ", 
+                    "_idx": 1
+                }
+            ]
+        }
+    ], 
+    "total_programs": 61, 
+    "total_compiler_pass_fail": {
+        "gcc49_-O0": {
+            "passes": 11, 
+            "fails": 50, 
+            "passed_tests": [], 
+            "origins": {
+                "tce": {
+                    "passes": 4, 
+                    "fails": 7, 
+                    "passed_tests": [
+                        "bisect_dead_store_alternate_implementations", 
+                        "capitalize", 
+                        "wrap", 
+                        "add_(jodatime)"
+                    ], 
+                    "failed_tests": [
+                        "math_post_fix_increment", 
+                        "tce_dead_store", 
+                        "tce_dead_store_negate_zero", 
+                        "pamvotis_dead_store", 
+                        "pamvotis_wider_comparison", 
+                        "triangle_classify", 
+                        "xstream_decode_fast_path"
+                    ]
+                }, 
+                "tpcds_survey": {
+                    "passes": 3, 
+                    "fails": 3, 
+                    "passed_tests": [
+                        "constant_folding_basic", 
+                        "comparison", 
+                        "math_sub"
+                    ], 
+                    "failed_tests": [
+                        "conditional", 
+                        "logical_op", 
+                        "math_add"
+                    ]
+                }, 
+                "semantics preserving transformations": {
+                    "passes": 0, 
+                    "fails": 1, 
+                    "passed_tests": [], 
+                    "failed_tests": [
+                        "for_loop_nothing"
+                    ]
+                }, 
+                "compiler_survey": {
+                    "passes": 3, 
+                    "fails": 39, 
+                    "passed_tests": [
+                        "binary_operator_canonicalization", 
+                        "bitwise_canonicalization", 
+                        "tree_reassociation_operand_lists"
+                    ], 
+                    "failed_tests": [
+                        "function_inlining_trivial", 
+                        "function_inlining_partial", 
+                        "common_subexpression_elimination", 
+                        "copy_propagation", 
+                        "constant_propagation", 
+                        "gcse_kill_load_store_in_loop", 
+                        "comparison_canonicalization", 
+                        "tree_reassociation_subtraction_reassociation", 
+                        "tree_reassociation_linearization", 
+                        "tree_reassociation_repeated_factors", 
+                        "code_hoisting", 
+                        "partial_redundancy_elimination", 
+                        "forward_prop", 
+                        "full_redundancy_elimination", 
+                        "copy_propagation", 
+                        "interprocedural_constant_propagation", 
+                        "forward_store_motion", 
+                        "code_sinking_math", 
+                        "code_sinking_pure_function", 
+                        "constant_propagation_conditional", 
+                        "constant_propagation_conditional2", 
+                        "dead_code_elimination", 
+                        "dead_store_elimination", 
+                        "loop_unswitch", 
+                        "loop_unswitch_harder", 
+                        "loop_splitting", 
+                        "loop_interchange", 
+                        "loop_invariant_motion", 
+                        "loop_iv_strength_reduction", 
+                        "loop_iv_variable_merging", 
+                        "loop_iv_variable_elimination", 
+                        "loop_iv_canonicalization", 
+                        "straight_line_strength_reduction", 
+                        "value_range_propagation_ne", 
+                        "value_range_propagation_eq", 
+                        "value_range_propagation_lt", 
+                        "constant_merging", 
+                        "redundant_load_elimination", 
+                        "jump_threading"
+                    ]
+                }, 
+                "craig": {
+                    "passes": 1, 
+                    "fails": 0, 
+                    "passed_tests": [
+                        "constant_folding_associativity"
+                    ], 
+                    "failed_tests": []
+                }
+            }, 
+            "failed_tests": []
+        }, 
+        "gcc49_-O3": {
+            "passes": 30, 
+            "fails": 31, 
+            "passed_tests": [], 
+            "origins": {
+                "tce": {
+                    "passes": 7, 
+                    "fails": 4, 
+                    "passed_tests": [
+                        "tce_dead_store", 
+                        "tce_dead_store_negate_zero", 
+                        "bisect_dead_store_alternate_implementations", 
+                        "capitalize", 
+                        "wrap", 
+                        "add_(jodatime)", 
+                        "pamvotis_dead_store"
+                    ], 
+                    "failed_tests": [
+                        "math_post_fix_increment", 
+                        "pamvotis_wider_comparison", 
+                        "triangle_classify", 
+                        "xstream_decode_fast_path"
+                    ]
+                }, 
+                "tpcds_survey": {
+                    "passes": 4, 
+                    "fails": 2, 
+                    "passed_tests": [
+                        "constant_folding_basic", 
+                        "comparison", 
+                        "conditional", 
+                        "math_sub"
+                    ], 
+                    "failed_tests": [
+                        "logical_op", 
+                        "math_add"
+                    ]
+                }, 
+                "semantics preserving transformations": {
+                    "passes": 0, 
+                    "fails": 1, 
+                    "passed_tests": [], 
+                    "failed_tests": [
+                        "for_loop_nothing"
+                    ]
+                }, 
+                "compiler_survey": {
+                    "passes": 18, 
+                    "fails": 24, 
+                    "passed_tests": [
+                        "common_subexpression_elimination", 
+                        "copy_propagation", 
+                        "constant_propagation", 
+                        "gcse_kill_load_store_in_loop", 
+                        "binary_operator_canonicalization", 
+                        "bitwise_canonicalization", 
+                        "tree_reassociation_operand_lists", 
+                        "forward_prop", 
+                        "copy_propagation", 
+                        "forward_store_motion", 
+                        "code_sinking_math", 
+                        "constant_propagation_conditional", 
+                        "dead_code_elimination", 
+                        "dead_store_elimination", 
+                        "loop_iv_strength_reduction", 
+                        "straight_line_strength_reduction", 
+                        "value_range_propagation_ne", 
+                        "value_range_propagation_eq"
+                    ], 
+                    "failed_tests": [
+                        "function_inlining_trivial", 
+                        "function_inlining_partial", 
+                        "comparison_canonicalization", 
+                        "tree_reassociation_subtraction_reassociation", 
+                        "tree_reassociation_linearization", 
+                        "tree_reassociation_repeated_factors", 
+                        "code_hoisting", 
+                        "partial_redundancy_elimination", 
+                        "full_redundancy_elimination", 
+                        "interprocedural_constant_propagation", 
+                        "code_sinking_pure_function", 
+                        "constant_propagation_conditional2", 
+                        "loop_unswitch", 
+                        "loop_unswitch_harder", 
+                        "loop_splitting", 
+                        "loop_interchange", 
+                        "loop_invariant_motion", 
+                        "loop_iv_variable_merging", 
+                        "loop_iv_variable_elimination", 
+                        "loop_iv_canonicalization", 
+                        "value_range_propagation_lt", 
+                        "constant_merging", 
+                        "redundant_load_elimination", 
+                        "jump_threading"
+                    ]
+                }, 
+                "craig": {
+                    "passes": 1, 
+                    "fails": 0, 
+                    "passed_tests": [
+                        "constant_folding_associativity"
+                    ], 
+                    "failed_tests": []
+                }
+            }, 
+            "failed_tests": []
+        }, 
+        "clang_-O3": {
+            "passes": 47, 
+            "fails": 14, 
+            "passed_tests": [], 
+            "origins": {
+                "tce": {
+                    "passes": 8, 
+                    "fails": 3, 
+                    "passed_tests": [
+                        "math_post_fix_increment", 
+                        "tce_dead_store", 
+                        "tce_dead_store_negate_zero", 
+                        "bisect_dead_store_alternate_implementations", 
+                        "capitalize", 
+                        "wrap", 
+                        "add_(jodatime)", 
+                        "pamvotis_dead_store"
+                    ], 
+                    "failed_tests": [
+                        "pamvotis_wider_comparison", 
+                        "triangle_classify", 
+                        "xstream_decode_fast_path"
+                    ]
+                }, 
+                "tpcds_survey": {
+                    "passes": 5, 
+                    "fails": 1, 
+                    "passed_tests": [
+                        "constant_folding_basic", 
+                        "comparison", 
+                        "conditional", 
+                        "math_sub", 
+                        "math_add"
+                    ], 
+                    "failed_tests": [
+                        "logical_op"
+                    ]
+                }, 
+                "semantics preserving transformations": {
+                    "passes": 1, 
+                    "fails": 0, 
+                    "passed_tests": [
+                        "for_loop_nothing"
+                    ], 
+                    "failed_tests": []
+                }, 
+                "compiler_survey": {
+                    "passes": 32, 
+                    "fails": 10, 
+                    "passed_tests": [
+                        "common_subexpression_elimination", 
+                        "copy_propagation", 
+                        "constant_propagation", 
+                        "gcse_kill_load_store_in_loop", 
+                        "binary_operator_canonicalization", 
+                        "bitwise_canonicalization", 
+                        "tree_reassociation_subtraction_reassociation", 
+                        "tree_reassociation_linearization", 
+                        "tree_reassociation_operand_lists", 
+                        "tree_reassociation_repeated_factors", 
+                        "code_hoisting", 
+                        "partial_redundancy_elimination", 
+                        "forward_prop", 
+                        "full_redundancy_elimination", 
+                        "copy_propagation", 
+                        "forward_store_motion", 
+                        "code_sinking_math", 
+                        "code_sinking_pure_function", 
+                        "constant_propagation_conditional", 
+                        "constant_propagation_conditional2", 
+                        "dead_code_elimination", 
+                        "dead_store_elimination", 
+                        "loop_invariant_motion", 
+                        "loop_iv_variable_merging", 
+                        "loop_iv_variable_elimination", 
+                        "loop_iv_canonicalization", 
+                        "straight_line_strength_reduction", 
+                        "value_range_propagation_ne", 
+                        "value_range_propagation_eq", 
+                        "value_range_propagation_lt", 
+                        "redundant_load_elimination", 
+                        "jump_threading"
+                    ], 
+                    "failed_tests": [
+                        "function_inlining_trivial", 
+                        "function_inlining_partial", 
+                        "comparison_canonicalization", 
+                        "interprocedural_constant_propagation", 
+                        "loop_unswitch", 
+                        "loop_unswitch_harder", 
+                        "loop_splitting", 
+                        "loop_interchange", 
+                        "loop_iv_strength_reduction", 
+                        "constant_merging"
+                    ]
+                }, 
+                "craig": {
+                    "passes": 1, 
+                    "fails": 0, 
+                    "passed_tests": [
+                        "constant_folding_associativity"
+                    ], 
+                    "failed_tests": []
+                }
+            }, 
+            "failed_tests": []
+        }, 
+        "clang_-O0": {
+            "passes": 6, 
+            "fails": 55, 
+            "passed_tests": [], 
+            "origins": {
+                "tce": {
+                    "passes": 4, 
+                    "fails": 7, 
+                    "passed_tests": [
+                        "bisect_dead_store_alternate_implementations", 
+                        "capitalize", 
+                        "wrap", 
+                        "add_(jodatime)"
+                    ], 
+                    "failed_tests": [
+                        "math_post_fix_increment", 
+                        "tce_dead_store", 
+                        "tce_dead_store_negate_zero", 
+                        "pamvotis_dead_store", 
+                        "pamvotis_wider_comparison", 
+                        "triangle_classify", 
+                        "xstream_decode_fast_path"
+                    ]
+                }, 
+                "tpcds_survey": {
+                    "passes": 1, 
+                    "fails": 5, 
+                    "passed_tests": [
+                        "constant_folding_basic"
+                    ], 
+                    "failed_tests": [
+                        "comparison", 
+                        "conditional", 
+                        "logical_op", 
+                        "math_sub", 
+                        "math_add"
+                    ]
+                }, 
+                "semantics preserving transformations": {
+                    "passes": 0, 
+                    "fails": 1, 
+                    "passed_tests": [], 
+                    "failed_tests": [
+                        "for_loop_nothing"
+                    ]
+                }, 
+                "compiler_survey": {
+                    "passes": 1, 
+                    "fails": 41, 
+                    "passed_tests": [
+                        "binary_operator_canonicalization"
+                    ], 
+                    "failed_tests": [
+                        "function_inlining_trivial", 
+                        "function_inlining_partial", 
+                        "common_subexpression_elimination", 
+                        "copy_propagation", 
+                        "constant_propagation", 
+                        "gcse_kill_load_store_in_loop", 
+                        "comparison_canonicalization", 
+                        "bitwise_canonicalization", 
+                        "tree_reassociation_subtraction_reassociation", 
+                        "tree_reassociation_linearization", 
+                        "tree_reassociation_operand_lists", 
+                        "tree_reassociation_repeated_factors", 
+                        "code_hoisting", 
+                        "partial_redundancy_elimination", 
+                        "forward_prop", 
+                        "full_redundancy_elimination", 
+                        "copy_propagation", 
+                        "interprocedural_constant_propagation", 
+                        "forward_store_motion", 
+                        "code_sinking_math", 
+                        "code_sinking_pure_function", 
+                        "constant_propagation_conditional", 
+                        "constant_propagation_conditional2", 
+                        "dead_code_elimination", 
+                        "dead_store_elimination", 
+                        "loop_unswitch", 
+                        "loop_unswitch_harder", 
+                        "loop_splitting", 
+                        "loop_interchange", 
+                        "loop_invariant_motion", 
+                        "loop_iv_strength_reduction", 
+                        "loop_iv_variable_merging", 
+                        "loop_iv_variable_elimination", 
+                        "loop_iv_canonicalization", 
+                        "straight_line_strength_reduction", 
+                        "value_range_propagation_ne", 
+                        "value_range_propagation_eq", 
+                        "value_range_propagation_lt", 
+                        "constant_merging", 
+                        "redundant_load_elimination", 
+                        "jump_threading"
+                    ]
+                }, 
+                "craig": {
+                    "passes": 0, 
+                    "fails": 1, 
+                    "passed_tests": [], 
+                    "failed_tests": [
+                        "constant_folding_associativity"
+                    ]
+                }
+            }, 
+            "failed_tests": []
+        }
+    }, 
+    "total_compiler_results": {
+        "gcc49_-O0": {
+            "unique_hashes": 126, 
+            "origins": {
+                "tce": {
+                    "unique_hashes": 27
+                }, 
+                "tpcds_survey": {
+                    "unique_hashes": 9
+                }, 
+                "semantics preserving transformations": {
+                    "unique_hashes": 4
+                }, 
+                "compiler_survey": {
+                    "unique_hashes": 85
+                }, 
+                "craig": {
+                    "unique_hashes": 1
+                }
+            }
+        }, 
+        "gcc49_-O3": {
+            "unique_hashes": 96, 
+            "origins": {
+                "tce": {
+                    "unique_hashes": 19
+                }, 
+                "tpcds_survey": {
+                    "unique_hashes": 8
+                }, 
+                "semantics preserving transformations": {
+                    "unique_hashes": 2
+                }, 
+                "compiler_survey": {
+                    "unique_hashes": 66
+                }, 
+                "craig": {
+                    "unique_hashes": 1
+                }
+            }
+        }, 
+        "clang_-O3": {
+            "unique_hashes": 79, 
+            "origins": {
+                "tce": {
+                    "unique_hashes": 18
+                }, 
+                "tpcds_survey": {
+                    "unique_hashes": 7
+                }, 
+                "semantics preserving transformations": {
+                    "unique_hashes": 1
+                }, 
+                "compiler_survey": {
+                    "unique_hashes": 52
+                }, 
+                "craig": {
+                    "unique_hashes": 1
+                }
+            }
+        }, 
+        "clang_-O0": {
+            "unique_hashes": 134, 
+            "origins": {
+                "tce": {
+                    "unique_hashes": 27
+                }, 
+                "tpcds_survey": {
+                    "unique_hashes": 12
+                }, 
+                "semantics preserving transformations": {
+                    "unique_hashes": 4
+                }, 
+                "compiler_survey": {
+                    "unique_hashes": 89
+                }, 
+                "craig": {
+                    "unique_hashes": 2
+                }
+            }
+        }
+    }, 
+    "total_variants": 161
+}
