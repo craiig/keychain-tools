@@ -831,11 +831,13 @@
 			"return": "",
 			"variants": [
 				{
-					"code": "int length = 256;\nchar term = '$';\nchar term2 = '$';\nint i=0;\n\ni = input0.indexWhere(_ == term); if(i<0){i=0}; \n\nfor(i <- i until input0.length-1){\nif(input0(i) == term && input0(i+1) == term2){\ninput0(i) = '_'; input0(i+1) = '_';\n}\n}\n ",
+					"code": "\n int length = 256;\n char term = '$';\n char term2 = '$';\n int i=0;\n for(; i<length; i++){\n if(input0[i] == term){\n break;\n }\n }\n for(; i<length; i++){\n if(input0[i] == term && input0[i+1] == term2){\n input0[i] = '_'; input0[i+1] = '_';\n }\n }\n "
+					, "scala_code": "int length = 256;\nchar term = '$';\nchar term2 = '$';\nint i=0;\n\ni = input0.indexWhere(_ == term); if(i<0){i=0}; \n\nfor(i <- i until input0.length-1){\nif(input0(i) == term && input0(i+1) == term2){\ninput0(i) = '_'; input0(i+1) = '_';\n}\n}\n ",
 					"variant_class": "original"
 				}
 				, {
-					"code": "int length = 256;\nchar term = '$';\nchar term2 = '$';\nint i=0;\nfor(i <- i until input0.length-1){\nif(input0(i) == term && input0(i+1) == term2){\ninput0(i) = '_'; input0(i+1) = '_';\n}\n}\n ",
+					"code": "\n int length = 256;\n char term = '$';\n char term2 = '$';\n int i=0;\n for(; !(i<length); i++){\n if(input0[i] == term){\n break;\n }\n }\n for(; i<length; i++){\n if(input0[i] == term && input0[i+1] == term2){\n input0[i] = '_'; input0[i+1] = '_';\n }\n }\n "
+					, "scala_code": "int length = 256;\nchar term = '$';\nchar term2 = '$';\nint i=0;\nfor(i <- i until input0.length-1){\nif(input0(i) == term && input0(i+1) == term2){\ninput0(i) = '_'; input0(i+1) = '_';\n}\n}\n ",
 					"variant_class": "fast path removal"
 				}
 			]
