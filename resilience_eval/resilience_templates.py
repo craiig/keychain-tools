@@ -26,3 +26,24 @@ class {name} {{
     }}
 }}
 """
+
+class ScalaProgram:
+    type_map = {
+            "boolean": "Boolean" #map boolean to int for now
+            , 'int': 'Int'
+            , 'long': 'Long'
+            , 'char': 'Char'
+            , "int*": "Array[Int]"
+            , "char*": "Array[Char]"
+            , "int**": "Array[Array[Int]]"
+            , 'void': 'Unit'
+    }
+    body = """
+{header}
+object {name} {{
+    {class_header}
+    def {name}({inputs}): {return_type} = {{
+        {return_stmnt} {expression}
+    }}
+}}
+"""

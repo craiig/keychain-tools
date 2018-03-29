@@ -33,6 +33,13 @@ def perform_tests(program, args):
             compiler_name = compiler.name()
             if compiler_name not in program_hashes:
                 program_hashes[compiler_name] = []
+
+            #check if we should skip
+            skip_langs = program.get('skip_languages', [])
+            if lang in skip_langs:
+                #skip due to this test being flagged as not relevant on the given compiler/lang
+                program_hashes[compiler_name].append('skipped_compiler_not_relevant')
+                continue
             
             if os.path.exists(code_path):
                 #this exists so skip

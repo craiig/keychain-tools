@@ -265,7 +265,7 @@
 			"origin": "compiler_survey",
 			"note": "trying to cover gcc -fcode-hoisting",
 			"input_types": ["int*", "int*"],
-			"return_type": "",
+			"return_type": "void",
 			"return": "",
 			"variants": [
 				{ "code": "int x = input0[0]; if(x > 100){ input0[0] = x*x; input1[0] = 0; } else { input0[0] = x*x; input1[0] = 1; } " }
@@ -280,8 +280,8 @@
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "int c = input0 + input1; int d; if(input2 != 0){ c = input0; d = c + input1; } else { c = 5; } return c + input1; " }
-				, { "code": "int c = input0 + input1; int d,t; if(input2 != 0){ c = input0; d = c + input1; t = d; } else { c = 5; t = c + input1; } return t; " }
+				{ "code": "int c = input0 + input1; int d=0; if(input2 != 0){ c = input0; d = c + input1; } else { c = 5; }; return c + input1; " }
+				, { "code": "int c = input0 + input1; int d=0; int t=0; if(input2 != 0){ c = input0; d = c + input1; t = d; } else { c = 5; t = c + input1; }; return t; " }
 			]
 		}
 		, {
@@ -335,13 +335,13 @@
 		, {
 			"name": "forward_store_motion",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -ftree-sink. example from gcc/tree-ssa-sink.c",
+			"note": "trying to cover gcc -ftree-sink. example from gcc/tree-ssa-sink.c TODO: is input = input+1 needed?",
 			"input_types": ["int*", "int", "int"],
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "int ret=0; input0[0] = input1; input1 = input1 + 1; if(input2!=0){ input0[0] = 123; } else { ret = input0[0]; } return ret;"  }
-				, { "code": "int ret=0; int sinktemp = input1; input1 = input1 + 1; if(input2!=0){ input0[0] = 123; } else { input0[0] = sinktemp; ret = input0[0]; } return ret;"  }
+				{ "code": "int p = input1; int ret=0; input0[0] = p; p = p + 1; if(input2!=0){ input0[0] = 123; } else { ret = input0[0]; }; return ret;"  }
+				, { "code": "int p = input1; int ret=0; int sinktemp = p; p = p + 1; if(input2!=0){ input0[0] = 123; } else { input0[0] = sinktemp; ret = input0[0]; }; return ret;"  }
 			]
 		}
 		, {
@@ -352,8 +352,8 @@
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "int x = input1*input2; int y = input1+input2; int z; if(input0!=0){z=x;}else{z=y;} return z; "  }
-				, { "code": "int z; if(input0!=0){z=input1*input2;}else{z=input1+input2;} return z; "  }
+				{ "code": "int x = input1*input2; int y = input1+input2; int z = 0; if(input0!=0){z=x;}else{z=y;}; return z; "  }
+				, { "code": "int z = 0; if(input0!=0){z=input1*input2;}else{z=input1+input2;}; return z; "  }
 			]
 		}
 		, {
@@ -377,10 +377,11 @@
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "int x = 100; if(input0>0 || input0<=0){ x=200; } else { x=300; } return x;"  }
+				{ "code": "int x = 100; if(input0>0 || input0<=0){ x=200; } else { x=300; }; return x;"  }
 				, { "code": "return 200;"  }
-				, { "code": "int x; if(1){ x=200; } else { x=300; } return x;"  
-					,  "java_code": "int x; if(true){ x=200; } else { x=300; } return x;"  }
+				, { "code": "int x; if(1){ x=200; } else { x=300; }; return x;"
+					,  "java_code": "int x; if(true){ x=200; } else { x=300; }; return x;"
+					,  "scala_code": "int x=0; if(true){ x=200; } else { x=300; }; return x;"  }
 				, { "code": "int x = 100; return x*2;" }
 			]
 		}
@@ -393,7 +394,8 @@
 			"return": "",
 			"variants": [
 				{ "code": "int neg = 0; if(input0<0){neg=!neg;} if(input1<0){neg=!neg;} if(neg!=0){ input2 = -input2;} return input2;"
-				, "java_code": "boolean neg = false; if(input0<0){neg=!neg;} if(input1<0){neg=!neg;} if(neg){ input2 = -input2;} return input2;" }
+				, "java_code": "boolean neg = false; if(input0<0){neg=!neg;} if(input1<0){neg=!neg;} if(neg){ input2 = -input2;} return input2;"
+				, "scala_code": "int ret = input2; boolean neg = false; if(input0<0){neg = !neg;}; if(input1<0){neg = ! neg;}; if(neg){ ret = -ret;}; return ret;" }
 				, { "code": "if((input0<0 && !(input1<0)) || (!(input0<0) && input1<0)){ return -input2; } else {return input2;}" }
 			]
 		}
@@ -407,7 +409,8 @@
 			"variants": [
 				{ "code": "return input0[0] + input1[0];" }
 				, { "code": "int x = 100; return input0[0] + input1[0];" }
-				, { "code": "int x = 100; for(int i=0; i<x; i++){ if(i==101){ return x; } } return input0[0] + input1[0];" }
+				, { "code": "int x = 100; for(int i=0; i<x; i++){ if(i==101){ return x; } } return input0[0] + input1[0];"
+				 , "scala_code": "int x = 100; for(i <- 0 until x){ if(i==101){ return x; } }; return input0[0] + input1[0];" }
 			]
 		}
 		, {
@@ -431,9 +434,12 @@
 			"return": "",
 			"c_header": "void extern_do_pos(); void extern_do_neg();",
 			"java_class_header": "public native void extern_do_pos(); public native void extern_do_neg();",
+			"scala_class_header": "@native def extern_do_pos(); @native def extern_do_neg();",
 			"variants": [
-				{ "code": "for(int i=0; i<input0; i++){ if(input1!=0){ extern_do_pos(); } else { extern_do_neg(); } } return 0;" }
-				, { "code": "if(input1!=0){ for(int i=0; i<input0; i++) extern_do_pos(); } else { for(int i=0; i<input0; i++) extern_do_neg(); } return 0;" }
+				{ "code": "for(int i=0; i<input0; i++){ if(input1!=0){ extern_do_pos(); } else { extern_do_neg(); } } return 0;"
+				, "scala_code": "for(i <- 0 until input0){ if(input1!=0){ extern_do_pos(); } else { extern_do_neg(); } }; return 0;" }
+				, { "code": "if(input1!=0){ for(int i=0; i<input0; i++) extern_do_pos(); } else { for(int i=0; i<input0; i++) extern_do_neg(); } return 0;"
+				, "scala_code": "if(input1!=0){ for(i <- 0 until input0) extern_do_pos(); } else { for(i <- 0 until input0) extern_do_neg(); }; return 0;" }
 			]
 		}
 		, {
@@ -444,8 +450,10 @@
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "int x=0; for(int i=0; i<input0; i++){ if(input1!=0){ x++; } else { input2[i] = x--; } } return x;" }
-				, { "code": "int x=0; if(input1!=0){ for(int i=0; i<input0; i++) x++; } else { for(int i=0; i<input0; i++) input2[i] = x--; } return x;" }
+				{ "code": "int x=0; for(int i=0; i<input0; i++){ if(input1!=0){ x++; } else { input2[i] = x--; } } return x;"
+				, "scala_code": "int x=0; for(i <- 0 until input0){ if(input1!=0){ x += 1; } else { input2(i) = x; x -= 1; } }; return x;" }
+				, { "code": "int x=0; if(input1!=0){ for(int i=0; i<input0; i++) x++; } else { for(int i=0; i<input0; i++) input2[i] = x--; } return x;"
+				, "scala_code": "int x=0; if(input1!=0){ for(i <- 0 until input0) x += 1; } else { for(i <- 0 until input0) input2(i) = x; x -= 1; }; return x;" }
 			]
 		}
 		, {
@@ -456,8 +464,10 @@
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "int x=0; int i; for(i=0; i<200; i++){ if(i<150){ x++; } else { x--; } } return x;" }
-				, { "code": "int x=0; int i; for(i=0; i<150; i++){ x++; } for(; i<200; i++){ x--; } return x;" }
+				{ "code": "int x=0; int i; for(i=0; i<200; i++){ if(i<150){ x++; } else { x--; } } return x;"
+				, "scala_code": "int x=0; for(i <- 0 until 150){ if(i<150){ x += 1 } else { x -= 1 } }; return x;" }
+				, { "code": "int x=0; int i; for(i=0; i<150; i++){ x++; } for(; i<200; i++){ x--; } return x;"
+				, "scala_code": "int x=0; for(i <- 0 until 150){ x += 1; }; for(i <- 0 until 50){ x != 1; }; return x;" }
 			]
 		}
 		, {
@@ -469,9 +479,12 @@
 			"return": "",
 			"variants": [
 				{ "code": "int N = input0; int** a = input1; int** b = input2; int** c = input3; for (int j = 0; j < N; j++) for (int k = 0; k < N; k++) for (int i = 0; i < N; i++) c[i][j] = c[i][j] + a[i][k]*b[k][j];" 
-				 , "java_code": "int N = input0; int[][] a = input1; int[][] b = input2; int[][] c = input3; for (int j = 0; j < N; j++) for (int k = 0; k < N; k++) for (int i = 0; i < N; i++) c[i][j] = c[i][j] + a[i][k]*b[k][j];" }
+				 , "java_code": "int N = input0; int[][] a = input1; int[][] b = input2; int[][] c = input3; for (int j = 0; j < N; j++) for (int k = 0; k < N; k++) for (int i = 0; i < N; i++) c[i][j] = c[i][j] + a[i][k]*b[k][j];" 
+				 , "scala_code": "int N = input0; var a = input1; var b = input2; var c = input3; for (j <- 0 until N) for (k <- 0 until N) for (i <- 0 until N) c(i)(j) = c(i)(j) + a(i)(k)*b(k)(j);" }
+
 				, { "code": "int N = input0; int** a = input1; int** b = input2; int** c = input3; for (int i = 0; i < N; i++) for (int j = 0; j < N; j++) for (int k = 0; k < N; k++) c[i][j] = c[i][j] + a[i][k]*b[k][j];"
-				, "java_code": "int N = input0; int[][] a = input1; int[][] b = input2; int[][] c = input3; for (int i = 0; i < N; i++) for (int j = 0; j < N; j++) for (int k = 0; k < N; k++) c[i][j] = c[i][j] + a[i][k]*b[k][j];" }
+				, "java_code": "int N = input0; int[][] a = input1; int[][] b = input2; int[][] c = input3; for (int i = 0; i < N; i++) for (int j = 0; j < N; j++) for (int k = 0; k < N; k++) c[i][j] = c[i][j] + a[i][k]*b[k][j];" 
+				, "scala_code": "int N = input0; var a = input1; var b = input2; var c = input3; for (i <- 0 until N) for (j <- 0 until N) for (k <- 0 until N) c(i)(j) = c(i)(j) + a(i)(k)*b(k)(j);" }
 			]
 		}
 		, {
@@ -482,8 +495,11 @@
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "int a=123; for (int i=0; i<input0; i++) { if (input3!=0) { a = input0; input1[i] = input2[i]; } }; return a;" }
-				, { "code": "int a=123; if(input3!=0){ a = input0; }; for (int i=0; i<input0; i++) { if (input3!=0) { input1[i] = input2[i]; } }; return a;" }
+				{ "code": "int a=123; for (int i=0; i<input0; i++) { if (input3!=0) { a = input0; input1[i] = input2[i]; } }; return a;" 
+				, "scala_code": "int a=123; for (i <- 0 until input0) { if (input3!=0) { a = input0; input1(i) = input2(i); } }; return a;" }
+
+				, { "code": "int a=123; if(input3!=0){ a = input0; }; for (int i=0; i<input0; i++) { if (input3!=0) { input1[i] = input2[i]; } }; return a;" 
+				, "scala_code": "int a=123; if(input3!=0){ a = input0; }; for (i <- 0 until input0) { if (input3!=0) { input1(i) = input2(i); } }; return a;" }
 			]
 		}
 		, {
@@ -518,8 +534,10 @@
 			"return_type": "void",
 			"return": "",
 			"variants": [
-				{ "code": "int i1; for (i1 = 0; i1 < input0; i1++) input1[i1] = input2[i1]; " }
-				, { "code": "int i1, i2, i3; for (i1 = 0, i2 = 0, i3 = 0; i1 < input0; i1++) input1[i2++] = input2[i3++];" }
+				{ "code": "int i1; for (i1 = 0; i1 < input0; i1++) input1[i1] = input2[i1]; " 
+				, "scala_code": "int i1=0; for (i1 <- 0 until input0) input1(i1) = input2(i1); " }
+				, { "code": "int i1, i2, i3; for (i1 = 0, i2 = 0, i3 = 0; i1 < input0; i1++) input1[i2++] = input2[i3++];" 
+				, "scala_code": "int i1=0; int i2=0; int i3=0; for (i1 <- 0 until input0){ input1[i2] = input2[i3]; i2 += 1; i3 += 1; }" }
 			]
 		}
 		, {
@@ -530,8 +548,10 @@
 			"return_type": "void",
 			"return": "",
 			"variants": [
-				{ "code": "int i = 7; for (; i*i < 1000; ++i) input1[0]++;" }
-				, { "code": "int i = 0; for (; i != 25; ++i) input1[0]++;" }
+				{ "code": "int i = 7; for (; i*i < 1000; ++i) input1[0]++;"
+				, "scala_code": "int i = 7; while(i*i < 1000){ i+=1; input1[0]+=1; }" }
+				, { "code": "int i = 0; for (; i != 25; ++i) input1[0]++;"
+				, "scala_code": "int i = 0; while(i!=25){ i+=1; input1[0]+=1 }" }
 			]
 		}
 		, {
@@ -554,8 +574,8 @@
 			"return_type": "void",
 			"return": "",
 			"variants": [
-				{ "code": "if(input2 != input3){ input0[0]++; }" }
-				, { "code": "if(input2 != input3){ input0[0]++; if(input2 == input3) input0[1]++; }" }
+				{ "code": "if(input2 != input3){ input0[0]+=1; }" }
+				, { "code": "if(input2 != input3){ input0[0]+=1; if(input2 == input3) input0[1]+=1; }" }
 			]
 		}
 		, {
@@ -566,8 +586,8 @@
 			"return_type": "void",
 			"return": "",
 			"variants": [
-				{ "code": "if(input2 == input3){ input0[0]++; }" }
-				, { "code": "if(input2 == input3){ input0[0]++; if(input2 != input3) input0[1]++; }" }
+				{ "code": "if(input2 == input3){ input0[0]+=1; }" }
+				, { "code": "if(input2 == input3){ input0[0]+=1; if(input2 != input3) input0[1]+=1; }" }
 			]
 		}
 		, {
@@ -578,8 +598,8 @@
 			"return_type": "void",
 			"return": "",
 			"variants": [
-				{ "code": "if(input2 < input3){ input0[0]++; }" }
-				, { "code": "if(input2 < input3){ input0[0]++; if(input2 == input3) input0[1]++; }" }
+				{ "code": "if(input2 < input3){ input0[0]+=1; }" }
+				, { "code": "if(input2 < input3){ input0[0]+=1; if(input2 == input3) input0[1]+=1; }" }
 			]
 		}
 		, {
@@ -597,12 +617,12 @@
 		, {
 			"name": "jump_threading",
 			"origin": "compiler_survey",
-			"note": "trying to cover llvm -jump-threading, example from http://llvm.org/docs/Passes.html#jump-threading-jump-threading. fails on clang/gcc",
+			"note": "trying to cover llvm -jump-threading, example from http://llvm.org/docs/Passes.html#jump-threading-jump-threading. TODO fails on clang/gcc",
 			"input_types": ["int", "int*"],
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "int x=0; if(input0 > 10){ x = 4; } if(x<3){ input1[0] = 10; } else { input1[0] = 20; }; return x;" }
+				{ "code": "int x=0; if(input0 > 10){ x = 4; }; if(x<3){ input1[0] = 10; } else { input1[0] = 20; }; return x;" }
 				, { "code": "int x=0; if(input0 > 10){ x = 4; input1[0] = 20; } else { input1[0] = 10; }; return x;" }
 			]
 		}
@@ -616,8 +636,10 @@
 			"variants": [
 				{ "code": "return input0 + input1;" }
 				, { "code": "return input1 + input0;" }
-				, { "code": "for(int i=0; i<1; i++){ return input1 + input0; } return 0;" }
-				, { "code": "int ret = input1; for(int i=0; i<1; i++){ ret += input0; } return ret;" }
+				, { "code": "for(int i=0; i<1; i++){ return input1 + input0; } return 0;" 
+				, "scala_code": "for(i <- 0 until 1){ return input1 + input0; }; return -1;" }
+				, { "code": "int ret = input1; for(int i=0; i<1; i++){ ret += input0; } return ret;" 
+				, "scala_code": "int ret = input1; for(i <- 0 until 1){ ret += input0; }; return ret;" }
 			]
 		}
 		, {
@@ -625,6 +647,7 @@
 			"origin": "tce",
 			"input_types": ["int", "int"],
 			"return_type": "int",
+			"skip_languages": ["scala"],
 			"variants": [
 				{ "code": "input0 + input1" }
 				, { "code": "input1++ + input0" }
@@ -724,14 +747,17 @@
 			"variants": [
 				{
 					"code": "int nCwMin = input0;\n switch(input0){\n case 1:\n nCwMin = 1;\n break;\n case 2:\n nCwMin = 2;\n break;\n case 3:\n nCwMin = 3;\n break;\n case 4:\n nCwMin = 4;\n break;\n default:\n nCwMin = 0;\n }\n return nCwMin;\n"
+					, "scala_code": "int nCwMin = input0;\n nCwMin = input0 match {\n case 1 => 1\n case 2 => 2\n case 3 => 3\n case 4 => 4\n case _ => 0\n }\n return nCwMin;\n "
 					, "variant_class" : "original"
 				}
 				, {
 					"code": "int nCwMin = -input0;\n switch(input0){\n case 1:\n nCwMin = 1;\n break;\n case 2:\n nCwMin = 2;\n break;\n case 3:\n nCwMin = 3;\n break;\n case 4:\n nCwMin = 4;\n break;\n default:\n nCwMin = 0;\n }\n return nCwMin;\n"
+					, "scala_code": "int nCwMin = -input0;\n nCwMin = input0 match {\n case 1 => 1\n case 2 => 2\n case 3 => 3\n case 4 => 4\n case _ => 0\n }\n return nCwMin;\n "
 					, "variant_class" : "invert dead store"
 				}
 				, {
 					"code": "int nCwMin = input1 * input0;\n switch(input0){\n case 1:\n nCwMin = 1;\n break;\n case 2:\n nCwMin = 2;\n break;\n case 3:\n nCwMin = 3;\n break;\n case 4:\n nCwMin = 4;\n break;\n default:\n nCwMin = 0;\n }\n return nCwMin;\n"
+					, "scala_code": "int nCwMin = input1 * input0;\n nCwMin = input0 match {\n case 1 => 1\n case 2 => 2\n case 3 => 3\n case 4 => 4\n case _ => 0\n }\n return nCwMin;\n "
 					, "variant_class" : "math dead store"
 				}
 			]
@@ -746,10 +772,12 @@
 			"variants": [
 				{
 					"code": "\n int position = -1;\n for(int i=0; i<input0; i++){\n if(input1[i] == 0){\n position = i;\n break;\n }\n }\n if(position != -1){\n return 1;\n }\n return 0;\n "
+					, "scala_code": "int position = input1.indexWhere( _ == 0); if(position != -1){ return 1; }; return 0; "
 					, "variant_class": "original"
 				}
 				, {
 					"code": "\n int position = -1;\n for(int i=0; i<input0; i++){\n if(input1[i] == 0){\n position = i;\n break;\n }\n }\n if(position > -1){\n return 1;\n }\n return 0;\n "
+					, "scala_code": "int position = input1.indexWhere( _ == 0 ); if(position > -1){ return 1; }; return 0; "
 					, "variant_class": "comparison widening"
 				}
 			]
@@ -762,35 +790,35 @@
 			"return": "",
 			"variants": [
 				{
-					"code":"\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n "
+					"code":"\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian=0;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n "
 					, "variant_class": "original"
 				}
 				, {
-					"code":"\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = -trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n "
+					"code":"\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian=0;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = -trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n "
 					, "variant_class": "invert expression non functional"
 				}
 				, {
-					"code":"\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = -trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n "
+					"code":"\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian=0;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = -trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n "
 					, "variant_class": "invert expression functional"
 				}
 				, {
-					"code":"\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian <= 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n "
+					"code":"\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian=0;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian <= 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n "
 					, "variant_class": "comparison widening"
 				}
 				, {
-					"code":"\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian >= 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n "
+					"code":"\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian=0;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian >= 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n "
 					, "variant_class": "comparison widening"
 				}
 				, {
-					"code":"\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian;\n if (a <= 0 ^ b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n "
+					"code":"\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian=0;\n if (a <= 0 ^ b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n "
 					, "variant_class": "early exit removal"
 				}
 				, {
-					"code":"\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c ^ a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n "
+					"code":"\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian=0;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian == 0) {\n if (a + b < c ^ a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n "
 					, "variant_class": "comparison widening with mathematical proof"
 				}
 				, {
-					"code":"\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian <= 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n "
+					"code":"\n int INVALID = 0; \n int SCALENE = 1;\n int EQUILATERAL = 2;\n int ISOSCELES = 3;\n \n int a = input0;\n int b = input1;\n int c = input2;\n \n int trian=0;\n if (a <= 0 || b <= 0 || c <= 0) {\n return INVALID;\n }\n trian = 0;\n if (a == b) {\n trian = trian + 1;\n }\n if (a == c) {\n trian = trian + 2;\n }\n if (b == c) {\n trian = trian + 3;\n }\n if (trian <= 0) {\n if (a + b < c || a + c < b || b + c < a) {\n return INVALID;\n } else {\n return SCALENE;\n }\n }\n if (trian > 3) {\n return EQUILATERAL;\n }\n if (trian == 1 && a + b > c) {\n return ISOSCELES;\n } else {\n if (trian == 2 && a + c > b) {\n return ISOSCELES;\n } else {\n if (trian == 3 && b + c > a) {\n return ISOSCELES;\n }\n }\n }\n return INVALID;\n "
 					, "variant_class": "comparison widening"
 				}
 			]
@@ -803,11 +831,11 @@
 			"return": "",
 			"variants": [
 				{
-					"code": "\n int length = 256;\n char term = '$';\n char term2 = '$';\n int i=0;\n for(; i<length; i++){\n if(input0[i] == term){\n break;\n }\n }\n for(; i<length; i++){\n if(input0[i] == term && input0[i+1] == term2){\n input0[i] = '_'; input0[i+1] = '_';\n }\n }\n ",
+					"code": "int length = 256;\nchar term = '$';\nchar term2 = '$';\nint i=0;\n\ni = input0.indexWhere(_ == term); if(i<0){i=0}; \n\nfor(i <- i until input0.length-1){\nif(input0(i) == term && input0(i+1) == term2){\ninput0(i) = '_'; input0(i+1) = '_';\n}\n}\n ",
 					"variant_class": "original"
 				}
 				, {
-					"code": "\n int length = 256;\n char term = '$';\n char term2 = '$';\n int i=0;\n for(; !(i<length); i++){\n if(input0[i] == term){\n break;\n }\n }\n for(; i<length; i++){\n if(input0[i] == term && input0[i+1] == term2){\n input0[i] = '_'; input0[i+1] = '_';\n }\n }\n ",
+					"code": "int length = 256;\nchar term = '$';\nchar term2 = '$';\nint i=0;\nfor(i <- i until input0.length-1){\nif(input0(i) == term && input0(i+1) == term2){\ninput0(i) = '_'; input0(i+1) = '_';\n}\n}\n ",
 					"variant_class": "fast path removal"
 				}
 			]

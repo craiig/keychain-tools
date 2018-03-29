@@ -62,7 +62,7 @@ def diff_outcomes(old, new):
             #count old unique, count new unique
             new_hashes = new_p['program_hashes'].get(old_c, None)
             if not new_hashes:
-                print c.Fore.RED + "Old compiler not found in new tests: {}".format(old_name)
+                print c.Fore.RED + "Compiler {} not found in tests: {}".format(old_c, old_name)
                 print c.Style.RESET_ALL,
                 continue
 

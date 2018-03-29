@@ -5,6 +5,7 @@
 import os, shutil
 from pprint import pprint
 import subprocess
+import re
 
 from util import util_sha256_hash
 import resilience_templates
@@ -247,9 +248,134 @@ class JavaCompiler(Compiler):
         h = util_sha256_hash(asm_path)
         return h
 
+class ScalaCompiler(Compiler):
+    def __init__(self, path):
+        self.compiler_template = "{path} {variant_path}.scala -d {dir}"
+
+        self.path = path
+        self.version = subprocess.check_output("{} -version 2>&1 | awk '{{print $4}}'".format(path), shell=True, stderr=subprocess.STDOUT)
+        self.version = self.version.strip(' \n\t')
+        self.version = self.version.replace(' ', '')
+        self.version = "scala"+self.version
+        pass
+
+    def name(self):
+        return self.version
+
+    def supported_languages(self):
+        return ["scala"]
+
+    def scala_codegen(self, variant, program, code_path):
+        type_map = resilience_templates.ScalaProgram.type_map
+
+        #generate type signature for input, passing it through the type map to get C types
+        input_types = [ type_map.get(ty,ty)  for ty in program.get('input_types', []) ]
+        input_sig = [ 'input{i}:{t}'.format(t=ty, i=tyidx) for tyidx,ty in enumerate(input_types) ]
+        inputs = ', '.join( input_sig )
+
+        # !!! watch out for the mutability and potential cycles 
+        return_type = type_map.get(program['return_type'], program['return_type'])
+
+        if 'scala_code' in variant:
+            expression = variant['scala_code']
+        else:
+            expression = variant['code']
+
+        # if there isn't a default return insert one
+        return_stmnt = program.get('return', 'return')
+        if len(return_stmnt) > 0:
+            #could propagate to the c compiler too
+            #but it's less strict
+            expression += ';'
+
+        header_stmnt = program.get('header', '')
+        header_stmnt += program.get('scala_header', '')
+
+        body = resilience_templates.ScalaProgram.body
+
+        # TODO hoist all above code into a class?
+        program_text = body.format(
+            expression=expression
+            , return_type = return_type
+            , name = program['name']
+            , inputs = inputs
+            , return_stmnt=return_stmnt
+            , header=header_stmnt
+            , class_header = program.get('scala_class_header',  '')
+        )
+
+        # this is SUCH a hack but scala array indexes are pretty gnarly
+        # to translate them we just rely on the fact that our variables have
+        # canonical names and so we can figure this out pretty easily
+        program_text = re.sub(r'input(\d+)\[(\d+)\]', r'input\1(\2)', program_text)
+
+        #hack to translate basic for loops
+        # needs to happen before type map fixes
+        program_text = re.sub(r'for\(int i=0; i<input(\d+); i\+\+\)', r'for(i <- 0 to input\1)', program_text)
+
+        #rewrite array indexes
+        program_text = re.sub(r'input(\d+)\[(.*?)\]', r'input\1(\2)', program_text)
+
+        # do a similar thing for variable definitions. Yikes!
+        # this works at least kind of well because we define the types to look
+        # for in the templates so we're constraining the pattern at least a bit
+        for i,o in type_map.iteritems():
+            i = re.escape(i)
+            var = '[A-z0-9]+'
+            program_text = re.sub(r'({}) ({})'.format(i, var), r'var \2:{}'.format(o), program_text)
+            #program_text = re.sub(re.escape(i), o, program_text)
+
+        # we chose to write to files because this is easier to debug mismatches
+        if not os.path.exists(os.path.dirname(code_path)):
+            os.makedirs(os.path.dirname(code_path))
+        with open(code_path, "w+") as fh:
+            fh.write(program_text)
+
+        if True: #if debug:
+            print "****** {}".format(code_path)
+            pprint(program, indent=4)
+            print program_text
+
+        return True
+
+    def generate_code(self, variant, program, code_path):
+        return self.scala_codegen(variant, program, code_path)
+
+    # TODO i think we need to write a CLI library for the udf-hashing
+    # program so we can use it to disassemble compiled java?
+    # otheriwse we can use javap -c ...
+    # 
+    # gonna try javap -c for now, could be an option in the future
+    def compile_and_hash(self, variant_path, program):
+        # challenge here is javac produces an object file that corresponds
+        # to the class name. how to catch it?
+        # generate with specific class name (proram name)
+        asm_path = variant_path + '.bc'
+        if not os.path.exists(asm_path):
+            compile_cmd = self.compiler_template.format(
+                path = self.path,
+                variant_path = variant_path,
+                dir = os.path.dirname(variant_path)
+            )
+            print compile_cmd
+            res = subprocess_exception_catch(compile_cmd)
+            if not res:
+                return False
+
+            # read the bytecode off the class
+            class_file = os.path.join(os.path.dirname(variant_path), program['name']) + '.class'
+            bytecode_cmd = "javap -c {} > {}".format(class_file, asm_path)
+            res = subprocess_exception_catch(bytecode_cmd)
+            if not res:
+                return False
+
+        # program is compiled, so hash asm
+        h = util_sha256_hash(asm_path)
+        return h
+
 CompilerDefinitions = [
     JavaCompiler("javac"),
-    #ScalaCompiler(),
+    ScalaCompiler("scalac"),
     CCompiler('gcc49', '-O0'),
     CCompiler('gcc49', '-O3'),
     CCompiler('clang', '-O0'),
