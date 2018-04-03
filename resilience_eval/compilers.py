@@ -6,6 +6,7 @@ import os, shutil
 from pprint import pprint
 import subprocess
 import re
+import json
 
 from util import util_sha256_hash
 import resilience_templates
@@ -194,7 +195,7 @@ class JavaCompiler(Compiler):
         program_text = body.format(
             expression=expression
             , return_type = return_type
-            , name = program['name']
+            , name = program['name'] + "_{}".format(variant['_idx'])
             , inputs = inputs
             , return_stmnt=return_stmnt
             , header=header_stmnt
@@ -238,15 +239,15 @@ class JavaCompiler(Compiler):
                 return False
 
             # read the bytecode off the class
-            class_file = os.path.join(os.path.dirname(variant_path), program['name']) + '.class'
-            bytecode_cmd = "javap -c {} > {}".format(class_file, asm_path)
+            class_file = variant_path + ".class"
+            bytecode_cmd = "../scala/udf-hash/cli.sh {} > {}".format(class_file, asm_path)
             res = subprocess_exception_catch(bytecode_cmd)
             if not res:
                 return False
 
         # program is compiled, so hash asm
-        h = util_sha256_hash(asm_path)
-        return h
+        asm_json = json.load(open(asm_path))
+        return asm_json['mergedHash']
 
 class ScalaCompiler(Compiler):
     def __init__(self, path):
@@ -297,7 +298,7 @@ class ScalaCompiler(Compiler):
         program_text = body.format(
             expression=expression
             , return_type = return_type
-            , name = program['name']
+            , name = program['name'] + "_{}".format(variant['_idx'])
             , inputs = inputs
             , return_stmnt=return_stmnt
             , header=header_stmnt
@@ -363,15 +364,15 @@ class ScalaCompiler(Compiler):
                 return False
 
             # read the bytecode off the class
-            class_file = os.path.join(os.path.dirname(variant_path), program['name']) + '.class'
-            bytecode_cmd = "javap -c {} > {}".format(class_file, asm_path)
+            class_file = variant_path + ".class"
+            bytecode_cmd = "../scala/udf-hash/cli.sh {} > {}".format(class_file, asm_path)
             res = subprocess_exception_catch(bytecode_cmd)
             if not res:
                 return False
 
         # program is compiled, so hash asm
-        h = util_sha256_hash(asm_path)
-        return h
+        asm_json = json.load(open(asm_path))
+        return asm_json['mergedHash']
 
 CompilerDefinitions = [
     JavaCompiler("javac"),

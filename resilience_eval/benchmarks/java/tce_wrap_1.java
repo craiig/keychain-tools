@@ -1,4 +1,4 @@
-class wrap {
+public class wrap_0 {
 static java.lang.String LINE_SEPARATOR = "\n";
 public static java.lang.String wrap( java.lang.String str, int wrapLength, java.lang.String newLineStr, boolean wrapLongWords )
 {

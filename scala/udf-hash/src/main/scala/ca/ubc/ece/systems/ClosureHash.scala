@@ -71,10 +71,10 @@ object ClosureHash extends Logging {
   def hash_internal(func: AnyRef): Option[(String,HashTraceMap)] = {
     var hashStart = System.nanoTime
 
-    if (!isClosure(func.getClass)) {
-      logInfo("Expected a closure; got " + func.getClass.getName)
-      return None
-    }
+    //if (!isClosure(func.getClass)) {
+      //logInfo("Expected a closure; got " + func.getClass.getName)
+      //return None
+    //}
     if (func == null) {
       return None
     }
@@ -605,6 +605,7 @@ object ClosureHash extends Logging {
   /* returns a map of (class to (funcname, funcsig) ) of all functions called by the given class, recursively */
   type Class2Func = (String,String,String)
   private def getFunctionsCalled(obj: AnyRef): Set[Class2Func] = {
+    logDebug(s"Finding functions called by ${obj.getClass.getName}")
     var cls = obj.getClass
 
     /* read first set */
@@ -620,6 +621,7 @@ object ClosureHash extends Logging {
       val tup = stack.head
       stack = stack.tail
       val clazz = Class.forName(tup._1.replace('/', '.'), false, Thread.currentThread.getContextClassLoader)
+      logDebug(s"Recursively finding functions called by ${clazz.getName}")
       val cr = SparkUtils.getClassReader(clazz)
 
       val set = SortedSet[Class2Func]()

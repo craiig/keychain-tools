@@ -1,4 +1,4 @@
-class add_jodatime {
+public class add_jodatime_5 {
 public final int iMax = 12;
 public long add( long instant, int months )
 {

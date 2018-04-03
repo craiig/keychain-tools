@@ -19,9 +19,9 @@ class JavaProgram:
     }
     body = """
 {header}
-class {name} {{
+public class {name} {{
     {class_header}
-    {return_type} {name}({inputs}){{
+    public {return_type} {name}({inputs}){{
         {return_stmnt} {expression}
     }}
 }}
@@ -40,7 +40,7 @@ class ScalaProgram:
     }
     body = """
 {header}
-object {name} {{
+class {name} {{
     {class_header}
     def {name}({inputs}): {return_type} = {{
         {return_stmnt} {expression}

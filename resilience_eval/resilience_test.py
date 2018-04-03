@@ -26,7 +26,7 @@ def perform_tests(program, args):
             lang = languages[0]
             lang_code = '{}_code'.format(lang)
 
-            variant_path = os.path.join(args.output_dir, lang, compiler.name(),  '{}-{}'.format(program['name'], v['_idx']) )
+            variant_path = os.path.join(args.output_dir, lang, compiler.name(),  '{}_{}'.format(program['name'], v['_idx']) )
             code_path = "{}.{}".format(variant_path, lang)
 
             #set up where to store results

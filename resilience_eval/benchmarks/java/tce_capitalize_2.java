@@ -1,4 +1,4 @@
-class capitalize {
+public class capitalize_1 {
     private static boolean isDelimiter( char ch, char[] delimiters )
     {
         if (delimiters == null) {
