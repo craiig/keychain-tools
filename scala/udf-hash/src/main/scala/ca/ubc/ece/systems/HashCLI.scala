@@ -41,14 +41,16 @@ object HashCLI {
     //val classpath = args(0)
     //val cls = args(1)
 
-    val cls = dirparts.takeRight(1)(0).replaceAll(".class", "")
+    val cls = dirparts.takeRight(1)(0).replaceAll(".class$", "")
     val classpath = dirparts.slice(0,dirparts.length-1).mkString("/") + "/"
-
     
     //println(s"classpath: ${classpath} cls: ${cls}")
 
     /* load class and hash */
     val cl = URLClassLoader.newInstance(Array(new URL(s"file://${classpath}")))
+    /* enable the thread to find this class loader in case we need more from
+     * this directory */
+    Thread.currentThread.setContextClassLoader(cl)
     val loaded = cl.loadClass(cls)
 
     /* so far this has been un-needed */
