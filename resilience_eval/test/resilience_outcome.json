@@ -5,8 +5,8 @@
             "total_variants": 43
         }, 
         "tpcds_survey": {
-            "total_programs": 6, 
-            "total_variants": 16
+            "total_programs": 7, 
+            "total_variants": 21
         }, 
         "semantics preserving transformations": {
             "total_programs": 1, 
@@ -14,7 +14,7 @@
         }, 
         "compiler_survey": {
             "total_programs": 41, 
-            "total_variants": 90
+            "total_variants": 92
         }, 
         "craig": {
             "total_programs": 3, 
@@ -48,18 +48,18 @@
                     "9b6286e2fab42e5cd194736de60aecfa471e30ab21157f06d031d190d2bb5aa6"
                 ], 
                 "scala2.11.11": [
-                    "1785ba8864bfa834fc9e1bf0ffedf9c2c0dc378ff809e5ab9b9c93b378f77265", 
-                    "8417074bef4123fa97eb42da4c3f199f9bdb08c8cea539539a9b586d2b40f1e1", 
-                    "a28719f2718e140d2709d1ba2827ce043a47363d9a0b8959c7ecde09630f32a9", 
-                    "551170dbfe8ee5c68d0b5f3504e672161eaa2e0e1c5eda410e02f75ea0d31dd0", 
-                    "0f047ae16458baa683365efef935414b596896f9c5c488f538f04b79b133a780"
+                    "bc:1TCW4jkimjZPrA_zJiJ6zA_xtCb1ZXxOuxANeOq--iM_pr:none", 
+                    "bc:1TCW4jkimjZPrA_zJiJ6zA_xtCb1ZXxOuxANeOq--iM_pr:none", 
+                    "bc:1TCW4jkimjZPrA_zJiJ6zA_xtCb1ZXxOuxANeOq--iM_pr:none", 
+                    "bc:1TCW4jkimjZPrA_zJiJ6zA_xtCb1ZXxOuxANeOq--iM_pr:none", 
+                    "bc:1TCW4jkimjZPrA_zJiJ6zA_xtCb1ZXxOuxANeOq--iM_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "28fb1f3b6c948680221992751ed51ad69013500dce20e3073d9888766fa35587", 
-                    "f4fafa1b1c64301d7c72e28057f9b2a54dc685cb453a5eede376a9859ae8c97d", 
-                    "5c5cd60c871e58e8723ce5bc7e2f930713de648ca8e52213a4b8bb8d9cca4be2", 
-                    "6cec054eaeee6827a5fd20ee990b5ebcf081df697409b7ff8eb2b5472b11ba6e", 
-                    "9608f8849121056e18e8ca156b9d43e8e8963388df60cb9b4dce4c24edf8320f"
+                    "bc:-pjCpfXfv6m9XS5OLRed43yhpJz7mJ1VH7TG-f3_kus_pr:none", 
+                    "bc:-pjCpfXfv6m9XS5OLRed43yhpJz7mJ1VH7TG-f3_kus_pr:none", 
+                    "bc:-pjCpfXfv6m9XS5OLRed43yhpJz7mJ1VH7TG-f3_kus_pr:none", 
+                    "bc:-pjCpfXfv6m9XS5OLRed43yhpJz7mJ1VH7TG-f3_kus_pr:none", 
+                    "bc:-pjCpfXfv6m9XS5OLRed43yhpJz7mJ1VH7TG-f3_kus_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "707a8651ad7d67bd9cb39e85e5813e6278fda3e7c44126dc3883d3436e9dff35", 
@@ -125,20 +125,20 @@
                     "cff301b7b85a70dc58aa0bd13a084774e4a3f0a39a5beef1175fc4d779957bbc"
                 ], 
                 "scala2.11.11": [
-                    "ae6dc4dbf4ead4b71bcfa2f3ba5be7ccd25aea257d1c9cff2528351f3330e12d", 
-                    "7cdf22da7562a0886a40398942c5dd5b3cd35b0008f713a8d5bd2bb83175018c", 
-                    "0cbe17fb62558dcd6797f499a030af76c0ab1d919ff03b9e0bd0f80002e2bd51", 
-                    "f70b11255a578dd9de49131140abb073ef1f2711929dc5b325e7da087ddd0800", 
-                    "2e9ceb45b2464965aff3b76534e829c8f1653a7b9b37056854324a10975d5c8e", 
-                    "d1ad21e7ce0a36cfdc90d99a63fedbc46b34db33fbf9a34985b9ccf70483ac85"
+                    "bc:sGEk6--PW7XJqDcMmsgITShAUwDYlZS6uTxeNp4lsQ4_pr:none", 
+                    "bc:QPSh1oIq6Eny39kDIvHgit3_8Y_sjMN3x2nqmmO7lpA_pr:none", 
+                    "bc:sGEk6--PW7XJqDcMmsgITShAUwDYlZS6uTxeNp4lsQ4_pr:none", 
+                    "bc:cNC_A3ZnbRLqAGvvk0siC-HVFzzt0TNLdWOmTYvi5wc_pr:none", 
+                    "bc:cNC_A3ZnbRLqAGvvk0siC-HVFzzt0TNLdWOmTYvi5wc_pr:none", 
+                    "bc:cNC_A3ZnbRLqAGvvk0siC-HVFzzt0TNLdWOmTYvi5wc_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "f19f8e64139146b168d482a29b8100b26afce113c607cc99c6faf987ca7517bf", 
-                    "8b810263838236f3831ad2298a7b21f6c4c9bfbb259d0e0d598cbbe8cca4d3b5", 
-                    "9a3f2147685d121b66ae2d7970ec0c751cb54da6a34a0a118defd8fab3db13f0", 
-                    "5d53932b5fa4689b8ff20f44fb9c0ac67677727e21c9c4c42f1fe9489727ed6a", 
-                    "8b5c5a4dfb2c3b479623892d1a43ab24aa28edaead6fbb3085ca38c39cb7ec31", 
-                    "e0480467bb285636d4d59002abd253395afceb3f6cb8e6390b630b3a5ba6bf29"
+                    "bc:AfZ_TQ1ao_nszU3DdmcD-ZTXrbmTOBgPicxDXc4LTNI_pr:none", 
+                    "bc:Cf82njPq1nrVtfrYpzz8z8z3dzmY4pF36eI11_oKdWk_pr:none", 
+                    "bc:AfZ_TQ1ao_nszU3DdmcD-ZTXrbmTOBgPicxDXc4LTNI_pr:none", 
+                    "bc:CV9kLkkFaCDdeCwdPJm-DWQhPjxoKdspsYinfymklfY_pr:none", 
+                    "bc:CV9kLkkFaCDdeCwdPJm-DWQhPjxoKdspsYinfymklfY_pr:none", 
+                    "bc:CV9kLkkFaCDdeCwdPJm-DWQhPjxoKdspsYinfymklfY_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "de0b696d2237c08f88a4a8171c03989bce9ecb9c36585388524a16da20e7aa8d", 
@@ -199,12 +199,12 @@
                     "4994eada5b7dce5ce2b61f6fdfc9b768ab3090feaad1ea8b34c3963f05881569"
                 ], 
                 "scala2.11.11": [
-                    "skipped_no_code_specified", 
-                    "c62a252d0a0ff050b175c255027cee9885b13f2cae0a7b91129013fc60701722"
+                    "bc:ZTyxZI5lfWKpiQLtXdEpts8CYvCLWL4QJckpBsuj5rQ_pr:none", 
+                    "bc:ZTyxZI5lfWKpiQLtXdEpts8CYvCLWL4QJckpBsuj5rQ_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "27d9b936ac28c87e4ac09a7187546c669a7bfcce9c9edeb0666cb0f169262693", 
-                    "1aa92e74c65a4b5a39a2356875f6fc70a3f97198e351a5966898f84b11b12710"
+                    "bc:eIsx-vwD-VyqxPj_p49VBG6j9oq_MhymqfbB_qVCufA_pr:none", 
+                    "bc:eIsx-vwD-VyqxPj_p49VBG6j9oq_MhymqfbB_qVCufA_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "9e980c04e9310fc639a45b0c478ec00d2409de644943c28d71266fcd63fd2329", 
@@ -219,8 +219,9 @@
             "return_type": "int", 
             "variants": [
                 {
-                    "c_code": "if(input0){ return 1; } else { return 0; }", 
                     "_idx": 0, 
+                    "c_code": "if(input0){ return 1; } else { return 0; }", 
+                    "scala_code": "if(input0 != 0){ return 1; } else { return 0; }", 
                     "java_code": "if(input0 != 0){ return 1; } else { return 0; }"
                 }, 
                 {
@@ -247,12 +248,12 @@
                     "403b7d3f7e1f7b6ae23544ab2849195ea8596f52c04a30023e4d4fb845a97424"
                 ], 
                 "scala2.11.11": [
-                    "skipped_no_code_specified", 
-                    "5ddbfd5120dcfebc198af5cdaf764c894e6856d77924fd91f49d34c2edd0aedc"
+                    "bc:zEE8QUmxU5eH-dkeZbHCfWyqUXRkN2PC5eXGYIjQRsE_pr:none", 
+                    "bc:zEE8QUmxU5eH-dkeZbHCfWyqUXRkN2PC5eXGYIjQRsE_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "152a844fe103accc4a56c155f8d9b2f97cca205d9b4871a6797a66951316ba96", 
-                    "b97c81d1b787db9719b74f2af0ed06db68ddeefcf807ce456d93664937efb764"
+                    "bc:JzyaTBNl4V-twqba4QnOX8dOEmHRo68UGQYfjeiJFrc_pr:none", 
+                    "bc:JzyaTBNl4V-twqba4QnOX8dOEmHRo68UGQYfjeiJFrc_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "75cb0c86a6cdbed7caef7186b1a917e8e59f8d0b8761925b9290be916acc212d", 
@@ -266,8 +267,9 @@
             "return_type": "int", 
             "variants": [
                 {
-                    "c_code": "return *input0;", 
                     "_idx": 0, 
+                    "c_code": "return *input0;", 
+                    "scala_code": "return input0(0);", 
                     "java_code": "return input0[0];"
                 }, 
                 {
@@ -293,12 +295,12 @@
                     "53e01cbe2cb7024bc195dda65c9266e9cd11a22773c562b95e871649a2c904e7"
                 ], 
                 "scala2.11.11": [
-                    "ece141781a3b6f404a2c695d32c737a1de73104dea167afc1f269bb95fe6d8b1", 
-                    "622b23cff9a4914e56ac8a3697a21951f2feb98a9ddf034c207e4782ca961a91"
+                    "bc:1TCW4jkimjZPrA_zJiJ6zA_xtCb1ZXxOuxANeOq--iM_pr:none", 
+                    "bc:R9ism2kt3zpq1L0TZa7eaJkwDK46t9-DsM376RK5iQ4_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "b3e0f94a1fd06c9031ac2765894f1541c8958f9cc772ab1de784a9667ed3e4d1", 
-                    "2cb16b6bacfb974755680f0bb17ed3ecae040f80e81db298beef1c7d9ea853cf"
+                    "bc:-pjCpfXfv6m9XS5OLRed43yhpJz7mJ1VH7TG-f3_kus_pr:none", 
+                    "bc:1nfE77FHgTnvHnqFSMGSuWg7PoOqeq_iXYIee9AbyIo_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "667252a51273b58399bf7f007bc5e5656b2b8c626283251fed6c49d78a965152", 
@@ -338,12 +340,12 @@
                     "43fab78f90f1b17c2037f550e1a99ffc9f4513d5b4dba00a97835ec991555a08"
                 ], 
                 "scala2.11.11": [
-                    "38d70fa47e82222f9fee92d4f5275d79680f1793988c1343a14aa640e9c799e1", 
-                    "66e75d40c18dad199518f1258a4d9c2d8df8a311ba02e79458ce387099ef647c"
+                    "bc:QUHr5Yyi-83QZNvgQ82jN3YR1DrkKZD4TRvET3nvGME_pr:none", 
+                    "bc:gGcOOz5Fs9d6Ivv8bD9ckP_J6201Tor2eVbCMFeh8JQ_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "5699fcb7efe87cc6ebc45eb5a76d93d21f348411feb1634f92ff8d63139f9fc2", 
-                    "778578145b56993d564eee8d3d2fc677229e8eb57ca402085804ec0d4e797991"
+                    "bc:Nv2lF_8ikMg7x3TZ7bLwsS8UMNG8c3uVXBdbfxi0REw_pr:none", 
+                    "bc:PkQfQmsDLyIzqEXVztr9FZ7e4tKegVHhdgYubpT2yO0_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "94b4ba3213bcfd7020f1c70921c90610707b406548e1be86cd561a2341a1e33f", 
@@ -369,39 +371,107 @@
         {
             "origin": "tpcds_survey", 
             "name": "logical_op", 
-            "expect_failure": {
-                "c": true
-            }, 
             "program_hashes": {
                 "clang_-O3": [
-                    "1cfde175b88dba6808732b92cdcb7695e9cf8eab2b18cdd4bd025fffc5f6fda6", 
                     "a5377ebc7425f788a1ba0453f27050f1f4a2799280673f7ddc978492365ea524", 
+                    "a5377ebc7425f788a1ba0453f27050f1f4a2799280673f7ddc978492365ea524", 
+                    "1cfde175b88dba6808732b92cdcb7695e9cf8eab2b18cdd4bd025fffc5f6fda6", 
                     "a5377ebc7425f788a1ba0453f27050f1f4a2799280673f7ddc978492365ea524"
                 ], 
                 "clang_-O0": [
-                    "bb50c367b77e66dbfaacf9086093da2ce5f9b43b85a468d9e7ac371d434519ec", 
                     "eff1946ede938b190b428dcb7b4250f21785fc1398ec656ea3a71b2b3715584f", 
-                    "3b849f9c6097d456f573918a4366221a667d09663be3a50c0861a041dc0f0e15"
+                    "3b849f9c6097d456f573918a4366221a667d09663be3a50c0861a041dc0f0e15", 
+                    "eff1946ede938b190b428dcb7b4250f21785fc1398ec656ea3a71b2b3715584f", 
+                    "c4fd651e3f6e3e963e28fde405909e1d481b82f839e078acdad230922446c549"
                 ], 
                 "gcc49_-O0": [
-                    "84abd63b0c7372fc2ec9f2246594f00d9c1ee55ceed60c7e1e661b705bab212c", 
+                    "e1a45b904a6bf9e58bf2c53b3ab607105e86405c138e1a781676d441c3a029b7", 
+                    "e1a45b904a6bf9e58bf2c53b3ab607105e86405c138e1a781676d441c3a029b7", 
                     "e1a45b904a6bf9e58bf2c53b3ab607105e86405c138e1a781676d441c3a029b7", 
                     "e1a45b904a6bf9e58bf2c53b3ab607105e86405c138e1a781676d441c3a029b7"
                 ], 
                 "scala2.11.11": [
-                    "37a0038202c456b51ed8f819f033cdb0c97ed97f4d338291112d21d9c7e899b1", 
-                    "db3e20f687b8f3d6b98c0b5b34bf17bc5990d2dd093338a84d774181136507e6", 
-                    "3b3a83a2e32ae340527f4d61cdb2b02bfa823ff2b82ad04e605bbbb9d0121658"
+                    "bc:GAKCW85YEOYt_2VguUHCM9k75bJL8l3pF9EzpnYevws_pr:none", 
+                    "bc:afXjJvFeG-7kjmXCon-FSXhsoL_pflZHFKu6vh6zeTU_pr:none", 
+                    "bc:GAKCW85YEOYt_2VguUHCM9k75bJL8l3pF9EzpnYevws_pr:none", 
+                    "bc:GAKCW85YEOYt_2VguUHCM9k75bJL8l3pF9EzpnYevws_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "77a0649b909367e73b167913fcac048d318744a92065435c5438ffa3121a40e9", 
-                    "d80fbec52c7f987040610917c52e59f2a4b7bc0266b886e07700e00f68c6d62b", 
-                    "6d9becb6dbaa6b7b1838dad7fc5e46e86f434fdbc857c7bda9d65f7086a414a9"
+                    "bc:53ccUv1BWEfdzuFu7iX_gnnP3kdDjA_4zODvEVTgywU_pr:none", 
+                    "bc:53ccUv1BWEfdzuFu7iX_gnnP3kdDjA_4zODvEVTgywU_pr:none", 
+                    "bc:53ccUv1BWEfdzuFu7iX_gnnP3kdDjA_4zODvEVTgywU_pr:none", 
+                    "bc:53ccUv1BWEfdzuFu7iX_gnnP3kdDjA_4zODvEVTgywU_pr:none"
                 ], 
                 "gcc49_-O3": [
-                    "5d56a8b1d15a2ae7eb703eaeaa7cc07c4a0e3ac94b71971cd61619aa50fd9c9b", 
+                    "aa5f363d173ae47adca7dcbb547ead67cae1b1bf0194020d6e72d5ee07860c3e", 
+                    "aa5f363d173ae47adca7dcbb547ead67cae1b1bf0194020d6e72d5ee07860c3e", 
                     "aa5f363d173ae47adca7dcbb547ead67cae1b1bf0194020d6e72d5ee07860c3e", 
                     "aa5f363d173ae47adca7dcbb547ead67cae1b1bf0194020d6e72d5ee07860c3e"
+                ]
+            }, 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "return_type": "boolean", 
+            "variants": [
+                {
+                    "code": "(input1 == 20) && (input0 == 10)", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "!((input1 != 20) || (input0 != 10))", 
+                    "_idx": 1
+                }, 
+                {
+                    "code": "(!(input1 != 20)) && (input0 == 10)", 
+                    "_idx": 2
+                }, 
+                {
+                    "code": "(input1 == 20) && (!(input0 != 10))", 
+                    "_idx": 3
+                }
+            ]
+        }, 
+        {
+            "origin": "tpcds_survey", 
+            "name": "logical_op_short_circuit", 
+            "program_hashes": {
+                "clang_-O3": [
+                    "8804d2cb9ae3c0e7021235e976e7d190397fee2913029f72ba3512f626259bd5", 
+                    "8804d2cb9ae3c0e7021235e976e7d190397fee2913029f72ba3512f626259bd5", 
+                    "f6c2388e6c4efe37d7c1cb4de173f3e6cd10bfd10ed857e9fc5f51fac846e6c2", 
+                    "f6c2388e6c4efe37d7c1cb4de173f3e6cd10bfd10ed857e9fc5f51fac846e6c2"
+                ], 
+                "clang_-O0": [
+                    "a1deab3ec36c7319929542bf0eb0b5200ba92df4e074b2bd13f0b2a4906a365b", 
+                    "644aaa6407f6df313313f2e879f15176501b5493d0d1ab22298f40f548cec4ea", 
+                    "779798a9f380dde22ac77a8f0b3f837a820dc7b05c05552d1d1db4bc14ec4091", 
+                    "3f9be7537d7a742f6911298230c071e37f3b1dd09d470ed09a8f52c5de7321eb"
+                ], 
+                "gcc49_-O0": [
+                    "ebc854df7e276ce18f2b6a51108010191dac8f3e1adf4add2cd007dacdc8a8c6", 
+                    "ebc854df7e276ce18f2b6a51108010191dac8f3e1adf4add2cd007dacdc8a8c6", 
+                    "66d73fa9df1b43146ea6796acd7b714ba773a218d8415acaa290749a1d7bb1aa", 
+                    "66d73fa9df1b43146ea6796acd7b714ba773a218d8415acaa290749a1d7bb1aa"
+                ], 
+                "scala2.11.11": [
+                    "bc:wNO-t99OmMnt_y6YIO1ipy4Nl9BAbcJjW8wKpaGUMz4_pr:none", 
+                    "bc:lTaLillscfNOQLQwsr3hLyTlZJom1IpfLM926B9TvFQ_pr:none", 
+                    "bc:GAKCW85YEOYt_2VguUHCM9k75bJL8l3pF9EzpnYevws_pr:none", 
+                    "bc:afXjJvFeG-7kjmXCon-FSXhsoL_pflZHFKu6vh6zeTU_pr:none"
+                ], 
+                "javac1.8.0_66": [
+                    "bc:5gDwPQZFgTpc0XlVyTRdmHAfH13klvGZJWpLvJICN2U_pr:none", 
+                    "bc:5gDwPQZFgTpc0XlVyTRdmHAfH13klvGZJWpLvJICN2U_pr:none", 
+                    "bc:53ccUv1BWEfdzuFu7iX_gnnP3kdDjA_4zODvEVTgywU_pr:none", 
+                    "bc:53ccUv1BWEfdzuFu7iX_gnnP3kdDjA_4zODvEVTgywU_pr:none"
+                ], 
+                "gcc49_-O3": [
+                    "89c0949a7c7ccb621ee670eb68cfcefe804ad51bc9333893b18980746c91be00", 
+                    "89c0949a7c7ccb621ee670eb68cfcefe804ad51bc9333893b18980746c91be00", 
+                    "c0c6e78c99c7e14c5f896e0fc4cd222c3e04eb8ac8f5a2d07ab69a7fe2561fdf", 
+                    "c0c6e78c99c7e14c5f896e0fc4cd222c3e04eb8ac8f5a2d07ab69a7fe2561fdf"
                 ]
             }, 
             "input_types": [
@@ -415,12 +485,16 @@
                     "_idx": 0
                 }, 
                 {
-                    "code": "(input1 == 20) && (input0 == 10)", 
+                    "code": "!((input0 != 10) || (input1 != 20))", 
                     "_idx": 1
                 }, 
                 {
-                    "code": "!((input1 != 20) || (input0 != 10))", 
+                    "code": "(input1 == 20) && (input0 == 10)", 
                     "_idx": 2
+                }, 
+                {
+                    "code": "!((input1 != 20) || (input0 != 10))", 
+                    "_idx": 3
                 }
             ]
         }, 
@@ -441,12 +515,12 @@
                     "a0583ef7ec8f84183fb1bb8322f501ee4089177f89b2b4a811e209d8ccf3940c"
                 ], 
                 "scala2.11.11": [
-                    "fcee5e8a41fe939c37d29b2a90542850b97f92928294d776f9b141bce4074565", 
-                    "7b44f227f9cf7b681917f284b859457e3941c875ef4a0087f1555c97ee5a7c8d"
+                    "bc:-nzvvLF70pqkOdNQnxapWXUo3etbcZ_9PmOWPmCp2c0_pr:none", 
+                    "bc:1qiCZNZCm0G3EZr1OmBQ44KN3qnWD2syx1RjXNvlwKA_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "c49022be923542441e44d2e52926591bead7bd8442733c8847c6c25c45b39b90", 
-                    "fc7be7e5dd99765bf9a10fce73f00b2ec9bf5a60d82b32589294b10b4a245804"
+                    "bc:CyBTE7DTM-F1GGX2zBUvEsk0VFbbNDdci8MBxcRC8a8_pr:none", 
+                    "bc:HkTG1YGmw2r7TVi1SVbK58mTIRfwKzkSBSX3J-U3QHw_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "5e454d6e18ac382325b810d933c44c65004683f1af5ed900b6cd915f140e9b4d", 
@@ -486,12 +560,12 @@
                     "3dfae0cde5093cf9fa25cf9031be2ea8d0ee44c7690742385054fc7dcef48807"
                 ], 
                 "scala2.11.11": [
-                    "d64bd3faae7c600962938cfe12b2202b98d119883435a828c168fc49479cd0ff", 
-                    "38de73f0f908031492a8b1b29612191c8322c0f0b8f1e18a91cf5beee8bd61ed"
+                    "bc:fBgtl7mh6qNBe-npS-qSam6QPBmWpswipWPuS1XtcY0_pr:none", 
+                    "bc:tznQNweKZAa0ZwzuGuPMFMc-totPYMGSYV-FmznCys0_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "f3b25e973a8a3bf5c9d106d8bfdcbcc67cf543a7484a1d3711702100f162abf5", 
-                    "f0379ce2d64480f7e9a4ec7fa24a743cfb359d5fe78d8c4a618001927ea465f5"
+                    "bc:uDy10A9YzsAWigYFcrkuY_r57mCc1rJfvFdHPokS5b4_pr:none", 
+                    "bc:xvg7qIoSPdAC_l8UpF0qiuWKFTyqLWIA3hyMKbklAYs_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "dc4dc8dbd37a06c46dd59dc81f88d79f8c429c043045df87cbc0d592a8cb1954", 
@@ -532,12 +606,12 @@
                     "2faa2a75ed48507114f567f8f0924e97af1b62b64fe21093189cc600451cd804"
                 ], 
                 "scala2.11.11": [
-                    "d961cf73ed9dc7432b8b2eb3b38341b4e093a176ea9db2b59dd8754a6d65b3e1", 
+                    "bc:fBgtl7mh6qNBe-npS-qSam6QPBmWpswipWPuS1XtcY0_pr:none", 
                     "skipped_no_code_specified"
                 ], 
                 "javac1.8.0_66": [
-                    "216070bc0f331f854c800c2d110eb11a8d53fded4a1bf54b8046ba0545b4749f", 
-                    "9b718789edab74b8df45d3baf492d8703c4df48bb2f39d2e14bce8c882e21265"
+                    "bc:uDy10A9YzsAWigYFcrkuY_r57mCc1rJfvFdHPokS5b4_pr:none", 
+                    "bc:WxkSd98yMSVPM7dDpkoSbRE3zYp8PgmjL7DURFtAsFI_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "222856927000d610f5bc76f11036a57d843fa4d03b66973a1aebed40d941e19d", 
@@ -639,12 +713,12 @@
                     "df2ff7bbb5ebacb5d8fe0f2e7388e75cd99ba9430aeeafa0e075ca23801a7420"
                 ], 
                 "scala2.11.11": [
-                    "1b84ba7b6957097c31a451422d5ae430c19945f646714f8f7bb0428aed1b08eb", 
-                    "e3db2091577c3970c8bf3a064901820994e6d93675998751627b2fb6133ff43c"
+                    "bc:ZlLYvOFDYOJEvTlDHSuN144BX7IYfnjmhjU2hejB44Q_pr:none", 
+                    "bc:oZrZQ-tEVM0WNJMrg-89HHdztgz0Lw-3YzMaVVVH1Ug_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "c98f454ad6b983986563461adbfb24c00c9105a332dc82d857086dfb1155b358", 
-                    "5168959011203e94ac84ef6755429ad5d4ab6a10d3c0b1fd16747fe7e8eb5886"
+                    "bc:ZBz3Rv54eep4kg7rrOLbF53scIB1PGp8vmwdvBmUzzo_pr:none", 
+                    "bc:6eui96MkkON_1mDc-8Ct6imH_kXifmnVbtZIE2rOjpA_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "d85c55bd9ad98603efdc4a33a0ebd2f1f5c0aef182356a8ef1b9ce92f9d83a73", 
@@ -686,12 +760,12 @@
                     "092ec868f84ec7bb2bf9883019045bb2825aad3e35003f4671ae61f14d2c79b2"
                 ], 
                 "scala2.11.11": [
-                    "1287c249179f41019336abdbc1afefdc22faf15417b737a8514f6c2fc28e6327", 
-                    "18c0b20756100566a693c60e97fe5f7e1310407fb07d0a0440791db325694629"
+                    "bc:ZlLYvOFDYOJEvTlDHSuN144BX7IYfnjmhjU2hejB44Q_pr:none", 
+                    "bc:u-b6Pv88GSHUbyculaKbRWIKgK5CKJoah61pPoYHbsQ_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "3ce1e278a302eebceb6bc67517729b668e07659f19ae5376b6464cd65c1ba76c", 
-                    "766627100f6fafc1e85acff9563983c525b8cb566cd7e00a951cc7fc5076f506"
+                    "bc:ZBz3Rv54eep4kg7rrOLbF53scIB1PGp8vmwdvBmUzzo_pr:none", 
+                    "bc:VrlgJZdVC6Oz-sh2Zjr0-MbLUsVWyZ2io9RLQDbDw28_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "6a6681bcbd066765c443209f3f03613a9f0e7d591b3a4f1eebc1dfd4fc58e51b", 
@@ -733,12 +807,12 @@
                     "b080ddd83f827d20d89e989ce76cf289e3b2432bbe2ba57fbfb8acd147b0903c"
                 ], 
                 "scala2.11.11": [
-                    "f4f0e2f4ce8c0927ee7df0cc7563de44b5312436e274f71724c96bfea652985a", 
-                    "22394e20b1d79d24fd66ad8ac27bf88e098c5395459aa7c8c4301bd848078ace"
+                    "bc:ZlLYvOFDYOJEvTlDHSuN144BX7IYfnjmhjU2hejB44Q_pr:none", 
+                    "bc:pjCo-T3hrsFn_3C6Fe-zn7MNdZHzP2V4DowQBV7Vd9A_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "22afb48c188fcfb0ff6c7b6b4080149493b416700e1d434c234c9666cd37e248", 
-                    "eec80d5ee514297263f751f25509bfd637995aef3cf416787e0481fe20d264ac"
+                    "bc:ZBz3Rv54eep4kg7rrOLbF53scIB1PGp8vmwdvBmUzzo_pr:none", 
+                    "bc:Tj2W3HEULSgoLb8_4FTgiLAAvVwA_UsELzbaXYIbYYg_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "247d89af49d8b68d7b21c3462530fc5d027cd65a0442a98489719c19fb03dc0e", 
@@ -784,8 +858,8 @@
                     "skipped_no_code_specified"
                 ], 
                 "javac1.8.0_66": [
-                    "c5e23005fb700d81e069ea4f23cd03baaeabfff9f8e2c1dd730c204f0539c36f", 
-                    "2b93dc45632b2fbe46866cfb734f57d9f4e09cc6d46aeac12c5e44083d1b5dab"
+                    "bc:zXV2s-JeLbAyyaEK1MQFTHEwPeIgS-Joj42dOFJrwqU_pr:none", 
+                    "bc:oTPfGAyAKsTqcv06DXqGkRHOArklFKSvEod6T3pijn8_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "befce9992d63ca6f48cc7bc28e7b695be6b39c3cd546754e81d5bed7d89f4f3b", 
@@ -828,12 +902,12 @@
                     "5e93ff8c5169b0b5277f461d0dd4debc9959b22d7184e90ea1612cde3ada2cc5"
                 ], 
                 "scala2.11.11": [
-                    "386f69c121274f248fca79ac51b2a384cb671cd3bc313a09dc39d5030ce88780", 
-                    "9b22653ed7dc55764e73ef6d8d236b3fcb178e84ae8c0eec9ec47ac8643d0181"
+                    "bc:0OPJ81Crgo2DKJBBEkWNRU4dA4k-YyNaC6P3-fvRhVw_pr:none", 
+                    "bc:PIZp4Q8wW3Ej3QwQ790y5vPzGZDm9iSivbmB7wBK7Uk_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "9479cc1bb702937c5129b23007f676cd96a0e23723f17b922a34ddbae5d40deb", 
-                    "773f006969c86b217d3c46ac8a0746b29e0e8da5b8866a2d0a00f5a26b0a0cfe"
+                    "bc:EQ43DP5GHNLdcN60pvoLPYfqZTiZi9DyRKLL3SggYCo_pr:none", 
+                    "bc:cn5cHumlnccclHYJiqrZRN3Gz2Gs2TfO4ed06Ah3EEE_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "1708a03811eb3ebab29b198a15a11d02b32f741a35da399d55218d49e703d17f", 
@@ -873,12 +947,12 @@
                     "2ccea19d330a29e237af2cc9127e02c6169de8ffb44ae75c42390c9a4afbe3dc"
                 ], 
                 "scala2.11.11": [
-                    "5b29971bf309ff082758c3503643d86e3798bc7ad8611d4da52d6e16aacb2dbd", 
-                    "0c93b721e516da270fbf8f6ef33913f2e1d8d25254eb2baa63e9f9b264b845ac"
+                    "bc:UjNYY2irVPQElKoiKLxY0gjU0mFHfBoPmPRL1PzTTM8_pr:none", 
+                    "bc:qozCKEolWM56qRak0nOBiLHnb2oIzIXi4HR2CMi7WeM_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "7d3d4a7b4309380878db28f8d5536b4780e169c1beca0ec3304da1ebabfb45d2", 
-                    "632885853bc3493664286996003b85cc6c745a5c7ff6188ca99db91b69f6a83d"
+                    "bc:Hp5P51A9co04Lfl3wGYbRbJK42w7Ab3wGM_gMXfceTM_pr:none", 
+                    "bc:1I6CVd6NGQC2lZwW1RqMu378Z9iSU_JSvAWENsfA20U_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "abed45a414c2bcc0491019f09519313378a10d4accceb5f12768e9432d123aed", 
@@ -921,14 +995,14 @@
                     "fd83aeef8dd4577ffdd2005a52bbe5c624f83be304c4de2dd4389a4ebaa3d7b5"
                 ], 
                 "scala2.11.11": [
-                    "f097bb9b025e9cea0c656b3e5dcd7a1b1106c4c81c4fda31eb0c073a78b5ccea", 
-                    "51373d216b5249a90b648e9290052399c92d731e653b9e11da1f7e96ec02df81", 
-                    "33d0f79e10c166b002482f8b552abd4725c28754f280d53905c6375e203a4534"
+                    "bc:xGsSO0FPKVZbTYkPpatoaOLnHNpM7bnQAwiRZS80xwg_pr:none", 
+                    "bc:cqRnYTjd2izcnICi1X8ujpkPayNcDT4nl9kj_cJtvqM_pr:none", 
+                    "bc:9Zund22p-8sweB9xSdNvb4PQFCcBNvvMo9PwI4qzqE8_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "e5f0c9db24a53d91b7830d48ede1b1603a16929b65460e1e6f82e98529bac0ed", 
-                    "a7128eea84e8898c22956d9686474d532dd4c85daffc19040919487620be22ef", 
-                    "59b32874baad99db593a66a2f815a049fa0ae6b76106b0e72c901ca5f6e58560"
+                    "bc:QW83Z5Ib3UK4R5vqls3u2glXwVD1Z_rIyEKG7FrArp8_pr:none", 
+                    "bc:eqJCr7H6akPJjKbP595KaUly5iYsAvaZiCc4tiUOjN4_pr:none", 
+                    "bc:pI2dhjNEM2JnKuJEO2kMoJlg9-vQScm4RxRtXSz6MMA_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "f517cbdee94c63cf734a85233d0cf7c122209cdf8e9d02fbb338d02ed8563a8b", 
@@ -966,30 +1040,36 @@
                 "clang_-O3": [
                     "822b20ef4d4efa7b280d9d760c72051819858b3f6d3a0632f219ce9c23c0e27b", 
                     "822b20ef4d4efa7b280d9d760c72051819858b3f6d3a0632f219ce9c23c0e27b", 
+                    "822b20ef4d4efa7b280d9d760c72051819858b3f6d3a0632f219ce9c23c0e27b", 
                     "822b20ef4d4efa7b280d9d760c72051819858b3f6d3a0632f219ce9c23c0e27b"
                 ], 
                 "clang_-O0": [
                     "e2f54eacd1757da8006ceac96b5d90dccacbdad3fa3d67621a2223779a8a3108", 
+                    "ea579828a75b671c712192cfba4e61683ab040cb63d0eb5a63e7c6e0eb9b447c", 
                     "ea579828a75b671c712192cfba4e61683ab040cb63d0eb5a63e7c6e0eb9b447c", 
                     "ea579828a75b671c712192cfba4e61683ab040cb63d0eb5a63e7c6e0eb9b447c"
                 ], 
                 "gcc49_-O0": [
                     "600bddcd4796e3dfbed09dea1ae46ca88b7bfc082a2a0ea0f5357da36b515b93", 
                     "3a1cda1c65c3d4b62f637e43f741555d6da635174cfde7adf31029356b27fbb5", 
+                    "3a1cda1c65c3d4b62f637e43f741555d6da635174cfde7adf31029356b27fbb5", 
                     "3a1cda1c65c3d4b62f637e43f741555d6da635174cfde7adf31029356b27fbb5"
                 ], 
                 "scala2.11.11": [
-                    "bde6b41a8bb4434e61a61561cd3d1067b80e077e744c4f90b10a798b2b3b0270", 
-                    "2bacf6c6f9a37e86abab6d3c9186e809560b2b88acdebf591c55a243fca547a6", 
-                    "82c128dc278dbd274de478c968451d26dfbe01514b84400260a8460888623c3d"
+                    "bc:2VH8vkgNWrsQjMB66fwnWcmHGGdsRxbBzubIZ5fiMMU_pr:none", 
+                    "bc:SALL3lIYKifytK-CiKdfPdPORPBC3dLsq7IjFmBZ9RU_pr:none", 
+                    "bc:SALL3lIYKifytK-CiKdfPdPORPBC3dLsq7IjFmBZ9RU_pr:none", 
+                    "bc:SALL3lIYKifytK-CiKdfPdPORPBC3dLsq7IjFmBZ9RU_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "ee2ab7fb3b0f952c9898b6db075a3b5b62ace1e538c68bf64dcf65487df21c3d", 
-                    "1b5ab3cef488ef3c4cfa9bf7c9c51f9ab2648c1bc4b6dbc398b256d05a069e6f", 
-                    "7d9b3ceedc0b0ff02acce1bd05a7b27b108c093778fbbf7a65ae8d30623e394e"
+                    "bc:jvDHv1TBDWRHzqAAI9FtR95pJr7os8np-_tnnbg8YZc_pr:none", 
+                    "bc:xx6QrwAAd9U5xhzg_U58eI4zicHDuNChU7L_MntC9h4_pr:none", 
+                    "bc:xx6QrwAAd9U5xhzg_U58eI4zicHDuNChU7L_MntC9h4_pr:none", 
+                    "bc:xx6QrwAAd9U5xhzg_U58eI4zicHDuNChU7L_MntC9h4_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "e7531da0e38a8e53f2a9dfae796b11d502ab32998b38678cd2bdac3c22b6a0f2", 
+                    "ce704e7c79d5606921daed6638bbd31825a8de3bbd54192dd4dd53e9e546d86a", 
                     "ce704e7c79d5606921daed6638bbd31825a8de3bbd54192dd4dd53e9e546d86a", 
                     "ce704e7c79d5606921daed6638bbd31825a8de3bbd54192dd4dd53e9e546d86a"
                 ]
@@ -1014,6 +1094,10 @@
                 {
                     "code": "(input0+input1-input2)-input3", 
                     "_idx": 2
+                }, 
+                {
+                    "code": "input0+input1-input2-input3", 
+                    "_idx": 3
                 }
             ]
         }, 
@@ -1024,30 +1108,36 @@
                 "clang_-O3": [
                     "dfc92b967cc6d5fb504b1ed968157faae4ae164f39bc1ce24d9a52eee77f33f5", 
                     "dfc92b967cc6d5fb504b1ed968157faae4ae164f39bc1ce24d9a52eee77f33f5", 
+                    "dfc92b967cc6d5fb504b1ed968157faae4ae164f39bc1ce24d9a52eee77f33f5", 
                     "dfc92b967cc6d5fb504b1ed968157faae4ae164f39bc1ce24d9a52eee77f33f5"
                 ], 
                 "clang_-O0": [
                     "87404512348fb02a675669c470118bff4caec9cda1bd39b527ff91f246ee2d8a", 
+                    "5d44f1b972eb77d1add818c92debe07016a98499a9ef8476406532a3b8089fef", 
                     "5d44f1b972eb77d1add818c92debe07016a98499a9ef8476406532a3b8089fef", 
                     "5d44f1b972eb77d1add818c92debe07016a98499a9ef8476406532a3b8089fef"
                 ], 
                 "gcc49_-O0": [
                     "4497db98d8fe1ee0170b844df84e94da6fd8dfbc2c299f043b3312e8f98c1c1f", 
                     "0ca0851c1502b895fb0f850b142d5292e62929040bc46a52dc299d5ee710cb9d", 
+                    "0ca0851c1502b895fb0f850b142d5292e62929040bc46a52dc299d5ee710cb9d", 
                     "0ca0851c1502b895fb0f850b142d5292e62929040bc46a52dc299d5ee710cb9d"
                 ], 
                 "scala2.11.11": [
-                    "de929c25a7b53b20d5616c553a2c9bf6da0747d999c73d72d209fd91590c3186", 
-                    "a7bb5182fa393f86a55366e975757a60ec5c61c0e01564271513e906b58e9b51", 
-                    "ef7c1c599b1f301c040bc37444e4faa0e740d507463ccf3e91fda166d81ca62f"
+                    "bc:UhUSc6xb9sGBAOK2QTtVq_7suWeicIFuiF-foNehUmI_pr:none", 
+                    "bc:xvUGPXt0JrrM61i7AThq8s9LTMl3Efzt9-1QKqFKGXQ_pr:none", 
+                    "bc:xvUGPXt0JrrM61i7AThq8s9LTMl3Efzt9-1QKqFKGXQ_pr:none", 
+                    "bc:xvUGPXt0JrrM61i7AThq8s9LTMl3Efzt9-1QKqFKGXQ_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "73d046ea5eb0462f6c490e2e45dbcf1901f39eab59b4079837db1d5d7d5cfc15", 
-                    "977405a58adad7cc1cdeadd2dc3e8af1599ed9cd1dd2b3fda472715b595b46bc", 
-                    "a9a1d51e1c6420e11a34cb72d493514564d2584132e6ecd40e7303d2c65cf1d3"
+                    "bc:byo5SFYQDcZCzbXbdooQ-yXZLtX9bJpCuzvsgOeIQpM_pr:none", 
+                    "bc:DtCBUeboE1JVom5z5A17-PB2ErXTG0mo2wUUahP1APw_pr:none", 
+                    "bc:DtCBUeboE1JVom5z5A17-PB2ErXTG0mo2wUUahP1APw_pr:none", 
+                    "bc:DtCBUeboE1JVom5z5A17-PB2ErXTG0mo2wUUahP1APw_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "af8d66769245089a48fea7c2c00314ef1014661532e3359f9da59a8e3040432c", 
+                    "43c4def7a3f22208f6819f7fc8787d678aee543e0da5fa7cb00ea80c6f32309a", 
                     "43c4def7a3f22208f6819f7fc8787d678aee543e0da5fa7cb00ea80c6f32309a", 
                     "43c4def7a3f22208f6819f7fc8787d678aee543e0da5fa7cb00ea80c6f32309a"
                 ]
@@ -1072,6 +1162,10 @@
                 {
                     "code": "(input0+input1+input2)+input3", 
                     "_idx": 2
+                }, 
+                {
+                    "code": "input0+input1+input2+input3", 
+                    "_idx": 3
                 }
             ]
         }, 
@@ -1095,14 +1189,14 @@
                     "40e74dda36730c957151748cc1d5135a541794d9b81fc95bef447f2e0078fe80"
                 ], 
                 "scala2.11.11": [
-                    "f9ea6fd425086deea78d8a53a4801b2a808fe19c6f54bd9906eaf19a17859eca", 
-                    "dbf0b9a14c8dfacd89ce1f365260662dfa0e52e208c537a9015c0fdc16c10252", 
-                    "5c9c166d5344ba91181e95921dba3928336cd79306d66ae3cf0b7de5c351ff28"
+                    "bc:hPQByZEcQVsSYT8vft5-ffnf0b59oQCmoCngTEcRAkw_pr:none", 
+                    "bc:-nzvvLF70pqkOdNQnxapWXUo3etbcZ_9PmOWPmCp2c0_pr:none", 
+                    "bc:txFf0qpZX3bGOKYyoljl96CFGG8AmcweanpgUrSd-a8_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "6800564059dcb8b382f35261fc0ac47cdc0dc6fd63fef08ae97149979c1b4858", 
-                    "3710d39250896049734bcfe13bab62187af327b44004e7ccbf62ec6b64cc3b93", 
-                    "1170fd8008c3373efcd28bf63953eee8af3bc557e0f913e48e64838327f51b82"
+                    "bc:EtUbvX16o_2rKjr1WwI82OgDI3Af6kD-qrBXNhRYHFc_pr:none", 
+                    "bc:CyBTE7DTM-F1GGX2zBUvEsk0VFbbNDdci8MBxcRC8a8_pr:none", 
+                    "bc:rFKGX-6SUPY_F6xxrx2L5v_q8EJxGMP7yduN5XpQdsI_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "a034fa8027ec5a8ff4b2fb3e9c2dedc554cd596d2dcc7dcbb2567d73c3ea7c4e", 
@@ -1148,12 +1242,12 @@
                     "de1b30b3ed389fde838961ae7cde9e8c8aa7901ddf4c17fe7eba66c060ac26fd"
                 ], 
                 "scala2.11.11": [
-                    "da82bb67324dbb835a71ac8189064da58ea2d2c39e30a0ee6236f298898333eb", 
-                    "40adfd1a34332430046156ca2c9430a4fecc7f5c80a4edb2d0224939bf2b0c60"
+                    "bc:2JWyK0kThz6qDPCPkNczqUIBQrFV5FlkE_F7KYttiRc_pr:none", 
+                    "bc:AMoy8oYyHu5C9jCTjDHqyz32PxY0y_dX2YaqDJe9A5Q_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "ce46f6a4476c7b024291cc77078682e467bb78962ec138adb475baf0a1c0c8a7", 
-                    "9131e231c4b02399bab550f03f2439d66373c06eab23ac651e998de089258ded"
+                    "bc:MwIRhR2D7eD9ICQCkUHb12p3CzrHpMLhYYQa7BtVYWY_pr:none", 
+                    "bc:SmWxsQUFARzKf1u9QPnFpjiq1xZ7yQ5XGkazc7QzEMo_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "4ecc0560d56b488db9afbc4e9f384c92a4021a0d5301b76a6e576752cfeafded", 
@@ -1194,12 +1288,12 @@
                     "24ac53cbe5c24fade7bd8173012add437c4f0dad37f4e7a95365910df832f230"
                 ], 
                 "scala2.11.11": [
-                    "88472046e160c2469cdf9c760bc6f704d154310e1a54cd94b85e77914ae83bd7", 
-                    "227348b9910f0ac900e6eda8a5f89877b38393d38c8eef483197da411b2aa975"
+                    "bc:-mB2672opIpSPeisq-8nh6dhxnN_kc1ucCcuKtIKSac_pr:none", 
+                    "bc:fjV5AjpDfNTxhW_bRy__UnEySltEnHHRK6QfEyfylqA_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "392ce04005a543d4c0c78a1b7f338bbbe00f7cd884d0934497b55b7d17ca3a5b", 
-                    "4fb91744a3cbd561015ba012f769e4beaf97abdd75b800ba578ee445851e6dd1"
+                    "bc:fCyTuNluY298Bb-eER5BJFTjPA2u-mw5KFa03lJEoOk_pr:none", 
+                    "bc:oZsbP5rBRPnQSwiCEpnSi_7VG6wojqzYDZHm7GmDkiE_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "b5cc10b1df85166d8ba1f8e362934937f97b1228598824bfe28db01e76b7a47d", 
@@ -1241,12 +1335,12 @@
                     "62deac006ce47fd0ac3565be1158bb9c952348fa700438a7805275cba2ace166"
                 ], 
                 "scala2.11.11": [
-                    "88ee9bcc1a754d6bf2dbb6084cfd750bb0b4f5577af55ea6825d664e19183074", 
-                    "0e150ce057d674360e9cd2ce181bc45fa2c7067db24aec4bec6fa25cf07938f7"
+                    "bc:1SKgyrkLpPTAqg-_2O_SoJe_22Y70fYNUbV6RYVeeSU_pr:none", 
+                    "bc:0he6HQ_nJp2e5XBZPtOvlCwytDB_SmSJixI2Z0ZFXJs_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "b5a055c33333d8cb103d1f78caa2fe1a30a1e8dd79501cc3cb5e90622302c193", 
-                    "0a4f80c2289e8d868c4914dbcc2a11b57fc495d835e541d9308b4e0b720f5b48"
+                    "bc:OqqNnY7R4mdP12ZVhQC9ekbZB6FrdUndzkrzUZ5tifU_pr:none", 
+                    "bc:gRN97w6MIvZ2Vomw0yLC_7iSBIPE4ctKk6VS39bCb7c_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "682cb31c236362a70f0d643af3facf4f5434029370edcba2c1ff2924e1c0fbed", 
@@ -1289,12 +1383,12 @@
                     "8f313863a74d3cf36c9a35553bf8f63817b09950069312de1a6d2e0403e2e5fc"
                 ], 
                 "scala2.11.11": [
-                    "376bb895744dbaed0e2d335c73d28f62456232a72496a4c45618d5610596b95b", 
-                    "0c7491d681528d692b62902e56d72618c002daddc92362258eb7c8b7f951ec30"
+                    "bc:ZAUuCqJxDJsKUP57OuW2LRwYAdv1ucHj5V_VC-nwkF8_pr:none", 
+                    "bc:nsw_pAGie9VWWCRtjbleYYHckw5R8PDG6wzIofo_jiQ_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "c9715349d6ab411b5720000201cd23f3651994a783111cbb16417b54c018dc74", 
-                    "962596e239b550dbcc0f411ec8a32b06b178cf42ca797db2e6ce8684b43e21fb"
+                    "bc:wuOgyKOT4saulTvJZNRgOXT3iEVwe66uYow3v3v2_Fs_pr:none", 
+                    "bc:gNC0riErYh-oJSzsDbQhXVVfA4EG-dopMt_Mkb2cG34_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "e97f181a75d5005c7c9bd0b4653049bd250dd9d351835ef918da4d0e09e5102e", 
@@ -1336,12 +1430,12 @@
                     "f4aea3734217385e3fa179120bff85becd267ab8e89737074982d5d5d638450d"
                 ], 
                 "scala2.11.11": [
-                    "6e455f195acf8c430a2cff120ebbe8b38d7f06e532c1a10c4d42680d5d5c567c", 
-                    "8c58441a6f7b966cb725faa03c79e041db261023e3b76d4ae0e197712f49282f"
+                    "bc:F3__zae-LT5B2eOfNYtkUXMRQAE22DCFY8n0zzIZ74g_pr:none", 
+                    "bc:6hri51Qz7l14m-_uhSVTKVHzk4Z-r2_yGNgtBq03h5c_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "5f128f1259de506de19eae2df444285e807991e3ad5a6d67c2fc2d8bb387a79f", 
-                    "059eacf80c4739f318b37c5022b78aedc7476bd107c8b4d4436b97c709f77b1e"
+                    "bc:z3QX8uFHA1VEdrBtXCOUbBa9rEyjx4PCiaK_t8RPncw_pr:none", 
+                    "bc:b3MqTAYdyMeXJF7zAnTmCQgD0MvFTtwj8T2uTb-jQoQ_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "5dcc2642c5d55b4d1279bd7180f1f7acfc640cde5a7e71449e0c17cc2841e65c", 
@@ -1383,12 +1477,12 @@
                     "092ec868f84ec7bb2bf9883019045bb2825aad3e35003f4671ae61f14d2c79b2"
                 ], 
                 "scala2.11.11": [
-                    "1287c249179f41019336abdbc1afefdc22faf15417b737a8514f6c2fc28e6327", 
-                    "18c0b20756100566a693c60e97fe5f7e1310407fb07d0a0440791db325694629"
+                    "bc:ZlLYvOFDYOJEvTlDHSuN144BX7IYfnjmhjU2hejB44Q_pr:none", 
+                    "bc:u-b6Pv88GSHUbyculaKbRWIKgK5CKJoah61pPoYHbsQ_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "3ce1e278a302eebceb6bc67517729b668e07659f19ae5376b6464cd65c1ba76c", 
-                    "766627100f6fafc1e85acff9563983c525b8cb566cd7e00a951cc7fc5076f506"
+                    "bc:ZBz3Rv54eep4kg7rrOLbF53scIB1PGp8vmwdvBmUzzo_pr:none", 
+                    "bc:VrlgJZdVC6Oz-sh2Zjr0-MbLUsVWyZ2io9RLQDbDw28_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "6a6681bcbd066765c443209f3f03613a9f0e7d591b3a4f1eebc1dfd4fc58e51b", 
@@ -1430,11 +1524,11 @@
                     "9a9b1331b2e4dce9d80d8d5551e433e6ce50275d789f0571e0d556e6c7168f9b"
                 ], 
                 "scala2.11.11": [
-                    "4769018fa65fa7280d7ae05db8b457ebe7cab4ec41338823322a82a9af758609", 
+                    "bc:gng8CSrR_ZNxfLyDFULwfw3JjObpRRIORK2MAqOrPE8_pr:none", 
                     "skipped_no_code_specified"
                 ], 
                 "javac1.8.0_66": [
-                    "2ff48a18d227bc4e0aa2563aa0e142cfc461376afaf91a90267126c787b5951e", 
+                    "bc:MiPOiqwXVSx04KXPs8CcvO_sKeuDPfmV68RwwNMFjbA_pr:none", 
                     "skipped_no_code_specified"
                 ], 
                 "gcc49_-O3": [
@@ -1478,12 +1572,12 @@
                     "725d01e44552c9fb7d2d747a53078e4769830fbd0ce4660984eeecc32b523af0"
                 ], 
                 "scala2.11.11": [
-                    "d2ff2ae453dc8a78cdf53e138a39a77737627d3114211af3dbf1b0b6e07ac8da", 
-                    "1f2e056f3218a9188572da87d53f5a588d0dd6af498f691c19adac88c54f1427"
+                    "bc:M2-FbO9wroY4uUd5NcAPPR7frE0ublrUJYYQA-asW7A_pr:none", 
+                    "bc:vnW6TDfCnFK0jMp2SaDgoQVAS6ObeALXd8vAZ-WYwsU_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "e511b08a601bb5ef04f62e0bd1b948c7145a009549eb2d5e17948c9eb61d369e", 
-                    "33d334ed6415405c4d2d98353b6e6d45db9e1a203ec0c5b643d526e06091c796"
+                    "bc:Uyx375f1rEPkA7GxN_2d92h3ChWDPIzod6fzCRc8GW0_pr:none", 
+                    "bc:EHYDCuKMprPq-WVDiwsTsT3Jz66bcsgJRz83BUYQ0Ec_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "c4eeed94fb31152d26acdfc3c871c19269ed2c3c537099c1d50749617b14351c", 
@@ -1526,12 +1620,12 @@
                     "cb512cf462ad87f5b5267a8312239f70aa938a2d58dd8bb8edfbf87015eb09e3"
                 ], 
                 "scala2.11.11": [
-                    "006cece6ae974ed2b39850e7e2d57904c46500ddb7d91f5a3d3227c4408f4345", 
-                    "6a7a752da18aacbf9e795b9bb64ca452a6a8cf62e37064c3f487018bd40128df"
+                    "bc:cKjsGmKdZAff0aVaBqvpjYFcsClU0qXczhOBcegPM2I_pr:none", 
+                    "bc:QMdsm8iFKAtEh6YAP2aJUazmtMy-ICCCoAI2vD3hA_U_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "11253606999a72669843ec044b7b897111e629a6a45d8d64c600fd88f8fe6c2a", 
-                    "5e467b51b541e84f067dddc35e187a80cdd748b8948ef252e6d4b6fdaafff676"
+                    "bc:U-P7O_jYXCawOyX8zNVliOrZEbCtRYS0iiNxgKDlqQE_pr:none", 
+                    "bc:H1TkRMwfIEIhxMaeE1jYNnlyTTx33FQoZTeVmiqu6Kk_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "dd2c313ea726f0f4735689747994b1c91ca165bcb887850be92b7f0f6b387963", 
@@ -1629,16 +1723,16 @@
                     "c9e617c6c7002e44a68e337a87d3e40478c7d8297fd712c0b6cac1eab6cf6b80"
                 ], 
                 "scala2.11.11": [
-                    "4f095edbbe5a548872309f23fdc0514b7b34039a10a5a7db0039b15ce160f79c", 
-                    "8e61204669aa703fd049b776af2213480f3a00ff90effd7a76e184f46ac26094", 
-                    "ef99f01d0046d4fcfe3509205b692726e5fa952a31738efdf8d7e39b1177dad5", 
-                    "bdb97531235ce41aa1b3658375951249f9f0b409a2e807e7f45137fdb5ac2799"
+                    "bc:7jrDc_kdvWzvWkZIwmoWsPaSMlTMHxgPMmcRofdncZ4_pr:none", 
+                    "bc:aimjBa6eWHGOsc7n5pqGxg1cSBuIPs1KroZSzEYfpmM_pr:none", 
+                    "bc:XC6V14INkXTUTLTQ8Kcm7cfteVfwkhm77TUOlJkcXUI_pr:none", 
+                    "bc:y_5_5AYJT9--BLitNb9ZS4zEKfhIObnA2SzMtMYF5Nk_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "38b37164e7719a71c3785afa1b9b84fc4ea7012ed4cdfa0ab463b4a9c9263a4d", 
-                    "dc29d4e72ecfc7d2770a42f226b1b3e559a06a87ac33502acb29124770f3b8f2", 
-                    "a1d76a31c3a9865f936fcaf4475712e214311407e19c16c1042f6fef17151cbb", 
-                    "ce9b4f9af88e9aab741498a1464ca3ecc7026f514367240336d8ad4b78920f2d"
+                    "bc:-XNAtm0HgXI2Vh4PP3xt-af8uoMfPWzyKlQCuqbqAAY_pr:none", 
+                    "bc:lr2K5XqbuZf4PBG4L5o_jLEqxyouRZKDzYg8UnvLOUU_pr:none", 
+                    "bc:Z0mUBHMJ7XTcUZQxkLVyMcONlqBqs29dI17eaTLzyfE_pr:none", 
+                    "bc:OWlZpRyYlgAxNINEQtJjcsMWqHZ46oi41JHmjCqp1Q0_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "be81403e0fc490c8e18d5cce0da2fd115f61a476edf3f6cfb76c1d377d3dc5a6", 
@@ -1691,12 +1785,12 @@
                     "6047dec26e3f19841f1aab54c12a269d5b9f55655f641a5e67c6cd73e94b97ad"
                 ], 
                 "scala2.11.11": [
-                    "cb71b1d83fe415a5569676d0b86740c7f97f477a154f911fb0b245339815066e", 
-                    "481e17dfbe7d9fad29f7e46e3880cc44856033f0499ab800d882d77cd411ae32"
+                    "bc:sJ0itFEpdAczuSvDqMDHr6fj3-PWlpYdUbaTKlO9wic_pr:none", 
+                    "bc:BUhtZmp0EyffpfFuS-_wC5dlYEGYnTS1ANupBkCKww4_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "8a31ebf868f5790733ad51dd96b55b6b52ed996b8f551e6283dc298089a203b7", 
-                    "c33212ef9a8ab5a0e1dafd1b49975240dbe231665c18560b1124572944eb2dfb"
+                    "bc:JB08ngmkN4bpg5TlGddE5nI_CBLrQ3puwnZDZEzv9uM_pr:none", 
+                    "bc:BqMn6Gq3z1wjbaQnMBE72eclEjT3Mzvr4lEnZvFaCXg_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "6dfcc3506f8bc9de2190aaa7d5896acc4cd2f4590d95585d41fea189461283ef", 
@@ -1744,14 +1838,14 @@
                     "c76cea7d64410004ec43bc2687a39c6e8724dc1a88824e1fcb6a2867283047c8"
                 ], 
                 "scala2.11.11": [
-                    "b327863892c16e773511e40f89a61cc3e61e26cdadef8409bfe4996a91646ef6", 
-                    "b049326e4a846748a5bfea864fb286941435051838e08003cbe61265373c65d7", 
-                    "1e87e4e3c7fb4f49adcdc52e45610b0284ae93499701813fc6e9fec8964f4129"
+                    "bc:ENDTyN5ojyiO2DmHERe0gpURhhmkHG1yue-DF0N6pxA_pr:none", 
+                    "bc:QzplrMqNzRWIh7e4gZeTic9Mw0F2C5-UTH6e_25W2Wk_pr:none", 
+                    "bc:wKp5GG3nBKkTs9AQj3NuY98n4KwtIsOCWQ_ms3bCaxM_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "5b1764cae681659c45ef8db0e2eb45d8b21ab6b609c631d29c6ec7153edc5f40", 
-                    "30b05294984baf6e0736c818d82229f277dec2008f7ea7a02339149167da2197", 
-                    "0e1e881122e5f8fae6b460f9db93cc8a95fd2a1d25aa1395d306af2e3e90dabb"
+                    "bc:m_3Snbr9O9AxFxxWXIkeP37q1IZ8YHfOo8n0qMfNgfA_pr:none", 
+                    "bc:u-nZBMLOS11YfxLkyIK54dLATFYidcqOCgkGjafAA7A_pr:none", 
+                    "bc:6YXbwT0oGMYChw2_HNzCSntL9g1COG-PYDr9v7qUKf0_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "f97082f8e844af82ec5bfbfb565e95640cd667b713ffee9a5a2d4616c5da8aeb", 
@@ -1799,12 +1893,12 @@
                     "3a18e9f2e89a62922228fa242c0d93f0b4785b3090274665561b4fe0fdbba68b"
                 ], 
                 "scala2.11.11": [
-                    "92a6424fe71331b73c9ea3bfda172ed07f2d61bed13ba9f5112050d144422ce0", 
-                    "f3a175ceef0c6e358f0c64fcd95dc7dded624c19f25341fe807eea7134b79ef5"
+                    "bc:o7UPq0O_j6LjqCvhB7L89zbfl3m5BhdbtSdRfDOfijk_pr:none", 
+                    "bc:F1VOagwRI470iwlL7xx59Jid0h10IdspmcY6b5Jtrow_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "8255f78400d8d0d5817a05b9c48795cc8d7423d7aa2cc6e9f99ce51761752b86", 
-                    "a0e3bfb7112a3842584708f62b830c3bfef6a72811533db449222f57365f0ba8"
+                    "bc:NQreRRAR_hSFGAI4yLvLEijO36pdvyvQR1suZ-aXszk_pr:none", 
+                    "bc:ff70rSVot2uphSxjq6IxB2z8-Dxk1wz8BzCE34EsiMk_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "8705e66062633e8591bc9643c322af5f3f88f19b88b61203d5aac84d614a66ad", 
@@ -1853,12 +1947,12 @@
                     "1d68a9b5d593f8714af27400a168026a7e5a122994dcb6036d5470b7ef16a3f6"
                 ], 
                 "scala2.11.11": [
-                    "eb70b3878aa8420250a314ffe63a391e8267847f8fc0c5064eb367f728b7b97c", 
-                    "3d4b84a1afb136fb37616430d646d8b9dcbf81e4157a0a7fa348b9e7e44f5bfd"
+                    "bc:vVQA9VM4ey3o1Sp1XTjLzBsqrcA04k7TfT-I8vZyYAM_pr:none", 
+                    "bc:ujGQKtlB4ySqQzKnSH808BWkOfL6wP2lW0qO3TVIOVw_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "4d78a680e231cb4330e42342ef50d855ed059f8f767e3672cb8b4419baaa1b4e", 
-                    "880466a42cb9e762214d702f8f51f7c27ee276a22faa2dfe34b86a81627189a9"
+                    "bc:9pkUq2IKzckXuKdGMnItiC7xpYGAwS7LBSsXVDLvOWM_pr:none", 
+                    "bc:dXf1Bs7aZdy7h-9qWus2aWyLASGFJLXbqP36xdTnOm4_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "d4aab92a696c38d23bc4174243cb39351f95912aa309774a1d37da9a34ef42f5", 
@@ -1898,12 +1992,12 @@
                     "0296a6386bc17a46c87840945d4985e3199a154317dcc5f5a004b6bcd52f075a"
                 ], 
                 "scala2.11.11": [
-                    "cd4d53cfcd629a2945900dddd13457606b14ac631afd6384cc17f16cd874c17a", 
-                    "1577e827b9fc710813ef0ee3d4041422f8e89fd9d7869d28f2d5e617a70aace9"
+                    "bc:9ivMMcn1i8kFXC0zOmohfV2q-bk2uZEgcHJzWyMU6U0_pr:none", 
+                    "bc:9e82sduF7QNukr-RrYOtRwLBUj2cEpN4kVtWKbXuQ_Q_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "d2917ee2970740c3b750e4135180c8e04d97dc7cb2174308aff501da4838c82b", 
-                    "96f1251f84cc48cbead495209de4556f160f6d55de8db781b68bf850936794cb"
+                    "bc:2TGbUdXrrzN4DVjMpjeMlMlNGL1ucYUx_Yia5QpNq7E_pr:none", 
+                    "bc:eZEIxtKTjldBzK_3EfoolsBKarXbaj8diVCNRewB-wY_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "990616c0b30ba0ff989afebd9284661ade273123fdbd8f034f9c84e450fff3ba", 
@@ -1948,12 +2042,12 @@
                     "cc31937c1910a4e76c284214f940439dac883088e0eb134a0a98a5cf4791965b"
                 ], 
                 "scala2.11.11": [
-                    "9c3392a0bcfa036759d6a5d7071ab2fe1bcc391aaf1181170c388546531008bd", 
-                    "328c18a1fcb0eccb8ece6bd0b1715f2eda690953d13f7223e532aac0bfb98910"
+                    "bc:18y4H84sKu3nBsAHrCr5nTEiCllCflVrIMZ3cVRcGrk_pr:none", 
+                    "bc:ZJDT4tMOn-czvTi6ck2IPO1ULi6BdSacYiyiz9BTzkw_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "fc5b928c1e8f116f4b7fbe09ac00652ba00e3f2f509bafc8ad58f644575d29ea", 
-                    "0a0d8f6c6931b635123e8a7bdededc7d86341483b54f41fe04b47ebdae979b95"
+                    "bc:1__dq-Foo6V90OsJRDhonLzT47hk2pfhHgFHJm0zrQ0_pr:none", 
+                    "bc:G-5CYuGAEmeO5gCGHKOxt7z6qSE_DMhPOAvwOggotNk_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "41a2db4384cd63054739dd7e723534d4e3df218a6123e4d9c3438d6278359ffa", 
@@ -1996,12 +2090,12 @@
                     "24b0f8352923e857144b3d2737ed3b26c4bd492984449073823005cb26092407"
                 ], 
                 "scala2.11.11": [
-                    "66ebd3deccc706e01a2c7bfa1b99d52e28a91eacdcb395a801079c7387471516", 
-                    "a96a3c7c666f975533f94ce95495aa58c315b3632c8d218f438615e6a3ace211"
+                    "bc:2j6nQ3RY223jV2tzDCPZ7a98lIfAMGnBkE7I8Hp4pXw_pr:none", 
+                    "bc:ueZ0__bCzCtCaTTEV_abW_mAkg-iIcAu92uHYzWkJqo_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "479125ebff7f6e42a71cdba5dcff45c8c1322882481c8557b5e04a6001cda56d", 
-                    "7fccc254a62503402b072bfd71b16c65907fdcb273b2d804ca989b007bd79f63"
+                    "bc:3bgl8rsuJwMGaUJP53qIk6DHAtUDLBL91KudsUYa0go_pr:none", 
+                    "bc:U8NXtju4vCjbyXXKor7tpXPsPSS6x6Sa3Dz4wfBdHvM_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "141b30bdaf64dff98d761c42dd3a7727ec4355ed8e041d38fcbcc03ed133ad62", 
@@ -2049,12 +2143,12 @@
                     "d104dae31e11187b8e34a1ab9b56f7229b021abdb9dae074097bcf2972d7924d"
                 ], 
                 "scala2.11.11": [
-                    "6e0e6b223be7e829f648b4edadc3be7d08888a346f0469968129e129844932af", 
-                    "9da0842f8082902badfe488cbcad4d163c0ebeb9b645e6b07b3b7df6b92cc8ae"
+                    "bc:_O3Qd2chAR3CakHqcvnH4PrUg4hA79v9csoG8lbdDh0_pr:none", 
+                    "bc:N8EaJQp71hf9cpnQn0kbRbNAHOLoFC0jNUJ4cHKSvGI_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "48e00c7e2991ba9c27394fb8b9ba218f3b0ec8111774b966ddf40b0cbd538cde", 
-                    "18de635983f19fec281f75ebe49e5a07f3e91ac36d6a17bba78bbe204dc2c14f"
+                    "bc:FQirmBCA8fBS4reF_rj6uRTVJeVuvV-Cab0MBljnJqY_pr:none", 
+                    "bc:QOBdE4tY442XJJF9mCbCy0IyIev4_-qe8pdtOKBnppc_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "f1860939f1f4f8c21199d86411ac135466c409dbfc8298bdcffde337936a4a12", 
@@ -2100,12 +2194,12 @@
                     "8fe27e86a800e94f22f4382bba1767bfd814e2b8795d80051751d61cedbeb807"
                 ], 
                 "scala2.11.11": [
-                    "59d3c68badb7e467511cd4fa2c66aa0b0edae583e22dd3fde0a2681e7ad913ee", 
-                    "12a5a355e79c0221be865254761bdb033f58eb4bd90c0489fab4cb0131daefb5"
+                    "bc:Z03ywRCO05f6RfTkifqnU4QsSVDuNSCm1wk_H0DZoKA_pr:none", 
+                    "bc:Ka6sRL3X6R1sH3Gv2rCfUbx3BThtrFYOVMXtIqYKrx8_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "7cab84fc67f25bc53d56f9127ba269e23caeb9d3047c13d87faff86fa281db78", 
-                    "0bdc38f07b535bdf5a0f210eabc4d13df8294fadb14ac30dc0d8090c10418934"
+                    "bc:Auc_m4JXTpYlbazlhW6PKER-J873LVXDkM3DLupXmfo_pr:none", 
+                    "bc:_QvMxirVfU-MB-PU_44sUFAkbz-aVSzp9-d8f3Zf0so_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "e935627b25d0e35671e346bda74d1aab4ec222a7eb03de18dc7d4e4e40b08466", 
@@ -2148,12 +2242,12 @@
                     "b8b9eb3130c18dcdb7bd8e6a91898ca07ea46b7564331a022088440836e3459d"
                 ], 
                 "scala2.11.11": [
-                    "1f1808d93c77f66414704646d48b2bb3aea836d5fa927c64931b253286292bcc", 
-                    "4e1d17ff0a0d3f79f847864816bc621db2ec40a715c85d3f15107ea5a18c9f57"
+                    "bc:tfwgUzN39TpfKjTiSv-hC5WUCihukT04wNC8sNmMTjA_pr:none", 
+                    "bc:MNtVKuR345smmE03_mK-RBtYFRCy6nruYB7cDqDm5_E_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "c94625cf8bfdd12c912a852544b81bebcc3bdea7f063e70043e84a5c5a5b2305", 
-                    "258bdace6c590ccf381c900523ad996d849bcc6286d4a987aa37a4a1623f0935"
+                    "bc:P6pVwjm04t-mHoc396GZSXPt7y0PmhPkBwT4EIzK5wM_pr:none", 
+                    "bc:02eA3TEVdPPjspKSxh6yfOz6q0BnkYhYep3xBpBBu0g_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "c2b468857a23b0aefba494e5a73dbf46dfc92ca0d7a81cd579a5899a5c05489e", 
@@ -2196,12 +2290,12 @@
                     "b22df1f7c9513247bc480dcbb16b2f23f805e30b8f102121e930e17a43688609"
                 ], 
                 "scala2.11.11": [
-                    "2857cff917407e1fc3e8f9a6cb154187c227663d94103138c2061d08766ff5b6", 
-                    "8e63e122904507ef3dc22207dd2b0f298083e3af5ae0b9aca9d4f8a44ebfb312"
+                    "bc:1d4BoyBYuI7eJBJvQc8lUNkY0chRTGLIIB_HmzeDl2o_pr:none", 
+                    "bc:N4Oi_wBHm-Hcg4j58lPowqR2FHP1nr3pcWb3haulOQY_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "93f97e5147cd43dd5770848a42a5ae35990e56e8f14339d3a8c31411e24dd065", 
-                    "234afcf59f5a60451b068880d818180a7b6ff63457b7ef7b63b3ed9168a84c71"
+                    "bc:Q2cqnJWfZuhbf_uV2tvKOsh7fMN1aHATxK9FLkZOpUk_pr:none", 
+                    "bc:jGtfmjQ-0PogBjqQ5X3InafUwFm1Z7rluFgvRJLc-dM_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "bcf0b739c75714e7a359d1ca218be2c3a31a7eb8a2553a11f1305bff66d1a219", 
@@ -2246,12 +2340,12 @@
                     "5a75d222297f6b56fa758a2124498e8fd661fa711f414bee43a0514d7d998624"
                 ], 
                 "scala2.11.11": [
-                    "cb7a6fe7d56e20845d963a7a9d0c87991adab0ec75c1ec0ffaf98e1f09e13b2b", 
-                    "6fb5243e521d4a6456f3e3c372ffcd4a1ec8898466f51a63d4de82b7b26dd35f"
+                    "bc:IX_E-O0O-f0EpjLvTP3ULtvtraUUINui6BcgS1-iEZk_pr:none", 
+                    "bc:vC7nlU2g8w7_df_ZUPE6y5WHeTLjgLXjbxryuGrPQ4Q_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "92c656b6f9c2034dcc5e324c880090479f8a8f3f6c81eb3625cbf0fe6dfc355a", 
-                    "bbfee49e6e28761af5c5dc310166fb4f5077e2ed0c6ec439c272372cfac483c1"
+                    "bc:0n-nM5JgOu7gpRfRS4GAI-p6fM0bxTjdlL8QIkfPfGU_pr:none", 
+                    "bc:W6KLvMaOHC9kwk59WLHsE_nwuat9oDPHBup4aKqoys8_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "28dcd4f778c07b320a02065bcff322927dd124f3640d7faba985ecf6b275ff55", 
@@ -2295,12 +2389,12 @@
                     "097dbc748be10e0a7c623f91d35ad749725ee40902184b17d93a08cf5d4d7bbd"
                 ], 
                 "scala2.11.11": [
-                    "06990c5fcba737f0f11d98af40cb673a432be4cbcff7ced5d9fe148368abdb7b", 
-                    "b6228e06300cb792d69df30a3bd817442e72e68988c40b7943351414872df226"
+                    "bc:91k8fixPqWbGaPjd8N-ZMl3gBjY3Yu6jeuYCS9jnwnA_pr:none", 
+                    "bc:rnnNonQwRHQFHgIi253ATlXHOP7zSY8uLTWXahszoaE_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "8fc371861e7df4969748ad9ee1348c240b27e13f737e78a33b994d2aecc7c28e", 
-                    "b5311979f549207ce14a8f2a8a50da31abadd8cc278e621ffbe0bbc3e87a306c"
+                    "bc:Ocp69Jf5R08YdX224wCYYXgeyxRma1llSL-GC6tDCa8_pr:none", 
+                    "bc:8VP5aXXahGhF6MzsPnmLeYsnACKA8_8RRAyo9c7mH8k_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "79bb88db8d2fd93e9eaf60c3a593c7a229249e13ad805484414eab335062ee91", 
@@ -2341,12 +2435,12 @@
                     "797bf8308acdd93bd3bea35a3b68401cf1d50fe4e0cc707a964d4a2eb29020f1"
                 ], 
                 "scala2.11.11": [
-                    "4d70df93c4e495a9a495d4e7f0d7fcaf8648c193e458d4196739063cfddd6cb8", 
-                    "ed074707255cc091657a3c9536e62f4326e309da240d5ba1bab27e58aa61eed0"
+                    "bc:v5A22TFAwx_15ZsI0CppjMbv1KyL0lIjFFDBrm6_FEE_pr:none", 
+                    "bc:UL9E0iZOkPn0o5OMCYF4ohPHsrn9hFHTaafkEZnElKM_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "3297a15ba5422c3a849f1bd6293bf89cd7766afc42745a0932fdf4b3586a1924", 
-                    "fc6d6f94b8e467d8bbda71f1042cef65ad44eeffffd1a7989a0b5a4dad3e0e06"
+                    "bc:CfkanTNTBFdEVy8D1q3Gx_itaaJPKJcrLE2mPkGyKj4_pr:none", 
+                    "bc:If1Nz181yIu-v259Ny2UznKGLNxtTgiNwG1RTZUuchY_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "d1654ebd47187432c951fd8cfe7e6300d31cc18e273af9f599a1dfa61ba17123", 
@@ -2390,12 +2484,12 @@
                     "00afcb26d81b32ca58725226ed2411312c867c210ee19fcca1e152f4de9d474e"
                 ], 
                 "scala2.11.11": [
-                    "f0f2f71b2a525a7c6e30a6511934ed93ef2c0e7c88b12fb3a9d6412642d81591", 
-                    "c50134d8ac21665af6bedcb0211624acfae8c651e3d30888050d30b3ed01443d"
+                    "bc:dLarKdoFN06fccWokJ99rAMBMLcD4rYR8pQQbPojrSk_pr:none", 
+                    "bc:24o29dr2uOwVrxK2Mfbw-EMveUC1JBiN63pNjsUMuT8_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "51443c49507bba11ab414eddc4b715bf91d1859c4917e37d18d113343bd2762b", 
-                    "69b77431c3b7e2ff77c318c614d1fa5bb661863d7adcf34c98f7469c48b9c066"
+                    "bc:ukgEeWcuiVLm-UDQQPRwABI4I8KN8YBIgmKI_g611Bo_pr:none", 
+                    "bc:2bcyty6dKVYOGxBzbxc7fjBP7zT_GjxkLRPun9iNo0I_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "e1137ee68ac89f9a288b131c5671bb5eb7ae708fef0a523df5b08b4609682766", 
@@ -2439,12 +2533,12 @@
                     "6b2e61238a8e13cbd809b04f5c4fb51450433bbd88e8af5ce88756f6b00ea54c"
                 ], 
                 "scala2.11.11": [
-                    "02d934d9704fea638efa1b7d7478e3384d0430c30a1d110c278a4989afba29ca", 
-                    "9308565de358e3852092f3e79d94db1ab0d0f6e6083eb3a2340bd0884ae33e22"
+                    "bc:AHzRXSXOBE0BfC9_RRxV0RE21QK-gF88D_c2mumxWgE_pr:none", 
+                    "bc:D0afXKCH1UOPCJ4F8NB-wX-ZDoq30cvPKD8qMl_DGbs_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "d06d6b3b92cd71caa12e043a2128291e062716fbf2afdbd4c95d8b7a1a2a75a3", 
-                    "e7633a2b742480b2270ee84b6f897d08ed1dc772d9e59b3f0a78faed038bec0c"
+                    "bc:hRzwA1bHRbGOf2ZydR_gysf0klSFhoR1J1twE88RNA8_pr:none", 
+                    "bc:-F9zrNDX3bYt7_lYlrrSXwxwnkgazsI3D4q2QrAEiVU_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "a43c6f8e4da1646b12c1dcdb99244cc8d712ce2110dae3a122514d414bc264d5", 
@@ -2488,12 +2582,12 @@
                     "2755123990aba6446e6317c17bd89dc73d34ae49ed4f4c95fd921cb5c6e1c873"
                 ], 
                 "scala2.11.11": [
-                    "828919a524ef7b2c8ae9a33d8b18ae695a6bf725b1b4ec49886646074b045d3c", 
-                    "451db1509f759f8e10ae8536e041fea30761d56471fd22960c794a82638598a0"
+                    "bc:LaO-1rE4Okojk-iau2ZaPudk7oyXzCUcQPqNub97UBg_pr:none", 
+                    "bc:yI9AmEZv9kHCuLIVnMBQNnJ7ef1GFuXrRPzngdFwr5o_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "a580e42aafd70842e5074ca880e2ef1a3b2c04d7329adaf10333a64398a8e2f3", 
-                    "6e98e0712d3476fe3c1de54f95208e2ac8353ab9d92781fdc4cb7a5e013c1773"
+                    "bc:KhNY5l7UWrcBWRZr-3iSyucwU1rUZioaHm7FhTKrToE_pr:none", 
+                    "bc:RAB7zNxpTIaZY_huIaHUBUGB6s11iFyjRQKy_uNb5hk_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "877e60b823a0ee2d88f83f9fc32008d707e2af734d1b1ca9fef301ddda115066", 
@@ -2535,12 +2629,12 @@
                     "177268ef47f9cbfd9bb4d8c1c9bd9572f9a46c10691bb51d01dbf671ad05b445"
                 ], 
                 "scala2.11.11": [
-                    "279eae3a78a30b9aebb4ab8179b75ed81a7e7e2af20040d4e2a77ff0569aed06", 
-                    "d6c16cea5820614a0076c850fcdd9a4c0c3cd5966ed4637d2dd2046d58950903"
+                    "bc:7b5VtnwaSI0FusY_V0CMrCw6AxJL0jgh3OpDGGf8jTU_pr:none", 
+                    "bc:geDfp71jOOzbF34rO5NanycrTcffrAwEOXRtKpvCvOc_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "e8a9d8329e2856cb63d50b5b4cdf1c2029c942aa1d6cc6c8fc2e8edd1026a914", 
-                    "d9caf6bd4078c94314af9ede3f585ce77edfdb42389856da8df14158529313c7"
+                    "bc:fAwxzLKndlUx_Facm2QbZvN0PZiVJICIAPJr3pppnvo_pr:none", 
+                    "bc:vCPahAxlMj_gdLMqvRf2dArFzyo1FlcDJqZaoiUFXkU_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "5d48c39a0051310b345ebeb7c200f2e3d3744f3e160b27ccddfff4a0caa7a86f", 
@@ -2588,16 +2682,16 @@
                     "34f13e5f9bf2ed87ecd3127b6d2bb47c1b9b3e581f25d3e7ba2c1aea10f2b19c"
                 ], 
                 "scala2.11.11": [
-                    "80405aca30a33fa295b15c961791f5ebfc95650e167cd0c5171ac7ea28d5fbf3", 
-                    "86aceb7ed16061e97826e964a9963babf8d47a8ad5b662a5f3073c4108dc184f", 
-                    "73b168f3169d808b78ed9b2799dc4b25acd00c9653c41da1799315f702ffb150", 
-                    "4c0a0ab7ccf002e2b0b0df244408ce4d5a06faba497a169dfacff79ab7270edd"
+                    "bc:fBgtl7mh6qNBe-npS-qSam6QPBmWpswipWPuS1XtcY0_pr:none", 
+                    "bc:tznQNweKZAa0ZwzuGuPMFMc-totPYMGSYV-FmznCys0_pr:none", 
+                    "bc:DsPB7k3YDCh1rTCAo4DLp3m-NL_NQa5jPIHEoBuGn8E_pr:none", 
+                    "bc:TA85_-yFNPydUcLuOn_yBW3gdlnSIqUovhvRFo2Zhfc_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "9a9e9583217d9a58e944b4ec411beeb88a3dc28e62318470bc479fbe48d5b86a", 
-                    "13e65b52c9e3298d4bf4e52033a29903529ce4097c9902c40c527b4823fecf38", 
-                    "a8dcd3ffafd6a961aa1e7ec1df75282a1bd0d2a724c20bfbc2176d66441c0398", 
-                    "ca4a234b22978070e76b6ca9386029b12864ca737667fa7f0dd9189367b54835"
+                    "bc:uDy10A9YzsAWigYFcrkuY_r57mCc1rJfvFdHPokS5b4_pr:none", 
+                    "bc:xvg7qIoSPdAC_l8UpF0qiuWKFTyqLWIA3hyMKbklAYs_pr:none", 
+                    "bc:FRfXfkLBweiOtdgX-ZY4L_tBqQ-LhqObnFZq-Sn4dMM_pr:none", 
+                    "bc:EV-z6op_kai-Um4up-NouBJCIpcOuXJR4WhQiLFvxps_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "07d1968407656ac8b7d815aeb943f0963d7f4ae69e799ff8be5572bd60d99296", 
@@ -2669,10 +2763,10 @@
                     "skipped_compiler_not_relevant"
                 ], 
                 "javac1.8.0_66": [
-                    "cbc3e21bddb3d20ea89ad139de61b7bf840e63fda26bda15527d9fc6d9d47cd6", 
-                    "108025e6a006fa7b29d0ca614e4d04d92dd00573453ef0b285798c548d889db0", 
-                    "338800430c354b0ae9db37c4a307fa4e420f01d251b44ca5a6572a381aee2f3a", 
-                    "dabffc823989dfb26ef78e9815ff4215bbe25985bc01d001ccfae30f02eb6980"
+                    "bc:uDy10A9YzsAWigYFcrkuY_r57mCc1rJfvFdHPokS5b4_pr:none", 
+                    "bc:v7rFtjk1RvErcIli0uc2jIn1kP-GJl6IVYweMuNeoo8_pr:none", 
+                    "bc:uHKy7HJiyHYA7GKBc3FSBvNWLSrwbyxPAPcV7xM1K3E_pr:none", 
+                    "bc:e6JQX58ZclWM0wAH9GQptQQtC7YiTeCJt7nsBojyIwQ_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "fae6e50396268fb63ff4fadc7cd59bfc9ac0630edf9dd44ff81c2ccb00c4d255", 
@@ -2719,12 +2813,12 @@
                     "c35ce39c7d3ee0f6511f56172bfe7c92255a236f72f0fd2568d30879920a79b0"
                 ], 
                 "scala2.11.11": [
-                    "b3507257f5a29c216f742b62feb9817b79332cbc819fb57685cf859f8895382c", 
-                    "edd14525ab4ca1cf58b30aaa9a5b66b4e75f62b3b4db90d8126218d1824ede25"
+                    "bc:iVK066CFFXcfrYeWKbbPEtAI1ArQSXqwPTgeqcLM-nc_pr:none", 
+                    "bc:Z3YHIP4G3G_ouoyMDrEnO9XhY5t7-EBi--MWhePtPFc_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "a1a626c8cb76bd5b857eb3fc6edbf9a39ea6e290829305fa073d47ed3c723e7b", 
-                    "e0fceb601f36ec9212af936e3bec9de5e516b15a4723ee301b8aa7b6b5e4d550"
+                    "bc:2aOsuBO70dOmsxakpxO92S-16IzoKk8iPzOQK__sRxY_pr:none", 
+                    "bc:Im-uMZtKlfRrJ2lS6hTBJEo8GEGXYn4_sbi5ctwVQVM_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "ff5625d5187f19812258fd4ca95732281faa3bd66b4c1977af544497b72313d1", 
@@ -2765,12 +2859,12 @@
                     "6348870a9d3ac397edb5949982b2384a22f94c32c4388500edd84c2bc9ea88d2"
                 ], 
                 "scala2.11.11": [
-                    "ef616b279a8043a3fadb515feac831d5e0d6710e1a26edb692fd25ac258def8a", 
-                    "6684b5fa22dd9ae874f9166c90c5af9896e5800db17bf0cb1c0d4f6cdcf6ab86"
+                    "bc:omZm9Le-MtErK4vXz5CbaRyiZEGzzCTsSG0waEhJhVo_pr:none", 
+                    "bc:Q-oCVj_61wOTPj9QGcoCanXxD9xKXuwDA6xTT8vQ48A_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "cefc0ce28ee709065eeddd05cec42fb95f5cce8e8f0ed45b413a8e70d8a15188", 
-                    "9eeec8f1b1e472971a457ebddeeaca86ef7abc8060a4534a521b8b148514dafc"
+                    "bc:yAaL-6cGim1MVNmRElQkLrrXE94Ug3oglPI76YaD9R0_pr:none", 
+                    "bc:x44edRZ2thd9q2MINdffA8IP_BcEzPz-XgXTO-RbOes_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "f7379a35872399abb7e10aa32c7fa0fdcf27883f79594d8fcdaa14754400a0ac", 
@@ -2822,10 +2916,10 @@
                     "skipped_no_code_specified"
                 ], 
                 "javac1.8.0_66": [
-                    "a553399e0794df90e8c184c4b33b4d239fbad72f73da6adde514aafda3ef2cb2", 
-                    "66eb766da03b53b63ee1f41d9509efa3847d08648bee71ca2ca2fb8e14aedc88", 
-                    "e4dcb20a2ca73007b42ce587f829b668bc2df836f34716a3999c8819c627f0c5", 
-                    "83e8b6461e9db3ba4dd5a7bf9d5d1f1ae0efd6ce627887e1547a1c12d6a11970"
+                    "bc:ehcEX4eOn5AznCAnMh3_mtXgNMoM2Mgzf986US_MQxU_pr:N0cI__dxndWXnsh11WzSKG9tPPfsMXo7JWMqqyjsN7s", 
+                    "bc:h5Hki_UwXvYxls-Ck2RpzMnq1ZWpZHEoyWuMP-Pnktg_pr:N0cI__dxndWXnsh11WzSKG9tPPfsMXo7JWMqqyjsN7s", 
+                    "bc:0WPPNbaXOs4OA21b83lYwtUwOfWrtq1p5gz2wjLy108_pr:N0cI__dxndWXnsh11WzSKG9tPPfsMXo7JWMqqyjsN7s", 
+                    "bc:3XoiSpa3IKDqEQRUwXZ2SmBvlv12MJUSl4BIwM4zBWA_pr:N0cI__dxndWXnsh11WzSKG9tPPfsMXo7JWMqqyjsN7s"
                 ], 
                 "gcc49_-O3": [
                     "skipped_no_code_specified", 
@@ -2892,10 +2986,10 @@
                     "skipped_no_code_specified"
                 ], 
                 "javac1.8.0_66": [
-                    "b70645e44d3319b950d2625d33efef14885057a0554f92e9d76acebd48159918", 
-                    "098a71d47906440bed18cecdba8f5843ca7d36c5edea22a544ed348e546aeba9", 
-                    "206a2d043be03b19423a9d52281004468de39fb3e1a1e26eeb2eebdc27d20088", 
-                    "bc1db47feeb7cdf8a047e1f1a497ddef8681ca972056e9ce05b9102d824d215c"
+                    "bc:37bbCCcSNi8I1-HfEIT9fjOwAxHSmXtn5c9nK6nG9Bc_pr:none", 
+                    "bc:JdeSen6gC4yZ2rtVD1jws9VMuNhutm5YtfJzDDCC8N0_pr:none", 
+                    "bc:bdY-KjCYvPMSvU-sjuOX1ml0j_J_HP854rAakSiInuw_pr:none", 
+                    "bc:FTYvsfpT_AhHO6eRTjcbRsAUzOC3fI-uwu68IxJ2pR0_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "skipped_no_code_specified", 
@@ -2961,10 +3055,10 @@
                     "skipped_no_code_specified"
                 ], 
                 "javac1.8.0_66": [
-                    "891dfbc20183ff20fd450ada744f1c565063f78a8d445d28adf2c6f873bf2dae", 
-                    "5178c001f435aef99da1fedaddc1eb8bca039e487e63458201003f14ac05a686", 
-                    "aaac4e33fee603b794fccd85b0c089011ccbfc6a85aa62d0162c4000ffd5794a", 
-                    "e320a92621bbd0bddf3a53bf4b6705f38f0f879424408066dd5b2f62802e4cf1"
+                    "bc:bZzKki08f6WWgPC4pD0hUDFoNGo-D_U_Mw_lFRmTjw0_pr:none", 
+                    "bc:mY6yMpcrxq1gZLO7x9-14Yw9KMY2X3PQMKtPiTTgZbQ_pr:none", 
+                    "bc:NpF7nQrv6LlkhSq0AmiNkzY-BGiIpDbGitnlIzu8cFY_pr:none", 
+                    "bc:Lg9hFDEsW3CpdYwJPSAwtjWg8Y793psKhjtUdwlQZfU_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "skipped_no_code_specified", 
@@ -3049,14 +3143,14 @@
                     "skipped_no_code_specified"
                 ], 
                 "javac1.8.0_66": [
-                    "2e6ee9901ecabd07712aa61b6872c7456ea6b450e9ff5f172b5397e8715e0e5d", 
-                    "ec936999e2bea154680f6f8e2c60d0098f60edf98d2f9b1aaa8c4a54cded2598", 
-                    "2141ae5a6a53e99bbce219f3c810619f3424832796fa0398dcbf5f81c9642c96", 
-                    "a7c5c2385d7f0a100b0cb6da1c732d5745c1b4c7108688f1c5233d31e7cb3fe6", 
-                    "c9b3a246e46c7946b970583501e8b335d2dd3d3988a6ab4347e9dbbff0780e46", 
-                    "2f58c5354acb9e5dfe20e772b34665eedd0176691a14f8efc7e861dc84386e59", 
-                    "32a5462ee90ecb384e30b0dea66c0bf706762773065e523938ad352a931689d5", 
-                    "31bad743058d525917e64b0709c400682c8a38ef2dcf7a3e3b77407f68b2f0b2"
+                    "bc:Fzu3XJCccJ1EJUdvhMVtcJilNgpbJB39UA7iL_uwNAA_pr:QvSuuBwe-B93Hz3oq8qdz2aQHFdVMOdnLksRRkdK5lA", 
+                    "bc:MCcaAs-Eq0KDwwqKfbpqyDZr0qChS_NUaHM4LMTf6eA_pr:QvSuuBwe-B93Hz3oq8qdz2aQHFdVMOdnLksRRkdK5lA", 
+                    "bc:D93CH32IRpbrJX1fPWrlUOlOGt4OUx0YhjdkFq0vjig_pr:QvSuuBwe-B93Hz3oq8qdz2aQHFdVMOdnLksRRkdK5lA", 
+                    "bc:48AGoioUwj8mvbtj4JKT9wAWj1JtX8_9TS9L-de_t_0_pr:QvSuuBwe-B93Hz3oq8qdz2aQHFdVMOdnLksRRkdK5lA", 
+                    "bc:_Rd3U5OZPFLbbCDG92WmudcUZSc0baXdlbAjsrR5_6c_pr:QvSuuBwe-B93Hz3oq8qdz2aQHFdVMOdnLksRRkdK5lA", 
+                    "bc:2bXMwf0Fvea7c3eTlE-Vorn5XGYKJy1DmAksrjnocxw_pr:QvSuuBwe-B93Hz3oq8qdz2aQHFdVMOdnLksRRkdK5lA", 
+                    "bc:50M2zxbb0VoxWC1o_8T8AuiaxZB_avBtSJASrjuk1mk_pr:QvSuuBwe-B93Hz3oq8qdz2aQHFdVMOdnLksRRkdK5lA", 
+                    "bc:6cu2DXiYOB3n1NfDzjuFZwCv78b98OT5y4tyf4fom34_pr:QvSuuBwe-B93Hz3oq8qdz2aQHFdVMOdnLksRRkdK5lA"
                 ], 
                 "gcc49_-O3": [
                     "skipped_no_code_specified", 
@@ -3146,14 +3240,14 @@
                     "bd1052b898e8e57a2ca3d26d3237366dcd4ecf6f2c73fda7c016f59198f2d153"
                 ], 
                 "scala2.11.11": [
-                    "1d970b008a8fa19eb13f490235ca78f61c486c707c5f4e59b235a122c2f2cc24", 
-                    "58cf2d37e6b99ccb36180367d901c4e5733c1307580bfddb436cd7b44229f868", 
-                    "2232a3fb17d5f55c40d99ebfb03c5a2d8897f1b73a520235885e6ad2c292d0d4"
+                    "bc:vI0-pNiQd_dwqyQmMephqTLn74jJDu_fQNGgGnX2u6c_pr:none", 
+                    "bc:0VfavZvCPyRBKJoaw33q5uW12x7FpW-zxCzUYO7N03w_pr:none", 
+                    "bc:UbymHVeRiYVLP0mdB_iGVZGvh4ZG0SJxd5MIFK_YkNs_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "97311fa37b7281fee7825dd664efa8e01e47ee7379df589525c16e81dfe4c7f5", 
-                    "bd3639e118ce635d842826d89221b5f9297e24306f194d09db66c239c0558ce1", 
-                    "8af0f3ed560b25f16c6b0d1a5f4c53e170b829fcff299ad07680b973f384b7b3"
+                    "bc:fjvfT6UDqghJRImZG2oN6fqoOb_O9BlJLWXcNpoy8Yw_pr:none", 
+                    "bc:pb4Q_1ucAMrj-GBr6HPuq6ZnPPTib6p3vnExmdhWlLQ_pr:none", 
+                    "bc:tn6l-03IerSe1ieRiY8FOk_6Z-_qDFmjSjyHuCtXywA_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "51e5675789a708f1167a17cb6232508e4b0b8c72d436f35dc80a1c3b63360926", 
@@ -3206,12 +3300,12 @@
                     "d4211856befe5a8284d229866cf953156688a7d05b20a327d14a7602818cf609"
                 ], 
                 "scala2.11.11": [
-                    "b6bf3c33f5d50139377190d034b0a0bca7f27479ca7be4e465c113d4079d7dd0", 
-                    "0cb33d20929617cf44125d59f5bda0db79aa2081935abac7296f0b5e45c39cd7"
+                    "bc:Gk8Epa2oB6ha_LCWeXyG12BTqO736qM-hPlY3AZANto_pr:none", 
+                    "bc:t9i6yP26dNLzwOU7F7k0zGztbURxCtUEhB_RA3pweCc_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "6f1a9d84c1f8fb15d5b5ece3af9ad42de980ebc7ff6b807d105cfeb14383593c", 
-                    "c29b0ec0e9dc38e8ed7a983e0d5ae1e7a04b264cf69f5f7c6757331857b84c6d"
+                    "bc:XFICyZVirygvznQ9ze8U_5NI-dvLj8J7qmZeJpRGyvo_pr:none", 
+                    "bc:P4wK1Br3Xu2Z9HPgsqHpbhsWYLwu2qYqPN-wgi5FuCQ_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "16795a99ea53f4b8dc02f48d6716090b3be41695d2531cd2187c9be788ac1276", 
@@ -3274,24 +3368,24 @@
                     "148d25285c9e8875319c4d77c41ed61ae05674aca99458715ae7e476650143ba"
                 ], 
                 "scala2.11.11": [
-                    "181b9b0db12c0958c9df054fc0debcb13d5c64502642ddeb0f58e3b80f902c98", 
-                    "c470fcb5e7527df37fb66cf12783539814e7bb4bb0214a36fe2c97a342a54284", 
-                    "6457e2698933cc62e1dcc9f8cc439444434623bf718aaea669cb64bda2709ae3", 
-                    "e0cfa76dcda1a986b14177068f7596cd899614bdf2b186f45689fb1eb5e3169e", 
-                    "801eaf283af5d05eae2f3b67b992e0c0d768c98d0e7f3e724d15a80a71ea8888", 
-                    "2b60506b1aeb3d8214fba1f594cdb9b6ae1eb756af419719d934032b74f41492", 
-                    "c1767982bb1dc6730c661d150a4025a1b55241966255fa49c51d983a97a9cf13", 
-                    "8e31d6b700be6c51b523d67d0a3e5399db01ffaa0cb8b044d576ad2c35fc54a2"
+                    "bc:I-UzFCfUcvzP67dho3qvkQLO94OKJHcq_dG5XbfN4sM_pr:none", 
+                    "bc:Ycez2Irs4XAboTlPNra2SYb_hlwk2ewOyAlEkdc6WH0_pr:none", 
+                    "bc:EN9iSAo6A2pzsMVRu3x2rJZnjpMM1Vbwl1TdIcwGJhI_pr:none", 
+                    "bc:NTwDBAjDujwUhQ3REV7A5Nwfs4FnIUp2e5vv77Ahiuo_pr:none", 
+                    "bc:wkwqWl4qvBn0fF2ju-zZ5GfQ1nsA48B12vWPzzyaV8w_pr:none", 
+                    "bc:JvtcDBTMbidwztW34btn5ECeBltGvF-m19kEaIlUwBY_pr:none", 
+                    "bc:N8v3Y8NctBbvJ4FaKSaAVDO5AjvZszOKnaVy2R1x9AA_pr:none", 
+                    "bc:X9dDJRLA_R4nLcK5eAQ1Dhw8sJi8_Qa6XhipyTcRMl4_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "dce36f015bc1deb0c471f7361f25f785916f9c2d29bae1324e70ee32284ee18e", 
-                    "6ce3a3fb8a8133820ccdf6e753e485fa0f3a868511025b36cc43aec76e390189", 
-                    "d0d67d729aa9079d4d8bb3c379abaa9a18ba118bcafd5846ff85c70bc2134789", 
-                    "a2a3e2b83114a0e3146ef2a4c16412fe4a49914dbcffab6029a1616e316e700c", 
-                    "6ee7ca6939d28a1e0ab6155451921f586e6120db149fb72f50da395abeba8357", 
-                    "9d08d7c313606f7fb3cee81b49ae2fd3f6414fc07166f1946f890ebf6e8d4c33", 
-                    "4528e3030717f51cca831fb0619dd642796d0120c07ccd8e288b1946c6d67a27", 
-                    "8d8895818dba6f6df14d661be771f8b44ad1ba902a05c6c6074cf2f8673407c6"
+                    "bc:0lUx8nCpKR0Th-9inrt18R6Ed46OAbrgjh7hcNOW1ek_pr:none", 
+                    "bc:M-ID1jbj4lb5XYPnSiBH8uHKK_YstWcBVt-dMBv0Qs4_pr:none", 
+                    "bc:b7NQrnoZUrfhNWslKaHbAp9Z9gTrtmEXgFVWmsfMtWY_pr:none", 
+                    "bc:Jl9p1nAnYMa7j78391hSxto4j1xcI_MlQSp_5OfseDk_pr:none", 
+                    "bc:G0bPL7706BMZIomeNNtsYsYMJVJs_YOQYmeS-psuxmU_pr:none", 
+                    "bc:YuIF8p-VaVKGFKHBDK10mND3p5sw-xayP28xqeSmz8c_pr:none", 
+                    "bc:C7NANZm2plO3nS8wOyicrZNiW4-54kG9NxSnN3ja0G4_pr:none", 
+                    "bc:Ve4w5UIjG2ZhCQYENrD1CnutNKpbCtUkL6YZimafUUQ_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "ac567e4383939e87f9e7dbfb2f201a4d3b1525536ada7bd830fbe986cf7bd9aa", 
@@ -3371,12 +3465,12 @@
                     "25c427741060cc4e628ef6a59c298b31ad5c1b29cfca3452a8d89c87441d135e"
                 ], 
                 "scala2.11.11": [
-                    "a0ba68aa11f6fd1d51223cd3944abb993a1036a166db0e979f248b5599d46051", 
-                    "0a52e30f3243035b316b367accea44f39f65957102367d08f5f55fc665fdc6f1"
+                    "bc:GdPdQPm67zxq0HKvrWb7OdRiI69pB7RT_DFxzIaYptI_pr:none", 
+                    "bc:AJQLSE9U8rliWr-Ct-yJl4beiw5ewuKVaT07tbkG6ic_pr:none"
                 ], 
                 "javac1.8.0_66": [
-                    "6357fa5b525d6ecf26633856957e89ca5df91158493f2ee3554daa9b374fce8d", 
-                    "4c3f7a08b325cff09651f329baa7bb36273c6a88baf4a5e461042fc89fb1f7b4"
+                    "bc:YTZlqow89ey4HLd8ZMT0eXBQPlqnavBmdj3wqHHLH18_pr:none", 
+                    "bc:kUk6V_HhblkmhETsLGO3iG93Gj8Tm0s2Ra_67W70CHA_pr:none"
                 ], 
                 "gcc49_-O3": [
                     "1b4e60fc4b3bb0ab757a3677022d6e55268b69dc9ac91e1c4d64c3cf8e88fb46", 
@@ -3403,11 +3497,11 @@
             ]
         }
     ], 
-    "total_programs": 62, 
+    "total_programs": 63, 
     "total_compiler_pass_fail": {
         "clang_-O3": {
             "passes": 46, 
-            "fails": 16, 
+            "fails": 17, 
             "passed_tests": [], 
             "origins": {
                 "tce": {
@@ -3431,7 +3525,7 @@
                 }, 
                 "tpcds_survey": {
                     "passes": 5, 
-                    "fails": 1, 
+                    "fails": 2, 
                     "passed_tests": [
                         "constant_folding_basic", 
                         "comparison", 
@@ -3440,7 +3534,8 @@
                         "math_add"
                     ], 
                     "failed_tests": [
-                        "logical_op"
+                        "logical_op", 
+                        "logical_op_short_circuit"
                     ]
                 }, 
                 "semantics preserving transformations": {
@@ -3515,7 +3610,7 @@
         }, 
         "clang_-O0": {
             "passes": 8, 
-            "fails": 54, 
+            "fails": 55, 
             "passed_tests": [], 
             "origins": {
                 "tce": {
@@ -3539,7 +3634,7 @@
                 }, 
                 "tpcds_survey": {
                     "passes": 1, 
-                    "fails": 5, 
+                    "fails": 6, 
                     "passed_tests": [
                         "constant_folding_basic"
                     ], 
@@ -3547,6 +3642,7 @@
                         "comparison", 
                         "conditional", 
                         "logical_op", 
+                        "logical_op_short_circuit", 
                         "math_sub", 
                         "math_add"
                     ]
@@ -3623,8 +3719,8 @@
             "failed_tests": []
         }, 
         "scala2.11.11": {
-            "passes": 8, 
-            "fails": 54, 
+            "passes": 11, 
+            "fails": 52, 
             "passed_tests": [], 
             "origins": {
                 "tce": {
@@ -3647,14 +3743,16 @@
                     ]
                 }, 
                 "tpcds_survey": {
-                    "passes": 0, 
+                    "passes": 1, 
                     "fails": 6, 
-                    "passed_tests": [], 
+                    "passed_tests": [
+                        "constant_folding_basic"
+                    ], 
                     "failed_tests": [
-                        "constant_folding_basic", 
                         "comparison", 
                         "conditional", 
                         "logical_op", 
+                        "logical_op_short_circuit", 
                         "math_sub", 
                         "math_add"
                     ]
@@ -3717,20 +3815,21 @@
                     ]
                 }, 
                 "craig": {
-                    "passes": 0, 
-                    "fails": 3, 
-                    "passed_tests": [], 
-                    "failed_tests": [
-                        "constant_folding_associativity", 
+                    "passes": 2, 
+                    "fails": 1, 
+                    "passed_tests": [
                         "implicit_zero_comparison", 
                         "pointer_deref_equivalence"
+                    ], 
+                    "failed_tests": [
+                        "constant_folding_associativity"
                     ]
                 }
             }, 
             "failed_tests": []
         }, 
         "gcc49_-O0": {
-            "passes": 13, 
+            "passes": 14, 
             "fails": 49, 
             "passed_tests": [], 
             "origins": {
@@ -3754,16 +3853,17 @@
                     ]
                 }, 
                 "tpcds_survey": {
-                    "passes": 3, 
+                    "passes": 4, 
                     "fails": 3, 
                     "passed_tests": [
                         "constant_folding_basic", 
                         "comparison", 
+                        "logical_op", 
                         "math_sub"
                     ], 
                     "failed_tests": [
                         "conditional", 
-                        "logical_op", 
+                        "logical_op_short_circuit", 
                         "math_add"
                     ]
                 }, 
@@ -3838,8 +3938,8 @@
             "failed_tests": []
         }, 
         "javac1.8.0_66": {
-            "passes": 2, 
-            "fails": 60, 
+            "passes": 6, 
+            "fails": 57, 
             "passed_tests": [], 
             "origins": {
                 "tce": {
@@ -3861,14 +3961,16 @@
                     ]
                 }, 
                 "tpcds_survey": {
-                    "passes": 0, 
-                    "fails": 6, 
-                    "passed_tests": [], 
-                    "failed_tests": [
+                    "passes": 2, 
+                    "fails": 5, 
+                    "passed_tests": [
                         "constant_folding_basic", 
+                        "logical_op"
+                    ], 
+                    "failed_tests": [
                         "comparison", 
                         "conditional", 
-                        "logical_op", 
+                        "logical_op_short_circuit", 
                         "math_sub", 
                         "math_add"
                     ]
@@ -3931,20 +4033,21 @@
                     ]
                 }, 
                 "craig": {
-                    "passes": 0, 
-                    "fails": 3, 
-                    "passed_tests": [], 
-                    "failed_tests": [
-                        "constant_folding_associativity", 
+                    "passes": 2, 
+                    "fails": 1, 
+                    "passed_tests": [
                         "implicit_zero_comparison", 
                         "pointer_deref_equivalence"
+                    ], 
+                    "failed_tests": [
+                        "constant_folding_associativity"
                     ]
                 }
             }, 
             "failed_tests": []
         }, 
         "gcc49_-O3": {
-            "passes": 33, 
+            "passes": 34, 
             "fails": 29, 
             "passed_tests": [], 
             "origins": {
@@ -3968,16 +4071,17 @@
                     ]
                 }, 
                 "tpcds_survey": {
-                    "passes": 4, 
+                    "passes": 5, 
                     "fails": 2, 
                     "passed_tests": [
                         "constant_folding_basic", 
                         "comparison", 
                         "conditional", 
+                        "logical_op", 
                         "math_sub"
                     ], 
                     "failed_tests": [
-                        "logical_op", 
+                        "logical_op_short_circuit", 
                         "math_add"
                     ]
                 }, 
@@ -4054,13 +4158,13 @@
     }, 
     "total_compiler_results": {
         "clang_-O3": {
-            "unique_hashes": 82, 
+            "unique_hashes": 84, 
             "origins": {
                 "tce": {
                     "unique_hashes": 18
                 }, 
                 "tpcds_survey": {
-                    "unique_hashes": 7
+                    "unique_hashes": 9
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 1
@@ -4074,13 +4178,13 @@
             }
         }, 
         "clang_-O0": {
-            "unique_hashes": 134, 
+            "unique_hashes": 138, 
             "origins": {
                 "tce": {
                     "unique_hashes": 27
                 }, 
                 "tpcds_survey": {
-                    "unique_hashes": 12
+                    "unique_hashes": 16
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 4
@@ -4094,33 +4198,33 @@
             }
         }, 
         "scala2.11.11": {
-            "unique_hashes": 140, 
+            "unique_hashes": 132, 
             "origins": {
                 "tce": {
                     "unique_hashes": 24
                 }, 
                 "tpcds_survey": {
-                    "unique_hashes": 16
+                    "unique_hashes": 15
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 4
                 }, 
                 "compiler_survey": {
-                    "unique_hashes": 86
+                    "unique_hashes": 84
                 }, 
                 "craig": {
-                    "unique_hashes": 10
+                    "unique_hashes": 5
                 }
             }
         }, 
         "gcc49_-O0": {
-            "unique_hashes": 126, 
+            "unique_hashes": 127, 
             "origins": {
                 "tce": {
                     "unique_hashes": 27
                 }, 
                 "tpcds_survey": {
-                    "unique_hashes": 9
+                    "unique_hashes": 10
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 4
@@ -4134,33 +4238,33 @@
             }
         }, 
         "javac1.8.0_66": {
-            "unique_hashes": 160, 
+            "unique_hashes": 149, 
             "origins": {
                 "tce": {
                     "unique_hashes": 43
                 }, 
                 "tpcds_survey": {
-                    "unique_hashes": 16
+                    "unique_hashes": 12
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 4
                 }, 
                 "compiler_survey": {
-                    "unique_hashes": 87
+                    "unique_hashes": 85
                 }, 
                 "craig": {
-                    "unique_hashes": 10
+                    "unique_hashes": 5
                 }
             }
         }, 
         "gcc49_-O3": {
-            "unique_hashes": 95, 
+            "unique_hashes": 96, 
             "origins": {
                 "tce": {
                     "unique_hashes": 19
                 }, 
                 "tpcds_survey": {
-                    "unique_hashes": 8
+                    "unique_hashes": 9
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 2
@@ -4174,5 +4278,5 @@
             }
         }
     }, 
-    "total_variants": 163
+    "total_variants": 170
 }

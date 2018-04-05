@@ -366,6 +366,7 @@ class ScalaCompiler(Compiler):
             # read the bytecode off the class
             class_file = variant_path + ".class"
             bytecode_cmd = "../scala/udf-hash/cli.sh {} > {}".format(class_file, asm_path)
+            print bytecode_cmd
             res = subprocess_exception_catch(bytecode_cmd)
             if not res:
                 return False

@@ -36,6 +36,7 @@
 			"note": "java implicitly passes this",
 			"variants": [
 				{ "c_code": "if(input0){ return 1; } else { return 0; }"
+				 , "scala_code": "if(input0 != 0){ return 1; } else { return 0; }"
 				 , "java_code": "if(input0 != 0){ return 1; } else { return 0; }" }
 				, { "code": "if(input0 != 0){ return 1; } else { return 0; }" }
 			]
@@ -49,6 +50,7 @@
 			"return_type": "int",
 			"variants": [
 				{ "c_code": "return *input0;"
+				 , "scala_code": "return input0(0);"
 				 , "java_code": "return input0[0];" }
 				, { "code": "return input0[0];" }
 			]
@@ -79,9 +81,21 @@
 			"origin": "tpcds_survey",
 			"input_types": ["int","int"],
 			"return_type": "boolean",
-			"expect_failure": {"c": true},
+			"variants": [
+				{ "code": "(input1 == 20) && (input0 == 10)" }
+				, { "code": "!((input1 != 20) || (input0 != 10))" }
+				, { "code": "(!(input1 != 20)) && (input0 == 10)" }
+				, { "code": "(input1 == 20) && (!(input0 != 10))" }
+			]
+		}
+		, {
+			"name": "logical_op_short_circuit",
+			"origin": "tpcds_survey",
+			"input_types": ["int","int"],
+			"return_type": "boolean",
 			"variants": [
 				{ "code": "(input0 == 10) && (input1 == 20)" }
+				, { "code": "!((input0 != 10) || (input1 != 20))" }
 				, { "code": "(input1 == 20) && (input0 == 10)" }
 				, { "code": "!((input1 != 20) || (input0 != 10))" }
 			]
@@ -223,6 +237,7 @@
 				{ "code": "(input0+input1)-(input2+input3)" }
 				,{ "code": "(((input0+input1)-input2)-input3)" }
 				,{ "code": "(input0+input1-input2)-input3" }
+				,{ "code": "input0+input1-input2-input3" }
 			]
 		}
 		, {
@@ -235,6 +250,7 @@
 				{ "code": "(input0+input1)+(input2+input3)" }
 				,{ "code": "(((input0+input1)+input2)+input3)" }
 				,{ "code": "(input0+input1+input2)+input3" }
+				,{ "code": "input0+input1+input2+input3" }
 			]
 		}
 		, {

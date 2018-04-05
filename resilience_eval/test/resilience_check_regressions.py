@@ -27,7 +27,7 @@ def diff_sets(old, new, thing_name):
 
     return len(in_old_not_new) == 0 and len(in_new_not_old) == 0
 
-def diff_outcomes(old, new):
+def diff_outcomes(old, new, print_diff):
     #1. check for changes in tests performed
     #2. check for changes in whether tests pass: full, partial (change in # of unique), failure
     assert 'programs' in old
@@ -75,18 +75,21 @@ def diff_outcomes(old, new):
                 if old_unique > new_unique:
                     print c.Fore.GREEN + "*** Lower number of unique hashes in tests {} for compiler {}".format(old_name, old_c)
                 print "Old Unique Hashes: {} New Unique Hashes: {}".format(old_unique, new_unique)
-                #pprint(old_hashes)
-                print c.Fore.RED,
-                pprint(old_p)
-                print c.Fore.GREEN,
-                #pprint(new_hashes)
-                pprint(new_p)
+
+                if print_diff:
+                    #pprint(old_hashes)
+                    print c.Fore.RED,
+                    pprint(old_p)
+                    print c.Fore.GREEN,
+                    #pprint(new_hashes)
+                    pprint(new_p)
                 print c.Style.RESET_ALL,
 
 def main():
     parser = argparse.ArgumentParser(description='run resilience test using input')
     parser.add_argument('--old', '-o', help='old resilience outcome to compare against', required=True)
     parser.add_argument('--new', '-n', help='new resilience outcome to check', required=True)
+    parser.add_argument('--diff', '-d', help='enable to print out program diff', action='store_true')
     args = parser.parse_args()
 
     with open(args.old) as fh:
@@ -95,7 +98,7 @@ def main():
     with open(args.new) as fh:
         new = json.load(fh)
 
-    diff_outcomes(old, new)
+    diff_outcomes(old, new, args.diff)
 
 if __name__ == "__main__":
     main()
