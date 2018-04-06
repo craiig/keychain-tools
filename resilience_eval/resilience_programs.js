@@ -91,6 +91,7 @@
 		, {
 			"name": "logical_op_short_circuit",
 			"origin": "tpcds_survey",
+			"verified_compiler_baseline": "clang_-O3",
 			"input_types": ["int","int"],
 			"return_type": "boolean",
 			"variants": [
@@ -212,7 +213,7 @@
 			"return_type": "boolean",
 			"variants": [
 				{ "code": "input0 >= 10" }
-				, { "code": "input0 != 10" }
+				, { "code": "10 <= input0" }
 			]
 		}
 		, {
@@ -404,6 +405,7 @@
 		, {
 			"name": "constant_propagation_conditional2",
 			"origin": "compiler_survey",
+			"verified_compiler_baseline": "clang_-O3",
 			"note": "trying to cover llvm -sccp example: https://gcc.gnu.org/news/ssa-ccp.html",
 			"input_types": ["int", "int", "int"],
 			"return_type": "int",
@@ -443,6 +445,7 @@
 		}
 		, {
 			"name": "loop_unswitch",
+            "verified_compiler_baseline": "clang_-O3", 
 			"origin": "compiler_survey",
 			"note": "trying to cover gcc -ftree-loop-optimize and llvm -loop-unswitch. example from gcc/tree-ssa-loop-unswitch.c. functions are not marked pure on purpose",
 			"input_types": ["int", "int", "int*"],
@@ -461,7 +464,8 @@
 		, {
 			"name": "loop_unswitch_harder",
 			"origin": "compiler_survey",
-			"note": "trying to cover gcc -ftree-loop-optimize. example from gcc/tree-ssa-loop-unswitch.c TODO revisit",
+            "verified_compiler_baseline": "clang_-O3", 
+			"note": "trying to cover gcc -ftree-loop-optimize. example from gcc/tree-ssa-loop-unswitch.c. manually verified this works.",
 			"input_types": ["int", "int", "int*"],
 			"return_type": "int",
 			"return": "",
@@ -476,6 +480,7 @@
 			"name": "loop_splitting",
 			"origin": "compiler_survey",
 			"note": "trying to cover gcc -ftree-loop-optimize and llvm -loop-simplify. example from gcc/tree-ssa-loop-split.c. WOW this is weird on older clang/gcc, godbolt shows newer clang/gcc are ok",
+            "verified_compiler_baseline": "clang6.0.0_-O3", 
 			"input_types": ["int"],
 			"return_type": "int",
 			"return": "",

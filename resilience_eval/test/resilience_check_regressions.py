@@ -8,6 +8,8 @@
 # affecting code correctness
 
 import argparse
+import sys
+from operator import itemgetter
 import json
 import colorama as c
 c.init()
@@ -85,6 +87,36 @@ def diff_outcomes(old, new, print_diff):
                     pprint(new_p)
                 print c.Style.RESET_ALL,
 
+def test_warnings(outcome):
+    # compute warnings, looking for
+    # 1. any tests that do not have at least one single unique id
+    #   (this can indiciate a bad test)
+
+    programs = outcome['programs']
+    for p in programs:
+        hash_counts = [(variant_name,len(set(hashes))) for variant_name,hashes in p['program_hashes'].iteritems()]
+        most_unique = (min(hash_counts, key=itemgetter(1)))
+        baseline_compiler = p.get('verified_compiler_baseline', False)
+        if most_unique[1] != 1 and not baseline_compiler:
+            print c.Fore.RED + "Error: test {} does not have at least one baseline compiler".format(p['name'])
+            sys.stdout.write(c.Style.RESET_ALL)
+
+        if most_unique[1] == 1 and baseline_compiler:
+            print c.Fore.YELLOW + "Warning: test {} has an ideal implicit and explicit baseline compiler".format(p['name'])
+            sys.stdout.write(c.Style.RESET_ALL)
+
+        elif baseline_compiler:
+            baseline_results = p['program_hashes'].get(baseline_compiler, False)
+            if baseline_results:
+                unique_hashes = len(set(baseline_results))
+                print c.Fore.YELLOW + "Warning: test {} baseline compiler {} has {} unique hashes".format(p['name'], baseline_compiler, unique_hashes)
+                sys.stdout.write(c.Style.RESET_ALL)
+                pass
+            else:
+                print c.Fore.RED + "Error: baseline compiler {} is not included in results for {}".format(baseline_compiler, p['name'])
+                sys.stdout.write(c.Style.RESET_ALL)
+                pass
+
 def main():
     parser = argparse.ArgumentParser(description='run resilience test using input')
     parser.add_argument('--old', '-o', help='old resilience outcome to compare against', required=True)
@@ -99,6 +131,7 @@ def main():
         new = json.load(fh)
 
     diff_outcomes(old, new, args.diff)
+    test_warnings(new)
 
 if __name__ == "__main__":
     main()
