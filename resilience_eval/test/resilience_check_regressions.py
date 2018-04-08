@@ -8,6 +8,7 @@
 # affecting code correctness
 
 import argparse
+import re
 import sys
 from operator import itemgetter
 import json
@@ -68,13 +69,23 @@ def diff_outcomes(old, new, print_diff):
                 print c.Style.RESET_ALL,
                 continue
 
+            def skipped_filter(s):
+                if re.match('^skipped', s):
+                    return False
+                else:
+                    return True
+            old_hashes = filter(skipped_filter, old_hashes)
+            new_hashes = filter(skipped_filter, new_hashes)
+
             old_unique = len(set( old_hashes ))
             new_unique = len(set( new_hashes ))
             #print "Old Unique Hashes: {} New Unique Hashes: {}".format(old_unique, new_unique)
             if old_unique != new_unique:
-                if old_unique < new_unique:
+                if old_unique == 0:
+                    print c.Fore.GREEN + "*** Newly unskipped test {} for compiler {}".format(old_name, old_c)
+                elif old_unique < new_unique:
                     print c.Fore.RED + "*** Greater number of unique hashes in tests {} for compiler {}".format(old_name, old_c)
-                if old_unique > new_unique:
+                elif old_unique > new_unique:
                     print c.Fore.GREEN + "*** Lower number of unique hashes in tests {} for compiler {}".format(old_name, old_c)
                 print "Old Unique Hashes: {} New Unique Hashes: {}".format(old_unique, new_unique)
 
@@ -91,14 +102,28 @@ def test_warnings(outcome):
     # compute warnings, looking for
     # 1. any tests that do not have at least one single unique id
     #   (this can indiciate a bad test)
+    # 2. any skipped tests
 
     programs = outcome['programs']
     for p in programs:
-        hash_counts = [(variant_name,len(set(hashes))) for variant_name,hashes in p['program_hashes'].iteritems()]
-        most_unique = (min(hash_counts, key=itemgetter(1)))
+        # try to identify a baseline
+        #
+        # make sure we don't count a skipped test as a hash
+        def skipped_filter(s):
+            if re.match('^skipped', s):
+                return False
+            else:
+                return True
+        hash_counts = [(variant_name,len(set(filter(skipped_filter,hashes)))) for variant_name,hashes in p['program_hashes'].iteritems()]
+        unskipped_hash_counts = filter(lambda x: x[1] > 0, hash_counts)
+
+        most_unique = (min(unskipped_hash_counts, key=itemgetter(1)))
         baseline_compiler = p.get('verified_compiler_baseline', False)
+
         if most_unique[1] != 1 and not baseline_compiler:
             print c.Fore.RED + "Error: test {} does not have at least one baseline compiler".format(p['name'])
+            #pprint(hash_counts)
+            #pprint(most_unique)
             sys.stdout.write(c.Style.RESET_ALL)
 
         if most_unique[1] == 1 and baseline_compiler:
@@ -116,6 +141,18 @@ def test_warnings(outcome):
                 print c.Fore.RED + "Error: baseline compiler {} is not included in results for {}".format(baseline_compiler, p['name'])
                 sys.stdout.write(c.Style.RESET_ALL)
                 pass
+
+        #check for skipped tests
+        def skipped_filter_no_code(s):
+            if re.match('^skipped_no_code_specified', s):
+                return True
+            else:
+                return False
+        skipped = [(variant_name,len(set(filter(skipped_filter_no_code, hashes)))) for variant_name,hashes in p['program_hashes'].iteritems()]
+        skipped_tests = max(skipped, key=itemgetter(1))
+        if skipped_tests[1] != 0:
+            print c.Fore.RED + "Error: test {} has at least one skipped test".format(p['name'])
+            sys.stdout.write(c.Style.RESET_ALL)
 
 def main():
     parser = argparse.ArgumentParser(description='run resilience test using input')

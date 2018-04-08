@@ -187,15 +187,25 @@ def analyze_program_tests_success(overall):
         origin = p['origin'] #get program origin to classify
         for c in p['program_hashes'].iterkeys():
             if c not in compilers_pass_fail:
-                compilers_pass_fail[c] = {'passes': 0, 'fails': 0, 'passed_tests': [], 'failed_tests': [], 'origins':{}}
+                compilers_pass_fail[c] = {'passes': 0, 'fails': 0, 'skipped': 0, 'passed_tests': [], 'failed_tests': [], 'skipped_tests': [], 'origins':{}}
             cr = compilers_pass_fail[c]
 
             if origin not in cr['origins']:
-                cr['origins'][origin] = {'passes': 0, 'fails': 0, 'passed_tests': [], 'failed_tests': []}
+                cr['origins'][origin] = {'passes': 0, 'fails': 0, 'skipped': 0, 'passed_tests': [], 'failed_tests': [], 'skipped_tests': []}
 
             program_hashes = p['program_hashes'][c]
             unique_hashes = list(set(program_hashes)) # cast set back to list for json serializability
-            if len(unique_hashes) > 1:
+            def filter_skipped(s):
+                if re.match('^skipped', s):
+                    return True
+                else:
+                    return False
+            skipped = filter(filter_skipped, unique_hashes)
+            if len(skipped) > 0:
+                cr['skipped'] += 1
+                cr['origins'][origin]['skipped'] += 1
+                cr['origins'][origin]['skipped_tests'].append(p['name'])
+            elif len(unique_hashes) > 1:
                 cr['fails'] += 1
                 cr['origins'][origin]['fails'] += 1
                 cr['origins'][origin]['failed_tests'].append(p['name'])

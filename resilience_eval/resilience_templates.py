@@ -37,6 +37,7 @@ class ScalaProgram:
             , "char*": "Array[Char]"
             , "int**": "Array[Array[Int]]"
             , 'void': 'Unit'
+            , 'double': 'Double'
     }
     body = """
 {header}

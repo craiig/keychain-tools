@@ -49,8 +49,11 @@ class CCompiler(Compiler):
     def __init__(self, compiler_name, opt_level):
         compiler_map = {
                 #TODO verify versions are correct in the calls here
-                "gcc49": "/usr/local/bin/gcc-4.9 -o {asm_path} -c -S {opt_level} -std=gnu11 {variant_path}.c"
-                , "clang": "clang -o {asm_path} -c -S {opt_level} {variant_path}.c"
+                "gcc49": "/usr/local/bin/gcc-4.9 -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ -o {asm_path} -c -S {opt_level} -std=gnu11 {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
+                , "gcc7": "/usr/local/Cellar/gcc/7.3.0_1/bin/gcc-7 -o {asm_path} -c -S {opt_level} -std=gnu11 {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
+                , "clang": "clang -o {asm_path} -c -S {opt_level} {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
+                , "clang6": "compilers/clang+llvm-6.0.0-x86_64-apple-darwin/bin/clang-6.0 -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ -o {asm_path} -c -S {opt_level} {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
+                , "clang7": "compilers/llvm/clang-install/bin/clang -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ -o {asm_path} -c -S {opt_level} {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
         }
         self.compiler_name = compiler_name
         self.compiler_template = compiler_map[compiler_name]
@@ -380,6 +383,12 @@ CompilerDefinitions = [
     ScalaCompiler("scalac"),
     CCompiler('gcc49', '-O0'),
     CCompiler('gcc49', '-O3'),
+    CCompiler('gcc7', '-O0'),
+    CCompiler('gcc7', '-O3'),
     CCompiler('clang', '-O0'),
-    CCompiler('clang', '-O3')
+    CCompiler('clang', '-O3'),
+    CCompiler('clang6', '-O0'),
+    CCompiler('clang6', '-O3'),
+    CCompiler('clang7', '-O0'),
+    CCompiler('clang7', '-O3')
 ]

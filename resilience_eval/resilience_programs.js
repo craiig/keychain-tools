@@ -124,7 +124,7 @@
 		, {
 			"name": "function_inlining_trivial",
 			"origin": "compiler_survey",
-			"notes": "TODO these ARE equivalent but we need to better parse the asm code to demonstrate that",
+			"notes": "TODO these ARE equivalent but we need to better parse the asm code to demonstrate that, but how well this works in practice depends on if the bytecode hashing includes the unused un-inlined funciton.",
 			"input_types": ["int", "int"],
 			"return_type": "int",
 			"variants": [
@@ -189,8 +189,10 @@
 			"return": "",
 			"variants": [
 				{ "c_code": "int x=0; for(int i=0; i<input1; i++){ *input0 = i; x = *input0; }; return x; "
+				 ,"scala_code": "int x=0; for(int i=0; i<input1; i++){ input0(0) = i; x = input0(0); }; return x; "
 				 ,"java_code": "int x=0; for(int i=0; i<input1; i++){ input0[0] = i; x = input0[0]; }; return x; " }
 				, { "c_code": "int x=0; for(int i=0; i<input1; i++){ *input0 = i; x = i; }; return x; " 
+				 ,"scala_Code": "int x=0; for(int i=0; i<input1; i++){ input0(0) = i; x = i; }; return x; "
 				 ,"java_code": "int x=0; for(int i=0; i<input1; i++){ input0[0] = i; x = i; }; return x; " }
 			]
 		}
@@ -346,7 +348,10 @@
 			"return": "",
 			"variants": [
 				{ "code": "return input0+input1+1;" }
-				, { "type": "file", "c": "./benchmarks/ipa_cp_1.c" }
+				, { "type": "file", "c": "./benchmarks/ipa_cp_1.c"
+						, "java": "./benchmarks/java/ipa_cp_1.java"
+						, "scala": "./benchmarks/scala/ipa_cp_1.scala"
+		   			}
 			]
 		}
 		, {
@@ -380,10 +385,12 @@
 			"input_types": ["int", "int", "int"],
 			"return_type": "int",
 			"return": "",
-			"header": "__attribute__((pure)) int extern_do_pos(); __attribute__((pure)) int extern_do_neg();",
+			"c_header": "__attribute__((pure)) int extern_do_pos(); __attribute__((pure)) int extern_do_neg();",
+			"java_class_header": "public native int extern_do_pos(); public native int extern_do_neg();",
+			"scala_class_header": "@native def extern_do_pos():Int; @native def extern_do_neg():Int;",
 			"variants": [
-				{ "c_code": "int x = extern_do_pos(); int y = extern_do_neg(); int z; if(input0){z=x;}else{z=y;} return z; "  }
-				, { "c_code": "int z; if(input0){z=extern_do_pos();}else{z=extern_do_neg();} return z; "  }
+				{ "code": "int x = extern_do_pos(); int y = extern_do_neg(); int z = 0; if(input0!=0){z=x;}else{z=y;}; return z; " }
+				, { "code": "int z = 0; if(input0!=0){z=extern_do_pos();}else{z=extern_do_neg();}; return z; "  }
 			]
 		}
 		, {
@@ -405,7 +412,6 @@
 		, {
 			"name": "constant_propagation_conditional2",
 			"origin": "compiler_survey",
-			"verified_compiler_baseline": "clang_-O3",
 			"note": "trying to cover llvm -sccp example: https://gcc.gnu.org/news/ssa-ccp.html",
 			"input_types": ["int", "int", "int"],
 			"return_type": "int",
@@ -480,7 +486,7 @@
 			"name": "loop_splitting",
 			"origin": "compiler_survey",
 			"note": "trying to cover gcc -ftree-loop-optimize and llvm -loop-simplify. example from gcc/tree-ssa-loop-split.c. WOW this is weird on older clang/gcc, godbolt shows newer clang/gcc are ok",
-            "verified_compiler_baseline": "clang6.0.0_-O3", 
+            "verified_compiler_baseline": "clang7_-O3", 
 			"input_types": ["int"],
 			"return_type": "int",
 			"return": "",
@@ -519,8 +525,8 @@
 				{ "code": "int a=123; for (int i=0; i<input0; i++) { if (input3!=0) { a = input0; input1[i] = input2[i]; } }; return a;" 
 				, "scala_code": "int a=123; for (i <- 0 until input0) { if (input3!=0) { a = input0; input1(i) = input2(i); } }; return a;" }
 
-				, { "code": "int a=123; if(input3!=0){ a = input0; }; for (int i=0; i<input0; i++) { if (input3!=0) { input1[i] = input2[i]; } }; return a;" 
-				, "scala_code": "int a=123; if(input3!=0){ a = input0; }; for (i <- 0 until input0) { if (input3!=0) { input1(i) = input2(i); } }; return a;" }
+				, { "code": "int a=123; if(input0 > 0 && input3!=0){ a = input0; }; for (int i=0; i<input0; i++) { if (input3!=0) { input1[i] = input2[i]; } }; return a;" 
+				, "scala_code": "int a=123; if(input0 > 0 && input3!=0){ a = input0; }; for (i <- 0 until input0) { if (input3!=0) { input1(i) = input2(i); } }; return a;" }
 			]
 		}
 		, {
@@ -655,8 +661,7 @@
 			"return_type": "int",
 			"return": "",
 			"variants": [
-				{ "code": "return input0 + input1;" }
-				, { "code": "return input1 + input0;" }
+				{ "code": "return input1 + input0;" }
 				, { "code": "for(int i=0; i<1; i++){ return input1 + input0; } return 0;" 
 				, "scala_code": "for(i <- 0 until 1){ return input1 + input0; }; return -1;" }
 				, { "code": "int ret = input1; for(int i=0; i<1; i++){ ret += input0; } return ret;" 
@@ -699,21 +704,31 @@
 			]
 		}
 		, {
-			"name": "bisect dead store alternate implementations",
+			"name": "bisect_dead_store_alternate_implementations",
 			"origin": "tce",
 			"input_types": ["double"],
 			"return_type": "double",
 			"return": "",
+			"c_header": "#include <math.h>\ndouble mEpsilon; double mResult;",
 			"java_class_header": "double mEpsilon; double mResult;",
+			"scala_class_header": "double mEpsilon = 1; double mResult = -1;",
 			"variants": [
-				{ "java_code": "double N = input0;\n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (diff > 0) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n ",
-				  "variant_class": "original"}
-				, { "java_code": "\n double N = input0;\n double x = N;\n double M = -N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (diff > 0) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n ",
-					"variant_class": "negate expression"}
-				, { "java_code": "double N = input0; \n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (diff != 0) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n ", 
-					"variant_class": "alternate implementation"}
-				, { "java_code": "double N = input0; \n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (true) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n ",
-					"variant_class": "alternate implementation"}
+				{ "java_code": "double N = input0;\n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (diff > 0) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n "
+				, "scala_code": "double N = input0;\n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (diff > 0) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n "
+				, "c_code": "double N = input0;\n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (fabs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (diff > 0) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n "
+				  , "variant_class": "original"}
+				, { "java_code": "\n double N = input0;\n double x = N;\n double M = -N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (diff > 0) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n "
+				, "scala_code": "\n double N = input0;\n double x = N;\n double M = -N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (diff > 0) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n "
+				, "c_code": "\n double N = input0;\n double x = N;\n double M = -N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (fabs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (diff > 0) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n "
+					, "variant_class": "negate expression"}
+				, { "java_code": "double N = input0; \n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (diff != 0) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n "
+				, "scala_code": "double N = input0; \n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (diff != 0) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n " 
+				, "c_code": "double N = input0; \n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (fabs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (diff != 0) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n "
+					, "variant_class": "alternate implementation"}
+				, { "java_code": "double N = input0; \n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (true) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n "
+				, "scala_code": "double N = input0; \n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (Math.abs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (true) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n "
+				, "c_code": "double N = input0; \n double x = N;\n double M = N;\n double m = 1;\n double r = x;\n double diff = x * x - N;\n while (fabs( diff ) > mEpsilon) {\n if (diff < 0) {\n m = x;\n x = (M + x) / 2;\n } else {\n if (1) {\n M = x;\n x = (m + x) / 2;\n }\n }\n diff = x * x - N;\n }\n r = x;\n mResult = r;\n return r;\n "
+					, "variant_class": "alternate implementation"}
 			]
 		}
 		, {
@@ -723,10 +738,18 @@
 			"return_type": "double",
 			"return": "",
 			"variants": [
-				{"type": "file", "java": "./benchmarks/java/tce_capitalize_1.java"}
-				, {"type": "file", "java": "./benchmarks/java/tce_capitalize_2.java"}
-				, {"type": "file", "java": "./benchmarks/java/tce_capitalize_3.java"}
-				, {"type": "file", "java": "./benchmarks/java/tce_capitalize_4.java"}
+				{"type": "file", "java": "./benchmarks/java/tce_capitalize_1.java"
+				, "scala": "./benchmarks/scala/tce_capitalize_1.scala"
+				, "c": "./benchmarks/c/tce_capitalize_1.c"}
+				, {"type": "file", "java": "./benchmarks/java/tce_capitalize_2.java"
+				, "scala": "./benchmarks/scala/tce_capitalize_2.scala"
+				, "c": "./benchmarks/c/tce_capitalize_2.c"}
+				, {"type": "file", "java": "./benchmarks/java/tce_capitalize_3.java"
+				, "scala": "./benchmarks/scala/tce_capitalize_3.scala"
+				, "c": "./benchmarks/c/tce_capitalize_3.c"}
+				, {"type": "file", "java": "./benchmarks/java/tce_capitalize_4.java"
+				, "scala": "./benchmarks/scala/tce_capitalize_4.scala"
+				, "c": "./benchmarks/c/tce_capitalize_4.c"}
 			]
 		}
 		, {
