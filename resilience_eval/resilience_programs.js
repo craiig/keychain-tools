@@ -192,7 +192,7 @@
 				 ,"scala_code": "int x=0; for(int i=0; i<input1; i++){ input0(0) = i; x = input0(0); }; return x; "
 				 ,"java_code": "int x=0; for(int i=0; i<input1; i++){ input0[0] = i; x = input0[0]; }; return x; " }
 				, { "c_code": "int x=0; for(int i=0; i<input1; i++){ *input0 = i; x = i; }; return x; " 
-				 ,"scala_Code": "int x=0; for(int i=0; i<input1; i++){ input0(0) = i; x = i; }; return x; "
+				 ,"scala_code": "int x=0; for(int i=0; i<input1; i++){ input0(0) = i; x = i; }; return x; "
 				 ,"java_code": "int x=0; for(int i=0; i<input1; i++){ input0[0] = i; x = i; }; return x; " }
 			]
 		}
