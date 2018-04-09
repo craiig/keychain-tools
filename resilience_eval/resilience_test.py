@@ -11,6 +11,8 @@ import traceback
 import resilience_templates
 from compilers import CompilerDefinitions
 
+from test.resilience_check_regressions import get_baseline_compiler
+
 def generate_scala_code(program, args):
     pass
 
@@ -177,6 +179,7 @@ def analyze_programs_minmax(overall):
     overall['total_variants'] = total_variants
     overall['total_origin_stats'] = per_origin
 
+
 def analyze_program_tests_success(overall):
     # analyze success from the perspective of whether or not a particular test passed or failed
     # pass = a single hash
@@ -185,28 +188,48 @@ def analyze_program_tests_success(overall):
 
     for p in overall['programs']:
         origin = p['origin'] #get program origin to classify
+
+        # find baseline compiler for each program
+        most_unique = get_baseline_compiler(p['program_hashes'])
+        baseline_hashes = most_unique[1]
+        given_baseline_compiler = p.get('verified_compiler_baseline', False)
+        if given_baseline_compiler and p['program_hashes'].get(given_baseline_compiler, False):
+            baseline_hashes = len(set(p['program_hashes'][given_baseline_compiler]))
+
         for c in p['program_hashes'].iterkeys():
             if c not in compilers_pass_fail:
-                compilers_pass_fail[c] = {'passes': 0, 'fails': 0, 'skipped': 0, 'passed_tests': [], 'failed_tests': [], 'skipped_tests': [], 'origins':{}}
+                compilers_pass_fail[c] = {'passes': 0, 'fails': 0, 'soft_pass':0, 'skipped': 0, 'soft_fail': 0,
+                        'passed_tests': [], 'failed_tests': [], 'skipped_tests': [], 'origins':{}}
             cr = compilers_pass_fail[c]
 
             if origin not in cr['origins']:
-                cr['origins'][origin] = {'passes': 0, 'fails': 0, 'skipped': 0, 'passed_tests': [], 'failed_tests': [], 'skipped_tests': []}
+                cr['origins'][origin] = {'passes': 0, 'fails': 0, 'soft_pass':0, 'skipped': 0, 'soft_fail': 0, 
+                        'passed_tests': [], 'failed_tests': [], 'skipped_tests': []}
 
             program_hashes = p['program_hashes'][c]
+            total_hashes = len(program_hashes)
             unique_hashes = list(set(program_hashes)) # cast set back to list for json serializability
             def filter_skipped(s):
                 if re.match('^skipped', s):
                     return True
                 else:
                     return False
+
             skipped = filter(filter_skipped, unique_hashes)
             if len(skipped) > 0:
                 cr['skipped'] += 1
                 cr['origins'][origin]['skipped'] += 1
                 cr['origins'][origin]['skipped_tests'].append(p['name'])
+            # when there is a failure but we're as good as the baseline, count it as a soft pass
+            # when there is a failure but we got at least one right, count this as a soft failure
             elif len(unique_hashes) > 1:
-                cr['fails'] += 1
+                if len(unique_hashes) == baseline_hashes:
+                    cr['soft_pass'] += 1
+                elif len(unique_hashes) < total_hashes:
+                    cr['soft_fail'] += 1
+                else:
+                    cr['fails'] += 1
+
                 cr['origins'][origin]['fails'] += 1
                 cr['origins'][origin]['failed_tests'].append(p['name'])
             else:

@@ -98,6 +98,17 @@ def diff_outcomes(old, new, print_diff):
                     pprint(new_p)
                 print c.Style.RESET_ALL,
 
+def get_baseline_compiler(hashes):
+        def skipped_filter(s):
+            if re.match('^skipped', s):
+                return False
+            else:
+                return True
+        hash_counts = [(variant_name,len(set(filter(skipped_filter,hashes)))) for variant_name,hashes in hashes.iteritems()]
+        unskipped_hash_counts = filter(lambda x: x[1] > 0, hash_counts)
+        most_unique = (min(unskipped_hash_counts, key=itemgetter(1)))
+        return most_unique
+
 def test_warnings(outcome):
     # compute warnings, looking for
     # 1. any tests that do not have at least one single unique id
@@ -108,16 +119,8 @@ def test_warnings(outcome):
     for p in programs:
         # try to identify a baseline
         #
-        # make sure we don't count a skipped test as a hash
-        def skipped_filter(s):
-            if re.match('^skipped', s):
-                return False
-            else:
-                return True
-        hash_counts = [(variant_name,len(set(filter(skipped_filter,hashes)))) for variant_name,hashes in p['program_hashes'].iteritems()]
-        unskipped_hash_counts = filter(lambda x: x[1] > 0, hash_counts)
+        most_unique = get_baseline_compiler(p['program_hashes'])
 
-        most_unique = (min(unskipped_hash_counts, key=itemgetter(1)))
         baseline_compiler = p.get('verified_compiler_baseline', False)
 
         if most_unique[1] != 1 and not baseline_compiler:

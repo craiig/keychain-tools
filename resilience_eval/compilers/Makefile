@@ -6,6 +6,12 @@ all:
 gcc7:
 	brew install gcc
 
+clang5: clang5.tar.xz
+	tar -vzxf $<
+
+clang5.tar.xz:
+	curl -Lo $@ http://releases.llvm.org/5.0.1/clang+llvm-5.0.1-x86_64-apple-darwin.tar.xz
+
 #clang+llvm-6.0.0-x86_64-apple-darwin.tar.xz:
 clang6: ./clang+llvm-6.0.0-x86_64-apple-darwin
 clang+llvm-6.0.0-x86_64-apple-darwin: clang+llvm-6.0.0-x86_64-apple-darwin.tar.xz
@@ -13,7 +19,7 @@ clang+llvm-6.0.0-x86_64-apple-darwin: clang+llvm-6.0.0-x86_64-apple-darwin.tar.x
 	touch $@
 
 clang+llvm-6.0.0-x86_64-apple-darwin.tar.xz:
-	curl -Lo http://releases.llvm.org/6.0.0/clang+llvm-6.0.0-x86_64-apple-darwin.tar.xz > $@
+	curl -Lo $@ http://releases.llvm.org/6.0.0/clang+llvm-6.0.0-x86_64-apple-darwin.tar.xz
 
 ./llvm/llvm-project:
 	mkdir -p ./llvm/
