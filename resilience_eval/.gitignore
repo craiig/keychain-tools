@@ -1,1 +1,2 @@
-build/
+build/*
+!build/resilience_outcome.json

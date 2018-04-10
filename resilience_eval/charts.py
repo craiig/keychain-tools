@@ -101,6 +101,7 @@ def overall_compiler_outcomes(o, args):
 
     df.sort_values(by=['passes', 'soft_pass', 'soft_fail', 'fails', 'skipped', 'name'], inplace=True)
     df = df[ cols ]
+    df.columns = ['pass', 'qualified pass', 'partial fail', 'fail', 'skipped']
     print df
 
     ax = render_stack_breakdown(df, style_name='ggplot')
@@ -108,6 +109,8 @@ def overall_compiler_outcomes(o, args):
     ax.set_xlabel("")
 
     path = os.path.join(args.output_dir, 'overall_compiler_outcomes.pdf')
+    plt.savefig(path, bbox_inches='tight', dpi=300)
+    path = os.path.join(args.output_dir, 'overall_compiler_outcomes.png')
     plt.savefig(path, bbox_inches='tight', dpi=300)
 
 def main():

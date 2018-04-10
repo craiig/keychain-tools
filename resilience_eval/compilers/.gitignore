@@ -1,2 +1,6 @@
 clang+llvm-6.0.0-x86_64-apple-darwin*
 llvm
+clang+llvm-5.0.1-final-x86_64-apple-darwin*
+clang5.tar.xz
+scala2.12.5*
+scala-2.12.5*

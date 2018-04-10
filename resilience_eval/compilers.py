@@ -54,6 +54,7 @@ class CCompiler(Compiler):
                 , "clang": "clang -o {asm_path} -c -S {opt_level} {extra_flags} {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
                 , "clang5": "./compilers/clang+llvm-5.0.1-final-x86_64-apple-darwin/bin/clang-5.0 -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ -o {asm_path} -c -S {opt_level} {extra_flags} {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
                 , "clang6": "compilers/clang+llvm-6.0.0-x86_64-apple-darwin/bin/clang-6.0 -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ -o {asm_path} -c -S {opt_level} {extra_flags} {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
+                # extra clang7 paths point to clang6 libc headers because i didn't compile clang7 with libc :P
                 , "clang7": "compilers/llvm/clang-install/bin/clang -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ -Icompilers/clang+llvm-6.0.0-x86_64-apple-darwin/include/c++/v1/ -o {asm_path} -c -S {opt_level} {extra_flags} {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
         }
         self.compiler_name = compiler_name
@@ -384,6 +385,7 @@ class ScalaCompiler(Compiler):
 CompilerDefinitions = [
     JavaCompiler("javac"),
     ScalaCompiler("scalac"),
+    ScalaCompiler("./compilers/scala-2.12.5/bin/scalac"),
     CCompiler('gcc4.9', '-O0'),
     CCompiler('gcc4.9', '-O3'),
     CCompiler('gcc7', '-O0'),

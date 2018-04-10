@@ -40,6 +40,13 @@
                     "4f59541bd9c3ada72832f345629482761cf0baaebe832dd62e456b1159ed049b", 
                     "4f59541bd9c3ada72832f345629482761cf0baaebe832dd62e456b1159ed049b"
                 ], 
+                "scala2.12.5": [
+                    "bc:CThWTml6AFzsJ96PZe5ZTPDBrnuQ0rFiyzT3m3V904M_pr:none", 
+                    "bc:CThWTml6AFzsJ96PZe5ZTPDBrnuQ0rFiyzT3m3V904M_pr:none", 
+                    "bc:CThWTml6AFzsJ96PZe5ZTPDBrnuQ0rFiyzT3m3V904M_pr:none", 
+                    "bc:CThWTml6AFzsJ96PZe5ZTPDBrnuQ0rFiyzT3m3V904M_pr:none", 
+                    "bc:CThWTml6AFzsJ96PZe5ZTPDBrnuQ0rFiyzT3m3V904M_pr:none"
+                ], 
                 "clang5_-O3": [
                     "7c6c1ed12273bf7889d62515f2c55b51ad7dfcd7b4234da1d7b5b97b86cb0fbb", 
                     "7c6c1ed12273bf7889d62515f2c55b51ad7dfcd7b4234da1d7b5b97b86cb0fbb", 
@@ -157,6 +164,14 @@
                     "9ba292939d249403805a81287ddff7847122f1125f028b7b6a4956aa4f57e631", 
                     "9ba292939d249403805a81287ddff7847122f1125f028b7b6a4956aa4f57e631", 
                     "9ba292939d249403805a81287ddff7847122f1125f028b7b6a4956aa4f57e631"
+                ], 
+                "scala2.12.5": [
+                    "bc:eGX53fTkzqUbN1xUc1EADP-TkMgpIK3VLVFfl9SvmUQ_pr:none", 
+                    "bc:sEe3anwgJwqFz0Zruli8Ry_YyxT5nvWAF42UyquSPxg_pr:none", 
+                    "bc:eGX53fTkzqUbN1xUc1EADP-TkMgpIK3VLVFfl9SvmUQ_pr:none", 
+                    "bc:b2LA8qIRgDmqNq9Wdwak9p5_HRhzWj6DbA3MevgqGkA_pr:none", 
+                    "bc:b2LA8qIRgDmqNq9Wdwak9p5_HRhzWj6DbA3MevgqGkA_pr:none", 
+                    "bc:b2LA8qIRgDmqNq9Wdwak9p5_HRhzWj6DbA3MevgqGkA_pr:none"
                 ], 
                 "clang5_-O3": [
                     "ff13229f3a8be7a43cfc6d655c5cfb6b3372c088bdd15319f6861a8a0477a768", 
@@ -284,6 +299,10 @@
                     "403eba86fc9ebd14c3ed82c6e0ed9f91374302bf76c99718ecfdac6e4fcce465", 
                     "403eba86fc9ebd14c3ed82c6e0ed9f91374302bf76c99718ecfdac6e4fcce465"
                 ], 
+                "scala2.12.5": [
+                    "bc:5h9sdYcsQfwzlX4PnCfOZkXerVC4b0xfkPOvk52xgQU_pr:none", 
+                    "bc:5h9sdYcsQfwzlX4PnCfOZkXerVC4b0xfkPOvk52xgQU_pr:none"
+                ], 
                 "clang5_-O3": [
                     "9dace13a16b46954de1ccbd5642a2e13f311c73868e785b6611ee10e6d3390e5", 
                     "9dace13a16b46954de1ccbd5642a2e13f311c73868e785b6611ee10e6d3390e5"
@@ -357,6 +376,10 @@
                     "2764887dc43fc3f1aad23d8a2f1c2ec42c869a45cb080a5fda012f27f8793701", 
                     "2764887dc43fc3f1aad23d8a2f1c2ec42c869a45cb080a5fda012f27f8793701"
                 ], 
+                "scala2.12.5": [
+                    "bc:fn0TQfI4Ye7JW8RYSD2bVsVAuIXEEvHhaEpp8jQiaZg_pr:none", 
+                    "bc:fn0TQfI4Ye7JW8RYSD2bVsVAuIXEEvHhaEpp8jQiaZg_pr:none"
+                ], 
                 "clang5_-O3": [
                     "88ba02002badadbf7cf6dcfd819e7972d29e3db5202a5c82455bb97df82d51fb", 
                     "88ba02002badadbf7cf6dcfd819e7972d29e3db5202a5c82455bb97df82d51fb"
@@ -428,6 +451,10 @@
                     "bede5c465af1bd88ae47ef39b675739963af5c644e9ebddc0ac0c6296a79dcc9", 
                     "bede5c465af1bd88ae47ef39b675739963af5c644e9ebddc0ac0c6296a79dcc9"
                 ], 
+                "scala2.12.5": [
+                    "bc:CThWTml6AFzsJ96PZe5ZTPDBrnuQ0rFiyzT3m3V904M_pr:none", 
+                    "bc:_eK6VEHt_oYwtLv4GN5kpCPmfM6l9tzLIvxSg_64N9s_pr:none"
+                ], 
                 "clang5_-O3": [
                     "907fa8220903b0a8f7a614a9d7702b336f1b9c2deab81e862f9042dc5ba4e82a", 
                     "907fa8220903b0a8f7a614a9d7702b336f1b9c2deab81e862f9042dc5ba4e82a"
@@ -496,6 +523,10 @@
                 "clang6_-O3": [
                     "dcf58b33b7c14ecdf4dd947550a6291e692651cfefccaee1b9cebad5db222961", 
                     "dcf58b33b7c14ecdf4dd947550a6291e692651cfefccaee1b9cebad5db222961"
+                ], 
+                "scala2.12.5": [
+                    "bc:-dyBOj8fSBbgGbUdU3OKsUxEUTsqrqV4zduRf8Lvi0Y_pr:none", 
+                    "bc:0uVmgInyFtIMy_gWPsy8IsoCFircEuV6Ql6OWl8tloU_pr:none"
                 ], 
                 "clang5_-O3": [
                     "27196967640a704dddeecfe3fdf47bc35dcb58d431ce7000fcabc3ebff4790b6", 
@@ -569,6 +600,12 @@
                     "dab58b7230a8c55675767fcb8121f6c5ce51e53874d3778bc36534b7a4fc01a3", 
                     "dab58b7230a8c55675767fcb8121f6c5ce51e53874d3778bc36534b7a4fc01a3", 
                     "dab58b7230a8c55675767fcb8121f6c5ce51e53874d3778bc36534b7a4fc01a3"
+                ], 
+                "scala2.12.5": [
+                    "bc:jIu0WkQLLkSDNMNJqY_ZEHLOzYt1OIVjiUXrS0obveQ_pr:none", 
+                    "bc:jIu0WkQLLkSDNMNJqY_ZEHLOzYt1OIVjiUXrS0obveQ_pr:none", 
+                    "bc:jIu0WkQLLkSDNMNJqY_ZEHLOzYt1OIVjiUXrS0obveQ_pr:none", 
+                    "bc:jIu0WkQLLkSDNMNJqY_ZEHLOzYt1OIVjiUXrS0obveQ_pr:none"
                 ], 
                 "clang5_-O3": [
                     "c1265dd8b8ee6c5d65fd6c912c93824ba789d9d66544881c862132b65a75e9ae", 
@@ -671,6 +708,12 @@
                     "75c4798711184da594833edf315e923f113ab4d64bccd6af3032724e9d69c314", 
                     "75c4798711184da594833edf315e923f113ab4d64bccd6af3032724e9d69c314"
                 ], 
+                "scala2.12.5": [
+                    "bc:PW-UfvmKfQRR0YmMp5h34BFckYmFnuYtyCABwUadU0Y_pr:none", 
+                    "bc:PW-UfvmKfQRR0YmMp5h34BFckYmFnuYtyCABwUadU0Y_pr:none", 
+                    "bc:jIu0WkQLLkSDNMNJqY_ZEHLOzYt1OIVjiUXrS0obveQ_pr:none", 
+                    "bc:jIu0WkQLLkSDNMNJqY_ZEHLOzYt1OIVjiUXrS0obveQ_pr:none"
+                ], 
                 "clang5_-O3": [
                     "185817132f5db63a562dad7caaa60b12122fab19762c14e281a821c9bf37ec35", 
                     "185817132f5db63a562dad7caaa60b12122fab19762c14e281a821c9bf37ec35", 
@@ -769,6 +812,10 @@
                     "567e3928e513065e0771c7366edce7568ffc63859c143f4abfaf8e038ec000d8", 
                     "567e3928e513065e0771c7366edce7568ffc63859c143f4abfaf8e038ec000d8"
                 ], 
+                "scala2.12.5": [
+                    "bc:WppDfJQZsh6sLm2xjIGRIAzmuG5ga2PBfjqqRJXiy6E_pr:none", 
+                    "bc:gJKmTap8iV0UPBLjqLJs5nLkxsJXUU7l313j7x8R3g4_pr:none"
+                ], 
                 "clang5_-O3": [
                     "e2c65661c0b4f71e5786d194dd57adae88c10924a37bf4ed6475f52f24d2c2ad", 
                     "e2c65661c0b4f71e5786d194dd57adae88c10924a37bf4ed6475f52f24d2c2ad"
@@ -837,6 +884,10 @@
                 "clang6_-O3": [
                     "0cd59b9827a59c93c652732f38b3813d1b094b3f6e87761b0ab0b39793c58dd6", 
                     "0cd59b9827a59c93c652732f38b3813d1b094b3f6e87761b0ab0b39793c58dd6"
+                ], 
+                "scala2.12.5": [
+                    "bc:J4MBalHzjwO_kIvrkQIhUcQeOkjh15rv_lXcdOLXYvQ_pr:none", 
+                    "bc:irWq01F3bn92Ao6UX8fcoXkEBRRNGjuSKG_HOkoCi44_pr:none"
                 ], 
                 "clang5_-O3": [
                     "d2e922ee6e11f0faef55dd1d5ff46a7b169c0c7412d6dc82cfefdcbe45a2042d", 
@@ -907,6 +958,10 @@
                 "clang6_-O3": [
                     "9a974bf50435b087aca8502fa2af9640b6854722999b2a7532b242651447777b", 
                     "410107f29915c9db55216ff33b8c0aba6251fdefdab38f623e93c8cab2893a82"
+                ], 
+                "scala2.12.5": [
+                    "bc:J4MBalHzjwO_kIvrkQIhUcQeOkjh15rv_lXcdOLXYvQ_pr:none", 
+                    "bc:YJ9FCZQDudDYp-riefCrpbVWmgNarbuH_ZzDn3VX4xU_pr:none"
                 ], 
                 "clang5_-O3": [
                     "77a32ceb50356240f4587b60b4a556753c4c56b1625ef7308dda655880de665a", 
@@ -982,6 +1037,11 @@
                     "221a806917cd123d31bdc9b07af2787ea13afe84ad95ff671732bf23dbdf3a9f", 
                     "21d50d9d38f917356e5583ff8acafd92e98cf90dafa5c5f83a2afae6ba78a6c8", 
                     "21d50d9d38f917356e5583ff8acafd92e98cf90dafa5c5f83a2afae6ba78a6c8"
+                ], 
+                "scala2.12.5": [
+                    "bc:E_OsKH9Y5_u14saB10nQcSyRQv4LYqtMdkLaz4IaVzU_pr:none", 
+                    "bc:bgcoY9xzwI7UAn8hilUqsev7ghKBSwfF76MlBuau9qM_pr:none", 
+                    "bc:miBhBVj4vq_Fv72UjX83gZ-MZJ_zUDtTxQyeoCsdjss_pr:none"
                 ], 
                 "clang5_-O3": [
                     "ef8a94ecb6ba4613771bff712ea0c0e7a447f04e31f4628763087d9f9b7bbab1", 
@@ -1076,6 +1136,10 @@
                     "9d9fc1771c4b9b7db8d87e755a8d21c2f050d5ea239cad3b1ca7c97fb47e6226", 
                     "9d9fc1771c4b9b7db8d87e755a8d21c2f050d5ea239cad3b1ca7c97fb47e6226"
                 ], 
+                "scala2.12.5": [
+                    "bc:D9QojrXPkPyRNt6YcMz-xjeC7SaKhzGFjI5mv0sGM1w_pr:none", 
+                    "bc:y0HpCrUyeMy4Qcuy20mzmGW6USioU1OC2YLDbTJUC84_pr:none"
+                ], 
                 "clang5_-O3": [
                     "ceb48537de103655d273d0c82915659448f6d0498d5dc31455c169e820f64347", 
                     "ceb48537de103655d273d0c82915659448f6d0498d5dc31455c169e820f64347"
@@ -1146,6 +1210,10 @@
                 "clang6_-O3": [
                     "2e78f35e6f1b2299b413b747afd416d663c9cb9f324c9967668fe4f3ed8b3546", 
                     "2e78f35e6f1b2299b413b747afd416d663c9cb9f324c9967668fe4f3ed8b3546"
+                ], 
+                "scala2.12.5": [
+                    "bc:D9QojrXPkPyRNt6YcMz-xjeC7SaKhzGFjI5mv0sGM1w_pr:none", 
+                    "bc:S6AGv3AIwFEgKVxul5HS1WtWQjFljKzXp089wM2Z8Y8_pr:none"
                 ], 
                 "clang5_-O3": [
                     "a149fe9e1103bef1a708c45edb8cbde71921fcf5e7fadd8462b4ead1d7604712", 
@@ -1218,6 +1286,10 @@
                     "4efb284f6d5ad281ce5d64cbf25a00ad42b44c4203a09d46b57e0764632ca893", 
                     "4efb284f6d5ad281ce5d64cbf25a00ad42b44c4203a09d46b57e0764632ca893"
                 ], 
+                "scala2.12.5": [
+                    "bc:D9QojrXPkPyRNt6YcMz-xjeC7SaKhzGFjI5mv0sGM1w_pr:none", 
+                    "bc:JDGI2_nlXxcpYpvyI6GWFg3E2ze7MSGQB18KU058sd8_pr:none"
+                ], 
                 "clang5_-O3": [
                     "a1e6385dd74fdc842242680d18f5f1c344e20515a50e0a7924e267602eb2b942", 
                     "a1e6385dd74fdc842242680d18f5f1c344e20515a50e0a7924e267602eb2b942"
@@ -1288,6 +1360,10 @@
                 "clang6_-O3": [
                     "dcc08da1e8147037079c734fcf684dcbbbc5bb945d46810087882053416c653a", 
                     "dcc08da1e8147037079c734fcf684dcbbbc5bb945d46810087882053416c653a"
+                ], 
+                "scala2.12.5": [
+                    "bc:pSnkNgESEq7AehxVfozX3UUaibUR1KLcHPJX6N9JON0_pr:none", 
+                    "bc:wB3c-hq0OHuolsqBS9A_vP5IYxO7rW4HM1D0zAbMdhs_pr:none"
                 ], 
                 "clang5_-O3": [
                     "1fc1470b680ef68450ee0a236ea6786ae054af7a814d588be9a8b4b346593ac6", 
@@ -1363,6 +1439,10 @@
                     "21b6ba14cb6208b376a5a4ae099fd926472afe0cee6f988e2148e6a159fdb784", 
                     "21b6ba14cb6208b376a5a4ae099fd926472afe0cee6f988e2148e6a159fdb784"
                 ], 
+                "scala2.12.5": [
+                    "bc:yL1rgBfzqZVBm6BfSuOSCiC9Se6KLlCepf5zTX6QS6k_pr:none", 
+                    "bc:m3xrUcQ4ZPZSKcwr0gjDGb7H86xQANx4r9hsnnQCvqw_pr:none"
+                ], 
                 "clang5_-O3": [
                     "3391e424019cbe0a745ad987cb2292158e2a158067658ae0fc6240c55d145495", 
                     "3391e424019cbe0a745ad987cb2292158e2a158067658ae0fc6240c55d145495"
@@ -1431,6 +1511,10 @@
                 "clang6_-O3": [
                     "e2d5f5aca19887fa04b5bc72d0306916b343dd8d4e8622967d525e005786e372", 
                     "e2d5f5aca19887fa04b5bc72d0306916b343dd8d4e8622967d525e005786e372"
+                ], 
+                "scala2.12.5": [
+                    "bc:paE1-jfTBIafFC_5uzJ7xkAuRvn8cFsR_Hy82eWFfkw_pr:none", 
+                    "bc:B2Ss7PRo8Ok1j3UMD4GI8VlcAyC8WrvyTP2ZZlZ90Yg_pr:none"
                 ], 
                 "clang5_-O3": [
                     "8470c7f7a60478fd95b30bc2c0127dfaa9fc5dc9d60e25bde3597a16ab11cb66", 
@@ -1502,6 +1586,11 @@
                     "96eecaa111f80a9ba93cb6d3f70ea66d7236c971c0ca5f08bbad96489655d664", 
                     "96eecaa111f80a9ba93cb6d3f70ea66d7236c971c0ca5f08bbad96489655d664", 
                     "96eecaa111f80a9ba93cb6d3f70ea66d7236c971c0ca5f08bbad96489655d664"
+                ], 
+                "scala2.12.5": [
+                    "bc:nNuy2KLk0rP5ofICnTGBG8I8IL-25bOCUH6fyEwUzgk_pr:none", 
+                    "bc:cAPu1SCEL2Xe_r6owAKiE-1HVI-qw_ftnp9SJ69g1Co_pr:none", 
+                    "bc:w4IxWTmq3S3mjzS4uD-BIeb8oAiIlZ1AiHYKUTOkfOw_pr:none"
                 ], 
                 "clang5_-O3": [
                     "c899cf775c501a5e690ea86ee2193d7d9837330ecc4e4e7232396727de0b1cd4", 
@@ -1592,6 +1681,12 @@
                     "2be20de0513610c0587a7b9486b3d0010ea4485e9c405ab1e8706d28119f7719", 
                     "2be20de0513610c0587a7b9486b3d0010ea4485e9c405ab1e8706d28119f7719", 
                     "2be20de0513610c0587a7b9486b3d0010ea4485e9c405ab1e8706d28119f7719"
+                ], 
+                "scala2.12.5": [
+                    "bc:TuoMxgrqonhdlc9NogktW-DjVIQzTN65blxZcMQ9Lm0_pr:none", 
+                    "bc:3hlSNk4Z58pPzL552bSOYSOlxZKUgJck-6A08nQcI3c_pr:none", 
+                    "bc:3hlSNk4Z58pPzL552bSOYSOlxZKUgJck-6A08nQcI3c_pr:none", 
+                    "bc:3hlSNk4Z58pPzL552bSOYSOlxZKUgJck-6A08nQcI3c_pr:none"
                 ], 
                 "clang5_-O3": [
                     "367b36457311fe73188599db6d6149616eec55516a761ea6959eb380f3b73271", 
@@ -1697,6 +1792,12 @@
                     "82905ea9a4d842dbdd4312b28c5b574598fb8abaaf1bf74cc1f52b5ce1fec44f", 
                     "82905ea9a4d842dbdd4312b28c5b574598fb8abaaf1bf74cc1f52b5ce1fec44f"
                 ], 
+                "scala2.12.5": [
+                    "bc:heAHjRMBuhTXCBQaSfVUxWvw2Bo1pyEQ_u5KF3vkrXg_pr:none", 
+                    "bc:ZkQVUzZjc5m89lRLp2LQK10pYIex-MlhKTcXTFJbOT0_pr:none", 
+                    "bc:ZkQVUzZjc5m89lRLp2LQK10pYIex-MlhKTcXTFJbOT0_pr:none", 
+                    "bc:ZkQVUzZjc5m89lRLp2LQK10pYIex-MlhKTcXTFJbOT0_pr:none"
+                ], 
                 "clang5_-O3": [
                     "dd490a1ec0c563895ec2e55d0e594e56eca0dba63baaf92cb610829300644508", 
                     "dd490a1ec0c563895ec2e55d0e594e56eca0dba63baaf92cb610829300644508", 
@@ -1799,6 +1900,11 @@
                     "812cec25a027edf59706c5e83819d2c1745ff5dd19b0811f1411a6aacb854047", 
                     "812cec25a027edf59706c5e83819d2c1745ff5dd19b0811f1411a6aacb854047"
                 ], 
+                "scala2.12.5": [
+                    "bc:BVrd_l1xTHE2rEGOnW-GxbRePitRqmL6tvvBE1hu5-I_pr:none", 
+                    "bc:WppDfJQZsh6sLm2xjIGRIAzmuG5ga2PBfjqqRJXiy6E_pr:none", 
+                    "bc:7bepbQgUcwKkKz38TUfeOudJ4uKUt_Lct_J0CLHqNt0_pr:none"
+                ], 
                 "clang5_-O3": [
                     "b03ba10c4311ddf5249593fea19c7c375b17bf12f549fb0a133d8d646609ef79", 
                     "b03ba10c4311ddf5249593fea19c7c375b17bf12f549fb0a133d8d646609ef79", 
@@ -1883,6 +1989,10 @@
                     "2e46b874680cf40738ef684f228d7573598f84df91da250cd48ce231f463646e", 
                     "2e46b874680cf40738ef684f228d7573598f84df91da250cd48ce231f463646e"
                 ], 
+                "scala2.12.5": [
+                    "bc:oPs95FtREchzXrV73sbHd6NgxqiFIN3ZnzzKumzuFpI_pr:none", 
+                    "bc:DUJ3iBmJ9x4Jrt4ST4X1fNMa0kCbkIJByAFjv4NwXR8_pr:none"
+                ], 
                 "clang5_-O3": [
                     "930c92be424a4a5db747b95304a5272ae166156a4926d9e45177d924480a9036", 
                     "930c92be424a4a5db747b95304a5272ae166156a4926d9e45177d924480a9036"
@@ -1952,6 +2062,10 @@
                 "clang6_-O3": [
                     "ad235eb54282dd957c3ccfcb194eb7016f2534e7fec04ca3fb14e78ed86618e2", 
                     "fc107a93eb7a4f6d0fae2060d067d6691126b94a5bffe1681ff2d0998a192499"
+                ], 
+                "scala2.12.5": [
+                    "bc:7osrhZOv8bWEUn4LjwGyPwcaqLRrfrrtQoFgMdjhFUU_pr:none", 
+                    "bc:QTsQ8oDbILcV5B6JzKc6z2hU1TL59v3GNP4KXe4H-s8_pr:none"
                 ], 
                 "clang5_-O3": [
                     "fb1fd77c5e3c7c10d7907f8f16fca8d3d58ca4d96733d409223db6d7cbfe5641", 
@@ -2023,6 +2137,10 @@
                 "clang6_-O3": [
                     "c873f6721fb08e0cd0c3118bd0a2d96b9562fa6e56b08c613694347ad3a991d4", 
                     "c873f6721fb08e0cd0c3118bd0a2d96b9562fa6e56b08c613694347ad3a991d4"
+                ], 
+                "scala2.12.5": [
+                    "bc:12-z-mGqSy6FcWL89U6N8HSTwxIKu4zvf9rdlUD9bIQ_pr:none", 
+                    "bc:s4ghSoJNJc_hyuhIURiQJEpqsQ3C0EZkeUcZyKMdHhI_pr:none"
                 ], 
                 "clang5_-O3": [
                     "9faace378a9c82c154818ce92d2937a6b8f7bd13c632a353a9f0411226ac2573", 
@@ -2096,6 +2214,10 @@
                     "2fa19c3b094ae0616fe3e3fd77939f3151a54aa3cdd259e0b624978d9a29a698", 
                     "2fa19c3b094ae0616fe3e3fd77939f3151a54aa3cdd259e0b624978d9a29a698"
                 ], 
+                "scala2.12.5": [
+                    "bc:k7o4IsvHMKgT2v5QlEiTWDJAFwaBXpwhor2z0YOSZq8_pr:none", 
+                    "bc:0YNQfLTDhs2D1KqY5L_OCMqTN-gFcOsEXmIAsIYVMk8_pr:none"
+                ], 
                 "clang5_-O3": [
                     "b4a2f6a1de462f74beba245100563f1ef4b612c5e477b3d609c6110bdca3573d", 
                     "b4a2f6a1de462f74beba245100563f1ef4b612c5e477b3d609c6110bdca3573d"
@@ -2166,6 +2288,10 @@
                 "clang6_-O3": [
                     "9ba4c2d72ac2ad10d2b39e82fb6c82ac0da986f0045d4af4d952cb33901678e3", 
                     "9ba4c2d72ac2ad10d2b39e82fb6c82ac0da986f0045d4af4d952cb33901678e3"
+                ], 
+                "scala2.12.5": [
+                    "bc:blposntBmYfvYhRtju9dsP_EHm_aUxdFpP3Qs95mdm4_pr:none", 
+                    "bc:KsqpgnMLiaIubnYX4zKxJDwB0AWvonA9ZdlGh3u4roQ_pr:none"
                 ], 
                 "clang5_-O3": [
                     "010c295b5b615a77fe5aea79d7f9fdc1681379e4ac7eb83d454a3eaf8a4c9990", 
@@ -2238,6 +2364,10 @@
                     "2e78f35e6f1b2299b413b747afd416d663c9cb9f324c9967668fe4f3ed8b3546", 
                     "2e78f35e6f1b2299b413b747afd416d663c9cb9f324c9967668fe4f3ed8b3546"
                 ], 
+                "scala2.12.5": [
+                    "bc:D9QojrXPkPyRNt6YcMz-xjeC7SaKhzGFjI5mv0sGM1w_pr:none", 
+                    "bc:S6AGv3AIwFEgKVxul5HS1WtWQjFljKzXp089wM2Z8Y8_pr:none"
+                ], 
                 "clang5_-O3": [
                     "a149fe9e1103bef1a708c45edb8cbde71921fcf5e7fadd8462b4ead1d7604712", 
                     "a149fe9e1103bef1a708c45edb8cbde71921fcf5e7fadd8462b4ead1d7604712"
@@ -2308,6 +2438,10 @@
                 "clang6_-O3": [
                     "36c5b1973a816762d66328a8d27cb7bd1316ce028bf9809fed86b03a8402a1d4", 
                     "3cff35fd5e88eec941a4b42cb858bc2a7c49c9ad0baace6b03b10edfc349b6df"
+                ], 
+                "scala2.12.5": [
+                    "bc:G6mqIkUSoqlZQgJ6c_q0WAyu3QDfTR4pGsvMcIXsaJY_pr:none", 
+                    "bc:oREV9vdzLaD2Q7QsQh3qvhIxPdSRMJ3Xp5YXez4KA3w_pr:none"
                 ], 
                 "clang5_-O3": [
                     "371ca2088d8f07b879f085015a1b85ae282fe05fafa969957067811fa5e36805", 
@@ -2383,6 +2517,10 @@
                     "387d9af54251b97f7d5d7c3e86a7ce154fb07a46e2eff5a9ab82bd32350ccab3", 
                     "719ac88133d2273f19ce5d2ea4cb818685cb3024ff40bfafa01d771d8c58fcae"
                 ], 
+                "scala2.12.5": [
+                    "bc:IC29sQiEffgk0P-c7k4b1wHpfmoxoekKPN3YGm9BCNQ_pr:none", 
+                    "bc:5bc97lgGIsc87BcVvf0Ujk2ytttpNEOgmSckbY-HWWQ_pr:none"
+                ], 
                 "clang5_-O3": [
                     "77f7869d4d468711d9d22b16413c63baa4d904f95ecbc4c0797f792cd815e6a2", 
                     "884339e45013d000aa6b886a27f2aaa90c2e0668d42a4d70129b4c624e28c694"
@@ -2454,6 +2592,10 @@
                 "clang6_-O3": [
                     "e3cd2c33a0ffd0157d18dfbe38e5cea3c4ff12bbcff324fb543a3822179e58d4", 
                     "e3cd2c33a0ffd0157d18dfbe38e5cea3c4ff12bbcff324fb543a3822179e58d4"
+                ], 
+                "scala2.12.5": [
+                    "bc:N-i8Xs9dl9YMKLwLgYLTlMNGk9C7aSQZRzN6Ms6pogc_pr:none", 
+                    "bc:hT0douNoN_UIcUKsrbzcD9FGjxl7Z5VbdVsnZoH7Gjg_pr:none"
                 ], 
                 "clang5_-O3": [
                     "ed215168ed6ffa3931e4cd802a94c118564234d57042302e438ab032a262d98f", 
@@ -2535,6 +2677,10 @@
                     "469e2c295b68f5c86729430224dbaf01651cbc65cc4da403a6fc7433933fabe7", 
                     "469e2c295b68f5c86729430224dbaf01651cbc65cc4da403a6fc7433933fabe7"
                 ], 
+                "scala2.12.5": [
+                    "bc:YWRnca1unDVu7TdwAz9QFSttuMrKk4lc40ydm8mV1AY_pr:none", 
+                    "bc:yIxLl2jARr26hYcOVU3DprsDZw8WfB1QmSRclprkxNk_pr:none"
+                ], 
                 "clang5_-O3": [
                     "76331ba0c6b5d449471c3fd728ae9381f4753a14a9565cbbeb2e95222df306ef", 
                     "76331ba0c6b5d449471c3fd728ae9381f4753a14a9565cbbeb2e95222df306ef"
@@ -2605,6 +2751,12 @@
                     "49a66a00957b5197cd55da8bf06d8a1f157c4ab3e29be556f93398738c284c96", 
                     "49a66a00957b5197cd55da8bf06d8a1f157c4ab3e29be556f93398738c284c96", 
                     "49a66a00957b5197cd55da8bf06d8a1f157c4ab3e29be556f93398738c284c96"
+                ], 
+                "scala2.12.5": [
+                    "bc:PHypdT8ErrvDFWuLxQSUndgkrNntFMsN8V4i3AZX1Ms_pr:none", 
+                    "bc:AI2I5H2ppFVmCvhMyapCDl3FfEPOpCw3X1TsXhvRH5I_pr:none", 
+                    "bc:U28N1k4jUab8NfHwGVSAHfp6rovDMCXqLSn-DDzA8Pw_pr:none", 
+                    "bc:E3-6CEba8ulhVmG6AJCTaBWN7NMcTd2j3ZqhXeMulcw_pr:none"
                 ], 
                 "clang5_-O3": [
                     "ac4856f8149fee861a6adaee999414ab83573d0ce1146fad3c4a10266bfdbcb9", 
@@ -2706,6 +2858,10 @@
                     "53871119537ef0fe2dac8cc7871b689ec04b44cd61a96a7d99e014025f65f1d2", 
                     "a0332fe7e76ca64040cdfdb3864ea3ae9fa6410d255ed2139c4ede8f089d47f6"
                 ], 
+                "scala2.12.5": [
+                    "bc:fvtyVuDAbrt7GYSTNQ8EhO6MC8fGctmx_74FdLzXC7w_pr:none", 
+                    "bc:d9aop6jPfZpho2B-xp7RxGS-CxyZO3jeBgwEXfuJl0g_pr:none"
+                ], 
                 "clang5_-O3": [
                     "6e4d4c70f8d2e61961cbcd4cb7ed7cb3e78f39c5b564aa04621bc18f09155819", 
                     "afb3b65e3724363544de0cbad58489f189806f9980f758cf17dc7b8f93b4049f"
@@ -2781,6 +2937,11 @@
                     "47937e6328b7dbf1170f09bd55f0d0ee0abe164e6fff40f1138f4b86f725fb32", 
                     "47937e6328b7dbf1170f09bd55f0d0ee0abe164e6fff40f1138f4b86f725fb32", 
                     "47937e6328b7dbf1170f09bd55f0d0ee0abe164e6fff40f1138f4b86f725fb32"
+                ], 
+                "scala2.12.5": [
+                    "bc:S7-dVuQIMFJctCHnC9w30wpusMFYcTzWq7tKPFdXKzk_pr:none", 
+                    "bc:uTfDI69F9Hbco1TuD1ZQycgP9KFDDbEQLuyOAQ6HUok_pr:none", 
+                    "bc:WUtOxV1qzmQnj3Op0eYMiSl-S93uxslthHCgk-LHvRE_pr:none"
                 ], 
                 "clang5_-O3": [
                     "5423f7a06b3c81e05f2ac28af33f8b3b0fe85b7f1c149e3f8f01d64144e4c5e9", 
@@ -2868,6 +3029,10 @@
                     "aed648a44fd91fa08db2343b01ea7f43ab21e5c57d8e4f256309ae54e4ca2bfb", 
                     "aed648a44fd91fa08db2343b01ea7f43ab21e5c57d8e4f256309ae54e4ca2bfb"
                 ], 
+                "scala2.12.5": [
+                    "bc:ZfKMb_07_Yyc3p9vi8Ydvl1C5Vt5i-cFm0elSlAr37g_pr:none", 
+                    "bc:LnCKWBO6yNVSp9RJHa5TbDY-ZtKLE-LwLF7MhdsqVO4_pr:none"
+                ], 
                 "clang5_-O3": [
                     "d920f3d59639ba4cf4a90afe76380c3bdd7b7c19fb8e61f6e67919c7c1500b5b", 
                     "d920f3d59639ba4cf4a90afe76380c3bdd7b7c19fb8e61f6e67919c7c1500b5b"
@@ -2947,6 +3112,10 @@
                     "359f12c75db31e6d664ea096904ee98f4177ee31ab36e18f7896dda9fa3a4f47", 
                     "02a3b0825dc9ed1fce7ea31868bcc51753f3c283fddf956470897cfab5a988b1"
                 ], 
+                "scala2.12.5": [
+                    "bc:bm_IHH9O13wuD755IDMwphLUS07yleMCxv0gSpsMo6w_pr:none", 
+                    "bc:zB4_mVC0DPKiTJOhzbP5k28CmY24SgJXHcSxJvKpp64_pr:none"
+                ], 
                 "clang5_-O3": [
                     "3adbfcfdac6787b4e1793625555e353da5e12004863fdf231e298ddf6dd53044", 
                     "ee3e2830217afff76f7db7a85673daba65d343b54f15a27815db7520822820a8"
@@ -3015,6 +3184,10 @@
                 "clang6_-O3": [
                     "458535145b2c85a5c15a4ff54e20b7470a500c22cafc97317bff7cdb7bf34c8b", 
                     "a8922452ccb145f6e912b7c54fe8604139b4566788bac8ac90f9dbfc9750a659"
+                ], 
+                "scala2.12.5": [
+                    "bc:KeQzkdUS8J1WlVgxGuzD7Pmkx5xFm_Mbx643VmApO80_pr:none", 
+                    "bc:9YdMQosy-yHL-yiEkmX2TiVGa_YmmmA7bV2GUXbt8SQ_pr:none"
                 ], 
                 "clang5_-O3": [
                     "5ec9206f5a7ba74b0aead67dbed4a5b24a5182b9ee867fff8f4f4b08c85a97e2", 
@@ -3091,6 +3264,10 @@
                     "9b72e9a02d9fd6e9c935c44c063445273a65f8739a8cd47d26ce2b6d60979301", 
                     "9b72e9a02d9fd6e9c935c44c063445273a65f8739a8cd47d26ce2b6d60979301"
                 ], 
+                "scala2.12.5": [
+                    "bc:rcKdB5cJ5buseLezD1CLVkQyJw6GlVypzlvCEh0QIVE_pr:none", 
+                    "bc:DD0opepfYUaLlMhPQESiejHntbuizZBqiG5CmE1Cebw_pr:none"
+                ], 
                 "clang5_-O3": [
                     "1d8774ca5c540803dd3781dcde497d815dcb29c2704a8773f6941356df7f5bd3", 
                     "1d8774ca5c540803dd3781dcde497d815dcb29c2704a8773f6941356df7f5bd3"
@@ -3163,6 +3340,10 @@
                 "clang6_-O3": [
                     "04fb1eadfc4e17c75fc17a59dd42cba6034baf739bd8ba089f5eeed63afad437", 
                     "2cc21d9819fe79509e5a5b649113e4f4ef89a8ddbd1aa5e5aa151a7c83e42073"
+                ], 
+                "scala2.12.5": [
+                    "bc:XQAsm02HFGhj-lu-9TtknOkCYWVsk7wEVz7r4foDFGo_pr:none", 
+                    "bc:VslWh5LsDW_EBR7TB3z4NO3nGa_0ETvVQLRgMtFWWaQ_pr:none"
                 ], 
                 "clang5_-O3": [
                     "b23d6afbccb52ec705626781da735599969aee850b117a5755c400aecabb5560", 
@@ -3241,6 +3422,10 @@
                     "1960766a9a5984e78ca6c52a6f6892b671aedb3770e4b4971467aba35fc2b4d3", 
                     "b94ce1078dfe9f307f0676aa81b3c5f736ca1ead24353d27fa286a4b5ffc1e2e"
                 ], 
+                "scala2.12.5": [
+                    "bc:TzYvoWZbRBTZpts1lbV7ut_bpdQYsR4B03eLHl3WecI_pr:none", 
+                    "bc:BE2Q4u4Oth2dm5dyJ9fWDtLaJEGP5LSNCCkT8fqIylI_pr:none"
+                ], 
                 "clang5_-O3": [
                     "5e1d755618eb7f40e908bd3ba3f7520d599983748015ee68a13131fbee6d9837", 
                     "84e708099e42ea9d15a14a80a2799efb526a09c58205a86a7d9961c35efb45b9"
@@ -3316,6 +3501,10 @@
                     "9cd828ec7678fae3cf71cd9d97e2f5799576383d27f588521dec8cb11f6c09bb", 
                     "2a07539c76a77870c519dc102226271a1b2a222d1afa7203b4aeec3a90e38e6a"
                 ], 
+                "scala2.12.5": [
+                    "bc:1_7GKkiLOoFw8Is5ilsEkNKoPRXROuF2NM0EidMq1hw_pr:none", 
+                    "bc:89dn7iQmKszzzBYaBeLOr1bnL5kNArDtlV5t5cstUV0_pr:none"
+                ], 
                 "clang5_-O3": [
                     "1bd5622bf3f3702b2f2e37a6fe7bf3e474fb4aa5cf1f42b9a14430fd86e115ee", 
                     "e15b4a7e24da15629a976da5021ba160df5e60dcc69d21d1c3fa4841c2612e77"
@@ -3388,6 +3577,10 @@
                     "16f7c3dbb2ff16f78acdec77b588b8fa79a1bc3325784147c10d9c801089db35", 
                     "16f7c3dbb2ff16f78acdec77b588b8fa79a1bc3325784147c10d9c801089db35"
                 ], 
+                "scala2.12.5": [
+                    "bc:G5TmXacRjiwo8ZE58IKQ-Zb_vePWdILrusYdAIUcQ2Y_pr:none", 
+                    "bc:tD9fwree6d9XsSbkB8FF5IkjG2U7r2xES_HYUjXe8HQ_pr:none"
+                ], 
                 "clang5_-O3": [
                     "c641ed2b0f0622ed840f7a106d34b6030b410a020d8c5855ed46463b631d2456", 
                     "c641ed2b0f0622ed840f7a106d34b6030b410a020d8c5855ed46463b631d2456"
@@ -3459,6 +3652,10 @@
                 "clang6_-O3": [
                     "c39bbaf56583cc70d1bd022d4db1bc0c76904215d6b9cf60867464a6e722c5b6", 
                     "c39bbaf56583cc70d1bd022d4db1bc0c76904215d6b9cf60867464a6e722c5b6"
+                ], 
+                "scala2.12.5": [
+                    "bc:9Cm_U4haFUHb4gMjn45j2iX6zCeuOizZDIOE6p9bLn8_pr:none", 
+                    "bc:N-gA5lv6qADgNLohYuwn6rZXBUaeC7Rnh2BbeY6_TBc_pr:none"
                 ], 
                 "clang5_-O3": [
                     "18e575a21a58b25de078a03f5cb76e8e670ff78e6925b3044a9cd6eff0fde662", 
@@ -3534,6 +3731,10 @@
                     "b2acf171bd8f2a4d2629599dd8e19ce21d04d21f51addfe3af7a55f05921dfc3", 
                     "b2acf171bd8f2a4d2629599dd8e19ce21d04d21f51addfe3af7a55f05921dfc3"
                 ], 
+                "scala2.12.5": [
+                    "bc:iTfASYAgpaoNKPZU-zSjhBe5GCvMt1Ajx_zaoSybGGg_pr:none", 
+                    "bc:7ly0MbP6mVAKH9K7guuKX_iwIW9DKg5lyByvBBs5HJo_pr:none"
+                ], 
                 "clang5_-O3": [
                     "b53427c475cd4554f5c642289d0842c88fb0396356da6f5aa16cf273209ca5d0", 
                     "b53427c475cd4554f5c642289d0842c88fb0396356da6f5aa16cf273209ca5d0"
@@ -3607,6 +3808,10 @@
                     "80dac6e9bdd559d26aadef3a3819740e8fe148ab5daa1cbf26095fcd284ac04c", 
                     "80dac6e9bdd559d26aadef3a3819740e8fe148ab5daa1cbf26095fcd284ac04c"
                 ], 
+                "scala2.12.5": [
+                    "bc:kmcWh-A2IDujZ_jcwPVTBeGlE5rYfSKMJf83e-vg5Jw_pr:none", 
+                    "bc:s_cioi3PdLP1xJPa2lQGcZxKcRwxcyR7J5fM_Q5qVaM_pr:none"
+                ], 
                 "clang5_-O3": [
                     "91af7bc5ce9574dd6873556759157ba08c0ecd4de611250aa3e4e1f620827df3", 
                     "91af7bc5ce9574dd6873556759157ba08c0ecd4de611250aa3e4e1f620827df3"
@@ -3676,6 +3881,10 @@
                 "clang6_-O3": [
                     "eb9c208932e6e3f02d52260a0098fbba331105857d6bb471a4fd08586b908cc7", 
                     "eb9c208932e6e3f02d52260a0098fbba331105857d6bb471a4fd08586b908cc7"
+                ], 
+                "scala2.12.5": [
+                    "bc:CfG488MHlYC3glsv3K0fOM46lwyqxXSzRJSt0oldK20_pr:none", 
+                    "bc:BDkomE_T7egsv9E2LEfsA7umwnuIqHcmlLygvtYR1RM_pr:none"
                 ], 
                 "clang5_-O3": [
                     "159f617465aaf9d0feae41fcc26a73ae35329fd19cad320cddb952d91eb7d7e0", 
@@ -3750,6 +3959,10 @@
                     "dedeca4e887899f615e98c588bc4b6a639ff9729b89d5bd4549eef3864819cbf", 
                     "dedeca4e887899f615e98c588bc4b6a639ff9729b89d5bd4549eef3864819cbf"
                 ], 
+                "scala2.12.5": [
+                    "bc:Ps52HM0KTPad7uCOHE9rBCxQApHYqfwGSwlmqgA0Q_U_pr:none", 
+                    "bc:0EVw7cqiZ5tMpB_uKFJnMvrHKoYJFmW1dggbRGFNnqQ_pr:none"
+                ], 
                 "clang5_-O3": [
                     "73ce947daad917a2de119b52c5f72775f80e77dc434b11e71d9ac2984795cdba", 
                     "73ce947daad917a2de119b52c5f72775f80e77dc434b11e71d9ac2984795cdba"
@@ -3822,6 +4035,10 @@
                 "clang6_-O3": [
                     "d0c41011b87a4ab31a73b129c3286cd466145035cbb93c02220ea71cd1cf5d79", 
                     "d0c41011b87a4ab31a73b129c3286cd466145035cbb93c02220ea71cd1cf5d79"
+                ], 
+                "scala2.12.5": [
+                    "bc:EtxQhW5Tpnq3xfs6Z40UDUtkvtWv5QiP2jE7o_iQOmk_pr:none", 
+                    "bc:qjfLwxUSMe_5P1trGg60B6gdvFmpGkFUoNvXXugDQqw_pr:none"
                 ], 
                 "clang5_-O3": [
                     "649a04c1617e4ebc951a3ac9aff5780fd080fc9db592992ff9e2bbaefdc0762c", 
@@ -3896,6 +4113,10 @@
                     "1e1f282de05e1dbb2757da1315050ae58691b787265bb1d39a524ea5a604b2fd", 
                     "1e1f282de05e1dbb2757da1315050ae58691b787265bb1d39a524ea5a604b2fd"
                 ], 
+                "scala2.12.5": [
+                    "bc:E6hhnZof6X5ykVKA1UTedssu_q1MtVtj-tO4trklHFk_pr:none", 
+                    "bc:omHfY6NF_EzlwMnzK5_kYXzQNgW_AOlYv8CjIv8wRp4_pr:none"
+                ], 
                 "clang5_-O3": [
                     "7dd3b27ad365819116a97ad4a9616d09839db4809c869f123901332eccc139c3", 
                     "7dd3b27ad365819116a97ad4a9616d09839db4809c869f123901332eccc139c3"
@@ -3966,6 +4187,10 @@
                 "clang6_-O3": [
                     "32cbe5b0879362bf18edc20ec7f0d101a22cfdcc8fc1fba9061711ba80f4856d", 
                     "32cbe5b0879362bf18edc20ec7f0d101a22cfdcc8fc1fba9061711ba80f4856d"
+                ], 
+                "scala2.12.5": [
+                    "bc:GDZE7V6rBRcGceyIRjAOxoEZJU_69OEcoAmexZVZv-E_pr:none", 
+                    "bc:oYTYdCsYfKUgCTwPRXYLFhW9F5UTflj4MX_1N6rtaKg_pr:none"
                 ], 
                 "clang5_-O3": [
                     "cc8a1ef1b17cb10e298bb1e414e512490389c1f6a4d11c8f1903fd5d83ff62e9", 
@@ -4039,6 +4264,11 @@
                     "4fe6a40f17167bc7edd8ed7e8b4f6a671fffbbc786e83690e3fbb9052a6ea3f9", 
                     "4fe6a40f17167bc7edd8ed7e8b4f6a671fffbbc786e83690e3fbb9052a6ea3f9", 
                     "4fe6a40f17167bc7edd8ed7e8b4f6a671fffbbc786e83690e3fbb9052a6ea3f9"
+                ], 
+                "scala2.12.5": [
+                    "bc:irWq01F3bn92Ao6UX8fcoXkEBRRNGjuSKG_HOkoCi44_pr:none", 
+                    "bc:E9SgciJg5sfHvwId6Gk36QL9JHAES41XrdWDxOA-7zM_pr:none", 
+                    "bc:R2_nkSUErC0hFERNrIAwSx9jK2tAqRbRfuxE-2sbkKg_pr:none"
                 ], 
                 "clang5_-O3": [
                     "4cd600d123adb218e32b8f8acc7172150baeefce38ee6f630e7681afd950d18e", 
@@ -4137,6 +4367,12 @@
                     "e280d7c96efebf4a9623dfaa0d6612a2bdb117bb8884406bd2ce3cdd5f706b01", 
                     "e280d7c96efebf4a9623dfaa0d6612a2bdb117bb8884406bd2ce3cdd5f706b01"
                 ], 
+                "scala2.12.5": [
+                    "skipped_compiler_not_relevant", 
+                    "skipped_compiler_not_relevant", 
+                    "skipped_compiler_not_relevant", 
+                    "skipped_compiler_not_relevant"
+                ], 
                 "clang5_-O3": [
                     "1f77facb5b879b2a07a8cd2dd0b4a33b31de2cd86f4fdd2c2a9d774bfe33d39a", 
                     "1f77facb5b879b2a07a8cd2dd0b4a33b31de2cd86f4fdd2c2a9d774bfe33d39a", 
@@ -4231,6 +4467,10 @@
                     "f1fe6c0537bdedf4fe997ec7703f3bf3ad0f34ac48ecb56ccc6f7fbd570fb571", 
                     "f1fe6c0537bdedf4fe997ec7703f3bf3ad0f34ac48ecb56ccc6f7fbd570fb571"
                 ], 
+                "scala2.12.5": [
+                    "bc:-Q2tmqTDoZ4-0mE-6lTGEl01Tm23H9R9iAoMFak2GPk_pr:none", 
+                    "bc:tkyM7LJEOONGLUpvcdjvpiqUT0e2dw50LZUifGbLirI_pr:none"
+                ], 
                 "clang5_-O3": [
                     "f4146aa89ba8244c5b93c0c1c40f3028edc9ca99b3c6a2b0d5b45bd44ccc7277", 
                     "f4146aa89ba8244c5b93c0c1c40f3028edc9ca99b3c6a2b0d5b45bd44ccc7277"
@@ -4300,6 +4540,10 @@
                 "clang6_-O3": [
                     "29d91c1925e3589fde7ea18241f3c1c523e2f290e299d0bfa1a9ce933d35a010", 
                     "29d91c1925e3589fde7ea18241f3c1c523e2f290e299d0bfa1a9ce933d35a010"
+                ], 
+                "scala2.12.5": [
+                    "bc:RNlw_YHoZ4elO2jFDsxGnAlMps95qaheJ68hR7nrPSM_pr:none", 
+                    "bc:42bKQ9cfPRKQxZZ-wof9-7OGLNqAFAq7zzGjRX1sfoo_pr:none"
                 ], 
                 "clang5_-O3": [
                     "d02597f7daa9441f831fb681ae1b6a0b3d120ff721f4a73bd99a25f1fecb9817", 
@@ -4378,6 +4622,12 @@
                     "ee53fb8c8f9add50aaebe1f9976007c8ec0c1c1e380ef11e9922a235250d460e", 
                     "e3b6ea83271144a5ddb1399882d7d2a1726069da389f40614eb868dd07695957", 
                     "fcf078ba1c68c1b8c1fbbab16b76c204f9e3ae2d1ccc2ebabacc8ff2d27ad950"
+                ], 
+                "scala2.12.5": [
+                    "bc:Y2HV8Ca773g6r0wvWIHa889n0TizBNK7OFWsqB7zl9Y_pr:t0_ObNi8r9AUoc6MZYW-rFnF9AmKbUmfXR1C1GQUZjM", 
+                    "bc:2zLNTK6o3LmYgMMNK22Bys4Jd-_xRdzyuo4wBIlsVLc_pr:t0_ObNi8r9AUoc6MZYW-rFnF9AmKbUmfXR1C1GQUZjM", 
+                    "bc:zciH5B9GbvUxpqZ77FkQl5cUaNZZSP2bkZJz5ccSP4M_pr:t0_ObNi8r9AUoc6MZYW-rFnF9AmKbUmfXR1C1GQUZjM", 
+                    "bc:5D6esr4yzoLzuDvcJdRKnz3D_Zk3j6Cf9T6hOLOo6p4_pr:t0_ObNi8r9AUoc6MZYW-rFnF9AmKbUmfXR1C1GQUZjM"
                 ], 
                 "clang5_-O3": [
                     "41098da7c2b199fe5c3a01e7088776392d817fa168a0d457ae8d22356a219541", 
@@ -4489,6 +4739,12 @@
                     "09e0e69de2f2058c706c983bc77cefab62f331dc475bf5f4c346a6d0ed2da9cc", 
                     "09e0e69de2f2058c706c983bc77cefab62f331dc475bf5f4c346a6d0ed2da9cc", 
                     "9cc9e782ac025e9b15278940fa1df47783a146db033f148fd1b67e7cf8ed9376"
+                ], 
+                "scala2.12.5": [
+                    "bc:0ekh6dKpqOJcP593RIB3iWoDCMyPR0DIayKDFPs2E0Y_pr:none", 
+                    "bc:gFS8RcKLXWfx0KgSTyuOnKlOt1p7X0ZPZVzkKuhZsUc_pr:none", 
+                    "bc:qhcf5_JFs4bq9ibKFhfNelpQuKTmxxO5iVC9IZbFKOY_pr:none", 
+                    "bc:TQtZn8pedIJ2z8ny0aHIeobQK2oBeumqN0EJzW4a9Zs_pr:none"
                 ], 
                 "clang5_-O3": [
                     "244adb00dd6e576018e96a86d301acb09a38ac98909cc43222622e343e86634c", 
@@ -4602,6 +4858,12 @@
                     "c4db832bf109c983bf71c4d91837c56a6f37caaafa2a25caca544ff13723947b", 
                     "7013cf6dc29ea6bc915153772c93f3694941273ba190968a74253c8b9d0ba8e6", 
                     "fcc066e853f045d874e95a3a9f6eb748daca3b3ebbfd700d40f07059e7533c05"
+                ], 
+                "scala2.12.5": [
+                    "bc:wZkiCnlfl8HforzTUGSHteckVujeRsAD4oJ_8kj3Sd0_pr:nTE-oXEfN5tAKOgEyEHpRXdq6TTTZ6aC5xlYB09gyUI", 
+                    "bc:685WE7RItmMG91dNzipNksaUIA0aph8JIvMjJ5tQqSY_pr:nTE-oXEfN5tAKOgEyEHpRXdq6TTTZ6aC5xlYB09gyUI", 
+                    "bc:MxTY6pRgBTSWhqwnl4JNyYQt5XIE1WTi2Ac7kqlD2gg_pr:nTE-oXEfN5tAKOgEyEHpRXdq6TTTZ6aC5xlYB09gyUI", 
+                    "bc:BSMg5c_COfo84E-0JltTDXAvBgHfGoUftMKH9hbxXpI_pr:nTE-oXEfN5tAKOgEyEHpRXdq6TTTZ6aC5xlYB09gyUI"
                 ], 
                 "clang5_-O3": [
                     "6457298638200d27d35625340bb5a707528f4c9aa01b304ea67f9cf45471726c", 
@@ -4740,6 +5002,15 @@
                     "29f9e3cacd8670ce14205311085c21abebab789fbf1b84ac39d9cdb3b1253f53", 
                     "464e462d3fe01af7a9009f6a46fd93f4bf102df31c7cd66c06e9c57302cd15fd"
                 ], 
+                "scala2.12.5": [
+                    "bc:wp4ZxsZvKWW8O2nk_dwvjtVqsUAC9ZdzMUdj6SpfwIQ_pr:none", 
+                    "bc:I5pBh6_yF8mHVBuj9fpPLIyHUmPmj9arvh6BJ2my7Hw_pr:none", 
+                    "bc:Ktmgte9y-_AQDwZCtmslcXGZ24U17Jtg3nF9Et3tTlM_pr:none", 
+                    "bc:NI9o-osfMIuchK24UrHnRwm5T20HQ83x-dXibfreO8M_pr:none", 
+                    "bc:WLJAUzK2W8TKQOu2ZCtgu6L-9X5Xpd_r1JpRQFZsuu8_pr:none", 
+                    "bc:uFhmwBfXc2Xw7iOWC0b9tkJiK6eLpwPYvOQXhF_Z5sA_pr:none", 
+                    "bc:PdwjY2jvV6fePdy2uhthDev7SXjdo4ZEy4YwXrFneeg_pr:none"
+                ], 
                 "clang5_-O3": [
                     "a0cd7efb94aa9f6ca687a2fdc876f316771b3ba4dd1d3d5d183822a0ff23c068", 
                     "a4132b1f775c7b73cc5dc1961bcf79e9788595733a914e1ca3b4ae91ec439a4d", 
@@ -4838,31 +5109,38 @@
             "return_type": "long", 
             "variants": [
                 {
-                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "orig_template": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = Math.abs( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
                     "_idx": 0
                 }, 
                 {
-                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( -monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "orig_template": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( -monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = Math.abs( -monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
                     "_idx": 1
                 }, 
                 {
-                    "code": "long instant = input0; int months = input1; if ({{false}}) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "orig_template": "long instant = input0; int months = input1; if ({{false}}) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "code": "long instant = input0; int months = input1; if (false) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = Math.abs( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
                     "_idx": 2
                 }, 
                 {
-                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse > 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "orig_template": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse > 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse > 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = Math.abs( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
                     "_idx": 3
                 }, 
                 {
-                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse <= 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "orig_template": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse <= 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = Math.abs( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse <= 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
                     "_idx": 4
                 }, 
                 {
-                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse <= 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "orig_template": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse <= 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = Math.abs( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse <= 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
                     "_idx": 5
                 }, 
                 {
-                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse >= maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "orig_template": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse >= maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = Math.abs( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse >= maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
                     "_idx": 6
                 }
             ]
@@ -4881,6 +5159,11 @@
                     "349c4261441fb2158c6221d0979fccf3421feca15ec06fc15c7b3bf5649b8843", 
                     "349c4261441fb2158c6221d0979fccf3421feca15ec06fc15c7b3bf5649b8843", 
                     "349c4261441fb2158c6221d0979fccf3421feca15ec06fc15c7b3bf5649b8843"
+                ], 
+                "scala2.12.5": [
+                    "bc:zlVGFayvxDgqNSEt2Rw4yuh6VWnJm_6TdjcN4Cbd6iI_pr:none", 
+                    "bc:i7aBxeb-TbeFAoeA0A8bSWAV4qshiFlOuvSKAqISLFw_pr:none", 
+                    "bc:WB2nUaPKCMP5Du-qaw_FZhFawdDHRC7dh4q5uvTsgKY_pr:none"
                 ], 
                 "clang5_-O3": [
                     "1322e17067b139ed66b03bf01bcfdb3689aacf0d72d45ea237d753cc40c7545e", 
@@ -4973,6 +5256,10 @@
                     "16e9e4da42226946f63704fc2ea98dfc7512972387fde288bfe3530e9a0ee786", 
                     "16e9e4da42226946f63704fc2ea98dfc7512972387fde288bfe3530e9a0ee786"
                 ], 
+                "scala2.12.5": [
+                    "bc:SuMRZxUZc9p1hWBdnvNZnu2y48rZfZdpgg01ReEX3Wo_pr:none", 
+                    "bc:tK7rBraAFj9g7f-urAEQoeElq4kw2PZZJXXI_vYoU20_pr:none"
+                ], 
                 "clang5_-O3": [
                     "ad880a11a717f4ddc9e235e320ef10d7e81197c97fab7273ed9f7af4b9dc06e5", 
                     "170583aea715b0952834832cf9b078d68a960568c1b5cbc6e6e35f9806c4a0a0"
@@ -5058,6 +5345,16 @@
                     "3c11666c1490ffa7158f7aea4db7910d34c035f4d8bb95accf9c4e53c0bd7062", 
                     "f4b4f13debe2eac8cc7ef71a59e503d39743997b66e90983d932f5a42a1315b5", 
                     "c9354a562344f1255258ebed2f8d434f43c78deba61a8cac3ffbc2d2002b3841"
+                ], 
+                "scala2.12.5": [
+                    "bc:iQDU21BCI4AgPXexObJUiSG2H64oPKXGMdxZdbAZioU_pr:none", 
+                    "bc:AwRiZRvgP6vzkqlGambztnWS5_RIUNZlMmoIqJn1_-I_pr:none", 
+                    "bc:MwuRAoXPrZ0sTg_Ng3o7FmsEO7_Z2x3CProVtDwgmOg_pr:none", 
+                    "bc:qUky01nnRqgEn5q8P6aTxZZAjg3zVFhco9sS4zng0CU_pr:none", 
+                    "bc:KYCRkumR27vYvXBSvxWaM-2szIj0iPduTluHswVMZ8w_pr:none", 
+                    "bc:oCAPWRtkO3lVdRadMWYjGcItq0JpNATufopopteRf98_pr:none", 
+                    "bc:1SUB5PHsbe1a3S85cHJNFANreJkLJq9RAhk9crlHAoI_pr:none", 
+                    "bc:dlc1JGwQ5aletRui2TaGZx9Gm1q3e9qsjxR68KiSfeQ_pr:none"
                 ], 
                 "clang5_-O3": [
                     "75fa94fddf9accfcb2833bb255f1190d56338f32707ed20a18d111ea29fb69e2", 
@@ -5221,6 +5518,10 @@
                 "clang6_-O3": [
                     "10aa5a4b505be28f41a0149cf25d215681c4b35c09c12d76e205b65aeffc8079", 
                     "af49658ddf9e6292bbc73d9f0590d21f5ec12b17442f24bfd6a869b1096102d1"
+                ], 
+                "scala2.12.5": [
+                    "bc:q4EOYemUbiD12NQXznd5by3TJcmLIhXORslaxE4lO-I_pr:none", 
+                    "bc:PoCO7V9wTv4ljdTNOH47IyxDNPh_2gGJDI75eUp9WEk_pr:none"
                 ], 
                 "clang5_-O3": [
                     "07a4410c2ac88d7f3b236470d2475efa6973de06267ecc2322b17f198850dc30", 
@@ -5547,6 +5848,139 @@
             }, 
             "soft_fail": 2, 
             "soft_pass": 13, 
+            "failed_tests": [], 
+            "passed_tests": [], 
+            "skipped_tests": []
+        }, 
+        "scala2.12.5": {
+            "passes": 4, 
+            "fails": 44, 
+            "skipped": 1, 
+            "origins": {
+                "tce": {
+                    "passes": 0, 
+                    "fails": 10, 
+                    "skipped": 1, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "tce_dead_store", 
+                        "tce_dead_store_negate_zero", 
+                        "bisect_dead_store_alternate_implementations", 
+                        "capitalize", 
+                        "wrap", 
+                        "add_jodatime", 
+                        "pamvotis_dead_store", 
+                        "pamvotis_wider_comparison", 
+                        "triangle_classify", 
+                        "xstream_decode_fast_path"
+                    ], 
+                    "passed_tests": [], 
+                    "skipped_tests": [
+                        "math_post_fix_increment"
+                    ]
+                }, 
+                "tpcds_survey": {
+                    "passes": 2, 
+                    "fails": 5, 
+                    "skipped": 0, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "comparison", 
+                        "conditional", 
+                        "logical_op_short_circuit", 
+                        "math_sub", 
+                        "math_add"
+                    ], 
+                    "passed_tests": [
+                        "constant_folding_basic", 
+                        "logical_op"
+                    ], 
+                    "skipped_tests": []
+                }, 
+                "semantics preserving transformations": {
+                    "passes": 0, 
+                    "fails": 1, 
+                    "skipped": 0, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "for_loop_nothing"
+                    ], 
+                    "passed_tests": [], 
+                    "skipped_tests": []
+                }, 
+                "compiler_survey": {
+                    "passes": 0, 
+                    "fails": 41, 
+                    "skipped": 0, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "function_inlining_trivial", 
+                        "function_inlining_partial", 
+                        "common_subexpression_elimination", 
+                        "copy_propagation", 
+                        "constant_propagation", 
+                        "gcse_kill_load_store_in_loop", 
+                        "binary_operator_canonicalization", 
+                        "comparison_canonicalization", 
+                        "bitwise_canonicalization", 
+                        "tree_reassociation_subtraction_reassociation", 
+                        "tree_reassociation_linearization", 
+                        "tree_reassociation_operand_lists", 
+                        "tree_reassociation_repeated_factors", 
+                        "code_hoisting", 
+                        "partial_redundancy_elimination", 
+                        "forward_prop", 
+                        "full_redundancy_elimination", 
+                        "copy_propagation", 
+                        "interprocedural_constant_propagation", 
+                        "forward_store_motion", 
+                        "code_sinking_math", 
+                        "code_sinking_pure_function", 
+                        "constant_propagation_conditional", 
+                        "constant_propagation_conditional2", 
+                        "dead_code_elimination", 
+                        "dead_store_elimination", 
+                        "loop_unswitch", 
+                        "loop_unswitch_harder", 
+                        "loop_splitting", 
+                        "loop_interchange", 
+                        "loop_invariant_motion", 
+                        "loop_iv_strength_reduction", 
+                        "loop_iv_variable_merging", 
+                        "loop_iv_variable_elimination", 
+                        "loop_iv_canonicalization", 
+                        "straight_line_strength_reduction", 
+                        "value_range_propagation_ne", 
+                        "value_range_propagation_eq", 
+                        "value_range_propagation_lt", 
+                        "redundant_load_elimination", 
+                        "jump_threading"
+                    ], 
+                    "passed_tests": [], 
+                    "skipped_tests": []
+                }, 
+                "craig": {
+                    "passes": 2, 
+                    "fails": 1, 
+                    "skipped": 0, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "constant_folding_associativity"
+                    ], 
+                    "passed_tests": [
+                        "implicit_zero_comparison", 
+                        "pointer_deref_equivalence"
+                    ], 
+                    "skipped_tests": []
+                }
+            }, 
+            "soft_fail": 3, 
+            "soft_pass": 11, 
             "failed_tests": [], 
             "passed_tests": [], 
             "skipped_tests": []
@@ -6917,6 +7351,26 @@
                 }, 
                 "craig": {
                     "unique_hashes": 3
+                }
+            }
+        }, 
+        "scala2.12.5": {
+            "unique_hashes": 147, 
+            "origins": {
+                "tce": {
+                    "unique_hashes": 39
+                }, 
+                "tpcds_survey": {
+                    "unique_hashes": 12
+                }, 
+                "semantics preserving transformations": {
+                    "unique_hashes": 3
+                }, 
+                "compiler_survey": {
+                    "unique_hashes": 88
+                }, 
+                "craig": {
+                    "unique_hashes": 5
                 }
             }
         }, 

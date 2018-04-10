@@ -795,15 +795,28 @@
 			"input_types": ["long", "int"],
 			"return_type": "long",
 			"return": "",
+			"templates": {
+				"c": {"abs": "abs", "false": 0}
+				,"java": {"abs": "Math.abs", "false": "false"}
+				,"scala": {"abs": "Math.abs", "false": "false"}
+			},
 			"variants": [
-				{"type": "file", "java": "./benchmarks/java/tce_add_1.java", "variant_class": "original"}
-				, {"type": "file", "java": "./benchmarks/java/tce_add_2.java", "variant_class": "negate expression"}
-				, {"type": "file", "java": "./benchmarks/java/tce_add_3.java", "variant_class": "early exit removal"}
-				, {"type": "file", "java": "./benchmarks/java/tce_add_4.java", "variant_class": "mathematically equivalent"}
-				, {"type": "file", "java": "./benchmarks/java/tce_add_5.java", "variant_class": "mathematically equivalent"}
-				, {"type": "file", "java": "./benchmarks/java/tce_add_6.java", "variant_class": "mathematically equivalent"}
-				, {"type": "file", "java": "./benchmarks/java/tce_add_7.java", "variant_class": "mathematically equivalent"}
-				, {"type": "file", "java": "./benchmarks/java/tce_add_8.java", "variant_class": "mathematically equivalent"}
+				{
+					"code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n"
+				}
+				, {
+					"code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( -monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n"
+				}
+				, { "code": "long instant = input0; int months = input1; if ({{false}}) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n"
+				}
+				, { "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse > 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n"
+				}
+				, {"code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse <= 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n"
+				}
+				, {"code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse <= 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n"
+				}
+				, {"code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse >= maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n"
+				}
 			]
 		}
 		, {

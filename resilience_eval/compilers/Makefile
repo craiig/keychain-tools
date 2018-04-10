@@ -3,6 +3,13 @@ all:
 	@echo i.e. make clang6 clang7
 	@echo FYI these are configured for macos, so you may need to change paths and instructions as needed
 
+scala-2.12.5: scala2.12.5.tgz
+	tar -vzxf $<
+	touch $@
+
+scala2.12.5.tgz:
+	curl -Lo $@ https://downloads.lightbend.com/scala/2.12.5/scala-2.12.5.tgz
+
 gcc7:
 	brew install gcc
 

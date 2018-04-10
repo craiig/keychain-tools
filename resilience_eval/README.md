@@ -1,4 +1,12 @@
-Purpose of resilience test is:
+# Usage
+1. ```make charts``` will generate the charts from the data contained in
+   build/resilience_outcome.json
+1. to re-run all tests, run ```make clean``` first. To re-run all tests you'll
+   need to have all the appropriate compilers installed and their paths
+   configured in compilers.py. See the compilers dir for scripts to download or
+   build compilers for testing.
+
+## Purpose 
 determine the state of syntactic resilience in different compilers with
 benchmarks derived from data processing workloads and applicable compiler
 transformations.
@@ -6,8 +14,7 @@ transformations.
 to demonstrate that compilers are resilient to many differences in syntax
 to find areas where some compilers could do better
 
-
-other projects such as
+## other projects
 Finding Missed Compiler Optimizations by
 Differential Testing
 and Csmith

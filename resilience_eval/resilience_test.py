@@ -58,8 +58,26 @@ def perform_tests(program, args):
                     pprint(v)
                     #raise ValueError('error no file specified for this variant and language combo')
             elif 'code' in v or lang_code in v: 
-                #TODO fix code key error when calling c_codegen
                 # ask compiler to generate code if file isn't provided
+
+                #first process the template
+                templates = program.get('templates', {}).get(lang, {})
+                templated_code = None
+                for (name,sub) in templates.iteritems():
+                    #TODO bad hack that pollutes the outcome with more code
+                    if 'orig_template' not in v:
+                        #stash away the original template
+                        v['orig_template'] = v['code']
+                    if not templated_code:
+                        templated_code = v['orig_template']
+
+                    re_pat = ('{{%s}}' % name)
+                    templated_code= re.sub(re_pat, str(sub), templated_code)
+                    pprint(v)
+
+                if templated_code:
+                    v['code'] = templated_code
+
                 try:
                     compiler.generate_code(v, program, code_path)
                 except Exception as e:
