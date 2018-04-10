@@ -14,7 +14,7 @@ public class capitalize_3 {
 public static java.lang.String capitalize( java.lang.String str, char[] delimiters )
 {
 	int delimLen = delimiters == null ? -1 : delimiters.length;
-	if (str == null || 0 || delimLen == 0) {
+	if (str == null || false || delimLen == 0) {
 		return str;
 	}
 	int strLen = str.length();

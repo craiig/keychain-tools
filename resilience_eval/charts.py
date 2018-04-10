@@ -95,11 +95,12 @@ def overall_compiler_outcomes(o, args):
         return [ c[colname] for name,c in results.iteritems() ]
 
     data = { name:get_col(name) for name in cols }
+    data['name'] = names
 
     df = pd.DataFrame(index=names, data=data)
 
+    df.sort_values(by=['passes', 'soft_pass', 'soft_fail', 'fails', 'skipped', 'name'], inplace=True)
     df = df[ cols ]
-    df.sort_values(by=['passes'], inplace=True)
     print df
 
     ax = render_stack_breakdown(df, style_name='ggplot')

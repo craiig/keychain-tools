@@ -49,12 +49,12 @@ class CCompiler(Compiler):
     def __init__(self, compiler_name, opt_level):
         compiler_map = {
                 #TODO verify versions are correct in the calls here
-                "gcc4.9": "/usr/local/bin/gcc-4.9 -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ -o {asm_path} -c -S {opt_level} -std=gnu11 {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
-                , "gcc7": "/usr/local/Cellar/gcc/7.3.0_1/bin/gcc-7 -o {asm_path} -c -S {opt_level} -std=gnu11 {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
-                , "clang": "clang -o {asm_path} -c -S {opt_level} {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
-                , "clang5": "./compilers/clang+llvm-5.0.1-final-x86_64-apple-darwin/bin/clang-5.0 -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ -o {asm_path} -c -S {opt_level} {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
-                , "clang6": "compilers/clang+llvm-6.0.0-x86_64-apple-darwin/bin/clang-6.0 -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ -o {asm_path} -c -S {opt_level} {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
-                , "clang7": "compilers/llvm/clang-install/bin/clang -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ -o {asm_path} -c -S {opt_level} {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
+                "gcc4.9": "/usr/local/bin/gcc-4.9 -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ -o {asm_path} -c -S {opt_level} -std=gnu11 {extra_flags} {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
+                , "gcc7": "/usr/local/Cellar/gcc/7.3.0_1/bin/gcc-7 -o {asm_path} -c -S {opt_level} -std=gnu11 {extra_flags} {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
+                , "clang": "clang -o {asm_path} -c -S {opt_level} {extra_flags} {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
+                , "clang5": "./compilers/clang+llvm-5.0.1-final-x86_64-apple-darwin/bin/clang-5.0 -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ -o {asm_path} -c -S {opt_level} {extra_flags} {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
+                , "clang6": "compilers/clang+llvm-6.0.0-x86_64-apple-darwin/bin/clang-6.0 -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ -o {asm_path} -c -S {opt_level} {extra_flags} {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
+                , "clang7": "compilers/llvm/clang-install/bin/clang -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ -Icompilers/clang+llvm-6.0.0-x86_64-apple-darwin/include/c++/v1/ -o {asm_path} -c -S {opt_level} {extra_flags} {variant_path}.c && sed s/#.*$// {asm_path} > {asm_path}.fixed && mv {asm_path}.fixed {asm_path}"
         }
         self.compiler_name = compiler_name
         self.compiler_template = compiler_map[compiler_name]
@@ -130,9 +130,11 @@ class CCompiler(Compiler):
         if not os.path.exists(asm_path):
             #compile_cmd = "/usr/local/bin/gcc-4.9 -o {} -c -S -O3 -std=gnu11 {}.c".format(asm_path, variant_path)
             #compile_cmd = "clang -o {} -c -S -O3 {}.c".format(asm_path, variant_path)
+            extra_flags = program.get('c_extraflags', '')
             compile_cmd = self.compiler_template.format(
                 asm_path = asm_path,
                 variant_path = variant_path,
+                extra_flags = extra_flags,
                 opt_level = self.opt_level
             )
             print compile_cmd

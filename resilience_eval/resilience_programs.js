@@ -91,7 +91,7 @@
 		, {
 			"name": "logical_op_short_circuit",
 			"origin": "tpcds_survey",
-			"verified_compiler_baseline": "clang_-O3",
+			"verified_compiler_baseline": "clang7_-O3",
 			"input_types": ["int","int"],
 			"return_type": "boolean",
 			"variants": [
@@ -129,19 +129,30 @@
 			"return_type": "int",
 			"variants": [
 				{ "code": "input0 + input1" }
-				, { "type": "file", "c": "./benchmarks/function_inlining_1.c", "java": "./benchmarks/function_inlining_1.java"  }
+				, { "type": "file", "c": "./benchmarks/function_inlining_1.c"
+					, "scala": "./benchmarks/scala/function_inlining_1.scala"
+					, "java": "./benchmarks/function_inlining_1.java"  }
 			]
 		}
 		, {
 			"name": "function_inlining_partial",
 			"origin": "compiler_survey",
-			"notes": "TODO hard to induce. TODO these ARE equivalent but we need to better parse the asm code to demonstrate that",
+			"notes": "TODO hard to induce. same caveats as function_inlining",
 			"input_types": ["int", "int"],
 			"return_type": "int",
 			"variants": [
-				{ "type": "file", "c": "./benchmarks/function_inlining_partial_0.c" }
-				, { "type": "file", "c": "./benchmarks/function_inlining_partial_1.c" }
-				, { "type": "file", "c": "./benchmarks/function_inlining_partial_2.c" }
+				{ "type": "file"
+					, "scala": "./benchmarks/scala/function_inlining_partial_0.scala"
+					, "java": "./benchmarks/java/function_inlining_partial_0.java"
+					, "c": "./benchmarks/function_inlining_partial_0.c" }
+				, { "type": "file"
+					, "scala": "./benchmarks/scala/function_inlining_partial_1.scala"
+					, "java": "./benchmarks/java/function_inlining_partial_1.java"
+					, "c": "./benchmarks/function_inlining_partial_1.c" }
+				, { "type": "file"
+					, "scala": "./benchmarks/scala/function_inlining_partial_2.scala"
+					, "java": "./benchmarks/java/function_inlining_partial_2.java"
+					, "c": "./benchmarks/function_inlining_partial_2.c" }
 			]
 		}
 		, {
@@ -451,7 +462,7 @@
 		}
 		, {
 			"name": "loop_unswitch",
-            "verified_compiler_baseline": "clang_-O3", 
+            "verified_compiler_baseline": "clang7_-O3", 
 			"origin": "compiler_survey",
 			"note": "trying to cover gcc -ftree-loop-optimize and llvm -loop-unswitch. example from gcc/tree-ssa-loop-unswitch.c. functions are not marked pure on purpose",
 			"input_types": ["int", "int", "int*"],
@@ -470,7 +481,7 @@
 		, {
 			"name": "loop_unswitch_harder",
 			"origin": "compiler_survey",
-            "verified_compiler_baseline": "clang_-O3", 
+            "verified_compiler_baseline": "clang7_-O3", 
 			"note": "trying to cover gcc -ftree-loop-optimize. example from gcc/tree-ssa-loop-unswitch.c. manually verified this works.",
 			"input_types": ["int", "int", "int*"],
 			"return_type": "int",
@@ -758,11 +769,24 @@
 			"input_types": ["String", "int", "String", "boolean"],
 			"return_type": "double",
 			"return": "",
+			"c_extraflags": "-std=c++11 -lstdc++ -x c++",
 			"variants": [
-				{"type": "file", "java": "./benchmarks/java/tce_wrap_1.java"}
-				, {"type": "file", "java": "./benchmarks/java/tce_wrap_2.java"}
-				, {"type": "file", "java": "./benchmarks/java/tce_wrap_3.java"}
-				, {"type": "file", "java": "./benchmarks/java/tce_wrap_4.java"}
+				{"type": "file"
+					, "c": "./benchmarks/c/tce_wrap_1.c"
+					, "scala": "./benchmarks/scala/tce_wrap_1.scala"
+					, "java": "./benchmarks/java/tce_wrap_1.java"}
+				, {"type": "file"
+					, "c": "./benchmarks/c/tce_wrap_2.c"
+					, "scala": "./benchmarks/scala/tce_wrap_2.scala"
+					, "java": "./benchmarks/java/tce_wrap_2.java"}
+				, {"type": "file"
+					, "c": "./benchmarks/c/tce_wrap_3.c"
+					, "scala": "./benchmarks/scala/tce_wrap_3.scala"
+					, "java": "./benchmarks/java/tce_wrap_3.java"}
+				, {"type": "file"
+					, "c": "./benchmarks/c/tce_wrap_4.c"
+					, "scala": "./benchmarks/scala/tce_wrap_4.scala"
+					, "java": "./benchmarks/java/tce_wrap_4.java"}
 			]
 		}
 		, {
