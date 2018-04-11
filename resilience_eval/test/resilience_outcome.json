@@ -40,6 +40,20 @@
                     "4f59541bd9c3ada72832f345629482761cf0baaebe832dd62e456b1159ed049b", 
                     "4f59541bd9c3ada72832f345629482761cf0baaebe832dd62e456b1159ed049b"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:1TCW4jkimjZPrA_zJiJ6zA_xtCb1ZXxOuxANeOq--iM_pr:none", 
+                    "bc:1TCW4jkimjZPrA_zJiJ6zA_xtCb1ZXxOuxANeOq--iM_pr:none", 
+                    "bc:1TCW4jkimjZPrA_zJiJ6zA_xtCb1ZXxOuxANeOq--iM_pr:none", 
+                    "bc:1TCW4jkimjZPrA_zJiJ6zA_xtCb1ZXxOuxANeOq--iM_pr:none", 
+                    "bc:1TCW4jkimjZPrA_zJiJ6zA_xtCb1ZXxOuxANeOq--iM_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:CThWTml6AFzsJ96PZe5ZTPDBrnuQ0rFiyzT3m3V904M_pr:none", 
+                    "bc:CThWTml6AFzsJ96PZe5ZTPDBrnuQ0rFiyzT3m3V904M_pr:none", 
+                    "bc:CThWTml6AFzsJ96PZe5ZTPDBrnuQ0rFiyzT3m3V904M_pr:none", 
+                    "bc:CThWTml6AFzsJ96PZe5ZTPDBrnuQ0rFiyzT3m3V904M_pr:none", 
+                    "bc:CThWTml6AFzsJ96PZe5ZTPDBrnuQ0rFiyzT3m3V904M_pr:none"
+                ], 
                 "clang5_-O3": [
                     "7c6c1ed12273bf7889d62515f2c55b51ad7dfcd7b4234da1d7b5b97b86cb0fbb", 
                     "7c6c1ed12273bf7889d62515f2c55b51ad7dfcd7b4234da1d7b5b97b86cb0fbb", 
@@ -89,6 +103,13 @@
                     "bc:-pjCpfXfv6m9XS5OLRed43yhpJz7mJ1VH7TG-f3_kus_pr:none", 
                     "bc:-pjCpfXfv6m9XS5OLRed43yhpJz7mJ1VH7TG-f3_kus_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "9b6286e2fab42e5cd194736de60aecfa471e30ab21157f06d031d190d2bb5aa6", 
+                    "9b6286e2fab42e5cd194736de60aecfa471e30ab21157f06d031d190d2bb5aa6", 
+                    "9b6286e2fab42e5cd194736de60aecfa471e30ab21157f06d031d190d2bb5aa6", 
+                    "9b6286e2fab42e5cd194736de60aecfa471e30ab21157f06d031d190d2bb5aa6", 
+                    "9b6286e2fab42e5cd194736de60aecfa471e30ab21157f06d031d190d2bb5aa6"
+                ], 
                 "gcc4.9_-O3": [
                     "707a8651ad7d67bd9cb39e85e5813e6278fda3e7c44126dc3883d3436e9dff35", 
                     "707a8651ad7d67bd9cb39e85e5813e6278fda3e7c44126dc3883d3436e9dff35", 
@@ -103,12 +124,12 @@
                     "4f59541bd9c3ada72832f345629482761cf0baaebe832dd62e456b1159ed049b", 
                     "4f59541bd9c3ada72832f345629482761cf0baaebe832dd62e456b1159ed049b"
                 ], 
-                "gcc4.9_-O0": [
-                    "9b6286e2fab42e5cd194736de60aecfa471e30ab21157f06d031d190d2bb5aa6", 
-                    "9b6286e2fab42e5cd194736de60aecfa471e30ab21157f06d031d190d2bb5aa6", 
-                    "9b6286e2fab42e5cd194736de60aecfa471e30ab21157f06d031d190d2bb5aa6", 
-                    "9b6286e2fab42e5cd194736de60aecfa471e30ab21157f06d031d190d2bb5aa6", 
-                    "9b6286e2fab42e5cd194736de60aecfa471e30ab21157f06d031d190d2bb5aa6"
+                "scala2.12.5_-opt": [
+                    "bc:eY-_b11qKDFsyuQi1eBalY5Ofx6gt1Q9MbP8idGslOE_pr:none", 
+                    "bc:eY-_b11qKDFsyuQi1eBalY5Ofx6gt1Q9MbP8idGslOE_pr:none", 
+                    "bc:eY-_b11qKDFsyuQi1eBalY5Ofx6gt1Q9MbP8idGslOE_pr:none", 
+                    "bc:eY-_b11qKDFsyuQi1eBalY5Ofx6gt1Q9MbP8idGslOE_pr:none", 
+                    "bc:eY-_b11qKDFsyuQi1eBalY5Ofx6gt1Q9MbP8idGslOE_pr:none"
                 ]
             }, 
             "input_types": [
@@ -157,6 +178,22 @@
                     "9ba292939d249403805a81287ddff7847122f1125f028b7b6a4956aa4f57e631", 
                     "9ba292939d249403805a81287ddff7847122f1125f028b7b6a4956aa4f57e631", 
                     "9ba292939d249403805a81287ddff7847122f1125f028b7b6a4956aa4f57e631"
+                ], 
+                "scala2.11.11_-opt": [
+                    "bc:sGEk6--PW7XJqDcMmsgITShAUwDYlZS6uTxeNp4lsQ4_pr:none", 
+                    "bc:QPSh1oIq6Eny39kDIvHgit3_8Y_sjMN3x2nqmmO7lpA_pr:none", 
+                    "bc:sGEk6--PW7XJqDcMmsgITShAUwDYlZS6uTxeNp4lsQ4_pr:none", 
+                    "bc:cNC_A3ZnbRLqAGvvk0siC-HVFzzt0TNLdWOmTYvi5wc_pr:none", 
+                    "bc:cNC_A3ZnbRLqAGvvk0siC-HVFzzt0TNLdWOmTYvi5wc_pr:none", 
+                    "bc:cNC_A3ZnbRLqAGvvk0siC-HVFzzt0TNLdWOmTYvi5wc_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:eGX53fTkzqUbN1xUc1EADP-TkMgpIK3VLVFfl9SvmUQ_pr:none", 
+                    "bc:sEe3anwgJwqFz0Zruli8Ry_YyxT5nvWAF42UyquSPxg_pr:none", 
+                    "bc:eGX53fTkzqUbN1xUc1EADP-TkMgpIK3VLVFfl9SvmUQ_pr:none", 
+                    "bc:b2LA8qIRgDmqNq9Wdwak9p5_HRhzWj6DbA3MevgqGkA_pr:none", 
+                    "bc:b2LA8qIRgDmqNq9Wdwak9p5_HRhzWj6DbA3MevgqGkA_pr:none", 
+                    "bc:b2LA8qIRgDmqNq9Wdwak9p5_HRhzWj6DbA3MevgqGkA_pr:none"
                 ], 
                 "clang5_-O3": [
                     "ff13229f3a8be7a43cfc6d655c5cfb6b3372c088bdd15319f6861a8a0477a768", 
@@ -214,6 +251,14 @@
                     "bc:CV9kLkkFaCDdeCwdPJm-DWQhPjxoKdspsYinfymklfY_pr:none", 
                     "bc:CV9kLkkFaCDdeCwdPJm-DWQhPjxoKdspsYinfymklfY_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "cff301b7b85a70dc58aa0bd13a084774e4a3f0a39a5beef1175fc4d779957bbc", 
+                    "cff301b7b85a70dc58aa0bd13a084774e4a3f0a39a5beef1175fc4d779957bbc", 
+                    "cff301b7b85a70dc58aa0bd13a084774e4a3f0a39a5beef1175fc4d779957bbc", 
+                    "cff301b7b85a70dc58aa0bd13a084774e4a3f0a39a5beef1175fc4d779957bbc", 
+                    "cff301b7b85a70dc58aa0bd13a084774e4a3f0a39a5beef1175fc4d779957bbc", 
+                    "cff301b7b85a70dc58aa0bd13a084774e4a3f0a39a5beef1175fc4d779957bbc"
+                ], 
                 "gcc4.9_-O3": [
                     "de0b696d2237c08f88a4a8171c03989bce9ecb9c36585388524a16da20e7aa8d", 
                     "de0b696d2237c08f88a4a8171c03989bce9ecb9c36585388524a16da20e7aa8d", 
@@ -230,13 +275,13 @@
                     "9ba292939d249403805a81287ddff7847122f1125f028b7b6a4956aa4f57e631", 
                     "9ba292939d249403805a81287ddff7847122f1125f028b7b6a4956aa4f57e631"
                 ], 
-                "gcc4.9_-O0": [
-                    "cff301b7b85a70dc58aa0bd13a084774e4a3f0a39a5beef1175fc4d779957bbc", 
-                    "cff301b7b85a70dc58aa0bd13a084774e4a3f0a39a5beef1175fc4d779957bbc", 
-                    "cff301b7b85a70dc58aa0bd13a084774e4a3f0a39a5beef1175fc4d779957bbc", 
-                    "cff301b7b85a70dc58aa0bd13a084774e4a3f0a39a5beef1175fc4d779957bbc", 
-                    "cff301b7b85a70dc58aa0bd13a084774e4a3f0a39a5beef1175fc4d779957bbc", 
-                    "cff301b7b85a70dc58aa0bd13a084774e4a3f0a39a5beef1175fc4d779957bbc"
+                "scala2.12.5_-opt": [
+                    "bc:l70csAl7M2U6qoV_Gr4s0LgNRRRd8AkAf_Bh_CO2FRc_pr:none", 
+                    "bc:Vd1cQxvCzBzyMhRxY9by8MWG6PvV2d-BOSyZ0FtR2Y8_pr:none", 
+                    "bc:l70csAl7M2U6qoV_Gr4s0LgNRRRd8AkAf_Bh_CO2FRc_pr:none", 
+                    "bc:fVuILkiBb7nc18UE8o8-0kMD_vVck5FlP3IyDM73TWM_pr:none", 
+                    "bc:fVuILkiBb7nc18UE8o8-0kMD_vVck5FlP3IyDM73TWM_pr:none", 
+                    "bc:fVuILkiBb7nc18UE8o8-0kMD_vVck5FlP3IyDM73TWM_pr:none"
                 ]
             }, 
             "input_types": [
@@ -284,6 +329,14 @@
                     "403eba86fc9ebd14c3ed82c6e0ed9f91374302bf76c99718ecfdac6e4fcce465", 
                     "403eba86fc9ebd14c3ed82c6e0ed9f91374302bf76c99718ecfdac6e4fcce465"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:ZTyxZI5lfWKpiQLtXdEpts8CYvCLWL4QJckpBsuj5rQ_pr:none", 
+                    "bc:ZTyxZI5lfWKpiQLtXdEpts8CYvCLWL4QJckpBsuj5rQ_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:5h9sdYcsQfwzlX4PnCfOZkXerVC4b0xfkPOvk52xgQU_pr:none", 
+                    "bc:5h9sdYcsQfwzlX4PnCfOZkXerVC4b0xfkPOvk52xgQU_pr:none"
+                ], 
                 "clang5_-O3": [
                     "9dace13a16b46954de1ccbd5642a2e13f311c73868e785b6611ee10e6d3390e5", 
                     "9dace13a16b46954de1ccbd5642a2e13f311c73868e785b6611ee10e6d3390e5"
@@ -312,6 +365,10 @@
                     "bc:eIsx-vwD-VyqxPj_p49VBG6j9oq_MhymqfbB_qVCufA_pr:none", 
                     "bc:eIsx-vwD-VyqxPj_p49VBG6j9oq_MhymqfbB_qVCufA_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "4994eada5b7dce5ce2b61f6fdfc9b768ab3090feaad1ea8b34c3963f05881569", 
+                    "4994eada5b7dce5ce2b61f6fdfc9b768ab3090feaad1ea8b34c3963f05881569"
+                ], 
                 "gcc4.9_-O3": [
                     "9e980c04e9310fc639a45b0c478ec00d2409de644943c28d71266fcd63fd2329", 
                     "9e980c04e9310fc639a45b0c478ec00d2409de644943c28d71266fcd63fd2329"
@@ -320,9 +377,9 @@
                     "403eba86fc9ebd14c3ed82c6e0ed9f91374302bf76c99718ecfdac6e4fcce465", 
                     "403eba86fc9ebd14c3ed82c6e0ed9f91374302bf76c99718ecfdac6e4fcce465"
                 ], 
-                "gcc4.9_-O0": [
-                    "4994eada5b7dce5ce2b61f6fdfc9b768ab3090feaad1ea8b34c3963f05881569", 
-                    "4994eada5b7dce5ce2b61f6fdfc9b768ab3090feaad1ea8b34c3963f05881569"
+                "scala2.12.5_-opt": [
+                    "bc:5h9sdYcsQfwzlX4PnCfOZkXerVC4b0xfkPOvk52xgQU_pr:none", 
+                    "bc:5h9sdYcsQfwzlX4PnCfOZkXerVC4b0xfkPOvk52xgQU_pr:none"
                 ]
             }, 
             "note": "java implicitly passes this", 
@@ -357,6 +414,14 @@
                     "2764887dc43fc3f1aad23d8a2f1c2ec42c869a45cb080a5fda012f27f8793701", 
                     "2764887dc43fc3f1aad23d8a2f1c2ec42c869a45cb080a5fda012f27f8793701"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:zEE8QUmxU5eH-dkeZbHCfWyqUXRkN2PC5eXGYIjQRsE_pr:none", 
+                    "bc:zEE8QUmxU5eH-dkeZbHCfWyqUXRkN2PC5eXGYIjQRsE_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:fn0TQfI4Ye7JW8RYSD2bVsVAuIXEEvHhaEpp8jQiaZg_pr:none", 
+                    "bc:fn0TQfI4Ye7JW8RYSD2bVsVAuIXEEvHhaEpp8jQiaZg_pr:none"
+                ], 
                 "clang5_-O3": [
                     "88ba02002badadbf7cf6dcfd819e7972d29e3db5202a5c82455bb97df82d51fb", 
                     "88ba02002badadbf7cf6dcfd819e7972d29e3db5202a5c82455bb97df82d51fb"
@@ -385,6 +450,10 @@
                     "bc:JzyaTBNl4V-twqba4QnOX8dOEmHRo68UGQYfjeiJFrc_pr:none", 
                     "bc:JzyaTBNl4V-twqba4QnOX8dOEmHRo68UGQYfjeiJFrc_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "403b7d3f7e1f7b6ae23544ab2849195ea8596f52c04a30023e4d4fb845a97424", 
+                    "403b7d3f7e1f7b6ae23544ab2849195ea8596f52c04a30023e4d4fb845a97424"
+                ], 
                 "gcc4.9_-O3": [
                     "75cb0c86a6cdbed7caef7186b1a917e8e59f8d0b8761925b9290be916acc212d", 
                     "75cb0c86a6cdbed7caef7186b1a917e8e59f8d0b8761925b9290be916acc212d"
@@ -393,9 +462,9 @@
                     "2764887dc43fc3f1aad23d8a2f1c2ec42c869a45cb080a5fda012f27f8793701", 
                     "2764887dc43fc3f1aad23d8a2f1c2ec42c869a45cb080a5fda012f27f8793701"
                 ], 
-                "gcc4.9_-O0": [
-                    "403b7d3f7e1f7b6ae23544ab2849195ea8596f52c04a30023e4d4fb845a97424", 
-                    "403b7d3f7e1f7b6ae23544ab2849195ea8596f52c04a30023e4d4fb845a97424"
+                "scala2.12.5_-opt": [
+                    "bc:fn0TQfI4Ye7JW8RYSD2bVsVAuIXEEvHhaEpp8jQiaZg_pr:none", 
+                    "bc:fn0TQfI4Ye7JW8RYSD2bVsVAuIXEEvHhaEpp8jQiaZg_pr:none"
                 ]
             }, 
             "note": "everything should pass this", 
@@ -428,6 +497,14 @@
                     "bede5c465af1bd88ae47ef39b675739963af5c644e9ebddc0ac0c6296a79dcc9", 
                     "bede5c465af1bd88ae47ef39b675739963af5c644e9ebddc0ac0c6296a79dcc9"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:1TCW4jkimjZPrA_zJiJ6zA_xtCb1ZXxOuxANeOq--iM_pr:none", 
+                    "bc:R9ism2kt3zpq1L0TZa7eaJkwDK46t9-DsM376RK5iQ4_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:CThWTml6AFzsJ96PZe5ZTPDBrnuQ0rFiyzT3m3V904M_pr:none", 
+                    "bc:_eK6VEHt_oYwtLv4GN5kpCPmfM6l9tzLIvxSg_64N9s_pr:none"
+                ], 
                 "clang5_-O3": [
                     "907fa8220903b0a8f7a614a9d7702b336f1b9c2deab81e862f9042dc5ba4e82a", 
                     "907fa8220903b0a8f7a614a9d7702b336f1b9c2deab81e862f9042dc5ba4e82a"
@@ -456,6 +533,10 @@
                     "bc:-pjCpfXfv6m9XS5OLRed43yhpJz7mJ1VH7TG-f3_kus_pr:none", 
                     "bc:1nfE77FHgTnvHnqFSMGSuWg7PoOqeq_iXYIee9AbyIo_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "53e01cbe2cb7024bc195dda65c9266e9cd11a22773c562b95e871649a2c904e7", 
+                    "53e01cbe2cb7024bc195dda65c9266e9cd11a22773c562b95e871649a2c904e7"
+                ], 
                 "gcc4.9_-O3": [
                     "667252a51273b58399bf7f007bc5e5656b2b8c626283251fed6c49d78a965152", 
                     "667252a51273b58399bf7f007bc5e5656b2b8c626283251fed6c49d78a965152"
@@ -464,9 +545,9 @@
                     "bede5c465af1bd88ae47ef39b675739963af5c644e9ebddc0ac0c6296a79dcc9", 
                     "bede5c465af1bd88ae47ef39b675739963af5c644e9ebddc0ac0c6296a79dcc9"
                 ], 
-                "gcc4.9_-O0": [
-                    "53e01cbe2cb7024bc195dda65c9266e9cd11a22773c562b95e871649a2c904e7", 
-                    "53e01cbe2cb7024bc195dda65c9266e9cd11a22773c562b95e871649a2c904e7"
+                "scala2.12.5_-opt": [
+                    "bc:eY-_b11qKDFsyuQi1eBalY5Ofx6gt1Q9MbP8idGslOE_pr:none", 
+                    "bc:ITtD3fUBM8q-GIoFJI0zGJ6V1-SQGle7TsJ2QrmTdtk_pr:none"
                 ]
             }, 
             "input_types": [
@@ -497,6 +578,14 @@
                     "dcf58b33b7c14ecdf4dd947550a6291e692651cfefccaee1b9cebad5db222961", 
                     "dcf58b33b7c14ecdf4dd947550a6291e692651cfefccaee1b9cebad5db222961"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:QUHr5Yyi-83QZNvgQ82jN3YR1DrkKZD4TRvET3nvGME_pr:none", 
+                    "bc:gGcOOz5Fs9d6Ivv8bD9ckP_J6201Tor2eVbCMFeh8JQ_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:-dyBOj8fSBbgGbUdU3OKsUxEUTsqrqV4zduRf8Lvi0Y_pr:none", 
+                    "bc:0uVmgInyFtIMy_gWPsy8IsoCFircEuV6Ql6OWl8tloU_pr:none"
+                ], 
                 "clang5_-O3": [
                     "27196967640a704dddeecfe3fdf47bc35dcb58d431ce7000fcabc3ebff4790b6", 
                     "27196967640a704dddeecfe3fdf47bc35dcb58d431ce7000fcabc3ebff4790b6"
@@ -525,6 +614,10 @@
                     "bc:Nv2lF_8ikMg7x3TZ7bLwsS8UMNG8c3uVXBdbfxi0REw_pr:none", 
                     "bc:PkQfQmsDLyIzqEXVztr9FZ7e4tKegVHhdgYubpT2yO0_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "d6eb36964404e0feaa7c89f265cebc73f9114a66a7b9a06a2dbc83728e6ed713", 
+                    "43fab78f90f1b17c2037f550e1a99ffc9f4513d5b4dba00a97835ec991555a08"
+                ], 
                 "gcc4.9_-O3": [
                     "94b4ba3213bcfd7020f1c70921c90610707b406548e1be86cd561a2341a1e33f", 
                     "94b4ba3213bcfd7020f1c70921c90610707b406548e1be86cd561a2341a1e33f"
@@ -533,9 +626,9 @@
                     "dcf58b33b7c14ecdf4dd947550a6291e692651cfefccaee1b9cebad5db222961", 
                     "dcf58b33b7c14ecdf4dd947550a6291e692651cfefccaee1b9cebad5db222961"
                 ], 
-                "gcc4.9_-O0": [
-                    "d6eb36964404e0feaa7c89f265cebc73f9114a66a7b9a06a2dbc83728e6ed713", 
-                    "43fab78f90f1b17c2037f550e1a99ffc9f4513d5b4dba00a97835ec991555a08"
+                "scala2.12.5_-opt": [
+                    "bc:-dyBOj8fSBbgGbUdU3OKsUxEUTsqrqV4zduRf8Lvi0Y_pr:none", 
+                    "bc:0uVmgInyFtIMy_gWPsy8IsoCFircEuV6Ql6OWl8tloU_pr:none"
                 ]
             }, 
             "input_types": [
@@ -569,6 +662,18 @@
                     "dab58b7230a8c55675767fcb8121f6c5ce51e53874d3778bc36534b7a4fc01a3", 
                     "dab58b7230a8c55675767fcb8121f6c5ce51e53874d3778bc36534b7a4fc01a3", 
                     "dab58b7230a8c55675767fcb8121f6c5ce51e53874d3778bc36534b7a4fc01a3"
+                ], 
+                "scala2.11.11_-opt": [
+                    "bc:GAKCW85YEOYt_2VguUHCM9k75bJL8l3pF9EzpnYevws_pr:none", 
+                    "bc:afXjJvFeG-7kjmXCon-FSXhsoL_pflZHFKu6vh6zeTU_pr:none", 
+                    "bc:GAKCW85YEOYt_2VguUHCM9k75bJL8l3pF9EzpnYevws_pr:none", 
+                    "bc:GAKCW85YEOYt_2VguUHCM9k75bJL8l3pF9EzpnYevws_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:jIu0WkQLLkSDNMNJqY_ZEHLOzYt1OIVjiUXrS0obveQ_pr:none", 
+                    "bc:jIu0WkQLLkSDNMNJqY_ZEHLOzYt1OIVjiUXrS0obveQ_pr:none", 
+                    "bc:jIu0WkQLLkSDNMNJqY_ZEHLOzYt1OIVjiUXrS0obveQ_pr:none", 
+                    "bc:jIu0WkQLLkSDNMNJqY_ZEHLOzYt1OIVjiUXrS0obveQ_pr:none"
                 ], 
                 "clang5_-O3": [
                     "c1265dd8b8ee6c5d65fd6c912c93824ba789d9d66544881c862132b65a75e9ae", 
@@ -612,6 +717,12 @@
                     "bc:53ccUv1BWEfdzuFu7iX_gnnP3kdDjA_4zODvEVTgywU_pr:none", 
                     "bc:53ccUv1BWEfdzuFu7iX_gnnP3kdDjA_4zODvEVTgywU_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "e1a45b904a6bf9e58bf2c53b3ab607105e86405c138e1a781676d441c3a029b7", 
+                    "e1a45b904a6bf9e58bf2c53b3ab607105e86405c138e1a781676d441c3a029b7", 
+                    "e1a45b904a6bf9e58bf2c53b3ab607105e86405c138e1a781676d441c3a029b7", 
+                    "e1a45b904a6bf9e58bf2c53b3ab607105e86405c138e1a781676d441c3a029b7"
+                ], 
                 "gcc4.9_-O3": [
                     "aa5f363d173ae47adca7dcbb547ead67cae1b1bf0194020d6e72d5ee07860c3e", 
                     "aa5f363d173ae47adca7dcbb547ead67cae1b1bf0194020d6e72d5ee07860c3e", 
@@ -624,11 +735,11 @@
                     "dab58b7230a8c55675767fcb8121f6c5ce51e53874d3778bc36534b7a4fc01a3", 
                     "dab58b7230a8c55675767fcb8121f6c5ce51e53874d3778bc36534b7a4fc01a3"
                 ], 
-                "gcc4.9_-O0": [
-                    "e1a45b904a6bf9e58bf2c53b3ab607105e86405c138e1a781676d441c3a029b7", 
-                    "e1a45b904a6bf9e58bf2c53b3ab607105e86405c138e1a781676d441c3a029b7", 
-                    "e1a45b904a6bf9e58bf2c53b3ab607105e86405c138e1a781676d441c3a029b7", 
-                    "e1a45b904a6bf9e58bf2c53b3ab607105e86405c138e1a781676d441c3a029b7"
+                "scala2.12.5_-opt": [
+                    "bc:dnn8HDtTyo5nLojL7jl0TAF2iw7AY3r6YdHUbehV0JQ_pr:none", 
+                    "bc:dnn8HDtTyo5nLojL7jl0TAF2iw7AY3r6YdHUbehV0JQ_pr:none", 
+                    "bc:dnn8HDtTyo5nLojL7jl0TAF2iw7AY3r6YdHUbehV0JQ_pr:none", 
+                    "bc:dnn8HDtTyo5nLojL7jl0TAF2iw7AY3r6YdHUbehV0JQ_pr:none"
                 ]
             }, 
             "input_types": [
@@ -670,6 +781,18 @@
                     "6ba5d4634fb9ad9dc7c85002a078a4a66cf61f496b17684c3318a58b97af9c94", 
                     "75c4798711184da594833edf315e923f113ab4d64bccd6af3032724e9d69c314", 
                     "75c4798711184da594833edf315e923f113ab4d64bccd6af3032724e9d69c314"
+                ], 
+                "scala2.11.11_-opt": [
+                    "bc:wNO-t99OmMnt_y6YIO1ipy4Nl9BAbcJjW8wKpaGUMz4_pr:none", 
+                    "bc:lTaLillscfNOQLQwsr3hLyTlZJom1IpfLM926B9TvFQ_pr:none", 
+                    "bc:GAKCW85YEOYt_2VguUHCM9k75bJL8l3pF9EzpnYevws_pr:none", 
+                    "bc:afXjJvFeG-7kjmXCon-FSXhsoL_pflZHFKu6vh6zeTU_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:PW-UfvmKfQRR0YmMp5h34BFckYmFnuYtyCABwUadU0Y_pr:none", 
+                    "bc:PW-UfvmKfQRR0YmMp5h34BFckYmFnuYtyCABwUadU0Y_pr:none", 
+                    "bc:jIu0WkQLLkSDNMNJqY_ZEHLOzYt1OIVjiUXrS0obveQ_pr:none", 
+                    "bc:jIu0WkQLLkSDNMNJqY_ZEHLOzYt1OIVjiUXrS0obveQ_pr:none"
                 ], 
                 "clang5_-O3": [
                     "185817132f5db63a562dad7caaa60b12122fab19762c14e281a821c9bf37ec35", 
@@ -713,6 +836,12 @@
                     "bc:53ccUv1BWEfdzuFu7iX_gnnP3kdDjA_4zODvEVTgywU_pr:none", 
                     "bc:53ccUv1BWEfdzuFu7iX_gnnP3kdDjA_4zODvEVTgywU_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "ebc854df7e276ce18f2b6a51108010191dac8f3e1adf4add2cd007dacdc8a8c6", 
+                    "ebc854df7e276ce18f2b6a51108010191dac8f3e1adf4add2cd007dacdc8a8c6", 
+                    "66d73fa9df1b43146ea6796acd7b714ba773a218d8415acaa290749a1d7bb1aa", 
+                    "66d73fa9df1b43146ea6796acd7b714ba773a218d8415acaa290749a1d7bb1aa"
+                ], 
                 "gcc4.9_-O3": [
                     "89c0949a7c7ccb621ee670eb68cfcefe804ad51bc9333893b18980746c91be00", 
                     "89c0949a7c7ccb621ee670eb68cfcefe804ad51bc9333893b18980746c91be00", 
@@ -725,11 +854,11 @@
                     "75c4798711184da594833edf315e923f113ab4d64bccd6af3032724e9d69c314", 
                     "75c4798711184da594833edf315e923f113ab4d64bccd6af3032724e9d69c314"
                 ], 
-                "gcc4.9_-O0": [
-                    "ebc854df7e276ce18f2b6a51108010191dac8f3e1adf4add2cd007dacdc8a8c6", 
-                    "ebc854df7e276ce18f2b6a51108010191dac8f3e1adf4add2cd007dacdc8a8c6", 
-                    "66d73fa9df1b43146ea6796acd7b714ba773a218d8415acaa290749a1d7bb1aa", 
-                    "66d73fa9df1b43146ea6796acd7b714ba773a218d8415acaa290749a1d7bb1aa"
+                "scala2.12.5_-opt": [
+                    "bc:b2Os5y0fENk2DtmqxpHYHAFSAgLgmuZ2pDBN_EGETAU_pr:none", 
+                    "bc:b2Os5y0fENk2DtmqxpHYHAFSAgLgmuZ2pDBN_EGETAU_pr:none", 
+                    "bc:dnn8HDtTyo5nLojL7jl0TAF2iw7AY3r6YdHUbehV0JQ_pr:none", 
+                    "bc:dnn8HDtTyo5nLojL7jl0TAF2iw7AY3r6YdHUbehV0JQ_pr:none"
                 ]
             }, 
             "input_types": [
@@ -769,6 +898,14 @@
                     "567e3928e513065e0771c7366edce7568ffc63859c143f4abfaf8e038ec000d8", 
                     "567e3928e513065e0771c7366edce7568ffc63859c143f4abfaf8e038ec000d8"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:-nzvvLF70pqkOdNQnxapWXUo3etbcZ_9PmOWPmCp2c0_pr:none", 
+                    "bc:1qiCZNZCm0G3EZr1OmBQ44KN3qnWD2syx1RjXNvlwKA_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:WppDfJQZsh6sLm2xjIGRIAzmuG5ga2PBfjqqRJXiy6E_pr:none", 
+                    "bc:gJKmTap8iV0UPBLjqLJs5nLkxsJXUU7l313j7x8R3g4_pr:none"
+                ], 
                 "clang5_-O3": [
                     "e2c65661c0b4f71e5786d194dd57adae88c10924a37bf4ed6475f52f24d2c2ad", 
                     "e2c65661c0b4f71e5786d194dd57adae88c10924a37bf4ed6475f52f24d2c2ad"
@@ -797,6 +934,10 @@
                     "bc:CyBTE7DTM-F1GGX2zBUvEsk0VFbbNDdci8MBxcRC8a8_pr:none", 
                     "bc:HkTG1YGmw2r7TVi1SVbK58mTIRfwKzkSBSX3J-U3QHw_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "a0583ef7ec8f84183fb1bb8322f501ee4089177f89b2b4a811e209d8ccf3940c", 
+                    "a0583ef7ec8f84183fb1bb8322f501ee4089177f89b2b4a811e209d8ccf3940c"
+                ], 
                 "gcc4.9_-O3": [
                     "5e454d6e18ac382325b810d933c44c65004683f1af5ed900b6cd915f140e9b4d", 
                     "5e454d6e18ac382325b810d933c44c65004683f1af5ed900b6cd915f140e9b4d"
@@ -805,9 +946,9 @@
                     "567e3928e513065e0771c7366edce7568ffc63859c143f4abfaf8e038ec000d8", 
                     "567e3928e513065e0771c7366edce7568ffc63859c143f4abfaf8e038ec000d8"
                 ], 
-                "gcc4.9_-O0": [
-                    "a0583ef7ec8f84183fb1bb8322f501ee4089177f89b2b4a811e209d8ccf3940c", 
-                    "a0583ef7ec8f84183fb1bb8322f501ee4089177f89b2b4a811e209d8ccf3940c"
+                "scala2.12.5_-opt": [
+                    "bc:WppDfJQZsh6sLm2xjIGRIAzmuG5ga2PBfjqqRJXiy6E_pr:none", 
+                    "bc:gJKmTap8iV0UPBLjqLJs5nLkxsJXUU7l313j7x8R3g4_pr:none"
                 ]
             }, 
             "input_types": [
@@ -838,6 +979,14 @@
                     "0cd59b9827a59c93c652732f38b3813d1b094b3f6e87761b0ab0b39793c58dd6", 
                     "0cd59b9827a59c93c652732f38b3813d1b094b3f6e87761b0ab0b39793c58dd6"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:fBgtl7mh6qNBe-npS-qSam6QPBmWpswipWPuS1XtcY0_pr:none", 
+                    "bc:tznQNweKZAa0ZwzuGuPMFMc-totPYMGSYV-FmznCys0_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:J4MBalHzjwO_kIvrkQIhUcQeOkjh15rv_lXcdOLXYvQ_pr:none", 
+                    "bc:irWq01F3bn92Ao6UX8fcoXkEBRRNGjuSKG_HOkoCi44_pr:none"
+                ], 
                 "clang5_-O3": [
                     "d2e922ee6e11f0faef55dd1d5ff46a7b169c0c7412d6dc82cfefdcbe45a2042d", 
                     "d2e922ee6e11f0faef55dd1d5ff46a7b169c0c7412d6dc82cfefdcbe45a2042d"
@@ -866,6 +1015,10 @@
                     "bc:uDy10A9YzsAWigYFcrkuY_r57mCc1rJfvFdHPokS5b4_pr:none", 
                     "bc:xvg7qIoSPdAC_l8UpF0qiuWKFTyqLWIA3hyMKbklAYs_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "6378726204112d75ec60a87f3889e4117e70ff780b2c2134adef9e65cfbce69e", 
+                    "3dfae0cde5093cf9fa25cf9031be2ea8d0ee44c7690742385054fc7dcef48807"
+                ], 
                 "gcc4.9_-O3": [
                     "dc4dc8dbd37a06c46dd59dc81f88d79f8c429c043045df87cbc0d592a8cb1954", 
                     "dab8f275bb6b9ee615ab4d8a012c2f8cd78df3ef690ddc4dee75d9a3cc76e67d"
@@ -874,9 +1027,9 @@
                     "0cd59b9827a59c93c652732f38b3813d1b094b3f6e87761b0ab0b39793c58dd6", 
                     "0cd59b9827a59c93c652732f38b3813d1b094b3f6e87761b0ab0b39793c58dd6"
                 ], 
-                "gcc4.9_-O0": [
-                    "6378726204112d75ec60a87f3889e4117e70ff780b2c2134adef9e65cfbce69e", 
-                    "3dfae0cde5093cf9fa25cf9031be2ea8d0ee44c7690742385054fc7dcef48807"
+                "scala2.12.5_-opt": [
+                    "bc:J4MBalHzjwO_kIvrkQIhUcQeOkjh15rv_lXcdOLXYvQ_pr:none", 
+                    "bc:irWq01F3bn92Ao6UX8fcoXkEBRRNGjuSKG_HOkoCi44_pr:none"
                 ]
             }, 
             "input_types": [
@@ -908,6 +1061,14 @@
                     "9a974bf50435b087aca8502fa2af9640b6854722999b2a7532b242651447777b", 
                     "410107f29915c9db55216ff33b8c0aba6251fdefdab38f623e93c8cab2893a82"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:fBgtl7mh6qNBe-npS-qSam6QPBmWpswipWPuS1XtcY0_pr:none", 
+                    "bc:pRlShMG6KBDLQwi6I0N3Z3kvYQ65siSH-j0mcL61TZo_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:J4MBalHzjwO_kIvrkQIhUcQeOkjh15rv_lXcdOLXYvQ_pr:none", 
+                    "bc:YJ9FCZQDudDYp-riefCrpbVWmgNarbuH_ZzDn3VX4xU_pr:none"
+                ], 
                 "clang5_-O3": [
                     "77a32ceb50356240f4587b60b4a556753c4c56b1625ef7308dda655880de665a", 
                     "1f8fb03e15219175709888e24b4268fdd6fb15731ef05a04ad53e41c71de38d2"
@@ -936,6 +1097,10 @@
                     "bc:uDy10A9YzsAWigYFcrkuY_r57mCc1rJfvFdHPokS5b4_pr:none", 
                     "bc:WxkSd98yMSVPM7dDpkoSbRE3zYp8PgmjL7DURFtAsFI_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "185bcca77a6e06d1116a74bbd7bdcf0f85545829e759411e2c8535c177d82edd", 
+                    "2faa2a75ed48507114f567f8f0924e97af1b62b64fe21093189cc600451cd804"
+                ], 
                 "gcc4.9_-O3": [
                     "222856927000d610f5bc76f11036a57d843fa4d03b66973a1aebed40d941e19d", 
                     "625876c3063b87e4cf0c8d2ed0f7e8b8d7b09b8ff6fcb4f0bfeb960833801fe2"
@@ -944,9 +1109,9 @@
                     "9a974bf50435b087aca8502fa2af9640b6854722999b2a7532b242651447777b", 
                     "410107f29915c9db55216ff33b8c0aba6251fdefdab38f623e93c8cab2893a82"
                 ], 
-                "gcc4.9_-O0": [
-                    "185bcca77a6e06d1116a74bbd7bdcf0f85545829e759411e2c8535c177d82edd", 
-                    "2faa2a75ed48507114f567f8f0924e97af1b62b64fe21093189cc600451cd804"
+                "scala2.12.5_-opt": [
+                    "bc:J4MBalHzjwO_kIvrkQIhUcQeOkjh15rv_lXcdOLXYvQ_pr:none", 
+                    "bc:YJ9FCZQDudDYp-riefCrpbVWmgNarbuH_ZzDn3VX4xU_pr:none"
                 ]
             }, 
             "input_types": [
@@ -983,6 +1148,16 @@
                     "21d50d9d38f917356e5583ff8acafd92e98cf90dafa5c5f83a2afae6ba78a6c8", 
                     "21d50d9d38f917356e5583ff8acafd92e98cf90dafa5c5f83a2afae6ba78a6c8"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:06bwDuFXQMbKvekQM4yWGGxlSqFUEMkAaMwHHfZoIPI_pr:none", 
+                    "bc:C-YioiSKBhXVwWGN5kfsNgclfTqSGJMT7fNxkpksLFk_pr:none", 
+                    "bc:alIvbD691Z2gq3nYpgmUzpNm27W1LD5er6EygVlRrdo_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:E_OsKH9Y5_u14saB10nQcSyRQv4LYqtMdkLaz4IaVzU_pr:none", 
+                    "bc:bgcoY9xzwI7UAn8hilUqsev7ghKBSwfF76MlBuau9qM_pr:none", 
+                    "bc:miBhBVj4vq_Fv72UjX83gZ-MZJ_zUDtTxQyeoCsdjss_pr:none"
+                ], 
                 "clang5_-O3": [
                     "ef8a94ecb6ba4613771bff712ea0c0e7a447f04e31f4628763087d9f9b7bbab1", 
                     "0ea49dcbee94f84aa53ddf099fb60c04f0adb4c59b50eb6dbd9f9747205e8555", 
@@ -1018,6 +1193,11 @@
                     "bc:gVpzHZMhEO068Rs4pzOjQ32n1SNLRV3zA_aTUj6_akM_pr:none", 
                     "bc:07cVVdSgSaWknFAl7bRSml5c-q3wvDxB1wNtocwTmyc_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "593890f0abb70ab9198bf8712f5198532a06bdabe1a550989b6c56c3ec024a91", 
+                    "0460f24baf9e2c849fbacca2371a49e447b704583586b2fd91c73b261499675e", 
+                    "0c6d39f48289e87079cfbde63507422c14835d09e6b3f9268af00b89eba930a6"
+                ], 
                 "gcc4.9_-O3": [
                     "e9693695e8ad7865be03cccf81d26189323daf544626e8d1bb2aa65d304e154f", 
                     "52e2e66640a6f65e731f0064eac3596a8ae8cb1716da33a379a33c892515cdd1", 
@@ -1028,10 +1208,10 @@
                     "21d50d9d38f917356e5583ff8acafd92e98cf90dafa5c5f83a2afae6ba78a6c8", 
                     "21d50d9d38f917356e5583ff8acafd92e98cf90dafa5c5f83a2afae6ba78a6c8"
                 ], 
-                "gcc4.9_-O0": [
-                    "593890f0abb70ab9198bf8712f5198532a06bdabe1a550989b6c56c3ec024a91", 
-                    "0460f24baf9e2c849fbacca2371a49e447b704583586b2fd91c73b261499675e", 
-                    "0c6d39f48289e87079cfbde63507422c14835d09e6b3f9268af00b89eba930a6"
+                "scala2.12.5_-opt": [
+                    "bc:WUtgUnpBsomv-pExbfwzEcANVqrnjJQaXKxNb0Xh9fw_pr:none", 
+                    "bc:zO0U_EoF9un0_B3NwJ731BDKYrtv7N7UFNZk2Tw8xBE_pr:none", 
+                    "bc:yCB9-Ar4tsz3dh3eQ36hgyp9-BXy-xNIJ0MQ1FaNqIM_pr:none"
                 ]
             }, 
             "input_types": [
@@ -1076,6 +1256,14 @@
                     "9d9fc1771c4b9b7db8d87e755a8d21c2f050d5ea239cad3b1ca7c97fb47e6226", 
                     "9d9fc1771c4b9b7db8d87e755a8d21c2f050d5ea239cad3b1ca7c97fb47e6226"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:ZlLYvOFDYOJEvTlDHSuN144BX7IYfnjmhjU2hejB44Q_pr:none", 
+                    "bc:oZrZQ-tEVM0WNJMrg-89HHdztgz0Lw-3YzMaVVVH1Ug_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:D9QojrXPkPyRNt6YcMz-xjeC7SaKhzGFjI5mv0sGM1w_pr:none", 
+                    "bc:y0HpCrUyeMy4Qcuy20mzmGW6USioU1OC2YLDbTJUC84_pr:none"
+                ], 
                 "clang5_-O3": [
                     "ceb48537de103655d273d0c82915659448f6d0498d5dc31455c169e820f64347", 
                     "ceb48537de103655d273d0c82915659448f6d0498d5dc31455c169e820f64347"
@@ -1104,6 +1292,10 @@
                     "bc:ZBz3Rv54eep4kg7rrOLbF53scIB1PGp8vmwdvBmUzzo_pr:none", 
                     "bc:6eui96MkkON_1mDc-8Ct6imH_kXifmnVbtZIE2rOjpA_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "8f0fbcfd0deedff11bafc0fdfca8ddd1641ce2ff62f18a0fce43b5ffd63e2e0d", 
+                    "df2ff7bbb5ebacb5d8fe0f2e7388e75cd99ba9430aeeafa0e075ca23801a7420"
+                ], 
                 "gcc4.9_-O3": [
                     "d85c55bd9ad98603efdc4a33a0ebd2f1f5c0aef182356a8ef1b9ce92f9d83a73", 
                     "d85c55bd9ad98603efdc4a33a0ebd2f1f5c0aef182356a8ef1b9ce92f9d83a73"
@@ -1112,9 +1304,9 @@
                     "9d9fc1771c4b9b7db8d87e755a8d21c2f050d5ea239cad3b1ca7c97fb47e6226", 
                     "9d9fc1771c4b9b7db8d87e755a8d21c2f050d5ea239cad3b1ca7c97fb47e6226"
                 ], 
-                "gcc4.9_-O0": [
-                    "8f0fbcfd0deedff11bafc0fdfca8ddd1641ce2ff62f18a0fce43b5ffd63e2e0d", 
-                    "df2ff7bbb5ebacb5d8fe0f2e7388e75cd99ba9430aeeafa0e075ca23801a7420"
+                "scala2.12.5_-opt": [
+                    "bc:D9QojrXPkPyRNt6YcMz-xjeC7SaKhzGFjI5mv0sGM1w_pr:none", 
+                    "bc:y0HpCrUyeMy4Qcuy20mzmGW6USioU1OC2YLDbTJUC84_pr:none"
                 ]
             }, 
             "note": "trying to cover -fgcse and llvm -gvn", 
@@ -1147,6 +1339,14 @@
                     "2e78f35e6f1b2299b413b747afd416d663c9cb9f324c9967668fe4f3ed8b3546", 
                     "2e78f35e6f1b2299b413b747afd416d663c9cb9f324c9967668fe4f3ed8b3546"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:ZlLYvOFDYOJEvTlDHSuN144BX7IYfnjmhjU2hejB44Q_pr:none", 
+                    "bc:ZlLYvOFDYOJEvTlDHSuN144BX7IYfnjmhjU2hejB44Q_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:D9QojrXPkPyRNt6YcMz-xjeC7SaKhzGFjI5mv0sGM1w_pr:none", 
+                    "bc:S6AGv3AIwFEgKVxul5HS1WtWQjFljKzXp089wM2Z8Y8_pr:none"
+                ], 
                 "clang5_-O3": [
                     "a149fe9e1103bef1a708c45edb8cbde71921fcf5e7fadd8462b4ead1d7604712", 
                     "a149fe9e1103bef1a708c45edb8cbde71921fcf5e7fadd8462b4ead1d7604712"
@@ -1175,6 +1375,10 @@
                     "bc:ZBz3Rv54eep4kg7rrOLbF53scIB1PGp8vmwdvBmUzzo_pr:none", 
                     "bc:VrlgJZdVC6Oz-sh2Zjr0-MbLUsVWyZ2io9RLQDbDw28_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "da27ed9f53416c1c97d486033e1d4aaf3e887d602ede0130366a973dfce80afd", 
+                    "092ec868f84ec7bb2bf9883019045bb2825aad3e35003f4671ae61f14d2c79b2"
+                ], 
                 "gcc4.9_-O3": [
                     "6a6681bcbd066765c443209f3f03613a9f0e7d591b3a4f1eebc1dfd4fc58e51b", 
                     "6a6681bcbd066765c443209f3f03613a9f0e7d591b3a4f1eebc1dfd4fc58e51b"
@@ -1183,9 +1387,9 @@
                     "2e78f35e6f1b2299b413b747afd416d663c9cb9f324c9967668fe4f3ed8b3546", 
                     "2e78f35e6f1b2299b413b747afd416d663c9cb9f324c9967668fe4f3ed8b3546"
                 ], 
-                "gcc4.9_-O0": [
-                    "da27ed9f53416c1c97d486033e1d4aaf3e887d602ede0130366a973dfce80afd", 
-                    "092ec868f84ec7bb2bf9883019045bb2825aad3e35003f4671ae61f14d2c79b2"
+                "scala2.12.5_-opt": [
+                    "bc:D9QojrXPkPyRNt6YcMz-xjeC7SaKhzGFjI5mv0sGM1w_pr:none", 
+                    "bc:D9QojrXPkPyRNt6YcMz-xjeC7SaKhzGFjI5mv0sGM1w_pr:none"
                 ]
             }, 
             "note": "trying to cover -fgcse and llvm -gvn", 
@@ -1218,6 +1422,14 @@
                     "4efb284f6d5ad281ce5d64cbf25a00ad42b44c4203a09d46b57e0764632ca893", 
                     "4efb284f6d5ad281ce5d64cbf25a00ad42b44c4203a09d46b57e0764632ca893"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:ZlLYvOFDYOJEvTlDHSuN144BX7IYfnjmhjU2hejB44Q_pr:none", 
+                    "bc:ZlLYvOFDYOJEvTlDHSuN144BX7IYfnjmhjU2hejB44Q_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:D9QojrXPkPyRNt6YcMz-xjeC7SaKhzGFjI5mv0sGM1w_pr:none", 
+                    "bc:JDGI2_nlXxcpYpvyI6GWFg3E2ze7MSGQB18KU058sd8_pr:none"
+                ], 
                 "clang5_-O3": [
                     "a1e6385dd74fdc842242680d18f5f1c344e20515a50e0a7924e267602eb2b942", 
                     "a1e6385dd74fdc842242680d18f5f1c344e20515a50e0a7924e267602eb2b942"
@@ -1246,6 +1458,10 @@
                     "bc:ZBz3Rv54eep4kg7rrOLbF53scIB1PGp8vmwdvBmUzzo_pr:none", 
                     "bc:Tj2W3HEULSgoLb8_4FTgiLAAvVwA_UsELzbaXYIbYYg_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "0c2606c6bc5db124d23cd46bd609607f54f0c175b1640f65c24b1ac5eb08870f", 
+                    "b080ddd83f827d20d89e989ce76cf289e3b2432bbe2ba57fbfb8acd147b0903c"
+                ], 
                 "gcc4.9_-O3": [
                     "247d89af49d8b68d7b21c3462530fc5d027cd65a0442a98489719c19fb03dc0e", 
                     "247d89af49d8b68d7b21c3462530fc5d027cd65a0442a98489719c19fb03dc0e"
@@ -1254,9 +1470,9 @@
                     "4efb284f6d5ad281ce5d64cbf25a00ad42b44c4203a09d46b57e0764632ca893", 
                     "4efb284f6d5ad281ce5d64cbf25a00ad42b44c4203a09d46b57e0764632ca893"
                 ], 
-                "gcc4.9_-O0": [
-                    "0c2606c6bc5db124d23cd46bd609607f54f0c175b1640f65c24b1ac5eb08870f", 
-                    "b080ddd83f827d20d89e989ce76cf289e3b2432bbe2ba57fbfb8acd147b0903c"
+                "scala2.12.5_-opt": [
+                    "bc:D9QojrXPkPyRNt6YcMz-xjeC7SaKhzGFjI5mv0sGM1w_pr:none", 
+                    "bc:3UKoy-8aR8W7YuVuIFEhneAWayRUNCiyrKycXOR0a8k_pr:none"
                 ]
             }, 
             "note": "trying to cover general constant prop", 
@@ -1289,6 +1505,14 @@
                     "dcc08da1e8147037079c734fcf684dcbbbc5bb945d46810087882053416c653a", 
                     "dcc08da1e8147037079c734fcf684dcbbbc5bb945d46810087882053416c653a"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:uzsF9zBf-9mB-wHXbBVeKkC3CM3Q3LYdqylAUfWF0VI_pr:none", 
+                    "bc:wysTg7TYG3DtkF_CZiHX7FudYp1v0k_nwiCLU1ZTgPs_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:pSnkNgESEq7AehxVfozX3UUaibUR1KLcHPJX6N9JON0_pr:none", 
+                    "bc:wB3c-hq0OHuolsqBS9A_vP5IYxO7rW4HM1D0zAbMdhs_pr:none"
+                ], 
                 "clang5_-O3": [
                     "1fc1470b680ef68450ee0a236ea6786ae054af7a814d588be9a8b4b346593ac6", 
                     "1fc1470b680ef68450ee0a236ea6786ae054af7a814d588be9a8b4b346593ac6"
@@ -1317,6 +1541,10 @@
                     "bc:zXV2s-JeLbAyyaEK1MQFTHEwPeIgS-Joj42dOFJrwqU_pr:none", 
                     "bc:oTPfGAyAKsTqcv06DXqGkRHOArklFKSvEod6T3pijn8_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "0c6169feb61a258ac10c10953fd74cbbc0801f89f5c3e622a412fb6868a91119", 
+                    "e65e0758f11edd577ce6c9b086857d5a9a89430b343e3f9c797581e66d32ef71"
+                ], 
                 "gcc4.9_-O3": [
                     "befce9992d63ca6f48cc7bc28e7b695be6b39c3cd546754e81d5bed7d89f4f3b", 
                     "befce9992d63ca6f48cc7bc28e7b695be6b39c3cd546754e81d5bed7d89f4f3b"
@@ -1325,9 +1553,9 @@
                     "dcc08da1e8147037079c734fcf684dcbbbc5bb945d46810087882053416c653a", 
                     "dcc08da1e8147037079c734fcf684dcbbbc5bb945d46810087882053416c653a"
                 ], 
-                "gcc4.9_-O0": [
-                    "0c6169feb61a258ac10c10953fd74cbbc0801f89f5c3e622a412fb6868a91119", 
-                    "e65e0758f11edd577ce6c9b086857d5a9a89430b343e3f9c797581e66d32ef71"
+                "scala2.12.5_-opt": [
+                    "bc:TmUCjavrgMhSYSP5FDgKy9YX8J-ajQGePcSOgNzLrg8_pr:none", 
+                    "bc:8aEx1zFXIBZJBxz5ORlRoEWcFf2YoOp2Fzj3sIsmMT0_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -fgcse-lm, llvm -dce etc", 
@@ -1363,6 +1591,14 @@
                     "21b6ba14cb6208b376a5a4ae099fd926472afe0cee6f988e2148e6a159fdb784", 
                     "21b6ba14cb6208b376a5a4ae099fd926472afe0cee6f988e2148e6a159fdb784"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:0OPJ81Crgo2DKJBBEkWNRU4dA4k-YyNaC6P3-fvRhVw_pr:none", 
+                    "bc:PIZp4Q8wW3Ej3QwQ790y5vPzGZDm9iSivbmB7wBK7Uk_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:yL1rgBfzqZVBm6BfSuOSCiC9Se6KLlCepf5zTX6QS6k_pr:none", 
+                    "bc:m3xrUcQ4ZPZSKcwr0gjDGb7H86xQANx4r9hsnnQCvqw_pr:none"
+                ], 
                 "clang5_-O3": [
                     "3391e424019cbe0a745ad987cb2292158e2a158067658ae0fc6240c55d145495", 
                     "3391e424019cbe0a745ad987cb2292158e2a158067658ae0fc6240c55d145495"
@@ -1391,6 +1627,10 @@
                     "bc:EQ43DP5GHNLdcN60pvoLPYfqZTiZi9DyRKLL3SggYCo_pr:none", 
                     "bc:cn5cHumlnccclHYJiqrZRN3Gz2Gs2TfO4ed06Ah3EEE_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "5e93ff8c5169b0b5277f461d0dd4debc9959b22d7184e90ea1612cde3ada2cc5", 
+                    "5e93ff8c5169b0b5277f461d0dd4debc9959b22d7184e90ea1612cde3ada2cc5"
+                ], 
                 "gcc4.9_-O3": [
                     "1708a03811eb3ebab29b198a15a11d02b32f741a35da399d55218d49e703d17f", 
                     "1708a03811eb3ebab29b198a15a11d02b32f741a35da399d55218d49e703d17f"
@@ -1399,9 +1639,9 @@
                     "21b6ba14cb6208b376a5a4ae099fd926472afe0cee6f988e2148e6a159fdb784", 
                     "21b6ba14cb6208b376a5a4ae099fd926472afe0cee6f988e2148e6a159fdb784"
                 ], 
-                "gcc4.9_-O0": [
-                    "5e93ff8c5169b0b5277f461d0dd4debc9959b22d7184e90ea1612cde3ada2cc5", 
-                    "5e93ff8c5169b0b5277f461d0dd4debc9959b22d7184e90ea1612cde3ada2cc5"
+                "scala2.12.5_-opt": [
+                    "bc:yL1rgBfzqZVBm6BfSuOSCiC9Se6KLlCepf5zTX6QS6k_pr:none", 
+                    "bc:m3xrUcQ4ZPZSKcwr0gjDGb7H86xQANx4r9hsnnQCvqw_pr:none"
                 ]
             }, 
             "note": "llvm's instcombine, and gcc's canonicalization and tree reassociation", 
@@ -1432,6 +1672,14 @@
                     "e2d5f5aca19887fa04b5bc72d0306916b343dd8d4e8622967d525e005786e372", 
                     "e2d5f5aca19887fa04b5bc72d0306916b343dd8d4e8622967d525e005786e372"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:UjNYY2irVPQElKoiKLxY0gjU0mFHfBoPmPRL1PzTTM8_pr:none", 
+                    "bc:MM-Igvy137Ev1b73e9-kZwtcss-L270AaTSFT8Xcz8o_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:paE1-jfTBIafFC_5uzJ7xkAuRvn8cFsR_Hy82eWFfkw_pr:none", 
+                    "bc:B2Ss7PRo8Ok1j3UMD4GI8VlcAyC8WrvyTP2ZZlZ90Yg_pr:none"
+                ], 
                 "clang5_-O3": [
                     "8470c7f7a60478fd95b30bc2c0127dfaa9fc5dc9d60e25bde3597a16ab11cb66", 
                     "8470c7f7a60478fd95b30bc2c0127dfaa9fc5dc9d60e25bde3597a16ab11cb66"
@@ -1460,6 +1708,10 @@
                     "bc:Hp5P51A9co04Lfl3wGYbRbJK42w7Ab3wGM_gMXfceTM_pr:none", 
                     "bc:rE3tM4F-QNgg_uuh2I34GRkqyjjhXxafDrUyZVwz7X0_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "4565e74c8e7b027f59ac9143c8c6043f14328ad72163513ae3c675e5a6da27c2", 
+                    "4565e74c8e7b027f59ac9143c8c6043f14328ad72163513ae3c675e5a6da27c2"
+                ], 
                 "gcc4.9_-O3": [
                     "abed45a414c2bcc0491019f09519313378a10d4accceb5f12768e9432d123aed", 
                     "abed45a414c2bcc0491019f09519313378a10d4accceb5f12768e9432d123aed"
@@ -1468,9 +1720,9 @@
                     "e2d5f5aca19887fa04b5bc72d0306916b343dd8d4e8622967d525e005786e372", 
                     "e2d5f5aca19887fa04b5bc72d0306916b343dd8d4e8622967d525e005786e372"
                 ], 
-                "gcc4.9_-O0": [
-                    "4565e74c8e7b027f59ac9143c8c6043f14328ad72163513ae3c675e5a6da27c2", 
-                    "4565e74c8e7b027f59ac9143c8c6043f14328ad72163513ae3c675e5a6da27c2"
+                "scala2.12.5_-opt": [
+                    "bc:TUc_rZXv7fOX5gWMJXqcNGRhjNxiIiO76OnidyOt5Xs_pr:none", 
+                    "bc:a3WdbK6zzH1WLHHtG4ML_drY1ms4I8n_fd1VemMEKtM_pr:none"
                 ]
             }, 
             "note": "llvm's instcombine, and gcc's canonicalization and tree reassociation", 
@@ -1502,6 +1754,16 @@
                     "96eecaa111f80a9ba93cb6d3f70ea66d7236c971c0ca5f08bbad96489655d664", 
                     "96eecaa111f80a9ba93cb6d3f70ea66d7236c971c0ca5f08bbad96489655d664", 
                     "96eecaa111f80a9ba93cb6d3f70ea66d7236c971c0ca5f08bbad96489655d664"
+                ], 
+                "scala2.11.11_-opt": [
+                    "bc:xGsSO0FPKVZbTYkPpatoaOLnHNpM7bnQAwiRZS80xwg_pr:none", 
+                    "bc:cqRnYTjd2izcnICi1X8ujpkPayNcDT4nl9kj_cJtvqM_pr:none", 
+                    "bc:9Zund22p-8sweB9xSdNvb4PQFCcBNvvMo9PwI4qzqE8_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:nNuy2KLk0rP5ofICnTGBG8I8IL-25bOCUH6fyEwUzgk_pr:none", 
+                    "bc:cAPu1SCEL2Xe_r6owAKiE-1HVI-qw_ftnp9SJ69g1Co_pr:none", 
+                    "bc:w4IxWTmq3S3mjzS4uD-BIeb8oAiIlZ1AiHYKUTOkfOw_pr:none"
                 ], 
                 "clang5_-O3": [
                     "c899cf775c501a5e690ea86ee2193d7d9837330ecc4e4e7232396727de0b1cd4", 
@@ -1538,6 +1800,11 @@
                     "bc:eqJCr7H6akPJjKbP595KaUly5iYsAvaZiCc4tiUOjN4_pr:none", 
                     "bc:pI2dhjNEM2JnKuJEO2kMoJlg9-vQScm4RxRtXSz6MMA_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "fd83aeef8dd4577ffdd2005a52bbe5c624f83be304c4de2dd4389a4ebaa3d7b5", 
+                    "fd83aeef8dd4577ffdd2005a52bbe5c624f83be304c4de2dd4389a4ebaa3d7b5", 
+                    "fd83aeef8dd4577ffdd2005a52bbe5c624f83be304c4de2dd4389a4ebaa3d7b5"
+                ], 
                 "gcc4.9_-O3": [
                     "f517cbdee94c63cf734a85233d0cf7c122209cdf8e9d02fbb338d02ed8563a8b", 
                     "f517cbdee94c63cf734a85233d0cf7c122209cdf8e9d02fbb338d02ed8563a8b", 
@@ -1548,10 +1815,10 @@
                     "96eecaa111f80a9ba93cb6d3f70ea66d7236c971c0ca5f08bbad96489655d664", 
                     "96eecaa111f80a9ba93cb6d3f70ea66d7236c971c0ca5f08bbad96489655d664"
                 ], 
-                "gcc4.9_-O0": [
-                    "fd83aeef8dd4577ffdd2005a52bbe5c624f83be304c4de2dd4389a4ebaa3d7b5", 
-                    "fd83aeef8dd4577ffdd2005a52bbe5c624f83be304c4de2dd4389a4ebaa3d7b5", 
-                    "fd83aeef8dd4577ffdd2005a52bbe5c624f83be304c4de2dd4389a4ebaa3d7b5"
+                "scala2.12.5_-opt": [
+                    "bc:nNuy2KLk0rP5ofICnTGBG8I8IL-25bOCUH6fyEwUzgk_pr:none", 
+                    "bc:cAPu1SCEL2Xe_r6owAKiE-1HVI-qw_ftnp9SJ69g1Co_pr:none", 
+                    "bc:w4IxWTmq3S3mjzS4uD-BIeb8oAiIlZ1AiHYKUTOkfOw_pr:none"
                 ]
             }, 
             "note": "llvm's instcombine, and gcc's canonicalization and tree reassociation, see https://github.com/llvm-mirror/llvm/blob/master/lib/Transforms/InstCombine/InstCombineAndOrXor.cpp", 
@@ -1592,6 +1859,18 @@
                     "2be20de0513610c0587a7b9486b3d0010ea4485e9c405ab1e8706d28119f7719", 
                     "2be20de0513610c0587a7b9486b3d0010ea4485e9c405ab1e8706d28119f7719", 
                     "2be20de0513610c0587a7b9486b3d0010ea4485e9c405ab1e8706d28119f7719"
+                ], 
+                "scala2.11.11_-opt": [
+                    "bc:2VH8vkgNWrsQjMB66fwnWcmHGGdsRxbBzubIZ5fiMMU_pr:none", 
+                    "bc:SALL3lIYKifytK-CiKdfPdPORPBC3dLsq7IjFmBZ9RU_pr:none", 
+                    "bc:SALL3lIYKifytK-CiKdfPdPORPBC3dLsq7IjFmBZ9RU_pr:none", 
+                    "bc:SALL3lIYKifytK-CiKdfPdPORPBC3dLsq7IjFmBZ9RU_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:TuoMxgrqonhdlc9NogktW-DjVIQzTN65blxZcMQ9Lm0_pr:none", 
+                    "bc:3hlSNk4Z58pPzL552bSOYSOlxZKUgJck-6A08nQcI3c_pr:none", 
+                    "bc:3hlSNk4Z58pPzL552bSOYSOlxZKUgJck-6A08nQcI3c_pr:none", 
+                    "bc:3hlSNk4Z58pPzL552bSOYSOlxZKUgJck-6A08nQcI3c_pr:none"
                 ], 
                 "clang5_-O3": [
                     "367b36457311fe73188599db6d6149616eec55516a761ea6959eb380f3b73271", 
@@ -1635,6 +1914,12 @@
                     "bc:xx6QrwAAd9U5xhzg_U58eI4zicHDuNChU7L_MntC9h4_pr:none", 
                     "bc:xx6QrwAAd9U5xhzg_U58eI4zicHDuNChU7L_MntC9h4_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "600bddcd4796e3dfbed09dea1ae46ca88b7bfc082a2a0ea0f5357da36b515b93", 
+                    "3a1cda1c65c3d4b62f637e43f741555d6da635174cfde7adf31029356b27fbb5", 
+                    "3a1cda1c65c3d4b62f637e43f741555d6da635174cfde7adf31029356b27fbb5", 
+                    "3a1cda1c65c3d4b62f637e43f741555d6da635174cfde7adf31029356b27fbb5"
+                ], 
                 "gcc4.9_-O3": [
                     "e7531da0e38a8e53f2a9dfae796b11d502ab32998b38678cd2bdac3c22b6a0f2", 
                     "ce704e7c79d5606921daed6638bbd31825a8de3bbd54192dd4dd53e9e546d86a", 
@@ -1647,11 +1932,11 @@
                     "2be20de0513610c0587a7b9486b3d0010ea4485e9c405ab1e8706d28119f7719", 
                     "2be20de0513610c0587a7b9486b3d0010ea4485e9c405ab1e8706d28119f7719"
                 ], 
-                "gcc4.9_-O0": [
-                    "600bddcd4796e3dfbed09dea1ae46ca88b7bfc082a2a0ea0f5357da36b515b93", 
-                    "3a1cda1c65c3d4b62f637e43f741555d6da635174cfde7adf31029356b27fbb5", 
-                    "3a1cda1c65c3d4b62f637e43f741555d6da635174cfde7adf31029356b27fbb5", 
-                    "3a1cda1c65c3d4b62f637e43f741555d6da635174cfde7adf31029356b27fbb5"
+                "scala2.12.5_-opt": [
+                    "bc:TuoMxgrqonhdlc9NogktW-DjVIQzTN65blxZcMQ9Lm0_pr:none", 
+                    "bc:3hlSNk4Z58pPzL552bSOYSOlxZKUgJck-6A08nQcI3c_pr:none", 
+                    "bc:3hlSNk4Z58pPzL552bSOYSOlxZKUgJck-6A08nQcI3c_pr:none", 
+                    "bc:3hlSNk4Z58pPzL552bSOYSOlxZKUgJck-6A08nQcI3c_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -ftree-reassoc subtraction case and llvm -reassociate", 
@@ -1697,6 +1982,18 @@
                     "82905ea9a4d842dbdd4312b28c5b574598fb8abaaf1bf74cc1f52b5ce1fec44f", 
                     "82905ea9a4d842dbdd4312b28c5b574598fb8abaaf1bf74cc1f52b5ce1fec44f"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:UhUSc6xb9sGBAOK2QTtVq_7suWeicIFuiF-foNehUmI_pr:none", 
+                    "bc:xvUGPXt0JrrM61i7AThq8s9LTMl3Efzt9-1QKqFKGXQ_pr:none", 
+                    "bc:xvUGPXt0JrrM61i7AThq8s9LTMl3Efzt9-1QKqFKGXQ_pr:none", 
+                    "bc:xvUGPXt0JrrM61i7AThq8s9LTMl3Efzt9-1QKqFKGXQ_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:heAHjRMBuhTXCBQaSfVUxWvw2Bo1pyEQ_u5KF3vkrXg_pr:none", 
+                    "bc:ZkQVUzZjc5m89lRLp2LQK10pYIex-MlhKTcXTFJbOT0_pr:none", 
+                    "bc:ZkQVUzZjc5m89lRLp2LQK10pYIex-MlhKTcXTFJbOT0_pr:none", 
+                    "bc:ZkQVUzZjc5m89lRLp2LQK10pYIex-MlhKTcXTFJbOT0_pr:none"
+                ], 
                 "clang5_-O3": [
                     "dd490a1ec0c563895ec2e55d0e594e56eca0dba63baaf92cb610829300644508", 
                     "dd490a1ec0c563895ec2e55d0e594e56eca0dba63baaf92cb610829300644508", 
@@ -1739,6 +2036,12 @@
                     "bc:DtCBUeboE1JVom5z5A17-PB2ErXTG0mo2wUUahP1APw_pr:none", 
                     "bc:DtCBUeboE1JVom5z5A17-PB2ErXTG0mo2wUUahP1APw_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "4497db98d8fe1ee0170b844df84e94da6fd8dfbc2c299f043b3312e8f98c1c1f", 
+                    "0ca0851c1502b895fb0f850b142d5292e62929040bc46a52dc299d5ee710cb9d", 
+                    "0ca0851c1502b895fb0f850b142d5292e62929040bc46a52dc299d5ee710cb9d", 
+                    "0ca0851c1502b895fb0f850b142d5292e62929040bc46a52dc299d5ee710cb9d"
+                ], 
                 "gcc4.9_-O3": [
                     "af8d66769245089a48fea7c2c00314ef1014661532e3359f9da59a8e3040432c", 
                     "43c4def7a3f22208f6819f7fc8787d678aee543e0da5fa7cb00ea80c6f32309a", 
@@ -1751,11 +2054,11 @@
                     "82905ea9a4d842dbdd4312b28c5b574598fb8abaaf1bf74cc1f52b5ce1fec44f", 
                     "82905ea9a4d842dbdd4312b28c5b574598fb8abaaf1bf74cc1f52b5ce1fec44f"
                 ], 
-                "gcc4.9_-O0": [
-                    "4497db98d8fe1ee0170b844df84e94da6fd8dfbc2c299f043b3312e8f98c1c1f", 
-                    "0ca0851c1502b895fb0f850b142d5292e62929040bc46a52dc299d5ee710cb9d", 
-                    "0ca0851c1502b895fb0f850b142d5292e62929040bc46a52dc299d5ee710cb9d", 
-                    "0ca0851c1502b895fb0f850b142d5292e62929040bc46a52dc299d5ee710cb9d"
+                "scala2.12.5_-opt": [
+                    "bc:heAHjRMBuhTXCBQaSfVUxWvw2Bo1pyEQ_u5KF3vkrXg_pr:none", 
+                    "bc:ZkQVUzZjc5m89lRLp2LQK10pYIex-MlhKTcXTFJbOT0_pr:none", 
+                    "bc:ZkQVUzZjc5m89lRLp2LQK10pYIex-MlhKTcXTFJbOT0_pr:none", 
+                    "bc:ZkQVUzZjc5m89lRLp2LQK10pYIex-MlhKTcXTFJbOT0_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -ftree-reassoc linearization and llvm -reassociate", 
@@ -1799,6 +2102,16 @@
                     "812cec25a027edf59706c5e83819d2c1745ff5dd19b0811f1411a6aacb854047", 
                     "812cec25a027edf59706c5e83819d2c1745ff5dd19b0811f1411a6aacb854047"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:hPQByZEcQVsSYT8vft5-ffnf0b59oQCmoCngTEcRAkw_pr:none", 
+                    "bc:-nzvvLF70pqkOdNQnxapWXUo3etbcZ_9PmOWPmCp2c0_pr:none", 
+                    "bc:txFf0qpZX3bGOKYyoljl96CFGG8AmcweanpgUrSd-a8_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:BVrd_l1xTHE2rEGOnW-GxbRePitRqmL6tvvBE1hu5-I_pr:none", 
+                    "bc:WppDfJQZsh6sLm2xjIGRIAzmuG5ga2PBfjqqRJXiy6E_pr:none", 
+                    "bc:7bepbQgUcwKkKz38TUfeOudJ4uKUt_Lct_J0CLHqNt0_pr:none"
+                ], 
                 "clang5_-O3": [
                     "b03ba10c4311ddf5249593fea19c7c375b17bf12f549fb0a133d8d646609ef79", 
                     "b03ba10c4311ddf5249593fea19c7c375b17bf12f549fb0a133d8d646609ef79", 
@@ -1834,6 +2147,11 @@
                     "bc:CyBTE7DTM-F1GGX2zBUvEsk0VFbbNDdci8MBxcRC8a8_pr:none", 
                     "bc:rFKGX-6SUPY_F6xxrx2L5v_q8EJxGMP7yduN5XpQdsI_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "40e74dda36730c957151748cc1d5135a541794d9b81fc95bef447f2e0078fe80", 
+                    "40e74dda36730c957151748cc1d5135a541794d9b81fc95bef447f2e0078fe80", 
+                    "40e74dda36730c957151748cc1d5135a541794d9b81fc95bef447f2e0078fe80"
+                ], 
                 "gcc4.9_-O3": [
                     "a034fa8027ec5a8ff4b2fb3e9c2dedc554cd596d2dcc7dcbb2567d73c3ea7c4e", 
                     "a034fa8027ec5a8ff4b2fb3e9c2dedc554cd596d2dcc7dcbb2567d73c3ea7c4e", 
@@ -1844,10 +2162,10 @@
                     "812cec25a027edf59706c5e83819d2c1745ff5dd19b0811f1411a6aacb854047", 
                     "812cec25a027edf59706c5e83819d2c1745ff5dd19b0811f1411a6aacb854047"
                 ], 
-                "gcc4.9_-O0": [
-                    "40e74dda36730c957151748cc1d5135a541794d9b81fc95bef447f2e0078fe80", 
-                    "40e74dda36730c957151748cc1d5135a541794d9b81fc95bef447f2e0078fe80", 
-                    "40e74dda36730c957151748cc1d5135a541794d9b81fc95bef447f2e0078fe80"
+                "scala2.12.5_-opt": [
+                    "bc:BVrd_l1xTHE2rEGOnW-GxbRePitRqmL6tvvBE1hu5-I_pr:none", 
+                    "bc:WppDfJQZsh6sLm2xjIGRIAzmuG5ga2PBfjqqRJXiy6E_pr:none", 
+                    "bc:7bepbQgUcwKkKz38TUfeOudJ4uKUt_Lct_J0CLHqNt0_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -ftree-reassoc subtraction case and llvm -reassociate", 
@@ -1883,6 +2201,14 @@
                     "2e46b874680cf40738ef684f228d7573598f84df91da250cd48ce231f463646e", 
                     "2e46b874680cf40738ef684f228d7573598f84df91da250cd48ce231f463646e"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:2JWyK0kThz6qDPCPkNczqUIBQrFV5FlkE_F7KYttiRc_pr:none", 
+                    "bc:AMoy8oYyHu5C9jCTjDHqyz32PxY0y_dX2YaqDJe9A5Q_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:oPs95FtREchzXrV73sbHd6NgxqiFIN3ZnzzKumzuFpI_pr:none", 
+                    "bc:DUJ3iBmJ9x4Jrt4ST4X1fNMa0kCbkIJByAFjv4NwXR8_pr:none"
+                ], 
                 "clang5_-O3": [
                     "930c92be424a4a5db747b95304a5272ae166156a4926d9e45177d924480a9036", 
                     "930c92be424a4a5db747b95304a5272ae166156a4926d9e45177d924480a9036"
@@ -1911,6 +2237,10 @@
                     "bc:MwIRhR2D7eD9ICQCkUHb12p3CzrHpMLhYYQa7BtVYWY_pr:none", 
                     "bc:SmWxsQUFARzKf1u9QPnFpjiq1xZ7yQ5XGkazc7QzEMo_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "4ca56bab894375d6b5949b3c47ad3403f46f450cad0d6407e75ca22fa0de4655", 
+                    "de1b30b3ed389fde838961ae7cde9e8c8aa7901ddf4c17fe7eba66c060ac26fd"
+                ], 
                 "gcc4.9_-O3": [
                     "4ecc0560d56b488db9afbc4e9f384c92a4021a0d5301b76a6e576752cfeafded", 
                     "2cf5bda1aea4ca28aad9e5f242747f77aef86e2561c5c14f2fabbf0281404b34"
@@ -1919,9 +2249,9 @@
                     "2e46b874680cf40738ef684f228d7573598f84df91da250cd48ce231f463646e", 
                     "2e46b874680cf40738ef684f228d7573598f84df91da250cd48ce231f463646e"
                 ], 
-                "gcc4.9_-O0": [
-                    "4ca56bab894375d6b5949b3c47ad3403f46f450cad0d6407e75ca22fa0de4655", 
-                    "de1b30b3ed389fde838961ae7cde9e8c8aa7901ddf4c17fe7eba66c060ac26fd"
+                "scala2.12.5_-opt": [
+                    "bc:oPs95FtREchzXrV73sbHd6NgxqiFIN3ZnzzKumzuFpI_pr:none", 
+                    "bc:DUJ3iBmJ9x4Jrt4ST4X1fNMa0kCbkIJByAFjv4NwXR8_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -ftree-reassoc repeated factors and llvm -reassociate", 
@@ -1953,6 +2283,14 @@
                     "ad235eb54282dd957c3ccfcb194eb7016f2534e7fec04ca3fb14e78ed86618e2", 
                     "fc107a93eb7a4f6d0fae2060d067d6691126b94a5bffe1681ff2d0998a192499"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:-mB2672opIpSPeisq-8nh6dhxnN_kc1ucCcuKtIKSac_pr:none", 
+                    "bc:fjV5AjpDfNTxhW_bRy__UnEySltEnHHRK6QfEyfylqA_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:7osrhZOv8bWEUn4LjwGyPwcaqLRrfrrtQoFgMdjhFUU_pr:none", 
+                    "bc:QTsQ8oDbILcV5B6JzKc6z2hU1TL59v3GNP4KXe4H-s8_pr:none"
+                ], 
                 "clang5_-O3": [
                     "fb1fd77c5e3c7c10d7907f8f16fca8d3d58ca4d96733d409223db6d7cbfe5641", 
                     "55d0c45f7b86a7d6309938da99857b6ec427a047099507cbdf485589386dcecd"
@@ -1981,6 +2319,10 @@
                     "bc:fCyTuNluY298Bb-eER5BJFTjPA2u-mw5KFa03lJEoOk_pr:none", 
                     "bc:oZsbP5rBRPnQSwiCEpnSi_7VG6wojqzYDZHm7GmDkiE_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "836a6bc6ce3d530acc0cefe7cf261804b4b8ce497ded8cececa4bbd71c0365d2", 
+                    "24ac53cbe5c24fade7bd8173012add437c4f0dad37f4e7a95365910df832f230"
+                ], 
                 "gcc4.9_-O3": [
                     "b5cc10b1df85166d8ba1f8e362934937f97b1228598824bfe28db01e76b7a47d", 
                     "01aeeb9860ffa8f342025fc3ad9d0d5473f6fef222e770eb0ee0df67f8145ccb"
@@ -1989,9 +2331,9 @@
                     "ad235eb54282dd957c3ccfcb194eb7016f2534e7fec04ca3fb14e78ed86618e2", 
                     "7fd965d21d89dd31e42f9890aa9fcb34a1993ce76b2d066c3d49aa3636f9fa32"
                 ], 
-                "gcc4.9_-O0": [
-                    "836a6bc6ce3d530acc0cefe7cf261804b4b8ce497ded8cececa4bbd71c0365d2", 
-                    "24ac53cbe5c24fade7bd8173012add437c4f0dad37f4e7a95365910df832f230"
+                "scala2.12.5_-opt": [
+                    "bc:DIMTa8OhHUgaOo_PbNmIiMUt-AxJcC-FOtMEvCiLzJQ_pr:none", 
+                    "bc:SR8A3AuLzIc3Sr8UOLnNWpy9aV0HU0pztCxGfyn1zLI_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -fcode-hoisting", 
@@ -2024,6 +2366,14 @@
                     "c873f6721fb08e0cd0c3118bd0a2d96b9562fa6e56b08c613694347ad3a991d4", 
                     "c873f6721fb08e0cd0c3118bd0a2d96b9562fa6e56b08c613694347ad3a991d4"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:NNaKWWJI8vF3Kn9ukV4ktxZHDKiGd5F39V-Q1_qzALk_pr:none", 
+                    "bc:8GtlQI8xypaKUHf8OkZItJ0q1qQRmUQbJej-40DeNKs_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:12-z-mGqSy6FcWL89U6N8HSTwxIKu4zvf9rdlUD9bIQ_pr:none", 
+                    "bc:s4ghSoJNJc_hyuhIURiQJEpqsQ3C0EZkeUcZyKMdHhI_pr:none"
+                ], 
                 "clang5_-O3": [
                     "9faace378a9c82c154818ce92d2937a6b8f7bd13c632a353a9f0411226ac2573", 
                     "9faace378a9c82c154818ce92d2937a6b8f7bd13c632a353a9f0411226ac2573"
@@ -2052,6 +2402,10 @@
                     "bc:OqqNnY7R4mdP12ZVhQC9ekbZB6FrdUndzkrzUZ5tifU_pr:none", 
                     "bc:gRN97w6MIvZ2Vomw0yLC_7iSBIPE4ctKk6VS39bCb7c_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "638e8a62280845b169c1fd556ea52c3d4e53a0989b5293d13e19935a69e14a81", 
+                    "62deac006ce47fd0ac3565be1158bb9c952348fa700438a7805275cba2ace166"
+                ], 
                 "gcc4.9_-O3": [
                     "682cb31c236362a70f0d643af3facf4f5434029370edcba2c1ff2924e1c0fbed", 
                     "9b8b7600e66426beb950873dca673f08ec93c426c75f774796f187e1d319b4ef"
@@ -2060,9 +2414,9 @@
                     "c873f6721fb08e0cd0c3118bd0a2d96b9562fa6e56b08c613694347ad3a991d4", 
                     "c873f6721fb08e0cd0c3118bd0a2d96b9562fa6e56b08c613694347ad3a991d4"
                 ], 
-                "gcc4.9_-O0": [
-                    "638e8a62280845b169c1fd556ea52c3d4e53a0989b5293d13e19935a69e14a81", 
-                    "62deac006ce47fd0ac3565be1158bb9c952348fa700438a7805275cba2ace166"
+                "scala2.12.5_-opt": [
+                    "bc:tKneHrto94Oek9l6D6IsB0w8iExums-9VWdjCoYJPH4_pr:none", 
+                    "bc:qiwka7WljFzSF2HabmHn7kbGZt8QljCD1JHyjATPeGI_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -fpre -ftree-pre and llvm -gvn, tree-ssa-pre.c, example pulled from https://cs.wheaton.edu/~tvandrun/writings/cc04.pdf. this fails in a really weird way on gcc but works on llvm! this is great! also covers LLVM GVN optimizations", 
@@ -2096,6 +2450,14 @@
                     "2fa19c3b094ae0616fe3e3fd77939f3151a54aa3cdd259e0b624978d9a29a698", 
                     "2fa19c3b094ae0616fe3e3fd77939f3151a54aa3cdd259e0b624978d9a29a698"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:ZAUuCqJxDJsKUP57OuW2LRwYAdv1ucHj5V_VC-nwkF8_pr:none", 
+                    "bc:nsw_pAGie9VWWCRtjbleYYHckw5R8PDG6wzIofo_jiQ_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:k7o4IsvHMKgT2v5QlEiTWDJAFwaBXpwhor2z0YOSZq8_pr:none", 
+                    "bc:0YNQfLTDhs2D1KqY5L_OCMqTN-gFcOsEXmIAsIYVMk8_pr:none"
+                ], 
                 "clang5_-O3": [
                     "b4a2f6a1de462f74beba245100563f1ef4b612c5e477b3d609c6110bdca3573d", 
                     "b4a2f6a1de462f74beba245100563f1ef4b612c5e477b3d609c6110bdca3573d"
@@ -2124,6 +2486,10 @@
                     "bc:wuOgyKOT4saulTvJZNRgOXT3iEVwe66uYow3v3v2_Fs_pr:none", 
                     "bc:gNC0riErYh-oJSzsDbQhXVVfA4EG-dopMt_Mkb2cG34_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "360136ac06b7cb473aeb6480946e69a58c288ee7cffe3ae2649fe6a37d1b38a7", 
+                    "8f313863a74d3cf36c9a35553bf8f63817b09950069312de1a6d2e0403e2e5fc"
+                ], 
                 "gcc4.9_-O3": [
                     "e97f181a75d5005c7c9bd0b4653049bd250dd9d351835ef918da4d0e09e5102e", 
                     "e97f181a75d5005c7c9bd0b4653049bd250dd9d351835ef918da4d0e09e5102e"
@@ -2132,9 +2498,9 @@
                     "2fa19c3b094ae0616fe3e3fd77939f3151a54aa3cdd259e0b624978d9a29a698", 
                     "2fa19c3b094ae0616fe3e3fd77939f3151a54aa3cdd259e0b624978d9a29a698"
                 ], 
-                "gcc4.9_-O0": [
-                    "360136ac06b7cb473aeb6480946e69a58c288ee7cffe3ae2649fe6a37d1b38a7", 
-                    "8f313863a74d3cf36c9a35553bf8f63817b09950069312de1a6d2e0403e2e5fc"
+                "scala2.12.5_-opt": [
+                    "bc:0YNQfLTDhs2D1KqY5L_OCMqTN-gFcOsEXmIAsIYVMk8_pr:none", 
+                    "bc:0YNQfLTDhs2D1KqY5L_OCMqTN-gFcOsEXmIAsIYVMk8_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -ftree-forwprop", 
@@ -2167,6 +2533,14 @@
                     "9ba4c2d72ac2ad10d2b39e82fb6c82ac0da986f0045d4af4d952cb33901678e3", 
                     "9ba4c2d72ac2ad10d2b39e82fb6c82ac0da986f0045d4af4d952cb33901678e3"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:F3__zae-LT5B2eOfNYtkUXMRQAE22DCFY8n0zzIZ74g_pr:none", 
+                    "bc:6hri51Qz7l14m-_uhSVTKVHzk4Z-r2_yGNgtBq03h5c_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:blposntBmYfvYhRtju9dsP_EHm_aUxdFpP3Qs95mdm4_pr:none", 
+                    "bc:KsqpgnMLiaIubnYX4zKxJDwB0AWvonA9ZdlGh3u4roQ_pr:none"
+                ], 
                 "clang5_-O3": [
                     "010c295b5b615a77fe5aea79d7f9fdc1681379e4ac7eb83d454a3eaf8a4c9990", 
                     "010c295b5b615a77fe5aea79d7f9fdc1681379e4ac7eb83d454a3eaf8a4c9990"
@@ -2195,6 +2569,10 @@
                     "bc:z3QX8uFHA1VEdrBtXCOUbBa9rEyjx4PCiaK_t8RPncw_pr:none", 
                     "bc:b3MqTAYdyMeXJF7zAnTmCQgD0MvFTtwj8T2uTb-jQoQ_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "0115676b11ab92b63a7bc7cbc09765cbffea694be531649ccfcde3467f6eaa10", 
+                    "f4aea3734217385e3fa179120bff85becd267ab8e89737074982d5d5d638450d"
+                ], 
                 "gcc4.9_-O3": [
                     "5dcc2642c5d55b4d1279bd7180f1f7acfc640cde5a7e71449e0c17cc2841e65c", 
                     "c4b0dfd7345a47d61c3764b74f55559fa731ce2366d2172708f5fb49894371f9"
@@ -2203,9 +2581,9 @@
                     "9ba4c2d72ac2ad10d2b39e82fb6c82ac0da986f0045d4af4d952cb33901678e3", 
                     "9ba4c2d72ac2ad10d2b39e82fb6c82ac0da986f0045d4af4d952cb33901678e3"
                 ], 
-                "gcc4.9_-O0": [
-                    "0115676b11ab92b63a7bc7cbc09765cbffea694be531649ccfcde3467f6eaa10", 
-                    "f4aea3734217385e3fa179120bff85becd267ab8e89737074982d5d5d638450d"
+                "scala2.12.5_-opt": [
+                    "bc:blposntBmYfvYhRtju9dsP_EHm_aUxdFpP3Qs95mdm4_pr:none", 
+                    "bc:KsqpgnMLiaIubnYX4zKxJDwB0AWvonA9ZdlGh3u4roQ_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -ftree-fre, also covers llvm GVN. example based on global value numbering: https://courses.cs.washington.edu/courses/cse501/04wi/papers/click-pldi95.pdf", 
@@ -2238,6 +2616,14 @@
                     "2e78f35e6f1b2299b413b747afd416d663c9cb9f324c9967668fe4f3ed8b3546", 
                     "2e78f35e6f1b2299b413b747afd416d663c9cb9f324c9967668fe4f3ed8b3546"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:ZlLYvOFDYOJEvTlDHSuN144BX7IYfnjmhjU2hejB44Q_pr:none", 
+                    "bc:ZlLYvOFDYOJEvTlDHSuN144BX7IYfnjmhjU2hejB44Q_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:D9QojrXPkPyRNt6YcMz-xjeC7SaKhzGFjI5mv0sGM1w_pr:none", 
+                    "bc:S6AGv3AIwFEgKVxul5HS1WtWQjFljKzXp089wM2Z8Y8_pr:none"
+                ], 
                 "clang5_-O3": [
                     "a149fe9e1103bef1a708c45edb8cbde71921fcf5e7fadd8462b4ead1d7604712", 
                     "a149fe9e1103bef1a708c45edb8cbde71921fcf5e7fadd8462b4ead1d7604712"
@@ -2266,6 +2652,10 @@
                     "bc:ZBz3Rv54eep4kg7rrOLbF53scIB1PGp8vmwdvBmUzzo_pr:none", 
                     "bc:VrlgJZdVC6Oz-sh2Zjr0-MbLUsVWyZ2io9RLQDbDw28_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "da27ed9f53416c1c97d486033e1d4aaf3e887d602ede0130366a973dfce80afd", 
+                    "092ec868f84ec7bb2bf9883019045bb2825aad3e35003f4671ae61f14d2c79b2"
+                ], 
                 "gcc4.9_-O3": [
                     "6a6681bcbd066765c443209f3f03613a9f0e7d591b3a4f1eebc1dfd4fc58e51b", 
                     "6a6681bcbd066765c443209f3f03613a9f0e7d591b3a4f1eebc1dfd4fc58e51b"
@@ -2274,9 +2664,9 @@
                     "2e78f35e6f1b2299b413b747afd416d663c9cb9f324c9967668fe4f3ed8b3546", 
                     "2e78f35e6f1b2299b413b747afd416d663c9cb9f324c9967668fe4f3ed8b3546"
                 ], 
-                "gcc4.9_-O0": [
-                    "da27ed9f53416c1c97d486033e1d4aaf3e887d602ede0130366a973dfce80afd", 
-                    "092ec868f84ec7bb2bf9883019045bb2825aad3e35003f4671ae61f14d2c79b2"
+                "scala2.12.5_-opt": [
+                    "bc:D9QojrXPkPyRNt6YcMz-xjeC7SaKhzGFjI5mv0sGM1w_pr:none", 
+                    "bc:D9QojrXPkPyRNt6YcMz-xjeC7SaKhzGFjI5mv0sGM1w_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -ftree-copy-prop, TODO improve", 
@@ -2309,6 +2699,14 @@
                     "36c5b1973a816762d66328a8d27cb7bd1316ce028bf9809fed86b03a8402a1d4", 
                     "3cff35fd5e88eec941a4b42cb858bc2a7c49c9ad0baace6b03b10edfc349b6df"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:gng8CSrR_ZNxfLyDFULwfw3JjObpRRIORK2MAqOrPE8_pr:none", 
+                    "bc:jtPRkvP-720JgMkfxx5G5E9tONXIEMtBLDaz0RImQcM_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:G6mqIkUSoqlZQgJ6c_q0WAyu3QDfTR4pGsvMcIXsaJY_pr:none", 
+                    "bc:oREV9vdzLaD2Q7QsQh3qvhIxPdSRMJ3Xp5YXez4KA3w_pr:none"
+                ], 
                 "clang5_-O3": [
                     "371ca2088d8f07b879f085015a1b85ae282fe05fafa969957067811fa5e36805", 
                     "f31afba490ce373e4d880a468efb6c69d7af276fb004687f793e8515dbe85d5a"
@@ -2337,6 +2735,10 @@
                     "bc:MiPOiqwXVSx04KXPs8CcvO_sKeuDPfmV68RwwNMFjbA_pr:none", 
                     "bc:T13kTmsN2aIoDs5whuJRKObR6Y1abSHAmWmUPskk-Uc_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "c7ae413573ae41bea135e3e96af35bca35d5f427e23cfc6d11cbc9e00c04b5b2", 
+                    "9a9b1331b2e4dce9d80d8d5551e433e6ce50275d789f0571e0d556e6c7168f9b"
+                ], 
                 "gcc4.9_-O3": [
                     "c9311916a3fd05eb2458539c96ce64b1934910b68ab7565c75f0e1d3ddcd72cb", 
                     "0667b051d33bc9e8bea25f8c869a1922c58fd0cad3c0cd6a8e22409ce4b0290d"
@@ -2345,9 +2747,9 @@
                     "36c5b1973a816762d66328a8d27cb7bd1316ce028bf9809fed86b03a8402a1d4", 
                     "3cff35fd5e88eec941a4b42cb858bc2a7c49c9ad0baace6b03b10edfc349b6df"
                 ], 
-                "gcc4.9_-O0": [
-                    "c7ae413573ae41bea135e3e96af35bca35d5f427e23cfc6d11cbc9e00c04b5b2", 
-                    "9a9b1331b2e4dce9d80d8d5551e433e6ce50275d789f0571e0d556e6c7168f9b"
+                "scala2.12.5_-opt": [
+                    "bc:G6mqIkUSoqlZQgJ6c_q0WAyu3QDfTR4pGsvMcIXsaJY_pr:none", 
+                    "bc:oREV9vdzLaD2Q7QsQh3qvhIxPdSRMJ3Xp5YXez4KA3w_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -fipa-cp and llvm's -ipconstprop. TODO this are equivalent but we need to better parse the insns to understand it", 
@@ -2383,6 +2785,14 @@
                     "387d9af54251b97f7d5d7c3e86a7ce154fb07a46e2eff5a9ab82bd32350ccab3", 
                     "719ac88133d2273f19ce5d2ea4cb818685cb3024ff40bfafa01d771d8c58fcae"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:7qMt9PaXEp0eVlQ1ttdxAHKRzTu-asMNyf-GwhaBsvo_pr:none", 
+                    "bc:KxSGU5gSCLsABOL-8eZOU2khS9xqO02mJ5BfhNDd9Hk_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:IC29sQiEffgk0P-c7k4b1wHpfmoxoekKPN3YGm9BCNQ_pr:none", 
+                    "bc:5bc97lgGIsc87BcVvf0Ujk2ytttpNEOgmSckbY-HWWQ_pr:none"
+                ], 
                 "clang5_-O3": [
                     "77f7869d4d468711d9d22b16413c63baa4d904f95ecbc4c0797f792cd815e6a2", 
                     "884339e45013d000aa6b886a27f2aaa90c2e0668d42a4d70129b4c624e28c694"
@@ -2411,6 +2821,10 @@
                     "bc:Uyx375f1rEPkA7GxN_2d92h3ChWDPIzod6fzCRc8GW0_pr:none", 
                     "bc:EHYDCuKMprPq-WVDiwsTsT3Jz66bcsgJRz83BUYQ0Ec_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "1cd6f0c78d497190faee863c7aaa279ee5cb3c2f58596d1fd1e8355edc4b9601", 
+                    "725d01e44552c9fb7d2d747a53078e4769830fbd0ce4660984eeecc32b523af0"
+                ], 
                 "gcc4.9_-O3": [
                     "c4eeed94fb31152d26acdfc3c871c19269ed2c3c537099c1d50749617b14351c", 
                     "c4eeed94fb31152d26acdfc3c871c19269ed2c3c537099c1d50749617b14351c"
@@ -2419,9 +2833,9 @@
                     "387d9af54251b97f7d5d7c3e86a7ce154fb07a46e2eff5a9ab82bd32350ccab3", 
                     "719ac88133d2273f19ce5d2ea4cb818685cb3024ff40bfafa01d771d8c58fcae"
                 ], 
-                "gcc4.9_-O0": [
-                    "1cd6f0c78d497190faee863c7aaa279ee5cb3c2f58596d1fd1e8355edc4b9601", 
-                    "725d01e44552c9fb7d2d747a53078e4769830fbd0ce4660984eeecc32b523af0"
+                "scala2.12.5_-opt": [
+                    "bc:8yiTsmevJ1Arq0EfdZ1zGdrlrz3gyDAvTKu9cslirsU_pr:none", 
+                    "bc:FQd2_gb6TbivrotHwXcq-8-u5e3ddaSgugCK8KlEe9c_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -ftree-sink. example from gcc/tree-ssa-sink.c TODO: is input = input+1 needed?", 
@@ -2455,6 +2869,14 @@
                     "e3cd2c33a0ffd0157d18dfbe38e5cea3c4ff12bbcff324fb543a3822179e58d4", 
                     "e3cd2c33a0ffd0157d18dfbe38e5cea3c4ff12bbcff324fb543a3822179e58d4"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:1rIOVkb4wkoScycOzeB3Rl0cHj0WBaoUy2t0g6jKO7M_pr:none", 
+                    "bc:Tu7gelevcz0PVjY8-zewMMqJv4mWyc3EdrqjK63URUQ_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:N-i8Xs9dl9YMKLwLgYLTlMNGk9C7aSQZRzN6Ms6pogc_pr:none", 
+                    "bc:hT0douNoN_UIcUKsrbzcD9FGjxl7Z5VbdVsnZoH7Gjg_pr:none"
+                ], 
                 "clang5_-O3": [
                     "ed215168ed6ffa3931e4cd802a94c118564234d57042302e438ab032a262d98f", 
                     "ed215168ed6ffa3931e4cd802a94c118564234d57042302e438ab032a262d98f"
@@ -2483,6 +2905,10 @@
                     "bc:U-P7O_jYXCawOyX8zNVliOrZEbCtRYS0iiNxgKDlqQE_pr:none", 
                     "bc:H1TkRMwfIEIhxMaeE1jYNnlyTTx33FQoZTeVmiqu6Kk_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "972f12a803c141b13c36896b1d5766033abfe928e92116bbf7c8ab93729afcff", 
+                    "cb512cf462ad87f5b5267a8312239f70aa938a2d58dd8bb8edfbf87015eb09e3"
+                ], 
                 "gcc4.9_-O3": [
                     "dd2c313ea726f0f4735689747994b1c91ca165bcb887850be92b7f0f6b387963", 
                     "dd2c313ea726f0f4735689747994b1c91ca165bcb887850be92b7f0f6b387963"
@@ -2491,9 +2917,9 @@
                     "e3cd2c33a0ffd0157d18dfbe38e5cea3c4ff12bbcff324fb543a3822179e58d4", 
                     "e3cd2c33a0ffd0157d18dfbe38e5cea3c4ff12bbcff324fb543a3822179e58d4"
                 ], 
-                "gcc4.9_-O0": [
-                    "972f12a803c141b13c36896b1d5766033abfe928e92116bbf7c8ab93729afcff", 
-                    "cb512cf462ad87f5b5267a8312239f70aa938a2d58dd8bb8edfbf87015eb09e3"
+                "scala2.12.5_-opt": [
+                    "bc:lskUHoGGBuIgWKSSx7RNOc66odZ0ky_BR13eNHiOauo_pr:none", 
+                    "bc:PqcOU9xLRW3Vl7oBz-vIkj4rMXak64IFovD4X2ca3Bs_pr:none"
                 ]
             }, 
             "note": "trying to cover llvm -sink. example from https://github.com/llvm-mirror/llvm/blob/master/lib/Transforms/Scalar/Sink.cpp", 
@@ -2535,6 +2961,14 @@
                     "469e2c295b68f5c86729430224dbaf01651cbc65cc4da403a6fc7433933fabe7", 
                     "469e2c295b68f5c86729430224dbaf01651cbc65cc4da403a6fc7433933fabe7"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:YOfExNATcoGRvq79H9CEJI2t7oobJpP54BKhuZB_kZA_pr:none", 
+                    "bc:7t-Nf6lBu_YSitgG0kwqo3L_iNZqt1a3LMQurlRyCf0_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:YWRnca1unDVu7TdwAz9QFSttuMrKk4lc40ydm8mV1AY_pr:none", 
+                    "bc:yIxLl2jARr26hYcOVU3DprsDZw8WfB1QmSRclprkxNk_pr:none"
+                ], 
                 "clang5_-O3": [
                     "76331ba0c6b5d449471c3fd728ae9381f4753a14a9565cbbeb2e95222df306ef", 
                     "76331ba0c6b5d449471c3fd728ae9381f4753a14a9565cbbeb2e95222df306ef"
@@ -2563,6 +2997,10 @@
                     "bc:3lip7gjQlENqQF-pYGk9OtB1KvLTN4ezBYiVEccjKOQ_pr:none", 
                     "bc:NqfRieoQ3R8EMcLYzHD51fDMba6v3lxob4eNOKq4Ieo_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "d99acbc0c1dd9352912321cab632a560873a0aa4fb73b674b4d46e4b3c82557d", 
+                    "8658f91b2c3eea5acdc934f004ca726b8273c8e209a2e3886d9b2f44a95b2e67"
+                ], 
                 "gcc4.9_-O3": [
                     "6fcde7c0c2e069b42850598ff0ae40addf10da69d8be87d70c3e94a9e3b62a7d", 
                     "931ae460d00beb37dc189a704b2fe29fc430c19076c61602805c0dd8e0ec3ebe"
@@ -2571,9 +3009,9 @@
                     "469e2c295b68f5c86729430224dbaf01651cbc65cc4da403a6fc7433933fabe7", 
                     "469e2c295b68f5c86729430224dbaf01651cbc65cc4da403a6fc7433933fabe7"
                 ], 
-                "gcc4.9_-O0": [
-                    "d99acbc0c1dd9352912321cab632a560873a0aa4fb73b674b4d46e4b3c82557d", 
-                    "8658f91b2c3eea5acdc934f004ca726b8273c8e209a2e3886d9b2f44a95b2e67"
+                "scala2.12.5_-opt": [
+                    "bc:wgdy3ER1UF-T4z7F-Qg-gRsnGFKlobiUMuj7FDe_z54_pr:none", 
+                    "bc:Por40aMYqitWiNv4d6glSoMqE6s4brkUeEG0OWvle2g_pr:none"
                 ]
             }, 
             "return_type": "int", 
@@ -2605,6 +3043,18 @@
                     "49a66a00957b5197cd55da8bf06d8a1f157c4ab3e29be556f93398738c284c96", 
                     "49a66a00957b5197cd55da8bf06d8a1f157c4ab3e29be556f93398738c284c96", 
                     "49a66a00957b5197cd55da8bf06d8a1f157c4ab3e29be556f93398738c284c96"
+                ], 
+                "scala2.11.11_-opt": [
+                    "bc:cMxiqx-mG5n1hK2mAD5-Rsbp4fTZAodHEZEHQ-tl-UY_pr:none", 
+                    "bc:aimjBa6eWHGOsc7n5pqGxg1cSBuIPs1KroZSzEYfpmM_pr:none", 
+                    "bc:aimjBa6eWHGOsc7n5pqGxg1cSBuIPs1KroZSzEYfpmM_pr:none", 
+                    "bc:Ep7qU_WUGi5czLyNXzV7tjTBgnzJLSGM5HpDiUw6tno_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:PHypdT8ErrvDFWuLxQSUndgkrNntFMsN8V4i3AZX1Ms_pr:none", 
+                    "bc:AI2I5H2ppFVmCvhMyapCDl3FfEPOpCw3X1TsXhvRH5I_pr:none", 
+                    "bc:U28N1k4jUab8NfHwGVSAHfp6rovDMCXqLSn-DDzA8Pw_pr:none", 
+                    "bc:E3-6CEba8ulhVmG6AJCTaBWN7NMcTd2j3ZqhXeMulcw_pr:none"
                 ], 
                 "clang5_-O3": [
                     "ac4856f8149fee861a6adaee999414ab83573d0ce1146fad3c4a10266bfdbcb9", 
@@ -2648,6 +3098,12 @@
                     "bc:Z0mUBHMJ7XTcUZQxkLVyMcONlqBqs29dI17eaTLzyfE_pr:none", 
                     "bc:OWlZpRyYlgAxNINEQtJjcsMWqHZ46oi41JHmjCqp1Q0_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "9cf8d0a46f0c141f3d600e22dac389f48bbaf5e46a79f9f5c01b38ca67a82306", 
+                    "1918021d7e7a88ece877a455d7b4897bee8191a85297e61a89cb760297280dbc", 
+                    "ebedfa40e937a1e38456c44d882cfddbcda14313f009cb1f25324ceb622ebcb1", 
+                    "c9e617c6c7002e44a68e337a87d3e40478c7d8297fd712c0b6cac1eab6cf6b80"
+                ], 
                 "gcc4.9_-O3": [
                     "be81403e0fc490c8e18d5cce0da2fd115f61a476edf3f6cfb76c1d377d3dc5a6", 
                     "be81403e0fc490c8e18d5cce0da2fd115f61a476edf3f6cfb76c1d377d3dc5a6", 
@@ -2660,11 +3116,11 @@
                     "49a66a00957b5197cd55da8bf06d8a1f157c4ab3e29be556f93398738c284c96", 
                     "49a66a00957b5197cd55da8bf06d8a1f157c4ab3e29be556f93398738c284c96"
                 ], 
-                "gcc4.9_-O0": [
-                    "9cf8d0a46f0c141f3d600e22dac389f48bbaf5e46a79f9f5c01b38ca67a82306", 
-                    "1918021d7e7a88ece877a455d7b4897bee8191a85297e61a89cb760297280dbc", 
-                    "ebedfa40e937a1e38456c44d882cfddbcda14313f009cb1f25324ceb622ebcb1", 
-                    "c9e617c6c7002e44a68e337a87d3e40478c7d8297fd712c0b6cac1eab6cf6b80"
+                "scala2.12.5_-opt": [
+                    "bc:T9k81iIsj3Mk5lClop9M7AgMiGQph9hN-3LtWUSYWwk_pr:none", 
+                    "bc:AI2I5H2ppFVmCvhMyapCDl3FfEPOpCw3X1TsXhvRH5I_pr:none", 
+                    "bc:AI2I5H2ppFVmCvhMyapCDl3FfEPOpCw3X1TsXhvRH5I_pr:none", 
+                    "bc:pWNpJdIZTu42KWo6cb9VwKTdxBtBkm9qCjokpSyr758_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -ftree-ccp and llvm -constprop. example from gcc/tree-ssa-ccp.c", 
@@ -2706,6 +3162,14 @@
                     "53871119537ef0fe2dac8cc7871b689ec04b44cd61a96a7d99e014025f65f1d2", 
                     "a0332fe7e76ca64040cdfdb3864ea3ae9fa6410d255ed2139c4ede8f089d47f6"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:tplFE5Rf8_ULcxvWkMfSavVWZwkXkItbgmShSYtW0cc_pr:none", 
+                    "bc:BUhtZmp0EyffpfFuS-_wC5dlYEGYnTS1ANupBkCKww4_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:fvtyVuDAbrt7GYSTNQ8EhO6MC8fGctmx_74FdLzXC7w_pr:none", 
+                    "bc:d9aop6jPfZpho2B-xp7RxGS-CxyZO3jeBgwEXfuJl0g_pr:none"
+                ], 
                 "clang5_-O3": [
                     "6e4d4c70f8d2e61961cbcd4cb7ed7cb3e78f39c5b564aa04621bc18f09155819", 
                     "afb3b65e3724363544de0cbad58489f189806f9980f758cf17dc7b8f93b4049f"
@@ -2734,6 +3198,10 @@
                     "bc:JB08ngmkN4bpg5TlGddE5nI_CBLrQ3puwnZDZEzv9uM_pr:none", 
                     "bc:BqMn6Gq3z1wjbaQnMBE72eclEjT3Mzvr4lEnZvFaCXg_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "208d7ceb32b1d0a57ea8f0d4cadd9c18ebf1f7bdba1c8cf248d8200d810e9ef9", 
+                    "6047dec26e3f19841f1aab54c12a269d5b9f55655f641a5e67c6cd73e94b97ad"
+                ], 
                 "gcc4.9_-O3": [
                     "6dfcc3506f8bc9de2190aaa7d5896acc4cd2f4590d95585d41fea189461283ef", 
                     "0dacd9c28b57291af107b0446cd060fc62f56acf430992083aff0d680744b014"
@@ -2742,9 +3210,9 @@
                     "53871119537ef0fe2dac8cc7871b689ec04b44cd61a96a7d99e014025f65f1d2", 
                     "53871119537ef0fe2dac8cc7871b689ec04b44cd61a96a7d99e014025f65f1d2"
                 ], 
-                "gcc4.9_-O0": [
-                    "208d7ceb32b1d0a57ea8f0d4cadd9c18ebf1f7bdba1c8cf248d8200d810e9ef9", 
-                    "6047dec26e3f19841f1aab54c12a269d5b9f55655f641a5e67c6cd73e94b97ad"
+                "scala2.12.5_-opt": [
+                    "bc:wc5uFdjusavimmd1Ks3H1hHVtSFOPhXJ9_6pmF1VwwY_pr:none", 
+                    "bc:d9aop6jPfZpho2B-xp7RxGS-CxyZO3jeBgwEXfuJl0g_pr:none"
                 ]
             }, 
             "note": "trying to cover llvm -sccp example: https://gcc.gnu.org/news/ssa-ccp.html", 
@@ -2782,6 +3250,16 @@
                     "47937e6328b7dbf1170f09bd55f0d0ee0abe164e6fff40f1138f4b86f725fb32", 
                     "47937e6328b7dbf1170f09bd55f0d0ee0abe164e6fff40f1138f4b86f725fb32"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:ENDTyN5ojyiO2DmHERe0gpURhhmkHG1yue-DF0N6pxA_pr:none", 
+                    "bc:ENDTyN5ojyiO2DmHERe0gpURhhmkHG1yue-DF0N6pxA_pr:none", 
+                    "bc:ka95mGTDws-TSQGkv5bjhdP_3LXIoHrTmF2SsRlpjbM_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:S7-dVuQIMFJctCHnC9w30wpusMFYcTzWq7tKPFdXKzk_pr:none", 
+                    "bc:uTfDI69F9Hbco1TuD1ZQycgP9KFDDbEQLuyOAQ6HUok_pr:none", 
+                    "bc:WUtOxV1qzmQnj3Op0eYMiSl-S93uxslthHCgk-LHvRE_pr:none"
+                ], 
                 "clang5_-O3": [
                     "5423f7a06b3c81e05f2ac28af33f8b3b0fe85b7f1c149e3f8f01d64144e4c5e9", 
                     "5423f7a06b3c81e05f2ac28af33f8b3b0fe85b7f1c149e3f8f01d64144e4c5e9", 
@@ -2817,6 +3295,11 @@
                     "bc:u-nZBMLOS11YfxLkyIK54dLATFYidcqOCgkGjafAA7A_pr:none", 
                     "bc:6YXbwT0oGMYChw2_HNzCSntL9g1COG-PYDr9v7qUKf0_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "5e761355040f823fa9ce05e0028b6fc3e33626ca4f3c97d32c49d15e382e8365", 
+                    "8b55791b0c9a1cbe5d0aeea7a745e810a8cdce3b25bbcfaa3db6f084d80f0a78", 
+                    "c76cea7d64410004ec43bc2687a39c6e8724dc1a88824e1fcb6a2867283047c8"
+                ], 
                 "gcc4.9_-O3": [
                     "f97082f8e844af82ec5bfbfb565e95640cd667b713ffee9a5a2d4616c5da8aeb", 
                     "f97082f8e844af82ec5bfbfb565e95640cd667b713ffee9a5a2d4616c5da8aeb", 
@@ -2827,10 +3310,10 @@
                     "47937e6328b7dbf1170f09bd55f0d0ee0abe164e6fff40f1138f4b86f725fb32", 
                     "47937e6328b7dbf1170f09bd55f0d0ee0abe164e6fff40f1138f4b86f725fb32"
                 ], 
-                "gcc4.9_-O0": [
-                    "5e761355040f823fa9ce05e0028b6fc3e33626ca4f3c97d32c49d15e382e8365", 
-                    "8b55791b0c9a1cbe5d0aeea7a745e810a8cdce3b25bbcfaa3db6f084d80f0a78", 
-                    "c76cea7d64410004ec43bc2687a39c6e8724dc1a88824e1fcb6a2867283047c8"
+                "scala2.12.5_-opt": [
+                    "bc:S7-dVuQIMFJctCHnC9w30wpusMFYcTzWq7tKPFdXKzk_pr:none", 
+                    "bc:S7-dVuQIMFJctCHnC9w30wpusMFYcTzWq7tKPFdXKzk_pr:none", 
+                    "bc:KVyb1KgWHzajzUdR5sVAKJ_dEoikYs3I0I1jZjqmem4_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -fdce -ftree-dce and llvm -adce. example from gcc/tree-ssa-dce.c", 
@@ -2868,6 +3351,14 @@
                     "aed648a44fd91fa08db2343b01ea7f43ab21e5c57d8e4f256309ae54e4ca2bfb", 
                     "aed648a44fd91fa08db2343b01ea7f43ab21e5c57d8e4f256309ae54e4ca2bfb"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:o7UPq0O_j6LjqCvhB7L89zbfl3m5BhdbtSdRfDOfijk_pr:none", 
+                    "bc:F1VOagwRI470iwlL7xx59Jid0h10IdspmcY6b5Jtrow_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:ZfKMb_07_Yyc3p9vi8Ydvl1C5Vt5i-cFm0elSlAr37g_pr:none", 
+                    "bc:LnCKWBO6yNVSp9RJHa5TbDY-ZtKLE-LwLF7MhdsqVO4_pr:none"
+                ], 
                 "clang5_-O3": [
                     "d920f3d59639ba4cf4a90afe76380c3bdd7b7c19fb8e61f6e67919c7c1500b5b", 
                     "d920f3d59639ba4cf4a90afe76380c3bdd7b7c19fb8e61f6e67919c7c1500b5b"
@@ -2896,6 +3387,10 @@
                     "bc:NQreRRAR_hSFGAI4yLvLEijO36pdvyvQR1suZ-aXszk_pr:none", 
                     "bc:ff70rSVot2uphSxjq6IxB2z8-Dxk1wz8BzCE34EsiMk_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "411501c8c96414c3d542000f439ac1e2a368b77a995780de3e43393009680383", 
+                    "3a18e9f2e89a62922228fa242c0d93f0b4785b3090274665561b4fe0fdbba68b"
+                ], 
                 "gcc4.9_-O3": [
                     "8705e66062633e8591bc9643c322af5f3f88f19b88b61203d5aac84d614a66ad", 
                     "8705e66062633e8591bc9643c322af5f3f88f19b88b61203d5aac84d614a66ad"
@@ -2904,9 +3399,9 @@
                     "aed648a44fd91fa08db2343b01ea7f43ab21e5c57d8e4f256309ae54e4ca2bfb", 
                     "aed648a44fd91fa08db2343b01ea7f43ab21e5c57d8e4f256309ae54e4ca2bfb"
                 ], 
-                "gcc4.9_-O0": [
-                    "411501c8c96414c3d542000f439ac1e2a368b77a995780de3e43393009680383", 
-                    "3a18e9f2e89a62922228fa242c0d93f0b4785b3090274665561b4fe0fdbba68b"
+                "scala2.12.5_-opt": [
+                    "bc:ZfKMb_07_Yyc3p9vi8Ydvl1C5Vt5i-cFm0elSlAr37g_pr:none", 
+                    "bc:LnCKWBO6yNVSp9RJHa5TbDY-ZtKLE-LwLF7MhdsqVO4_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -fdse -ftree-dse llvm -dse. see gcc/tree-ssa-dse.c", 
@@ -2947,6 +3442,14 @@
                     "359f12c75db31e6d664ea096904ee98f4177ee31ab36e18f7896dda9fa3a4f47", 
                     "02a3b0825dc9ed1fce7ea31868bcc51753f3c283fddf956470897cfab5a988b1"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:vXVTgV28d4hzSQNM7cKJvcZlRWNLfaUxeNIl2JhmJrQ_pr:none", 
+                    "bc:AFVttyymvDSGxuIx5OsZ5yV4DlYGA4F-927_dA7xiHg_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:bm_IHH9O13wuD755IDMwphLUS07yleMCxv0gSpsMo6w_pr:none", 
+                    "bc:zB4_mVC0DPKiTJOhzbP5k28CmY24SgJXHcSxJvKpp64_pr:none"
+                ], 
                 "clang5_-O3": [
                     "3adbfcfdac6787b4e1793625555e353da5e12004863fdf231e298ddf6dd53044", 
                     "ee3e2830217afff76f7db7a85673daba65d343b54f15a27815db7520822820a8"
@@ -2975,6 +3478,10 @@
                     "bc:9pkUq2IKzckXuKdGMnItiC7xpYGAwS7LBSsXVDLvOWM_pr:none", 
                     "bc:dXf1Bs7aZdy7h-9qWus2aWyLASGFJLXbqP36xdTnOm4_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "b07625c875b56089a8df59f6cebe6f5f170ef541f60d879bb72a01f2f8859d02", 
+                    "1d68a9b5d593f8714af27400a168026a7e5a122994dcb6036d5470b7ef16a3f6"
+                ], 
                 "gcc4.9_-O3": [
                     "d4aab92a696c38d23bc4174243cb39351f95912aa309774a1d37da9a34ef42f5", 
                     "974d706edddfa4bd3b262bda8d379746969375c3c14698cdd42f4c3652a8a2a5"
@@ -2983,9 +3490,9 @@
                     "34af3d9089ae40a66cfa8270e2fd75c926bdc59eefabbc52d9e5c150af107a00", 
                     "02a3b0825dc9ed1fce7ea31868bcc51753f3c283fddf956470897cfab5a988b1"
                 ], 
-                "gcc4.9_-O0": [
-                    "b07625c875b56089a8df59f6cebe6f5f170ef541f60d879bb72a01f2f8859d02", 
-                    "1d68a9b5d593f8714af27400a168026a7e5a122994dcb6036d5470b7ef16a3f6"
+                "scala2.12.5_-opt": [
+                    "bc:tAx-VZyHKoWKYGqWeJYy6kmg8CbtOx3ReF2PW-ujXEo_pr:none", 
+                    "bc:oPc2-1cA3GpjMWwA6cMkV_OOjJ0x4NZAkr0-giINnR4_pr:none"
                 ]
             }, 
             "return_type": "int", 
@@ -3016,6 +3523,14 @@
                     "458535145b2c85a5c15a4ff54e20b7470a500c22cafc97317bff7cdb7bf34c8b", 
                     "a8922452ccb145f6e912b7c54fe8604139b4566788bac8ac90f9dbfc9750a659"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:LPQ5Ye94vWUP83hcBx6jB7nznbsSyuXacx0yTSx-KpU_pr:none", 
+                    "bc:Tct6KPJAKE4P2dwxAYAnGpg_8FYX8If12NFhjbj83Cw_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:KeQzkdUS8J1WlVgxGuzD7Pmkx5xFm_Mbx643VmApO80_pr:none", 
+                    "bc:9YdMQosy-yHL-yiEkmX2TiVGa_YmmmA7bV2GUXbt8SQ_pr:none"
+                ], 
                 "clang5_-O3": [
                     "5ec9206f5a7ba74b0aead67dbed4a5b24a5182b9ee867fff8f4f4b08c85a97e2", 
                     "edb28390428fba99625739327d4685eac8cc3cb59e6d5aca256ccfd07db977c2"
@@ -3044,6 +3559,10 @@
                     "bc:2TGbUdXrrzN4DVjMpjeMlMlNGL1ucYUx_Yia5QpNq7E_pr:none", 
                     "bc:eZEIxtKTjldBzK_3EfoolsBKarXbaj8diVCNRewB-wY_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "0c794382accd5b90e54e8c4b10b00897997f9cf3d2cd0b0677e1a83b03191240", 
+                    "0296a6386bc17a46c87840945d4985e3199a154317dcc5f5a004b6bcd52f075a"
+                ], 
                 "gcc4.9_-O3": [
                     "990616c0b30ba0ff989afebd9284661ade273123fdbd8f034f9c84e450fff3ba", 
                     "0d4ac616131995b335b600dce2e109993c5aa9a45100aead58526c1c283879d4"
@@ -3052,9 +3571,9 @@
                     "37fef9aee5852f56e55d3250df718924351ff5ac80cb6d397d476e612796fda0", 
                     "9e451bd71f4e1ff300273ee2254477e26c24ef2354f5accac4588551de37cb09"
                 ], 
-                "gcc4.9_-O0": [
-                    "0c794382accd5b90e54e8c4b10b00897997f9cf3d2cd0b0677e1a83b03191240", 
-                    "0296a6386bc17a46c87840945d4985e3199a154317dcc5f5a004b6bcd52f075a"
+                "scala2.12.5_-opt": [
+                    "bc:q2famRqW8xEfDWpH0kBNrp3IC7Qa8-iU-kkbtJVS1KU_pr:none", 
+                    "bc:oN9Pfx7k1g03Y2ToLmMLVrjh4Rff4XKHsrBoejeZL50_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -ftree-loop-optimize. example from gcc/tree-ssa-loop-unswitch.c. manually verified this works.", 
@@ -3091,6 +3610,14 @@
                     "9b72e9a02d9fd6e9c935c44c063445273a65f8739a8cd47d26ce2b6d60979301", 
                     "9b72e9a02d9fd6e9c935c44c063445273a65f8739a8cd47d26ce2b6d60979301"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:L7GcdLjyleI6ur0nhGp8zvsA_q086UNE2LQ0HlbE7Ks_pr:none", 
+                    "bc:b1v39rRZd8ffR6y76Akm3XCxHKSG396fnP6dFLeio9g_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:rcKdB5cJ5buseLezD1CLVkQyJw6GlVypzlvCEh0QIVE_pr:none", 
+                    "bc:DD0opepfYUaLlMhPQESiejHntbuizZBqiG5CmE1Cebw_pr:none"
+                ], 
                 "clang5_-O3": [
                     "1d8774ca5c540803dd3781dcde497d815dcb29c2704a8773f6941356df7f5bd3", 
                     "1d8774ca5c540803dd3781dcde497d815dcb29c2704a8773f6941356df7f5bd3"
@@ -3119,6 +3646,10 @@
                     "bc:1__dq-Foo6V90OsJRDhonLzT47hk2pfhHgFHJm0zrQ0_pr:none", 
                     "bc:G-5CYuGAEmeO5gCGHKOxt7z6qSE_DMhPOAvwOggotNk_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "9820571ea09c31de44c05200fac4f0f34d6af56f801e4a02496e99520afcab23", 
+                    "cc31937c1910a4e76c284214f940439dac883088e0eb134a0a98a5cf4791965b"
+                ], 
                 "gcc4.9_-O3": [
                     "41a2db4384cd63054739dd7e723534d4e3df218a6123e4d9c3438d6278359ffa", 
                     "affa6351d2deccfe8f8236a60942613e6c49058109623770c2f6374b140b75ca"
@@ -3127,9 +3658,9 @@
                     "9b72e9a02d9fd6e9c935c44c063445273a65f8739a8cd47d26ce2b6d60979301", 
                     "9b72e9a02d9fd6e9c935c44c063445273a65f8739a8cd47d26ce2b6d60979301"
                 ], 
-                "gcc4.9_-O0": [
-                    "9820571ea09c31de44c05200fac4f0f34d6af56f801e4a02496e99520afcab23", 
-                    "cc31937c1910a4e76c284214f940439dac883088e0eb134a0a98a5cf4791965b"
+                "scala2.12.5_-opt": [
+                    "bc:paluwEFcph-lC8qJ2yzqC4Qvy2Kogbp1datsaV0prlY_pr:none", 
+                    "bc:5lqNLsj-gkMo1SmJt1Nx0cq_tOjZSp9oPHnmFcStmJU_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -ftree-loop-optimize and llvm -loop-simplify. example from gcc/tree-ssa-loop-split.c. WOW this is weird on older clang/gcc, godbolt shows newer clang/gcc are ok", 
@@ -3164,6 +3695,14 @@
                     "04fb1eadfc4e17c75fc17a59dd42cba6034baf739bd8ba089f5eeed63afad437", 
                     "2cc21d9819fe79509e5a5b649113e4f4ef89a8ddbd1aa5e5aa151a7c83e42073"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:s6H_erF88hVRI5Hsr-RfqwRcNEvzCDs6oUqD028MHXU_pr:none", 
+                    "bc:jQqc6PkO-Q9dqh5Y4i4vLXUJkyosoIR8zKZSSBQG6aA_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:XQAsm02HFGhj-lu-9TtknOkCYWVsk7wEVz7r4foDFGo_pr:none", 
+                    "bc:VslWh5LsDW_EBR7TB3z4NO3nGa_0ETvVQLRgMtFWWaQ_pr:none"
+                ], 
                 "clang5_-O3": [
                     "b23d6afbccb52ec705626781da735599969aee850b117a5755c400aecabb5560", 
                     "95a49c394bb3a511ce185b7c950a995fe274b41e26fd61544762d211d8191c77"
@@ -3192,6 +3731,10 @@
                     "bc:3bgl8rsuJwMGaUJP53qIk6DHAtUDLBL91KudsUYa0go_pr:none", 
                     "bc:U8NXtju4vCjbyXXKor7tpXPsPSS6x6Sa3Dz4wfBdHvM_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "133f18eedb4b41e87df15cf0f68a65bd96bcaceba748bb7edf0794e819169ce9", 
+                    "24b0f8352923e857144b3d2737ed3b26c4bd492984449073823005cb26092407"
+                ], 
                 "gcc4.9_-O3": [
                     "141b30bdaf64dff98d761c42dd3a7727ec4355ed8e041d38fcbcc03ed133ad62", 
                     "e983d7d8e89cf3f94c62f99e5db8dbb0070bf59a544ef2a4054452c45b5dcb73"
@@ -3200,9 +3743,9 @@
                     "04fb1eadfc4e17c75fc17a59dd42cba6034baf739bd8ba089f5eeed63afad437", 
                     "2cc21d9819fe79509e5a5b649113e4f4ef89a8ddbd1aa5e5aa151a7c83e42073"
                 ], 
-                "gcc4.9_-O0": [
-                    "133f18eedb4b41e87df15cf0f68a65bd96bcaceba748bb7edf0794e819169ce9", 
-                    "24b0f8352923e857144b3d2737ed3b26c4bd492984449073823005cb26092407"
+                "scala2.12.5_-opt": [
+                    "bc:95Xwz_FNnohXmVVNECbZQ56JKtiI1DWFO7Owm523fLs_pr:none", 
+                    "bc:3UK-IYK6FM7xirD7C--VnCe7LNRspagJlesaaq3wMGs_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -floop-interchange. example from gcc/gimple-loop-interchange.cc", 
@@ -3241,6 +3784,14 @@
                     "1960766a9a5984e78ca6c52a6f6892b671aedb3770e4b4971467aba35fc2b4d3", 
                     "b94ce1078dfe9f307f0676aa81b3c5f736ca1ead24353d27fa286a4b5ffc1e2e"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:g8pniRu0_aNWw4kyxkRCpBzpM76Sc_CEKDImoQ6D4D0_pr:none", 
+                    "bc:JK0V_PS3geZEMeQ0iUeRcgR9tvSlBj0e0hmrZfagCWE_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:TzYvoWZbRBTZpts1lbV7ut_bpdQYsR4B03eLHl3WecI_pr:none", 
+                    "bc:BE2Q4u4Oth2dm5dyJ9fWDtLaJEGP5LSNCCkT8fqIylI_pr:none"
+                ], 
                 "clang5_-O3": [
                     "5e1d755618eb7f40e908bd3ba3f7520d599983748015ee68a13131fbee6d9837", 
                     "84e708099e42ea9d15a14a80a2799efb526a09c58205a86a7d9961c35efb45b9"
@@ -3269,6 +3820,10 @@
                     "bc:FQirmBCA8fBS4reF_rj6uRTVJeVuvV-Cab0MBljnJqY_pr:none", 
                     "bc:zIRad4V2kQetwLubMT5MNXQrfzMlvXqugu7x4wL5VQ8_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "b1efb8c890b637a5c1759cbde914b82b30ff7437fcc710c1b236088979598dcc", 
+                    "982908193cb90b18313182044d4494bb3d3d1c7eab894f121d375ecc4de172a2"
+                ], 
                 "gcc4.9_-O3": [
                     "f1860939f1f4f8c21199d86411ac135466c409dbfc8298bdcffde337936a4a12", 
                     "12a052db33adab7c2c44df0700209b8a6ab43b1a4769fa3e06e17d7a1ab201ff"
@@ -3277,9 +3832,9 @@
                     "9c84a9c55eb2a37b00b92fb35b70233b5bbf8e1f92d1b70b077ff189d2b0a2d7", 
                     "0ba05d02b09a3b01ebc049c8a17e59f4edb89e80de428a166ac30bdd2fc9901d"
                 ], 
-                "gcc4.9_-O0": [
-                    "b1efb8c890b637a5c1759cbde914b82b30ff7437fcc710c1b236088979598dcc", 
-                    "982908193cb90b18313182044d4494bb3d3d1c7eab894f121d375ecc4de172a2"
+                "scala2.12.5_-opt": [
+                    "bc:s0PwIYvzre_xWQ6sURySmhZVT4tANnkZoUQ_e6ZTv8U_pr:none", 
+                    "bc:pnQqJ-te1HDr5k7mSXRkgzYgYwaJb38tLGsJXgVqAu8_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -floop-im and llvm -licm. example from gcc/tree-ssa-loop-im.c", 
@@ -3316,6 +3871,14 @@
                     "9cd828ec7678fae3cf71cd9d97e2f5799576383d27f588521dec8cb11f6c09bb", 
                     "2a07539c76a77870c519dc102226271a1b2a222d1afa7203b4aeec3a90e38e6a"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:63kQRoHLao2gZB_csKH_vB5droXTSgDP7M7IDNxjVG4_pr:none", 
+                    "bc:QWGbSqJ87YRX7O8VKzjRvFM3xR2d04seArMvkGmB23w_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:1_7GKkiLOoFw8Is5ilsEkNKoPRXROuF2NM0EidMq1hw_pr:none", 
+                    "bc:89dn7iQmKszzzBYaBeLOr1bnL5kNArDtlV5t5cstUV0_pr:none"
+                ], 
                 "clang5_-O3": [
                     "1bd5622bf3f3702b2f2e37a6fe7bf3e474fb4aa5cf1f42b9a14430fd86e115ee", 
                     "e15b4a7e24da15629a976da5021ba160df5e60dcc69d21d1c3fa4841c2612e77"
@@ -3344,6 +3907,10 @@
                     "bc:Auc_m4JXTpYlbazlhW6PKER-J873LVXDkM3DLupXmfo_pr:none", 
                     "bc:_QvMxirVfU-MB-PU_44sUFAkbz-aVSzp9-d8f3Zf0so_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "84c653e88b9a981759317ab56a5b60024fdaa4d72c71413e7c70aca75df3defd", 
+                    "8fe27e86a800e94f22f4382bba1767bfd814e2b8795d80051751d61cedbeb807"
+                ], 
                 "gcc4.9_-O3": [
                     "e935627b25d0e35671e346bda74d1aab4ec222a7eb03de18dc7d4e4e40b08466", 
                     "e935627b25d0e35671e346bda74d1aab4ec222a7eb03de18dc7d4e4e40b08466"
@@ -3352,9 +3919,9 @@
                     "44bb97a71aa0d92781c30f0ce514f996979fb5ffb3a19e860c89a5d3f9b7b0d4", 
                     "d7cf53c5197ff6e62378374ca7520c166db4471836f5bfbd067248ced42ab3df"
                 ], 
-                "gcc4.9_-O0": [
-                    "84c653e88b9a981759317ab56a5b60024fdaa4d72c71413e7c70aca75df3defd", 
-                    "8fe27e86a800e94f22f4382bba1767bfd814e2b8795d80051751d61cedbeb807"
+                "scala2.12.5_-opt": [
+                    "bc:SOHQRRFxYJ5nou8chaFwk8FrP_IDimAJ5duJds1duyo_pr:none", 
+                    "bc:NYgICQsVpr61dpXfTJjijC-E4PkLhQ26n1peIJi41nk_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -fivopts and llvm -loop-reduce. example from gcc/tree-ssa-loop-ivopts.c. for godbolt, adding return 0 seemed neccessary to get the code generation right. weird. behaves better in newer clang versions", 
@@ -3388,6 +3955,14 @@
                     "16f7c3dbb2ff16f78acdec77b588b8fa79a1bc3325784147c10d9c801089db35", 
                     "16f7c3dbb2ff16f78acdec77b588b8fa79a1bc3325784147c10d9c801089db35"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:gOJe2U2R5JP4Owy-NN5iq5qU9oFGMYwuUUOY60GYosQ_pr:none", 
+                    "bc:IJ7juGq76lPy5x4fD7AUAdH0XxHf9IPr_RyDBpLTiBg_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:G5TmXacRjiwo8ZE58IKQ-Zb_vePWdILrusYdAIUcQ2Y_pr:none", 
+                    "bc:tD9fwree6d9XsSbkB8FF5IkjG2U7r2xES_HYUjXe8HQ_pr:none"
+                ], 
                 "clang5_-O3": [
                     "c641ed2b0f0622ed840f7a106d34b6030b410a020d8c5855ed46463b631d2456", 
                     "c641ed2b0f0622ed840f7a106d34b6030b410a020d8c5855ed46463b631d2456"
@@ -3416,6 +3991,10 @@
                     "bc:P6pVwjm04t-mHoc396GZSXPt7y0PmhPkBwT4EIzK5wM_pr:none", 
                     "bc:02eA3TEVdPPjspKSxh6yfOz6q0BnkYhYep3xBpBBu0g_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "882af2119367c7a77e77c167f3afb0cfc0eda66061444e7abb4b3e1e9cd3d048", 
+                    "b8b9eb3130c18dcdb7bd8e6a91898ca07ea46b7564331a022088440836e3459d"
+                ], 
                 "gcc4.9_-O3": [
                     "c2b468857a23b0aefba494e5a73dbf46dfc92ca0d7a81cd579a5899a5c05489e", 
                     "49ec203a08eab565e23254daaa40f4fb4f727825e50537ad29b3c79836b5f573"
@@ -3424,9 +4003,9 @@
                     "2539eec21b6784fe2a395acb97fddf37d0348fe8bba171b193daffff411dee1d", 
                     "2539eec21b6784fe2a395acb97fddf37d0348fe8bba171b193daffff411dee1d"
                 ], 
-                "gcc4.9_-O0": [
-                    "882af2119367c7a77e77c167f3afb0cfc0eda66061444e7abb4b3e1e9cd3d048", 
-                    "b8b9eb3130c18dcdb7bd8e6a91898ca07ea46b7564331a022088440836e3459d"
+                "scala2.12.5_-opt": [
+                    "bc:H2WkuTqn2mwR3YmWLtJ_Pr28OYK7dFSATBe4ohXwMf8_pr:none", 
+                    "bc:EpEuGGcSoQq43NjVm5P8bQ42KxKXPaMMclWq1C57taY_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -fivopts. also covers llvm -indvars. example from gcc/tree-ssa-loop-ivopts.c", 
@@ -3460,6 +4039,14 @@
                     "c39bbaf56583cc70d1bd022d4db1bc0c76904215d6b9cf60867464a6e722c5b6", 
                     "c39bbaf56583cc70d1bd022d4db1bc0c76904215d6b9cf60867464a6e722c5b6"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:yIt3v5mLFKylvq1RqoBpYFL1H0uO2Qhn-xg63yk12m8_pr:none", 
+                    "bc:AQln2s9KC9yo7n0cZJItY4TGa5yZ61pEIECpQL8y2as_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:9Cm_U4haFUHb4gMjn45j2iX6zCeuOizZDIOE6p9bLn8_pr:none", 
+                    "bc:N-gA5lv6qADgNLohYuwn6rZXBUaeC7Rnh2BbeY6_TBc_pr:none"
+                ], 
                 "clang5_-O3": [
                     "18e575a21a58b25de078a03f5cb76e8e670ff78e6925b3044a9cd6eff0fde662", 
                     "18e575a21a58b25de078a03f5cb76e8e670ff78e6925b3044a9cd6eff0fde662"
@@ -3488,6 +4075,10 @@
                     "bc:Q2cqnJWfZuhbf_uV2tvKOsh7fMN1aHATxK9FLkZOpUk_pr:none", 
                     "bc:jGtfmjQ-0PogBjqQ5X3InafUwFm1Z7rluFgvRJLc-dM_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "8ad5db5b22f2ce942c54b3bde4c1bba4aeaf14d9b9661599fb69dc1d4e68e597", 
+                    "b22df1f7c9513247bc480dcbb16b2f23f805e30b8f102121e930e17a43688609"
+                ], 
                 "gcc4.9_-O3": [
                     "bcf0b739c75714e7a359d1ca218be2c3a31a7eb8a2553a11f1305bff66d1a219", 
                     "aca2b804daf92623c5536494db249650cafd3d67a653364248072ac9828ad1a1"
@@ -3496,9 +4087,9 @@
                     "1c2c906ddb4f0452e358f07b1bc292e64ae9c37ed9f5b4f390c7c144f4c13c9e", 
                     "1c2c906ddb4f0452e358f07b1bc292e64ae9c37ed9f5b4f390c7c144f4c13c9e"
                 ], 
-                "gcc4.9_-O0": [
-                    "8ad5db5b22f2ce942c54b3bde4c1bba4aeaf14d9b9661599fb69dc1d4e68e597", 
-                    "b22df1f7c9513247bc480dcbb16b2f23f805e30b8f102121e930e17a43688609"
+                "scala2.12.5_-opt": [
+                    "bc:Lhc7TUmXBR3sbew2iEEfXLHds1E0VpZ1QN4FT7HC9TU_pr:none", 
+                    "bc:YJ2Ht7P8aGnFEs3h_uhsipZ56B_U627SdrLrqAzBUA0_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -fivopts. also covers LLVM -indvars. example from http://www.nullstone.com/htmls/category/ive.htm", 
@@ -3534,6 +4125,14 @@
                     "b2acf171bd8f2a4d2629599dd8e19ce21d04d21f51addfe3af7a55f05921dfc3", 
                     "b2acf171bd8f2a4d2629599dd8e19ce21d04d21f51addfe3af7a55f05921dfc3"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:IX_E-O0O-f0EpjLvTP3ULtvtraUUINui6BcgS1-iEZk_pr:none", 
+                    "bc:vC7nlU2g8w7_df_ZUPE6y5WHeTLjgLXjbxryuGrPQ4Q_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:iTfASYAgpaoNKPZU-zSjhBe5GCvMt1Ajx_zaoSybGGg_pr:none", 
+                    "bc:7ly0MbP6mVAKH9K7guuKX_iwIW9DKg5lyByvBBs5HJo_pr:none"
+                ], 
                 "clang5_-O3": [
                     "b53427c475cd4554f5c642289d0842c88fb0396356da6f5aa16cf273209ca5d0", 
                     "b53427c475cd4554f5c642289d0842c88fb0396356da6f5aa16cf273209ca5d0"
@@ -3562,6 +4161,10 @@
                     "bc:0n-nM5JgOu7gpRfRS4GAI-p6fM0bxTjdlL8QIkfPfGU_pr:none", 
                     "bc:W6KLvMaOHC9kwk59WLHsE_nwuat9oDPHBup4aKqoys8_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "699d59a3fc3b44749992fdb0900e55fb95a8fc6073ad9d107ee7f304d1ee7303", 
+                    "5a75d222297f6b56fa758a2124498e8fd661fa711f414bee43a0514d7d998624"
+                ], 
                 "gcc4.9_-O3": [
                     "28dcd4f778c07b320a02065bcff322927dd124f3640d7faba985ecf6b275ff55", 
                     "a3b6d755aeb3e523df6b3f7b1e06929b89e1e8c017e1ffcf12c55afa9d7db2e7"
@@ -3570,9 +4173,9 @@
                     "b2acf171bd8f2a4d2629599dd8e19ce21d04d21f51addfe3af7a55f05921dfc3", 
                     "b2acf171bd8f2a4d2629599dd8e19ce21d04d21f51addfe3af7a55f05921dfc3"
                 ], 
-                "gcc4.9_-O0": [
-                    "699d59a3fc3b44749992fdb0900e55fb95a8fc6073ad9d107ee7f304d1ee7303", 
-                    "5a75d222297f6b56fa758a2124498e8fd661fa711f414bee43a0514d7d998624"
+                "scala2.12.5_-opt": [
+                    "bc:iTfASYAgpaoNKPZU-zSjhBe5GCvMt1Ajx_zaoSybGGg_pr:none", 
+                    "bc:7ly0MbP6mVAKH9K7guuKX_iwIW9DKg5lyByvBBs5HJo_pr:none"
                 ]
             }, 
             "note": "trying to cover llvm -indvars and also -loop-deletion. example from http://llvm.org/docs/Passes.html#indvars-canonicalize-induction-variables", 
@@ -3607,6 +4210,14 @@
                     "80dac6e9bdd559d26aadef3a3819740e8fe148ab5daa1cbf26095fcd284ac04c", 
                     "80dac6e9bdd559d26aadef3a3819740e8fe148ab5daa1cbf26095fcd284ac04c"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:GXZ7RBhazBQBxC3_8IGutjDEMK1orZBWor_0CV5xUEQ_pr:none", 
+                    "bc:tguBc9tgBdBMvmD6vCi22uu8Lwc3rYkZ2HnPZZl0hGM_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:kmcWh-A2IDujZ_jcwPVTBeGlE5rYfSKMJf83e-vg5Jw_pr:none", 
+                    "bc:s_cioi3PdLP1xJPa2lQGcZxKcRwxcyR7J5fM_Q5qVaM_pr:none"
+                ], 
                 "clang5_-O3": [
                     "91af7bc5ce9574dd6873556759157ba08c0ecd4de611250aa3e4e1f620827df3", 
                     "91af7bc5ce9574dd6873556759157ba08c0ecd4de611250aa3e4e1f620827df3"
@@ -3635,6 +4246,10 @@
                     "bc:Ocp69Jf5R08YdX224wCYYXgeyxRma1llSL-GC6tDCa8_pr:none", 
                     "bc:8VP5aXXahGhF6MzsPnmLeYsnACKA8_8RRAyo9c7mH8k_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "950bf7d4ccf94967c52a0f62276c7f2b1847af09c04676ebd892753165eb028f", 
+                    "097dbc748be10e0a7c623f91d35ad749725ee40902184b17d93a08cf5d4d7bbd"
+                ], 
                 "gcc4.9_-O3": [
                     "79bb88db8d2fd93e9eaf60c3a593c7a229249e13ad805484414eab335062ee91", 
                     "79bb88db8d2fd93e9eaf60c3a593c7a229249e13ad805484414eab335062ee91"
@@ -3643,9 +4258,9 @@
                     "80dac6e9bdd559d26aadef3a3819740e8fe148ab5daa1cbf26095fcd284ac04c", 
                     "80dac6e9bdd559d26aadef3a3819740e8fe148ab5daa1cbf26095fcd284ac04c"
                 ], 
-                "gcc4.9_-O0": [
-                    "950bf7d4ccf94967c52a0f62276c7f2b1847af09c04676ebd892753165eb028f", 
-                    "097dbc748be10e0a7c623f91d35ad749725ee40902184b17d93a08cf5d4d7bbd"
+                "scala2.12.5_-opt": [
+                    "bc:xK8hm47tBCKK8kO7e4Sb-cKEhQn9GzabVJyhaU2jSUE_pr:none", 
+                    "bc:oo2mXgCievuEvwxRH3rqvGyDt0-1yQV4QfloSpTiu2A_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -ftree-slsr. example from https://gcc.gnu.org/wiki/cauldron2012?action=AttachFile&do=get&target=wschmidt.pdf", 
@@ -3677,6 +4292,14 @@
                     "eb9c208932e6e3f02d52260a0098fbba331105857d6bb471a4fd08586b908cc7", 
                     "eb9c208932e6e3f02d52260a0098fbba331105857d6bb471a4fd08586b908cc7"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:v5A22TFAwx_15ZsI0CppjMbv1KyL0lIjFFDBrm6_FEE_pr:none", 
+                    "bc:UL9E0iZOkPn0o5OMCYF4ohPHsrn9hFHTaafkEZnElKM_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:CfG488MHlYC3glsv3K0fOM46lwyqxXSzRJSt0oldK20_pr:none", 
+                    "bc:BDkomE_T7egsv9E2LEfsA7umwnuIqHcmlLygvtYR1RM_pr:none"
+                ], 
                 "clang5_-O3": [
                     "159f617465aaf9d0feae41fcc26a73ae35329fd19cad320cddb952d91eb7d7e0", 
                     "159f617465aaf9d0feae41fcc26a73ae35329fd19cad320cddb952d91eb7d7e0"
@@ -3705,6 +4328,10 @@
                     "bc:CfkanTNTBFdEVy8D1q3Gx_itaaJPKJcrLE2mPkGyKj4_pr:none", 
                     "bc:If1Nz181yIu-v259Ny2UznKGLNxtTgiNwG1RTZUuchY_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "ee8e7a8a56692a7ea995368835ea11df1505fe96021ceda088bc0fb1c8900407", 
+                    "797bf8308acdd93bd3bea35a3b68401cf1d50fe4e0cc707a964d4a2eb29020f1"
+                ], 
                 "gcc4.9_-O3": [
                     "d1654ebd47187432c951fd8cfe7e6300d31cc18e273af9f599a1dfa61ba17123", 
                     "d1654ebd47187432c951fd8cfe7e6300d31cc18e273af9f599a1dfa61ba17123"
@@ -3713,9 +4340,9 @@
                     "eb9c208932e6e3f02d52260a0098fbba331105857d6bb471a4fd08586b908cc7", 
                     "eb9c208932e6e3f02d52260a0098fbba331105857d6bb471a4fd08586b908cc7"
                 ], 
-                "gcc4.9_-O0": [
-                    "ee8e7a8a56692a7ea995368835ea11df1505fe96021ceda088bc0fb1c8900407", 
-                    "797bf8308acdd93bd3bea35a3b68401cf1d50fe4e0cc707a964d4a2eb29020f1"
+                "scala2.12.5_-opt": [
+                    "bc:h4BpZfj9wGH7-XK2GXbUX84T5CYGaV6wgnqk8VGulns_pr:none", 
+                    "bc:V0HPHatklDt90W85PQra7jGQaoOC3a3m62Inph1QFuA_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -ftree-vrp.c, purposeful unreachable code where first condition subsumes second. example: https://llvm.org/devmtg/2007-05/05-Lewycky-Predsimplify.pdf", 
@@ -3750,6 +4377,14 @@
                     "dedeca4e887899f615e98c588bc4b6a639ff9729b89d5bd4549eef3864819cbf", 
                     "dedeca4e887899f615e98c588bc4b6a639ff9729b89d5bd4549eef3864819cbf"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:dLarKdoFN06fccWokJ99rAMBMLcD4rYR8pQQbPojrSk_pr:none", 
+                    "bc:24o29dr2uOwVrxK2Mfbw-EMveUC1JBiN63pNjsUMuT8_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:Ps52HM0KTPad7uCOHE9rBCxQApHYqfwGSwlmqgA0Q_U_pr:none", 
+                    "bc:0EVw7cqiZ5tMpB_uKFJnMvrHKoYJFmW1dggbRGFNnqQ_pr:none"
+                ], 
                 "clang5_-O3": [
                     "73ce947daad917a2de119b52c5f72775f80e77dc434b11e71d9ac2984795cdba", 
                     "73ce947daad917a2de119b52c5f72775f80e77dc434b11e71d9ac2984795cdba"
@@ -3778,6 +4413,10 @@
                     "bc:ukgEeWcuiVLm-UDQQPRwABI4I8KN8YBIgmKI_g611Bo_pr:none", 
                     "bc:2bcyty6dKVYOGxBzbxc7fjBP7zT_GjxkLRPun9iNo0I_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "4998be62c84c6601d645150d92ec4163b3345aab8e9fcda7f947a1aef1488b4f", 
+                    "00afcb26d81b32ca58725226ed2411312c867c210ee19fcca1e152f4de9d474e"
+                ], 
                 "gcc4.9_-O3": [
                     "e1137ee68ac89f9a288b131c5671bb5eb7ae708fef0a523df5b08b4609682766", 
                     "e1137ee68ac89f9a288b131c5671bb5eb7ae708fef0a523df5b08b4609682766"
@@ -3786,9 +4425,9 @@
                     "dedeca4e887899f615e98c588bc4b6a639ff9729b89d5bd4549eef3864819cbf", 
                     "dedeca4e887899f615e98c588bc4b6a639ff9729b89d5bd4549eef3864819cbf"
                 ], 
-                "gcc4.9_-O0": [
-                    "4998be62c84c6601d645150d92ec4163b3345aab8e9fcda7f947a1aef1488b4f", 
-                    "00afcb26d81b32ca58725226ed2411312c867c210ee19fcca1e152f4de9d474e"
+                "scala2.12.5_-opt": [
+                    "bc:5fgGJopvgNexvjdevq1OO1j8IVXeCl2c4pNAkGPCLlw_pr:none", 
+                    "bc:sZD1Tz1OIKNY0fqITXRKx9bQPjwoCoY640DyvHjO5qY_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -ftree-vrp.c, example: https://llvm.org/devmtg/2007-05/05-Lewycky-Predsimplify.pdf", 
@@ -3823,6 +4462,14 @@
                     "d0c41011b87a4ab31a73b129c3286cd466145035cbb93c02220ea71cd1cf5d79", 
                     "d0c41011b87a4ab31a73b129c3286cd466145035cbb93c02220ea71cd1cf5d79"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:AHzRXSXOBE0BfC9_RRxV0RE21QK-gF88D_c2mumxWgE_pr:none", 
+                    "bc:D0afXKCH1UOPCJ4F8NB-wX-ZDoq30cvPKD8qMl_DGbs_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:EtxQhW5Tpnq3xfs6Z40UDUtkvtWv5QiP2jE7o_iQOmk_pr:none", 
+                    "bc:qjfLwxUSMe_5P1trGg60B6gdvFmpGkFUoNvXXugDQqw_pr:none"
+                ], 
                 "clang5_-O3": [
                     "649a04c1617e4ebc951a3ac9aff5780fd080fc9db592992ff9e2bbaefdc0762c", 
                     "649a04c1617e4ebc951a3ac9aff5780fd080fc9db592992ff9e2bbaefdc0762c"
@@ -3851,6 +4498,10 @@
                     "bc:hRzwA1bHRbGOf2ZydR_gysf0klSFhoR1J1twE88RNA8_pr:none", 
                     "bc:-F9zrNDX3bYt7_lYlrrSXwxwnkgazsI3D4q2QrAEiVU_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "f7f67b48293fdda3c849c3a4116e40fec39a4d11f33947e7c1bac4293b8a64e9", 
+                    "6b2e61238a8e13cbd809b04f5c4fb51450433bbd88e8af5ce88756f6b00ea54c"
+                ], 
                 "gcc4.9_-O3": [
                     "a43c6f8e4da1646b12c1dcdb99244cc8d712ce2110dae3a122514d414bc264d5", 
                     "a43c6f8e4da1646b12c1dcdb99244cc8d712ce2110dae3a122514d414bc264d5"
@@ -3859,9 +4510,9 @@
                     "d0c41011b87a4ab31a73b129c3286cd466145035cbb93c02220ea71cd1cf5d79", 
                     "d0c41011b87a4ab31a73b129c3286cd466145035cbb93c02220ea71cd1cf5d79"
                 ], 
-                "gcc4.9_-O0": [
-                    "f7f67b48293fdda3c849c3a4116e40fec39a4d11f33947e7c1bac4293b8a64e9", 
-                    "6b2e61238a8e13cbd809b04f5c4fb51450433bbd88e8af5ce88756f6b00ea54c"
+                "scala2.12.5_-opt": [
+                    "bc:MDxCj0SutoAZrp7McI3MyaEOx2ooRABM2N61JkfHRPU_pr:none", 
+                    "bc:wrBeuBvdePGFV4sLl5qAxLnLdQh7eUCU2jFHMYxPImw_pr:none"
                 ]
             }, 
             "note": "trying to cover gcc -ftree-vrp.c, example: https://llvm.org/devmtg/2007-05/05-Lewycky-Predsimplify.pdf", 
@@ -3896,6 +4547,14 @@
                     "1e1f282de05e1dbb2757da1315050ae58691b787265bb1d39a524ea5a604b2fd", 
                     "1e1f282de05e1dbb2757da1315050ae58691b787265bb1d39a524ea5a604b2fd"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:LaO-1rE4Okojk-iau2ZaPudk7oyXzCUcQPqNub97UBg_pr:none", 
+                    "bc:yI9AmEZv9kHCuLIVnMBQNnJ7ef1GFuXrRPzngdFwr5o_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:E6hhnZof6X5ykVKA1UTedssu_q1MtVtj-tO4trklHFk_pr:none", 
+                    "bc:omHfY6NF_EzlwMnzK5_kYXzQNgW_AOlYv8CjIv8wRp4_pr:none"
+                ], 
                 "clang5_-O3": [
                     "7dd3b27ad365819116a97ad4a9616d09839db4809c869f123901332eccc139c3", 
                     "7dd3b27ad365819116a97ad4a9616d09839db4809c869f123901332eccc139c3"
@@ -3924,6 +4583,10 @@
                     "bc:KhNY5l7UWrcBWRZr-3iSyucwU1rUZioaHm7FhTKrToE_pr:none", 
                     "bc:RAB7zNxpTIaZY_huIaHUBUGB6s11iFyjRQKy_uNb5hk_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "37fedb35480ae672453c96d77e483b43b6b4e74ae3ca9765f177b5266dc555d1", 
+                    "2755123990aba6446e6317c17bd89dc73d34ae49ed4f4c95fd921cb5c6e1c873"
+                ], 
                 "gcc4.9_-O3": [
                     "877e60b823a0ee2d88f83f9fc32008d707e2af734d1b1ca9fef301ddda115066", 
                     "4dbf0ce678637a5ac6631bec664e385576edda676c8d9eb69f3451ac3554b85a"
@@ -3932,9 +4595,9 @@
                     "1e1f282de05e1dbb2757da1315050ae58691b787265bb1d39a524ea5a604b2fd", 
                     "1e1f282de05e1dbb2757da1315050ae58691b787265bb1d39a524ea5a604b2fd"
                 ], 
-                "gcc4.9_-O0": [
-                    "37fedb35480ae672453c96d77e483b43b6b4e74ae3ca9765f177b5266dc555d1", 
-                    "2755123990aba6446e6317c17bd89dc73d34ae49ed4f4c95fd921cb5c6e1c873"
+                "scala2.12.5_-opt": [
+                    "bc:E6hhnZof6X5ykVKA1UTedssu_q1MtVtj-tO4trklHFk_pr:none", 
+                    "bc:omHfY6NF_EzlwMnzK5_kYXzQNgW_AOlYv8CjIv8wRp4_pr:none"
                 ]
             }, 
             "note": "trying to cover llvm gvn redundant load elimination", 
@@ -3967,6 +4630,14 @@
                     "32cbe5b0879362bf18edc20ec7f0d101a22cfdcc8fc1fba9061711ba80f4856d", 
                     "32cbe5b0879362bf18edc20ec7f0d101a22cfdcc8fc1fba9061711ba80f4856d"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:7b5VtnwaSI0FusY_V0CMrCw6AxJL0jgh3OpDGGf8jTU_pr:none", 
+                    "bc:geDfp71jOOzbF34rO5NanycrTcffrAwEOXRtKpvCvOc_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:GDZE7V6rBRcGceyIRjAOxoEZJU_69OEcoAmexZVZv-E_pr:none", 
+                    "bc:oYTYdCsYfKUgCTwPRXYLFhW9F5UTflj4MX_1N6rtaKg_pr:none"
+                ], 
                 "clang5_-O3": [
                     "cc8a1ef1b17cb10e298bb1e414e512490389c1f6a4d11c8f1903fd5d83ff62e9", 
                     "cc8a1ef1b17cb10e298bb1e414e512490389c1f6a4d11c8f1903fd5d83ff62e9"
@@ -3995,6 +4666,10 @@
                     "bc:fAwxzLKndlUx_Facm2QbZvN0PZiVJICIAPJr3pppnvo_pr:none", 
                     "bc:vCPahAxlMj_gdLMqvRf2dArFzyo1FlcDJqZaoiUFXkU_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "b2a64f369ddddec445bfb625a952a80edcf88648ac1f794797d726778b5a3512", 
+                    "177268ef47f9cbfd9bb4d8c1c9bd9572f9a46c10691bb51d01dbf671ad05b445"
+                ], 
                 "gcc4.9_-O3": [
                     "5d48c39a0051310b345ebeb7c200f2e3d3744f3e160b27ccddfff4a0caa7a86f", 
                     "b3061c8387fbe80c622fea37b3d5ef78e858ccfb178f84551896d8a512b2df1d"
@@ -4003,9 +4678,9 @@
                     "20f2b4ca6e72a4ee339ab408f9f74902cb23f01f2ab12307e666f9ea3985c41f", 
                     "20f2b4ca6e72a4ee339ab408f9f74902cb23f01f2ab12307e666f9ea3985c41f"
                 ], 
-                "gcc4.9_-O0": [
-                    "b2a64f369ddddec445bfb625a952a80edcf88648ac1f794797d726778b5a3512", 
-                    "177268ef47f9cbfd9bb4d8c1c9bd9572f9a46c10691bb51d01dbf671ad05b445"
+                "scala2.12.5_-opt": [
+                    "bc:rc7RzyuJggyvyK9sg5anA_TiXwCvWDRrYzqPNovNJoM_pr:none", 
+                    "bc:oYTYdCsYfKUgCTwPRXYLFhW9F5UTflj4MX_1N6rtaKg_pr:none"
                 ]
             }, 
             "note": "trying to cover llvm -jump-threading, example from http://llvm.org/docs/Passes.html#jump-threading-jump-threading. TODO fails on clang/gcc", 
@@ -4039,6 +4714,16 @@
                     "4fe6a40f17167bc7edd8ed7e8b4f6a671fffbbc786e83690e3fbb9052a6ea3f9", 
                     "4fe6a40f17167bc7edd8ed7e8b4f6a671fffbbc786e83690e3fbb9052a6ea3f9", 
                     "4fe6a40f17167bc7edd8ed7e8b4f6a671fffbbc786e83690e3fbb9052a6ea3f9"
+                ], 
+                "scala2.11.11_-opt": [
+                    "bc:tznQNweKZAa0ZwzuGuPMFMc-totPYMGSYV-FmznCys0_pr:none", 
+                    "bc:A_lKcZzmDx3LNwCx2zBsZY43VVUFDRmVF1j_XaDjkgs_pr:none", 
+                    "bc:63__GkzhZxM88Jsu3Fyv2kep0AHlfpWpQwjWAMcPIUA_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:irWq01F3bn92Ao6UX8fcoXkEBRRNGjuSKG_HOkoCi44_pr:none", 
+                    "bc:E9SgciJg5sfHvwId6Gk36QL9JHAES41XrdWDxOA-7zM_pr:none", 
+                    "bc:R2_nkSUErC0hFERNrIAwSx9jK2tAqRbRfuxE-2sbkKg_pr:none"
                 ], 
                 "clang5_-O3": [
                     "4cd600d123adb218e32b8f8acc7172150baeefce38ee6f630e7681afd950d18e", 
@@ -4075,6 +4760,11 @@
                     "bc:FRfXfkLBweiOtdgX-ZY4L_tBqQ-LhqObnFZq-Sn4dMM_pr:none", 
                     "bc:EV-z6op_kai-Um4up-NouBJCIpcOuXJR4WhQiLFvxps_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "1c9ea2836410f5431cce13ecf8828a98ff8b1399604fc5418a474b415a025a02", 
+                    "d96bc0257da2112de3203896d5df58559a390644bdcc103c63b99fb1fee94b25", 
+                    "34f13e5f9bf2ed87ecd3127b6d2bb47c1b9b3e581f25d3e7ba2c1aea10f2b19c"
+                ], 
                 "gcc4.9_-O3": [
                     "30a95a981a803aa34c3483ee516f6633cced5cd656ed2a43cad798e25b6e3cfa", 
                     "30a95a981a803aa34c3483ee516f6633cced5cd656ed2a43cad798e25b6e3cfa", 
@@ -4085,10 +4775,10 @@
                     "4fe6a40f17167bc7edd8ed7e8b4f6a671fffbbc786e83690e3fbb9052a6ea3f9", 
                     "4fe6a40f17167bc7edd8ed7e8b4f6a671fffbbc786e83690e3fbb9052a6ea3f9"
                 ], 
-                "gcc4.9_-O0": [
-                    "1c9ea2836410f5431cce13ecf8828a98ff8b1399604fc5418a474b415a025a02", 
-                    "d96bc0257da2112de3203896d5df58559a390644bdcc103c63b99fb1fee94b25", 
-                    "34f13e5f9bf2ed87ecd3127b6d2bb47c1b9b3e581f25d3e7ba2c1aea10f2b19c"
+                "scala2.12.5_-opt": [
+                    "bc:irWq01F3bn92Ao6UX8fcoXkEBRRNGjuSKG_HOkoCi44_pr:none", 
+                    "bc:J0VeZwIluBxZScSmUQDmS5ECoz7FLUMIDVBuIblXxos_pr:none", 
+                    "bc:Rgq6YnRfFGqfJJBwKc6SNpUM5u9gkoTXz5bKi6S3THQ_pr:none"
                 ]
             }, 
             "note": "interesting", 
@@ -4137,6 +4827,18 @@
                     "e280d7c96efebf4a9623dfaa0d6612a2bdb117bb8884406bd2ce3cdd5f706b01", 
                     "e280d7c96efebf4a9623dfaa0d6612a2bdb117bb8884406bd2ce3cdd5f706b01"
                 ], 
+                "scala2.11.11_-opt": [
+                    "skipped_compiler_not_relevant", 
+                    "skipped_compiler_not_relevant", 
+                    "skipped_compiler_not_relevant", 
+                    "skipped_compiler_not_relevant"
+                ], 
+                "scala2.12.5": [
+                    "skipped_compiler_not_relevant", 
+                    "skipped_compiler_not_relevant", 
+                    "skipped_compiler_not_relevant", 
+                    "skipped_compiler_not_relevant"
+                ], 
                 "clang5_-O3": [
                     "1f77facb5b879b2a07a8cd2dd0b4a33b31de2cd86f4fdd2c2a9d774bfe33d39a", 
                     "1f77facb5b879b2a07a8cd2dd0b4a33b31de2cd86f4fdd2c2a9d774bfe33d39a", 
@@ -4179,6 +4881,12 @@
                     "bc:uHKy7HJiyHYA7GKBc3FSBvNWLSrwbyxPAPcV7xM1K3E_pr:none", 
                     "bc:e6JQX58ZclWM0wAH9GQptQQtC7YiTeCJt7nsBojyIwQ_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "f847239467495dc2d37c8d273ee13d11aa00afefd00f2bd5c60463e0ec5a105f", 
+                    "249778f81c127052d4cb4a8605c340c65505a99b11a63b3b674f70bf86a40356", 
+                    "4c8af6fdb42e0f211e1ab254943d13a396d71915c03db085ccadfaaedbc04a3e", 
+                    "a7abb33fbc13e12f1978296113c49e3e6ee5eb238caf36d160b2c2903d04d047"
+                ], 
                 "gcc4.9_-O3": [
                     "fae6e50396268fb63ff4fadc7cd59bfc9ac0630edf9dd44ff81c2ccb00c4d255", 
                     "d80a23216d89a22a8b378c99d9daea63fed418398914afe38af38214322b70ea", 
@@ -4191,11 +4899,11 @@
                     "e280d7c96efebf4a9623dfaa0d6612a2bdb117bb8884406bd2ce3cdd5f706b01", 
                     "e280d7c96efebf4a9623dfaa0d6612a2bdb117bb8884406bd2ce3cdd5f706b01"
                 ], 
-                "gcc4.9_-O0": [
-                    "f847239467495dc2d37c8d273ee13d11aa00afefd00f2bd5c60463e0ec5a105f", 
-                    "249778f81c127052d4cb4a8605c340c65505a99b11a63b3b674f70bf86a40356", 
-                    "4c8af6fdb42e0f211e1ab254943d13a396d71915c03db085ccadfaaedbc04a3e", 
-                    "a7abb33fbc13e12f1978296113c49e3e6ee5eb238caf36d160b2c2903d04d047"
+                "scala2.12.5_-opt": [
+                    "skipped_compiler_not_relevant", 
+                    "skipped_compiler_not_relevant", 
+                    "skipped_compiler_not_relevant", 
+                    "skipped_compiler_not_relevant"
                 ]
             }, 
             "return_type": "int", 
@@ -4231,6 +4939,14 @@
                     "f1fe6c0537bdedf4fe997ec7703f3bf3ad0f34ac48ecb56ccc6f7fbd570fb571", 
                     "f1fe6c0537bdedf4fe997ec7703f3bf3ad0f34ac48ecb56ccc6f7fbd570fb571"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:iVK066CFFXcfrYeWKbbPEtAI1ArQSXqwPTgeqcLM-nc_pr:none", 
+                    "bc:fBgtl7mh6qNBe-npS-qSam6QPBmWpswipWPuS1XtcY0_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:-Q2tmqTDoZ4-0mE-6lTGEl01Tm23H9R9iAoMFak2GPk_pr:none", 
+                    "bc:tkyM7LJEOONGLUpvcdjvpiqUT0e2dw50LZUifGbLirI_pr:none"
+                ], 
                 "clang5_-O3": [
                     "f4146aa89ba8244c5b93c0c1c40f3028edc9ca99b3c6a2b0d5b45bd44ccc7277", 
                     "f4146aa89ba8244c5b93c0c1c40f3028edc9ca99b3c6a2b0d5b45bd44ccc7277"
@@ -4259,6 +4975,10 @@
                     "bc:2aOsuBO70dOmsxakpxO92S-16IzoKk8iPzOQK__sRxY_pr:none", 
                     "bc:Im-uMZtKlfRrJ2lS6hTBJEo8GEGXYn4_sbi5ctwVQVM_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "22233a887349c2d0919b15dd2123342ec457f647ac9bde3ff315fd881817c048", 
+                    "c35ce39c7d3ee0f6511f56172bfe7c92255a236f72f0fd2568d30879920a79b0"
+                ], 
                 "gcc4.9_-O3": [
                     "ff5625d5187f19812258fd4ca95732281faa3bd66b4c1977af544497b72313d1", 
                     "ff5625d5187f19812258fd4ca95732281faa3bd66b4c1977af544497b72313d1"
@@ -4267,9 +4987,9 @@
                     "f1fe6c0537bdedf4fe997ec7703f3bf3ad0f34ac48ecb56ccc6f7fbd570fb571", 
                     "f1fe6c0537bdedf4fe997ec7703f3bf3ad0f34ac48ecb56ccc6f7fbd570fb571"
                 ], 
-                "gcc4.9_-O0": [
-                    "22233a887349c2d0919b15dd2123342ec457f647ac9bde3ff315fd881817c048", 
-                    "c35ce39c7d3ee0f6511f56172bfe7c92255a236f72f0fd2568d30879920a79b0"
+                "scala2.12.5_-opt": [
+                    "bc:J4MBalHzjwO_kIvrkQIhUcQeOkjh15rv_lXcdOLXYvQ_pr:none", 
+                    "bc:J4MBalHzjwO_kIvrkQIhUcQeOkjh15rv_lXcdOLXYvQ_pr:none"
                 ]
             }, 
             "input_types": [
@@ -4301,6 +5021,14 @@
                     "29d91c1925e3589fde7ea18241f3c1c523e2f290e299d0bfa1a9ce933d35a010", 
                     "29d91c1925e3589fde7ea18241f3c1c523e2f290e299d0bfa1a9ce933d35a010"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:omZm9Le-MtErK4vXz5CbaRyiZEGzzCTsSG0waEhJhVo_pr:none", 
+                    "bc:1d8jsriYWV3BwKsz559IMkGuPinzsVwP5j9yA3HWahU_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:RNlw_YHoZ4elO2jFDsxGnAlMps95qaheJ68hR7nrPSM_pr:none", 
+                    "bc:42bKQ9cfPRKQxZZ-wof9-7OGLNqAFAq7zzGjRX1sfoo_pr:none"
+                ], 
                 "clang5_-O3": [
                     "d02597f7daa9441f831fb681ae1b6a0b3d120ff721f4a73bd99a25f1fecb9817", 
                     "d02597f7daa9441f831fb681ae1b6a0b3d120ff721f4a73bd99a25f1fecb9817"
@@ -4329,6 +5057,10 @@
                     "bc:yAaL-6cGim1MVNmRElQkLrrXE94Ug3oglPI76YaD9R0_pr:none", 
                     "bc:x44edRZ2thd9q2MINdffA8IP_BcEzPz-XgXTO-RbOes_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "129243ec44587fceb9fabb6d4b197d732b3bd31903cb1750a5e5279406e2ecda", 
+                    "6348870a9d3ac397edb5949982b2384a22f94c32c4388500edd84c2bc9ea88d2"
+                ], 
                 "gcc4.9_-O3": [
                     "f7379a35872399abb7e10aa32c7fa0fdcf27883f79594d8fcdaa14754400a0ac", 
                     "f7379a35872399abb7e10aa32c7fa0fdcf27883f79594d8fcdaa14754400a0ac"
@@ -4337,9 +5069,9 @@
                     "29d91c1925e3589fde7ea18241f3c1c523e2f290e299d0bfa1a9ce933d35a010", 
                     "29d91c1925e3589fde7ea18241f3c1c523e2f290e299d0bfa1a9ce933d35a010"
                 ], 
-                "gcc4.9_-O0": [
-                    "129243ec44587fceb9fabb6d4b197d732b3bd31903cb1750a5e5279406e2ecda", 
-                    "6348870a9d3ac397edb5949982b2384a22f94c32c4388500edd84c2bc9ea88d2"
+                "scala2.12.5_-opt": [
+                    "bc:RNlw_YHoZ4elO2jFDsxGnAlMps95qaheJ68hR7nrPSM_pr:none", 
+                    "bc:f2r4HaeVxbLiOhq7MhK215deTo9v67mRhY8MnzsJp9I_pr:none"
                 ]
             }, 
             "input_types": [
@@ -4378,6 +5110,18 @@
                     "ee53fb8c8f9add50aaebe1f9976007c8ec0c1c1e380ef11e9922a235250d460e", 
                     "e3b6ea83271144a5ddb1399882d7d2a1726069da389f40614eb868dd07695957", 
                     "fcf078ba1c68c1b8c1fbbab16b76c204f9e3ae2d1ccc2ebabacc8ff2d27ad950"
+                ], 
+                "scala2.11.11_-opt": [
+                    "bc:qGhRyZ-IUGZYagp81ADP0dawNHGgvYzNsyIJjAWlnFE_pr:t0_ObNi8r9AUoc6MZYW-rFnF9AmKbUmfXR1C1GQUZjM", 
+                    "bc:9ha619b7xlFNLxwilD4iqw4_-fkpaOoKxgs-hAZsvHc_pr:t0_ObNi8r9AUoc6MZYW-rFnF9AmKbUmfXR1C1GQUZjM", 
+                    "bc:RqN11h3ikngLWNQ-1p5yxXDjtKV3JmIyfVJl_kEV8rU_pr:t0_ObNi8r9AUoc6MZYW-rFnF9AmKbUmfXR1C1GQUZjM", 
+                    "bc:sxjCg6UZNf3gI9NLprXjL9hu6TjO6Lodet1PNp_gRYI_pr:t0_ObNi8r9AUoc6MZYW-rFnF9AmKbUmfXR1C1GQUZjM"
+                ], 
+                "scala2.12.5": [
+                    "bc:Y2HV8Ca773g6r0wvWIHa889n0TizBNK7OFWsqB7zl9Y_pr:t0_ObNi8r9AUoc6MZYW-rFnF9AmKbUmfXR1C1GQUZjM", 
+                    "bc:2zLNTK6o3LmYgMMNK22Bys4Jd-_xRdzyuo4wBIlsVLc_pr:t0_ObNi8r9AUoc6MZYW-rFnF9AmKbUmfXR1C1GQUZjM", 
+                    "bc:zciH5B9GbvUxpqZ77FkQl5cUaNZZSP2bkZJz5ccSP4M_pr:t0_ObNi8r9AUoc6MZYW-rFnF9AmKbUmfXR1C1GQUZjM", 
+                    "bc:5D6esr4yzoLzuDvcJdRKnz3D_Zk3j6Cf9T6hOLOo6p4_pr:t0_ObNi8r9AUoc6MZYW-rFnF9AmKbUmfXR1C1GQUZjM"
                 ], 
                 "clang5_-O3": [
                     "41098da7c2b199fe5c3a01e7088776392d817fa168a0d457ae8d22356a219541", 
@@ -4421,6 +5165,12 @@
                     "bc:0WPPNbaXOs4OA21b83lYwtUwOfWrtq1p5gz2wjLy108_pr:N0cI__dxndWXnsh11WzSKG9tPPfsMXo7JWMqqyjsN7s", 
                     "bc:3XoiSpa3IKDqEQRUwXZ2SmBvlv12MJUSl4BIwM4zBWA_pr:N0cI__dxndWXnsh11WzSKG9tPPfsMXo7JWMqqyjsN7s"
                 ], 
+                "gcc4.9_-O0": [
+                    "92f36bde0515895746c3890bc37a17f62133d9bb19f6a2d7dcdaa117fe7a1c28", 
+                    "cfc1397d4c5d7253255ee9831506835b327423874c7ff96d7c98c106b65e8bbd", 
+                    "3effe49958e1b091e135ef14b71c31cef6c00414568a78483089260876f690a9", 
+                    "49489a6f0d34564180f292d522ef3ee86c6110157051958d9ea947a2f4db1f85"
+                ], 
                 "gcc4.9_-O3": [
                     "cdb3bdb5647322476d566212c7ce65bd56da68da253bc355b40680dcaa31bd14", 
                     "c47dac97cf7c0f3d3934b560c7fe7dfc6daf17d03ad47fd5edd4240abaafff7a", 
@@ -4433,11 +5183,11 @@
                     "d88bf4ff20354780b451996856b9da4ffbf975fff1fa1392b06ef378477cd04d", 
                     "6490c57721d5b5a0a75cc19b96a7dbb8d0ca3f761504b4c5f03cafe811bcc05d"
                 ], 
-                "gcc4.9_-O0": [
-                    "92f36bde0515895746c3890bc37a17f62133d9bb19f6a2d7dcdaa117fe7a1c28", 
-                    "cfc1397d4c5d7253255ee9831506835b327423874c7ff96d7c98c106b65e8bbd", 
-                    "3effe49958e1b091e135ef14b71c31cef6c00414568a78483089260876f690a9", 
-                    "49489a6f0d34564180f292d522ef3ee86c6110157051958d9ea947a2f4db1f85"
+                "scala2.12.5_-opt": [
+                    "bc:QBLnkYafv3flimi_4eStxqQm4PBLfkL9BSUCE5Uzr4Y_pr:t0_ObNi8r9AUoc6MZYW-rFnF9AmKbUmfXR1C1GQUZjM", 
+                    "bc:sJMIrapW0OY1V7Rs8AK64znuvaC5suoenQyk5Aw_ZIA_pr:t0_ObNi8r9AUoc6MZYW-rFnF9AmKbUmfXR1C1GQUZjM", 
+                    "bc:pr7aC9w2UmAsZq7dz1V3ppYfrbgvX-9o3RwRjsYqWN0_pr:t0_ObNi8r9AUoc6MZYW-rFnF9AmKbUmfXR1C1GQUZjM", 
+                    "bc:mP1hjQBqaxTiNPYwXrLuKdlZ-wCLlR5Pk4vUptToUQM_pr:t0_ObNi8r9AUoc6MZYW-rFnF9AmKbUmfXR1C1GQUZjM"
                 ]
             }, 
             "return_type": "double", 
@@ -4490,6 +5240,18 @@
                     "09e0e69de2f2058c706c983bc77cefab62f331dc475bf5f4c346a6d0ed2da9cc", 
                     "9cc9e782ac025e9b15278940fa1df47783a146db033f148fd1b67e7cf8ed9376"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:-ZpdSiXOem9Dbw-nZ7u7xw4IR0L2IWX9-TXGZ4DHpLk_pr:none", 
+                    "bc:mp7b3iun_ChI_evVSa9M4DIz9s6HryHztiGVTKHj4h4_pr:none", 
+                    "bc:md3luJsfoX7ee7vqX0PG1vb_LeuxYlwW6qukOG8SBhw_pr:none", 
+                    "bc:A7MgbSjzU3ZurERiPcxNkjbJ49vjJ1o7iMKmt3kMP5I_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:0ekh6dKpqOJcP593RIB3iWoDCMyPR0DIayKDFPs2E0Y_pr:none", 
+                    "bc:gFS8RcKLXWfx0KgSTyuOnKlOt1p7X0ZPZVzkKuhZsUc_pr:none", 
+                    "bc:qhcf5_JFs4bq9ibKFhfNelpQuKTmxxO5iVC9IZbFKOY_pr:none", 
+                    "bc:TQtZn8pedIJ2z8ny0aHIeobQK2oBeumqN0EJzW4a9Zs_pr:none"
+                ], 
                 "clang5_-O3": [
                     "244adb00dd6e576018e96a86d301acb09a38ac98909cc43222622e343e86634c", 
                     "244adb00dd6e576018e96a86d301acb09a38ac98909cc43222622e343e86634c", 
@@ -4532,6 +5294,12 @@
                     "bc:bdY-KjCYvPMSvU-sjuOX1ml0j_J_HP854rAakSiInuw_pr:none", 
                     "bc:FTYvsfpT_AhHO6eRTjcbRsAUzOC3fI-uwu68IxJ2pR0_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "d50eb2607e6f102fae5c195c78641d267791ed7603701934978e1b64d0d38c8b", 
+                    "75c5b199226e67c8b38a1259a2dfc7fff33ca475cd1075642cd8191ae9e1ff06", 
+                    "b8f166156dfd3928b94a2345797b74a7846bf0f6f4a164bdf3fe770c0f7c0f41", 
+                    "cba5f7759fc6ac78b2fbc6bbea54ed10742da855e97e876d0cc97848eb4248d6"
+                ], 
                 "gcc4.9_-O3": [
                     "b44a10f49d9ba8c994d9c1ab7b3a83c4bbd8c80c2533203560f7ada13e765b1b", 
                     "7f1dc9caa3ac59271e072f97275efe462301a0d2d2ccda225f6eedec8f0c01ac", 
@@ -4544,11 +5312,11 @@
                     "d574c6e072728721a1e17b94538fab1de45af05279f942f48f317e4e1f6f53cc", 
                     "d12d8a27859190e254916397df144ec1b0b2b3f351bf782e1202261dfe997991"
                 ], 
-                "gcc4.9_-O0": [
-                    "d50eb2607e6f102fae5c195c78641d267791ed7603701934978e1b64d0d38c8b", 
-                    "75c5b199226e67c8b38a1259a2dfc7fff33ca475cd1075642cd8191ae9e1ff06", 
-                    "b8f166156dfd3928b94a2345797b74a7846bf0f6f4a164bdf3fe770c0f7c0f41", 
-                    "cba5f7759fc6ac78b2fbc6bbea54ed10742da855e97e876d0cc97848eb4248d6"
+                "scala2.12.5_-opt": [
+                    "bc:CY_NKE4i0fftgfGYKdzylGGQWPD-aXrXGddocX3bKhQ_pr:none", 
+                    "bc:-lERIg3zqcfCJi5sm7aR-7N7bS6ssnxbYGnMFd55vK4_pr:none", 
+                    "bc:BJsBFRntd4gEGgAW76QRTpM-AE_SpUcE8_zSQxVujqo_pr:none", 
+                    "bc:ubIBUdMLUmStFOlExFY8mQhLianN4UqxM3hlULmTfww_pr:none"
                 ]
             }, 
             "input_types": [
@@ -4603,6 +5371,18 @@
                     "7013cf6dc29ea6bc915153772c93f3694941273ba190968a74253c8b9d0ba8e6", 
                     "fcc066e853f045d874e95a3a9f6eb748daca3b3ebbfd700d40f07059e7533c05"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:xphZjqq1lUZgFmK78T0NdZHfkJf2ZM_6CNIqDPvTfUs_pr:nTE-oXEfN5tAKOgEyEHpRXdq6TTTZ6aC5xlYB09gyUI", 
+                    "bc:KPJUmv7o9IG_H_KjK-BvhhxMQks08J1I7HQLfWzSqGg_pr:nTE-oXEfN5tAKOgEyEHpRXdq6TTTZ6aC5xlYB09gyUI", 
+                    "bc:Q6xdQWc_jNpnvZGz19c_wcwoNnK3vTS7uMEFqDSeCq0_pr:nTE-oXEfN5tAKOgEyEHpRXdq6TTTZ6aC5xlYB09gyUI", 
+                    "bc:F08HM8axtCUvIO6v5IfROUYwUoVC8f6a94eIXd9l9Gs_pr:nTE-oXEfN5tAKOgEyEHpRXdq6TTTZ6aC5xlYB09gyUI"
+                ], 
+                "scala2.12.5": [
+                    "bc:wZkiCnlfl8HforzTUGSHteckVujeRsAD4oJ_8kj3Sd0_pr:nTE-oXEfN5tAKOgEyEHpRXdq6TTTZ6aC5xlYB09gyUI", 
+                    "bc:685WE7RItmMG91dNzipNksaUIA0aph8JIvMjJ5tQqSY_pr:nTE-oXEfN5tAKOgEyEHpRXdq6TTTZ6aC5xlYB09gyUI", 
+                    "bc:MxTY6pRgBTSWhqwnl4JNyYQt5XIE1WTi2Ac7kqlD2gg_pr:nTE-oXEfN5tAKOgEyEHpRXdq6TTTZ6aC5xlYB09gyUI", 
+                    "bc:BSMg5c_COfo84E-0JltTDXAvBgHfGoUftMKH9hbxXpI_pr:nTE-oXEfN5tAKOgEyEHpRXdq6TTTZ6aC5xlYB09gyUI"
+                ], 
                 "clang5_-O3": [
                     "6457298638200d27d35625340bb5a707528f4c9aa01b304ea67f9cf45471726c", 
                     "fc14bc706b923c567458e7d59341908dedbe434f4aac9356e1d5af80474cd65e", 
@@ -4645,6 +5425,12 @@
                     "bc:NpF7nQrv6LlkhSq0AmiNkzY-BGiIpDbGitnlIzu8cFY_pr:none", 
                     "bc:Lg9hFDEsW3CpdYwJPSAwtjWg8Y793psKhjtUdwlQZfU_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "d21b93b40b843278df0dce1668bf1abb6a34a59514e0e12201ecd1d7dea672d7", 
+                    "439e4c999e2004099228e79d9526d928ef31f753c0209b4f107a17fedba7b005", 
+                    "da22deddfe70a16eb8c88221ef16b8388dcda3b1dce5c29379e7c39bcf01256a", 
+                    "93bd743941065b54ee6dce8827b7f8ec16ac857bf409bff1b6d65f09df4a95f2"
+                ], 
                 "gcc4.9_-O3": [
                     "84f69c3b50487a16cbcedf0647952323506a4c7fc598717c90bf6888f9a5b016", 
                     "28bc9431de8d91f23fd5d04a744c118713c0523bd94e7907749089fa374e9043", 
@@ -4657,11 +5443,11 @@
                     "088913ecc203d113b741f116feef37b95b148b2871628d06d98898ff11e526d5", 
                     "5e6cc98f857df35e42e086232fbec60abc724bd62a501e870dbee8c2b500751a"
                 ], 
-                "gcc4.9_-O0": [
-                    "d21b93b40b843278df0dce1668bf1abb6a34a59514e0e12201ecd1d7dea672d7", 
-                    "439e4c999e2004099228e79d9526d928ef31f753c0209b4f107a17fedba7b005", 
-                    "da22deddfe70a16eb8c88221ef16b8388dcda3b1dce5c29379e7c39bcf01256a", 
-                    "93bd743941065b54ee6dce8827b7f8ec16ac857bf409bff1b6d65f09df4a95f2"
+                "scala2.12.5_-opt": [
+                    "bc:vlqJRldZFukRpyxhGoSF_qXCO6B5ak0y_1BaEqNZdJM_pr:nTE-oXEfN5tAKOgEyEHpRXdq6TTTZ6aC5xlYB09gyUI", 
+                    "bc:WpEIFeUYDOZXE2_L0z2p36McmZSC_lk5za4vDudRMWY_pr:nTE-oXEfN5tAKOgEyEHpRXdq6TTTZ6aC5xlYB09gyUI", 
+                    "bc:uW3SJHfOf9DGvvTPWEollaEjgUsxDPs9S7H8GkzOKW4_pr:nTE-oXEfN5tAKOgEyEHpRXdq6TTTZ6aC5xlYB09gyUI", 
+                    "bc:kM6yFv8wPCgmGkMWc65tzt1bSTLEdNTTeA-yQoipFlo_pr:nTE-oXEfN5tAKOgEyEHpRXdq6TTTZ6aC5xlYB09gyUI"
                 ]
             }, 
             "input_types": [
@@ -4740,6 +5526,24 @@
                     "29f9e3cacd8670ce14205311085c21abebab789fbf1b84ac39d9cdb3b1253f53", 
                     "464e462d3fe01af7a9009f6a46fd93f4bf102df31c7cd66c06e9c57302cd15fd"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:lh5i3K26Ov--ho5cjU2W41w-CJqQgNxlw9j_wKF1A8g_pr:none", 
+                    "bc:6KJAaHzkVGH0W5os3TzViXuIeYMhGTfOL5DWwxUOo6s_pr:none", 
+                    "bc:rMD9QIheyMuGkUu1mlwWwzuEcl39b9kn2qlPAc8FI2U_pr:none", 
+                    "bc:uMKFef-T-TNIo1_qqlS5BEbJ6xhTBro2E7pesKEvPVE_pr:none", 
+                    "bc:Zz1e6zIRHPMpDYW5xWWAdULe-vpO4BgehkzGLIgap2I_pr:none", 
+                    "bc:NwXWF2A60KN4tbfPK0TsyY_JbtB9qw9cONYvYoIeMdo_pr:none", 
+                    "bc:CAL3p2T9VxbehhB9CEc9_lqg4rO86mYhHy_yyHxaVUc_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:wp4ZxsZvKWW8O2nk_dwvjtVqsUAC9ZdzMUdj6SpfwIQ_pr:none", 
+                    "bc:I5pBh6_yF8mHVBuj9fpPLIyHUmPmj9arvh6BJ2my7Hw_pr:none", 
+                    "bc:Ktmgte9y-_AQDwZCtmslcXGZ24U17Jtg3nF9Et3tTlM_pr:none", 
+                    "bc:NI9o-osfMIuchK24UrHnRwm5T20HQ83x-dXibfreO8M_pr:none", 
+                    "bc:WLJAUzK2W8TKQOu2ZCtgu6L-9X5Xpd_r1JpRQFZsuu8_pr:none", 
+                    "bc:uFhmwBfXc2Xw7iOWC0b9tkJiK6eLpwPYvOQXhF_Z5sA_pr:none", 
+                    "bc:PdwjY2jvV6fePdy2uhthDev7SXjdo4ZEy4YwXrFneeg_pr:none"
+                ], 
                 "clang5_-O3": [
                     "a0cd7efb94aa9f6ca687a2fdc876f316771b3ba4dd1d3d5d183822a0ff23c068", 
                     "a4132b1f775c7b73cc5dc1961bcf79e9788595733a914e1ca3b4ae91ec439a4d", 
@@ -4803,6 +5607,15 @@
                     "bc:DHzGmTnCA19Vi1mPLMGFg--J8Udn__n2GDWJDMFjdLw_pr:none", 
                     "bc:pvCD4ctCFXEBPyURPbWdW0SnBD_N8zeWKS86n02L4SE_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "c49e0c63d8517b41c3b0223a98113397e41b26bbf94aaa6ec0ed76c16dae4a8e", 
+                    "c49e0c63d8517b41c3b0223a98113397e41b26bbf94aaa6ec0ed76c16dae4a8e", 
+                    "43c6e63167d7e3fd0b8c683b592d2911a4349e3d012b7e1462820a2493e449df", 
+                    "787a5d14dce6a72e6eda97b99320f53838b3fcfa5e0976d6164e67559f3daed0", 
+                    "8265f057454759a3fb8b2396c8d203bd8c18063bdb1c5b6faf133af310fe2fde", 
+                    "141f3c3c4ca766ac3d1c4736e0118681ad6fc85a22b5ffe885487fbfcd3db4f0", 
+                    "f8476a347adf60c5e5806ae5f5807afbbcd42eeb09a2bfefdc404080f5c6b32f"
+                ], 
                 "gcc4.9_-O3": [
                     "dd00900503b3477b985206d4ef4626266e3642baf8741dd5aba47b75d3317aca", 
                     "dd00900503b3477b985206d4ef4626266e3642baf8741dd5aba47b75d3317aca", 
@@ -4821,14 +5634,14 @@
                     "29f9e3cacd8670ce14205311085c21abebab789fbf1b84ac39d9cdb3b1253f53", 
                     "464e462d3fe01af7a9009f6a46fd93f4bf102df31c7cd66c06e9c57302cd15fd"
                 ], 
-                "gcc4.9_-O0": [
-                    "c49e0c63d8517b41c3b0223a98113397e41b26bbf94aaa6ec0ed76c16dae4a8e", 
-                    "c49e0c63d8517b41c3b0223a98113397e41b26bbf94aaa6ec0ed76c16dae4a8e", 
-                    "43c6e63167d7e3fd0b8c683b592d2911a4349e3d012b7e1462820a2493e449df", 
-                    "787a5d14dce6a72e6eda97b99320f53838b3fcfa5e0976d6164e67559f3daed0", 
-                    "8265f057454759a3fb8b2396c8d203bd8c18063bdb1c5b6faf133af310fe2fde", 
-                    "141f3c3c4ca766ac3d1c4736e0118681ad6fc85a22b5ffe885487fbfcd3db4f0", 
-                    "f8476a347adf60c5e5806ae5f5807afbbcd42eeb09a2bfefdc404080f5c6b32f"
+                "scala2.12.5_-opt": [
+                    "bc:Lmq8UK3JTUdoBledJXSMBqdN0PAcDadXf0XOWzaaRM8_pr:none", 
+                    "bc:R0jwRT92TqMJBntqWotH31TYL-_npaZlpMVmDNEBuXQ_pr:none", 
+                    "bc:kOzunVDmvuwS7GJ1pv3XUUkkGtq0uNksjuNxps7kOoA_pr:none", 
+                    "bc:NX8cCYWKfhDINCUYT5tKRd_CTC_vanGRroW9L7-3ICw_pr:none", 
+                    "bc:oY0OSSk0MA4CaNuDufcwXyKgV_6H6qB2MTnzUFZonUY_pr:none", 
+                    "bc:AIOKljqwWXnVmB6EI-150Ivm6QRhE2Dc6MP-0XZjtUc_pr:none", 
+                    "bc:6pKMGOt2599F07tIn7RBlgfRbt-alK3d_Kp_lQI35Wk_pr:none"
                 ]
             }, 
             "input_types": [
@@ -4838,31 +5651,38 @@
             "return_type": "long", 
             "variants": [
                 {
-                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "orig_template": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = Math.abs( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
                     "_idx": 0
                 }, 
                 {
-                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( -monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "orig_template": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( -monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = Math.abs( -monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
                     "_idx": 1
                 }, 
                 {
-                    "code": "long instant = input0; int months = input1; if ({{false}}) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "orig_template": "long instant = input0; int months = input1; if ({{false}}) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "code": "long instant = input0; int months = input1; if (false) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = Math.abs( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
                     "_idx": 2
                 }, 
                 {
-                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse > 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "orig_template": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse > 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse > 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = Math.abs( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
                     "_idx": 3
                 }, 
                 {
-                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse <= 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "orig_template": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse <= 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = Math.abs( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse <= 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
                     "_idx": 4
                 }, 
                 {
-                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse <= 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "orig_template": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse <= 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = Math.abs( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse <= 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse > maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
                     "_idx": 5
                 }, 
                 {
-                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse >= maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "orig_template": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = {{abs}}( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse >= maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
+                    "code": "long instant = input0; int months = input1; if (months == 0) {\n    return instant;\n}\nlong timePart = 1516149603588L;\nint thisYear = 2018;\nint thisMonth = 0;\nint iMax = 12;\nint yearToUse = 0;\nint monthToUse = thisMonth - 1 + months;\nif (monthToUse >= 0) {\n    yearToUse = thisYear + monthToUse / iMax;\n    monthToUse = monthToUse % iMax + 1;\n} else {\n    yearToUse = thisYear + monthToUse / iMax - 1;\n    monthToUse = Math.abs( monthToUse );\n    int remMonthToUse = monthToUse % iMax;\n    if (remMonthToUse == 0) {\n        remMonthToUse = iMax;\n    }\n    monthToUse = iMax - remMonthToUse + 1;\n    if (monthToUse == 1) {\n        yearToUse += 1;\n    }\n}\nint dayToUse = 16;\nint maxDay = 31;\nif (dayToUse >= maxDay) {\n    dayToUse = maxDay;\n}\nreturn yearToUse + monthToUse + dayToUse + timePart;\n", 
                     "_idx": 6
                 }
             ]
@@ -4881,6 +5701,16 @@
                     "349c4261441fb2158c6221d0979fccf3421feca15ec06fc15c7b3bf5649b8843", 
                     "349c4261441fb2158c6221d0979fccf3421feca15ec06fc15c7b3bf5649b8843", 
                     "349c4261441fb2158c6221d0979fccf3421feca15ec06fc15c7b3bf5649b8843"
+                ], 
+                "scala2.11.11_-opt": [
+                    "bc:_lncCFty39wMa1-Fnae-9dSAB6sEitXVqlrDTsWbc_w_pr:none", 
+                    "bc:_lncCFty39wMa1-Fnae-9dSAB6sEitXVqlrDTsWbc_w_pr:none", 
+                    "bc:_lncCFty39wMa1-Fnae-9dSAB6sEitXVqlrDTsWbc_w_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:zlVGFayvxDgqNSEt2Rw4yuh6VWnJm_6TdjcN4Cbd6iI_pr:none", 
+                    "bc:i7aBxeb-TbeFAoeA0A8bSWAV4qshiFlOuvSKAqISLFw_pr:none", 
+                    "bc:WB2nUaPKCMP5Du-qaw_FZhFawdDHRC7dh4q5uvTsgKY_pr:none"
                 ], 
                 "clang5_-O3": [
                     "1322e17067b139ed66b03bf01bcfdb3689aacf0d72d45ea237d753cc40c7545e", 
@@ -4917,6 +5747,11 @@
                     "bc:pb4Q_1ucAMrj-GBr6HPuq6ZnPPTib6p3vnExmdhWlLQ_pr:none", 
                     "bc:tn6l-03IerSe1ieRiY8FOk_6Z-_qDFmjSjyHuCtXywA_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "4b91c4d526da96cf63130d5cf45768e832549d1ad19e0ea275a619b91477a668", 
+                    "148ebe19f3161f5f400c10ebb69670448e0667e750ed260151419e78023f1a41", 
+                    "bd1052b898e8e57a2ca3d26d3237366dcd4ecf6f2c73fda7c016f59198f2d153"
+                ], 
                 "gcc4.9_-O3": [
                     "51e5675789a708f1167a17cb6232508e4b0b8c72d436f35dc80a1c3b63360926", 
                     "51e5675789a708f1167a17cb6232508e4b0b8c72d436f35dc80a1c3b63360926", 
@@ -4927,10 +5762,10 @@
                     "349c4261441fb2158c6221d0979fccf3421feca15ec06fc15c7b3bf5649b8843", 
                     "349c4261441fb2158c6221d0979fccf3421feca15ec06fc15c7b3bf5649b8843"
                 ], 
-                "gcc4.9_-O0": [
-                    "4b91c4d526da96cf63130d5cf45768e832549d1ad19e0ea275a619b91477a668", 
-                    "148ebe19f3161f5f400c10ebb69670448e0667e750ed260151419e78023f1a41", 
-                    "bd1052b898e8e57a2ca3d26d3237366dcd4ecf6f2c73fda7c016f59198f2d153"
+                "scala2.12.5_-opt": [
+                    "bc:o2Fv7Ttvcfx7p5Xt0jzddlMzAzX9YNosJYJ3hmPa7_I_pr:none", 
+                    "bc:o2Fv7Ttvcfx7p5Xt0jzddlMzAzX9YNosJYJ3hmPa7_I_pr:none", 
+                    "bc:o2Fv7Ttvcfx7p5Xt0jzddlMzAzX9YNosJYJ3hmPa7_I_pr:none"
                 ]
             }, 
             "input_types": [
@@ -4973,6 +5808,14 @@
                     "16e9e4da42226946f63704fc2ea98dfc7512972387fde288bfe3530e9a0ee786", 
                     "16e9e4da42226946f63704fc2ea98dfc7512972387fde288bfe3530e9a0ee786"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:Gk8Epa2oB6ha_LCWeXyG12BTqO736qM-hPlY3AZANto_pr:none", 
+                    "bc:t9i6yP26dNLzwOU7F7k0zGztbURxCtUEhB_RA3pweCc_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:SuMRZxUZc9p1hWBdnvNZnu2y48rZfZdpgg01ReEX3Wo_pr:none", 
+                    "bc:tK7rBraAFj9g7f-urAEQoeElq4kw2PZZJXXI_vYoU20_pr:none"
+                ], 
                 "clang5_-O3": [
                     "ad880a11a717f4ddc9e235e320ef10d7e81197c97fab7273ed9f7af4b9dc06e5", 
                     "170583aea715b0952834832cf9b078d68a960568c1b5cbc6e6e35f9806c4a0a0"
@@ -5001,6 +5844,10 @@
                     "bc:XFICyZVirygvznQ9ze8U_5NI-dvLj8J7qmZeJpRGyvo_pr:none", 
                     "bc:P4wK1Br3Xu2Z9HPgsqHpbhsWYLwu2qYqPN-wgi5FuCQ_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "f55abedf599c87b462c10bff676d49ec3e2744247ab31cac3347a5c7fae0c13c", 
+                    "d4211856befe5a8284d229866cf953156688a7d05b20a327d14a7602818cf609"
+                ], 
                 "gcc4.9_-O3": [
                     "16795a99ea53f4b8dc02f48d6716090b3be41695d2531cd2187c9be788ac1276", 
                     "4cab2f97b8cb6f406ea7510458010a89801442a9cc93e042cdf88c21ff85c6ab"
@@ -5009,9 +5856,9 @@
                     "16e9e4da42226946f63704fc2ea98dfc7512972387fde288bfe3530e9a0ee786", 
                     "16e9e4da42226946f63704fc2ea98dfc7512972387fde288bfe3530e9a0ee786"
                 ], 
-                "gcc4.9_-O0": [
-                    "f55abedf599c87b462c10bff676d49ec3e2744247ab31cac3347a5c7fae0c13c", 
-                    "d4211856befe5a8284d229866cf953156688a7d05b20a327d14a7602818cf609"
+                "scala2.12.5_-opt": [
+                    "bc:xqeoN7fX7p9uxIPU6CnRAY-VfvFkNkUbFDf_wd7OREM_pr:none", 
+                    "bc:bdCTgzKFohMYIC1LvA0rihEvUNAEJ9e1fbs33f2W8JQ_pr:none"
                 ]
             }, 
             "input_types": [
@@ -5058,6 +5905,26 @@
                     "3c11666c1490ffa7158f7aea4db7910d34c035f4d8bb95accf9c4e53c0bd7062", 
                     "f4b4f13debe2eac8cc7ef71a59e503d39743997b66e90983d932f5a42a1315b5", 
                     "c9354a562344f1255258ebed2f8d434f43c78deba61a8cac3ffbc2d2002b3841"
+                ], 
+                "scala2.11.11_-opt": [
+                    "bc:Tops9baokktDlCSGG9TJO8gKaYc375IKm6HjEZImXSU_pr:none", 
+                    "bc:Lgy6KI1ZUFyqJ3XfEprA9xJoTgAEEAGqoDH-ypTHdqM_pr:none", 
+                    "bc:lO2INIfi1OjGPzLnubMbY4pTIcjV4u2izBFRQBMYcVM_pr:none", 
+                    "bc:i-1zMe-syUJwZRFj3TJA-8nwJwMgAxOBTNMHoIwmM5w_pr:none", 
+                    "bc:sdn7YbAmRko7uxGjKyku3NmgpZohwtBfDlw_8NvDvCI_pr:none", 
+                    "bc:k1uwtb7mlw8JFeQYu4V4lqTrLeBh60D74lA3k5PtAXs_pr:none", 
+                    "bc:04liGdR_OJtCY9o1RnE8UrT2lSEPEoyoa9dWAY3BdlA_pr:none", 
+                    "bc:keCj_-FA57dJYRXeaANb3nrOeS-fphuYMy1uCuJTkuA_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:iQDU21BCI4AgPXexObJUiSG2H64oPKXGMdxZdbAZioU_pr:none", 
+                    "bc:AwRiZRvgP6vzkqlGambztnWS5_RIUNZlMmoIqJn1_-I_pr:none", 
+                    "bc:MwuRAoXPrZ0sTg_Ng3o7FmsEO7_Z2x3CProVtDwgmOg_pr:none", 
+                    "bc:qUky01nnRqgEn5q8P6aTxZZAjg3zVFhco9sS4zng0CU_pr:none", 
+                    "bc:KYCRkumR27vYvXBSvxWaM-2szIj0iPduTluHswVMZ8w_pr:none", 
+                    "bc:oCAPWRtkO3lVdRadMWYjGcItq0JpNATufopopteRf98_pr:none", 
+                    "bc:1SUB5PHsbe1a3S85cHJNFANreJkLJq9RAhk9crlHAoI_pr:none", 
+                    "bc:dlc1JGwQ5aletRui2TaGZx9Gm1q3e9qsjxR68KiSfeQ_pr:none"
                 ], 
                 "clang5_-O3": [
                     "75fa94fddf9accfcb2833bb255f1190d56338f32707ed20a18d111ea29fb69e2", 
@@ -5129,6 +5996,16 @@
                     "bc:C7NANZm2plO3nS8wOyicrZNiW4-54kG9NxSnN3ja0G4_pr:none", 
                     "bc:Ve4w5UIjG2ZhCQYENrD1CnutNKpbCtUkL6YZimafUUQ_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "f7fea79fc2f5e90c4fb9d4e8cee2fece331113987eafb5d26585d5d87f6de127", 
+                    "855bd629fada6689bc9cc9e2ec28da66c07d50882d9ad487708522a76f4a4ede", 
+                    "930d8ce52597679fa337dfeeba7116751c9da0a03006ac668a43230c6a61adef", 
+                    "9512b00e7a99bb02c9851cc1a08f5eb8d5d788049de181c58f626180db7457cf", 
+                    "5402f7f510b6c5cb033cdd317b4b201c3393acc7bec18cdb9eb82913c9012248", 
+                    "3f30550c1316bb27410e5afc3fee54a29d5a9601d7d7137b4a7273b98fb7c0c4", 
+                    "ba5d3e66dcc5ec9722cde5be9ff865a05a9a57c58161350a39f121582d589724", 
+                    "148d25285c9e8875319c4d77c41ed61ae05674aca99458715ae7e476650143ba"
+                ], 
                 "gcc4.9_-O3": [
                     "ac567e4383939e87f9e7dbfb2f201a4d3b1525536ada7bd830fbe986cf7bd9aa", 
                     "ac567e4383939e87f9e7dbfb2f201a4d3b1525536ada7bd830fbe986cf7bd9aa", 
@@ -5149,15 +6026,15 @@
                     "f4b4f13debe2eac8cc7ef71a59e503d39743997b66e90983d932f5a42a1315b5", 
                     "c9354a562344f1255258ebed2f8d434f43c78deba61a8cac3ffbc2d2002b3841"
                 ], 
-                "gcc4.9_-O0": [
-                    "f7fea79fc2f5e90c4fb9d4e8cee2fece331113987eafb5d26585d5d87f6de127", 
-                    "855bd629fada6689bc9cc9e2ec28da66c07d50882d9ad487708522a76f4a4ede", 
-                    "930d8ce52597679fa337dfeeba7116751c9da0a03006ac668a43230c6a61adef", 
-                    "9512b00e7a99bb02c9851cc1a08f5eb8d5d788049de181c58f626180db7457cf", 
-                    "5402f7f510b6c5cb033cdd317b4b201c3393acc7bec18cdb9eb82913c9012248", 
-                    "3f30550c1316bb27410e5afc3fee54a29d5a9601d7d7137b4a7273b98fb7c0c4", 
-                    "ba5d3e66dcc5ec9722cde5be9ff865a05a9a57c58161350a39f121582d589724", 
-                    "148d25285c9e8875319c4d77c41ed61ae05674aca99458715ae7e476650143ba"
+                "scala2.12.5_-opt": [
+                    "bc:fpUn1EJvnf8SEOa7xylteuBFx2NvgsUADR28U8ySwBU_pr:none", 
+                    "bc:f1vWj--xwXEOonq2u75zVve62H30N0Nw6qhHvclu4xU_pr:none", 
+                    "bc:w6cJ0S-J7Eyp0Ic2eju_RM1rwv84P9wbZExXSlVGqe4_pr:none", 
+                    "bc:Bd8q0krPM8fdscU1VWgGp3NGaEUDZ5snx7NuKKl6xUk_pr:none", 
+                    "bc:vZvGgwSZ7-b5pNPKKdtmwzQN3RTDDMfzPyYaZmJ9NAU_pr:none", 
+                    "bc:D1Vv9ZwcY0eTm-uoUlfchde2ETYQdJUBhhq2bPhcgrI_pr:none", 
+                    "bc:AbCDFVhmHPxA5Y0SoLIGRcJRCkIYi3_PnzEqHao7q1s_pr:none", 
+                    "bc:aSILZwVZp-BaF5wHUoAfkZGyH6feCou1zVfqWScIgaA_pr:none"
                 ]
             }, 
             "input_types": [
@@ -5222,6 +6099,14 @@
                     "10aa5a4b505be28f41a0149cf25d215681c4b35c09c12d76e205b65aeffc8079", 
                     "af49658ddf9e6292bbc73d9f0590d21f5ec12b17442f24bfd6a869b1096102d1"
                 ], 
+                "scala2.11.11_-opt": [
+                    "bc:lTZQedDqKgv__sgty5rWNZ220KEH_-xAyn25w9_WHiw_pr:none", 
+                    "bc:n-siOYqjH4w-YYoN5fI9jveInRXrkTCMgj4GcLEzJ0w_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:q4EOYemUbiD12NQXznd5by3TJcmLIhXORslaxE4lO-I_pr:none", 
+                    "bc:PoCO7V9wTv4ljdTNOH47IyxDNPh_2gGJDI75eUp9WEk_pr:none"
+                ], 
                 "clang5_-O3": [
                     "07a4410c2ac88d7f3b236470d2475efa6973de06267ecc2322b17f198850dc30", 
                     "f4d307b34ef9be9cbfdfc379bd2e67eb6c83224a63d366a7bae24f209ea5975f"
@@ -5250,6 +6135,10 @@
                     "bc:YTZlqow89ey4HLd8ZMT0eXBQPlqnavBmdj3wqHHLH18_pr:none", 
                     "bc:kUk6V_HhblkmhETsLGO3iG93Gj8Tm0s2Ra_67W70CHA_pr:none"
                 ], 
+                "gcc4.9_-O0": [
+                    "3cd3e1a54834243413b59da9991963c45f19b2b815e707b630156c922bf652f4", 
+                    "25c427741060cc4e628ef6a59c298b31ad5c1b29cfca3452a8d89c87441d135e"
+                ], 
                 "gcc4.9_-O3": [
                     "1b4e60fc4b3bb0ab757a3677022d6e55268b69dc9ac91e1c4d64c3cf8e88fb46", 
                     "a7ed2e271693b97fc62b99a30c954115705553c8cd121ba6c8eb6cd8c87415d1"
@@ -5258,9 +6147,9 @@
                     "345bf0b9c66efbc4e8498bda732cb5d33776118c975a29bcecf4cca8d954c1be", 
                     "53be615b052a7ad4028bbc28f739600aea53a08cf62014c1cc87a122c615d4ab"
                 ], 
-                "gcc4.9_-O0": [
-                    "3cd3e1a54834243413b59da9991963c45f19b2b815e707b630156c922bf652f4", 
-                    "25c427741060cc4e628ef6a59c298b31ad5c1b29cfca3452a8d89c87441d135e"
+                "scala2.12.5_-opt": [
+                    "bc:MHgIO98PXuOD5Og89mQIQ87dkmXOyu_n1qCAOHMc6mI_pr:none", 
+                    "bc:L76zFlabPpjxZ7gv-B5q4iR24jl5FVSJ9iFBb9NnAGo_pr:none"
                 ]
             }, 
             "input_types": [
@@ -5547,6 +6436,274 @@
             }, 
             "soft_fail": 2, 
             "soft_pass": 13, 
+            "failed_tests": [], 
+            "passed_tests": [], 
+            "skipped_tests": []
+        }, 
+        "scala2.11.11_-opt": {
+            "passes": 7, 
+            "fails": 39, 
+            "skipped": 1, 
+            "origins": {
+                "tce": {
+                    "passes": 1, 
+                    "fails": 9, 
+                    "skipped": 1, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "tce_dead_store", 
+                        "tce_dead_store_negate_zero", 
+                        "bisect_dead_store_alternate_implementations", 
+                        "capitalize", 
+                        "wrap", 
+                        "add_jodatime", 
+                        "pamvotis_wider_comparison", 
+                        "triangle_classify", 
+                        "xstream_decode_fast_path"
+                    ], 
+                    "passed_tests": [
+                        "pamvotis_dead_store"
+                    ], 
+                    "skipped_tests": [
+                        "math_post_fix_increment"
+                    ]
+                }, 
+                "tpcds_survey": {
+                    "passes": 1, 
+                    "fails": 6, 
+                    "skipped": 0, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "comparison", 
+                        "conditional", 
+                        "logical_op", 
+                        "logical_op_short_circuit", 
+                        "math_sub", 
+                        "math_add"
+                    ], 
+                    "passed_tests": [
+                        "constant_folding_basic"
+                    ], 
+                    "skipped_tests": []
+                }, 
+                "semantics preserving transformations": {
+                    "passes": 0, 
+                    "fails": 1, 
+                    "skipped": 0, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "for_loop_nothing"
+                    ], 
+                    "passed_tests": [], 
+                    "skipped_tests": []
+                }, 
+                "compiler_survey": {
+                    "passes": 3, 
+                    "fails": 38, 
+                    "skipped": 0, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "function_inlining_trivial", 
+                        "function_inlining_partial", 
+                        "common_subexpression_elimination", 
+                        "gcse_kill_load_store_in_loop", 
+                        "binary_operator_canonicalization", 
+                        "comparison_canonicalization", 
+                        "bitwise_canonicalization", 
+                        "tree_reassociation_subtraction_reassociation", 
+                        "tree_reassociation_linearization", 
+                        "tree_reassociation_operand_lists", 
+                        "tree_reassociation_repeated_factors", 
+                        "code_hoisting", 
+                        "partial_redundancy_elimination", 
+                        "forward_prop", 
+                        "full_redundancy_elimination", 
+                        "interprocedural_constant_propagation", 
+                        "forward_store_motion", 
+                        "code_sinking_math", 
+                        "code_sinking_pure_function", 
+                        "constant_propagation_conditional", 
+                        "constant_propagation_conditional2", 
+                        "dead_code_elimination", 
+                        "dead_store_elimination", 
+                        "loop_unswitch", 
+                        "loop_unswitch_harder", 
+                        "loop_splitting", 
+                        "loop_interchange", 
+                        "loop_invariant_motion", 
+                        "loop_iv_strength_reduction", 
+                        "loop_iv_variable_merging", 
+                        "loop_iv_variable_elimination", 
+                        "loop_iv_canonicalization", 
+                        "straight_line_strength_reduction", 
+                        "value_range_propagation_ne", 
+                        "value_range_propagation_eq", 
+                        "value_range_propagation_lt", 
+                        "redundant_load_elimination", 
+                        "jump_threading"
+                    ], 
+                    "passed_tests": [
+                        "copy_propagation", 
+                        "constant_propagation", 
+                        "copy_propagation"
+                    ], 
+                    "skipped_tests": []
+                }, 
+                "craig": {
+                    "passes": 2, 
+                    "fails": 1, 
+                    "skipped": 0, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "constant_folding_associativity"
+                    ], 
+                    "passed_tests": [
+                        "implicit_zero_comparison", 
+                        "pointer_deref_equivalence"
+                    ], 
+                    "skipped_tests": []
+                }
+            }, 
+            "soft_fail": 6, 
+            "soft_pass": 10, 
+            "failed_tests": [], 
+            "passed_tests": [], 
+            "skipped_tests": []
+        }, 
+        "scala2.12.5": {
+            "passes": 4, 
+            "fails": 44, 
+            "skipped": 1, 
+            "origins": {
+                "tce": {
+                    "passes": 0, 
+                    "fails": 10, 
+                    "skipped": 1, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "tce_dead_store", 
+                        "tce_dead_store_negate_zero", 
+                        "bisect_dead_store_alternate_implementations", 
+                        "capitalize", 
+                        "wrap", 
+                        "add_jodatime", 
+                        "pamvotis_dead_store", 
+                        "pamvotis_wider_comparison", 
+                        "triangle_classify", 
+                        "xstream_decode_fast_path"
+                    ], 
+                    "passed_tests": [], 
+                    "skipped_tests": [
+                        "math_post_fix_increment"
+                    ]
+                }, 
+                "tpcds_survey": {
+                    "passes": 2, 
+                    "fails": 5, 
+                    "skipped": 0, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "comparison", 
+                        "conditional", 
+                        "logical_op_short_circuit", 
+                        "math_sub", 
+                        "math_add"
+                    ], 
+                    "passed_tests": [
+                        "constant_folding_basic", 
+                        "logical_op"
+                    ], 
+                    "skipped_tests": []
+                }, 
+                "semantics preserving transformations": {
+                    "passes": 0, 
+                    "fails": 1, 
+                    "skipped": 0, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "for_loop_nothing"
+                    ], 
+                    "passed_tests": [], 
+                    "skipped_tests": []
+                }, 
+                "compiler_survey": {
+                    "passes": 0, 
+                    "fails": 41, 
+                    "skipped": 0, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "function_inlining_trivial", 
+                        "function_inlining_partial", 
+                        "common_subexpression_elimination", 
+                        "copy_propagation", 
+                        "constant_propagation", 
+                        "gcse_kill_load_store_in_loop", 
+                        "binary_operator_canonicalization", 
+                        "comparison_canonicalization", 
+                        "bitwise_canonicalization", 
+                        "tree_reassociation_subtraction_reassociation", 
+                        "tree_reassociation_linearization", 
+                        "tree_reassociation_operand_lists", 
+                        "tree_reassociation_repeated_factors", 
+                        "code_hoisting", 
+                        "partial_redundancy_elimination", 
+                        "forward_prop", 
+                        "full_redundancy_elimination", 
+                        "copy_propagation", 
+                        "interprocedural_constant_propagation", 
+                        "forward_store_motion", 
+                        "code_sinking_math", 
+                        "code_sinking_pure_function", 
+                        "constant_propagation_conditional", 
+                        "constant_propagation_conditional2", 
+                        "dead_code_elimination", 
+                        "dead_store_elimination", 
+                        "loop_unswitch", 
+                        "loop_unswitch_harder", 
+                        "loop_splitting", 
+                        "loop_interchange", 
+                        "loop_invariant_motion", 
+                        "loop_iv_strength_reduction", 
+                        "loop_iv_variable_merging", 
+                        "loop_iv_variable_elimination", 
+                        "loop_iv_canonicalization", 
+                        "straight_line_strength_reduction", 
+                        "value_range_propagation_ne", 
+                        "value_range_propagation_eq", 
+                        "value_range_propagation_lt", 
+                        "redundant_load_elimination", 
+                        "jump_threading"
+                    ], 
+                    "passed_tests": [], 
+                    "skipped_tests": []
+                }, 
+                "craig": {
+                    "passes": 2, 
+                    "fails": 1, 
+                    "skipped": 0, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "constant_folding_associativity"
+                    ], 
+                    "passed_tests": [
+                        "implicit_zero_comparison", 
+                        "pointer_deref_equivalence"
+                    ], 
+                    "skipped_tests": []
+                }
+            }, 
+            "soft_fail": 3, 
+            "soft_pass": 11, 
             "failed_tests": [], 
             "passed_tests": [], 
             "skipped_tests": []
@@ -6480,6 +7637,141 @@
             "passed_tests": [], 
             "skipped_tests": []
         }, 
+        "scala2.12.5_-opt": {
+            "passes": 9, 
+            "fails": 37, 
+            "skipped": 1, 
+            "origins": {
+                "tce": {
+                    "passes": 2, 
+                    "fails": 8, 
+                    "skipped": 1, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "tce_dead_store_negate_zero", 
+                        "bisect_dead_store_alternate_implementations", 
+                        "capitalize", 
+                        "wrap", 
+                        "add_jodatime", 
+                        "pamvotis_wider_comparison", 
+                        "triangle_classify", 
+                        "xstream_decode_fast_path"
+                    ], 
+                    "passed_tests": [
+                        "tce_dead_store", 
+                        "pamvotis_dead_store"
+                    ], 
+                    "skipped_tests": [
+                        "math_post_fix_increment"
+                    ]
+                }, 
+                "tpcds_survey": {
+                    "passes": 2, 
+                    "fails": 5, 
+                    "skipped": 0, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "comparison", 
+                        "conditional", 
+                        "logical_op_short_circuit", 
+                        "math_sub", 
+                        "math_add"
+                    ], 
+                    "passed_tests": [
+                        "constant_folding_basic", 
+                        "logical_op"
+                    ], 
+                    "skipped_tests": []
+                }, 
+                "semantics preserving transformations": {
+                    "passes": 0, 
+                    "fails": 1, 
+                    "skipped": 0, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "for_loop_nothing"
+                    ], 
+                    "passed_tests": [], 
+                    "skipped_tests": []
+                }, 
+                "compiler_survey": {
+                    "passes": 3, 
+                    "fails": 38, 
+                    "skipped": 0, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "function_inlining_trivial", 
+                        "function_inlining_partial", 
+                        "common_subexpression_elimination", 
+                        "constant_propagation", 
+                        "gcse_kill_load_store_in_loop", 
+                        "binary_operator_canonicalization", 
+                        "comparison_canonicalization", 
+                        "bitwise_canonicalization", 
+                        "tree_reassociation_subtraction_reassociation", 
+                        "tree_reassociation_linearization", 
+                        "tree_reassociation_operand_lists", 
+                        "tree_reassociation_repeated_factors", 
+                        "code_hoisting", 
+                        "partial_redundancy_elimination", 
+                        "full_redundancy_elimination", 
+                        "interprocedural_constant_propagation", 
+                        "forward_store_motion", 
+                        "code_sinking_math", 
+                        "code_sinking_pure_function", 
+                        "constant_propagation_conditional", 
+                        "constant_propagation_conditional2", 
+                        "dead_code_elimination", 
+                        "dead_store_elimination", 
+                        "loop_unswitch", 
+                        "loop_unswitch_harder", 
+                        "loop_splitting", 
+                        "loop_interchange", 
+                        "loop_invariant_motion", 
+                        "loop_iv_strength_reduction", 
+                        "loop_iv_variable_merging", 
+                        "loop_iv_variable_elimination", 
+                        "loop_iv_canonicalization", 
+                        "straight_line_strength_reduction", 
+                        "value_range_propagation_ne", 
+                        "value_range_propagation_eq", 
+                        "value_range_propagation_lt", 
+                        "redundant_load_elimination", 
+                        "jump_threading"
+                    ], 
+                    "passed_tests": [
+                        "copy_propagation", 
+                        "forward_prop", 
+                        "copy_propagation"
+                    ], 
+                    "skipped_tests": []
+                }, 
+                "craig": {
+                    "passes": 2, 
+                    "fails": 1, 
+                    "skipped": 0, 
+                    "soft_fail": 0, 
+                    "soft_pass": 0, 
+                    "failed_tests": [
+                        "constant_folding_associativity"
+                    ], 
+                    "passed_tests": [
+                        "implicit_zero_comparison", 
+                        "pointer_deref_equivalence"
+                    ], 
+                    "skipped_tests": []
+                }
+            }, 
+            "soft_fail": 5, 
+            "soft_pass": 11, 
+            "failed_tests": [], 
+            "passed_tests": [], 
+            "skipped_tests": []
+        }, 
         "gcc4.9_-O3": {
             "passes": 32, 
             "fails": 14, 
@@ -6920,6 +8212,46 @@
                 }
             }
         }, 
+        "scala2.11.11_-opt": {
+            "unique_hashes": 143, 
+            "origins": {
+                "tce": {
+                    "unique_hashes": 37
+                }, 
+                "tpcds_survey": {
+                    "unique_hashes": 15
+                }, 
+                "semantics preserving transformations": {
+                    "unique_hashes": 3
+                }, 
+                "compiler_survey": {
+                    "unique_hashes": 83
+                }, 
+                "craig": {
+                    "unique_hashes": 5
+                }
+            }
+        }, 
+        "scala2.12.5": {
+            "unique_hashes": 147, 
+            "origins": {
+                "tce": {
+                    "unique_hashes": 39
+                }, 
+                "tpcds_survey": {
+                    "unique_hashes": 12
+                }, 
+                "semantics preserving transformations": {
+                    "unique_hashes": 3
+                }, 
+                "compiler_survey": {
+                    "unique_hashes": 88
+                }, 
+                "craig": {
+                    "unique_hashes": 5
+                }
+            }
+        }, 
         "clang5_-O3": {
             "unique_hashes": 94, 
             "origins": {
@@ -7054,6 +8386,26 @@
                 }, 
                 "compiler_survey": {
                     "unique_hashes": 88
+                }, 
+                "craig": {
+                    "unique_hashes": 5
+                }
+            }
+        }, 
+        "scala2.12.5_-opt": {
+            "unique_hashes": 139, 
+            "origins": {
+                "tce": {
+                    "unique_hashes": 36
+                }, 
+                "tpcds_survey": {
+                    "unique_hashes": 12
+                }, 
+                "semantics preserving transformations": {
+                    "unique_hashes": 3
+                }, 
+                "compiler_survey": {
+                    "unique_hashes": 83
                 }, 
                 "craig": {
                     "unique_hashes": 5

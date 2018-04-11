@@ -247,7 +247,7 @@ class JavaCompiler(Compiler):
 
             # read the bytecode off the class
             class_file = variant_path + ".class"
-            bytecode_cmd = "../scala/udf-hash/cli.sh {} > {}".format(class_file, asm_path)
+            bytecode_cmd = "../udf-hash/cli.sh {} > {}".format(class_file, asm_path)
             res = subprocess_exception_catch(bytecode_cmd)
             if not res:
                 return False
@@ -257,14 +257,20 @@ class JavaCompiler(Compiler):
         return asm_json['mergedHash']
 
 class ScalaCompiler(Compiler):
-    def __init__(self, path):
-        self.compiler_template = "{path} {variant_path}.scala -d {dir}"
+    def __init__(self, path, opt=False):
+        if opt:
+            opt = "-optimise"
+        else:
+            opt = ""
+        self.compiler_template = "{path} {variant_path}.scala -d {dir} "+opt
 
         self.path = path
         self.version = subprocess.check_output("{} -version 2>&1 | awk '{{print $4}}'".format(path), shell=True, stderr=subprocess.STDOUT)
         self.version = self.version.strip(' \n\t')
         self.version = self.version.replace(' ', '')
         self.version = "scala"+self.version
+        if opt:
+            self.version += "_-opt"
         pass
 
     def name(self):
@@ -372,7 +378,7 @@ class ScalaCompiler(Compiler):
 
             # read the bytecode off the class
             class_file = variant_path + ".class"
-            bytecode_cmd = "../scala/udf-hash/cli.sh {} > {}".format(class_file, asm_path)
+            bytecode_cmd = "../udf-hash/cli.sh {} > {}".format(class_file, asm_path)
             print bytecode_cmd
             res = subprocess_exception_catch(bytecode_cmd)
             if not res:
@@ -385,7 +391,9 @@ class ScalaCompiler(Compiler):
 CompilerDefinitions = [
     JavaCompiler("javac"),
     ScalaCompiler("scalac"),
+    ScalaCompiler("scalac", opt=True),
     ScalaCompiler("./compilers/scala-2.12.5/bin/scalac"),
+    ScalaCompiler("./compilers/scala-2.12.5/bin/scalac", opt=True),
     CCompiler('gcc4.9', '-O0'),
     CCompiler('gcc4.9', '-O3'),
     CCompiler('gcc7', '-O0'),
