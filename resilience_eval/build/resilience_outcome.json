@@ -4,9 +4,9 @@
             "total_programs": 11, 
             "total_variants": 42
         }, 
-        "tpcds_survey": {
-            "total_programs": 7, 
-            "total_variants": 21
+        "craig": {
+            "total_programs": 4, 
+            "total_variants": 13
         }, 
         "semantics preserving transformations": {
             "total_programs": 1, 
@@ -16,12 +16,113 @@
             "total_programs": 41, 
             "total_variants": 92
         }, 
-        "craig": {
-            "total_programs": 3, 
-            "total_variants": 10
+        "tpcds_survey": {
+            "total_programs": 7, 
+            "total_variants": 21
         }
     }, 
     "programs": [
+        {
+            "origin": "craig", 
+            "return": "", 
+            "name": "whitespace", 
+            "program_hashes": {
+                "clang6_-O0": [
+                    "cd309a148a4306321f3c07c26e20594b7cd6b3ca6dee8b8a6a9b891673bb1808", 
+                    "cd309a148a4306321f3c07c26e20594b7cd6b3ca6dee8b8a6a9b891673bb1808", 
+                    "cd309a148a4306321f3c07c26e20594b7cd6b3ca6dee8b8a6a9b891673bb1808"
+                ], 
+                "clang6_-O3": [
+                    "7bd7e24a7c3768c913211989a20b82ebd2580162843a8c94dc0c18f1e0b832b5", 
+                    "7bd7e24a7c3768c913211989a20b82ebd2580162843a8c94dc0c18f1e0b832b5", 
+                    "7bd7e24a7c3768c913211989a20b82ebd2580162843a8c94dc0c18f1e0b832b5"
+                ], 
+                "scala2.11.11_-opt": [
+                    "bc:fBgtl7mh6qNBe-npS-qSam6QPBmWpswipWPuS1XtcY0_pr:none", 
+                    "bc:fBgtl7mh6qNBe-npS-qSam6QPBmWpswipWPuS1XtcY0_pr:none", 
+                    "bc:fBgtl7mh6qNBe-npS-qSam6QPBmWpswipWPuS1XtcY0_pr:none"
+                ], 
+                "scala2.12.5": [
+                    "bc:hVvhX5xmW99qmu9BZPm7atQfefwl_wK4k-5Udx9rgWk_pr:none", 
+                    "bc:hVvhX5xmW99qmu9BZPm7atQfefwl_wK4k-5Udx9rgWk_pr:none", 
+                    "bc:hVvhX5xmW99qmu9BZPm7atQfefwl_wK4k-5Udx9rgWk_pr:none"
+                ], 
+                "clang5_-O3": [
+                    "ccafaa8963f4224bd0a6a73a67e95383cfb56926d14ce633c2cb99bdbf28703b", 
+                    "ccafaa8963f4224bd0a6a73a67e95383cfb56926d14ce633c2cb99bdbf28703b", 
+                    "ccafaa8963f4224bd0a6a73a67e95383cfb56926d14ce633c2cb99bdbf28703b"
+                ], 
+                "gcc7_-O0": [
+                    "c80e38fe2be4f69fc1f5c6caaa4cae28d10e46e70334393a8836a987fabbc7f7", 
+                    "c80e38fe2be4f69fc1f5c6caaa4cae28d10e46e70334393a8836a987fabbc7f7", 
+                    "c80e38fe2be4f69fc1f5c6caaa4cae28d10e46e70334393a8836a987fabbc7f7"
+                ], 
+                "gcc7_-O3": [
+                    "d40ed6e5ad7e675add8af538f444ac612cadeaa1c9586f1eaf9d27577e578315", 
+                    "d40ed6e5ad7e675add8af538f444ac612cadeaa1c9586f1eaf9d27577e578315", 
+                    "d40ed6e5ad7e675add8af538f444ac612cadeaa1c9586f1eaf9d27577e578315"
+                ], 
+                "clang5_-O0": [
+                    "064255fb75e8ea5a8491a461b1211679e417a5bd5796805336b3be86f71d6a3c", 
+                    "064255fb75e8ea5a8491a461b1211679e417a5bd5796805336b3be86f71d6a3c", 
+                    "064255fb75e8ea5a8491a461b1211679e417a5bd5796805336b3be86f71d6a3c"
+                ], 
+                "scala2.11.11": [
+                    "bc:OvZ1-BUf6rWtYmf5yecnPSV5iCxO22HimsOOXVmhOwE_pr:none", 
+                    "bc:OvZ1-BUf6rWtYmf5yecnPSV5iCxO22HimsOOXVmhOwE_pr:none", 
+                    "bc:OvZ1-BUf6rWtYmf5yecnPSV5iCxO22HimsOOXVmhOwE_pr:none"
+                ], 
+                "clang7_-O0": [
+                    "cd309a148a4306321f3c07c26e20594b7cd6b3ca6dee8b8a6a9b891673bb1808", 
+                    "cd309a148a4306321f3c07c26e20594b7cd6b3ca6dee8b8a6a9b891673bb1808", 
+                    "cd309a148a4306321f3c07c26e20594b7cd6b3ca6dee8b8a6a9b891673bb1808"
+                ], 
+                "javac1.8.0_66": [
+                    "bc:lDuTRTBoAJloHhKy9bR9Tj3pyOsw3PtfQrf05JKzFks_pr:none", 
+                    "bc:lDuTRTBoAJloHhKy9bR9Tj3pyOsw3PtfQrf05JKzFks_pr:none", 
+                    "bc:lDuTRTBoAJloHhKy9bR9Tj3pyOsw3PtfQrf05JKzFks_pr:none"
+                ], 
+                "gcc4.9_-O0": [
+                    "64edadb68e490f8c062b9de829484c445637938013d433bfd119915cfd875d80", 
+                    "64edadb68e490f8c062b9de829484c445637938013d433bfd119915cfd875d80", 
+                    "64edadb68e490f8c062b9de829484c445637938013d433bfd119915cfd875d80"
+                ], 
+                "gcc4.9_-O3": [
+                    "5f2471c81880e12f78b20c41a1af81c773ce6d9a56efb1acac7cceb8f0715674", 
+                    "5f2471c81880e12f78b20c41a1af81c773ce6d9a56efb1acac7cceb8f0715674", 
+                    "5f2471c81880e12f78b20c41a1af81c773ce6d9a56efb1acac7cceb8f0715674"
+                ], 
+                "clang7_-O3": [
+                    "7bd7e24a7c3768c913211989a20b82ebd2580162843a8c94dc0c18f1e0b832b5", 
+                    "7bd7e24a7c3768c913211989a20b82ebd2580162843a8c94dc0c18f1e0b832b5", 
+                    "7bd7e24a7c3768c913211989a20b82ebd2580162843a8c94dc0c18f1e0b832b5"
+                ], 
+                "scala2.12.5_-opt": [
+                    "bc:J4MBalHzjwO_kIvrkQIhUcQeOkjh15rv_lXcdOLXYvQ_pr:none", 
+                    "bc:J4MBalHzjwO_kIvrkQIhUcQeOkjh15rv_lXcdOLXYvQ_pr:none", 
+                    "bc:J4MBalHzjwO_kIvrkQIhUcQeOkjh15rv_lXcdOLXYvQ_pr:none"
+                ]
+            }, 
+            "input_types": [
+                "int", 
+                "int"
+            ], 
+            "return_type": "int", 
+            "variants": [
+                {
+                    "code": "int x = input0; int y = input1; return      x     +      y     ;", 
+                    "_idx": 0
+                }, 
+                {
+                    "code": "int x = input0; int y = input1; return x + /*hello world*/ y;", 
+                    "_idx": 1
+                }, 
+                {
+                    "code": "int w = input0; int z = input1; return w     + z;", 
+                    "_idx": 2
+                }
+            ]
+        }, 
         {
             "origin": "tpcds_survey", 
             "name": "constant_folding_basic", 
@@ -6165,10 +6266,10 @@
             ]
         }
     ], 
-    "total_programs": 63, 
+    "total_programs": 64, 
     "total_compiler_pass_fail": {
         "clang6_-O0": {
-            "passes": 4, 
+            "passes": 5, 
             "fails": 45, 
             "skipped": 0, 
             "origins": {
@@ -6194,22 +6295,19 @@
                     "passed_tests": [], 
                     "skipped_tests": []
                 }, 
-                "tpcds_survey": {
-                    "passes": 1, 
-                    "fails": 6, 
+                "craig": {
+                    "passes": 3, 
+                    "fails": 1, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
                     "failed_tests": [
-                        "comparison", 
-                        "conditional", 
-                        "logical_op", 
-                        "logical_op_short_circuit", 
-                        "math_sub", 
-                        "math_add"
+                        "constant_folding_associativity"
                     ], 
                     "passed_tests": [
-                        "constant_folding_basic"
+                        "whitespace", 
+                        "implicit_zero_comparison", 
+                        "pointer_deref_equivalence"
                     ], 
                     "skipped_tests": []
                 }, 
@@ -6278,18 +6376,22 @@
                     ], 
                     "skipped_tests": []
                 }, 
-                "craig": {
-                    "passes": 2, 
-                    "fails": 1, 
+                "tpcds_survey": {
+                    "passes": 1, 
+                    "fails": 6, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
                     "failed_tests": [
-                        "constant_folding_associativity"
+                        "comparison", 
+                        "conditional", 
+                        "logical_op", 
+                        "logical_op_short_circuit", 
+                        "math_sub", 
+                        "math_add"
                     ], 
                     "passed_tests": [
-                        "implicit_zero_comparison", 
-                        "pointer_deref_equivalence"
+                        "constant_folding_basic"
                     ], 
                     "skipped_tests": []
                 }
@@ -6301,7 +6403,7 @@
             "skipped_tests": []
         }, 
         "clang6_-O3": {
-            "passes": 45, 
+            "passes": 46, 
             "fails": 3, 
             "skipped": 0, 
             "origins": {
@@ -6328,22 +6430,18 @@
                     ], 
                     "skipped_tests": []
                 }, 
-                "tpcds_survey": {
-                    "passes": 6, 
-                    "fails": 1, 
+                "craig": {
+                    "passes": 4, 
+                    "fails": 0, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
-                    "failed_tests": [
-                        "logical_op_short_circuit"
-                    ], 
+                    "failed_tests": [], 
                     "passed_tests": [
-                        "constant_folding_basic", 
-                        "comparison", 
-                        "conditional", 
-                        "logical_op", 
-                        "math_sub", 
-                        "math_add"
+                        "whitespace", 
+                        "constant_folding_associativity", 
+                        "implicit_zero_comparison", 
+                        "pointer_deref_equivalence"
                     ], 
                     "skipped_tests": []
                 }, 
@@ -6412,17 +6510,22 @@
                     ], 
                     "skipped_tests": []
                 }, 
-                "craig": {
-                    "passes": 3, 
-                    "fails": 0, 
+                "tpcds_survey": {
+                    "passes": 6, 
+                    "fails": 1, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
-                    "failed_tests": [], 
+                    "failed_tests": [
+                        "logical_op_short_circuit"
+                    ], 
                     "passed_tests": [
-                        "constant_folding_associativity", 
-                        "implicit_zero_comparison", 
-                        "pointer_deref_equivalence"
+                        "constant_folding_basic", 
+                        "comparison", 
+                        "conditional", 
+                        "logical_op", 
+                        "math_sub", 
+                        "math_add"
                     ], 
                     "skipped_tests": []
                 }
@@ -6434,7 +6537,7 @@
             "skipped_tests": []
         }, 
         "scala2.11.11_-opt": {
-            "passes": 7, 
+            "passes": 8, 
             "fails": 39, 
             "skipped": 1, 
             "origins": {
@@ -6462,22 +6565,19 @@
                         "math_post_fix_increment"
                     ]
                 }, 
-                "tpcds_survey": {
-                    "passes": 1, 
-                    "fails": 6, 
+                "craig": {
+                    "passes": 3, 
+                    "fails": 1, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
                     "failed_tests": [
-                        "comparison", 
-                        "conditional", 
-                        "logical_op", 
-                        "logical_op_short_circuit", 
-                        "math_sub", 
-                        "math_add"
+                        "constant_folding_associativity"
                     ], 
                     "passed_tests": [
-                        "constant_folding_basic"
+                        "whitespace", 
+                        "implicit_zero_comparison", 
+                        "pointer_deref_equivalence"
                     ], 
                     "skipped_tests": []
                 }, 
@@ -6546,18 +6646,22 @@
                     ], 
                     "skipped_tests": []
                 }, 
-                "craig": {
-                    "passes": 2, 
-                    "fails": 1, 
+                "tpcds_survey": {
+                    "passes": 1, 
+                    "fails": 6, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
                     "failed_tests": [
-                        "constant_folding_associativity"
+                        "comparison", 
+                        "conditional", 
+                        "logical_op", 
+                        "logical_op_short_circuit", 
+                        "math_sub", 
+                        "math_add"
                     ], 
                     "passed_tests": [
-                        "implicit_zero_comparison", 
-                        "pointer_deref_equivalence"
+                        "constant_folding_basic"
                     ], 
                     "skipped_tests": []
                 }
@@ -6569,7 +6673,7 @@
             "skipped_tests": []
         }, 
         "scala2.12.5": {
-            "passes": 4, 
+            "passes": 5, 
             "fails": 44, 
             "skipped": 1, 
             "origins": {
@@ -6596,22 +6700,19 @@
                         "math_post_fix_increment"
                     ]
                 }, 
-                "tpcds_survey": {
-                    "passes": 2, 
-                    "fails": 5, 
+                "craig": {
+                    "passes": 3, 
+                    "fails": 1, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
                     "failed_tests": [
-                        "comparison", 
-                        "conditional", 
-                        "logical_op_short_circuit", 
-                        "math_sub", 
-                        "math_add"
+                        "constant_folding_associativity"
                     ], 
                     "passed_tests": [
-                        "constant_folding_basic", 
-                        "logical_op"
+                        "whitespace", 
+                        "implicit_zero_comparison", 
+                        "pointer_deref_equivalence"
                     ], 
                     "skipped_tests": []
                 }, 
@@ -6679,18 +6780,22 @@
                     "passed_tests": [], 
                     "skipped_tests": []
                 }, 
-                "craig": {
+                "tpcds_survey": {
                     "passes": 2, 
-                    "fails": 1, 
+                    "fails": 5, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
                     "failed_tests": [
-                        "constant_folding_associativity"
+                        "comparison", 
+                        "conditional", 
+                        "logical_op_short_circuit", 
+                        "math_sub", 
+                        "math_add"
                     ], 
                     "passed_tests": [
-                        "implicit_zero_comparison", 
-                        "pointer_deref_equivalence"
+                        "constant_folding_basic", 
+                        "logical_op"
                     ], 
                     "skipped_tests": []
                 }
@@ -6702,7 +6807,7 @@
             "skipped_tests": []
         }, 
         "clang5_-O3": {
-            "passes": 44, 
+            "passes": 45, 
             "fails": 4, 
             "skipped": 0, 
             "origins": {
@@ -6729,22 +6834,18 @@
                     ], 
                     "skipped_tests": []
                 }, 
-                "tpcds_survey": {
-                    "passes": 6, 
-                    "fails": 1, 
+                "craig": {
+                    "passes": 4, 
+                    "fails": 0, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
-                    "failed_tests": [
-                        "logical_op_short_circuit"
-                    ], 
+                    "failed_tests": [], 
                     "passed_tests": [
-                        "constant_folding_basic", 
-                        "comparison", 
-                        "conditional", 
-                        "logical_op", 
-                        "math_sub", 
-                        "math_add"
+                        "whitespace", 
+                        "constant_folding_associativity", 
+                        "implicit_zero_comparison", 
+                        "pointer_deref_equivalence"
                     ], 
                     "skipped_tests": []
                 }, 
@@ -6813,17 +6914,22 @@
                     ], 
                     "skipped_tests": []
                 }, 
-                "craig": {
-                    "passes": 3, 
-                    "fails": 0, 
+                "tpcds_survey": {
+                    "passes": 6, 
+                    "fails": 1, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
-                    "failed_tests": [], 
+                    "failed_tests": [
+                        "logical_op_short_circuit"
+                    ], 
                     "passed_tests": [
-                        "constant_folding_associativity", 
-                        "implicit_zero_comparison", 
-                        "pointer_deref_equivalence"
+                        "constant_folding_basic", 
+                        "comparison", 
+                        "conditional", 
+                        "logical_op", 
+                        "math_sub", 
+                        "math_add"
                     ], 
                     "skipped_tests": []
                 }
@@ -6835,7 +6941,7 @@
             "skipped_tests": []
         }, 
         "gcc7_-O0": {
-            "passes": 12, 
+            "passes": 13, 
             "fails": 37, 
             "skipped": 0, 
             "origins": {
@@ -6861,22 +6967,18 @@
                     "passed_tests": [], 
                     "skipped_tests": []
                 }, 
-                "tpcds_survey": {
+                "craig": {
                     "passes": 4, 
-                    "fails": 3, 
+                    "fails": 0, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
-                    "failed_tests": [
-                        "conditional", 
-                        "logical_op_short_circuit", 
-                        "math_add"
-                    ], 
+                    "failed_tests": [], 
                     "passed_tests": [
-                        "constant_folding_basic", 
-                        "comparison", 
-                        "logical_op", 
-                        "math_sub"
+                        "whitespace", 
+                        "constant_folding_associativity", 
+                        "implicit_zero_comparison", 
+                        "pointer_deref_equivalence"
                     ], 
                     "skipped_tests": []
                 }, 
@@ -6945,17 +7047,22 @@
                     ], 
                     "skipped_tests": []
                 }, 
-                "craig": {
-                    "passes": 3, 
-                    "fails": 0, 
+                "tpcds_survey": {
+                    "passes": 4, 
+                    "fails": 3, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
-                    "failed_tests": [], 
+                    "failed_tests": [
+                        "conditional", 
+                        "logical_op_short_circuit", 
+                        "math_add"
+                    ], 
                     "passed_tests": [
-                        "constant_folding_associativity", 
-                        "implicit_zero_comparison", 
-                        "pointer_deref_equivalence"
+                        "constant_folding_basic", 
+                        "comparison", 
+                        "logical_op", 
+                        "math_sub"
                     ], 
                     "skipped_tests": []
                 }
@@ -6967,7 +7074,7 @@
             "skipped_tests": []
         }, 
         "gcc7_-O3": {
-            "passes": 34, 
+            "passes": 35, 
             "fails": 12, 
             "skipped": 0, 
             "origins": {
@@ -6994,22 +7101,18 @@
                     ], 
                     "skipped_tests": []
                 }, 
-                "tpcds_survey": {
+                "craig": {
                     "passes": 4, 
-                    "fails": 3, 
+                    "fails": 0, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
-                    "failed_tests": [
-                        "conditional", 
-                        "logical_op_short_circuit", 
-                        "math_add"
-                    ], 
+                    "failed_tests": [], 
                     "passed_tests": [
-                        "constant_folding_basic", 
-                        "comparison", 
-                        "logical_op", 
-                        "math_sub"
+                        "whitespace", 
+                        "constant_folding_associativity", 
+                        "implicit_zero_comparison", 
+                        "pointer_deref_equivalence"
                     ], 
                     "skipped_tests": []
                 }, 
@@ -7078,17 +7181,22 @@
                     ], 
                     "skipped_tests": []
                 }, 
-                "craig": {
-                    "passes": 3, 
-                    "fails": 0, 
+                "tpcds_survey": {
+                    "passes": 4, 
+                    "fails": 3, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
-                    "failed_tests": [], 
+                    "failed_tests": [
+                        "conditional", 
+                        "logical_op_short_circuit", 
+                        "math_add"
+                    ], 
                     "passed_tests": [
-                        "constant_folding_associativity", 
-                        "implicit_zero_comparison", 
-                        "pointer_deref_equivalence"
+                        "constant_folding_basic", 
+                        "comparison", 
+                        "logical_op", 
+                        "math_sub"
                     ], 
                     "skipped_tests": []
                 }
@@ -7100,7 +7208,7 @@
             "skipped_tests": []
         }, 
         "clang5_-O0": {
-            "passes": 4, 
+            "passes": 5, 
             "fails": 45, 
             "skipped": 0, 
             "origins": {
@@ -7126,22 +7234,19 @@
                     "passed_tests": [], 
                     "skipped_tests": []
                 }, 
-                "tpcds_survey": {
-                    "passes": 1, 
-                    "fails": 6, 
+                "craig": {
+                    "passes": 3, 
+                    "fails": 1, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
                     "failed_tests": [
-                        "comparison", 
-                        "conditional", 
-                        "logical_op", 
-                        "logical_op_short_circuit", 
-                        "math_sub", 
-                        "math_add"
+                        "constant_folding_associativity"
                     ], 
                     "passed_tests": [
-                        "constant_folding_basic"
+                        "whitespace", 
+                        "implicit_zero_comparison", 
+                        "pointer_deref_equivalence"
                     ], 
                     "skipped_tests": []
                 }, 
@@ -7210,18 +7315,22 @@
                     ], 
                     "skipped_tests": []
                 }, 
-                "craig": {
-                    "passes": 2, 
-                    "fails": 1, 
+                "tpcds_survey": {
+                    "passes": 1, 
+                    "fails": 6, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
                     "failed_tests": [
-                        "constant_folding_associativity"
+                        "comparison", 
+                        "conditional", 
+                        "logical_op", 
+                        "logical_op_short_circuit", 
+                        "math_sub", 
+                        "math_add"
                     ], 
                     "passed_tests": [
-                        "implicit_zero_comparison", 
-                        "pointer_deref_equivalence"
+                        "constant_folding_basic"
                     ], 
                     "skipped_tests": []
                 }
@@ -7233,7 +7342,7 @@
             "skipped_tests": []
         }, 
         "scala2.11.11": {
-            "passes": 3, 
+            "passes": 4, 
             "fails": 45, 
             "skipped": 1, 
             "origins": {
@@ -7260,22 +7369,19 @@
                         "math_post_fix_increment"
                     ]
                 }, 
-                "tpcds_survey": {
-                    "passes": 1, 
-                    "fails": 6, 
+                "craig": {
+                    "passes": 3, 
+                    "fails": 1, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
                     "failed_tests": [
-                        "comparison", 
-                        "conditional", 
-                        "logical_op", 
-                        "logical_op_short_circuit", 
-                        "math_sub", 
-                        "math_add"
+                        "constant_folding_associativity"
                     ], 
                     "passed_tests": [
-                        "constant_folding_basic"
+                        "whitespace", 
+                        "implicit_zero_comparison", 
+                        "pointer_deref_equivalence"
                     ], 
                     "skipped_tests": []
                 }, 
@@ -7343,18 +7449,22 @@
                     "passed_tests": [], 
                     "skipped_tests": []
                 }, 
-                "craig": {
-                    "passes": 2, 
-                    "fails": 1, 
+                "tpcds_survey": {
+                    "passes": 1, 
+                    "fails": 6, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
                     "failed_tests": [
-                        "constant_folding_associativity"
+                        "comparison", 
+                        "conditional", 
+                        "logical_op", 
+                        "logical_op_short_circuit", 
+                        "math_sub", 
+                        "math_add"
                     ], 
                     "passed_tests": [
-                        "implicit_zero_comparison", 
-                        "pointer_deref_equivalence"
+                        "constant_folding_basic"
                     ], 
                     "skipped_tests": []
                 }
@@ -7366,7 +7476,7 @@
             "skipped_tests": []
         }, 
         "clang7_-O0": {
-            "passes": 4, 
+            "passes": 5, 
             "fails": 45, 
             "skipped": 0, 
             "origins": {
@@ -7392,22 +7502,19 @@
                     "passed_tests": [], 
                     "skipped_tests": []
                 }, 
-                "tpcds_survey": {
-                    "passes": 1, 
-                    "fails": 6, 
+                "craig": {
+                    "passes": 3, 
+                    "fails": 1, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
                     "failed_tests": [
-                        "comparison", 
-                        "conditional", 
-                        "logical_op", 
-                        "logical_op_short_circuit", 
-                        "math_sub", 
-                        "math_add"
+                        "constant_folding_associativity"
                     ], 
                     "passed_tests": [
-                        "constant_folding_basic"
+                        "whitespace", 
+                        "implicit_zero_comparison", 
+                        "pointer_deref_equivalence"
                     ], 
                     "skipped_tests": []
                 }, 
@@ -7476,18 +7583,22 @@
                     ], 
                     "skipped_tests": []
                 }, 
-                "craig": {
-                    "passes": 2, 
-                    "fails": 1, 
+                "tpcds_survey": {
+                    "passes": 1, 
+                    "fails": 6, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
                     "failed_tests": [
-                        "constant_folding_associativity"
+                        "comparison", 
+                        "conditional", 
+                        "logical_op", 
+                        "logical_op_short_circuit", 
+                        "math_sub", 
+                        "math_add"
                     ], 
                     "passed_tests": [
-                        "implicit_zero_comparison", 
-                        "pointer_deref_equivalence"
+                        "constant_folding_basic"
                     ], 
                     "skipped_tests": []
                 }
@@ -7499,7 +7610,7 @@
             "skipped_tests": []
         }, 
         "javac1.8.0_66": {
-            "passes": 4, 
+            "passes": 5, 
             "fails": 45, 
             "skipped": 0, 
             "origins": {
@@ -7525,22 +7636,19 @@
                     "passed_tests": [], 
                     "skipped_tests": []
                 }, 
-                "tpcds_survey": {
-                    "passes": 2, 
-                    "fails": 5, 
+                "craig": {
+                    "passes": 3, 
+                    "fails": 1, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
                     "failed_tests": [
-                        "comparison", 
-                        "conditional", 
-                        "logical_op_short_circuit", 
-                        "math_sub", 
-                        "math_add"
+                        "constant_folding_associativity"
                     ], 
                     "passed_tests": [
-                        "constant_folding_basic", 
-                        "logical_op"
+                        "whitespace", 
+                        "implicit_zero_comparison", 
+                        "pointer_deref_equivalence"
                     ], 
                     "skipped_tests": []
                 }, 
@@ -7608,18 +7716,22 @@
                     "passed_tests": [], 
                     "skipped_tests": []
                 }, 
-                "craig": {
+                "tpcds_survey": {
                     "passes": 2, 
-                    "fails": 1, 
+                    "fails": 5, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
                     "failed_tests": [
-                        "constant_folding_associativity"
+                        "comparison", 
+                        "conditional", 
+                        "logical_op_short_circuit", 
+                        "math_sub", 
+                        "math_add"
                     ], 
                     "passed_tests": [
-                        "implicit_zero_comparison", 
-                        "pointer_deref_equivalence"
+                        "constant_folding_basic", 
+                        "logical_op"
                     ], 
                     "skipped_tests": []
                 }
@@ -7631,7 +7743,7 @@
             "skipped_tests": []
         }, 
         "scala2.12.5_-opt": {
-            "passes": 9, 
+            "passes": 10, 
             "fails": 37, 
             "skipped": 1, 
             "origins": {
@@ -7659,22 +7771,19 @@
                         "math_post_fix_increment"
                     ]
                 }, 
-                "tpcds_survey": {
-                    "passes": 2, 
-                    "fails": 5, 
+                "craig": {
+                    "passes": 3, 
+                    "fails": 1, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
                     "failed_tests": [
-                        "comparison", 
-                        "conditional", 
-                        "logical_op_short_circuit", 
-                        "math_sub", 
-                        "math_add"
+                        "constant_folding_associativity"
                     ], 
                     "passed_tests": [
-                        "constant_folding_basic", 
-                        "logical_op"
+                        "whitespace", 
+                        "implicit_zero_comparison", 
+                        "pointer_deref_equivalence"
                     ], 
                     "skipped_tests": []
                 }, 
@@ -7743,18 +7852,22 @@
                     ], 
                     "skipped_tests": []
                 }, 
-                "craig": {
+                "tpcds_survey": {
                     "passes": 2, 
-                    "fails": 1, 
+                    "fails": 5, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
                     "failed_tests": [
-                        "constant_folding_associativity"
+                        "comparison", 
+                        "conditional", 
+                        "logical_op_short_circuit", 
+                        "math_sub", 
+                        "math_add"
                     ], 
                     "passed_tests": [
-                        "implicit_zero_comparison", 
-                        "pointer_deref_equivalence"
+                        "constant_folding_basic", 
+                        "logical_op"
                     ], 
                     "skipped_tests": []
                 }
@@ -7766,7 +7879,7 @@
             "skipped_tests": []
         }, 
         "gcc4.9_-O3": {
-            "passes": 32, 
+            "passes": 33, 
             "fails": 14, 
             "skipped": 0, 
             "origins": {
@@ -7793,22 +7906,18 @@
                     ], 
                     "skipped_tests": []
                 }, 
-                "tpcds_survey": {
-                    "passes": 5, 
-                    "fails": 2, 
+                "craig": {
+                    "passes": 4, 
+                    "fails": 0, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
-                    "failed_tests": [
-                        "logical_op_short_circuit", 
-                        "math_add"
-                    ], 
+                    "failed_tests": [], 
                     "passed_tests": [
-                        "constant_folding_basic", 
-                        "comparison", 
-                        "conditional", 
-                        "logical_op", 
-                        "math_sub"
+                        "whitespace", 
+                        "constant_folding_associativity", 
+                        "implicit_zero_comparison", 
+                        "pointer_deref_equivalence"
                     ], 
                     "skipped_tests": []
                 }, 
@@ -7877,17 +7986,22 @@
                     ], 
                     "skipped_tests": []
                 }, 
-                "craig": {
-                    "passes": 3, 
-                    "fails": 0, 
+                "tpcds_survey": {
+                    "passes": 5, 
+                    "fails": 2, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
-                    "failed_tests": [], 
+                    "failed_tests": [
+                        "logical_op_short_circuit", 
+                        "math_add"
+                    ], 
                     "passed_tests": [
-                        "constant_folding_associativity", 
-                        "implicit_zero_comparison", 
-                        "pointer_deref_equivalence"
+                        "constant_folding_basic", 
+                        "comparison", 
+                        "conditional", 
+                        "logical_op", 
+                        "math_sub"
                     ], 
                     "skipped_tests": []
                 }
@@ -7899,7 +8013,7 @@
             "skipped_tests": []
         }, 
         "clang7_-O3": {
-            "passes": 46, 
+            "passes": 47, 
             "fails": 2, 
             "skipped": 0, 
             "origins": {
@@ -7926,22 +8040,18 @@
                     ], 
                     "skipped_tests": []
                 }, 
-                "tpcds_survey": {
-                    "passes": 6, 
-                    "fails": 1, 
+                "craig": {
+                    "passes": 4, 
+                    "fails": 0, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
-                    "failed_tests": [
-                        "logical_op_short_circuit"
-                    ], 
+                    "failed_tests": [], 
                     "passed_tests": [
-                        "constant_folding_basic", 
-                        "comparison", 
-                        "conditional", 
-                        "logical_op", 
-                        "math_sub", 
-                        "math_add"
+                        "whitespace", 
+                        "constant_folding_associativity", 
+                        "implicit_zero_comparison", 
+                        "pointer_deref_equivalence"
                     ], 
                     "skipped_tests": []
                 }, 
@@ -8010,17 +8120,22 @@
                     ], 
                     "skipped_tests": []
                 }, 
-                "craig": {
-                    "passes": 3, 
-                    "fails": 0, 
+                "tpcds_survey": {
+                    "passes": 6, 
+                    "fails": 1, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
-                    "failed_tests": [], 
+                    "failed_tests": [
+                        "logical_op_short_circuit"
+                    ], 
                     "passed_tests": [
-                        "constant_folding_associativity", 
-                        "implicit_zero_comparison", 
-                        "pointer_deref_equivalence"
+                        "constant_folding_basic", 
+                        "comparison", 
+                        "conditional", 
+                        "logical_op", 
+                        "math_sub", 
+                        "math_add"
                     ], 
                     "skipped_tests": []
                 }
@@ -8032,7 +8147,7 @@
             "skipped_tests": []
         }, 
         "gcc4.9_-O0": {
-            "passes": 11, 
+            "passes": 12, 
             "fails": 38, 
             "skipped": 0, 
             "origins": {
@@ -8058,22 +8173,18 @@
                     "passed_tests": [], 
                     "skipped_tests": []
                 }, 
-                "tpcds_survey": {
+                "craig": {
                     "passes": 4, 
-                    "fails": 3, 
+                    "fails": 0, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
-                    "failed_tests": [
-                        "conditional", 
-                        "logical_op_short_circuit", 
-                        "math_add"
-                    ], 
+                    "failed_tests": [], 
                     "passed_tests": [
-                        "constant_folding_basic", 
-                        "comparison", 
-                        "logical_op", 
-                        "math_sub"
+                        "whitespace", 
+                        "constant_folding_associativity", 
+                        "implicit_zero_comparison", 
+                        "pointer_deref_equivalence"
                     ], 
                     "skipped_tests": []
                 }, 
@@ -8142,17 +8253,22 @@
                     ], 
                     "skipped_tests": []
                 }, 
-                "craig": {
-                    "passes": 3, 
-                    "fails": 0, 
+                "tpcds_survey": {
+                    "passes": 4, 
+                    "fails": 3, 
                     "skipped": 0, 
                     "soft_fail": 0, 
                     "soft_pass": 0, 
-                    "failed_tests": [], 
+                    "failed_tests": [
+                        "conditional", 
+                        "logical_op_short_circuit", 
+                        "math_add"
+                    ], 
                     "passed_tests": [
-                        "constant_folding_associativity", 
-                        "implicit_zero_comparison", 
-                        "pointer_deref_equivalence"
+                        "constant_folding_basic", 
+                        "comparison", 
+                        "logical_op", 
+                        "math_sub"
                     ], 
                     "skipped_tests": []
                 }
@@ -8166,13 +8282,13 @@
     }, 
     "total_compiler_results": {
         "clang6_-O0": {
-            "unique_hashes": 152, 
+            "unique_hashes": 153, 
             "origins": {
                 "tce": {
                     "unique_hashes": 42
                 }, 
-                "tpcds_survey": {
-                    "unique_hashes": 16
+                "craig": {
+                    "unique_hashes": 5
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 3
@@ -8180,19 +8296,19 @@
                 "compiler_survey": {
                     "unique_hashes": 87
                 }, 
-                "craig": {
-                    "unique_hashes": 4
+                "tpcds_survey": {
+                    "unique_hashes": 16
                 }
             }
         }, 
         "clang6_-O3": {
-            "unique_hashes": 93, 
+            "unique_hashes": 94, 
             "origins": {
                 "tce": {
                     "unique_hashes": 29
                 }, 
-                "tpcds_survey": {
-                    "unique_hashes": 8
+                "craig": {
+                    "unique_hashes": 4
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 1
@@ -8200,19 +8316,19 @@
                 "compiler_survey": {
                     "unique_hashes": 52
                 }, 
-                "craig": {
-                    "unique_hashes": 3
+                "tpcds_survey": {
+                    "unique_hashes": 8
                 }
             }
         }, 
         "scala2.11.11_-opt": {
-            "unique_hashes": 143, 
+            "unique_hashes": 144, 
             "origins": {
                 "tce": {
                     "unique_hashes": 37
                 }, 
-                "tpcds_survey": {
-                    "unique_hashes": 15
+                "craig": {
+                    "unique_hashes": 6
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 3
@@ -8220,19 +8336,19 @@
                 "compiler_survey": {
                     "unique_hashes": 83
                 }, 
-                "craig": {
-                    "unique_hashes": 5
+                "tpcds_survey": {
+                    "unique_hashes": 15
                 }
             }
         }, 
         "scala2.12.5": {
-            "unique_hashes": 147, 
+            "unique_hashes": 148, 
             "origins": {
                 "tce": {
                     "unique_hashes": 39
                 }, 
-                "tpcds_survey": {
-                    "unique_hashes": 12
+                "craig": {
+                    "unique_hashes": 6
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 3
@@ -8240,19 +8356,19 @@
                 "compiler_survey": {
                     "unique_hashes": 88
                 }, 
-                "craig": {
-                    "unique_hashes": 5
+                "tpcds_survey": {
+                    "unique_hashes": 12
                 }
             }
         }, 
         "clang5_-O3": {
-            "unique_hashes": 94, 
+            "unique_hashes": 95, 
             "origins": {
                 "tce": {
                     "unique_hashes": 30
                 }, 
-                "tpcds_survey": {
-                    "unique_hashes": 8
+                "craig": {
+                    "unique_hashes": 4
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 1
@@ -8260,19 +8376,19 @@
                 "compiler_survey": {
                     "unique_hashes": 52
                 }, 
-                "craig": {
-                    "unique_hashes": 3
+                "tpcds_survey": {
+                    "unique_hashes": 8
                 }
             }
         }, 
         "gcc7_-O0": {
-            "unique_hashes": 138, 
+            "unique_hashes": 139, 
             "origins": {
                 "tce": {
                     "unique_hashes": 41
                 }, 
-                "tpcds_survey": {
-                    "unique_hashes": 10
+                "craig": {
+                    "unique_hashes": 4
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 3
@@ -8280,19 +8396,19 @@
                 "compiler_survey": {
                     "unique_hashes": 81
                 }, 
-                "craig": {
-                    "unique_hashes": 3
+                "tpcds_survey": {
+                    "unique_hashes": 10
                 }
             }
         }, 
         "gcc7_-O3": {
-            "unique_hashes": 100, 
+            "unique_hashes": 101, 
             "origins": {
                 "tce": {
                     "unique_hashes": 25
                 }, 
-                "tpcds_survey": {
-                    "unique_hashes": 10
+                "craig": {
+                    "unique_hashes": 4
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 1
@@ -8300,19 +8416,19 @@
                 "compiler_survey": {
                     "unique_hashes": 61
                 }, 
-                "craig": {
-                    "unique_hashes": 3
+                "tpcds_survey": {
+                    "unique_hashes": 10
                 }
             }
         }, 
         "clang5_-O0": {
-            "unique_hashes": 152, 
+            "unique_hashes": 153, 
             "origins": {
                 "tce": {
                     "unique_hashes": 42
                 }, 
-                "tpcds_survey": {
-                    "unique_hashes": 16
+                "craig": {
+                    "unique_hashes": 5
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 3
@@ -8320,19 +8436,19 @@
                 "compiler_survey": {
                     "unique_hashes": 87
                 }, 
-                "craig": {
-                    "unique_hashes": 4
+                "tpcds_survey": {
+                    "unique_hashes": 16
                 }
             }
         }, 
         "scala2.11.11": {
-            "unique_hashes": 150, 
+            "unique_hashes": 151, 
             "origins": {
                 "tce": {
                     "unique_hashes": 39
                 }, 
-                "tpcds_survey": {
-                    "unique_hashes": 15
+                "craig": {
+                    "unique_hashes": 6
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 3
@@ -8340,19 +8456,19 @@
                 "compiler_survey": {
                     "unique_hashes": 88
                 }, 
-                "craig": {
-                    "unique_hashes": 5
+                "tpcds_survey": {
+                    "unique_hashes": 15
                 }
             }
         }, 
         "clang7_-O0": {
-            "unique_hashes": 152, 
+            "unique_hashes": 153, 
             "origins": {
                 "tce": {
                     "unique_hashes": 42
                 }, 
-                "tpcds_survey": {
-                    "unique_hashes": 16
+                "craig": {
+                    "unique_hashes": 5
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 3
@@ -8360,19 +8476,19 @@
                 "compiler_survey": {
                     "unique_hashes": 87
                 }, 
-                "craig": {
-                    "unique_hashes": 4
+                "tpcds_survey": {
+                    "unique_hashes": 16
                 }
             }
         }, 
         "javac1.8.0_66": {
-            "unique_hashes": 150, 
+            "unique_hashes": 151, 
             "origins": {
                 "tce": {
                     "unique_hashes": 42
                 }, 
-                "tpcds_survey": {
-                    "unique_hashes": 12
+                "craig": {
+                    "unique_hashes": 6
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 3
@@ -8380,19 +8496,19 @@
                 "compiler_survey": {
                     "unique_hashes": 88
                 }, 
-                "craig": {
-                    "unique_hashes": 5
+                "tpcds_survey": {
+                    "unique_hashes": 12
                 }
             }
         }, 
         "scala2.12.5_-opt": {
-            "unique_hashes": 139, 
+            "unique_hashes": 140, 
             "origins": {
                 "tce": {
                     "unique_hashes": 36
                 }, 
-                "tpcds_survey": {
-                    "unique_hashes": 12
+                "craig": {
+                    "unique_hashes": 6
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 3
@@ -8400,19 +8516,19 @@
                 "compiler_survey": {
                     "unique_hashes": 83
                 }, 
-                "craig": {
-                    "unique_hashes": 5
+                "tpcds_survey": {
+                    "unique_hashes": 12
                 }
             }
         }, 
         "gcc4.9_-O3": {
-            "unique_hashes": 106, 
+            "unique_hashes": 107, 
             "origins": {
                 "tce": {
                     "unique_hashes": 31
                 }, 
-                "tpcds_survey": {
-                    "unique_hashes": 9
+                "craig": {
+                    "unique_hashes": 4
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 1
@@ -8420,19 +8536,19 @@
                 "compiler_survey": {
                     "unique_hashes": 62
                 }, 
-                "craig": {
-                    "unique_hashes": 3
+                "tpcds_survey": {
+                    "unique_hashes": 9
                 }
             }
         }, 
         "clang7_-O3": {
-            "unique_hashes": 92, 
+            "unique_hashes": 93, 
             "origins": {
                 "tce": {
                     "unique_hashes": 29
                 }, 
-                "tpcds_survey": {
-                    "unique_hashes": 8
+                "craig": {
+                    "unique_hashes": 4
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 1
@@ -8440,19 +8556,19 @@
                 "compiler_survey": {
                     "unique_hashes": 51
                 }, 
-                "craig": {
-                    "unique_hashes": 3
+                "tpcds_survey": {
+                    "unique_hashes": 8
                 }
             }
         }, 
         "gcc4.9_-O0": {
-            "unique_hashes": 139, 
+            "unique_hashes": 140, 
             "origins": {
                 "tce": {
                     "unique_hashes": 41
                 }, 
-                "tpcds_survey": {
-                    "unique_hashes": 10
+                "craig": {
+                    "unique_hashes": 4
                 }, 
                 "semantics preserving transformations": {
                     "unique_hashes": 3
@@ -8460,11 +8576,11 @@
                 "compiler_survey": {
                     "unique_hashes": 82
                 }, 
-                "craig": {
-                    "unique_hashes": 3
+                "tpcds_survey": {
+                    "unique_hashes": 10
                 }
             }
         }
     }, 
-    "total_variants": 168
+    "total_variants": 171
 }

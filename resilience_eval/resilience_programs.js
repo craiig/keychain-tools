@@ -1,6 +1,18 @@
 {
 	"programs": [
 		{
+			"name": "whitespace",
+			"origin": "craig",
+			"input_types": ["int", "int"],
+			"return": "",
+			"return_type": "int",
+			"variants": [
+				{ "code": "int x = input0; int y = input1; return      x     +      y     ;" }
+				, { "code": "int x = input0; int y = input1; return x + /*hello world*/ y;" }
+				, { "code": "int w = input0; int z = input1; return w     + z;" }
+			]
+		},
+		{
 			"name": "constant_folding basic",
 			"origin": "tpcds_survey",
 			"input_types": ["int"],
