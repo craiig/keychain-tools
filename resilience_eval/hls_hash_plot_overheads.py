@@ -40,7 +40,7 @@ def hls_plot(df, args):
         print "****"
         if len(df) > 0:
             #ax = g[0].plot(kind='scatter', x='bytes', y='took_ns', label=g[1])
-            ax.scatter(df.bytes, df.took_ns, s=50, label=g[1], marker=markers[idx],
+            ax.scatter(df.bytes, df.took_ns, s=100, label=g[1], marker=markers[idx],
                     edgecolor='black')#, linewidth=0.1)
     
     ax.set_ylabel("Time (ms)")
