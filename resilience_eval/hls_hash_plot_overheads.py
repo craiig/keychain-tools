@@ -13,6 +13,7 @@ def hls_plot(df, args):
     #print df
 
     #fdf = df.loc[df['took_ns'] >= 3e8 ]
+    matplotlib.style.use('grayscale')
 
     df['took_ns'] = df['took_ns'] / float(1e6)
 
@@ -39,7 +40,8 @@ def hls_plot(df, args):
         print "****"
         if len(df) > 0:
             #ax = g[0].plot(kind='scatter', x='bytes', y='took_ns', label=g[1])
-            ax.scatter(df.bytes, df.took_ns, label=g[1], marker=markers[idx])
+            ax.scatter(df.bytes, df.took_ns, s=50, label=g[1], marker=markers[idx],
+                    edgecolor='black')#, linewidth=0.1)
     
     ax.set_ylabel("Time (ms)")
     ax.set_xlabel("Bytes Hashed")
