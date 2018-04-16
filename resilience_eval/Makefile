@@ -14,7 +14,10 @@ charts: ./build/resilience_outcome.json test ./charts.py ./build/hashing_time.pd
 ./build/hash_overhead.csv: ./hls_hash_summarize_traces.py
 	./hls_hash_summarize_traces.py -f `find build/java -iname "*.bc"` `find build/scala -iname "*.bc"`  -o build/
 
-./build/hashing_time.pdf: ./build/hash_overhead.csv ./hls_hash_plot_overheads.py
+# we specially import build/hash_overhead.csv from a run on another system that
+# isn't thermally throttled like my laptop, so we just make it an ordering
+# dependency so we don't always over write it
+./build/hashing_time.pdf: ./hls_hash_plot_overheads.py | build/hash_overhead.csv
 	./hls_hash_plot_overheads.py -c build/hash_overhead.csv -o build/
 	
 build/:

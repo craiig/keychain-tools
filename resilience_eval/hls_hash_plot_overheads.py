@@ -6,14 +6,50 @@ import pandas as pd
 from pprint import pprint
 import matplotlib.pyplot as plt
 import matplotlib
+import matplotlib.markers
 
 def hls_plot(df, args):
     #plot data, spin off into different function later
-     print df
+    #print df
 
-     ax = df.plot(kind='scatter', x='bytes', y='took_ns', c='compiler')
-     path = os.path.join(args.output_dir, 'hashing_time.pdf')
-     plt.savefig(path, bbox_inches='tight', dpi=300)
+    #fdf = df.loc[df['took_ns'] >= 3e8 ]
+
+    df['took_ns'] = df['took_ns'] / float(1e6)
+
+    # on investigation with tableau found that the other factor is the number of 
+    #  functions hashed, in addition to bytes and data
+    groups = []
+    groups.append( (df.loc[df['functions_visited'] < 10], '< 10') )
+    groups.append( (df.loc[ (df['functions_visited'] >= 10) & (df['functions_visited']<30) ], '10-30') )
+    groups.append( (df.loc[ (df['functions_visited'] >= 30) & (df['functions_visited']<50) ], '30-50') )
+    groups.append( (df.loc[ (df['functions_visited'] >= 50) & (df['functions_visited']<70) ], '50-70') )
+    groups.append( (df.loc[ (df['functions_visited'] >= 70) & (df['functions_visited']<90) ], '70-90') )
+    groups.append( (df.loc[df['functions_visited'] > 90], '> 90 ') )
+
+    markers = matplotlib.markers.MarkerStyle.filled_markers
+    markers = ['o', "^", "s", "P", "X", "H"]
+
+    fig, ax = plt.subplots()
+    for idx,g in enumerate(groups):
+        df = g[0]
+        print "****"
+        print g[1]
+        print g[0]
+        print len(df)
+        print "****"
+        if len(df) > 0:
+            #ax = g[0].plot(kind='scatter', x='bytes', y='took_ns', label=g[1])
+            ax.scatter(df.bytes, df.took_ns, label=g[1], marker=markers[idx])
+    
+    ax.set_ylabel("Time (ms)")
+    ax.set_xlabel("Bytes Hashed")
+    ax.legend(loc='lower right', bbox_to_anchor=(1, 1), ncol=3, title="Functions Hashed")
+
+    plt.ylim(ymin=0)
+    plt.xlim(xmin=0)
+
+    path = os.path.join(args.output_dir, 'hashing_time.pdf')
+    plt.savefig(path, bbox_inches='tight', dpi=300)
 
 def main():
     parser = argparse.ArgumentParser(description='read HLS hash summary results and plot to pdf')
