@@ -6,15 +6,23 @@ import pandas as pd
 from pprint import pprint
 import matplotlib.pyplot as plt
 import matplotlib
+import re
 
-def hls_overheads(outcomes, args):
+def hls_overheads(args):
     summary = []
-    for o in outcomes:
+    #outcomes = [json.load(open(f)) for f in args.files]
+    for f in args.files:
+        o = json.load(open(f))
+
+        compiler_details = re.match("build/(.*?)/(.*?)/.*\.bc", f).groups()
+
         s = {
             "name": o['closureName']
             , 'took_ns': o['took_ns']
             , 'took_bytecode_ns': o['bytecode']['took_ns']
             , 'took_primitives_ns': o['primitives']['took_ns']
+            , 'language': compiler_details[0]
+            , 'compiler': compiler_details[1]
         }
         bytecode_length = 0
         primitive_length = 0
@@ -54,9 +62,7 @@ def main():
     parser.add_argument('--files', '-f', help='hls traces to summarize', required=True, nargs='+')
     args = parser.parse_args()
 
-    outcomes = [json.load(open(f)) for f in args.files]
-
-    hls_overheads(outcomes, args)
+    hls_overheads(args)
 
 if __name__ == "__main__":
     main()
