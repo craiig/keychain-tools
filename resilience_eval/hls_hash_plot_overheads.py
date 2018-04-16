@@ -45,7 +45,7 @@ def hls_plot(df, args):
     
     ax.set_ylabel("Time (ms)")
     ax.set_xlabel("Bytes Hashed")
-    ax.legend(loc='lower right', bbox_to_anchor=(1, 1), ncol=3, title="Functions Hashed")
+    ax.legend(loc='lower right', bbox_to_anchor=(1, 1), ncol=5, title="Functions Hashed")
 
     plt.ylim(ymin=0)
     plt.xlim(xmin=0)
