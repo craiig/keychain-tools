@@ -41,11 +41,12 @@ def hls_overheads(outcomes, args):
 
     #fdf = df.loc[df['took_ns'] >= 2e8 ]
     #print fdf
+    df.to_csv( os.path.join(args.output_dir, 'hash_overhead.csv'))
 
     #plot data, spin off into different function later
-    ax = df.plot(kind='scatter', x='bytes', y='took_ns')
-    path = os.path.join(args.output_dir, 'hashing_time.pdf')
-    plt.savefig(path, bbox_inches='tight', dpi=300)
+    # ax = df.plot(kind='scatter', x='bytes', y='took_ns')
+    # path = os.path.join(args.output_dir, 'hashing_time.pdf')
+    # plt.savefig(path, bbox_inches='tight', dpi=300)
 
 def main():
     parser = argparse.ArgumentParser(description='read HLS json traces and output some stats')

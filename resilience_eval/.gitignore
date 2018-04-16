@@ -1,2 +1,3 @@
 build/*
+!build/hash_overhead.csv
 !build/resilience_outcome.json
