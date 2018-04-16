@@ -16,6 +16,8 @@ def hls_overheads(args):
 
         compiler_details = re.match("build/(.*?)/(.*?)/.*\.bc", f).groups()
 
+        variant_name = re.sub("_\d+$", '', o['closureName'])
+
         s = {
             "name": o['closureName']
             , 'took_ns': o['took_ns']
@@ -23,6 +25,7 @@ def hls_overheads(args):
             , 'took_primitives_ns': o['primitives']['took_ns']
             , 'language': compiler_details[0]
             , 'compiler': compiler_details[1]
+            , 'variant': variant_name
         }
         bytecode_length = 0
         primitive_length = 0
