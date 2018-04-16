@@ -41,7 +41,7 @@ def hls_plot(df, args):
         if len(df) > 0:
             #ax = g[0].plot(kind='scatter', x='bytes', y='took_ns', label=g[1])
             ax.scatter(df.bytes, df.took_ns, s=100, label=g[1], marker=markers[idx],
-                    edgecolor='black')#, linewidth=0.1)
+                    edgecolor='grey')#, linewidth=0.1)
     
     ax.set_ylabel("Time (ms)")
     ax.set_xlabel("Bytes Hashed")
