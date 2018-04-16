@@ -27,6 +27,7 @@ def hls_overheads(args):
             , 'compiler': compiler_details[1]
             , 'variant': variant_name
         }
+        functions_visited = 0
         bytecode_length = 0
         primitive_length = 0
         #count length of bytecode
@@ -34,6 +35,7 @@ def hls_overheads(args):
             #pprint(t)
             #pprint( t['bytecode'])
             bytecode_length += len(t['bytecode'])
+            functions_visited += 1
 
         if o['primitives']['hashed_bytes'] != '':
             #print 'primitives added {}'.format( hb_len )
@@ -45,6 +47,7 @@ def hls_overheads(args):
         s['bytes'] = bytecode_length + primitive_length
         s['bytes_primitive'] = primitive_length
         s['bytes_bytecode'] = bytecode_length
+        s['functions_visited'] = functions_visited
 
         summary.append(s)
 
