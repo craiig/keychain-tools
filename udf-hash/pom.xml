@@ -127,19 +127,22 @@
           </execution>
         </executions>
       </plugin>
-	  <plugin>
-		  <groupId>org.apache.maven.plugins</groupId>
-		  <artifactId>maven-shade-plugin</artifactId>
-		  <version>1.6</version>
-		  <executions>
-			  <execution>
-				  <phase>package</phase>
-				  <goals>
-					  <goal>shade</goal>
-				  </goals>
-			  </execution>
-		  </executions>
-	  </plugin>
+	  <!-- shading conflicts with the spark build, so eventually we need to
+		   split CLI from the base udf hash library, but for now we just
+		   comment this out when we want to build with spark -->
+	  <!--<plugin>-->
+		  <!--<groupId>org.apache.maven.plugins</groupId>-->
+		  <!--<artifactId>maven-shade-plugin</artifactId>-->
+		  <!--<version>1.6</version>-->
+		  <!--<executions>-->
+			  <!--<execution>-->
+				  <!--<phase>package</phase>-->
+				  <!--<goals>-->
+					  <!--<goal>shade</goal>-->
+				  <!--</goals>-->
+			  <!--</execution>-->
+		  <!--</executions>-->
+	  <!--</plugin>-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
