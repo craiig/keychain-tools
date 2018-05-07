@@ -45,11 +45,11 @@ object ClosureHash extends Logging {
 
   def hash(func: AnyRef): Option[String] = {
     /* ignore the hash trace return, if present */
-    hashWithTrace(func).map( (x) => {x._1} )
+    hashWithTrace(func,false).map( (x) => {x._1} )
   }
-  def hashWithTrace(func: AnyRef): Option[(String, HashTraceMap)] = {
+  def hashWithTrace(func: AnyRef, trace:Boolean): Option[(String, HashTraceMap)] = {
     try {
-      hash_internal(func)
+      hash_internal(func, trace)
     } catch {
       /* IOException happens when a class we need to hash can't be found.  We
        * need to access the class but can't, so we can't produce a valid hash,
@@ -68,7 +68,7 @@ object ClosureHash extends Logging {
   }
 
   /* Internal hash method that returns a trace */
-  def hash_internal(func: AnyRef): Option[(String,HashTraceMap)] = {
+  def hash_internal(func: AnyRef, trace:Boolean): Option[(String,HashTraceMap)] = {
     var hashStart = System.nanoTime
 
     //if (!isClosure(func.getClass)) {
@@ -82,16 +82,17 @@ object ClosureHash extends Logging {
 
     /* first check to see if we've already hash the given ref */
     /* TODO potentially implement cache that stores callees seperately */
-    var bytecodeHashTraces = ListBuffer[HashTraceMap]()
+    
+    var bytecodeHashTraces = if(trace){ Some(ListBuffer[HashTraceMap]()) } else { None }
 
     var bytecodeHashbytes:Array[Byte] = hashCache get func.getClass.getName match {
       case Some(result) => {
         logInfo("Hash Cache hit for: " + func.getClass.getName)
-        bytecodeHashTraces += HashMap(
+        bytecodeHashTraces = bytecodeHashTraces map { _ += HashMap(
           "hashCacheHit"->true, 
           "name"-> func.getClass.getName, 
           "localHash" -> Base64.encodeBase64URLSafeString(result)
-        )
+        )}
         result
       }
       case None => {
@@ -102,9 +103,9 @@ object ClosureHash extends Logging {
 
           /* hash the given function */
           var hash = MessageDigest.getInstance(preferredHashType)
-          var bytecodeHashTrace = new HashTraceMap
+          var bytecodeHashTrace = bytecodeHashTraces map((_)=>{ new HashTraceMap })
           hashClass(func, hash, bytecodeHashTrace) 
-          bytecodeHashTraces += bytecodeHashTrace
+          bytecodeHashTraces map { _ += bytecodeHashTrace.get }
 
           /* hash the bytecode of all functions that this function calls */
           /* TODO rewrite this so we only call it once per class */
@@ -114,9 +115,9 @@ object ClosureHash extends Logging {
             false, Thread.currentThread.getContextClassLoader)
             logDebug(s"+++ hashing $clzname functions: ${ (cls._2, cls._3) }")
 
-            var bytecodeHashTrace:HashTraceMap = new HashTraceMap
+            var bytecodeHashTrace = bytecodeHashTraces map((_)=>{ new HashTraceMap })
             hashClass(obj, hash, bytecodeHashTrace, Set((cls._2, cls._3)) )
-            bytecodeHashTraces += bytecodeHashTrace
+            bytecodeHashTraces map { _ += bytecodeHashTrace.get }
           }
           val digest = hash.digest
           hashCache(func.getClass.getName) = digest
@@ -140,7 +141,7 @@ object ClosureHash extends Logging {
     val bos = new ByteArrayOutputStream()
     val dos = new DataOutputStream(bos)
     logTrace("Hash input primitives start for: " + func.getClass.getName)
-    val primitiveHashTrace = new HashTraceMap
+    val primitiveHashTrace = if(trace){ Some(new HashTraceMap) } else { None }
     hashInputPrimitives( func, dos, primitiveHashTrace )
     dos.close()
     logTrace(s"Primitive Bytes: ${ bos.toByteArray.mkString(",") } ")
@@ -168,17 +169,19 @@ object ClosureHash extends Logging {
     logInfo(s"Hashing Bytecode took: ${hashBytecodeStop - hashStart} ns closure:${func.getClass.getName}")
     logInfo(s"Hashing Primitives took: ${hashStop - hashPrimitivesStart} ns closure:${func.getClass.getName}")
 
+    var hashedBytes = if(trace){ bos.toByteArray.mkString(",") } else { "" }
+
     var overallHashTrace = HashMap(
       "closureName" -> func.getClass.getName,
       "bytecode"-> Map(
-        "trace"->bytecodeHashTraces,
+        "trace"->(bytecodeHashTraces getOrElse ""),
         "hash"->hashbytesenc,
         "took_ns"->(hashBytecodeStop - hashStart)
       ),
       "primitives"-> Map(
-        "trace"->primitiveHashTrace,
+        "trace"->(primitiveHashTrace getOrElse ""),
         "hash"->primitive_hash64,
-        "hashed_bytes"->bos.toByteArray.mkString(","),
+        "hashed_bytes"->hashedBytes,
         "took_ns"->(hashStop - hashPrimitivesStart)
       ),
       "mergedHash"->merged,
@@ -204,7 +207,7 @@ object ClosureHash extends Logging {
   type HashTraceMap = HashMap[String,Any]
   private def hashClass(obj: AnyRef,
     hashObj: MessageDigest,
-    hashTrace: HashTraceMap,
+    hashTrace: Option[HashTraceMap],
     funcList: Set[(String,String)] = Set()
     ): Unit  = {
      val anonymizeClass = true; //always anonymize the class
@@ -221,21 +224,22 @@ object ClosureHash extends Logging {
 
      /* build debug trace */
      var localHash = MessageDigest.getInstance(preferredHashType)
-     hashTrace += (
-       ("name" -> cn.name), 
-       ("outerClass" -> cn.outerClass),
-       ("outerMethod" -> cn.outerMethod),
-       ("outerMethodDesc" -> cn.outerMethodDesc),
-       ("signature" -> cn.signature),
-       ("superName" -> cn.superName)
-     )
+     hashTrace map { _ += (
+         ("name" -> cn.name), 
+         ("outerClass" -> cn.outerClass),
+         ("outerMethod" -> cn.outerMethod),
+         ("outerMethodDesc" -> cn.outerMethodDesc),
+         ("signature" -> cn.signature),
+         ("superName" -> cn.superName)
+       )
+     }
      
      for( f <- objcls.getDeclaredFields ){
        if (f.getName == "serialVersionUID"){
          try {
-           hashTrace += ("serialVersionUID" -> f.getLong(null).toString)
+           hashTrace map { _ += ("serialVersionUID" -> f.getLong(null).toString) }
          } catch {
-           case e: Exception => hashTrace += ("serialVersionUID" -> null)
+           case e: Exception => hashTrace map { _ += ("serialVersionUID" -> null) }
          }
        }
      }
@@ -363,8 +367,8 @@ object ClosureHash extends Logging {
        }
      }
 
-    hashTrace += ("bytecode" -> bytecode_string.toString)
-    hashTrace += ("localHash" -> Base64.encodeBase64URLSafeString(localHash.digest))
+    hashTrace map { _ += ("bytecode" -> bytecode_string.toString) }
+    hashTrace map { _ += ("localHash" -> Base64.encodeBase64URLSafeString(localHash.digest)) }
 
     //recurse into callees of the given function
   }
@@ -388,7 +392,7 @@ object ClosureHash extends Logging {
    */
   def hashInputPrimitives(func: AnyRef,
     dos: DataOutputStream,
-    hashTrace:HashTraceMap,
+    hashTrace:Option[HashTraceMap],
     visited:Set[Object] = Set[Object](),
     clz:Class[_] = null
   ):Unit = {
@@ -415,11 +419,12 @@ object ClosureHash extends Logging {
     logTrace(s"hashInputPrimitives: class: ${cl.getName}")
     /* trace enough so we can attribute differences in hashing to a FIELD */
     //var hashTrace:HashTraceMap = Map(
-    hashTrace += (
-      "class"->cl.getName, 
-      "fields"->ListBuffer[HashTraceMap](),
-      "children"->ListBuffer[HashTraceMap]()
-    )
+    hashTrace map { _ += (
+        "class"->cl.getName, 
+        "fields"->ListBuffer[HashTraceMap](),
+        "children"->ListBuffer[HashTraceMap]()
+      )
+    }
 
     for( f <- cl.getDeclaredFields ){
       f.setAccessible(true)
@@ -431,16 +436,17 @@ object ClosureHash extends Logging {
       logTrace(s"hashInputPrimitives:\tfield ${f.getName} type: ${fldtype.getName}")
       logTrace(s"hashInputPrimitives:\t\tstatic: ${static} primitive: ${primitive} type: ${fldtype.getName} transient: ${transient}")
 
-      var fieldTrace:HashTraceMap = HashMap( "name"->f.getName, "type"->fldtype.getName,
-        "static"->static, "primitive"->primitive, "transient"->transient )
+      var fieldTrace:Option[HashTraceMap] = hashTrace map((_) => { new HashTraceMap })
+      fieldTrace map { _ += ( "name"->f.getName, "type"->fldtype.getName,
+        "static"->static, "primitive"->primitive, "transient"->transient ) }
 
-      val fieldBytesTrace = ListBuffer[String]()
+      val fieldBytesTrace = hashTrace map ((_)=>{ListBuffer[String]()})
 
       val writeBytes = (output:DataOutputStream, thing:AnyRef, offset:Long, size:Integer) => {
         for(i <- 0 until size){
              val b = unsafe.getByte(thing.asInstanceOf[Object], offset+i)
              output.writeByte( b )
-             fieldBytesTrace += b.toString
+             fieldBytesTrace map { _ += b.toString }
              logTrace(s"hashInputPrimitives:\t\twriteBytes up to: ${output.size}")
         }
       }
@@ -451,7 +457,7 @@ object ClosureHash extends Logging {
         //if primitive, grab value
         if(primitive && !fldtype.isArray()){
           logTrace(s"hashInputPrimitives:\t\tadding to hash (primitive)")
-          fieldTrace += ("hashedAs"->"primitive")
+          fieldTrace map { _ += ("hashedAs"->"primitive") }
           if( fldtype == classOf[Byte] ){
             //dos.writeByte( unsafe.getByte(func.asInstanceOf[Object], offset) )
             writeBytes(dos, func, offset, 1)
@@ -489,14 +495,14 @@ object ClosureHash extends Logging {
             val indexScale = unsafe.arrayIndexScale( fldtype );
             logTrace(s"hashInputPrimitives:\tfield is array, value:${Value.mkString(",")} length: ${length} baseOffset: ${baseOffset} indexScale: ${indexScale}");
             logTrace(s"hashInputPrimitives:\t\tadding to hash (array)")
-            fieldTrace += ("hashedAs"->"array", "length"->length, "baseOffset"->baseOffset,
-              "indexScale"->indexScale, "value"->Value.mkString)
+            fieldTrace map { _ += ("hashedAs"->"array", "length"->length, "baseOffset"->baseOffset,
+              "indexScale"->indexScale, "value"->Value.mkString) }
 
             // if this is an array of objects (not primitives),
             // make sure we visit each one
             if(Value.isInstanceOf[Array[Object]]){
               logTrace(s"hashInputPrimitives:\t\twriting objects")
-              fieldTrace += ("elementsHashedAs"->"objects")
+              fieldTrace map { _ += ("elementsHashedAs"->"objects") }
               for(p <- Value.asInstanceOf[Array[Object]]){
                 if(p != null){
                   toVisit += p
@@ -504,7 +510,7 @@ object ClosureHash extends Logging {
               }
             } else {
               logTrace(s"hashInputPrimitives:\t\twriting raw bytes")
-              fieldTrace += ("elementsHashedAs"->"bytes")
+              fieldTrace map { _ += ("elementsHashedAs"->"bytes") }
               //primitive arrays get visited directly??
               //read the bytes of the array so that we don't have to infer type
               // this has a problem in that reading bytes gives different byte ordering
@@ -514,7 +520,7 @@ object ClosureHash extends Logging {
                 //byteArray(i) = unsafe.getByte( Value, baseOffset + i );
                 val b = unsafe.getByte( Value, baseOffset + i )
                 dos.writeByte( b )
-                fieldBytesTrace += b.toString
+                fieldBytesTrace map { _ += b.toString }
               }
             }
           }
@@ -525,35 +531,35 @@ object ClosureHash extends Logging {
           val p = f.get(func)
           if(p != null){
             logTrace(s"hashInputPrimitives:\t\tadding to visit list")
-            fieldTrace += ("hashedAs"->"visited")
+            fieldTrace map { _ += ("hashedAs"->"visited") }
             toVisit += p
           }
         }
       } else {
         //trace non visited fields
-        fieldTrace += ("hashedAs" -> "skipped")
+        fieldTrace map { _ += ("hashedAs" -> "skipped") }
       }
 
       //add field trace to the hash trace
-      fieldTrace += ("hashed_bytes" -> fieldBytesTrace.mkString(","))
-      hashTrace("fields").asInstanceOf[ListBuffer[HashTraceMap]] += fieldTrace
+      fieldTrace map { _ += ("hashed_bytes" -> fieldBytesTrace.mkString(",")) }
+      hashTrace map { _("fields").asInstanceOf[ListBuffer[HashTraceMap]] += fieldTrace.get }
     }
 
     logTrace(s"visit list: ${toVisit.mkString(",")}")
     for( p <- toVisit ){
       logTrace(s"visiting ${p}")
-      val childTrace = new HashTraceMap
+      val childTrace = hashTrace map((_) =>{new HashTraceMap})
       hashInputPrimitives(p, dos, childTrace, visited)
-      hashTrace("children").asInstanceOf[ListBuffer[HashTraceMap]] += childTrace
+      hashTrace map { _("children").asInstanceOf[ListBuffer[HashTraceMap]] += childTrace.get }
     }
 
     //TODO support externalizable objects?
 
     //follow the parent class desc
     if( cl.getSuperclass() != null ){
-      val childTrace = new HashTraceMap
+      val childTrace = hashTrace map((_) =>{new HashTraceMap})
       hashInputPrimitives(func, dos, childTrace, visited, cl.getSuperclass() )
-      hashTrace += ("superclass"->childTrace)
+      hashTrace map { _ += ("superclass"->childTrace.get) }
     }
   }
 

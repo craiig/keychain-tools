@@ -25,5 +25,25 @@ class Constants extends ClosureHashFunSpec {
       , (x:Int) => {2+x}
       , (x:Int) => {x+2}
     )
+    itShouldHashNoTrace("notrace-fold-right"
+      , (x:Int) => {x+2}
+      , (x:Int) => {x+1+1}
+    )
+    itShouldHashNoTrace("notrace-fold-right-assoc"
+      , (x:Int) => {x+2}
+      , (x:Int) => {x+(1+1)}
+    )
+    itShouldHashNoTrace("notrace-fold-left"
+      , (x:Int) => {2+x}
+      , (x:Int) => {1+1+x}
+    )
+    itShouldHashNoTrace("notrace-fold-left-assoc"
+      , (x:Int) => {2+x}
+      , (x:Int) => {(1+1)+x}
+    )
+    itShouldHashNoTrace("notrace-canonicalize-left-right"
+      , (x:Int) => {2+x}
+      , (x:Int) => {x+2}
+    )
   }
 }

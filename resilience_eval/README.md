@@ -1,4 +1,5 @@
 # Usage
+1. To inspect the variants we test, view: ```resilience_programs.js```
 1. ```make charts``` will generate the charts from the data contained in
    build/resilience_outcome.json
 1. to re-run all tests, run ```make clean``` first. To re-run all tests you'll
@@ -7,16 +8,15 @@
    build compilers for testing.
 
 ## Purpose 
-determine the state of syntactic resilience in different compilers with
+To determine the state of syntactic resilience in different compilers with
 benchmarks derived from data processing workloads and applicable compiler
 transformations.
 
-to demonstrate that compilers are resilient to many differences in syntax
+To demonstrate that compilers are resilient to many differences in syntax
 to find areas where some compilers could do better
 
 ## other projects
-Finding Missed Compiler Optimizations by
-Differential Testing
+'Finding Missed Compiler Optimizations by Differential Testing'
 and Csmith
 and TCE
 all use randomized testing to evaluate compilers.

@@ -61,7 +61,7 @@ object HashCLI {
     val instance = loaded.newInstance()
     val anyref_instance = instance.asInstanceOf[AnyRef]
 
-    val hash = ClosureHash.hashWithTrace(anyref_instance)
+    val hash = ClosureHash.hashWithTrace(anyref_instance, true)
     println(WriteJson(hash.get._2))
   }
 }

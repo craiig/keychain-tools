@@ -3,6 +3,7 @@ import org.scalatest.fixture.FunSpec
 import org.scalatest.fixture.TestDataFixture
 import org.scalatest.TestData
 import ca.ubc.ece.systems.{ClosureHash => ch}
+import scala.collection.mutable.HashMap
 
 //for JSON logging
 import org.json4s._
@@ -15,9 +16,9 @@ abstract class ClosureHashFunSpec extends FunSpec with TestDataFixture {
 
   def itShouldHash(name:String, left:AnyRef, right:AnyRef) = {
     it(name){ td =>
-      val left_hashWithTrace = ch.hashWithTrace(left)
+      val left_hashWithTrace = ch.hashWithTrace(left, true)
       assert(!left_hashWithTrace.isEmpty)
-      val right_hashWithTrace = ch.hashWithTrace(right)
+      val right_hashWithTrace = ch.hashWithTrace(right, true)
       assert(!right_hashWithTrace.isEmpty)
 
       val left_hash = left_hashWithTrace.get._1
@@ -41,6 +42,27 @@ abstract class ClosureHashFunSpec extends FunSpec with TestDataFixture {
         writeFile(left_file, WriteJson(left_hash_trace))
         writeFile(right_file, WriteJson(right_hash_trace))
       //}
+
+      /* don't fail any tests, we check that hashes match in the resilience benchmark */
+      //assert(left_hash == right_hash)
+    }
+  }
+  def itShouldHashNoTrace(name:String, left:AnyRef, right:AnyRef) = {
+    it(name){ td =>
+      val left_hashWithTrace = ch.hashWithTrace(left, false)
+      assert(!left_hashWithTrace.isEmpty)
+      val right_hashWithTrace = ch.hashWithTrace(right, false)
+      assert(!right_hashWithTrace.isEmpty)
+
+      val left_hash = left_hashWithTrace.get._1
+      val left_hash_trace = left_hashWithTrace.get._2
+      val right_hash = right_hashWithTrace.get._1
+      val right_hash_trace = right_hashWithTrace.get._2
+
+      assert(left_hash_trace("primitives").asInstanceOf[HashMap[String,Any]]("trace") == "")
+      assert(left_hash_trace("bytecode").asInstanceOf[HashMap[String,Any]]("trace") == "")
+      assert(right_hash_trace("primitives").asInstanceOf[HashMap[String,Any]]("trace") == "")
+      assert(right_hash_trace("bytecode").asInstanceOf[HashMap[String,Any]]("trace") == "")
 
       /* don't fail any tests, we check that hashes match in the resilience benchmark */
       //assert(left_hash == right_hash)
