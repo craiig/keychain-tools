@@ -12,44 +12,54 @@ def hls_overheads(args):
     summary = []
     #outcomes = [json.load(open(f)) for f in args.files]
     for f in args.files:
-        o = json.load(open(f))
+        for line in open(f):
+            o = json.loads(line)
 
-        compiler_details = re.match("build/(.*?)/(.*?)/.*\.bc", f).groups()
+            m = re.match("build/(.*?)/(.*?)/.*\.bc", f)
+            compiler_details = ("NA","NA")
+            if m:
+                compiler_details = m.groups()
 
-        variant_name = re.sub("_\d+$", '', o['closureName'])
+            variant_name = re.sub("_\d+$", '', o['closureName'])
 
-        s = {
-            "name": o['closureName']
-            , 'took_ns': o['took_ns']
-            , 'took_bytecode_ns': o['bytecode']['took_ns']
-            , 'took_primitives_ns': o['primitives']['took_ns']
-            , 'language': compiler_details[0]
-            , 'compiler': compiler_details[1]
-            , 'variant': variant_name
-        }
-        functions_visited = 0
-        bytecode_length = 0
-        primitive_length = 0
-        #count length of bytecode
-        for t in o['bytecode']['trace']:
-            #pprint(t)
-            #pprint( t['bytecode'])
-            bytecode_length += len(t['bytecode'])
-            functions_visited += 1
+            s = {
+                "name": o['closureName']
+                , 'took_ns': o['took_ns']
+                , 'took_bytecode_ns': o['bytecode']['took_ns']
+                , 'took_primitives_ns': o['primitives']['took_ns']
+                , 'language': compiler_details[0]
+                , 'compiler': compiler_details[1]
+                , 'variant': variant_name
+            }
+            functions_visited = 0
+            bytecode_length = 0
+            primitive_length = 0
+            hash_cache_hits = 0
+            #count length of bytecode
+            for t in o['bytecode']['trace']:
+                #pprint(t)
+                #pprint( t['bytecode'])
+                if t.get('hashCacheHit', False):
+                    hash_cache_hits += 1
+                    functions_visited += 1
+                else:
+                    bytecode_length += len(t['bytecode'])
+                    functions_visited += 1
 
-        if o['primitives']['hashed_bytes'] != '':
-            #print 'primitives added {}'.format( hb_len )
-            hb = o['primitives']['hashed_bytes']
-            hb_len = len(hb.split(','))
-            primitive_length += hb_len
+            if o['primitives']['hashed_bytes'] != '':
+                #print 'primitives added {}'.format( hb_len )
+                hb = o['primitives']['hashed_bytes']
+                hb_len = len(hb.split(','))
+                primitive_length += hb_len
 
-        #assert( o['primitives']['hashed_bytes'] == '' )
-        s['bytes'] = bytecode_length + primitive_length
-        s['bytes_primitive'] = primitive_length
-        s['bytes_bytecode'] = bytecode_length
-        s['functions_visited'] = functions_visited
+            #assert( o['primitives']['hashed_bytes'] == '' )
+            s['bytes'] = bytecode_length + primitive_length
+            s['bytes_primitive'] = primitive_length
+            s['bytes_bytecode'] = bytecode_length
+            s['functions_visited'] = functions_visited
+            s['hash_cache_hits'] = hash_cache_hits
 
-        summary.append(s)
+            summary.append(s)
 
     df = pd.DataFrame(summary)
 
