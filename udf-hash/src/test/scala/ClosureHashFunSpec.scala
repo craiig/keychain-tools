@@ -14,6 +14,19 @@ import java.io.{File,FileWriter}
 abstract class ClosureHashFunSpec extends FunSpec with TestDataFixture {
   implicit val jsonformats = Serialization.formats(NoTypeHints)
 
+  def itShouldValueHash(name:String, left:Any, right:Any) = {
+    it(name){ td =>
+      //println("-----")
+      val left_hash = ch.hashValue(left)
+      assert(!left_hash.isEmpty)
+      //println(left_hash)
+      val right_hash = ch.hashValue(right)
+      assert(!right_hash.isEmpty)
+      //println(right_hash)
+      assert(left_hash == right_hash)
+    }
+  }
+
   def itShouldHash(name:String, left:AnyRef, right:AnyRef) = {
     it(name){ td =>
       val left_hashWithTrace = ch.hashWithTrace(left, true)

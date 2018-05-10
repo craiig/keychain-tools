@@ -390,6 +390,60 @@ object ClosureHash extends Logging {
    * @param visited a set of previously visited objects, to avoid duplicating work (used for recursion)
    * @param clz class 
    */
+  def hashValue( value: Any, trace:Boolean = false ): Option[String] = {
+    /* external helper to hash values, used *maybe* for Broadcast values */
+    val bos = new ByteArrayOutputStream()
+    val dos = new DataOutputStream(bos)
+    val primitiveHashTrace = if(trace){ Some(new HashTraceMap) } else { None }
+
+    /* hash input primitives needs an object wrapped around an array */
+    case class ArrayHackByte(v:Array[Byte])
+    case class ArrayHackChar(v:Array[Char])
+    case class ArrayHackShort(v:Array[Short])
+    case class ArrayHackInt(v:Array[Int])
+    case class ArrayHackLong(v:Array[Long])
+    case class ArrayHackFloat(v:Array[Float])
+    case class ArrayHackDouble(v:Array[Double])
+    case class ArrayHackBoolean(v:Array[Boolean])
+    var vToHash = if(value.getClass().isArray){ 
+      value match {
+        case _:Array[Byte] => ArrayHackByte(value.asInstanceOf[Array[Byte]])
+        case _:Array[Char] => ArrayHackChar(value.asInstanceOf[Array[Char]])
+        case _:Array[Short] => ArrayHackShort(value.asInstanceOf[Array[Short]])
+        case _:Array[Int] => ArrayHackInt(value.asInstanceOf[Array[Int]])
+        case _:Array[Long] => ArrayHackLong(value.asInstanceOf[Array[Long]])
+        case _:Array[Float] => ArrayHackFloat(value.asInstanceOf[Array[Float]])
+        case _:Array[Double] => ArrayHackDouble(value.asInstanceOf[Array[Double]])
+        case _:Array[Boolean] => ArrayHackBoolean(value.asInstanceOf[Array[Boolean]])
+      }
+    } else { 
+      value.asInstanceOf[AnyRef]
+    }
+
+    //hashInputPrimitives( value.asInstanceOf[AnyRef], dos, primitiveHashTrace )
+    hashInputPrimitives( vToHash, dos, primitiveHashTrace )
+    dos.close()
+    var primitive_hash64:Option[String] = if( bos.toByteArray.length > 0){
+      var primitiveHash = MessageDigest.getInstance("SHA-256")
+      primitiveHash.update(bos.toByteArray)
+      Some(Base64.encodeBase64URLSafeString(primitiveHash.digest))
+    } else {
+      None
+    }
+    if(trace){
+      implicit val jsonformats = Serialization.formats(NoTypeHints)
+      var overallHashTrace = HashMap(
+        "closureName" -> value.getClass.getName,
+        "primitives"-> Map(
+          "trace"->(primitiveHashTrace getOrElse ""),
+          "hash"->primitive_hash64
+          //"hashed_bytes"->hashedBytes,
+        )
+      )
+      logInfo(s"Value Hashing trace: ${WriteJson(overallHashTrace)}")
+    }
+    primitive_hash64
+  }
   def hashInputPrimitives(func: AnyRef,
     dos: DataOutputStream,
     hashTrace:Option[HashTraceMap],
@@ -438,7 +492,7 @@ object ClosureHash extends Logging {
 
       var fieldTrace:Option[HashTraceMap] = hashTrace map((_) => { new HashTraceMap })
       fieldTrace map { _ += ( "name"->f.getName, "type"->fldtype.getName,
-        "static"->static, "primitive"->primitive, "transient"->transient ) }
+        "static"->static, "primitive"->primitive, "transient"->transient, "array"->fldtype.isArray ) }
 
       val fieldBytesTrace = hashTrace map ((_)=>{ListBuffer[String]()})
 
@@ -451,7 +505,14 @@ object ClosureHash extends Logging {
         }
       }
 
-      if( !( static || transient ) ){
+      val skipped = (
+        f.getName == "org$apache$spark$broadcast$TorrentBroadcast$$checksums" /* uninitialized memory when checksum false */
+        || (cl.getName == "org.apache.spark.storage.BroadcastBlockId") /* ignore blockids of broadcast variables, we rely on their checkums and hls_value being equal */
+        || (cl.getName == "org.apache.spark.sql.catalyst.expressions.ExprId") /* avoid randomly generated id and UUID by spark */
+        || (cl.getName == "org.apache.spark.sql.execution.metric.SQLMetric") /* skip all fields of sql metrics */
+      )
+
+      if( !( static || transient || skipped ) ){
         /* only read fields that are not static and not transient */
         val offset = unsafe.objectFieldOffset( f )
         //if primitive, grab value
