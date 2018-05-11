@@ -510,6 +510,7 @@ object ClosureHash extends Logging {
         || (cl.getName == "org.apache.spark.storage.BroadcastBlockId") /* ignore blockids of broadcast variables, we rely on their checkums and hls_value being equal */
         || (cl.getName == "org.apache.spark.sql.catalyst.expressions.ExprId") /* avoid randomly generated id and UUID by spark */
         || (cl.getName == "org.apache.spark.sql.execution.metric.SQLMetric") /* skip all fields of sql metrics */
+        || (cl.getName == "org.apache.spark.ShuffleDependency" && f.getName == "shuffleId") /* ignore shuffle IDs */
       )
 
       if( !( static || transient || skipped ) ){
