@@ -17,6 +17,15 @@ def hls_plot(df, args):
 
     df['took_ns'] = df['took_ns'] / float(1e6)
 
+    #filter out cached items
+    if 'hash_cache_hits' in df:
+        df = df.loc[df['hash_cache_hits'] == 0]
+    #filter out dat from tpc-ds, we'll present it differently
+    df = df.loc[df['compiler'].notnull()]
+
+    #print(df)
+    #sys.exit(1)
+
     # on investigation with tableau found that the other factor is the number of 
     #  functions hashed, in addition to bytes and data
     groups = []
@@ -30,7 +39,11 @@ def hls_plot(df, args):
     markers = matplotlib.markers.MarkerStyle.filled_markers
     markers = ['o', "^", "s", "P", "X", "H"]
 
-    fig, ax = plt.subplots()
+    #plt.tight_layout()
+    #plt.figure(figsize=(1,1))
+    fig, ax = plt.subplots(figsize=(4,2.5), tight_layout={'pad':0})
+    plt.xticks([0,10000,20000,30000])
+    #fig, ax = plt.subplots(figsize=(4,2.5), constrained_layout={'pad':0})
     for idx,g in enumerate(groups):
         df = g[0]
         print "****"
@@ -45,9 +58,9 @@ def hls_plot(df, args):
     
     ax.set_ylabel("Time (ms)")
     ax.set_xlabel("Bytes Hashed")
-    ax.legend(loc='lower right', bbox_to_anchor=(1, 1), ncol=5, title="Functions Hashed")
+    ax.legend(loc='lower right', bbox_to_anchor=(1, 1), ncol=3, title="Functions Hashed")
 
-    plt.ylim(ymin=0)
+    plt.ylim(ymin=0,ymax=400)
     plt.xlim(xmin=0)
 
     path = os.path.join(args.output_dir, 'hashing_time.pdf')

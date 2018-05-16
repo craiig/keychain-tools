@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 from operator import itemgetter
 
-default_hatches = ["/" , "\\" , "." , "|" , "x" , "*" , "+" , "O" , "o" , "-"]
+default_hatches = ["/////" , "\\\\\\" , "...." , "xxx" , "------------" , "*" , "+" , "O" , "o" , "-"]
 def render_stack_breakdown(test
     , style_name='hatching'
     , hatches = default_hatches
@@ -30,11 +30,11 @@ def render_stack_breakdown(test
             ,"axes.axisbelow": True
             ,"legend.fancybox": True
             ,"svg.fonttype": "path"
-            ,"figure.subplot.top": 0.85
-            ,"figure.subplot.left": 0.13
-            ,"figure.subplot.right": 0.99
-            ,"figure.subplot.bottom": 0.12
-            ,"font.size": 14.0
+            ,"figure.subplot.top": 0.985
+            ,"figure.subplot.left": 0.0
+            ,"figure.subplot.right": 0.999
+            ,"figure.subplot.bottom": 0.15
+            ,"font.size": 12.0
             }
     for (k,v) in custom_style.iteritems():
         style[k] = v
@@ -45,7 +45,7 @@ def render_stack_breakdown(test
     #despite the general headache mixing pandas with matplot lib, it's providing a
     # valuable service by rendering the stacked bar charts properly
     if 'figsize' not in kwargs.keys():
-        kwargs['figsize'] = (8,4)
+        kwargs['figsize'] = (5,3)
     
     stacked = True
     if 'stacked' in kwargs.keys():
@@ -53,24 +53,24 @@ def render_stack_breakdown(test
         del kwargs['stacked']
 
     ax = test.plot(kind="bar", colormap="gray_r", stacked=stacked, **kwargs)
-
+    fig = ax.get_figure()
+    #fig.set_tight_layout({'pad':0})
 
     #add hatching
     # http://stackoverflow.com/questions/22833404/how-do-i-plot-hatched-bars-using-pandas
     # needs the long stings of hatches to apply same hatch to all relevant bars
     if style_name == 'hatching':
         print 'adding hatches'
-        hatches = ''.join(h*len(test) for h in hatches)
-        density = 2
+        #hatches = ''.join(h*len(test) for h in hatches)
+        density = 1
         bars = ax.patches
-        count = 0;
-        for bar in bars:
-            bar.set_hatch( hatches[count] * density )
+        for (i,bar) in enumerate(bars):
+            hatch_id = (i / len(test)) % len(hatches)
+            bar.set_hatch( hatches[hatch_id] * density )
             bar.set_color([1,1,1])
             bar.set_edgecolor([0.1,0.1,0.1])
-            count = (count + 1) % len(hatches)
 
-        ax.legend(loc='lower right', bbox_to_anchor=(1, 1), ncol=5)
+        ax.legend(loc='lower right', bbox_to_anchor=(1, 1), ncol=3)
     else:
         ax.legend(loc='lower right', bbox_to_anchor=(1, 1), ncol=5)
         for bar in ax.patches:
@@ -78,7 +78,7 @@ def render_stack_breakdown(test
 
     #fix label rotations
     for label in ax.get_xticklabels():
-        label.set_rotation(25)
+        label.set_rotation(35)
         label.set_horizontalalignment("right")
 
     return ax
@@ -104,8 +104,9 @@ def overall_compiler_outcomes(o, args):
     df.columns = ['pass', 'qualified pass', 'partial fail', 'fail', 'skipped']
     print df
 
-    ax = render_stack_breakdown(df, style_name='ggplot')
-    ax.set_ylabel("Resilience Benchmarks")
+    #ax = render_stack_breakdown(df, style_name='ggplot')
+    ax = render_stack_breakdown(df, style_name='hatching')
+    ax.set_ylabel("Resilience Outcomes")
     ax.set_xlabel("")
 
     path = os.path.join(args.output_dir, 'overall_compiler_outcomes.pdf')
