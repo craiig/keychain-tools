@@ -1,3 +1,5 @@
+To review the tagged programs, view: ```build/tagged_programs.json```
+
 # Usage
 1. To produce the set of categories used in the paper, run `make analyze`
 2. To re-do any of the steps performed to achieve the analysis, see below.
